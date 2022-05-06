@@ -22,7 +22,12 @@ namespace ASVExport
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             //support quoted command line arguments which doesn't seem to be supported with Environment.GetCommandLineArgs() 
-            string[] commandArguments = Regex.Split(Environment.CommandLine.Trim(), " (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+            string[] commandArguments = Environment.CommandLine.Trim().Split('"')
+                                .Select((element, index) => index % 2 == 0  // If even index
+                                                      ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)  // Split the item
+                                                      : new string[] { element })  // Keep the entire item
+                                .SelectMany(element => element).ToArray();
+
             commandArguments = commandArguments.Where(a => string.IsNullOrEmpty(a) == false).ToArray();
 
             if (commandArguments != null && commandArguments.Length > 1)

@@ -2,7 +2,7 @@
   "profiles": {
     "ASVExport": {
       "commandName": "Project",
-      "commandLineArgs": "wild \"E:\\games\\steamapps\\common\\ARK\\ShooterGame\\Saved\\SavedArksLocal\\Alemia_P.ark\" \"C:\\temp\\wilds.json\""
+      "commandLineArgs": "all \"\\temp\\Larkfields\\TheIsland.ark\" \"\\temp\\\""
     }
   }
 }

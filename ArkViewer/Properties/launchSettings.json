@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ArkViewer": {
+      "commandName": "Project",
+      "commandLineArgs": "all \"c:\\temp\\Larkfields\\TheIsland.ark\" \"c:\\temp\\\""
+    }
+  }
+}

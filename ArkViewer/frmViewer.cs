@@ -1314,6 +1314,7 @@ namespace ARKViewer
                 commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
                 commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
                 commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedCreature.Z + 250:0.00}"));
+                commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
 
                 switch (Program.ProgramConfig.CommandPrefix)
                 {
@@ -1349,6 +1350,8 @@ namespace ARKViewer
                 commandText = commandText.Replace("<ClassName>", selectedCreature.ClassName);
                 commandText = commandText.Replace("<Level>", (selectedCreature.BaseLevel / 1.5).ToString("f0"));
                 commandText = commandText.Replace("<TribeID>", selectedCreature.TargetingTeam.ToString("f0"));
+                commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
+
 
                 commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
                 commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
