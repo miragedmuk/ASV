@@ -139,30 +139,34 @@ namespace ASVPack.Models
         {
             //load content from json
             try
-            {
-                ContentPack loaded = new ContentPack();
+            { 
+                ContentPack? loaded = null;
                 loaded = JsonConvert.DeserializeObject<ContentPack>(jsonPack);
+                
+                if(loaded != null)
+                {
+                    MapFilename = loaded.MapFilename;
+                    ExportedTimestamp = loaded.ExportedTimestamp;
+                    ExportedForTribe = loaded.ExportedForTribe;
+                    ExportedForPlayer = loaded.ExportedForPlayer;
+                    TerminalMarkers = loaded.TerminalMarkers;
+                    GlitchMarkers = loaded.GlitchMarkers;
+                    ChargeNodes = loaded.ChargeNodes;
+                    BeaverDams = loaded.BeaverDams;
+                    WyvernNests = loaded.WyvernNests;
+                    DrakeNests = loaded.DrakeNests;
+                    MagmaNests = loaded.MagmaNests;
+                    OilVeins = loaded.OilVeins;
+                    WaterVeins = loaded.WaterVeins;
+                    GasVeins = loaded.GasVeins;
+                    Artifacts = loaded.Artifacts;
+                    PlantZ = loaded.PlantZ;
+                    WildCreatures = loaded.WildCreatures;
+                    Tribes = loaded.Tribes;
+                    DroppedItems = loaded.DroppedItems;
+                    LocalProfile = loaded.LocalProfile;
 
-                MapFilename = loaded.MapFilename;
-                ExportedTimestamp = loaded.ExportedTimestamp;
-                ExportedForTribe = loaded.ExportedForTribe;
-                ExportedForPlayer = loaded.ExportedForPlayer;
-                TerminalMarkers = loaded.TerminalMarkers;
-                GlitchMarkers = loaded.GlitchMarkers;
-                ChargeNodes = loaded.ChargeNodes;
-                BeaverDams = loaded.BeaverDams;
-                WyvernNests = loaded.WyvernNests;
-                DrakeNests = loaded.DrakeNests;
-                MagmaNests = loaded.MagmaNests;
-                OilVeins = loaded.OilVeins;
-                WaterVeins = loaded.WaterVeins;
-                GasVeins = loaded.GasVeins;
-                Artifacts = loaded.Artifacts;
-                PlantZ = loaded.PlantZ;
-                WildCreatures = loaded.WildCreatures;
-                Tribes = loaded.Tribes;
-                DroppedItems = loaded.DroppedItems;
-                LocalProfile = loaded.LocalProfile;
+                }
 
             }
             catch
@@ -297,7 +301,9 @@ namespace ASVPack.Models
 
         public void ExportJsonTamed(string exportFilename)
         {
-            string exportFolder = Path.GetDirectoryName(exportFilename);
+            if (exportFilename == null) return;
+
+            string exportFolder = Path.GetDirectoryName(exportFilename) ?? "";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
 
@@ -708,7 +714,7 @@ namespace ASVPack.Models
 
         public void ExportJsonPlayers(string exportFilename)
         {
-            string exportFolder = Path.GetDirectoryName(exportFilename);
+            string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
             using (FileStream fs = File.Create(exportFilename))

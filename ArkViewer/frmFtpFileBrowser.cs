@@ -340,7 +340,7 @@ namespace ARKViewer
                     ftpClient.Port = (int)udFTPPort.Value;
                     ftpClient.ValidateCertificate += FtpClient_ValidateCertificate;
                     ftpClient.ValidateAnyCertificate = true;
-                    ftpClient.SslProtocols = System.Security.Authentication.SslProtocols.Tls13 | System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Tls11 | System.Security.Authentication.SslProtocols.Ssl3 | System.Security.Authentication.SslProtocols.None;
+                    ftpClient.SslProtocols = System.Security.Authentication.SslProtocols.None;
 
                     //try explict
                     ftpClient.EncryptionMode = FtpEncryptionMode.Explicit;
