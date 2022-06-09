@@ -24,6 +24,8 @@ namespace ASVPack.Models
         [DataMember] public ConcurrentBag<ContentPlayer> Players { get; set; } = new ConcurrentBag<ContentPlayer>();
         [DataMember] public ConcurrentBag<ContentStructure> Structures { get; set; } = new ConcurrentBag<ContentStructure>();
         [DataMember] public ConcurrentBag<ContentTamedCreature> Tames { get; set; } = new ConcurrentBag<ContentTamedCreature>();
+        [DataMember] public Dictionary<int, string> Members { get; set; } = new Dictionary<int, string>();
+
         [DataMember] public string[] Logs { get; set; } = new string[0];
 
         public DateTime TribeFileDate { get; set; } = DateTime.MinValue;
@@ -70,6 +72,15 @@ namespace ASVPack.Models
             if (TribeId == 0) TribeId = propertyList.GetPropertyValue<int>("TribeID");
             TribeName = propertyList.GetPropertyValue<string>("TribeName");
 
+            Members = new Dictionary<int, string>();
+            
+            var memberNames = (ArkArrayString)propertyList.GetTypedProperty<PropertyArray>("MembersPlayerName").Value; 
+            var memberNumbers = (ArkArrayInt)propertyList.GetTypedProperty<PropertyArray>("MembersPlayerDataID").Value;
+
+            for(int x = 0; x < memberNames.Count; x++)
+            {
+                Members.Add(memberNumbers[x], memberNames[x]);
+            }
 
 
             //logs

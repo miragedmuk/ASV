@@ -450,6 +450,10 @@ namespace ASVPack.Models
                             jw.WritePropertyName("dinoid");
                             jw.WriteValue(creature.DinoId);
 
+                            jw.WritePropertyName("isMating");
+                            jw.WriteValue(creature.IsMating);
+
+
                             bool exportInventories = true;
 
                             if (exportInventories)
@@ -1358,7 +1362,7 @@ namespace ASVPack.Models
                 {
                     Tribes.ForEach(t =>
                     {
-                        t.Players.ToList().RemoveAll(p =>
+                        var playerCheck = t.Players.Where(p =>
                             (Math.Abs((decimal)p.Latitude.GetValueOrDefault(0) - FilterLatitude) > FilterRadius)
                             && (Math.Abs((decimal)p.Longitude.GetValueOrDefault(0) - FilterLongitude) > FilterRadius)
                             && (ExportedForPlayer == 0 || (ExportedForPlayer != 0 && p.Id != ExportedForPlayer))

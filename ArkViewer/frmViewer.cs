@@ -10,12 +10,13 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using Timer = System.Windows.Forms.Timer;
 
 namespace ARKViewer
@@ -4006,97 +4007,93 @@ namespace ARKViewer
                 }
             }
 
-            if (allTribes.Count < udChartTopTames.Maximum) udChartTopTames.Value = allTribes.Count;
-            udChartTopTames.Maximum = allTribes.Count;
 
-            if (allTribes.Count < udChartTopStructures.Maximum) udChartTopStructures.Value = allTribes.Count;
-            udChartTopPlayers.Maximum = allTribes.Count;
 
-            if (allTribes.Count < udChartTopStructures.Maximum) udChartTopStructures.Value = allTribes.Count;
-            udChartTopStructures.Maximum = allTribes.Count;
+            //if (allTribes.Count < udChartTopTames.Maximum) udChartTopTames.Value = allTribes.Count;
+            //udChartTopTames.Maximum = allTribes.Count;
 
-            DrawTribeCharts();
+            //if (allTribes.Count < udChartTopStructures.Maximum) udChartTopStructures.Value = allTribes.Count;
+            //udChartTopPlayers.Maximum = allTribes.Count;
+
+            //if (allTribes.Count < udChartTopStructures.Maximum) udChartTopStructures.Value = allTribes.Count;
+            //udChartTopStructures.Maximum = allTribes.Count;
+
+            if (cboChartType.SelectedIndex < 0) cboChartType.SelectedIndex = 0;
+            
 
         }
 
         private void DrawTribeCharts()
         {
-            DrawTribeChartPlayers();
-            DrawTribeChartStructures();
-            DrawTribeChartTames();
+
+            switch (cboChartType.SelectedIndex)
+            {
+                case 1:
+                    DrawTribeChartTames();
+                    
+                    break;
+
+                case 2:
+                    DrawTribeChartStructures();
+
+                    break;
+
+                default:
+                    DrawTribeChartPlayers();
+
+                    break;
+            }
+
+
+
         }
 
         private void DrawTribeChartPlayers()
         {
-            var allTribes = cm.GetTribes(0).Where(x => x.Players!=null);
+
+            chartTribes.ClearElements();
+            chartTribes.SubTitle = $"Top {(int)udChartTop.Value} by player count.";
+
+            var allTribes = cm.GetTribes(0).Where(x => x.Players != null);
             if (allTribes == null) return;
+            if (allTribes.Sum(t => t.Players?.Count ?? 0) == 0) return;
 
-            var topTribes = allTribes.OrderByDescending(x => x.Players.Count).Take((int)udChartTopPlayers.Value).ToList();
-            var otherTribes = allTribes.OrderByDescending(x => x.Players.Count).Skip((int)udChartTopPlayers.Value).ToList();
-
-            chartTribePlayers.Series[0].Points.Clear();
+            var topTribes = allTribes.OrderByDescending(x => x.Players.Count).Take((int)udChartTop.Value).ToList();
 
             if (topTribes != null && topTribes.Count > 0)
             {
                 foreach (var t in topTribes.OrderByDescending(x => x.Players.Count))
                 {
-                    int pointId = chartTribePlayers.Series[0].Points.AddXY(t.TribeName, t.Players.Count);
-                    chartTribePlayers.Series[0].Points[pointId].Color = ColorTranslator.FromHtml(getRandomColor());
+                    chartTribes.AddElement($"{t.TribeName}", t.Players.Count);
+
                 };
 
             }
-            if (otherTribes != null && otherTribes.Count > 0)
-            {
-                int pointId = chartTribePlayers.Series[0].Points.AddXY("Others", otherTribes.Sum(x => x.Players.Count));
-                chartTribePlayers.Series[0].Points[pointId].Color = Color.LightGray;
-            }
-
-
-            chartTribePlayers.Series[0].ChartType = SeriesChartType.Doughnut;
-            chartTribePlayers.Titles[0].Text = "Tribe Players";
-            chartTribePlayers.Titles[0].Font = new Font(chartTribePlayers.Titles[0].Font, FontStyle.Bold);
-            chartTribePlayers.Titles[0].Visible = true;
-            chartTribePlayers.Series[0]["PieLabelStyle"] = "Disabled";
-            chartTribePlayers.Legends[0].Enabled = true;
 
 
         }
-        
+
         private void DrawTribeChartStructures()
         {
+            chartTribes.ClearElements();
+            chartTribes.SubTitle = $"Top {(int)udChartTop.Value} by structure count.";
+
             var allTribes = cm.GetTribes(0).Where(x => x.Structures!=null);
             if (allTribes == null) return;
 
-            var topTribes = allTribes.OrderByDescending(x => x.Structures.Count).Take((int)udChartTopStructures.Value).ToList();
-            var otherTribes = allTribes.OrderByDescending(x => x.Structures.Count).Skip((int)udChartTopStructures.Value).ToList();
 
-            chartTribeStructures.Series[0].Points.Clear();
+            var topTribes = allTribes.OrderByDescending(x => x.Structures.Count).Take((int)udChartTop.Value).ToList();
 
             if (topTribes != null && topTribes.Count > 0)
             {
-                
                 foreach (var t in topTribes.OrderByDescending(x => x.Structures.Count))
                 {
+                    chartTribes.AddElement($"{t.TribeName}", t.Structures.Count);
 
-                    int pointId = chartTribeStructures.Series[0].Points.AddXY(t.TribeName, t.Structures.Count);
-                    chartTribeStructures.Series[0].Points[pointId].Color = ColorTranslator.FromHtml(getRandomColor());
                 };
 
             }
-            if (otherTribes != null && otherTribes.Count > 0)
-            {
-                int pointId = chartTribeStructures.Series[0].Points.AddXY("Others", otherTribes.Sum(x => x.Structures.Count));
-                chartTribeStructures.Series[0].Points[pointId].Color = Color.LightGray;
-            }
 
-
-            chartTribeStructures.Series[0].ChartType = SeriesChartType.Doughnut;
-            chartTribeStructures.Titles[0].Text = "Tribe Structures";
-            chartTribeStructures.Titles[0].Font = new Font(chartTribeStructures.Titles[0].Font, FontStyle.Bold);
-
-            chartTribeStructures.Titles[0].Visible = true;
-            chartTribeStructures.Series[0]["PieLabelStyle"] = "Disabled";
-            chartTribeStructures.Legends[0].Enabled = true;
 
         }
 
@@ -4119,42 +4116,23 @@ namespace ARKViewer
 
         private void DrawTribeChartTames()
         {
+            chartTribes.ClearElements();
+            chartTribes.SubTitle = $"Top {(int)udChartTop.Value} by tame count.";
             var allTribes = cm.GetTribes(0).Where(x => x.Tames != null);
             if (allTribes == null) return;
 
-            var topTribes = allTribes.OrderByDescending(x => x.Tames.Count).Take((int)udChartTopTames.Value).ToList();
-            var otherTribes = allTribes.OrderByDescending(x => x.Tames.Count).Skip((int)udChartTopTames.Value).ToList();
 
-            chartTribeTames.Series[0].Points.Clear();
-
-            if (topTribes!=null && topTribes.Count > 0)
+            var topTribes = allTribes.OrderByDescending(x => x.Tames.Count).Take((int)udChartTop.Value).ToList();
+            if (topTribes != null && topTribes.Count > 0)
             {
-                foreach (var t in topTribes.OrderByDescending(x=>x.Tames.Count))
+                foreach (var t in topTribes.OrderByDescending(x => x.Tames.Count))
                 {
+                    chartTribes.AddElement($"{t.TribeName}", t.Tames.Count);
 
-                    int pointId = chartTribeTames.Series[0].Points.AddXY(t.TribeName, t.Tames.Count);
-                    chartTribeTames.Series[0].Points[pointId].Color = ColorTranslator.FromHtml(getRandomColor());
                 };
-                
+
             }
-            if(otherTribes!=null && otherTribes.Count > 0)
-            {
-                int pointId = chartTribeTames.Series[0].Points.AddXY("Others", otherTribes.Sum(x => x.Tames.Count));
-                chartTribeTames.Series[0].Points[pointId].Color = Color.LightGray;
-            }
-
-
-            chartTribeTames.Series[0].ChartType = SeriesChartType.Doughnut;
-            chartTribeTames.Titles[0].Text = "Tribe Tames";
-            chartTribeTames.Titles[0].Font = new Font(chartTribeTames.Titles[0].Font, FontStyle.Bold);
-
-            chartTribeTames.Titles[0].Visible = true;
-            chartTribeTames.Series[0]["PieLabelStyle"] = "Disabled";
-            chartTribeTames.Legends[0].Enabled = true;
         }
-
-
-
 
         private void RefreshTamedSummary()
         {
@@ -5055,7 +5033,7 @@ namespace ARKViewer
                         newItem.SubItems.Add(playerStructure.Longitude.Value.ToString("0.00"));
                         newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
                         newItem.SubItems.Add(playerStructure.HasDecayTimeReset?"Yes" : "No");
-
+                        newItem.SubItems.Add($"{playerStructure.X} {playerStructure.Y} {playerStructure.Z}");
                         newItem.Tag = playerStructure;
 
                         listItems.Add(newItem);
@@ -5341,9 +5319,8 @@ namespace ARKViewer
                         newItem.SubItems.Add(foundItem.Quantity.ToString());
                         newItem.SubItems.Add(foundItem.Latitude.ToString("f2"));
                         newItem.SubItems.Add(foundItem.Longitude.ToString("f2"));
+                        newItem.SubItems.Add($"{foundItem?.X} {foundItem?.Y} {foundItem?.Z}");
 
-
-                        
                         newItem.Tag = foundItem;
                         newItems.Add(newItem);
 
@@ -5470,6 +5447,7 @@ namespace ARKViewer
                         newItem.SubItems.Add((!player.LastActiveDateTime.HasValue || player.LastActiveDateTime.Value == DateTime.MinValue) ? "n/a" : player.LastActiveDateTime.Value.ToString("dd MMM yy HH:mm:ss"));
                         newItem.SubItems.Add(player.Name);
                         newItem.SubItems.Add(player.NetworkId);
+                        newItem.SubItems.Add($"{player?.X} {player?.Y} {player?.Z}");
                         newItem.Tag = player;
 
 
@@ -5559,6 +5537,7 @@ namespace ARKViewer
                     newItem.SubItems.Add((playerCache.Latitude.GetValueOrDefault(0) == 0 && playerCache.Longitude.GetValueOrDefault(0) == 0) ? "n/a" : playerCache.Longitude.Value.ToString("0.00"));
                     newItem.SubItems.Add(tribeName);
                     newItem.SubItems.Add(playerName);
+                    newItem.SubItems.Add($"{playerCache?.X} {playerCache?.Y} {playerCache?.Z}");
 
 
                     listItems.Add(newItem);
@@ -5873,6 +5852,7 @@ namespace ARKViewer
                     item.SubItems.Add(rig2Name);
                     item.SubItems.Add(detail.LastAllyInRangeTime.HasValue ? detail.LastAllyInRangeTime.Value.ToString("dd MMM yyyy HH:mm") : "");
                     item.SubItems.Add(detail.DinoId);
+                    item.SubItems.Add($"{detail.X} {detail.Y} {detail.Z}");
 
                     if (detail.Id == selectedId)
                     {
@@ -6073,6 +6053,7 @@ namespace ARKViewer
                     item.SubItems.Add(rig2Name);
                     item.SubItems.Add(detail.DinoId);
 
+                    item.SubItems.Add($"{detail.X} {detail.Y} {detail.Z}");
 
                     if (detail.Id == selectedId)
                     {
@@ -6242,110 +6223,91 @@ namespace ARKViewer
 
         private void btnSaveChartPlayers_Click(object sender, EventArgs e)
         {
-            var chart = chartTribePlayers;
-            btnSaveChartPlayers.Enabled = false;
-            this.Cursor = Cursors.WaitCursor;
+
+
+
             
-            using(SaveFileDialog dialog = new SaveFileDialog())
-            {
-                dialog.Filter = "PNG Image File (*.png)|*.png";
-                dialog.AddExtension = true;
-                dialog.Title = "Save chart image";
-                if(dialog.ShowDialog() == DialogResult.OK)
-                {
-                    //ensure directory exists
-                    string imageFilename = dialog.FileName;
-                    string imageFolder = Path.GetDirectoryName(imageFilename);
-                    if (!Directory.Exists(imageFolder)) Directory.CreateDirectory(imageFolder);
+            //btnSaveChartPlayers.Enabled = false;
+            //this.Cursor = Cursors.WaitCursor;
+            
+            //using(SaveFileDialog dialog = new SaveFileDialog())
+            //{
+            //    dialog.Filter = "PNG Image File (*.png)|*.png";
+            //    dialog.AddExtension = true;
+            //    dialog.Title = "Save chart image";
+            //    if(dialog.ShowDialog() == DialogResult.OK)
+            //    {
+            //        string imageFilename = dialog.FileName;
+            //        string imageFolder = Path.GetDirectoryName(imageFilename);
+            //        if (!Directory.Exists(imageFolder)) Directory.CreateDirectory(imageFolder);
+            //        chartTribePlayers.SaveChart(dialog.FileName, 1024, 1024);
 
-                    chart.SuspendLayout();
-                    int originalWidth = chart.Width;
-                    int originalHeight = chart.Height;
-                    chart.Width = 1024;
-                    chart.Height = 1024;
-                    chart.SaveImage(imageFilename, ChartImageFormat.Png);
-                    chart.Width = originalWidth;
-                    chart.Height = originalHeight;
-                    chart.ResumeLayout();
+            //        MessageBox.Show("Chart image saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
 
-                    MessageBox.Show("Chart image saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-
-            this.Cursor = Cursors.Default;
-            btnSaveChartPlayers.Enabled = true;
+            //this.Cursor = Cursors.Default;
+            //btnSaveChartPlayers.Enabled = true;
         }
 
         private void btnSaveChartStructures_Click(object sender, EventArgs e)
         {
-            var chart = chartTribeStructures;
-            btnSaveChartStructures.Enabled = false;
-            this.Cursor = Cursors.WaitCursor;
+           
+            //var chart = chartTribeStructures;
+            //btnSaveChartStructures.Enabled = false;
+            //this.Cursor = Cursors.WaitCursor;
 
-            using (SaveFileDialog dialog = new SaveFileDialog())
-            {
-                dialog.Filter = "PNG Image File (*.png)|*.png";
-                dialog.AddExtension = true;
-                dialog.Title = "Save chart image";
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    //ensure directory exists
-                    string imageFilename = dialog.FileName;
-                    string imageFolder = Path.GetDirectoryName(imageFilename);
-                    if (!Directory.Exists(imageFolder)) Directory.CreateDirectory(imageFolder);
+            //using (SaveFileDialog dialog = new SaveFileDialog())
+            //{
+            //    dialog.Filter = "PNG Image File (*.png)|*.png";
+            //    dialog.AddExtension = true;
+            //    dialog.Title = "Save chart image";
+            //    if (dialog.ShowDialog() == DialogResult.OK)
+            //    {
+            //        //ensure directory exists
+            //        string imageFilename = dialog.FileName;
+            //        string imageFolder = Path.GetDirectoryName(imageFilename);
+            //        if (!Directory.Exists(imageFolder)) Directory.CreateDirectory(imageFolder);
+            //        chartTribeStructures.SaveChart(dialog.FileName, 1024, 1024);
 
-                    chart.SuspendLayout();
-                    int originalWidth = chart.Width;
-                    int originalHeight = chart.Height;
-                    chart.Width = 1024;
-                    chart.Height = 1024;
-                    chart.SaveImage(imageFilename, ChartImageFormat.Png);
-                    chart.Width = originalWidth;
-                    chart.Height = originalHeight;
-                    chart.ResumeLayout();
 
-                    MessageBox.Show("Chart image saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            //        MessageBox.Show("Chart image saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
 
-            this.Cursor = Cursors.Default;
-            btnSaveChartStructures.Enabled = true;
+            //this.Cursor = Cursors.Default;
+
+            //btnSaveChartStructures.Enabled = true;
+
+            
         }
 
         private void btnSaveChartTames_Click(object sender, EventArgs e)
         {
-            var chart = chartTribeTames;
-            btnSaveChartTames.Enabled = false;
-            this.Cursor = Cursors.WaitCursor;
 
-            using (SaveFileDialog dialog = new SaveFileDialog())
-            {
-                dialog.Filter = "PNG Image File (*.png)|*.png";
-                dialog.AddExtension = true;
-                dialog.Title = "Save chart image";
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    //ensure directory exists
-                    string imageFilename = dialog.FileName;
-                    string imageFolder = Path.GetDirectoryName(imageFilename);
-                    if (!Directory.Exists(imageFolder)) Directory.CreateDirectory(imageFolder);
+            //var chart = chartTribeTames;
+            //btnSaveChartTames.Enabled = false;
+            //this.Cursor = Cursors.WaitCursor;
 
-                    chart.SuspendLayout();
-                    int originalWidth = chart.Width;
-                    int originalHeight = chart.Height;
-                    chart.Width = 1024;
-                    chart.Height = 1024;
-                    chart.SaveImage(imageFilename, ChartImageFormat.Png);
-                    chart.Width = originalWidth;
-                    chart.Height = originalHeight;
-                    chart.ResumeLayout();
+            //using (SaveFileDialog dialog = new SaveFileDialog())
+            //{
+            //    dialog.Filter = "PNG Image File (*.png)|*.png";
+            //    dialog.AddExtension = true;
+            //    dialog.Title = "Save chart image";
+            //    if (dialog.ShowDialog() == DialogResult.OK)
+            //    {
+            //        string imageFilename = dialog.FileName;
+            //        string imageFolder = Path.GetDirectoryName(imageFilename);
+            //        if (!Directory.Exists(imageFolder)) Directory.CreateDirectory(imageFolder);
+            //        chartTribePlayers.SaveChart(dialog.FileName, 1024, 1024);
 
-                    MessageBox.Show("Chart image saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            //        MessageBox.Show("Chart image saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
 
-            this.Cursor = Cursors.Default;
-            btnSaveChartTames.Enabled = true;
+            //this.Cursor = Cursors.Default;
+            //btnSaveChartTames.Enabled = true;
+            
         }
 
         private void FindNextWild()
@@ -7191,6 +7153,75 @@ namespace ARKViewer
 
             }
 
+        }
+
+
+
+
+        private Bitmap ResizeImage(Image image, int width, int height)
+        {
+            if (image == null) return null;
+
+            var destRect = new Rectangle(0, 0, width, height);
+            Bitmap destImage = new(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
+        }
+
+        private void cboChartType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DrawTribeCharts();
+        }
+
+        private void btnSaveChart_Click(object sender, EventArgs e)
+        {
+            var chart = chartTribes;
+            btnSaveChartImage.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "PNG Image File (*.png)|*.png";
+                dialog.AddExtension = true;
+                dialog.Title = "Save chart image";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    //ensure directory exists
+                    string imageFilename = dialog.FileName;
+                    string imageFolder = Path.GetDirectoryName(imageFilename);
+                    if (!Directory.Exists(imageFolder)) Directory.CreateDirectory(imageFolder);
+                    chartTribes.SaveChart(dialog.FileName, 1024, 1024);
+
+
+                    MessageBox.Show("Chart image saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            this.Cursor = Cursors.Default;
+
+            btnSaveChartImage.Enabled = true;
+        }
+
+        private void udChartTop_ValueChanged(object sender, EventArgs e)
+        {
+            DrawTribeCharts();
         }
     }
 }

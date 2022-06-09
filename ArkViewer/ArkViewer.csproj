@@ -9,6 +9,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>ASV.ico</ApplicationIcon>
+    <IsPublishable>False</IsPublishable>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>full</DebugType>
   </PropertyGroup>
   <ItemGroup>
     <None Update="Content\colours.json">
@@ -1458,7 +1466,6 @@
     <PackageReference Include="NLog" Version="4.7.15" />
     <PackageReference Include="SSH.NET" Version="2020.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
-    <PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.20110.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Form1.cs" />

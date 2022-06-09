@@ -9,6 +9,7 @@ using SavegameToolkitAdditions;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -163,6 +164,7 @@ namespace ASVPack.Models
                         else
                         {
                             logWriter.Debug($"Failed to load location data for: {MapName}.ark");
+                            return;
                         }
 
                         long saveLoadTime = DateTime.Now.Ticks;
@@ -487,21 +489,21 @@ namespace ASVPack.Models
                             .Select(x =>
                             {
                                 logWriter.Debug($"Determining character status for: {x.ClassString}");
-ObjectReference statusRef = x.GetPropertyValue<ObjectReference>("MyCharacterStatusComponent") ?? x.GetPropertyValue<ObjectReference>("MyDinoStatusComponent");
-if (statusRef != null)
-{
-logWriter.Debug($"Character status found for: {x.ClassString}");
-objectContainer.TryGetValue(statusRef.ObjectId, out GameObject statusObject);
-                                    ContentWildCreature wild = x.AsWildCreature(statusObject);
+                                ObjectReference statusRef = x.GetPropertyValue<ObjectReference>("MyCharacterStatusComponent") ?? x.GetPropertyValue<ObjectReference>("MyDinoStatusComponent");
+                                if (statusRef != null)
+                                {
+                                logWriter.Debug($"Character status found for: {x.ClassString}");
+                                objectContainer.TryGetValue(statusRef.ObjectId, out GameObject statusObject);
+                                                                    ContentWildCreature wild = x.AsWildCreature(statusObject);
 
-                                    //stryder rigs
-                                    if (x.ClassString == "TekStrider_Character_BP_C")
-                                    {
-                                        ObjectReference inventoryRef = x.GetPropertyValue<ObjectReference>("MyInventoryComponent");
-if (inventoryRef != null)
-{
-var inventComp = objectContainer[inventoryRef.ObjectId];
-if (inventComp != null)
+                                                                    //stryder rigs
+                                                                    if (x.ClassString == "TekStrider_Character_BP_C")
+                                                                    {
+                                                                        ObjectReference inventoryRef = x.GetPropertyValue<ObjectReference>("MyInventoryComponent");
+                                if (inventoryRef != null)
+                                {
+                                var inventComp = objectContainer[inventoryRef.ObjectId];
+                                if (inventComp != null)
                                             {
                                                 PropertyArray equippedItemsArray = inventComp.GetTypedProperty<PropertyArray>("EquippedItems");
 
@@ -675,9 +677,9 @@ if (inventComp != null)
                                     ObjectReference statusRef = arkPlayer.GetPropertyValue<ObjectReference>("MyCharacterStatusComponent");
                                     objectContainer.TryGetValue(statusRef.ObjectId, out GameObject playerStatus);
                                     ContentPlayer contentPlayer = arkPlayer.AsPlayer(playerStatus);
-player.X = contentPlayer.X;
-player.Y = contentPlayer.Y;
-player.Z = contentPlayer.Z;
+                                    player.X = contentPlayer.X;
+                                    player.Y = contentPlayer.Y;
+                                    player.Z = contentPlayer.Z;
                                     player.Latitude = (float)LoadedMap.LatShift + (player.Y / (float)LoadedMap.LatDiv);
                                     player.Longitude = (float)LoadedMap.LonShift + (player.X / (float)LoadedMap.LonDiv);
 
@@ -694,10 +696,10 @@ player.Z = contentPlayer.Z;
                                     {
                                         int inventoryRefId = arkPlayer.GetPropertyValue<ObjectReference>("MyInventoryComponent").ObjectId;
                                         objectContainer.TryGetValue(inventoryRefId, out GameObject inventoryComponent);
-ConcurrentBag<ContentItem> inventoryItems = new ConcurrentBag<ContentItem>();
+                                        ConcurrentBag<ContentItem> inventoryItems = new ConcurrentBag<ContentItem>();
                                         ConcurrentBag<ContentItem> engramItems = new ConcurrentBag<ContentItem>();
-if (inventoryComponent != null)
-{
+                                        if (inventoryComponent != null)
+                                        {
                                             PropertyArray inventoryItemsArray = inventoryComponent.GetTypedProperty<PropertyArray>("InventoryItems");
                                             if (inventoryItemsArray != null)
                                             {
@@ -781,12 +783,12 @@ if (inventoryComponent != null)
 
                                 logWriter.Debug($"Converting to ContentTamedCreature: {x.ClassString}");
                                 ContentTamedCreature creature = x.AsTamedCreature(statusObject);
-creature.Latitude = (float)LoadedMap.LatShift + (creature.Y / (float)LoadedMap.LatDiv);
-creature.Longitude = (float)LoadedMap.LonShift + (creature.X / (float)LoadedMap.LonDiv);
-creature.TamedAtDateTime = GetApproxDateTimeOf(creature.TamedTimeInGame);
-creature.LastAllyInRangeTime = GetApproxDateTimeOf(creature.LastAllyInRangeTimeInGame);
+                                creature.Latitude = (float)LoadedMap.LatShift + (creature.Y / (float)LoadedMap.LatDiv);
+                                creature.Longitude = (float)LoadedMap.LonShift + (creature.X / (float)LoadedMap.LonDiv);
+                                creature.TamedAtDateTime = GetApproxDateTimeOf(creature.TamedTimeInGame);
+                                creature.LastAllyInRangeTime = GetApproxDateTimeOf(creature.LastAllyInRangeTimeInGame);
 
-//get inventory items
+                                //get inventory items
                                 ConcurrentBag<ContentItem> inventoryItems = new ConcurrentBag<ContentItem>();
 
                                 logWriter.Debug($"Determining inventory status for: {creature.Id} - {creature.Name}");
@@ -920,7 +922,9 @@ creature.LastAllyInRangeTime = GetApproxDateTimeOf(creature.LastAllyInRangeTimeI
 
                         //structures
                         logWriter.Debug($"Populating player structure inventories");
-                        Parallel.ForEach(tribeStructures.SelectMany(x => x.Structures), x =>
+
+                        //Parallel.ForEach(tribeStructures.SelectMany(x => x.Structures), x =>
+                        foreach(var x in tribeStructures.SelectMany(x=>x.Structures))
                         {
 
                             var teamId = x.GetPropertyValue<int>("TargetingTeam");
@@ -994,7 +998,11 @@ creature.LastAllyInRangeTime = GetApproxDateTimeOf(creature.LastAllyInRangeTimeI
                                 structure.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                             }
                             if (!tribe.Structures.Contains(structure)) tribe.Structures.Add(structure);
-                        });
+                            
+
+                        }//);
+                        
+
                         if (fileTribes.Count > 0) Tribes.AddRange(fileTribes.ToList());
 
                         long structureLoadEnd = DateTime.Now.Ticks;
@@ -1206,6 +1214,27 @@ if (itemObject != null)
                     }
 
                 }
+
+
+                foreach(var tribe in Tribes)
+                {
+                    var missingPlayers = tribe.Members.Where(m => !tribe.Players.Any(p => p.Id == m.Key)).ToList();
+                    if(missingPlayers!=null && missingPlayers.Count > 0)
+                    {
+                        foreach(var missingPlayer in missingPlayers)
+                        {
+                            tribe.Players.Add(new ContentPlayer()
+                            {
+                                Id = missingPlayer.Key,
+                                CharacterName = missingPlayer.Value,
+                                Name = missingPlayer.Value
+                            });
+                        }
+                    }
+                    
+
+                }
+
 
 
                 long endTicks = DateTime.Now.Ticks;
