@@ -119,8 +119,8 @@
     },
     {
       "MapName": "Caballus",
-      "Filename": "cabbalus_p.ark",
-      "ImageFile": "map_cabbalus.png",
+      "Filename": "caballus_p.ark",
+      "ImageFile": "map_caballus.png",
       "LatShift": 50.0,
       "LatDiv": 8125.0,
       "LonShift": 50.0,
