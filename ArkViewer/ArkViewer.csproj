@@ -1460,11 +1460,11 @@
     <Content Include="Content\Maps\map_valguero.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FluentFTP" Version="37.0.2" />
+    <PackageReference Include="FluentFTP" Version="37.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="NLog" Version="4.7.15" />
-    <PackageReference Include="SSH.NET" Version="2020.0.1" />
+    <PackageReference Include="NLog" Version="5.0.0" />
+    <PackageReference Include="SSH.NET" Version="2020.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
   <ItemGroup>
