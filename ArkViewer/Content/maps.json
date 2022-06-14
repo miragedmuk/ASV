@@ -128,7 +128,7 @@
     },
     {
       "MapName": "Fjordur",
-      "Filename": "viking_p.ark",
+      "Filename": "Fjordur.ark",
       "ImageFile": "map_fjordur.png",
       "LatShift": 50.0,
       "LatDiv": 7140.0,
