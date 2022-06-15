@@ -7223,5 +7223,29 @@ namespace ARKViewer
         {
             DrawTribeCharts();
         }
+
+        private void frmViewer_ResizeEnd(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmViewer_Resize(object sender, EventArgs e)
+        {
+            if (MapViewer != null)
+            {
+                switch (WindowState)
+                {
+                    case FormWindowState.Normal:
+                    case FormWindowState.Maximized:
+                        MapViewer.WindowState = FormWindowState.Normal;
+
+                        break;
+
+                    case FormWindowState.Minimized:
+                        MapViewer.WindowState = FormWindowState.Minimized;
+                        break;
+                }
+            }
+        }
     }
 }

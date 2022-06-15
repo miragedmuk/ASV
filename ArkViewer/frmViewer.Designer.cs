@@ -3880,8 +3880,10 @@ namespace ARKViewer
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ARK Savegame Visualiser";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmViewer_FormClosed);
+            this.ResizeEnd += new System.EventHandler(this.frmViewer_ResizeEnd);
             this.LocationChanged += new System.EventHandler(this.frmViewer_LocationChanged);
             this.Enter += new System.EventHandler(this.frmViewer_Enter);
+            this.Resize += new System.EventHandler(this.frmViewer_Resize);
             this.mnuContext.ResumeLayout(false);
             this.tabFeatures.ResumeLayout(false);
             this.tpgWild.ResumeLayout(false);
