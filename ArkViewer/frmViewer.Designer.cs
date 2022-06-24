@@ -94,6 +94,8 @@ namespace ARKViewer
             this.btnViewMap = new System.Windows.Forms.Button();
             this.tabFeatures = new System.Windows.Forms.TabControl();
             this.tpgWild = new System.Windows.Forms.TabPage();
+            this.cboWildRealm = new System.Windows.Forms.ComboBox();
+            this.lblWildRealm = new System.Windows.Forms.Label();
             this.pnlFilterWilds = new System.Windows.Forms.Panel();
             this.btnFindWild = new System.Windows.Forms.Button();
             this.txtFilterWild = new System.Windows.Forms.TextBox();
@@ -114,6 +116,8 @@ namespace ARKViewer
             this.lblSelectedWildTotal = new System.Windows.Forms.Label();
             this.lblWildClass = new System.Windows.Forms.Label();
             this.tpgTamed = new System.Windows.Forms.TabPage();
+            this.cboTameRealm = new System.Windows.Forms.ComboBox();
+            this.lblTameRealm = new System.Windows.Forms.Label();
             this.pnlFilterTamed = new System.Windows.Forms.Panel();
             this.btnFindTamed = new System.Windows.Forms.Button();
             this.txtFilterTamed = new System.Windows.Forms.TextBox();
@@ -170,6 +174,8 @@ namespace ARKViewer
             this.optStatsBase = new System.Windows.Forms.RadioButton();
             this.cboTameClass = new System.Windows.Forms.ComboBox();
             this.tpgStructures = new System.Windows.Forms.TabPage();
+            this.cboStructureRealm = new System.Windows.Forms.ComboBox();
+            this.lblStructureRealm = new System.Windows.Forms.Label();
             this.pnlFilterStructures = new System.Windows.Forms.Panel();
             this.btnFindStructures = new System.Windows.Forms.Button();
             this.txtFilterStructures = new System.Windows.Forms.TextBox();
@@ -214,6 +220,8 @@ namespace ARKViewer
             this.lblTribeCopyCommand = new System.Windows.Forms.Label();
             this.cboTribeCopyCommand = new System.Windows.Forms.ComboBox();
             this.tpgPlayers = new System.Windows.Forms.TabPage();
+            this.cboPlayerRealm = new System.Windows.Forms.ComboBox();
+            this.lblPlayerRealm = new System.Windows.Forms.Label();
             this.pnlFilterPlayers = new System.Windows.Forms.Panel();
             this.btnFilterPlayer = new System.Windows.Forms.Button();
             this.txtFilterPlayer = new System.Windows.Forms.TextBox();
@@ -247,6 +255,8 @@ namespace ARKViewer
             this.lvwPlayers_SteamId = new System.Windows.Forms.ColumnHeader();
             this.lvwPlayers_CCC = new System.Windows.Forms.ColumnHeader();
             this.tpgDroppedItems = new System.Windows.Forms.TabPage();
+            this.cboDroppedItemRealm = new System.Windows.Forms.ComboBox();
+            this.lblDroppedItemRealm = new System.Windows.Forms.Label();
             this.pnlFilterDropped = new System.Windows.Forms.Panel();
             this.btnFindDropped = new System.Windows.Forms.Button();
             this.txtFilterDropped = new System.Windows.Forms.TextBox();
@@ -861,16 +871,14 @@ namespace ARKViewer
             // 
             // chkCryo
             // 
-            this.chkCryo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkCryo.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkCryo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkCryo.BackgroundImage")));
             this.chkCryo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.chkCryo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkCryo.Location = new System.Drawing.Point(1040, 24);
+            this.chkCryo.Location = new System.Drawing.Point(89, 79);
             this.chkCryo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkCryo.Name = "chkCryo";
-            this.chkCryo.Size = new System.Drawing.Size(47, 46);
+            this.chkCryo.Size = new System.Drawing.Size(161, 27);
             this.chkCryo.TabIndex = 6;
+            this.chkCryo.Text = "Include Stored";
             this.toolTip1.SetToolTip(this.chkCryo, "Show / hide stored tames.");
             this.chkCryo.UseVisualStyleBackColor = true;
             this.chkCryo.CheckedChanged += new System.EventHandler(this.chkCryo_CheckedChanged);
@@ -1005,6 +1013,8 @@ namespace ARKViewer
             // 
             // tpgWild
             // 
+            this.tpgWild.Controls.Add(this.cboWildRealm);
+            this.tpgWild.Controls.Add(this.lblWildRealm);
             this.tpgWild.Controls.Add(this.pnlFilterWilds);
             this.tpgWild.Controls.Add(this.cboWildResource);
             this.tpgWild.Controls.Add(this.lblResource);
@@ -1034,6 +1044,31 @@ namespace ARKViewer
             this.tpgWild.TabIndex = 0;
             this.tpgWild.Text = "Wild Creatures";
             this.tpgWild.UseVisualStyleBackColor = true;
+            // 
+            // cboWildRealm
+            // 
+            this.cboWildRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboWildRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboWildRealm.FormattingEnabled = true;
+            this.cboWildRealm.Location = new System.Drawing.Point(862, 15);
+            this.cboWildRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboWildRealm.Name = "cboWildRealm";
+            this.cboWildRealm.Size = new System.Drawing.Size(222, 23);
+            this.cboWildRealm.TabIndex = 22;
+            this.cboWildRealm.SelectedIndexChanged += new System.EventHandler(this.cboWildRealm_SelectedIndexChanged);
+            // 
+            // lblWildRealm
+            // 
+            this.lblWildRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWildRealm.AutoSize = true;
+            this.lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWildRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblWildRealm.Location = new System.Drawing.Point(788, 20);
+            this.lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWildRealm.Name = "lblWildRealm";
+            this.lblWildRealm.Size = new System.Drawing.Size(46, 13);
+            this.lblWildRealm.TabIndex = 21;
+            this.lblWildRealm.Text = "Realm:";
             // 
             // pnlFilterWilds
             // 
@@ -1310,6 +1345,8 @@ namespace ARKViewer
             // 
             // tpgTamed
             // 
+            this.tpgTamed.Controls.Add(this.cboTameRealm);
+            this.tpgTamed.Controls.Add(this.lblTameRealm);
             this.tpgTamed.Controls.Add(this.pnlFilterTamed);
             this.tpgTamed.Controls.Add(this.cboTamedResource);
             this.tpgTamed.Controls.Add(this.lblTameResource);
@@ -1335,6 +1372,31 @@ namespace ARKViewer
             this.tpgTamed.TabIndex = 3;
             this.tpgTamed.Text = "Tamed Creatures";
             this.tpgTamed.UseVisualStyleBackColor = true;
+            // 
+            // cboTameRealm
+            // 
+            this.cboTameRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboTameRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTameRealm.FormattingEnabled = true;
+            this.cboTameRealm.Location = new System.Drawing.Point(865, 23);
+            this.cboTameRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboTameRealm.Name = "cboTameRealm";
+            this.cboTameRealm.Size = new System.Drawing.Size(222, 23);
+            this.cboTameRealm.TabIndex = 24;
+            this.cboTameRealm.SelectedIndexChanged += new System.EventHandler(this.cboTameRealm_SelectedIndexChanged);
+            // 
+            // lblTameRealm
+            // 
+            this.lblTameRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTameRealm.AutoSize = true;
+            this.lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTameRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblTameRealm.Location = new System.Drawing.Point(791, 28);
+            this.lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTameRealm.Name = "lblTameRealm";
+            this.lblTameRealm.Size = new System.Drawing.Size(46, 13);
+            this.lblTameRealm.TabIndex = 23;
+            this.lblTameRealm.Text = "Realm:";
             // 
             // pnlFilterTamed
             // 
@@ -1377,23 +1439,21 @@ namespace ARKViewer
             // 
             // cboTamedResource
             // 
-            this.cboTamedResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboTamedResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTamedResource.FormattingEnabled = true;
-            this.cboTamedResource.Location = new System.Drawing.Point(780, 50);
+            this.cboTamedResource.Location = new System.Drawing.Point(420, 53);
             this.cboTamedResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboTamedResource.Name = "cboTamedResource";
-            this.cboTamedResource.Size = new System.Drawing.Size(251, 23);
+            this.cboTamedResource.Size = new System.Drawing.Size(231, 23);
             this.cboTamedResource.TabIndex = 16;
             this.cboTamedResource.SelectedIndexChanged += new System.EventHandler(this.cboTamedResource_SelectedIndexChanged);
             // 
             // lblTameResource
             // 
-            this.lblTameResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTameResource.AutoSize = true;
             this.lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTameResource.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTameResource.Location = new System.Drawing.Point(690, 53);
+            this.lblTameResource.Location = new System.Drawing.Point(340, 59);
             this.lblTameResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTameResource.Name = "lblTameResource";
             this.lblTameResource.Size = new System.Drawing.Size(65, 13);
@@ -1448,7 +1508,7 @@ namespace ARKViewer
             // 
             this.cboTamePlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTamePlayers.FormattingEnabled = true;
-            this.cboTamePlayers.Location = new System.Drawing.Point(89, 50);
+            this.cboTamePlayers.Location = new System.Drawing.Point(420, 21);
             this.cboTamePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboTamePlayers.Name = "cboTamePlayers";
             this.cboTamePlayers.Size = new System.Drawing.Size(231, 23);
@@ -1457,11 +1517,10 @@ namespace ARKViewer
             // 
             // lblTameCreature
             // 
-            this.lblTameCreature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTameCreature.AutoSize = true;
             this.lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTameCreature.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTameCreature.Location = new System.Drawing.Point(690, 21);
+            this.lblTameCreature.Location = new System.Drawing.Point(22, 59);
             this.lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTameCreature.Name = "lblTameCreature";
             this.lblTameCreature.Size = new System.Drawing.Size(59, 13);
@@ -1473,7 +1532,7 @@ namespace ARKViewer
             this.lblTamePlayer.AutoSize = true;
             this.lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTamePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTamePlayer.Location = new System.Drawing.Point(21, 52);
+            this.lblTamePlayer.Location = new System.Drawing.Point(352, 23);
             this.lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTamePlayer.Name = "lblTamePlayer";
             this.lblTamePlayer.Size = new System.Drawing.Size(46, 13);
@@ -1536,11 +1595,11 @@ namespace ARKViewer
             this.lvwTameDetail_CCC});
             this.lvwTameDetail.ContextMenuStrip = this.mnuContext;
             this.lvwTameDetail.FullRowSelect = true;
-            this.lvwTameDetail.Location = new System.Drawing.Point(13, 91);
+            this.lvwTameDetail.Location = new System.Drawing.Point(13, 112);
             this.lvwTameDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwTameDetail.MultiSelect = false;
             this.lvwTameDetail.Name = "lvwTameDetail";
-            this.lvwTameDetail.Size = new System.Drawing.Size(1073, 333);
+            this.lvwTameDetail.Size = new System.Drawing.Size(1073, 312);
             this.lvwTameDetail.TabIndex = 7;
             this.lvwTameDetail.UseCompatibleStateImageBehavior = false;
             this.lvwTameDetail.View = System.Windows.Forms.View.Details;
@@ -1786,18 +1845,19 @@ namespace ARKViewer
             // 
             // cboTameClass
             // 
-            this.cboTameClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboTameClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTameClass.FormattingEnabled = true;
-            this.cboTameClass.Location = new System.Drawing.Point(780, 18);
+            this.cboTameClass.Location = new System.Drawing.Point(89, 53);
             this.cboTameClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboTameClass.Name = "cboTameClass";
-            this.cboTameClass.Size = new System.Drawing.Size(251, 23);
+            this.cboTameClass.Size = new System.Drawing.Size(231, 23);
             this.cboTameClass.TabIndex = 5;
             this.cboTameClass.SelectedIndexChanged += new System.EventHandler(this.cboTameClass_SelectedIndexChanged);
             // 
             // tpgStructures
             // 
+            this.tpgStructures.Controls.Add(this.cboStructureRealm);
+            this.tpgStructures.Controls.Add(this.lblStructureRealm);
             this.tpgStructures.Controls.Add(this.pnlFilterStructures);
             this.tpgStructures.Controls.Add(this.btnStructureInventory);
             this.tpgStructures.Controls.Add(this.lblStructureTotal);
@@ -1819,6 +1879,29 @@ namespace ARKViewer
             this.tpgStructures.TabIndex = 2;
             this.tpgStructures.Text = "Player Structures";
             this.tpgStructures.UseVisualStyleBackColor = true;
+            // 
+            // cboStructureRealm
+            // 
+            this.cboStructureRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStructureRealm.FormattingEnabled = true;
+            this.cboStructureRealm.Location = new System.Drawing.Point(438, 49);
+            this.cboStructureRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboStructureRealm.Name = "cboStructureRealm";
+            this.cboStructureRealm.Size = new System.Drawing.Size(224, 23);
+            this.cboStructureRealm.TabIndex = 24;
+            this.cboStructureRealm.SelectedIndexChanged += new System.EventHandler(this.cboStructureRealm_SelectedIndexChanged);
+            // 
+            // lblStructureRealm
+            // 
+            this.lblStructureRealm.AutoSize = true;
+            this.lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStructureRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblStructureRealm.Location = new System.Drawing.Point(364, 54);
+            this.lblStructureRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStructureRealm.Name = "lblStructureRealm";
+            this.lblStructureRealm.Size = new System.Drawing.Size(46, 13);
+            this.lblStructureRealm.TabIndex = 23;
+            this.lblStructureRealm.Text = "Realm:";
             // 
             // pnlFilterStructures
             // 
@@ -1909,7 +1992,7 @@ namespace ARKViewer
             this.lblStructureStructure.AutoSize = true;
             this.lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStructureStructure.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructureStructure.Location = new System.Drawing.Point(564, 21);
+            this.lblStructureStructure.Location = new System.Drawing.Point(18, 54);
             this.lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStructureStructure.Name = "lblStructureStructure";
             this.lblStructureStructure.Size = new System.Drawing.Size(63, 13);
@@ -1918,14 +2001,12 @@ namespace ARKViewer
             // 
             // cboStructureStructure
             // 
-            this.cboStructureStructure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboStructureStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStructureStructure.FormattingEnabled = true;
-            this.cboStructureStructure.Location = new System.Drawing.Point(645, 18);
+            this.cboStructureStructure.Location = new System.Drawing.Point(99, 50);
             this.cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboStructureStructure.Name = "cboStructureStructure";
-            this.cboStructureStructure.Size = new System.Drawing.Size(276, 23);
+            this.cboStructureStructure.Size = new System.Drawing.Size(237, 23);
             this.cboStructureStructure.TabIndex = 5;
             this.cboStructureStructure.SelectedIndexChanged += new System.EventHandler(this.cboStructureStructure_SelectedIndexChanged);
             // 
@@ -1934,7 +2015,7 @@ namespace ARKViewer
             this.lblStructurePlayer.AutoSize = true;
             this.lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStructurePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructurePlayer.Location = new System.Drawing.Point(267, 21);
+            this.lblStructurePlayer.Location = new System.Drawing.Point(364, 21);
             this.lblStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStructurePlayer.Name = "lblStructurePlayer";
             this.lblStructurePlayer.Size = new System.Drawing.Size(46, 13);
@@ -1946,7 +2027,7 @@ namespace ARKViewer
             this.lblStructureTribe.AutoSize = true;
             this.lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStructureTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructureTribe.Location = new System.Drawing.Point(16, 21);
+            this.lblStructureTribe.Location = new System.Drawing.Point(49, 21);
             this.lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStructureTribe.Name = "lblStructureTribe";
             this.lblStructureTribe.Size = new System.Drawing.Size(40, 13);
@@ -1957,10 +2038,10 @@ namespace ARKViewer
             // 
             this.cboStructureTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStructureTribe.FormattingEnabled = true;
-            this.cboStructureTribe.Location = new System.Drawing.Point(66, 18);
+            this.cboStructureTribe.Location = new System.Drawing.Point(99, 18);
             this.cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboStructureTribe.Name = "cboStructureTribe";
-            this.cboStructureTribe.Size = new System.Drawing.Size(193, 23);
+            this.cboStructureTribe.Size = new System.Drawing.Size(237, 23);
             this.cboStructureTribe.TabIndex = 1;
             this.cboStructureTribe.SelectedIndexChanged += new System.EventHandler(this.cboStructureTribe_SelectedIndexChanged);
             // 
@@ -1968,7 +2049,7 @@ namespace ARKViewer
             // 
             this.cboStructurePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStructurePlayer.FormattingEnabled = true;
-            this.cboStructurePlayer.Location = new System.Drawing.Point(328, 18);
+            this.cboStructurePlayer.Location = new System.Drawing.Point(438, 18);
             this.cboStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboStructurePlayer.Name = "cboStructurePlayer";
             this.cboStructurePlayer.Size = new System.Drawing.Size(224, 23);
@@ -1990,11 +2071,11 @@ namespace ARKViewer
             this.lvwStructureLocations_CCC});
             this.lvwStructureLocations.ContextMenuStrip = this.mnuContext;
             this.lvwStructureLocations.FullRowSelect = true;
-            this.lvwStructureLocations.Location = new System.Drawing.Point(13, 59);
+            this.lvwStructureLocations.Location = new System.Drawing.Point(13, 83);
             this.lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwStructureLocations.MultiSelect = false;
             this.lvwStructureLocations.Name = "lvwStructureLocations";
-            this.lvwStructureLocations.Size = new System.Drawing.Size(1073, 372);
+            this.lvwStructureLocations.Size = new System.Drawing.Size(1073, 348);
             this.lvwStructureLocations.TabIndex = 7;
             this.lvwStructureLocations.UseCompatibleStateImageBehavior = false;
             this.lvwStructureLocations.View = System.Windows.Forms.View.Details;
@@ -2349,6 +2430,8 @@ namespace ARKViewer
             // 
             // tpgPlayers
             // 
+            this.tpgPlayers.Controls.Add(this.cboPlayerRealm);
+            this.tpgPlayers.Controls.Add(this.lblPlayerRealm);
             this.tpgPlayers.Controls.Add(this.pnlFilterPlayers);
             this.tpgPlayers.Controls.Add(this.btnDeletePlayer);
             this.tpgPlayers.Controls.Add(this.lblPlayerTotal);
@@ -2370,6 +2453,31 @@ namespace ARKViewer
             this.tpgPlayers.TabIndex = 1;
             this.tpgPlayers.Text = "Players";
             this.tpgPlayers.UseVisualStyleBackColor = true;
+            // 
+            // cboPlayerRealm
+            // 
+            this.cboPlayerRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPlayerRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPlayerRealm.FormattingEnabled = true;
+            this.cboPlayerRealm.Location = new System.Drawing.Point(865, 17);
+            this.cboPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboPlayerRealm.Name = "cboPlayerRealm";
+            this.cboPlayerRealm.Size = new System.Drawing.Size(222, 23);
+            this.cboPlayerRealm.TabIndex = 25;
+            this.cboPlayerRealm.SelectedIndexChanged += new System.EventHandler(this.cboPlayerRealm_SelectedIndexChanged);
+            // 
+            // lblPlayerRealm
+            // 
+            this.lblPlayerRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPlayerRealm.AutoSize = true;
+            this.lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayerRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblPlayerRealm.Location = new System.Drawing.Point(791, 22);
+            this.lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPlayerRealm.Name = "lblPlayerRealm";
+            this.lblPlayerRealm.Size = new System.Drawing.Size(46, 13);
+            this.lblPlayerRealm.TabIndex = 24;
+            this.lblPlayerRealm.Text = "Realm:";
             // 
             // pnlFilterPlayers
             // 
@@ -2526,7 +2634,7 @@ namespace ARKViewer
             this.cboPlayers.Location = new System.Drawing.Point(465, 17);
             this.cboPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboPlayers.Name = "cboPlayers";
-            this.cboPlayers.Size = new System.Drawing.Size(303, 23);
+            this.cboPlayers.Size = new System.Drawing.Size(232, 23);
             this.cboPlayers.TabIndex = 3;
             this.cboPlayers.SelectedIndexChanged += new System.EventHandler(this.cboPlayers_SelectedIndexChanged);
             // 
@@ -2675,6 +2783,8 @@ namespace ARKViewer
             // 
             // tpgDroppedItems
             // 
+            this.tpgDroppedItems.Controls.Add(this.cboDroppedItemRealm);
+            this.tpgDroppedItems.Controls.Add(this.lblDroppedItemRealm);
             this.tpgDroppedItems.Controls.Add(this.pnlFilterDropped);
             this.tpgDroppedItems.Controls.Add(this.chkDroppedBlueprints);
             this.tpgDroppedItems.Controls.Add(this.btnDropInventory);
@@ -2694,6 +2804,29 @@ namespace ARKViewer
             this.tpgDroppedItems.TabIndex = 4;
             this.tpgDroppedItems.Text = "Dropped Items";
             this.tpgDroppedItems.UseVisualStyleBackColor = true;
+            // 
+            // cboDroppedItemRealm
+            // 
+            this.cboDroppedItemRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDroppedItemRealm.FormattingEnabled = true;
+            this.cboDroppedItemRealm.Location = new System.Drawing.Point(736, 17);
+            this.cboDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboDroppedItemRealm.Name = "cboDroppedItemRealm";
+            this.cboDroppedItemRealm.Size = new System.Drawing.Size(222, 23);
+            this.cboDroppedItemRealm.TabIndex = 24;
+            this.cboDroppedItemRealm.SelectedIndexChanged += new System.EventHandler(this.cboDroppedItemRealm_SelectedIndexChanged);
+            // 
+            // lblDroppedItemRealm
+            // 
+            this.lblDroppedItemRealm.AutoSize = true;
+            this.lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDroppedItemRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblDroppedItemRealm.Location = new System.Drawing.Point(662, 22);
+            this.lblDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDroppedItemRealm.Name = "lblDroppedItemRealm";
+            this.lblDroppedItemRealm.Size = new System.Drawing.Size(46, 13);
+            this.lblDroppedItemRealm.TabIndex = 23;
+            this.lblDroppedItemRealm.Text = "Realm:";
             // 
             // pnlFilterDropped
             // 
@@ -4277,6 +4410,16 @@ namespace ARKViewer
         private System.Windows.Forms.ComboBox cboChartType;
         private ArkViewer.ChartControl chartTribes;
         private System.Windows.Forms.Button btnSaveChartImage;
+        private System.Windows.Forms.ComboBox cboWildRealm;
+        private System.Windows.Forms.Label lblWildRealm;
+        private System.Windows.Forms.ComboBox cboTameRealm;
+        private System.Windows.Forms.Label lblTameRealm;
+        private System.Windows.Forms.ComboBox cboStructureRealm;
+        private System.Windows.Forms.Label lblStructureRealm;
+        private System.Windows.Forms.ComboBox cboPlayerRealm;
+        private System.Windows.Forms.Label lblPlayerRealm;
+        private System.Windows.Forms.ComboBox cboDroppedItemRealm;
+        private System.Windows.Forms.Label lblDroppedItemRealm;
     }
 }
 

@@ -115,7 +115,7 @@ namespace ARKViewer
 
             DrawMapImage(cm.GetMapImageTribes(tribeId, showStructures, showPlayers, showTames, selectedLat, selectedLon, mapOptions, CustomMarkers));
         }
-        public void DrawMapImageItems(long tribeId, string className, decimal selectedLat, decimal selectedLon)
+        public void DrawMapImageItems(long tribeId, string className, decimal selectedLat, decimal selectedLon, string selectedRealm)
         {
             var c = Program.ProgramConfig;
 
@@ -135,11 +135,11 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins
             };
 
-            DrawMapImage(cm.GetMapImageItems(tribeId, className, selectedLat, selectedLon, mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImageItems(tribeId, className, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
         }
 
 
-        public void DrawMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, decimal? selectedLat, decimal? selectedLon)
+        public void DrawMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, decimal? selectedLat, decimal? selectedLon, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -157,9 +157,9 @@ namespace ARKViewer
                 OilVeins = c.OilVeins,
                 WaterVeins = c.WaterVeins
             };
-            DrawMapImage(cm.GetMapImageWild(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius, selectedLat, selectedLon, mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImageWild(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
         }
-        public void DrawMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon)
+        public void DrawMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -177,10 +177,10 @@ namespace ARKViewer
                 OilVeins = c.OilVeins,
                 WaterVeins = c.WaterVeins
             };
-            DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
 
         }
-        public void DrawMapImageDroppedItems(long droppedPlayerId, string droppedClass, decimal? selectedLat, decimal? selectedLon)
+        public void DrawMapImageDroppedItems(long droppedPlayerId, string droppedClass, decimal? selectedLat, decimal? selectedLon, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -198,7 +198,7 @@ namespace ARKViewer
                 OilVeins = c.OilVeins,
                 WaterVeins = c.WaterVeins
             };
-            DrawMapImage(cm.GetMapImageDroppedItems(droppedPlayerId, droppedClass, selectedLat, selectedLon, mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImageDroppedItems(droppedPlayerId, droppedClass, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
 
         }
         public void DrawMapImageDropBags(long droppedPlayerId, decimal? selectedLat, decimal? selectedLon)
@@ -221,7 +221,7 @@ namespace ARKViewer
             };
             DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLat, selectedLon, mapOptions, CustomMarkers));
         }
-        public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon)
+        public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -239,10 +239,10 @@ namespace ARKViewer
                 OilVeins = c.OilVeins,
                 WaterVeins = c.WaterVeins
             };
-            DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLat, selectedLon,mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLat, selectedLon,mapOptions, CustomMarkers, selectedRealm));
 
         }
-        public void DrawMapImagePlayers(long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon)
+        public void DrawMapImagePlayers(long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -260,7 +260,7 @@ namespace ARKViewer
                 OilVeins = c.OilVeins,
                 WaterVeins = c.WaterVeins
             };
-            DrawMapImage(cm.GetMapImagePlayers(tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImagePlayers(tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
         }
 
         private void DrawMapImage(Image map)

@@ -81,7 +81,7 @@ namespace ARKViewer
                 ClassName = tame.ClassName,
                 Tamed=false
             };
-            var wildMatches = cm.GetWildCreatures(0, int.MaxValue, 50, 50, 250, tame.ClassName).Where(w => w.Gender != tame.Gender).ToList();
+            var wildMatches = cm.GetWildCreatures(0, int.MaxValue, 50, 50, 250, tame.ClassName, "").Where(w => w.Gender != tame.Gender).ToList();
             lvwWildLovers.BeginUpdate();
             lvwWildLovers.Items.Clear();
 
@@ -190,7 +190,7 @@ namespace ARKViewer
             if (searchRankCriteria == null) searchRankCriteria = new ASVBreedingSearch() { ClassName = tame.ClassName, Tamed = true };
 
 
-            var tameMatches = cm.GetTamedCreatures(tame.ClassName, chkAllTribes.Checked ? 0 : tame.TargetingTeam, 0, true)
+            var tameMatches = cm.GetTamedCreatures(tame.ClassName, chkAllTribes.Checked ? 0 : tame.TargetingTeam, 0, true, "")
                                 .Where(t => t.Gender != tame.Gender)
                                 .OrderByDescending(o => o.BaseLevel)
                                 .ToList();
@@ -261,7 +261,7 @@ namespace ARKViewer
                     {
                         if (tamedCreature.ImprintedPlayerId != 0)
                         {
-                            var tamer = cm.GetPlayers(0, tamedCreature.ImprintedPlayerId).FirstOrDefault<ContentPlayer>();
+                            var tamer = cm.GetPlayers(0, tamedCreature.ImprintedPlayerId, "").FirstOrDefault<ContentPlayer>();
                             if (tamer != null) tamerName = tamer.CharacterName;
                         }
                     }
@@ -461,7 +461,7 @@ namespace ARKViewer
             {
                 if (tameDetail.ImprintedPlayerId != 0)
                 {
-                    var tamer = cm.GetPlayers(0, tameDetail.ImprintedPlayerId).FirstOrDefault();
+                    var tamer = cm.GetPlayers(0, tameDetail.ImprintedPlayerId, "").FirstOrDefault();
                     if (tamer != null) tamerName = tamer.CharacterName;
                 }
             }
@@ -750,7 +750,7 @@ namespace ARKViewer
                 {
                     if (tameAncestor.ImprintedPlayerId != 0)
                     {
-                        var tamer = cm.GetPlayers(0, tameAncestor.ImprintedPlayerId).FirstOrDefault();
+                        var tamer = cm.GetPlayers(0, tameAncestor.ImprintedPlayerId, "").FirstOrDefault();
                         if (tamer != null) tamerName = tamer.CharacterName;
                     }
                 }

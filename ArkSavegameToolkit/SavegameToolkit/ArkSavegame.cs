@@ -269,7 +269,7 @@ namespace SavegameToolkit
 
             extractBinaryObjectStoredCreatures(options);
 
-
+            var test = Objects.Where(o => o.ClassString.ToLower().Contains("den"));
 
             OldNameList = archive.HasUnknownNames ? archive.NameTable : null;
             HasUnknownData = archive.HasUnknownData;

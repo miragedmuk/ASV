@@ -185,7 +185,7 @@ namespace ARKViewer
                 lvwColoursNotMapped.Items.Clear();
 
                 //map loaded
-                var wilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, 250, "");
+                var wilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, 250, "", "");
                 if (wilds != null && wilds.Count > 0)
                 {
                     var knownMap = SavedConfig.ColourMap.ToList();
@@ -271,7 +271,7 @@ namespace ARKViewer
                 lvwCreaturesNotMapped.Items.Clear();
 
                 //map loaded
-                var wilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, 250, "");
+                var wilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, 250, "", "");
                 if (wilds != null && wilds.Count > 0)
                 {
                     var knownMap = SavedConfig.DinoMap.ToList();
@@ -435,7 +435,7 @@ namespace ARKViewer
                 lvwStructuresNotMapped.Items.Clear();
 
                 //map loaded
-                var structures = cm.GetPlayerStructures(0, 0, "", false);
+                var structures = cm.GetPlayerStructures(0, 0, "", false, "");
 
                 if (structures != null && structures.Count > 0)
                 {

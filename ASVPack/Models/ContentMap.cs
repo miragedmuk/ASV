@@ -16,6 +16,7 @@ namespace ASVPack.Models
         public decimal LonShift { get; set; } = 50;
         public decimal LatDiv { get; set; } = 8000;
         public decimal LonDiv { get; set; } = 8000;
+        public List<ContentMapRegion> Regions { get; set; } = new List<ContentMapRegion>();
 
     }
 }

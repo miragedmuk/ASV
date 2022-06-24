@@ -1,4 +1,5 @@
-﻿using ARKViewer.Configuration;
+﻿using ArkViewer;
+using ARKViewer.Configuration;
 using ARKViewer.Models;
 using ARKViewer.Models.NameMap;
 using ASVPack.Models;
@@ -14,9 +15,11 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Timer = System.Windows.Forms.Timer;
 
 namespace ARKViewer
@@ -49,6 +52,8 @@ namespace ARKViewer
 
         //wrapper for the information we need from ARK save data
         ASVDataManager cm = null;
+
+
 
         private void LoadWindowSettings()
         {
@@ -276,8 +281,10 @@ namespace ARKViewer
                 }
 
 
+                RefreshRealms();
 
-                var allWilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, float.MaxValue, "");
+
+                var allWilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, float.MaxValue, "", "");
                 if (allWilds.Count > 0)
                 {
                     int maxLevel = allWilds.Max(w => w.BaseLevel);
@@ -286,9 +293,10 @@ namespace ARKViewer
                     udWildMax.Value = maxLevel;
                 }
 
+
                 RefreshWildSummary();
                 RefreshTamedProductionResources();
-
+                
                 RefreshTamedSummary();
                 RefreshTribeSummary();
                 RefreshPlayerTribes();
@@ -367,6 +375,72 @@ namespace ARKViewer
             Program.LogWriter.Trace("END LoadContent()");
         }
 
+        private void RefreshRealms()
+        {
+            cboWildRealm.Items.Clear();
+            cboWildRealm.Items.Add(new ASVComboValue("", "All Realms"));
+            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            {
+                foreach (var realmRegion in cm.LoadedMap.Regions)
+                {
+                    cboWildRealm.Items.Add(new ASVComboValue(realmRegion.RegionName, realmRegion.RegionName));
+                }
+                
+            }
+            cboWildRealm.SelectedIndex = 0;
+
+            cboTameRealm.Items.Clear();
+            cboTameRealm.Items.Add(new ASVComboValue("", "All Realms"));
+            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            {
+                foreach (var realmRegion in cm.LoadedMap.Regions)
+                {
+                    cboTameRealm.Items.Add(new ASVComboValue(realmRegion.RegionName, realmRegion.RegionName));
+                }
+
+            }
+            cboTameRealm.SelectedIndex = 0;
+
+            cboStructureRealm.Items.Clear();
+            cboStructureRealm.Items.Add(new ASVComboValue("", "All Realms"));
+            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            {
+                foreach (var realmRegion in cm.LoadedMap.Regions)
+                {
+                    cboStructureRealm.Items.Add(new ASVComboValue(realmRegion.RegionName, realmRegion.RegionName));
+                }
+
+            }
+            cboStructureRealm.SelectedIndex = 0;
+
+            cboPlayerRealm.Items.Clear();
+            cboPlayerRealm.Items.Add(new ASVComboValue("", "All Realms"));
+            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            {
+                foreach (var realmRegion in cm.LoadedMap.Regions)
+                {
+                    cboPlayerRealm.Items.Add(new ASVComboValue(realmRegion.RegionName, realmRegion.RegionName));
+                }
+
+            }
+            cboPlayerRealm.SelectedIndex = 0;
+
+
+            cboDroppedItemRealm.Items.Clear();
+            cboDroppedItemRealm.Items.Add(new ASVComboValue("", "All Realms"));
+            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            {
+                foreach (var realmRegion in cm.LoadedMap.Regions)
+                {
+                    cboDroppedItemRealm.Items.Add(new ASVComboValue(realmRegion.RegionName, realmRegion.RegionName));
+                }
+
+            }
+            cboDroppedItemRealm.SelectedIndex = 0;
+
+
+        }
+
 
         //********* Constructor **********/
         public frmViewer()
@@ -393,6 +467,8 @@ namespace ARKViewer
 
                 DrawMap(selectedX, selectedY);
 
+
+                
 
 
             }
@@ -877,7 +953,7 @@ namespace ARKViewer
         {
             if (cm == null) return;
 
-            var structureList = cm.GetPlayerStructures(0, 0, "", true);
+            var structureList = cm.GetPlayerStructures(0, 0, "", true, "");
             if (structureList != null && structureList.Count > 0)
             {
                 frmStructureExclusionFilter exclusionEditor = new frmStructureExclusionFilter(structureList);
@@ -1518,7 +1594,7 @@ namespace ARKViewer
 
         private void chkCryo_CheckedChanged(object sender, EventArgs e)
         {
-            chkCryo.BackgroundImage = chkCryo.Checked ? ARKViewer.Properties.Resources.button_cryoon : ARKViewer.Properties.Resources.button_cryooff;
+            //chkCryo.BackgroundImage = chkCryo.Checked ? ARKViewer.Properties.Resources.button_cryoon : ARKViewer.Properties.Resources.button_cryooff;
             Program.ProgramConfig.StoredTames = chkCryo.Checked;
 
             LoadTameDetail();
@@ -3038,11 +3114,12 @@ namespace ARKViewer
 
                 using (var sftp = new SftpClient(selectedServer.Address, selectedServer.Port, selectedServer.Username, selectedServer.Password))
                 {
+                    sftp.ErrorOccurred += Sftp_ErrorOccurred;
                     sftp.Connect();
 
 
                     Program.LogWriter.Debug($"Retrieving FTP server files in: {selectedServer.SaveGamePath}");
-                    var files = sftp.ListDirectory(selectedServer.SaveGamePath).Where(f => f.IsRegularFile);
+                    var files = sftp.ListDirectory(selectedServer.SaveGamePath);
 
                     Program.LogWriter.Debug($"{files.ToList().Count} entries found.");
 
@@ -3139,6 +3216,11 @@ namespace ARKViewer
 
             Program.LogWriter.Trace("BEGIN DownloadSFtp()");
             return downloadFilename;
+        }
+
+        private void Sftp_ErrorOccurred(object sender, Renci.SshNet.Common.ExceptionEventArgs e)
+        {
+           
         }
 
         private string DownloadFtp()
@@ -3561,7 +3643,7 @@ namespace ARKViewer
 
 
 
-                    MapViewer.DrawMapImageWild(wildClass, wildProduction, (int)udWildMin.Value, (int)udWildMax.Value, (float)udWildLat.Value, (float)udWildLon.Value, (float)udWildRadius.Value, selectedY, selectedX);
+                    MapViewer.DrawMapImageWild(wildClass, wildProduction, (int)udWildMin.Value, (int)udWildMax.Value, (float)udWildLat.Value, (float)udWildLon.Value, (float)udWildRadius.Value, selectedY, selectedX, (cboWildRealm.SelectedItem as ASVComboValue).Key);
 
                     break;
                 case "tpgTamed":
@@ -3594,7 +3676,7 @@ namespace ARKViewer
                         long.TryParse(selectedPlayer.Key, out playerId);
                     }
 
-                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, chkCryo.Checked, tribeId, playerId, selectedY, selectedX);
+                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, chkCryo.Checked, tribeId, playerId, selectedY, selectedX, (cboTameRealm.SelectedItem as ASVComboValue).Key);
 
 
                     break;
@@ -3620,7 +3702,7 @@ namespace ARKViewer
                         long.TryParse(selectedPlayer.Key, out tribeId);
                     }
 
-                    MapViewer.DrawMapImagePlayerStructures(structureClass, structureTribe, structurePlayer, selectedY, selectedX);
+                    MapViewer.DrawMapImagePlayerStructures(structureClass, structureTribe, structurePlayer, selectedY, selectedX, (cboStructureRealm.SelectedItem as ASVComboValue).Key);
 
                     break;
                 case "tpgPlayers":
@@ -3639,7 +3721,7 @@ namespace ARKViewer
                         long.TryParse(selectedPlayer.Key, out currentId);
                     }
 
-                    MapViewer.DrawMapImagePlayers(playerTribe, currentId, selectedY, selectedX);
+                    MapViewer.DrawMapImagePlayers(playerTribe, currentId, selectedY, selectedX, (cboPlayerRealm.SelectedItem as ASVComboValue).Key);
 
                     break;
                 case "tpgDroppedItems":
@@ -3666,7 +3748,7 @@ namespace ARKViewer
                     {
                         if (droppedClass == "0") droppedClass = "";
 
-                        MapViewer.DrawMapImageDroppedItems(droppedPlayerId, droppedClass, selectedY, selectedX);
+                        MapViewer.DrawMapImageDroppedItems(droppedPlayerId, droppedClass, selectedY, selectedX , (cboDroppedItemRealm.SelectedItem as ASVComboValue).Key);
                     }
 
 
@@ -3699,7 +3781,7 @@ namespace ARKViewer
                         itemClass = itemValue.Key;
                     }
 
-                    MapViewer.DrawMapImageItems(itemTribeId, itemClass, selectedY, selectedX);
+                    MapViewer.DrawMapImageItems(itemTribeId, itemClass, selectedY, selectedX, "");
 
                     break;
 
@@ -3871,7 +3953,7 @@ namespace ARKViewer
 
             List<ASVComboValue> productionComboValues = new List<ASVComboValue>();
 
-            var tameDinos = cm.GetTamedCreatures("", 0, 0, true);
+            var tameDinos = cm.GetTamedCreatures("", 0, 0, true, "");
 
             var productionResources = tameDinos.Where(x => x.ProductionResources != null).SelectMany(d => d.ProductionResources).Distinct().ToList();
             if (productionResources != null && productionResources.Count > 0)
@@ -3918,7 +4000,7 @@ namespace ARKViewer
             int.TryParse(comboValue.Key, out int selectedPlayerId);
 
 
-            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, "", false)
+            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, "", false, (cboStructureRealm.SelectedItem as ASVComboValue).Key)
                                                         .Where(s =>
                                                             Program.ProgramConfig.StructureExclusions == null
                                                             || (Program.ProgramConfig.StructureExclusions != null & !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName))
@@ -4181,7 +4263,7 @@ namespace ARKViewer
 
 
             //MessageBox.Show("Listing tamed creatures.");
-            var tamedSummary = cm.GetTamedCreatures("", 0, 0, chkCryo.Checked)
+            var tamedSummary = cm.GetTamedCreatures("", 0, 0, chkCryo.Checked, "")
                                 .Where(t => !(t.ClassName == "MotorRaft_BP_C" || t.ClassName == "Raft_BP_C"))
                                 .GroupBy(c => c.ClassName)
                                 .Select(g => new { ClassName = g.Key, Name = ARKViewer.Program.ProgramConfig.DinoMap.Count(d => d.ClassName == g.Key) == 0 ? g.Key : ARKViewer.Program.ProgramConfig.DinoMap.Where(d => d.ClassName == g.Key).FirstOrDefault().FriendlyName, Count = g.Count(), Min = g.Min(l => l.Level), Max = g.Max(l => l.Level) })
@@ -4241,6 +4323,8 @@ namespace ARKViewer
             lblStatus.Refresh();
 
 
+
+
             int classIndex = 0;
             string selectedClass = "";
             if (cboWildClass.SelectedItem != null)
@@ -4257,7 +4341,7 @@ namespace ARKViewer
             float selectedLon = (float)udWildLon.Value;
             float selectedRad = (float)udWildRadius.Value;
 
-            var wildDinos = cm.GetWildCreatures(minLevel, maxLevel, selectedLat, selectedLon, selectedRad, "");
+            var wildDinos = cm.GetWildCreatures(minLevel, maxLevel, selectedLat, selectedLon, selectedRad, "", (cboWildRealm.SelectedItem as ASVComboValue).Key);
 
             cboWildClass.Items.Clear();
             int newIndex = 0;
@@ -4689,7 +4773,7 @@ namespace ARKViewer
 
             List<ASVComboValue> newItems = new List<ASVComboValue>();
 
-            var allPlayers = cm.GetPlayers(0, 0);
+            var allPlayers = cm.GetPlayers(0, 0, "");
             if (allPlayers.Count() > 0)
             {
                 foreach (var player in allPlayers)
@@ -4730,7 +4814,7 @@ namespace ARKViewer
                 long.TryParse(selectedValue.Key, out playerId);
             }
 
-            var droppedItems = cm.GetDroppedItems(playerId, "");
+            var droppedItems = cm.GetDroppedItems(playerId, "", "");
             if (droppedItems != null && droppedItems.Count() > 0)
             {
                 //player
@@ -4995,7 +5079,7 @@ namespace ARKViewer
             if (comboValue != null) selectedClass = comboValue.Key;
 
 
-            var playerStructures = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, selectedClass, false)
+            var playerStructures = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, selectedClass, false, (cboStructureRealm.SelectedItem as ASVComboValue).Key)
                 .Where(s => (!Program.ProgramConfig.StructureExclusions.Contains(s.ClassName))).ToList();
 
             lblStructureTotal.Text = $"Count: {playerStructures.Count()}";
@@ -5007,6 +5091,8 @@ namespace ARKViewer
 
             ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
 
+            string selectedRealm = (cboStructureRealm.SelectedItem as ASVComboValue).Key;
+
             var tribes = cm.GetTribes(selectedTribeId);
             foreach (var tribe in tribes)
             {
@@ -5015,28 +5101,59 @@ namespace ARKViewer
                 {
 
                     if (!(playerStructure.Latitude.GetValueOrDefault(0) == 0 && playerStructure.Longitude.GetValueOrDefault(0) == 0))
-                    {
-                        var tribeName = tribe.TribeName;
+{
 
-                        var itemName = playerStructure.ClassName;
-                        var itemMap = ARKViewer.Program.ProgramConfig.StructureMap.Where(i => i.ClassName == playerStructure.ClassName).FirstOrDefault();
-                        if (itemMap != null && itemMap.FriendlyName.Length > 0)
+                        bool addItem = true;
+
+                        if (playerStructure.Longitude.HasValue)
                         {
-                            itemName = itemMap.FriendlyName;
+                            //check realm
+
+                            if (!string.IsNullOrEmpty(selectedRealm))
+                            {
+                                if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+                                {
+                                    var selectedRegion = cm.LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                                    addItem = playerStructure.Z >= selectedRegion.ZStart
+                                                && playerStructure.Z <= selectedRegion.ZEnd
+                                                && playerStructure.Latitude >= selectedRegion.LatitudeStart
+                                                && playerStructure.Latitude <= selectedRegion.LatitudeEnd
+                                                && playerStructure.Longitude >= selectedRegion.LongitudeStart
+                                                && playerStructure.Longitude <= selectedRegion.LongitudeEnd;
+
+
+                                }
+
+                            }
+
+
                         }
 
-                        ListViewItem newItem = new ListViewItem(tribeName);
-                        newItem.SubItems.Add(itemName);
+                        if (addItem)
+                        {
+                            var tribeName = tribe.TribeName;
+
+                            var itemName = playerStructure.ClassName;
+                            var itemMap = ARKViewer.Program.ProgramConfig.StructureMap.Where(i => i.ClassName == playerStructure.ClassName).FirstOrDefault();
+                            if (itemMap != null && itemMap.FriendlyName.Length > 0)
+                            {
+                                itemName = itemMap.FriendlyName;
+                            }
+
+                            ListViewItem newItem = new ListViewItem(tribeName);
+                            newItem.SubItems.Add(itemName);
 
 
-                        newItem.SubItems.Add(playerStructure.Latitude.Value.ToString("0.00"));
-                        newItem.SubItems.Add(playerStructure.Longitude.Value.ToString("0.00"));
-                        newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
-                        newItem.SubItems.Add(playerStructure.HasDecayTimeReset?"Yes" : "No");
-                        newItem.SubItems.Add($"{playerStructure.X} {playerStructure.Y} {playerStructure.Z}");
-                        newItem.Tag = playerStructure;
+                            newItem.SubItems.Add(playerStructure.Latitude.Value.ToString("0.00"));
+                            newItem.SubItems.Add(playerStructure.Longitude.Value.ToString("0.00"));
+                            newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
+                            newItem.SubItems.Add(playerStructure.HasDecayTimeReset ? "Yes" : "No");
+                            newItem.SubItems.Add($"{playerStructure.X} {playerStructure.Y} {playerStructure.Z}");
+                            newItem.Tag = playerStructure;
 
-                        listItems.Add(newItem);
+                            listItems.Add(newItem);
+                        }
+                        
                     }
 
 
@@ -5290,7 +5407,7 @@ namespace ARKViewer
             string selectedItemClass = ((ASVComboValue)cboItemListItem.SelectedItem).Key;
 
             List<ListViewItem> newItems = new List<ListViewItem>();
-            var foundItems = cm.GetItems(selectedTribeId, selectedItemClass);
+            var foundItems = cm.GetItems(selectedTribeId, selectedItemClass, "");
             if (foundItems != null && foundItems.Count > 0)
             {
                 foreach (var foundItem in foundItems)
@@ -5396,6 +5513,31 @@ namespace ARKViewer
                     if (Program.ProgramConfig.HideNoBody)
                     {
                         addPlayer = !(player.Longitude.GetValueOrDefault(0) == 0 && player.Latitude.GetValueOrDefault(0) == 0);
+                    }
+
+
+                    if (player.Longitude.HasValue)
+                    {
+                        //check realm
+                        string selectedRealm = (cboPlayerRealm.SelectedItem as ASVComboValue).Key;
+                        if (!string.IsNullOrEmpty(selectedRealm))
+                        {
+                            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+                            {
+                                var selectedRegion = cm.LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                                addPlayer = player.Z >= selectedRegion.ZStart
+                                            && player.Z <= selectedRegion.ZEnd
+                                            && player.Latitude >= selectedRegion.LatitudeStart
+                                            && player.Latitude <= selectedRegion.LatitudeEnd
+                                            && player.Longitude >= selectedRegion.LongitudeStart
+                                            && player.Longitude <= selectedRegion.LongitudeEnd;
+                                
+
+                            }
+
+                        }
+
+
                     }
 
                     if (addPlayer)
@@ -5548,7 +5690,7 @@ namespace ARKViewer
             else
             {
 
-                var droppedItems = cm.GetDroppedItems(selectedPlayerId, selectedClass == "0" ? "" : selectedClass).ToList();
+                var droppedItems = cm.GetDroppedItems(selectedPlayerId, selectedClass == "0" ? "" : selectedClass, (cboDroppedItemRealm.SelectedItem as ASVComboValue).Key).ToList();
 
                 if (droppedItems != null)
                 {
@@ -5680,6 +5822,8 @@ namespace ARKViewer
                     detailList.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == selectedResourceClass));
                 }
 
+                string selectedRealm = (cboTameRealm.SelectedItem as ASVComboValue).Key;
+
 
                 //change into a strongly typed list for use in parallel
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
@@ -5700,169 +5844,201 @@ namespace ARKViewer
                         detail.Gender = "Female";
                     }
 
-                    ListViewItem item = new ListViewItem(creatureClassName);
-                    item.Tag = detail;
-                    item.UseItemStyleForSubItems = false;
 
-                    item.SubItems.Add(creatureName);
-                    item.SubItems.Add(detail.IsWandering ? "Yes" : "No");
-                    item.SubItems.Add(detail.IsMating ? "Yes" : "No");
-                    item.SubItems.Add(detail.Gender.ToString());
-                    item.SubItems.Add(detail.BaseLevel.ToString());
-                    item.SubItems.Add(detail.Level.ToString());
-                    item.SubItems.Add(((decimal)detail.Latitude).ToString("0.00"));
-                    item.SubItems.Add(((decimal)detail.Longitude).ToString("0.00"));
-                    if (optStatsTamed.Checked)
+                    bool addItem = true;
+
+                    if (detail.Longitude.HasValue)
                     {
-                        item.SubItems.Add(detail.TamedStats[0].ToString());
-                        item.SubItems.Add(detail.TamedStats[1].ToString());
-                        item.SubItems.Add(detail.TamedStats[8].ToString());
-                        item.SubItems.Add(detail.TamedStats[7].ToString());
-                        item.SubItems.Add(detail.TamedStats[9].ToString());
-                        item.SubItems.Add(detail.TamedStats[4].ToString());
-                        item.SubItems.Add(detail.TamedStats[3].ToString());
-                        item.SubItems.Add(detail.TamedStats[11].ToString());
-
-                    }
-                    else
-                    {
-                        item.SubItems.Add(detail.BaseStats[0].ToString());
-                        item.SubItems.Add(detail.BaseStats[1].ToString());
-                        item.SubItems.Add(detail.BaseStats[8].ToString());
-                        item.SubItems.Add(detail.BaseStats[7].ToString());
-                        item.SubItems.Add(detail.BaseStats[9].ToString());
-                        item.SubItems.Add(detail.BaseStats[4].ToString());
-                        item.SubItems.Add(detail.BaseStats[3].ToString());
-                        item.SubItems.Add(detail.BaseStats[11].ToString());
-
-                    }
-
-                    item.SubItems.Add(detail.TamedOnServerName);
-
-                    string tamerName = detail.TamerName != null ? detail.TamerName : "";
-                    string imprinterName = detail.ImprinterName;
-                    if (tamerName.Length == 0)
-                    {
-                        if (detail.ImprintedPlayerId != 0)
+                        //check realm
+                        
+                        if (!string.IsNullOrEmpty(selectedRealm))
                         {
-                            //var tamer = cm.GetPlayers(0, detail.ImprintedPlayerId).FirstOrDefault<ContentPlayer>();
-                            //if(tamer!=null) tamerName = tamer.CharacterName;
+                            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+                            {
+                                var selectedRegion = cm.LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                                addItem = detail.Z >= selectedRegion.ZStart
+                                            && detail.Z <= selectedRegion.ZEnd
+                                            && detail.Latitude >= selectedRegion.LatitudeStart
+                                            && detail.Latitude <= selectedRegion.LatitudeEnd
+                                            && detail.Longitude >= selectedRegion.LongitudeStart
+                                            && detail.Longitude <= selectedRegion.LongitudeEnd;
+
+
+                            }
+
+                        }
+
+
+                    }
+
+
+                    if (addItem)
+                    {
+                        ListViewItem item = new ListViewItem(creatureClassName);
+                        item.Tag = detail;
+                        item.UseItemStyleForSubItems = false;
+
+                        item.SubItems.Add(creatureName);
+                        item.SubItems.Add(detail.IsWandering ? "Yes" : "No");
+                        item.SubItems.Add(detail.IsMating ? "Yes" : "No");
+                        item.SubItems.Add(detail.Gender.ToString());
+                        item.SubItems.Add(detail.BaseLevel.ToString());
+                        item.SubItems.Add(detail.Level.ToString());
+                        item.SubItems.Add(((decimal)detail.Latitude).ToString("0.00"));
+                        item.SubItems.Add(((decimal)detail.Longitude).ToString("0.00"));
+                        if (optStatsTamed.Checked)
+                        {
+                            item.SubItems.Add(detail.TamedStats[0].ToString());
+                            item.SubItems.Add(detail.TamedStats[1].ToString());
+                            item.SubItems.Add(detail.TamedStats[8].ToString());
+                            item.SubItems.Add(detail.TamedStats[7].ToString());
+                            item.SubItems.Add(detail.TamedStats[9].ToString());
+                            item.SubItems.Add(detail.TamedStats[4].ToString());
+                            item.SubItems.Add(detail.TamedStats[3].ToString());
+                            item.SubItems.Add(detail.TamedStats[11].ToString());
+
                         }
                         else
                         {
-                            tamerName = detail.TribeName;
+                            item.SubItems.Add(detail.BaseStats[0].ToString());
+                            item.SubItems.Add(detail.BaseStats[1].ToString());
+                            item.SubItems.Add(detail.BaseStats[8].ToString());
+                            item.SubItems.Add(detail.BaseStats[7].ToString());
+                            item.SubItems.Add(detail.BaseStats[9].ToString());
+                            item.SubItems.Add(detail.BaseStats[4].ToString());
+                            item.SubItems.Add(detail.BaseStats[3].ToString());
+                            item.SubItems.Add(detail.BaseStats[11].ToString());
+
                         }
-                    }
 
+                        item.SubItems.Add(detail.TamedOnServerName);
 
-
-                    item.SubItems.Add(tamerName);
-                    item.SubItems.Add(detail.ImprinterName);
-                    item.SubItems.Add((detail.ImprintQuality * 100).ToString("f0"));
-
-                    bool isStored = detail.IsCryo | detail.IsVivarium;
-
-                    item.SubItems.Add(isStored.ToString());
-
-                    if (detail.IsCryo)
-                    {
-                        item.BackColor = Color.LightSkyBlue;
-                        
-                        foreach(ListViewItem.ListViewSubItem subItem in item.SubItems)
+                        string tamerName = detail.TamerName != null ? detail.TamerName : "";
+                        string imprinterName = detail.ImprinterName;
+                        if (tamerName.Length == 0)
                         {
-                            subItem.BackColor = Color.LightSkyBlue;
+                            if (detail.ImprintedPlayerId != 0)
+                            {
+                                //var tamer = cm.GetPlayers(0, detail.ImprintedPlayerId).FirstOrDefault<ContentPlayer>();
+                                //if(tamer!=null) tamerName = tamer.CharacterName;
+                            }
+                            else
+                            {
+                                tamerName = detail.TribeName;
+                            }
                         }
-                    }
-                    else if (detail.IsVivarium)
-                    {
-                        item.BackColor = Color.LightGreen;
-                        foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+
+
+
+                        item.SubItems.Add(tamerName);
+                        item.SubItems.Add(detail.ImprinterName);
+                        item.SubItems.Add((detail.ImprintQuality * 100).ToString("f0"));
+
+                        bool isStored = detail.IsCryo | detail.IsVivarium;
+
+                        item.SubItems.Add(isStored.ToString());
+
+                        if (detail.IsCryo)
                         {
-                            subItem.BackColor = Color.LightGreen;
+                            item.BackColor = Color.LightSkyBlue;
+
+                            foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                            {
+                                subItem.BackColor = Color.LightSkyBlue;
+                            }
                         }
+                        else if (detail.IsVivarium)
+                        {
+                            item.BackColor = Color.LightGreen;
+                            foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                            {
+                                subItem.BackColor = Color.LightGreen;
+                            }
+                        }
+
+
+                        //Colours
+                        int colourCheck = (int)detail.Colors[0];
+                        item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[0].ToString()); //14
+                        ColourMap selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[0]).FirstOrDefault();
+                        if (selectedColor != null && selectedColor.Hex.Length > 0)
+                        {
+                            item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
+                            item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
+                        }
+
+                        colourCheck = (int)detail.Colors[1];
+                        item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[1].ToString()); //15
+                        selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[1]).FirstOrDefault();
+                        if (selectedColor != null && selectedColor.Hex.Length > 0)
+                        {
+                            item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
+                            item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
+                        }
+
+                        colourCheck = (int)detail.Colors[2];
+                        item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[2].ToString()); //16
+                        selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[2]).FirstOrDefault();
+                        if (selectedColor != null && selectedColor.Hex.Length > 0)
+                        {
+                            item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
+                            item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
+                        }
+
+                        colourCheck = (int)detail.Colors[3];
+                        item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[3].ToString()); //17
+                        selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[3]).FirstOrDefault();
+                        if (selectedColor != null && selectedColor.Hex.Length > 0)
+                        {
+                            item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
+                            item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
+                        }
+
+                        colourCheck = (int)detail.Colors[4];
+                        item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[4].ToString()); //18
+                        selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[4]).FirstOrDefault();
+                        if (selectedColor != null && selectedColor.Hex.Length > 0)
+                        {
+                            item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
+                            item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
+                        }
+
+                        colourCheck = (int)detail.Colors[5];
+                        item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[5].ToString()); //19
+                        selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[5]).FirstOrDefault();
+                        if (selectedColor != null && selectedColor.Hex.Length > 0)
+                        {
+                            item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
+                            item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
+                        }
+
+
+                        //mutations
+                        item.SubItems.Add(detail.RandomMutationsFemale.ToString());
+                        item.SubItems.Add(detail.RandomMutationsMale.ToString());
+
+                        item.SubItems.Add(detail.Id.ToString());
+                        item.SubItems.Add(Math.Round(detail.WildScale, 1).ToString("f1"));
+
+                        string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
+                        string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
+                        item.SubItems.Add(rig1Name);
+                        item.SubItems.Add(rig2Name);
+                        item.SubItems.Add(detail.LastAllyInRangeTime.HasValue ? detail.LastAllyInRangeTime.Value.ToString("dd MMM yyyy HH:mm") : "");
+                        item.SubItems.Add(detail.DinoId);
+                        item.SubItems.Add($"{detail.X} {detail.Y} {detail.Z}");
+
+                        if (detail.Id == selectedId)
+                        {
+
+                            item.Selected = true;
+                            selectedX = (decimal)detail.Longitude;
+                            selectedY = (decimal)detail.Latitude;
+                        }
+
+                        listItems.Add(item);
                     }
-
-
-                    //Colours
-                    int colourCheck = (int)detail.Colors[0];
-                    item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[0].ToString()); //14
-                    ColourMap selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[0]).FirstOrDefault();
-                    if (selectedColor != null && selectedColor.Hex.Length > 0)
-                    {
-                        item.SubItems[item.SubItems.Count-1].BackColor = selectedColor.Color;
-                        item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
-                    }
-
-                    colourCheck = (int)detail.Colors[1];
-                    item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[1].ToString()); //15
-                    selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[1]).FirstOrDefault();
-                    if (selectedColor != null && selectedColor.Hex.Length > 0)
-                    {
-                        item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
-                        item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
-                    }
-
-                    colourCheck = (int)detail.Colors[2];
-                    item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[2].ToString()); //16
-                    selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[2]).FirstOrDefault();
-                    if (selectedColor != null && selectedColor.Hex.Length > 0)
-                    {
-                        item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
-                        item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
-                    }
-
-                    colourCheck = (int)detail.Colors[3];
-                    item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[3].ToString()); //17
-                    selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[3]).FirstOrDefault();
-                    if (selectedColor != null && selectedColor.Hex.Length > 0)
-                    {
-                        item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
-                        item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
-                    }
-
-                    colourCheck = (int)detail.Colors[4];
-                    item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[4].ToString()); //18
-                    selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[4]).FirstOrDefault();
-                    if (selectedColor != null && selectedColor.Hex.Length > 0)
-                    {
-                        item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
-                        item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
-                    }
-
-                    colourCheck = (int)detail.Colors[5];
-                    item.SubItems.Add(colourCheck == 0 ? "n/a" : detail.Colors[5].ToString()); //19
-                    selectedColor = Program.ProgramConfig.ColourMap.Where(c => c.Id == (int)detail.Colors[5]).FirstOrDefault();
-                    if (selectedColor != null && selectedColor.Hex.Length > 0)
-                    {
-                        item.SubItems[item.SubItems.Count - 1].BackColor = selectedColor.Color;
-                        item.SubItems[item.SubItems.Count - 1].ForeColor = Program.IdealTextColor(selectedColor.Color);
-                    }
-
-
-                    //mutations
-                    item.SubItems.Add(detail.RandomMutationsFemale.ToString());
-                    item.SubItems.Add(detail.RandomMutationsMale.ToString());
-
-                    item.SubItems.Add(detail.Id.ToString());
-                    item.SubItems.Add(Math.Round(detail.WildScale, 1).ToString("f1"));
-
-                    string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
-                    string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
-                    item.SubItems.Add(rig1Name);
-                    item.SubItems.Add(rig2Name);
-                    item.SubItems.Add(detail.LastAllyInRangeTime.HasValue ? detail.LastAllyInRangeTime.Value.ToString("dd MMM yyyy HH:mm") : "");
-                    item.SubItems.Add(detail.DinoId);
-                    item.SubItems.Add($"{detail.X} {detail.Y} {detail.Z}");
-
-                    if (detail.Id == selectedId)
-                    {
-
-                        item.Selected = true;
-                        selectedX = (decimal)detail.Longitude;
-                        selectedY = (decimal)detail.Latitude;
-                    }
-
-                    listItems.Add(item);
+                    
                 });
 
                 lvwTameDetail.Items.AddRange(listItems.ToArray());
@@ -5946,7 +6122,7 @@ namespace ARKViewer
                 float selectedLon = (float)udWildLon.Value;
                 float selectedRad = (float)udWildRadius.Value;
 
-                var detailList = cm.GetWildCreatures(minLevel, maxLevel, selectedLat, selectedLon, selectedRad, className).OrderByDescending(c => c.BaseLevel).ToList();
+                var detailList = cm.GetWildCreatures(minLevel, maxLevel, selectedLat, selectedLon, selectedRad, className, (cboWildRealm.SelectedItem as ASVComboValue).Key).OrderByDescending(c => c.BaseLevel).ToList();
                 if (cboWildResource.SelectedIndex != 0)
                 {
                     //limit by resource production
@@ -5961,6 +6137,9 @@ namespace ARKViewer
                 {
                     var dinoMap = ARKViewer.Program.ProgramConfig.DinoMap.Where(dino => dino.ClassName == detail.ClassName).FirstOrDefault();
                     string creatureName = dinoMap == null ? detail.ClassName : dinoMap.FriendlyName;
+                    
+                    
+                    
                     ListViewItem item = new ListViewItem(creatureName);//lvwWildDetail.Items.Add(creatureName);
                     item.Tag = detail;
                     item.UseItemStyleForSubItems = false;
@@ -6062,7 +6241,6 @@ namespace ARKViewer
                         selectedX = (decimal)Math.Round(detail.Longitude.Value, 2);
                         selectedY = (decimal)Math.Round(detail.Latitude.Value, 2);
                     }
-
 
 
                     listItems.Add(item);
@@ -7246,6 +7424,38 @@ namespace ARKViewer
                         break;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmTest testForm = new frmTest(cm);
+            testForm.Show();
+            
+        }
+
+        private void cboWildRealm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadWildDetail();
+        }
+
+        private void cboTameRealm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadTameDetail();
+        }
+
+        private void cboStructureRealm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPlayerStructureDetail();
+        }
+
+        private void cboPlayerRealm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPlayerDetail();
+        }
+
+        private void cboDroppedItemRealm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDroppedItemDetail();
         }
     }
 }

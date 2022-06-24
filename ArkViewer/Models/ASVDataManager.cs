@@ -1,4 +1,5 @@
 ﻿using ARKViewer.Configuration;
+using ASVPack;
 using ASVPack.Models;
 using FluentFTP;
 using Newtonsoft.Json;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ARKViewer.Models
 {
@@ -22,6 +24,7 @@ namespace ARKViewer.Models
 
         //cached image params
         ASVStructureOptions cachedOptions = new ASVStructureOptions();
+        string lastRealm = string.Empty;
         Tuple<long, bool, bool, bool> cacheImageTribes = null;
         Tuple<string, string, int, int, float, float, float> cacheImageWild = null;
         Tuple<string, string, bool, long, long> cacheImageTamed = null;
@@ -35,6 +38,8 @@ namespace ARKViewer.Models
         Image gameContentMap = null; //wilds/tames/tribes/players etc.
 
         ContentPack pack = null;
+        public ContentMap LoadedMap { get; internal set; } = null;
+        
 
         public DateTime ContentDate
         {
@@ -42,6 +47,7 @@ namespace ARKViewer.Models
             {
                 if (pack == null) return DateTime.MinValue;
                 return pack.ContentDate;
+                
             }
         }
 
@@ -114,6 +120,8 @@ namespace ARKViewer.Models
                     });
             }
 
+            LoadedMap = new ContentMapPack().GetMap($"{pack.MapFilename}.ark");
+
         }
 
         public ASVDataManager(ContentPack data)
@@ -128,24 +136,50 @@ namespace ARKViewer.Models
 
 
         //Query options
-        public List<ContentWildCreature> GetWildCreatures(int minLevel, int maxLevel, float fromLat, float fromLon, float fromRadius, string selectedClass)
+        public List<ContentWildCreature> GetWildCreatures(int minLevel, int maxLevel, float fromLat, float fromLon, float fromRadius, string selectedClass, string selectedRealm)
         {
             if (pack.WildCreatures == null) return new List<ContentWildCreature>();
 
+
             var wilds = pack.WildCreatures.Where(w =>
                                             ((w.ClassName == selectedClass || selectedClass == "") && ((w.BaseLevel >= minLevel && w.BaseLevel <= maxLevel) || w.BaseLevel == 0))
-                                            && (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
-                                            && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                            && 
+                                            (
+                                                (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                                                && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                            )
+                                            
                                 ).OrderByDescending(c => c.BaseLevel).ToList();
+
+
+            if (!string.IsNullOrEmpty(selectedRealm))
+            {
+                if(LoadedMap.Regions!=null && LoadedMap.Regions.Count > 0)
+                {
+                    var selectedRegion = LoadedMap.Regions.FirstOrDefault(r=>r.RegionName == selectedRealm);
+                    wilds.RemoveAll(wild => !(                    
+                            wild.Z >= selectedRegion.ZStart
+                            && wild.Z <= selectedRegion.ZEnd
+                            && wild.Latitude >= selectedRegion.LatitudeStart
+                            && wild.Latitude <= selectedRegion.LatitudeEnd
+                            && wild.Longitude >= selectedRegion.LongitudeStart
+                            && wild.Longitude <= selectedRegion.LongitudeEnd
+                            )
+                    );
+
+                }
+
+            }
 
 
             return wilds;
         }
 
-        public List<ContentTamedCreature> GetTamedCreatures(string selectedClass, long selectedTribeId, long selectedPlayerId, bool includeCryoVivarium)
+        public List<ContentTamedCreature> GetTamedCreatures(string selectedClass, long selectedTribeId, long selectedPlayerId, bool includeCryoVivarium, string selectedRealm)
         {
             if (pack.Tribes == null) return new List<ContentTamedCreature>();
-            return pack.Tribes
+
+            var tamed = pack.Tribes
                 .Where(t => (t.TribeId == selectedTribeId || selectedTribeId == 0) || t.Players.Any(p => p.Id == selectedPlayerId && selectedPlayerId != 0))
                 .SelectMany(c =>
                                 c.Tames.Where(w =>
@@ -155,6 +189,27 @@ namespace ARKViewer.Models
                                     && (includeCryoVivarium || w.IsVivarium == false)
                                 )
                             ).ToList();
+
+            if (!string.IsNullOrEmpty(selectedRealm))
+            {
+                if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                {
+                    var selectedRegion = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                    tamed.RemoveAll(tame => !(
+                            tame.Z >= selectedRegion.ZStart
+                            && tame.Z <= selectedRegion.ZEnd
+                            && tame.Latitude >= selectedRegion.LatitudeStart
+                            && tame.Latitude <= selectedRegion.LatitudeEnd
+                            && tame.Longitude >= selectedRegion.LongitudeStart
+                            && tame.Longitude <= selectedRegion.LongitudeEnd
+                            )
+                    );
+
+                }
+
+            }
+
+            return tamed;
 
         }
 
@@ -252,7 +307,7 @@ namespace ARKViewer.Models
 
         }
 
-        public List<ContentStructure> GetPlayerStructures(long selectedTribeId, long selectedPlayerId, string selectedClass, bool includeExcluded)
+        public List<ContentStructure> GetPlayerStructures(long selectedTribeId, long selectedPlayerId, string selectedClass, bool includeExcluded, string selectedRealm)
         {
             if (pack.Tribes == null) return new List<ContentStructure>();
 
@@ -268,6 +323,25 @@ namespace ARKViewer.Models
                         (!Program.ProgramConfig.StructureExclusions.Contains(x.ClassName) || includeExcluded)
                     )
                 ).ToList();
+
+            if (!string.IsNullOrEmpty(selectedRealm))
+            {
+                if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                {
+                    var selectedRegion = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                    tribeStructures.RemoveAll(playerStructure => !(
+                            playerStructure.Z >= selectedRegion.ZStart
+                            && playerStructure.Z <= selectedRegion.ZEnd
+                            && playerStructure.Latitude >= selectedRegion.LatitudeStart
+                            && playerStructure.Latitude <= selectedRegion.LatitudeEnd
+                            && playerStructure.Longitude >= selectedRegion.LongitudeStart
+                            && playerStructure.Longitude <= selectedRegion.LongitudeEnd
+                            )
+                    );
+
+                }
+
+            }
 
             return tribeStructures;
         }
@@ -285,7 +359,7 @@ namespace ARKViewer.Models
             return returnList.ToList();
         }
 
-        public List<ContentPlayer> GetPlayers(long selectedTribeId, long selectedPlayerId)
+        public List<ContentPlayer> GetPlayers(long selectedTribeId, long selectedPlayerId, string selectedRealm)
         {
             if (pack.Tribes == null) return new List<ContentPlayer>();
             var tribePlayers = pack.Tribes
@@ -296,6 +370,25 @@ namespace ARKViewer.Models
                         (selectedPlayerId == 0 || p.Id == selectedPlayerId)                        
                     )
                 ).ToList();
+
+            if (!string.IsNullOrEmpty(selectedRealm))
+            {
+                if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                {
+                    var selectedRegion = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                    tribePlayers.RemoveAll(player => !(
+                            player.Z >= selectedRegion.ZStart
+                            && player.Z <= selectedRegion.ZEnd
+                            && player.Latitude >= selectedRegion.LatitudeStart
+                            && player.Latitude <= selectedRegion.LatitudeEnd
+                            && player.Longitude >= selectedRegion.LongitudeStart
+                            && player.Longitude <= selectedRegion.LongitudeEnd
+                            )
+                    );
+
+                }
+
+            }
 
             return tribePlayers;
         }
@@ -316,7 +409,7 @@ namespace ARKViewer.Models
             return pack.Tribes.FirstOrDefault<ContentTribe>(t => t.Players.Any(p => p.Id == playerId));
         }
 
-        public List<ContentDroppedItem> GetDroppedItems(long playerId, string className)
+        public List<ContentDroppedItem> GetDroppedItems(long playerId, string className, string selectedRealm)
         {
             if (pack.DroppedItems == null) return new List<ContentDroppedItem>();
             var foundItems = pack.DroppedItems
@@ -326,12 +419,31 @@ namespace ARKViewer.Models
                     && (d.ClassName == className || className == "")
                 ).ToList();
 
+            if (!string.IsNullOrEmpty(selectedRealm))
+            {
+                if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                {
+                    var selectedRegion = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                    foundItems.RemoveAll(foundItem => !(
+                            foundItem.Z >= selectedRegion.ZStart
+                            && foundItem.Z <= selectedRegion.ZEnd
+                            && foundItem.Latitude >= selectedRegion.LatitudeStart
+                            && foundItem.Latitude <= selectedRegion.LatitudeEnd
+                            && foundItem.Longitude >= selectedRegion.LongitudeStart
+                            && foundItem.Longitude <= selectedRegion.LongitudeEnd
+                            )
+                    );
+
+                }
+
+            }
+
             return foundItems;
         }
 
 
 
-        public List<ASVFoundItem> GetItems(long tribeId, string className)
+        public List<ASVFoundItem> GetItems(long tribeId, string className, string selectedRealm)
         {
             List<ASVFoundItem> foundItems = new List<ASVFoundItem>();
 
@@ -516,6 +628,25 @@ namespace ARKViewer.Models
 
                         }
                     }
+                }
+
+            }
+
+            if (!string.IsNullOrEmpty(selectedRealm))
+            {
+                if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                {
+                    var selectedRegion = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                    foundItems.RemoveAll(foundItem => !(
+                            (float)foundItem.Z >= selectedRegion.ZStart
+                            && (float)foundItem.Z <= selectedRegion.ZEnd
+                            && (float)foundItem.Latitude >= selectedRegion.LatitudeStart
+                            && (float)foundItem.Latitude <= selectedRegion.LatitudeEnd
+                            && (float)foundItem.Longitude >= selectedRegion.LongitudeStart
+                            && (float)foundItem.Longitude <= selectedRegion.LongitudeEnd
+                            )
+                    );
+
                 }
 
             }
@@ -1228,7 +1359,7 @@ namespace ARKViewer.Models
 
 
 
-        public Bitmap GetMapImageItems(long tribeId, string className, decimal selectedLat, decimal selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageItems(long tribeId, string className, decimal selectedLat, decimal selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1262,7 +1393,7 @@ namespace ARKViewer.Models
                 graphics = AddMapStructures(graphics, mapOptions.Terminals, mapOptions.Glitches, mapOptions.ChargeNodes, mapOptions.BeaverDams, mapOptions.DeinoNests, mapOptions.WyvernNests, mapOptions.DrakeNests, mapOptions.MagmaNests, mapOptions.OilVeins, mapOptions.WaterVeins, mapOptions.GasVeins, mapOptions.Artifacts);
 
 
-                var filteredResults = GetItems(tribeId, className);
+                var filteredResults = GetItems(tribeId, className, selectedRealm);
                 foreach (var result in filteredResults)
                 {
                     var markerX = (decimal)(result.Longitude) * 1024 / 100;
@@ -1270,6 +1401,7 @@ namespace ARKViewer.Models
                     var markerSize = 10f;
 
                     Color markerColor = Color.AliceBlue;
+
                     graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
                     Color borderColour = Color.Blue;
@@ -1293,7 +1425,7 @@ namespace ARKViewer.Models
         }
 
         /**** Map & Overlays ****/
-        public Bitmap GetMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1310,6 +1442,7 @@ namespace ARKViewer.Models
                     && cacheImageWild.Item5 == filterLat
                     && cacheImageWild.Item6 == filterLon
                     && cacheImageWild.Item7 == filterRadius
+                    && lastRealm == selectedRealm
                     && lastDrawRequest == "wild"
                     )
             )
@@ -1321,12 +1454,13 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "wild";
                 cacheImageWild = new Tuple<string, string, int, int, float, float, float>(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius);
+                lastRealm = selectedRealm;
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions.Terminals, mapOptions.Glitches, mapOptions.ChargeNodes, mapOptions.BeaverDams, mapOptions.DeinoNests, mapOptions.WyvernNests, mapOptions.DrakeNests, mapOptions.MagmaNests, mapOptions.OilVeins, mapOptions.WaterVeins, mapOptions.GasVeins, mapOptions.Artifacts);
 
-                var filteredWilds = GetWildCreatures(minLevel, maxLevel, filterLat, filterLon, filterRadius, className);
+                var filteredWilds = GetWildCreatures(minLevel, maxLevel, filterLat, filterLon, filterRadius, className, selectedRealm);
                 
                 //remove any not matching productionClass
                 if(productionClassName.Length > 0) filteredWilds.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == productionClassName));
@@ -1338,7 +1472,26 @@ namespace ARKViewer.Models
                     var markerY = (decimal)(wild.Latitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerSize = 10f;
 
-                    Color markerColor = Color.AliceBlue;
+
+                    Color markerColor = Color.WhiteSmoke;
+                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                    {
+                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                            wild.Z >= r.ZStart
+                            && wild.Z <= r.ZEnd
+                            && wild.Latitude >= r.LatitudeStart
+                            && wild.Latitude <= r.LatitudeEnd
+                            && wild.Longitude >= r.LongitudeStart
+                            && wild.Longitude <= r.LongitudeEnd
+                        );
+
+                        if (insideRegion != null)
+                        {
+                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                        }
+
+                    }
+
                     graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
                     Color borderColour = Color.Blue;
@@ -1356,11 +1509,13 @@ namespace ARKViewer.Models
             }
 
             graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            
+            
 
             return bitmap;
         }
 
-        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1375,6 +1530,7 @@ namespace ARKViewer.Models
                 && cacheImageTamed.Item3 == includeStored
                 && cacheImageTamed.Item4 == tribeId
                 && cacheImageTamed.Item5 == playerId
+                && lastRealm == selectedRealm
                 && lastDrawRequest == "tamed")
             )
             {
@@ -1384,6 +1540,7 @@ namespace ARKViewer.Models
             else
             {
                 lastDrawRequest = "tamed";
+                lastRealm = selectedRealm;
                 cacheImageTamed = new Tuple<string, string, bool, long, long>(className, productionClassName, includeStored, tribeId, playerId);
                 cachedOptions = mapOptions;
 
@@ -1391,17 +1548,35 @@ namespace ARKViewer.Models
                 graphics = AddMapStructures(graphics, mapOptions.Terminals, mapOptions.Glitches, mapOptions.ChargeNodes, mapOptions.BeaverDams, mapOptions.DeinoNests, mapOptions.WyvernNests, mapOptions.DrakeNests, mapOptions.MagmaNests, mapOptions.OilVeins, mapOptions.WaterVeins, mapOptions.GasVeins, mapOptions.Artifacts);
 
 
-                var filteredTames = GetTamedCreatures(className, tribeId, playerId, includeStored);
+                var filteredTames = GetTamedCreatures(className, tribeId, playerId, includeStored, selectedRealm);
                 //remove any not matching productionClass
                 if (productionClassName.Length > 0) filteredTames.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == productionClassName));
 
-                foreach (var wild in filteredTames)
+                foreach (var tame in filteredTames)
                 {
-                    var markerX = (decimal)(wild.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerY = (decimal)(wild.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerX = (decimal)(tame.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerY = (decimal)(tame.Latitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerSize = 10f;
 
-                    Color markerColor = Color.AliceBlue;
+                    Color markerColor = Color.WhiteSmoke;
+                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                    {
+                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                            tame.Z >= r.ZStart
+                            && tame.Z <= r.ZEnd
+                            && tame.Latitude >= r.LatitudeStart
+                            && tame.Latitude <= r.LatitudeEnd
+                            && tame.Longitude >= r.LongitudeStart
+                            && tame.Longitude <= r.LongitudeEnd
+                        );
+
+                        if (insideRegion != null)
+                        {
+                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                        }
+
+                    }
+
                     graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
                     Color borderColour = Color.Blue;
@@ -1423,7 +1598,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImageDroppedItems(long droppedPlayerId, string droppedClass, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageDroppedItems(long droppedPlayerId, string droppedClass, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers,string selectedRealm)
         {
 
             Bitmap bitmap = new Bitmap(1024, 1024);
@@ -1436,6 +1611,7 @@ namespace ARKViewer.Models
                 &&(cacheImageDroppedItems != null
                 && cacheImageDroppedItems.Item1 == droppedPlayerId
                 && cacheImageDroppedItems.Item2 == droppedClass
+                && lastRealm == selectedRealm
                 && lastDrawRequest == "droppeditems")
             
             )
@@ -1446,13 +1622,14 @@ namespace ARKViewer.Models
             else
             {
                 lastDrawRequest = "droppeditems";
+                lastRealm = selectedRealm;
                 cacheImageDroppedItems = new Tuple<long, string>(droppedPlayerId, droppedClass);
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions.Terminals, mapOptions.Glitches, mapOptions.ChargeNodes, mapOptions.BeaverDams, mapOptions.DeinoNests, mapOptions.WyvernNests, mapOptions.DrakeNests, mapOptions.MagmaNests, mapOptions.OilVeins, mapOptions.WaterVeins, mapOptions.GasVeins, mapOptions.Artifacts);
 
-                var filteredDrops = GetDroppedItems(droppedPlayerId, droppedClass);
+                var filteredDrops = GetDroppedItems(droppedPlayerId, droppedClass, selectedRealm);
                 float markerSize = 10f;
                 foreach (var item in filteredDrops)
                 {
@@ -1463,7 +1640,24 @@ namespace ARKViewer.Models
                     var markerX = (decimal)(longitude) * 1024 / 100;
                     var markerY = (decimal)(latitude) * 1024 / 100;
 
-                    Color markerColor = Color.AliceBlue;
+                    Color markerColor = Color.WhiteSmoke;
+                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                    {
+                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                            item.Z >= r.ZStart
+                            && item.Z <= r.ZEnd
+                            && item.Latitude >= r.LatitudeStart
+                            && item.Latitude <= r.LatitudeEnd
+                            && item.Longitude >= r.LongitudeStart
+                            && item.Longitude <= r.LongitudeEnd
+                        );
+
+                        if (insideRegion != null)
+                        {
+                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                        }
+
+                    }
                     graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
                     Color borderColour = Color.Blue;
@@ -1525,7 +1719,24 @@ namespace ARKViewer.Models
                     var markerX = (decimal)(longitude) * 1024 / 100;
                     var markerY = (decimal)(latitude) * 1024 / 100;
 
-                    Color markerColor = Color.AliceBlue;
+                    Color markerColor = Color.WhiteSmoke;
+                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                    {
+                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                            item.Z >= r.ZStart
+                            && item.Z <= r.ZEnd
+                            && item.Latitude >= r.LatitudeStart
+                            && item.Latitude <= r.LatitudeEnd
+                            && item.Longitude >= r.LongitudeStart
+                            && item.Longitude <= r.LongitudeEnd
+                        );
+
+                        if (insideRegion != null)
+                        {
+                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                        }
+
+                    }
                     graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
                     Color borderColour = Color.Blue;
@@ -1546,7 +1757,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1559,6 +1770,7 @@ namespace ARKViewer.Models
                 && cacheImagePlayerStructures.Item1 == className
                 && cacheImagePlayerStructures.Item2 == tribeId
                 && cacheImagePlayerStructures.Item3 == playerId
+                && lastRealm == selectedRealm
                 && lastDrawRequest == "structures")
             )
             {
@@ -1568,20 +1780,39 @@ namespace ARKViewer.Models
             else
             {
                 lastDrawRequest = "structures";
+                lastRealm = selectedRealm;
                 cacheImagePlayerStructures = new Tuple<string, long, long>(className, tribeId, playerId);
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions.Terminals, mapOptions.Glitches, mapOptions.ChargeNodes, mapOptions.BeaverDams, mapOptions.DeinoNests, mapOptions.WyvernNests, mapOptions.DrakeNests, mapOptions.MagmaNests, mapOptions.OilVeins, mapOptions.WaterVeins, mapOptions.GasVeins, mapOptions.Artifacts);
 
-                var filteredStructures = GetPlayerStructures(tribeId, playerId, className, false);
+                var filteredStructures = GetPlayerStructures(tribeId, playerId, className, false, selectedRealm);
                 foreach (var playerStructure in filteredStructures)
                 {
                     var markerX = (decimal)(playerStructure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerY = (decimal)(playerStructure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerSize = 10f;
 
-                    graphics.FillEllipse(new SolidBrush(Color.AliceBlue), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    Color markerColor = Color.WhiteSmoke;
+                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                    {
+                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                            playerStructure.Z >= r.ZStart
+                            && playerStructure.Z <= r.ZEnd
+                            && playerStructure.Latitude >= r.LatitudeStart
+                            && playerStructure.Latitude <= r.LatitudeEnd
+                            && playerStructure.Longitude >= r.LongitudeStart
+                            && playerStructure.Longitude <= r.LongitudeEnd
+                        );
+
+                        if (insideRegion != null)
+                        {
+                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                        }
+
+                    }
+                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
@@ -1648,7 +1879,25 @@ namespace ARKViewer.Models
                                     var markerX = (decimal)(structure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                                     var markerY = (decimal)(structure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                                    graphics.FillEllipse(new SolidBrush(Color.AliceBlue), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                                    Color markerColor = Color.WhiteSmoke;
+                                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                                    {
+                                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                                            structure.Z >= r.ZStart
+                                            && structure.Z <= r.ZEnd
+                                            && structure.Latitude >= r.LatitudeStart
+                                            && structure.Latitude <= r.LatitudeEnd
+                                            && structure.Longitude >= r.LongitudeStart
+                                            && structure.Longitude <= r.LongitudeEnd
+                                        );
+
+                                        if (insideRegion != null)
+                                        {
+                                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                                        }
+
+                                    }
+                                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
                                     Color borderColour = Color.Green;
                                     int borderSize = 1;
@@ -1675,6 +1924,25 @@ namespace ARKViewer.Models
 
                                     var markerX = (decimal)(tame.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                                     var markerY = (decimal)(tame.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+
+                                    Color markerColor = Color.WhiteSmoke;
+                                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                                    {
+                                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                                            tame.Z >= r.ZStart
+                                            && tame.Z <= r.ZEnd
+                                            && tame.Latitude >= r.LatitudeStart
+                                            && tame.Latitude <= r.LatitudeEnd
+                                            && tame.Longitude >= r.LongitudeStart
+                                            && tame.Longitude <= r.LongitudeEnd
+                                        );
+
+                                        if (insideRegion != null)
+                                        {
+                                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                                        }
+
+                                    }
 
                                     graphics.FillEllipse(new SolidBrush(Color.AliceBlue), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
@@ -1705,7 +1973,26 @@ namespace ARKViewer.Models
                                     var markerX = (decimal)(player.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                                     var markerY = (decimal)(player.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                                    graphics.FillEllipse(new SolidBrush(Color.FloralWhite), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
+                                    Color markerColor = Color.WhiteSmoke;
+                                    if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                                    {
+                                        var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                                            player.Z >= r.ZStart
+                                            && player.Z <= r.ZEnd
+                                            && player.Latitude >= r.LatitudeStart
+                                            && player.Latitude <= r.LatitudeEnd
+                                            && player.Longitude >= r.LongitudeStart
+                                            && player.Longitude <= r.LongitudeEnd
+                                        );
+
+                                        if (insideRegion != null)
+                                        {
+                                            markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                                        }
+
+                                    }
+
+                                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
 
                                     Color borderColour = Color.Blue;
                                     int borderSize = 1;
@@ -1738,7 +2025,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImagePlayers(long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImagePlayers(long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1750,6 +2037,7 @@ namespace ARKViewer.Models
                 && (cacheImagePlayers != null
                 && cacheImagePlayers.Item1 == tribeId
                 && cacheImagePlayers.Item2 == playerId
+                && lastRealm == selectedRealm
                 && lastDrawRequest == "players")
             )
             {
@@ -1759,6 +2047,7 @@ namespace ARKViewer.Models
             else
             {
                 lastDrawRequest = "players";
+                lastRealm = selectedRealm;
 
                 cacheImagePlayers = new Tuple<long, long>(tribeId, playerId);
                 cachedOptions = mapOptions;
@@ -1766,7 +2055,7 @@ namespace ARKViewer.Models
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions.Terminals, mapOptions.Glitches, mapOptions.ChargeNodes, mapOptions.BeaverDams, mapOptions.DeinoNests, mapOptions.WyvernNests, mapOptions.DrakeNests, mapOptions.MagmaNests, mapOptions.OilVeins, mapOptions.WaterVeins, mapOptions.GasVeins, mapOptions.Artifacts);
 
-                var filteredPlayers = GetPlayers(tribeId, playerId);
+                var filteredPlayers = GetPlayers(tribeId, playerId, selectedRealm);
                 foreach (var player in filteredPlayers)
                 {
                     if (!(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0))
@@ -1774,7 +2063,26 @@ namespace ARKViewer.Models
                         var markerX = (decimal)(player.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                         var markerY = (decimal)(player.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                        graphics.FillEllipse(new SolidBrush(Color.FloralWhite), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
+                        Color markerColor = Color.WhiteSmoke;
+                        if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
+                        {
+                            var insideRegion = LoadedMap.Regions.FirstOrDefault(r =>
+                                player.Z >= r.ZStart
+                                && player.Z <= r.ZEnd
+                                && player.Latitude >= r.LatitudeStart
+                                && player.Latitude <= r.LatitudeEnd
+                                && player.Longitude >= r.LongitudeStart
+                                && player.Longitude <= r.LongitudeEnd
+                            );
+
+                            if (insideRegion != null)
+                            {
+                                markerColor = ColorTranslator.FromHtml(insideRegion.MarkerColor);
+                            }
+
+                        }
+
+                        graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
 
                         Color borderColour = Color.Blue;
                         int borderSize = 1;

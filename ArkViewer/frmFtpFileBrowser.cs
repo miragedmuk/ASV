@@ -85,6 +85,8 @@ namespace ARKViewer
             txtFTPUsername.Text = SelectedServer.Username;
             txtFTPPassword.Text = SelectedServer.Password;
             udFTPPort.Value = SelectedServer.Port;
+            optFtpModeSftp.Checked = SelectedServer.Mode == 1;
+            optFtpModeFtp.Checked = SelectedServer.Mode == 0;
             chkPasswordVisibility.Visible = false;
         }
 
@@ -176,9 +178,9 @@ namespace ARKViewer
 
             try
             {
-                //var serverFiles = ftpClient.GetListing(filePath).OrderByDescending(o => o.Type).ThenBy(o => o.Name).ToList();
+                //var serverFiles1 = sftpClient.ListDirectory(filePath).OrderByDescending(o => o.IsDirectory).ThenBy(o => o.Name).ToList();
 
-                var serverFiles = sftpClient.ListDirectory(filePath).Where(f => (f.IsRegularFile || f.IsDirectory) && f.Name != "." && f.Name != "..").OrderByDescending(o => o.IsDirectory).ThenBy(o => o.Name).ToList();
+                var serverFiles = sftpClient.ListDirectory(filePath).Where(f => f.Name != "." && f.Name != "..").OrderByDescending(o => o.IsDirectory).ThenBy(o => o.Name).ToList();
 
                 if (filePath.Length > 0 && filePath != "/")
                 {

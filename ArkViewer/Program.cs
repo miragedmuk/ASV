@@ -568,7 +568,7 @@ namespace ARKViewer
                 string exportFolder = Path.GetDirectoryName(structureImageFilename);
                 if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
                 LogWriter.Info($"Exporting Structures Image.");
-                var image = exportManger.GetMapImagePlayerStructures(structureImageFilename, tribeId, playerId, 0, 0, new ASVStructureOptions(), new List<ContentMarker>());
+                var image = exportManger.GetMapImagePlayerStructures(structureImageFilename, tribeId, playerId, 0, 0, new ASVStructureOptions(), new List<ContentMarker>(), "");
                 if (image != null)
                 {
                     image.Save(structureImageFilename);
@@ -591,7 +591,7 @@ namespace ARKViewer
                 string exportFolder = Path.GetDirectoryName(playerImageFilename);
                 if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
                 LogWriter.Info($"Exporting Players Image.");
-                var image = exportManger.GetMapImagePlayers(tribeId, playerId, 0, 0, new ASVStructureOptions(), new List<ContentMarker>());
+                var image = exportManger.GetMapImagePlayers(tribeId, playerId, 0, 0, new ASVStructureOptions(), new List<ContentMarker>(), "");
                 if (image != null)
                 {
                     image.Save(playerImageFilename);
@@ -611,7 +611,7 @@ namespace ARKViewer
                 string exportFolder = Path.GetDirectoryName(wildImageFilename);
                 if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
                 LogWriter.Info($"Exporting Wilds Image.");
-                var image = exportManger.GetMapImageWild(wildClassName, "", wildMinLevel, wildMaxLevel, (float)filterLat, (float)filterLon, (float)filterRad, 0, 0, new ASVStructureOptions(), new List<ContentMarker>());
+                var image = exportManger.GetMapImageWild(wildClassName, "", wildMinLevel, wildMaxLevel, (float)filterLat, (float)filterLon, (float)filterRad, 0, 0, new ASVStructureOptions(), new List<ContentMarker>(), "");
                 if (image != null)
                 {
                     image.Save(tamedImageFilename);
@@ -631,7 +631,7 @@ namespace ARKViewer
                 string exportFolder = Path.GetDirectoryName(tamedImageFilename);
                 if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
                 LogWriter.Info($"Exporting Tames Image.");
-                var image = exportManger.GetMapImageTamed(tamedClassName, "", true, tribeId, playerId, 0, 0, new ASVStructureOptions(), new List<ContentMarker>());
+                var image = exportManger.GetMapImageTamed(tamedClassName, "", true, tribeId, playerId, 0, 0, new ASVStructureOptions(), new List<ContentMarker>(), "");
                 if (image != null)
                 {
                     image.Save(tamedImageFilename);
