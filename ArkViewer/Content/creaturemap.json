@@ -1,1 +1,1640 @@
-{"creatures":[{"ClassName":"Achatina_Character_BP_C","FriendlyName":"Achatina"},{"ClassName":"Allo_Character_BP_C","FriendlyName":"Allosaurus"},{"ClassName":"Ammonite_Character_C","FriendlyName":"Ammonite"},{"ClassName":"Angler_Character_BP_C","FriendlyName":"Anglerfish"},{"ClassName":"Ankylo_Character_BP_C","FriendlyName":"Ankylosaurus"},{"ClassName":"SpiderS_Character_BP_C","FriendlyName":"Araneo"},{"ClassName":"Archa_Character_BP_C","FriendlyName":"Archaeopteryx"},{"ClassName":"Argent_Character_BP_C","FriendlyName":"Argentavis"},{"ClassName":"Arthro_Character_BP_C","FriendlyName":"Arthropluera"},{"ClassName":"Baryonyx_Character_BP_C","FriendlyName":"Baryonyx"},{"ClassName":"Basilosaurus_Character_BP_C","FriendlyName":"Basilosaurus"},{"ClassName":"Toad_Character_BP_C","FriendlyName":"Beelzebufo"},{"ClassName":"Sauropod_Character_BP_C","FriendlyName":"Brontosaurus"},{"ClassName":"Turtle_Character_BP_C","FriendlyName":"Carbonemys"},{"ClassName":"Carno_Character_BP_C","FriendlyName":"Carnotaurus"},{"ClassName":"Beaver_Character_BP_C","FriendlyName":"Castoroides"},{"ClassName":"Chalico_Character_BP_C","FriendlyName":"Chalicotherium"},{"ClassName":"ChalkGolem_Character_BP_C","FriendlyName":"Chalk Golem"},{"ClassName":"Cnidaria_Character_BP_C","FriendlyName":"Cnidaria"},{"ClassName":"Coel_Character_BP_Ocean_C","FriendlyName":"Coelacanth (Ocean)"},{"ClassName":"Coel_Character_BP_C","FriendlyName":"Coelacanth"},{"ClassName":"Compy_Character_BP_C","FriendlyName":"Compy"},{"ClassName":"Daeodon_Character_BP_C","FriendlyName":"Daeodon"},{"ClassName":"Deathworm_Character_BP_C","FriendlyName":"Deathworm"},{"ClassName":"Deinonychus_Character_BP_C","FriendlyName":"Deinonychus"},{"ClassName":"Dilo_Character_BP_C","FriendlyName":"Dilophosaur"},{"ClassName":"Dimetro_Character_BP_C","FriendlyName":"Dimetrodon"},{"ClassName":"Dimorph_Character_BP_C","FriendlyName":"Dimorphodon"},{"ClassName":"Diplocaulus_Character_BP_C","FriendlyName":"Diplocaulus"},{"ClassName":"Diplodocus_Character_BP_C","FriendlyName":"Diplodocus"},{"ClassName":"Direbear_Character_BP_C","FriendlyName":"Dire Bear"},{"ClassName":"Direbear_LL_Character_BP_C","FriendlyName":"Dire Bear"},{"ClassName":"Direwolf_LL_Character_BP_C","FriendlyName":"Dire Wolf"},{"ClassName":"Direwolf_Character_BP_C","FriendlyName":"Dire Wolf"},{"ClassName":"Leech_Character_Diseased_C","FriendlyName":"Diseased Leech"},{"ClassName":"Dodo_Character_BP_C","FriendlyName":"Dodo"},{"ClassName":"Doed_Character_BP_C","FriendlyName":"Doedicurus"},{"ClassName":"DungBeetle_Character_BP_C","FriendlyName":"Dung Beetle"},{"ClassName":"Dunkle_Character_BP_C","FriendlyName":"Dunkleosteus"},{"ClassName":"Eel_Character_BP_C","FriendlyName":"Electrophorus"},{"ClassName":"Equus_Character_BP_C","FriendlyName":"Equus"},{"ClassName":"Euryp_Character_C","FriendlyName":"Eurypterid"},{"ClassName":"Wyvern_Character_BP_Fire_C","FriendlyName":"Fire Wyvern"},{"ClassName":"Galli_Character_BP_C","FriendlyName":"Gallimimus"},{"ClassName":"Bee_Queen_Character_BP_C","FriendlyName":"Giant Queen Bee"},{"ClassName":"Gigant_Character_BP_C","FriendlyName":"Giganotosaurus"},{"ClassName":"Gigant_Character_BP_TekCave_C","FriendlyName":"Giganotosaurus"},{"ClassName":"Bigfoot_Character_BP_C","FriendlyName":"Gigantopithecus"},{"ClassName":"Hesperornis_Character_BP_C","FriendlyName":"Hesperornis"},{"ClassName":"Hyaenodon_Character_BP_C","FriendlyName":"Hyaenodon"},{"ClassName":"IceGolem_Character_BP_C","FriendlyName":"Ice Golem"},{"ClassName":"Ragnarok_Wyvern_Override_Ice_C","FriendlyName":"Ice Wyvern"},{"ClassName":"Ichthyornis_Character_BP_C","FriendlyName":"Ichthyornis"},{"ClassName":"Dolphin_Character_BP_C","FriendlyName":"Ichthyosaurus"},{"ClassName":"Iguanodon_Character_BP_C","FriendlyName":"Iguanodon"},{"ClassName":"Jerboa_Character_BP_C","FriendlyName":"Jerboa"},{"ClassName":"Kairuku_Character_BP_C","FriendlyName":"Kairuku"},{"ClassName":"Kaprosuchus_Character_BP_C","FriendlyName":"Kaprosuchus"},{"ClassName":"Kentro_Character_BP_C","FriendlyName":"Kentrosaurus"},{"ClassName":"Lamprey_Character_C","FriendlyName":"Lamprey"},{"ClassName":"Leech_Character_C","FriendlyName":"Leech"},{"ClassName":"Leedsichthys_Character_BP_C","FriendlyName":"Leedsichthys"},{"ClassName":"Moth_Character_BP_C","FriendlyName":"Lymantria"},{"ClassName":"Lystro_Character_BP_C","FriendlyName":"Lystrosaurus"},{"ClassName":"Mammoth_Character_BP_C","FriendlyName":"Mammoth"},{"ClassName":"Manta_Character_BP_C","FriendlyName":"Manta"},{"ClassName":"Mantis_Character_BP_C","FriendlyName":"Mantis"},{"ClassName":"Stag_Character_BP_C","FriendlyName":"Megaloceros"},{"ClassName":"Megalodon_Character_BP_C","FriendlyName":"Megalodon"},{"ClassName":"Dragonfly_Character_BP_C","FriendlyName":"Meganeura"},{"ClassName":"Megatherium_Character_BP_C","FriendlyName":"Megatherium"},{"ClassName":"Megalosaurus_Character_BP_C","FriendlyName":"Megalosaurus"},{"ClassName":"Monkey_Character_BP_C","FriendlyName":"Mesopithecus"},{"ClassName":"Microraptor_Character_BP_C","FriendlyName":"Microraptor"},{"ClassName":"camelsaurus_Character_BP_C","FriendlyName":"Morellatops"},{"ClassName":"Mosa_Character_BP_C","FriendlyName":"Mosasaurus"},{"ClassName":"Moschops_Character_BP_C","FriendlyName":"Moschops"},{"ClassName":"Bat_Character_BP_C","FriendlyName":"Onyc"},{"ClassName":"Otter_Character_BP_C","FriendlyName":"Otter"},{"ClassName":"Oviraptor_Character_BP_C","FriendlyName":"Oviraptor"},{"ClassName":"Sheep_Character_BP_C","FriendlyName":"Ovis"},{"ClassName":"Jugbug_Oil_Character_BP_C","FriendlyName":"Oil Jugbug"},{"ClassName":"Pachy_Character_BP_C","FriendlyName":"Pachy"},{"ClassName":"Pachyrhino_Character_BP_C","FriendlyName":"Pachyrhinosaurus"},{"ClassName":"Paracer_Character_BP_C","FriendlyName":"Paraceratherium"},{"ClassName":"Para_Character_BP_C","FriendlyName":"Parasaur"},{"ClassName":"Pegomastax_Character_BP_C","FriendlyName":"Pegomastax"},{"ClassName":"Pela_Character_BP_C","FriendlyName":"Pelagornis"},{"ClassName":"Phiomia_Character_BP_C","FriendlyName":"Phiomia"},{"ClassName":"Phoenix_Character_BP_C","FriendlyName":"Phoenix"},{"ClassName":"Piranha_Character_BP_C","FriendlyName":"Piranha"},{"ClassName":"Plesiosaur_Character_BP_C","FriendlyName":"Plesiosaur"},{"ClassName":"Direbear_Character_Polar_C","FriendlyName":"Polar Bear"},{"ClassName":"Polar_Bear_C","FriendlyName":"Polar Bear"},{"ClassName":"Procoptodon_Character_BP_C","FriendlyName":"Procoptodon"},{"ClassName":"Ptero_Character_BP_C","FriendlyName":"Pteranodon"},{"ClassName":"Scorpion_Character_BP_C","FriendlyName":"Pulmonoscorpius"},{"ClassName":"Purlovia_Character_BP_C","FriendlyName":"Purlovia"},{"ClassName":"Purlovia_Character_BP_Polar_C","FriendlyName":"Purlovia (Polar)"},{"ClassName":"Quetz_Character_BP_C","FriendlyName":"Quetzal"},{"ClassName":"Raptor_Character_BP_C","FriendlyName":"Raptor"},{"ClassName":"Rex_Character_BP_C","FriendlyName":"Rex"},{"ClassName":"Salmon_Character_BP_C","FriendlyName":"Sabertooth Salmon"},{"ClassName":"Saber_Character_BP_C","FriendlyName":"Sabertooth"},{"ClassName":"Sarco_Character_BP_C","FriendlyName":"Sarco"},{"ClassName":"Spino_Character_BP_C","FriendlyName":"Spinosaur"},{"ClassName":"Stego_Character_BP_C","FriendlyName":"Stegosaurus"},{"ClassName":"Tapejara_Character_BP_C","FriendlyName":"Tapejara"},{"ClassName":"TerrorBird_Character_BP_C","FriendlyName":"Terror Bird"},{"ClassName":"Therizino_Character_BP_C","FriendlyName":"Therizinosaur"},{"ClassName":"SpineyLizard_Character_BP_C","FriendlyName":"Thorny Dragon"},{"ClassName":"Thylacoleo_Character_BP_C","FriendlyName":"Thylacoleo"},{"ClassName":"BoaFrill_Character_BP_C","FriendlyName":"Titanoboa"},{"ClassName":"Ant_Character_BP_C","FriendlyName":"Titanomyrma Drone"},{"ClassName":"FlyingAnt_Character_BP_C","FriendlyName":"Titanomyrma Soldier"},{"ClassName":"Titanosaur_Character_BP_C","FriendlyName":"Titanosaur"},{"ClassName":"Trike_Character_BP_C","FriendlyName":"Triceratops"},{"ClassName":"Trilobite_Character_C","FriendlyName":"Trilobite"},{"ClassName":"Troodon_Character_BP_C","FriendlyName":"Troodon"},{"ClassName":"Tusoteuthis_Character_BP_C","FriendlyName":"Tusoteuthis"},{"ClassName":"Equus_Character_BP_Unicorn_C","FriendlyName":"Unicorn"},{"ClassName":"Spindles_Character_BP_C","FriendlyName":"Velonasaur"},{"ClassName":"Jugbug_Water_Character_BP_C","FriendlyName":"Water Jugbug"},{"ClassName":"Rhino_Character_BP_C","FriendlyName":"Woolly Rhino"},{"ClassName":"Yeti_Character_BP_C","FriendlyName":"Yeti"},{"ClassName":"Yutyrannus_Character_BP_C","FriendlyName":"Yutyrannus"},{"ClassName":"BionicPara_Character_BP_C","FriendlyName":"Tek Parasaur"},{"ClassName":"BionicQuetz_Character_BP_C","FriendlyName":"Tek Quetz"},{"ClassName":"BionicRaptor_Character_BP_C","FriendlyName":"Tek Raptor"},{"ClassName":"BionicRex_Character_BP_C","FriendlyName":"Tek Rex"},{"ClassName":"BionicStego_Character_BP_C","FriendlyName":"Tek Stegosaurus"},{"ClassName":"Achatina_Character_BP_Aberrant_C","FriendlyName":"Aberrant Achatina"},{"ClassName":"Angler_Character_BP_Aberrant_C","FriendlyName":"Aberrant Anglerfish"},{"ClassName":"Ankylo_Character_BP_Aberrant_C","FriendlyName":"Aberrant Ankylosaurus"},{"ClassName":"SpiderS_Character_BP_Aberrant_C","FriendlyName":"Aberrant Araneo"},{"ClassName":"Arthro_Character_BP_Aberrant_C","FriendlyName":"Aberrant Arthropluera"},{"ClassName":"Baryonyx_Character_BP_Aberrant_C","FriendlyName":"Aberrant Baryonyx"},{"ClassName":"Toad_Character_BP_Aberrant_C","FriendlyName":"Aberrant Beelzebufo"},{"ClassName":"Turtle_Character_BP_Aberrant_C","FriendlyName":"Aberrant Carbonemys"},{"ClassName":"Carno_Character_BP_Aberrant_C","FriendlyName":"Aberrant Carnotaurus"},{"ClassName":"Coel_Character_BP_Aberrant_C","FriendlyName":"Aberrant Coelacanth"},{"ClassName":"Cnidaria_Character_BP_Aberrant_C","FriendlyName":"Aberrant Cnidaria"},{"ClassName":"Dimetro_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dimetrodon"},{"ClassName":"Dimorph_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dimorphodon"},{"ClassName":"Diplocaulus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Diplocaulus"},{"ClassName":"Diplodocus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Diplodocus"},{"ClassName":"Direbear_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dire Bear"},{"ClassName":"Dodo_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dodo"},{"ClassName":"Doed_Character_BP_Aberrant_C","FriendlyName":"Aberrant Doedicurus"},{"ClassName":"Eel_Character_BP_Aberrant_C","FriendlyName":"Aberrant Electrophorus"},{"ClassName":"Equus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Equus"},{"ClassName":"Iguanodon_Character_BP_Aberrant_C","FriendlyName":"Aberrant Iguanodon"},{"ClassName":"Lystro_Character_BP_Aberrant_C","FriendlyName":"Aberrant Lystrosaurus"},{"ClassName":"Manta_Character_BP_Aberrant_C","FriendlyName":"Aberrant Manta"},{"ClassName":"Megalania_Character_BP_C","FriendlyName":"Megalania"},{"ClassName":"Liopleurodon_Character_BP_C","FriendlyName":"Liopleurodon"},{"ClassName":"Megalania_Character_BP_Aberrant_C","FriendlyName":"Aberrant Megalania"},{"ClassName":"Megalosaurus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Megalosaurus"},{"ClassName":"Dragonfly_Character_BP_Aberrant_C","FriendlyName":"Aberrant Meganeura"},{"ClassName":"Moschops_Character_BP_Aberrant_C","FriendlyName":"Aberrant Moschops"},{"ClassName":"Otter_Character_BP_Aberrant_C","FriendlyName":"Aberrant Otter"},{"ClassName":"Sheep_Character_BP_Aberrant_C","FriendlyName":"Aberrant Ovis"},{"ClassName":"Paracer_Character_BP_Aberrant_C","FriendlyName":"Aberrant Paraceratherium"},{"ClassName":"Para_Character_BP_Aberrant_C","FriendlyName":"Aberrant Parasaur"},{"ClassName":"Piranha_Character_BP_Aberrant_C","FriendlyName":"Aberrant Piranha"},{"ClassName":"Scorpion_Character_BP_Aberrant_C","FriendlyName":"Aberrant Pulmonoscorpius"},{"ClassName":"Purlovia_Character_BP_Aberrant_C","FriendlyName":"Aberrant Purlovia"},{"ClassName":"Raptor_Character_BP_Aberrant_C","FriendlyName":"Aberrant Raptor"},{"ClassName":"Salmon_Character_Aberrant_C","FriendlyName":"Aberrant Salmon"},{"ClassName":"Sarco_Character_BP_Aberrant_C","FriendlyName":"Aberrant Sarco"},{"ClassName":"Spino_Character_BP_Aberrant_C","FriendlyName":"Aberrant Spino"},{"ClassName":"Stego_Character_BP_Aberrant_C","FriendlyName":"Aberrant Stegosaurus"},{"ClassName":"BoaFrill_Character_BP_Aberrant_C","FriendlyName":"Aberrant Titanoboa"},{"ClassName":"Trike_Character_BP_Aberrant_C","FriendlyName":"Aberrant Triceratops"},{"ClassName":"Trilobite_Character_Aberrant_C","FriendlyName":"Aberrant Trilobite"},{"ClassName":"LanternPug_Character_BP_C","FriendlyName":"Bulbdog"},{"ClassName":"LanternBird_Character_BP_C","FriendlyName":"Featherlight"},{"ClassName":"Lightbug_Character_BaseBP_C","FriendlyName":"Glowbug"},{"ClassName":"LanternLizard_Character_BP_C","FriendlyName":"Glowtail"},{"ClassName":"Crab_Character_BP_C","FriendlyName":"Karkinos"},{"ClassName":"CaveWolf_Character_BP_C","FriendlyName":"Ravager"},{"ClassName":"MoleRat_Character_BP_C","FriendlyName":"Roll Rat"},{"ClassName":"Pteroteuthis_Char_BP_C","FriendlyName":"Seeker"},{"ClassName":"Xenomorph_Character_BP_Male_C","FriendlyName":"Reaper"},{"ClassName":"Xenomorph_Character_BP_Male_Chupa_C","FriendlyName":"Reaper King"},{"ClassName":"Xenomorph_Character_BP_Male_Minion_C","FriendlyName":"Reaper King"},{"ClassName":"Xenomorph_Character_BP_Female_C","FriendlyName":"Reaper Queen"},{"ClassName":"ChupaCabra_Character_BP_C","FriendlyName":"Nameless"},{"ClassName":"RockDrake_Character_BP_C","FriendlyName":"Rock Drake"},{"ClassName":"EndDrone_Character_BP_C","FriendlyName":"Attack Drone"},{"ClassName":"EndDrone_Character_BP_Hard_C","FriendlyName":"Attack Drone"},{"ClassName":"EndDrone_Character_BP_Med_C","FriendlyName":"Attack Drone"},{"ClassName":"EndDrone_Character_BP_Easy_C","FriendlyName":"Attack Drone"},{"ClassName":"Basilisk_Character_BP_C","FriendlyName":"Basilisk"},{"ClassName":"Arthro_Character_BP_Corrupt_C","FriendlyName":"Corrupted Arthropluera"},{"ClassName":"Carno_Character_BP_Corrupt_C","FriendlyName":"Corrupted Carnotaurus"},{"ClassName":"Chalico_Character_BP_Corrupt_C","FriendlyName":"Corrupted Chalicotherium"},{"ClassName":"CorruptTumor_Character_BP_C","FriendlyName":"Corrupt Tumor"},{"ClassName":"Dilo_Character_BP_Corrupt_C","FriendlyName":"Corrupted Dilophosaur"},{"ClassName":"Dimorph_Character_BP_Corrupt_C","FriendlyName":"Corrupted Dimorphodon"},{"ClassName":"Gigant_Character_BP_Corrupt_C","FriendlyName":"Corrupted Giganotosaurus"},{"ClassName":"Paracer_Character_BP_Corrupt_C","FriendlyName":"Corrupted Paraceratherium"},{"ClassName":"Ptero_Character_BP_Corrupt_C","FriendlyName":"Corrupted Pteranodon"},{"ClassName":"Raptor_Character_BP_Corrupt_C","FriendlyName":"Corrupted Raptor"},{"ClassName":"Xenomorph_Character_BP_Male_Tamed_Corrupt_C","FriendlyName":"Corrupted Reaper King"},{"ClassName":"Rex_Character_BP_Corrupt_C","FriendlyName":"Corrupted Rex"},{"ClassName":"RockDrake_Character_BP_Corrupt_C","FriendlyName":"Corrupted Rock Drake"},{"ClassName":"Spino_Character_BP_Corrupt_C","FriendlyName":"Corrupted Spino"},{"ClassName":"Stego_Character_BP_Corrupt_C","FriendlyName":"Corrupted Stegosaurus"},{"ClassName":"Trike_Character_BP_Corrupt_C","FriendlyName":"Corrupted Triceratops"},{"ClassName":"Wyvern_Character_BP_Fire_Corrupt_C","FriendlyName":"Corrupted Wyvern"},{"ClassName":"EndTank_Character_BP_C","FriendlyName":"Defense Unit"},{"ClassName":"Enforcer_Character_BP_C","FriendlyName":"Enforcer"},{"ClassName":"Gacha_Character_BP_C","FriendlyName":"Gacha"},{"ClassName":"Gacha_Claus_Character_BP_C","FriendlyName":"Gacha Claus"},{"ClassName":"GasBags_Character_BP_C","FriendlyName":"Gasbags"},{"ClassName":"IceJumper_Character_BP_C","FriendlyName":"Managarmr"},{"ClassName":"Mek_Character_BP_C","FriendlyName":"Mek"},{"ClassName":"MegaMek_Character_BP_C","FriendlyName":"Mega Mek"},{"ClassName":"Scout_Character_BP_C","FriendlyName":"Scout"},{"ClassName":"Owl_Character_BP_C","FriendlyName":"Snow Owl"},{"ClassName":"Griffin_Character_BP_C","FriendlyName":"Griffin"},{"ClassName":"Griffin_Character_Minion_BP_C","FriendlyName":"Griffin"},{"ClassName":"Iceworm_Character_Minion_BP_smaller_C","FriendlyName":"Iceworm"},{"ClassName":"LavaGolem_Character_BP_C","FriendlyName":"Lava Golem"},{"ClassName":"Wyvern_Character_BP_Lightning_C","FriendlyName":"Lightning Wyvern"},{"ClassName":"Wyvern_Character_BP_Poison_C","FriendlyName":"Poison Wyvern"},{"ClassName":"MegaBasilisk_Character_BP_C","FriendlyName":"Alpha Basilisk"},{"ClassName":"MegaCarno_Character_BP_C","FriendlyName":"Alpha Carnotaurus"},{"ClassName":"MegaDeathworm_Character_BP_C","FriendlyName":"Alpha Deathworm"},{"ClassName":"MegaWyvern_Character_BP_Fire_C","FriendlyName":"Alpha Fire Wyvern"},{"ClassName":"MegaCrab_Character_BP_C","FriendlyName":"Alpha Karkinos"},{"ClassName":"Alpha_Leedsichthys_Character_BP_C","FriendlyName":"Alpha Leedsichthys"},{"ClassName":"Mosa_Character_BP_Mega_C","FriendlyName":"Alpha Mosasaur"},{"ClassName":"Mosa_Character_BP_Mega_Cave_C","FriendlyName":"Alpha Mosasaur (Cave)"},{"ClassName":"MegaMegalodon_Character_BP_C","FriendlyName":"Alpha Megalodon"},{"ClassName":"MegaRaptor_Character_BP_C","FriendlyName":"Alpha Raptor"},{"ClassName":"MegaRex_Character_BP_C","FriendlyName":"Alpha T-Rex"},{"ClassName":"Mega_Tusoteuthis_Character_BP_C","FriendlyName":"Alpha Tusoteuthis"},{"ClassName":"MegaXenomorph_Character_BP_Male_Surface_C","FriendlyName":"Alpha Reaper King (Surface)"},{"ClassName":"MegaRex_Character_BP_Corrupt_C","FriendlyName":"Alpha Corrupted Rex"},{"ClassName":"Enraged Triceratops","FriendlyName":"Alpha Corrupted Triceratops"},{"ClassName":"DesertKaiju_FirstFlockChar_BP_C","FriendlyName":"Desert Titan Flock"},{"ClassName":"DesertKaiju_Character_BP_C","FriendlyName":"Desert Titan"},{"ClassName":"DesertKaiju_Character_BP_Hard_C","FriendlyName":"Desert Titan (Alpha)"},{"ClassName":"DesertKaiju_Character_BP_Medium_C","FriendlyName":"Desert Titan (Beta)"},{"ClassName":"DesertKaiju_Character_BP_Easy_C","FriendlyName":"Desert Titan (Gamma)"},{"ClassName":"ForestKaiju_Character_BP_C","FriendlyName":"Forest Titan"},{"ClassName":"ForestKaiju_Character_BP_Hard_C","FriendlyName":"Forest Titan (Alpha)"},{"ClassName":"ForestKaiju_Character_BP_Medium_C","FriendlyName":"Forest Titan (Beta)"},{"ClassName":"ForestKaiju_Character_BP_Easy_C","FriendlyName":"Forest Titan (Gamma)"},{"ClassName":"IceKaiju_Character_BP_C","FriendlyName":"Ice Titan"},{"ClassName":"IceKaiju_Character_BP_Hard_C","FriendlyName":"Ice Titan (Alpha)"},{"ClassName":"IceKaiju_Character_BP_Medium_C","FriendlyName":"Ice Titan (Beta)"},{"ClassName":"IceKaiju_Character_BP_Easy_C","FriendlyName":"Ice Titan (Gamma)"},{"ClassName":"KingKaiju_Character_BP_Alpha_C","FriendlyName":"King Titan (Alpha)"},{"ClassName":"KingKaiju_Character_BP_Beta_C","FriendlyName":"King Titan (Beta)"},{"ClassName":"KingKaiju_Character_BP_Gamma_C","FriendlyName":"King Titan (Gamma)"},{"ClassName":"Dragon_Character_BP_Boss_Hard_C","FriendlyName":"Dragon (Alpha)"},{"ClassName":"Dragon_Character_BP_Boss_Medium_C","FriendlyName":"Dragon (Beta)"},{"ClassName":"Dragon_Character_BP_Boss_Easy_C","FriendlyName":"Dragon (Gamma)"},{"ClassName":"Dragon_Character_BP_Boss_Hard_Ragnarok_C","FriendlyName":"Dragon (Alpha)"},{"ClassName":"Dragon_Character_BP_Boss_Medium_Ragnarok_C","FriendlyName":"Dragon (Beta)"},{"ClassName":"Dragon_Character_BP_Boss_Easy_Ragnarok_C","FriendlyName":"Dragon (Gamma)"},{"ClassName":"EndBossSpiderL_Character_BP_C","FriendlyName":"Broodmother"},{"ClassName":"EndBossSpiderL_Character_BP_Hard_C","FriendlyName":"Broodmother (Alpha)"},{"ClassName":"EndBossSpiderL_Character_BP_Medium_C","FriendlyName":"Broodmother (Beta)"},{"ClassName":"EndBossSpiderL_Character_BP_Easy_C","FriendlyName":"Broodmother (Gamma)"},{"ClassName":"SpiderL_Character_BP_Hard_C","FriendlyName":"Broodmother (Alpha)"},{"ClassName":"SpiderL_Character_BP_Medium_C","FriendlyName":"Broodmother (Beta)"},{"ClassName":"SpiderL_Character_BP_Easy_C","FriendlyName":"Broodmother (Gamma)"},{"ClassName":"SpiderL_Character_BP_TheCenterHard_C","FriendlyName":"Broodmother (Alpha)"},{"ClassName":"SpiderL_Character_BP_TheCenterMedium_C","FriendlyName":"Broodmother (Beta)"},{"ClassName":"SpiderL_Character_BP_TheCenterEasy_C","FriendlyName":"Broodmother (Gamma)"},{"ClassName":"SpiderL_VAL_Character_BP_C","FriendlyName":"Valguero Broodmother"},{"ClassName":"SpiderL_Character_BP_C","FriendlyName":"Dominus Broodmother"},{"ClassName":"Gorilla_Character_BP_Hard_C","FriendlyName":"Megapithecus (Alpha)"},{"ClassName":"Gorilla_Character_BP_Medium_C","FriendlyName":"Megapithecus (Beta)"},{"ClassName":"Gorilla_Character_BP_Easy_C","FriendlyName":"Megapithecus (Gamma)"},{"ClassName":"Gorilla_Character_BP_TheCenter_Hard_C","FriendlyName":"Megapithecus (Alpha)"},{"ClassName":"Gorilla_Character_BP_TheCenter_Medium_C","FriendlyName":"Megapithecus (Beta)"},{"ClassName":"Gorilla_Character_BP_TheCenter_Easy_C","FriendlyName":"Megapithecus (Gamma)"},{"ClassName":"Iceworm_Queen_Character_BP_C","FriendlyName":"Iceworm Queen"},{"ClassName":"Manticore_Character_BP_C","FriendlyName":"Manticore"},{"ClassName":"Manticore_Character_BP_Hard_C","FriendlyName":"Manticore (Alpha)"},{"ClassName":"Manticore_Character_BP_Medium_C","FriendlyName":"Manticore (Beta)"},{"ClassName":"Manticore_Character_BP_Easy_C","FriendlyName":"Manticore (Gamma)"},{"ClassName":"Manticore_Character_BP_Hard_Ragnarok_C","FriendlyName":"Manticore (Alpha)"},{"ClassName":"Manticore_Character_BP_Medium_Ragnarok_C","FriendlyName":"Manticore (Beta)"},{"ClassName":"Manticore_Character_BP_Easy_Ragnarok_C","FriendlyName":"Manticore (Gamma)"},{"ClassName":"Bone_MegaWyvern_Character_BP_Fire_C","FriendlyName":"Bone Fire Wyvern"},{"ClassName":"DodoWyvern_Character_BP_C","FriendlyName":"Dodo Wyvern"},{"ClassName":"DodoRex_Character_BP_C","FriendlyName":"Dodo Rex"},{"ClassName":"Bone_Sauropod_Character_BP_C","FriendlyName":"Skeletal Bronto"},{"ClassName":"Bone_MegaCarno_Character_BP_C","FriendlyName":"Skeletal Carnotaurus"},{"ClassName":"Bone_Gigant_Character_BP_C","FriendlyName":"Skeletal Gigantosaurus"},{"ClassName":"Bone_Jerboa_Character_BP_C","FriendlyName":"Skeletal Jerboa"},{"ClassName":"Bone_Quetz_Character_BP_C","FriendlyName":"Skeletal Quetzal"},{"ClassName":"Bone_MegaRaptor_Character_BP_C","FriendlyName":"Skeletal Raptor"},{"ClassName":"Bone_MegaRex_Character_BP_C","FriendlyName":"Skeletal Rex"},{"ClassName":"Bone_Stego_Character_BP_C","FriendlyName":"Skeletal Stego"},{"ClassName":"Bone_Trike_Character_BP_C","FriendlyName":"Skeletal Trike"},{"ClassName":"Wyvern_Character_BP_ZombieFire","FriendlyName":"Zombie Fire Wyvern"},{"ClassName":"Wyvern_Character_BP_ZombieLightning","FriendlyName":"Zombie Lightning Wyvern"},{"ClassName":"Wyvern_Character_BP_ZombiePoison","FriendlyName":"Zombie Poison Wyvern"},{"ClassName":"Wyvern_Character_BP_ZombieFire_C","FriendlyName":"Zombie Fire Wyvern"},{"ClassName":"Wyvern_Character_BP_ZombieLightning_C","FriendlyName":"Zombie Lightning Wyvern"},{"ClassName":"Wyvern_Character_BP_ZombiePoison_C","FriendlyName":"Zombie Poison Wyvern"},{"ClassName":"ZombieWyvern_Character_BP_Fire_C","FriendlyName":"Zombie Fire Wyvern"},{"ClassName":"ZombieWyvern_Character_BP_Poison_C","FriendlyName":"Zombie Poison Wyvern"},{"ClassName":"ZombieWyvern_Character_BP_Lightning_C","FriendlyName":"Zombie Lightning Wyvern"},{"ClassName":"ZombieDodo_Character_BP_C","FriendlyName":"Zomdodo"},{"ClassName":"Turkey_Character_BP_C","FriendlyName":"Turkey"},{"ClassName":"MotorRaft_BP_C","FriendlyName":"Motorboat"},{"ClassName":"Raft_BP_C","FriendlyName":"Raft"},{"ClassName":"RockGolem_Character_BP_C","FriendlyName":"Rock Elemental"},{"ClassName":"RubbleGolem_Character_BP_C","FriendlyName":"Rubble Golem"},{"ClassName":"Vulture_Character_BP_C","FriendlyName":"Vulture"},{"ClassName":"Bigfoot_Character_BP_Aberrant_C","FriendlyName":"Aberrant Gigantopithecus"},{"ClassName":"ChupaCabra_Character_BP_Surface_C","FriendlyName":"Nameless (Surface)"},{"ClassName":"DungBeetle_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dung Beetle"},{"ClassName":"LanternGoat_Character_BP_C","FriendlyName":"Shinehorn"},{"ClassName":"Pteroteuthis_Char_BP_Surface_C","FriendlyName":"Seeker (Surface)"},{"ClassName":"Xenomorph_Character_BP_Male_Surface_C","FriendlyName":"Reaper King (Surface)"},{"ClassName":"Xenomorph_Character_BP_Male_Tamed_C","FriendlyName":"Reaper King"},{"ClassName":"BionicTrike_Character_BP_C","FriendlyName":"Tek Trike"},{"ClassName":"Bog_Para_Character_BP_C","FriendlyName":"X-Parasaur"},{"ClassName":"Bog_Paracer_Character_BP_C","FriendlyName":"X-Paracer"},{"ClassName":"Bog_Raptor_Character_BP_C","FriendlyName":"X-Raptor"},{"ClassName":"Bog_Spino_Character_BP_C","FriendlyName":"X-Spino"},{"ClassName":"BogSpider_Character_BP_C","FriendlyName":"Bloodstalker"},{"ClassName":"Cherufe_Character_BP_C","FriendlyName":"Magmasaur"},{"ClassName":"EndDrone_Lunar_Character_BP_C","FriendlyName":"X-Drone"},{"ClassName":"EndTank_Lunar_Character_BP_C","FriendlyName":"X-Defense Unit"},{"ClassName":"GiantTurtle_Character_BP_C","FriendlyName":"Megachelon"},{"ClassName":"InsectSwarmChar_BP_C","FriendlyName":"Insect Swarm"},{"ClassName":"Lunar_Salmon_Character_BP_C","FriendlyName":"X-Salmon"},{"ClassName":"Ocean_Basilosaurus_Character_BP_C","FriendlyName":"X-Basilosaurus"},{"ClassName":"Ocean_Dolphin_Character_BP_C","FriendlyName":"X-Ichthyosaurus"},{"ClassName":"Ocean_Dunkle_Character_BP_C","FriendlyName":"X-Dunkleosteus"},{"ClassName":"Ocean_Megalodon_Character_BP_C","FriendlyName":"X-Megalodon"},{"ClassName":"Ocean_Mosa_Character_BP_C","FriendlyName":"X-Mosasaur"},{"ClassName":"Rare_Lunar_Salmon_Character_BP_C","FriendlyName":"X-Salmon (Rare)"},{"ClassName":"Shapeshifter_Small_Character_BP_C","FriendlyName":"Ferox (Small)"},{"ClassName":"Shapeshifter_Large_Character_BP_C","FriendlyName":"Ferox (Large)"},{"ClassName":"SpaceWhale_Character_BP_C","FriendlyName":"Astrocetus"},{"ClassName":"MicrobeSwarmChar_BP_C","FriendlyName":"Parakeet Fish School"},{"ClassName":"Volcano_Golem_Character_BP_C","FriendlyName":"X-Rock Elemental"},{"ClassName":"Xenomorph_Character_BP_Male_Lunar_C","FriendlyName":"X-Reaper King"},{"ClassName":"Bog_Tapejara_Character_BP_C","FriendlyName":"X-Tapejara"},{"ClassName":"Snow_Argent_Character_BP_C","FriendlyName":"X-Argentavis"},{"ClassName":"Snow_Rhino_Character_BP_C","FriendlyName":"X-Rhino"},{"ClassName":"Snow_Saber_Character_BP_C","FriendlyName":"X-Sabertooth"},{"ClassName":"Snow_Yutyrannus_Character_BP_C","FriendlyName":"X-Yutyrannus"},{"ClassName":"Volcano_Allo_Character_BP_C","FriendlyName":"X-Allosaurus"},{"ClassName":"Volcano_Ankylo_Character_BP_C","FriendlyName":"X-Ankylosaurus"},{"ClassName":"Volcano_Rex_Character_BP_C","FriendlyName":"X-Rex"},{"ClassName":"Volcano_Trike_Character_BP_C","FriendlyName":"X-Triceratops"},{"ClassName":"Snow_Otter_Character_BP_C","FriendlyName":"X-Otter"},{"ClassName":"CrystalWyvern_Character_BP_Blood_C","FriendlyName":"Wyvern (Blood)"},{"ClassName":"CrystalWyvern_Character_BP_WS_C","FriendlyName":"Wyvern (Tropical)"},{"ClassName":"CrystalWyvern_Character_BP_Ember_C","FriendlyName":"Wyvern (Ember)"},{"ClassName":"Dodo_Character_BP_Birthday_C","FriendlyName":"Dodo (Birthday)"},{"ClassName":"HoneyBee_Character_BP_C","FriendlyName":"Honey Bee"},{"ClassName":"Tropeognathus_Character_BP_C","FriendlyName":"Tropeognathus"},{"ClassName":"CrystalWyvern_Character_BP_Mega_C","FriendlyName":"Alpha Crystal Wyvern"},{"ClassName":"TekWyvern_Character_BP_C","FriendlyName":"Voidwyrm"},{"ClassName":"Sauropod_Character_BP_Rockwell_C","FriendlyName":"R-Bronto"},{"ClassName":"Turtle_Character_BP_Rockwell_C","FriendlyName":"R-Carbonemys"},{"ClassName":"Dilo_Character_BP_Rockwell_C","FriendlyName":"R-Dilophosaur"},{"ClassName":"Allo_Character_BP_Rockwell_C","FriendlyName":"R-Allosaurus"},{"ClassName":"Quetz_Character_BP_Rockwell_C","FriendlyName":"R-Quetzal"},{"ClassName":"Gigant_Character_BP_Rockwell_C","FriendlyName":"R-Giganotosaurus"},{"ClassName":"Carno_Character_BP_Rockwell_C","FriendlyName":"R-Carnotaurus"},{"ClassName":"Spindles_Character_BP_Rockwell_C","FriendlyName":"R-Velonasaur"},{"ClassName":"TekStrider_Character_BP_C","FriendlyName":"Tek Stryder"},{"ClassName":"MilkGlider_Character_BP_C","FriendlyName":"Maewing"},{"ClassName":"SpaceDolphin_Character_BP_C","FriendlyName":"Astrodelphis"},{"ClassName":"LionfishLion_Character_BP_C","FriendlyName":"Shadowmane"},{"ClassName":"Summoner_Character_BP_C","FriendlyName":"Summoner"},{"ClassName":"Brain_Slug","FriendlyName":"Noglin"},{"ClassName":"Xenomorph_Character_BP_Male_Gen2_C","FriendlyName":"R-Reaper King"},{"ClassName":"Xenomorph_Character_BP_Female_Gen2_C","FriendlyName":"R-Reaper Queen"},{"ClassName":"Direwolf_Character_BP_Eden_C","FriendlyName":"R-Direwolf"},{"ClassName":"Para_Character_BP_Eden_C","FriendlyName":"R-Parasaur"},{"ClassName":"Owl_Character_BP_Eden_C","FriendlyName":"R-Snow Owl"},{"ClassName":"Thylacoleo_Character_BP_Eden_C","FriendlyName":"R-Thylacoleo"},{"ClassName":"Daeodon_Character_BP_Eden_C","FriendlyName":"R-Daeodon"},{"ClassName":"Megatherium_Character_BP_Eden_C","FriendlyName":"R-Megatherium"},{"ClassName":"Equus_Character_BP_Eden_C","FriendlyName":"R-Equus"},{"ClassName":"GasBags_Character_BP_Eden_C","FriendlyName":"R-Gasbags"},{"ClassName":"Procoptodon_Character_BP_Eden_C","FriendlyName":"R-Procoptodon"},{"ClassName":"Macrophage_Swarm_Character_C","FriendlyName":"Macrophage"},{"ClassName":"Defender_Character_BP_C","FriendlyName":"Defense Unit"},{"ClassName":"Xenomorph_Character_BP_Male_Tamed_Gen2_C","FriendlyName":"R-Reaper King"},{"ClassName":"TekHoverSkiff_Character_BP_C","FriendlyName":"Tek Skiff"},{"ClassName":"Megalosaurus_Character_BP_TekCave_C","FriendlyName":"Megalosaurus (Tek Cave)"}]}
+{
+  "creatures": [
+    {
+      "ClassName": "Fenrir_Character_BP_C",
+      "FriendlyName": "Fenrir"
+    },
+    {
+      "ClassName": "Canoe_BP_C",
+      "FriendlyName": "Canoe"
+    },
+    {
+      "ClassName": "Fjordhawk_Character_BP_C",
+      "FriendlyName": "Fjordhawk"
+    },
+    {
+      "ClassName": "Desmodus_Character_BP_C",
+      "FriendlyName": "Desmodus"
+    },
+    {
+      "ClassName": "Andrewsarchus_Character_BP_C",
+      "FriendlyName": "Andrewsarchus"
+    },
+    {
+      "ClassName": "Monkey_Character_BP_Aggressive_Med_C",
+      "FriendlyName": "Mesopithecus (Boss Minion) (Beta)"
+    },
+    {
+      "ClassName": "Dinopithecus_Character_BP_C",
+      "FriendlyName": "Dinopithecus"
+    },
+    {
+      "ClassName": "Exosuit_RTS_Character_BP_C",
+      "FriendlyName": "Exo Mek"
+    },
+    {
+      "ClassName": "Sinomacrops_Character_BP_C",
+      "FriendlyName": "Sinomacrops"
+    },
+    {
+      "ClassName": "BunnyOviraptor_Character_BP_C",
+      "FriendlyName": "Bunny Oviraptor"
+    },
+    {
+      "ClassName": "Amargasaurus_Character_BP_C",
+      "FriendlyName": "Amargasaurus"
+    },
+    {
+      "ClassName": "Dodo_Character_BP_Bunny_C",
+      "FriendlyName": "Bunny Dodo"
+    },
+    {
+      "ClassName": "Achatina_Character_BP_C",
+      "FriendlyName": "Achatina"
+    },
+    {
+      "ClassName": "Allo_Character_BP_C",
+      "FriendlyName": "Allosaurus"
+    },
+    {
+      "ClassName": "Ammonite_Character_C",
+      "FriendlyName": "Ammonite"
+    },
+    {
+      "ClassName": "Angler_Character_BP_C",
+      "FriendlyName": "Anglerfish"
+    },
+    {
+      "ClassName": "Ankylo_Character_BP_C",
+      "FriendlyName": "Ankylosaurus"
+    },
+    {
+      "ClassName": "SpiderS_Character_BP_C",
+      "FriendlyName": "Araneo"
+    },
+    {
+      "ClassName": "Archa_Character_BP_C",
+      "FriendlyName": "Archaeopteryx"
+    },
+    {
+      "ClassName": "Argent_Character_BP_C",
+      "FriendlyName": "Argentavis"
+    },
+    {
+      "ClassName": "Arthro_Character_BP_C",
+      "FriendlyName": "Arthropluera"
+    },
+    {
+      "ClassName": "Baryonyx_Character_BP_C",
+      "FriendlyName": "Baryonyx"
+    },
+    {
+      "ClassName": "Basilosaurus_Character_BP_C",
+      "FriendlyName": "Basilosaurus"
+    },
+    {
+      "ClassName": "Toad_Character_BP_C",
+      "FriendlyName": "Beelzebufo"
+    },
+    {
+      "ClassName": "Sauropod_Character_BP_C",
+      "FriendlyName": "Brontosaurus"
+    },
+    {
+      "ClassName": "Turtle_Character_BP_C",
+      "FriendlyName": "Carbonemys"
+    },
+    {
+      "ClassName": "Carno_Character_BP_C",
+      "FriendlyName": "Carnotaurus"
+    },
+    {
+      "ClassName": "Beaver_Character_BP_C",
+      "FriendlyName": "Castoroides"
+    },
+    {
+      "ClassName": "Chalico_Character_BP_C",
+      "FriendlyName": "Chalicotherium"
+    },
+    {
+      "ClassName": "ChalkGolem_Character_BP_C",
+      "FriendlyName": "Chalk Golem"
+    },
+    {
+      "ClassName": "Cnidaria_Character_BP_C",
+      "FriendlyName": "Cnidaria"
+    },
+    {
+      "ClassName": "Coel_Character_BP_Ocean_C",
+      "FriendlyName": "Coelacanth (Ocean)"
+    },
+    {
+      "ClassName": "Coel_Character_BP_C",
+      "FriendlyName": "Coelacanth"
+    },
+    {
+      "ClassName": "Compy_Character_BP_C",
+      "FriendlyName": "Compy"
+    },
+    {
+      "ClassName": "Daeodon_Character_BP_C",
+      "FriendlyName": "Daeodon"
+    },
+    {
+      "ClassName": "Deathworm_Character_BP_C",
+      "FriendlyName": "Deathworm"
+    },
+    {
+      "ClassName": "Deinonychus_Character_BP_C",
+      "FriendlyName": "Deinonychus"
+    },
+    {
+      "ClassName": "Dilo_Character_BP_C",
+      "FriendlyName": "Dilophosaur"
+    },
+    {
+      "ClassName": "Dimetro_Character_BP_C",
+      "FriendlyName": "Dimetrodon"
+    },
+    {
+      "ClassName": "Dimorph_Character_BP_C",
+      "FriendlyName": "Dimorphodon"
+    },
+    {
+      "ClassName": "Diplocaulus_Character_BP_C",
+      "FriendlyName": "Diplocaulus"
+    },
+    {
+      "ClassName": "Diplodocus_Character_BP_C",
+      "FriendlyName": "Diplodocus"
+    },
+    {
+      "ClassName": "Direbear_Character_BP_C",
+      "FriendlyName": "Dire Bear"
+    },
+    {
+      "ClassName": "Direbear_LL_Character_BP_C",
+      "FriendlyName": "Dire Bear"
+    },
+    {
+      "ClassName": "Direwolf_LL_Character_BP_C",
+      "FriendlyName": "Dire Wolf"
+    },
+    {
+      "ClassName": "Direwolf_Character_BP_C",
+      "FriendlyName": "Dire Wolf"
+    },
+    {
+      "ClassName": "Leech_Character_Diseased_C",
+      "FriendlyName": "Diseased Leech"
+    },
+    {
+      "ClassName": "Dodo_Character_BP_C",
+      "FriendlyName": "Dodo"
+    },
+    {
+      "ClassName": "Doed_Character_BP_C",
+      "FriendlyName": "Doedicurus"
+    },
+    {
+      "ClassName": "DungBeetle_Character_BP_C",
+      "FriendlyName": "Dung Beetle"
+    },
+    {
+      "ClassName": "Dunkle_Character_BP_C",
+      "FriendlyName": "Dunkleosteus"
+    },
+    {
+      "ClassName": "Eel_Character_BP_C",
+      "FriendlyName": "Electrophorus"
+    },
+    {
+      "ClassName": "Equus_Character_BP_C",
+      "FriendlyName": "Equus"
+    },
+    {
+      "ClassName": "Euryp_Character_C",
+      "FriendlyName": "Eurypterid"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Fire_C",
+      "FriendlyName": "Fire Wyvern"
+    },
+    {
+      "ClassName": "Galli_Character_BP_C",
+      "FriendlyName": "Gallimimus"
+    },
+    {
+      "ClassName": "Bee_Queen_Character_BP_C",
+      "FriendlyName": "Giant Queen Bee"
+    },
+    {
+      "ClassName": "Gigant_Character_BP_C",
+      "FriendlyName": "Giganotosaurus"
+    },
+    {
+      "ClassName": "Gigant_Character_BP_TekCave_C",
+      "FriendlyName": "Giganotosaurus"
+    },
+    {
+      "ClassName": "Bigfoot_Character_BP_C",
+      "FriendlyName": "Gigantopithecus"
+    },
+    {
+      "ClassName": "Hesperornis_Character_BP_C",
+      "FriendlyName": "Hesperornis"
+    },
+    {
+      "ClassName": "Hyaenodon_Character_BP_C",
+      "FriendlyName": "Hyaenodon"
+    },
+    {
+      "ClassName": "IceGolem_Character_BP_C",
+      "FriendlyName": "Ice Golem"
+    },
+    {
+      "ClassName": "Ragnarok_Wyvern_Override_Ice_C",
+      "FriendlyName": "Ice Wyvern"
+    },
+    {
+      "ClassName": "Ichthyornis_Character_BP_C",
+      "FriendlyName": "Ichthyornis"
+    },
+    {
+      "ClassName": "Dolphin_Character_BP_C",
+      "FriendlyName": "Ichthyosaurus"
+    },
+    {
+      "ClassName": "Iguanodon_Character_BP_C",
+      "FriendlyName": "Iguanodon"
+    },
+    {
+      "ClassName": "Jerboa_Character_BP_C",
+      "FriendlyName": "Jerboa"
+    },
+    {
+      "ClassName": "Kairuku_Character_BP_C",
+      "FriendlyName": "Kairuku"
+    },
+    {
+      "ClassName": "Kaprosuchus_Character_BP_C",
+      "FriendlyName": "Kaprosuchus"
+    },
+    {
+      "ClassName": "Kentro_Character_BP_C",
+      "FriendlyName": "Kentrosaurus"
+    },
+    {
+      "ClassName": "Lamprey_Character_C",
+      "FriendlyName": "Lamprey"
+    },
+    {
+      "ClassName": "Leech_Character_C",
+      "FriendlyName": "Leech"
+    },
+    {
+      "ClassName": "Leedsichthys_Character_BP_C",
+      "FriendlyName": "Leedsichthys"
+    },
+    {
+      "ClassName": "Moth_Character_BP_C",
+      "FriendlyName": "Lymantria"
+    },
+    {
+      "ClassName": "Lystro_Character_BP_C",
+      "FriendlyName": "Lystrosaurus"
+    },
+    {
+      "ClassName": "Mammoth_Character_BP_C",
+      "FriendlyName": "Mammoth"
+    },
+    {
+      "ClassName": "Manta_Character_BP_C",
+      "FriendlyName": "Manta"
+    },
+    {
+      "ClassName": "Mantis_Character_BP_C",
+      "FriendlyName": "Mantis"
+    },
+    {
+      "ClassName": "Stag_Character_BP_C",
+      "FriendlyName": "Megaloceros"
+    },
+    {
+      "ClassName": "Megalodon_Character_BP_C",
+      "FriendlyName": "Megalodon"
+    },
+    {
+      "ClassName": "Dragonfly_Character_BP_C",
+      "FriendlyName": "Meganeura"
+    },
+    {
+      "ClassName": "Megatherium_Character_BP_C",
+      "FriendlyName": "Megatherium"
+    },
+    {
+      "ClassName": "Megalosaurus_Character_BP_C",
+      "FriendlyName": "Megalosaurus"
+    },
+    {
+      "ClassName": "Monkey_Character_BP_C",
+      "FriendlyName": "Mesopithecus"
+    },
+    {
+      "ClassName": "Microraptor_Character_BP_C",
+      "FriendlyName": "Microraptor"
+    },
+    {
+      "ClassName": "camelsaurus_Character_BP_C",
+      "FriendlyName": "Morellatops"
+    },
+    {
+      "ClassName": "Mosa_Character_BP_C",
+      "FriendlyName": "Mosasaurus"
+    },
+    {
+      "ClassName": "Moschops_Character_BP_C",
+      "FriendlyName": "Moschops"
+    },
+    {
+      "ClassName": "Bat_Character_BP_C",
+      "FriendlyName": "Onyc"
+    },
+    {
+      "ClassName": "Otter_Character_BP_C",
+      "FriendlyName": "Otter"
+    },
+    {
+      "ClassName": "Oviraptor_Character_BP_C",
+      "FriendlyName": "Oviraptor"
+    },
+    {
+      "ClassName": "Sheep_Character_BP_C",
+      "FriendlyName": "Ovis"
+    },
+    {
+      "ClassName": "Jugbug_Oil_Character_BP_C",
+      "FriendlyName": "Oil Jugbug"
+    },
+    {
+      "ClassName": "Pachy_Character_BP_C",
+      "FriendlyName": "Pachy"
+    },
+    {
+      "ClassName": "Pachyrhino_Character_BP_C",
+      "FriendlyName": "Pachyrhinosaurus"
+    },
+    {
+      "ClassName": "Paracer_Character_BP_C",
+      "FriendlyName": "Paraceratherium"
+    },
+    {
+      "ClassName": "Para_Character_BP_C",
+      "FriendlyName": "Parasaur"
+    },
+    {
+      "ClassName": "Pegomastax_Character_BP_C",
+      "FriendlyName": "Pegomastax"
+    },
+    {
+      "ClassName": "Pela_Character_BP_C",
+      "FriendlyName": "Pelagornis"
+    },
+    {
+      "ClassName": "Phiomia_Character_BP_C",
+      "FriendlyName": "Phiomia"
+    },
+    {
+      "ClassName": "Phoenix_Character_BP_C",
+      "FriendlyName": "Phoenix"
+    },
+    {
+      "ClassName": "Piranha_Character_BP_C",
+      "FriendlyName": "Piranha"
+    },
+    {
+      "ClassName": "Plesiosaur_Character_BP_C",
+      "FriendlyName": "Plesiosaur"
+    },
+    {
+      "ClassName": "Direbear_Character_Polar_C",
+      "FriendlyName": "Polar Bear"
+    },
+    {
+      "ClassName": "Polar_Bear_C",
+      "FriendlyName": "Polar Bear"
+    },
+    {
+      "ClassName": "Procoptodon_Character_BP_C",
+      "FriendlyName": "Procoptodon"
+    },
+    {
+      "ClassName": "Ptero_Character_BP_C",
+      "FriendlyName": "Pteranodon"
+    },
+    {
+      "ClassName": "Scorpion_Character_BP_C",
+      "FriendlyName": "Pulmonoscorpius"
+    },
+    {
+      "ClassName": "Purlovia_Character_BP_C",
+      "FriendlyName": "Purlovia"
+    },
+    {
+      "ClassName": "Purlovia_Character_BP_Polar_C",
+      "FriendlyName": "Purlovia (Polar)"
+    },
+    {
+      "ClassName": "Quetz_Character_BP_C",
+      "FriendlyName": "Quetzal"
+    },
+    {
+      "ClassName": "Raptor_Character_BP_C",
+      "FriendlyName": "Raptor"
+    },
+    {
+      "ClassName": "Rex_Character_BP_C",
+      "FriendlyName": "Rex"
+    },
+    {
+      "ClassName": "Salmon_Character_BP_C",
+      "FriendlyName": "Sabertooth Salmon"
+    },
+    {
+      "ClassName": "Saber_Character_BP_C",
+      "FriendlyName": "Sabertooth"
+    },
+    {
+      "ClassName": "Sarco_Character_BP_C",
+      "FriendlyName": "Sarco"
+    },
+    {
+      "ClassName": "Spino_Character_BP_C",
+      "FriendlyName": "Spinosaur"
+    },
+    {
+      "ClassName": "Stego_Character_BP_C",
+      "FriendlyName": "Stegosaurus"
+    },
+    {
+      "ClassName": "Tapejara_Character_BP_C",
+      "FriendlyName": "Tapejara"
+    },
+    {
+      "ClassName": "TerrorBird_Character_BP_C",
+      "FriendlyName": "Terror Bird"
+    },
+    {
+      "ClassName": "Therizino_Character_BP_C",
+      "FriendlyName": "Therizinosaur"
+    },
+    {
+      "ClassName": "SpineyLizard_Character_BP_C",
+      "FriendlyName": "Thorny Dragon"
+    },
+    {
+      "ClassName": "Thylacoleo_Character_BP_C",
+      "FriendlyName": "Thylacoleo"
+    },
+    {
+      "ClassName": "BoaFrill_Character_BP_C",
+      "FriendlyName": "Titanoboa"
+    },
+    {
+      "ClassName": "Ant_Character_BP_C",
+      "FriendlyName": "Titanomyrma Drone"
+    },
+    {
+      "ClassName": "FlyingAnt_Character_BP_C",
+      "FriendlyName": "Titanomyrma Soldier"
+    },
+    {
+      "ClassName": "Titanosaur_Character_BP_C",
+      "FriendlyName": "Titanosaur"
+    },
+    {
+      "ClassName": "Trike_Character_BP_C",
+      "FriendlyName": "Triceratops"
+    },
+    {
+      "ClassName": "Trilobite_Character_C",
+      "FriendlyName": "Trilobite"
+    },
+    {
+      "ClassName": "Troodon_Character_BP_C",
+      "FriendlyName": "Troodon"
+    },
+    {
+      "ClassName": "Tusoteuthis_Character_BP_C",
+      "FriendlyName": "Tusoteuthis"
+    },
+    {
+      "ClassName": "Equus_Character_BP_Unicorn_C",
+      "FriendlyName": "Unicorn"
+    },
+    {
+      "ClassName": "Spindles_Character_BP_C",
+      "FriendlyName": "Velonasaur"
+    },
+    {
+      "ClassName": "Jugbug_Water_Character_BP_C",
+      "FriendlyName": "Water Jugbug"
+    },
+    {
+      "ClassName": "Rhino_Character_BP_C",
+      "FriendlyName": "Woolly Rhino"
+    },
+    {
+      "ClassName": "Yeti_Character_BP_C",
+      "FriendlyName": "Yeti"
+    },
+    {
+      "ClassName": "Yutyrannus_Character_BP_C",
+      "FriendlyName": "Yutyrannus"
+    },
+    {
+      "ClassName": "BionicPara_Character_BP_C",
+      "FriendlyName": "Tek Parasaur"
+    },
+    {
+      "ClassName": "BionicQuetz_Character_BP_C",
+      "FriendlyName": "Tek Quetz"
+    },
+    {
+      "ClassName": "BionicRaptor_Character_BP_C",
+      "FriendlyName": "Tek Raptor"
+    },
+    {
+      "ClassName": "BionicRex_Character_BP_C",
+      "FriendlyName": "Tek Rex"
+    },
+    {
+      "ClassName": "BionicStego_Character_BP_C",
+      "FriendlyName": "Tek Stegosaurus"
+    },
+    {
+      "ClassName": "Achatina_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Achatina"
+    },
+    {
+      "ClassName": "Angler_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Anglerfish"
+    },
+    {
+      "ClassName": "Ankylo_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Ankylosaurus"
+    },
+    {
+      "ClassName": "SpiderS_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Araneo"
+    },
+    {
+      "ClassName": "Arthro_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Arthropluera"
+    },
+    {
+      "ClassName": "Baryonyx_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Baryonyx"
+    },
+    {
+      "ClassName": "Toad_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Beelzebufo"
+    },
+    {
+      "ClassName": "Turtle_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Carbonemys"
+    },
+    {
+      "ClassName": "Carno_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Carnotaurus"
+    },
+    {
+      "ClassName": "Coel_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Coelacanth"
+    },
+    {
+      "ClassName": "Cnidaria_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Cnidaria"
+    },
+    {
+      "ClassName": "Dimetro_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dimetrodon"
+    },
+    {
+      "ClassName": "Dimorph_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dimorphodon"
+    },
+    {
+      "ClassName": "Diplocaulus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Diplocaulus"
+    },
+    {
+      "ClassName": "Diplodocus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Diplodocus"
+    },
+    {
+      "ClassName": "Direbear_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dire Bear"
+    },
+    {
+      "ClassName": "Dodo_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dodo"
+    },
+    {
+      "ClassName": "Doed_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Doedicurus"
+    },
+    {
+      "ClassName": "Eel_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Electrophorus"
+    },
+    {
+      "ClassName": "Equus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Equus"
+    },
+    {
+      "ClassName": "Iguanodon_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Iguanodon"
+    },
+    {
+      "ClassName": "Lystro_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Lystrosaurus"
+    },
+    {
+      "ClassName": "Manta_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Manta"
+    },
+    {
+      "ClassName": "Megalania_Character_BP_C",
+      "FriendlyName": "Megalania"
+    },
+    {
+      "ClassName": "Liopleurodon_Character_BP_C",
+      "FriendlyName": "Liopleurodon"
+    },
+    {
+      "ClassName": "Megalania_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Megalania"
+    },
+    {
+      "ClassName": "Megalosaurus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Megalosaurus"
+    },
+    {
+      "ClassName": "Dragonfly_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Meganeura"
+    },
+    {
+      "ClassName": "Moschops_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Moschops"
+    },
+    {
+      "ClassName": "Otter_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Otter"
+    },
+    {
+      "ClassName": "Sheep_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Ovis"
+    },
+    {
+      "ClassName": "Paracer_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Paraceratherium"
+    },
+    {
+      "ClassName": "Para_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Parasaur"
+    },
+    {
+      "ClassName": "Piranha_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Piranha"
+    },
+    {
+      "ClassName": "Scorpion_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Pulmonoscorpius"
+    },
+    {
+      "ClassName": "Purlovia_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Purlovia"
+    },
+    {
+      "ClassName": "Raptor_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Raptor"
+    },
+    {
+      "ClassName": "Salmon_Character_Aberrant_C",
+      "FriendlyName": "Aberrant Salmon"
+    },
+    {
+      "ClassName": "Sarco_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Sarco"
+    },
+    {
+      "ClassName": "Spino_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Spino"
+    },
+    {
+      "ClassName": "Stego_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Stegosaurus"
+    },
+    {
+      "ClassName": "BoaFrill_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Titanoboa"
+    },
+    {
+      "ClassName": "Trike_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Triceratops"
+    },
+    {
+      "ClassName": "Trilobite_Character_Aberrant_C",
+      "FriendlyName": "Aberrant Trilobite"
+    },
+    {
+      "ClassName": "LanternPug_Character_BP_C",
+      "FriendlyName": "Bulbdog"
+    },
+    {
+      "ClassName": "LanternBird_Character_BP_C",
+      "FriendlyName": "Featherlight"
+    },
+    {
+      "ClassName": "Lightbug_Character_BaseBP_C",
+      "FriendlyName": "Glowbug"
+    },
+    {
+      "ClassName": "LanternLizard_Character_BP_C",
+      "FriendlyName": "Glowtail"
+    },
+    {
+      "ClassName": "Crab_Character_BP_C",
+      "FriendlyName": "Karkinos"
+    },
+    {
+      "ClassName": "CaveWolf_Character_BP_C",
+      "FriendlyName": "Ravager"
+    },
+    {
+      "ClassName": "MoleRat_Character_BP_C",
+      "FriendlyName": "Roll Rat"
+    },
+    {
+      "ClassName": "Pteroteuthis_Char_BP_C",
+      "FriendlyName": "Seeker"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_C",
+      "FriendlyName": "Reaper"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Chupa_C",
+      "FriendlyName": "Reaper King"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Minion_C",
+      "FriendlyName": "Reaper King"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Female_C",
+      "FriendlyName": "Reaper Queen"
+    },
+    {
+      "ClassName": "ChupaCabra_Character_BP_C",
+      "FriendlyName": "Nameless"
+    },
+    {
+      "ClassName": "RockDrake_Character_BP_C",
+      "FriendlyName": "Rock Drake"
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_C",
+      "FriendlyName": "Attack Drone"
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_Hard_C",
+      "FriendlyName": "Attack Drone"
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_Med_C",
+      "FriendlyName": "Attack Drone"
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_Easy_C",
+      "FriendlyName": "Attack Drone"
+    },
+    {
+      "ClassName": "Basilisk_Character_BP_C",
+      "FriendlyName": "Basilisk"
+    },
+    {
+      "ClassName": "Arthro_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Arthropluera"
+    },
+    {
+      "ClassName": "Carno_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Carnotaurus"
+    },
+    {
+      "ClassName": "Chalico_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Chalicotherium"
+    },
+    {
+      "ClassName": "CorruptTumor_Character_BP_C",
+      "FriendlyName": "Corrupt Tumor"
+    },
+    {
+      "ClassName": "Dilo_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Dilophosaur"
+    },
+    {
+      "ClassName": "Dimorph_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Dimorphodon"
+    },
+    {
+      "ClassName": "Gigant_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Giganotosaurus"
+    },
+    {
+      "ClassName": "Paracer_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Paraceratherium"
+    },
+    {
+      "ClassName": "Ptero_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Pteranodon"
+    },
+    {
+      "ClassName": "Raptor_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Raptor"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Tamed_Corrupt_C",
+      "FriendlyName": "Corrupted Reaper King"
+    },
+    {
+      "ClassName": "Rex_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Rex"
+    },
+    {
+      "ClassName": "RockDrake_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Rock Drake"
+    },
+    {
+      "ClassName": "Spino_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Spino"
+    },
+    {
+      "ClassName": "Stego_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Stegosaurus"
+    },
+    {
+      "ClassName": "Trike_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Triceratops"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Fire_Corrupt_C",
+      "FriendlyName": "Corrupted Wyvern"
+    },
+    {
+      "ClassName": "EndTank_Character_BP_C",
+      "FriendlyName": "Defense Unit"
+    },
+    {
+      "ClassName": "Enforcer_Character_BP_C",
+      "FriendlyName": "Enforcer"
+    },
+    {
+      "ClassName": "Gacha_Character_BP_C",
+      "FriendlyName": "Gacha"
+    },
+    {
+      "ClassName": "Gacha_Claus_Character_BP_C",
+      "FriendlyName": "Gacha Claus"
+    },
+    {
+      "ClassName": "GasBags_Character_BP_C",
+      "FriendlyName": "Gasbags"
+    },
+    {
+      "ClassName": "IceJumper_Character_BP_C",
+      "FriendlyName": "Managarmr"
+    },
+    {
+      "ClassName": "Mek_Character_BP_C",
+      "FriendlyName": "Mek"
+    },
+    {
+      "ClassName": "MegaMek_Character_BP_C",
+      "FriendlyName": "Mega Mek"
+    },
+    {
+      "ClassName": "Scout_Character_BP_C",
+      "FriendlyName": "Scout"
+    },
+    {
+      "ClassName": "Owl_Character_BP_C",
+      "FriendlyName": "Snow Owl"
+    },
+    {
+      "ClassName": "Griffin_Character_BP_C",
+      "FriendlyName": "Griffin"
+    },
+    {
+      "ClassName": "Griffin_Character_Minion_BP_C",
+      "FriendlyName": "Griffin"
+    },
+    {
+      "ClassName": "Iceworm_Character_Minion_BP_smaller_C",
+      "FriendlyName": "Iceworm"
+    },
+    {
+      "ClassName": "LavaGolem_Character_BP_C",
+      "FriendlyName": "Lava Golem"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Lightning_C",
+      "FriendlyName": "Lightning Wyvern"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Poison_C",
+      "FriendlyName": "Poison Wyvern"
+    },
+    {
+      "ClassName": "MegaBasilisk_Character_BP_C",
+      "FriendlyName": "Alpha Basilisk"
+    },
+    {
+      "ClassName": "MegaCarno_Character_BP_C",
+      "FriendlyName": "Alpha Carnotaurus"
+    },
+    {
+      "ClassName": "MegaDeathworm_Character_BP_C",
+      "FriendlyName": "Alpha Deathworm"
+    },
+    {
+      "ClassName": "MegaWyvern_Character_BP_Fire_C",
+      "FriendlyName": "Alpha Fire Wyvern"
+    },
+    {
+      "ClassName": "MegaCrab_Character_BP_C",
+      "FriendlyName": "Alpha Karkinos"
+    },
+    {
+      "ClassName": "Alpha_Leedsichthys_Character_BP_C",
+      "FriendlyName": "Alpha Leedsichthys"
+    },
+    {
+      "ClassName": "Mosa_Character_BP_Mega_C",
+      "FriendlyName": "Alpha Mosasaur"
+    },
+    {
+      "ClassName": "Mosa_Character_BP_Mega_Cave_C",
+      "FriendlyName": "Alpha Mosasaur (Cave)"
+    },
+    {
+      "ClassName": "MegaMegalodon_Character_BP_C",
+      "FriendlyName": "Alpha Megalodon"
+    },
+    {
+      "ClassName": "MegaRaptor_Character_BP_C",
+      "FriendlyName": "Alpha Raptor"
+    },
+    {
+      "ClassName": "MegaRex_Character_BP_C",
+      "FriendlyName": "Alpha T-Rex"
+    },
+    {
+      "ClassName": "Mega_Tusoteuthis_Character_BP_C",
+      "FriendlyName": "Alpha Tusoteuthis"
+    },
+    {
+      "ClassName": "MegaXenomorph_Character_BP_Male_Surface_C",
+      "FriendlyName": "Alpha Reaper King (Surface)"
+    },
+    {
+      "ClassName": "MegaRex_Character_BP_Corrupt_C",
+      "FriendlyName": "Alpha Corrupted Rex"
+    },
+    {
+      "ClassName": "Enraged Triceratops",
+      "FriendlyName": "Alpha Corrupted Triceratops"
+    },
+    {
+      "ClassName": "DesertKaiju_FirstFlockChar_BP_C",
+      "FriendlyName": "Desert Titan Flock"
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_C",
+      "FriendlyName": "Desert Titan"
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_Hard_C",
+      "FriendlyName": "Desert Titan (Alpha)"
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_Medium_C",
+      "FriendlyName": "Desert Titan (Beta)"
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_Easy_C",
+      "FriendlyName": "Desert Titan (Gamma)"
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_C",
+      "FriendlyName": "Forest Titan"
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_Hard_C",
+      "FriendlyName": "Forest Titan (Alpha)"
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_Medium_C",
+      "FriendlyName": "Forest Titan (Beta)"
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_Easy_C",
+      "FriendlyName": "Forest Titan (Gamma)"
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_C",
+      "FriendlyName": "Ice Titan"
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_Hard_C",
+      "FriendlyName": "Ice Titan (Alpha)"
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_Medium_C",
+      "FriendlyName": "Ice Titan (Beta)"
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_Easy_C",
+      "FriendlyName": "Ice Titan (Gamma)"
+    },
+    {
+      "ClassName": "KingKaiju_Character_BP_Alpha_C",
+      "FriendlyName": "King Titan (Alpha)"
+    },
+    {
+      "ClassName": "KingKaiju_Character_BP_Beta_C",
+      "FriendlyName": "King Titan (Beta)"
+    },
+    {
+      "ClassName": "KingKaiju_Character_BP_Gamma_C",
+      "FriendlyName": "King Titan (Gamma)"
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Hard_C",
+      "FriendlyName": "Dragon (Alpha)"
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Medium_C",
+      "FriendlyName": "Dragon (Beta)"
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Easy_C",
+      "FriendlyName": "Dragon (Gamma)"
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Hard_Ragnarok_C",
+      "FriendlyName": "Dragon (Alpha)"
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Medium_Ragnarok_C",
+      "FriendlyName": "Dragon (Beta)"
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Easy_Ragnarok_C",
+      "FriendlyName": "Dragon (Gamma)"
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_C",
+      "FriendlyName": "Broodmother"
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_Hard_C",
+      "FriendlyName": "Broodmother (Alpha)"
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_Medium_C",
+      "FriendlyName": "Broodmother (Beta)"
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_Easy_C",
+      "FriendlyName": "Broodmother (Gamma)"
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_Hard_C",
+      "FriendlyName": "Broodmother (Alpha)"
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_Medium_C",
+      "FriendlyName": "Broodmother (Beta)"
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_Easy_C",
+      "FriendlyName": "Broodmother (Gamma)"
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_TheCenterHard_C",
+      "FriendlyName": "Broodmother (Alpha)"
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_TheCenterMedium_C",
+      "FriendlyName": "Broodmother (Beta)"
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_TheCenterEasy_C",
+      "FriendlyName": "Broodmother (Gamma)"
+    },
+    {
+      "ClassName": "SpiderL_VAL_Character_BP_C",
+      "FriendlyName": "Valguero Broodmother"
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_C",
+      "FriendlyName": "Dominus Broodmother"
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_Hard_C",
+      "FriendlyName": "Megapithecus (Alpha)"
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_Medium_C",
+      "FriendlyName": "Megapithecus (Beta)"
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_Easy_C",
+      "FriendlyName": "Megapithecus (Gamma)"
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_TheCenter_Hard_C",
+      "FriendlyName": "Megapithecus (Alpha)"
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_TheCenter_Medium_C",
+      "FriendlyName": "Megapithecus (Beta)"
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_TheCenter_Easy_C",
+      "FriendlyName": "Megapithecus (Gamma)"
+    },
+    {
+      "ClassName": "Iceworm_Queen_Character_BP_C",
+      "FriendlyName": "Iceworm Queen"
+    },
+    {
+      "ClassName": "Manticore_Character_BP_C",
+      "FriendlyName": "Manticore"
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Hard_C",
+      "FriendlyName": "Manticore (Alpha)"
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Medium_C",
+      "FriendlyName": "Manticore (Beta)"
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Easy_C",
+      "FriendlyName": "Manticore (Gamma)"
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Hard_Ragnarok_C",
+      "FriendlyName": "Manticore (Alpha)"
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Medium_Ragnarok_C",
+      "FriendlyName": "Manticore (Beta)"
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Easy_Ragnarok_C",
+      "FriendlyName": "Manticore (Gamma)"
+    },
+    {
+      "ClassName": "Bone_MegaWyvern_Character_BP_Fire_C",
+      "FriendlyName": "Bone Fire Wyvern"
+    },
+    {
+      "ClassName": "DodoWyvern_Character_BP_C",
+      "FriendlyName": "Dodo Wyvern"
+    },
+    {
+      "ClassName": "DodoRex_Character_BP_C",
+      "FriendlyName": "Dodo Rex"
+    },
+    {
+      "ClassName": "Bone_Sauropod_Character_BP_C",
+      "FriendlyName": "Skeletal Bronto"
+    },
+    {
+      "ClassName": "Bone_MegaCarno_Character_BP_C",
+      "FriendlyName": "Skeletal Carnotaurus"
+    },
+    {
+      "ClassName": "Bone_Gigant_Character_BP_C",
+      "FriendlyName": "Skeletal Gigantosaurus"
+    },
+    {
+      "ClassName": "Bone_Jerboa_Character_BP_C",
+      "FriendlyName": "Skeletal Jerboa"
+    },
+    {
+      "ClassName": "Bone_Quetz_Character_BP_C",
+      "FriendlyName": "Skeletal Quetzal"
+    },
+    {
+      "ClassName": "Bone_MegaRaptor_Character_BP_C",
+      "FriendlyName": "Skeletal Raptor"
+    },
+    {
+      "ClassName": "Bone_MegaRex_Character_BP_C",
+      "FriendlyName": "Skeletal Rex"
+    },
+    {
+      "ClassName": "Bone_Stego_Character_BP_C",
+      "FriendlyName": "Skeletal Stego"
+    },
+    {
+      "ClassName": "Bone_Trike_Character_BP_C",
+      "FriendlyName": "Skeletal Trike"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieFire",
+      "FriendlyName": "Zombie Fire Wyvern"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieLightning",
+      "FriendlyName": "Zombie Lightning Wyvern"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombiePoison",
+      "FriendlyName": "Zombie Poison Wyvern"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieFire_C",
+      "FriendlyName": "Zombie Fire Wyvern"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieLightning_C",
+      "FriendlyName": "Zombie Lightning Wyvern"
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombiePoison_C",
+      "FriendlyName": "Zombie Poison Wyvern"
+    },
+    {
+      "ClassName": "ZombieWyvern_Character_BP_Fire_C",
+      "FriendlyName": "Zombie Fire Wyvern"
+    },
+    {
+      "ClassName": "ZombieWyvern_Character_BP_Poison_C",
+      "FriendlyName": "Zombie Poison Wyvern"
+    },
+    {
+      "ClassName": "ZombieWyvern_Character_BP_Lightning_C",
+      "FriendlyName": "Zombie Lightning Wyvern"
+    },
+    {
+      "ClassName": "ZombieDodo_Character_BP_C",
+      "FriendlyName": "Zomdodo"
+    },
+    {
+      "ClassName": "Turkey_Character_BP_C",
+      "FriendlyName": "Turkey"
+    },
+    {
+      "ClassName": "MotorRaft_BP_C",
+      "FriendlyName": "Motorboat"
+    },
+    {
+      "ClassName": "Raft_BP_C",
+      "FriendlyName": "Raft"
+    },
+    {
+      "ClassName": "RockGolem_Character_BP_C",
+      "FriendlyName": "Rock Elemental"
+    },
+    {
+      "ClassName": "RubbleGolem_Character_BP_C",
+      "FriendlyName": "Rubble Golem"
+    },
+    {
+      "ClassName": "Vulture_Character_BP_C",
+      "FriendlyName": "Vulture"
+    },
+    {
+      "ClassName": "Bigfoot_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Gigantopithecus"
+    },
+    {
+      "ClassName": "ChupaCabra_Character_BP_Surface_C",
+      "FriendlyName": "Nameless (Surface)"
+    },
+    {
+      "ClassName": "DungBeetle_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dung Beetle"
+    },
+    {
+      "ClassName": "LanternGoat_Character_BP_C",
+      "FriendlyName": "Shinehorn"
+    },
+    {
+      "ClassName": "Pteroteuthis_Char_BP_Surface_C",
+      "FriendlyName": "Seeker (Surface)"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Surface_C",
+      "FriendlyName": "Reaper King (Surface)"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Tamed_C",
+      "FriendlyName": "Reaper King"
+    },
+    {
+      "ClassName": "BionicTrike_Character_BP_C",
+      "FriendlyName": "Tek Trike"
+    },
+    {
+      "ClassName": "Bog_Para_Character_BP_C",
+      "FriendlyName": "X-Parasaur"
+    },
+    {
+      "ClassName": "Bog_Paracer_Character_BP_C",
+      "FriendlyName": "X-Paracer"
+    },
+    {
+      "ClassName": "Bog_Raptor_Character_BP_C",
+      "FriendlyName": "X-Raptor"
+    },
+    {
+      "ClassName": "Bog_Spino_Character_BP_C",
+      "FriendlyName": "X-Spino"
+    },
+    {
+      "ClassName": "BogSpider_Character_BP_C",
+      "FriendlyName": "Bloodstalker"
+    },
+    {
+      "ClassName": "Cherufe_Character_BP_C",
+      "FriendlyName": "Magmasaur"
+    },
+    {
+      "ClassName": "EndDrone_Lunar_Character_BP_C",
+      "FriendlyName": "X-Drone"
+    },
+    {
+      "ClassName": "EndTank_Lunar_Character_BP_C",
+      "FriendlyName": "X-Defense Unit"
+    },
+    {
+      "ClassName": "GiantTurtle_Character_BP_C",
+      "FriendlyName": "Megachelon"
+    },
+    {
+      "ClassName": "InsectSwarmChar_BP_C",
+      "FriendlyName": "Insect Swarm"
+    },
+    {
+      "ClassName": "Lunar_Salmon_Character_BP_C",
+      "FriendlyName": "X-Salmon"
+    },
+    {
+      "ClassName": "Ocean_Basilosaurus_Character_BP_C",
+      "FriendlyName": "X-Basilosaurus"
+    },
+    {
+      "ClassName": "Ocean_Dolphin_Character_BP_C",
+      "FriendlyName": "X-Ichthyosaurus"
+    },
+    {
+      "ClassName": "Ocean_Dunkle_Character_BP_C",
+      "FriendlyName": "X-Dunkleosteus"
+    },
+    {
+      "ClassName": "Ocean_Megalodon_Character_BP_C",
+      "FriendlyName": "X-Megalodon"
+    },
+    {
+      "ClassName": "Ocean_Mosa_Character_BP_C",
+      "FriendlyName": "X-Mosasaur"
+    },
+    {
+      "ClassName": "Rare_Lunar_Salmon_Character_BP_C",
+      "FriendlyName": "X-Salmon (Rare)"
+    },
+    {
+      "ClassName": "Shapeshifter_Small_Character_BP_C",
+      "FriendlyName": "Ferox (Small)"
+    },
+    {
+      "ClassName": "Shapeshifter_Large_Character_BP_C",
+      "FriendlyName": "Ferox (Large)"
+    },
+    {
+      "ClassName": "SpaceWhale_Character_BP_C",
+      "FriendlyName": "Astrocetus"
+    },
+    {
+      "ClassName": "MicrobeSwarmChar_BP_C",
+      "FriendlyName": "Parakeet Fish School"
+    },
+    {
+      "ClassName": "Volcano_Golem_Character_BP_C",
+      "FriendlyName": "X-Rock Elemental"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Lunar_C",
+      "FriendlyName": "X-Reaper King"
+    },
+    {
+      "ClassName": "Bog_Tapejara_Character_BP_C",
+      "FriendlyName": "X-Tapejara"
+    },
+    {
+      "ClassName": "Snow_Argent_Character_BP_C",
+      "FriendlyName": "X-Argentavis"
+    },
+    {
+      "ClassName": "Snow_Rhino_Character_BP_C",
+      "FriendlyName": "X-Rhino"
+    },
+    {
+      "ClassName": "Snow_Saber_Character_BP_C",
+      "FriendlyName": "X-Sabertooth"
+    },
+    {
+      "ClassName": "Snow_Yutyrannus_Character_BP_C",
+      "FriendlyName": "X-Yutyrannus"
+    },
+    {
+      "ClassName": "Volcano_Allo_Character_BP_C",
+      "FriendlyName": "X-Allosaurus"
+    },
+    {
+      "ClassName": "Volcano_Ankylo_Character_BP_C",
+      "FriendlyName": "X-Ankylosaurus"
+    },
+    {
+      "ClassName": "Volcano_Rex_Character_BP_C",
+      "FriendlyName": "X-Rex"
+    },
+    {
+      "ClassName": "Volcano_Trike_Character_BP_C",
+      "FriendlyName": "X-Triceratops"
+    },
+    {
+      "ClassName": "Snow_Otter_Character_BP_C",
+      "FriendlyName": "X-Otter"
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_Blood_C",
+      "FriendlyName": "Wyvern (Blood)"
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_WS_C",
+      "FriendlyName": "Wyvern (Tropical)"
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_Ember_C",
+      "FriendlyName": "Wyvern (Ember)"
+    },
+    {
+      "ClassName": "Dodo_Character_BP_Birthday_C",
+      "FriendlyName": "Dodo (Birthday)"
+    },
+    {
+      "ClassName": "HoneyBee_Character_BP_C",
+      "FriendlyName": "Honey Bee"
+    },
+    {
+      "ClassName": "Tropeognathus_Character_BP_C",
+      "FriendlyName": "Tropeognathus"
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_Mega_C",
+      "FriendlyName": "Alpha Crystal Wyvern"
+    },
+    {
+      "ClassName": "TekWyvern_Character_BP_C",
+      "FriendlyName": "Voidwyrm"
+    },
+    {
+      "ClassName": "Sauropod_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Bronto"
+    },
+    {
+      "ClassName": "Turtle_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Carbonemys"
+    },
+    {
+      "ClassName": "Dilo_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Dilophosaur"
+    },
+    {
+      "ClassName": "Allo_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Allosaurus"
+    },
+    {
+      "ClassName": "Quetz_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Quetzal"
+    },
+    {
+      "ClassName": "Gigant_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Giganotosaurus"
+    },
+    {
+      "ClassName": "Carno_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Carnotaurus"
+    },
+    {
+      "ClassName": "Spindles_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Velonasaur"
+    },
+    {
+      "ClassName": "TekStrider_Character_BP_C",
+      "FriendlyName": "Tek Stryder"
+    },
+    {
+      "ClassName": "MilkGlider_Character_BP_C",
+      "FriendlyName": "Maewing"
+    },
+    {
+      "ClassName": "SpaceDolphin_Character_BP_C",
+      "FriendlyName": "Astrodelphis"
+    },
+    {
+      "ClassName": "LionfishLion_Character_BP_C",
+      "FriendlyName": "Shadowmane"
+    },
+    {
+      "ClassName": "Summoner_Character_BP_C",
+      "FriendlyName": "Summoner"
+    },
+    {
+      "ClassName": "Brain_Slug",
+      "FriendlyName": "Noglin"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Gen2_C",
+      "FriendlyName": "R-Reaper King"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Female_Gen2_C",
+      "FriendlyName": "R-Reaper Queen"
+    },
+    {
+      "ClassName": "Direwolf_Character_BP_Eden_C",
+      "FriendlyName": "R-Direwolf"
+    },
+    {
+      "ClassName": "Para_Character_BP_Eden_C",
+      "FriendlyName": "R-Parasaur"
+    },
+    {
+      "ClassName": "Owl_Character_BP_Eden_C",
+      "FriendlyName": "R-Snow Owl"
+    },
+    {
+      "ClassName": "Thylacoleo_Character_BP_Eden_C",
+      "FriendlyName": "R-Thylacoleo"
+    },
+    {
+      "ClassName": "Daeodon_Character_BP_Eden_C",
+      "FriendlyName": "R-Daeodon"
+    },
+    {
+      "ClassName": "Megatherium_Character_BP_Eden_C",
+      "FriendlyName": "R-Megatherium"
+    },
+    {
+      "ClassName": "Equus_Character_BP_Eden_C",
+      "FriendlyName": "R-Equus"
+    },
+    {
+      "ClassName": "GasBags_Character_BP_Eden_C",
+      "FriendlyName": "R-Gasbags"
+    },
+    {
+      "ClassName": "Procoptodon_Character_BP_Eden_C",
+      "FriendlyName": "R-Procoptodon"
+    },
+    {
+      "ClassName": "Macrophage_Swarm_Character_C",
+      "FriendlyName": "Macrophage"
+    },
+    {
+      "ClassName": "Defender_Character_BP_C",
+      "FriendlyName": "Defense Unit"
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Tamed_Gen2_C",
+      "FriendlyName": "R-Reaper King"
+    },
+    {
+      "ClassName": "TekHoverSkiff_Character_BP_C",
+      "FriendlyName": "Tek Skiff"
+    },
+    {
+      "ClassName": "Megalosaurus_Character_BP_TekCave_C",
+      "FriendlyName": "Megalosaurus (Tek Cave)"
+    }
+  ]
+}
