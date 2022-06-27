@@ -492,18 +492,18 @@ namespace ASVPack.Models
                                 ObjectReference statusRef = x.GetPropertyValue<ObjectReference>("MyCharacterStatusComponent") ?? x.GetPropertyValue<ObjectReference>("MyDinoStatusComponent");
                                 if (statusRef != null)
                                 {
-                                logWriter.Debug($"Character status found for: {x.ClassString}");
-                                objectContainer.TryGetValue(statusRef.ObjectId, out GameObject statusObject);
-                                                                    ContentWildCreature wild = x.AsWildCreature(statusObject);
+                                    logWriter.Debug($"Character status found for: {x.ClassString}");
+                                    objectContainer.TryGetValue(statusRef.ObjectId, out GameObject statusObject);
+                                                                        ContentWildCreature wild = x.AsWildCreature(statusObject);
 
-                                                                    //stryder rigs
-                                                                    if (x.ClassString == "TekStrider_Character_BP_C")
-                                                                    {
-                                                                        ObjectReference inventoryRef = x.GetPropertyValue<ObjectReference>("MyInventoryComponent");
-                                if (inventoryRef != null)
-                                {
-                                var inventComp = objectContainer[inventoryRef.ObjectId];
-                                if (inventComp != null)
+                                                                        //stryder rigs
+                                                                        if (x.ClassString == "TekStrider_Character_BP_C")
+                                                                        {
+                                                                            ObjectReference inventoryRef = x.GetPropertyValue<ObjectReference>("MyInventoryComponent");
+                                    if (inventoryRef != null)
+                                    {
+                                    var inventComp = objectContainer[inventoryRef.ObjectId];
+                                    if (inventComp != null)
                                             {
                                                 PropertyArray equippedItemsArray = inventComp.GetTypedProperty<PropertyArray>("EquippedItems");
 
@@ -531,6 +531,7 @@ namespace ASVPack.Models
 
 
                                     return wild;
+                                
                                 }
                                 else
                                 {
@@ -563,7 +564,7 @@ namespace ASVPack.Models
                                                     .ToList();
 
 
-
+                        
                         //player and tribe data
                         long tribeLoadStart = DateTime.Now.Ticks;
                         logWriter.Debug($"Identifying in-game player data");

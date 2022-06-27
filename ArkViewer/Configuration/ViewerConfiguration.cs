@@ -13,6 +13,8 @@ using ARKViewer.Models.NameMap;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using ASVPack.Models;
+using System.Globalization;
+using ArkViewer.Models;
 
 namespace ARKViewer.Configuration
 {
@@ -574,61 +576,31 @@ JArray itemList = (JArray)itemFile.GetValue("colors");
 
         }
 
+
+
         private string EncryptString(string plainText, byte[] currentIV, string password)
         {
-            string returnString = "";
+            ViewerEncryption enc = new ViewerEncryption();
 
-            // Binary representation of plain text string
-            byte[] plaintextBytes = (new UnicodeEncoding()).GetBytes(plainText);
+            byte[] passBytes = Encoding.UTF8.GetBytes(password);
 
-            //Encrypt
-            SymmetricAlgorithm crypt = Aes.Create();
-            HashAlgorithm hash = MD5.Create();
-            crypt.BlockSize = BlockSize;
-            crypt.Key = hash.ComputeHash(Encoding.Unicode.GetBytes(password));
-            crypt.IV = currentIV;
-
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, crypt.CreateEncryptor(), CryptoStreamMode.Write))
-                {
-                    cryptoStream.Write(plaintextBytes, 0, plaintextBytes.Length);
-                }
-
-                returnString = Convert.ToBase64String(memoryStream.ToArray());
-            }
-
-            return returnString;
+            return enc.Encrypt(plainText, Convert.ToBase64String(currentIV), Convert.ToBase64String(passBytes));
+            
         }
 
         private string DecryptString(string encryptedText, byte[] currentIV, string password)
         {
-            string plainText = "";
+            ViewerEncryption enc = new ViewerEncryption();
 
-            byte[] bytes = Convert.FromBase64String(encryptedText);
-            SymmetricAlgorithm crypt = Aes.Create();
-            HashAlgorithm hash = MD5.Create();
-            crypt.Key = hash.ComputeHash(Encoding.Unicode.GetBytes(password));
-            crypt.IV = currentIV;
+            byte[] passBytes = Encoding.UTF8.GetBytes(password);
 
-            using (MemoryStream memoryStream = new MemoryStream(bytes))
-            {
-                using (CryptoStream cryptoStream =
-                   new CryptoStream(memoryStream, crypt.CreateDecryptor(), CryptoStreamMode.Read))
-                {
-                    byte[] decryptedBytes = new byte[bytes.Length];
-                    cryptoStream.Read(decryptedBytes, 0, decryptedBytes.Length);
-                    plainText = Encoding.Unicode.GetString(decryptedBytes);
-                }
-            }
-
-            if (plainText.Contains("\0"))
-            {
-                plainText = plainText.Replace("\0", "");
-            }
-
-            return plainText;
+            return enc.Decrypt(encryptedText, Convert.ToBase64String(currentIV), Convert.ToBase64String(passBytes));
         }
 
+
+
     }
+
+
+
 }

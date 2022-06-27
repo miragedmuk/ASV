@@ -5812,7 +5812,7 @@ namespace ARKViewer
                         & !(x.ClassName == "MotorRaft_BP_C" || x.ClassName == "Raft_BP_C")
                         && (chkCryo.Checked || x.IsCryo == false)
                         && (chkCryo.Checked || x.IsVivarium == false)
-                    )).ToList();
+                    )).Distinct().ToList();
 
                 if (cboTamedResource.SelectedIndex > 0)
                 {

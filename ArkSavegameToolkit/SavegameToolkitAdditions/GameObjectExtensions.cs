@@ -12,10 +12,10 @@ namespace SavegameToolkitAdditions {
 
             return (
                         (
-                            gameObject.HasAnyProperty("OwnerName") 
-                            || gameObject.HasAnyProperty("bHasResetDecayTime") 
+                            gameObject.HasAnyProperty("OwnerName")
+                            || gameObject.HasAnyProperty("bHasResetDecayTime")
                             || gameObject.ClassString == "CherufeNest_C"
-                            || gameObject.ClassString == "MotorRaft_BP_C" 
+                            || gameObject.ClassString == "MotorRaft_BP_C"
                             || gameObject.ClassString == "Raft_BP_C"
                             || gameObject.ClassString == "TekHoverSkiff_Character_BP_C"
                             || gameObject.ClassString == "CogRaft_BP_C"
@@ -24,7 +24,8 @@ namespace SavegameToolkitAdditions {
                             || gameObject.ClassString == "SRaft_BP_C"
                         )
                         && gameObject.ClassString != "Structure_LoadoutDummy_Hotbar_C"
-                        & ! gameObject.ClassString.StartsWith("DeathItemCache_")
+                        && gameObject.IsCryo == false
+                        & !gameObject.ClassString.StartsWith("DeathItemCache_")
                    );
         }
 

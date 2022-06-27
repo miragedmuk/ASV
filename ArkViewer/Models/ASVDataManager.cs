@@ -342,7 +342,7 @@ namespace ARKViewer.Models
                 }
 
             }
-
+            
             return tribeStructures;
         }
 
