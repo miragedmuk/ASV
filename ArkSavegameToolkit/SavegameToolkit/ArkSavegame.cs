@@ -60,6 +60,10 @@ namespace SavegameToolkit
 
         private int hibernationV8Unknown4;
 
+        // Ark version 349.10 introduced two new unknown hibernation entries, the save version remained 9, though. Saving these is not supported.
+        private int hibernationV9_34910Unknown1;
+        private int hibernationV9_34910Unknown2;
+
         private int hibernationUnknown1;
 
         private int hibernationUnknown2;
@@ -191,7 +195,7 @@ namespace SavegameToolkit
                                 }
 
 
-                                
+
 
                                 cbStored.Add(new Tuple<GameObject, GameObject>(creatureObject, statusObject));
 
@@ -448,7 +452,7 @@ namespace SavegameToolkit
 
                 foreach (int n in stream)
                     readBinaryObjectPropertiesImpl(n, archive);
-               
+
                 if (options.ObjectFilter != null)
                 {
                     archive.HasUnknownData = true;
@@ -492,6 +496,24 @@ namespace SavegameToolkit
                 hibernationV8Unknown2 = archive.ReadInt();
                 hibernationV8Unknown3 = archive.ReadInt();
                 hibernationV8Unknown4 = archive.ReadInt();
+            }
+
+            // in Ark version 349.10 new unknown bytes appeared, the save version remained at 9. This is a workaround to handle these values.
+            // it's assumed there are two new int32, making it a total of 6 unknown int32 along with the 4 version8 int32, the first two are -1 and 2, and all of these 6 int32 are repeated once.
+            if (SaveVersion > 8 && hibernationV8Unknown1 == -1 && hibernationV8Unknown2 == 2)
+            {
+                archive.DebugMessage("non-zero unknown V9 fields, expecting duplicated set per 349.10");
+                hibernationV9_34910Unknown1 = archive.ReadInt();
+                hibernationV9_34910Unknown2 = archive.ReadInt();
+                if (!(hibernationV8Unknown1 == archive.ReadInt()
+                      && hibernationV8Unknown2 == archive.ReadInt()
+                      && hibernationV8Unknown3 == archive.ReadInt()
+                      && hibernationV8Unknown4 == archive.ReadInt()
+                      && hibernationV9_34910Unknown1 == archive.ReadInt()
+                      && hibernationV9_34910Unknown2 == archive.ReadInt()))
+                {
+                    throw new NotSupportedException("349.10 workaround for duplicate unknown hibernation bytes failed");
+                }
             }
 
             // No hibernate section if we reached the nameTable

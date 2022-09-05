@@ -1420,6 +1420,7 @@ namespace ASVPack.Models
                 GlitchMarkers = pack.GlitchMarkers.Where(w =>
                                                             (Math.Abs((decimal)w.Latitude.GetValueOrDefault(0) - FilterLatitude) <= FilterRadius)
                                                             && (Math.Abs((decimal)w.Longitude.GetValueOrDefault(0) - FilterLongitude) <= FilterRadius)
+                                                            
                                                         ).ToList();
                 BeaverDams = pack.BeaverDams.Where(w =>
                                                             (Math.Abs((decimal)w.Latitude.GetValueOrDefault(0) - FilterLatitude) <= FilterRadius)

@@ -580,11 +580,10 @@ JArray itemList = (JArray)itemFile.GetValue("colors");
 
         private string EncryptString(string plainText, byte[] currentIV, string password)
         {
-            ViewerEncryption enc = new ViewerEncryption();
 
             byte[] passBytes = Encoding.UTF8.GetBytes(password);
 
-            return enc.Encrypt(plainText, Convert.ToBase64String(currentIV), Convert.ToBase64String(passBytes));
+            return ViewerEncryption.Encrypt(plainText, Convert.ToBase64String(currentIV), Convert.ToBase64String(passBytes));
             
         }
 
@@ -594,7 +593,7 @@ JArray itemList = (JArray)itemFile.GetValue("colors");
 
             byte[] passBytes = Encoding.UTF8.GetBytes(password);
 
-            return enc.Decrypt(encryptedText, Convert.ToBase64String(currentIV), Convert.ToBase64String(passBytes));
+            return ViewerEncryption.Decrypt(encryptedText, Convert.ToBase64String(currentIV), Convert.ToBase64String(passBytes));
         }
 
 

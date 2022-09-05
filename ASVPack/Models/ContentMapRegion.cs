@@ -19,5 +19,10 @@ namespace ASVPack.Models
         public float ZEnd { get; set; } = 0;
         public string MarkerColor { get; set; } = "#000000";
 
+        public override string ToString()
+        {
+            return RegionName;
+        }
+
     }
 }

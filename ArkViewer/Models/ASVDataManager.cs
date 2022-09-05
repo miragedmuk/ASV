@@ -70,6 +70,7 @@ namespace ARKViewer.Models
             }
         }
 
+        public string Realm { get; set; } = "";
         
 
 
@@ -81,6 +82,24 @@ namespace ARKViewer.Models
 
                 string imageFilePath = AppContext.BaseDirectory;
                 string imageFilename = Program.MapPack.SupportedMaps.FirstOrDefault(m => m.Filename.ToLower().Contains(MapFilename.ToLower()))?.ImageFile;
+                if(Realm!=null && Realm.Length > 0)
+                {
+                    var selectedRealm = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == Realm);
+                    if (selectedRealm != null)
+                    {
+                        var realmImage = selectedRealm.ImageFile ?? "";
+                        if(realmImage.Length > 0)
+                        {
+                            var realmFilePath = Path.Combine(imageFilePath, "Maps\\", realmImage);
+                            if (File.Exists(realmFilePath))
+                            {
+                                imageFilename = realmImage;
+                            }
+                        }
+
+                    }
+                }
+
                 try
                 {
                     return Image.FromFile(Path.Combine(imageFilePath, "Maps\\", imageFilename));
@@ -140,6 +159,7 @@ namespace ARKViewer.Models
         {
             if (pack.WildCreatures == null) return new List<ContentWildCreature>();
 
+            Realm = selectedRealm;
 
             var wilds = pack.WildCreatures.Where(w =>
                                             ((w.ClassName == selectedClass || selectedClass == "") && ((w.BaseLevel >= minLevel && w.BaseLevel <= maxLevel) || w.BaseLevel == 0))
@@ -178,6 +198,8 @@ namespace ARKViewer.Models
         public List<ContentTamedCreature> GetTamedCreatures(string selectedClass, long selectedTribeId, long selectedPlayerId, bool includeCryoVivarium, string selectedRealm)
         {
             if (pack.Tribes == null) return new List<ContentTamedCreature>();
+
+            Realm = selectedRealm;
 
             var tamed = pack.Tribes
                 .Where(t => (t.TribeId == selectedTribeId || selectedTribeId == 0) || t.Players.Any(p => p.Id == selectedPlayerId && selectedPlayerId != 0))
@@ -311,6 +333,8 @@ namespace ARKViewer.Models
         {
             if (pack.Tribes == null) return new List<ContentStructure>();
 
+            Realm = selectedRealm;
+
             var tribeStructures = pack.Tribes
                 .Where(t =>
                     (t.TribeId == selectedTribeId || (selectedTribeId == 0 && selectedPlayerId == 0))
@@ -362,6 +386,9 @@ namespace ARKViewer.Models
         public List<ContentPlayer> GetPlayers(long selectedTribeId, long selectedPlayerId, string selectedRealm)
         {
             if (pack.Tribes == null) return new List<ContentPlayer>();
+
+            Realm = selectedRealm;
+
             var tribePlayers = pack.Tribes
                 .Where(t =>
                     t.TribeId == selectedTribeId || selectedTribeId == 0
@@ -412,6 +439,9 @@ namespace ARKViewer.Models
         public List<ContentDroppedItem> GetDroppedItems(long playerId, string className, string selectedRealm)
         {
             if (pack.DroppedItems == null) return new List<ContentDroppedItem>();
+
+            Realm = selectedRealm;
+
             var foundItems = pack.DroppedItems
                 .Where(d =>
                     d.IsDeathCache == false
@@ -447,6 +477,7 @@ namespace ARKViewer.Models
         {
             List<ASVFoundItem> foundItems = new List<ASVFoundItem>();
 
+            Realm = selectedRealm;
 
             //get selected tribe(s)
             var tribes = GetTribes(tribeId);

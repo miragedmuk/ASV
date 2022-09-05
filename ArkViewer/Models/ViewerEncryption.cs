@@ -10,7 +10,7 @@ namespace ArkViewer.Models
     internal class ViewerEncryption
     {
 
-        private Aes CreateCipher(string keyBase64)
+        private static Aes CreateCipher(string keyBase64)
         {
             // Default values: Keysize 256, Padding PKC27
             Aes cipher = Aes.Create();
@@ -22,7 +22,7 @@ namespace ArkViewer.Models
             return cipher;
         }
 
-        public string Encrypt(string text, string IV, string key)
+        public static string Encrypt(string text, string IV, string key)
         {
             Aes cipher = CreateCipher(key);
             cipher.IV = Convert.FromBase64String(IV);
@@ -34,7 +34,7 @@ namespace ArkViewer.Models
             return Convert.ToBase64String(cipherText);
         }
 
-        public string Decrypt(string encryptedText, string IV, string key)
+        public static string Decrypt(string encryptedText, string IV, string key)
         {
             Aes cipher = CreateCipher(key);
             cipher.IV = Convert.FromBase64String(IV);

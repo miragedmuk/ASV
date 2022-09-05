@@ -175,7 +175,7 @@ namespace ARKViewer
                 {
                     //asv pack (compressed)
                     ContentPack pack = new ContentPack(File.ReadAllBytes(fileName));
-                    Program.ProgramConfig.GlitchMarkers.ForEach(x =>
+                    Program.ProgramConfig.GlitchMarkers.Where(m=>m.Map == cm.LoadedMap.MapName).ToList().ForEach(x =>
                     {
                         pack.GlitchMarkers.Add(new ContentStructure()
                         {
@@ -214,16 +214,20 @@ namespace ARKViewer
                     //glitches
                     Program.ProgramConfig.GlitchMarkers.ForEach(x =>
                     {
-                        container.MapStructures.Add(new ContentStructure()
+                        if(x.Map.ToLower().StartsWith(container.MapName.ToLower()))
                         {
-                            ClassName = "ASV_Glitch",
-                            HasDecayTimeReset = false,
-                            X = x.X,
-                            Y = x.Y,
-                            Z = x.Z,
-                            Latitude = (float)x.Lat,
-                            Longitude = (float)x.Lon
-                        });
+                            container.MapStructures.Add(new ContentStructure()
+                            {
+                                ClassName = "ASV_Glitch",
+                                HasDecayTimeReset = false,
+                                X = x.X,
+                                Y = x.Y,
+                                Z = x.Z,
+                                Latitude = (float)x.Lat,
+                                Longitude = (float)x.Lon
+                            });
+                        }
+
                     });
 
 
