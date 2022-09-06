@@ -124,6 +124,12 @@ namespace ASVExport
 
                                 exportPack.ExportJsonAll(exportFilePath);
                                 break;
+                            case "map":
+                                Console.WriteLine($"Exporting JSON (map) for: {inputFilename}");
+
+                                exportPack.ExportJsonMapStructures(exportFilename);
+                                break;
+
                             case "structures":
                                 //LogWriter.Info($"Exporting JSON (structures) for: {inputFilename}");
                                 Console.WriteLine($"Exporting JSON (structures) for: {inputFilename}");
@@ -296,6 +302,8 @@ namespace ASVExport
             string structureImageFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_Structures.png");
             string structureClassName = "";
 
+            string mapStructureExportFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_MapStructures.json");
+
             string playerExportFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_Players.json");
             string playerImageFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_Players.png");
 
@@ -337,6 +345,15 @@ namespace ASVExport
                     filterLon = packConfig.Property("filterLon") == null ? 50 : (decimal)packConfig.Property("filterLon").Value;
                     filterRad = packConfig.Property("filterRad") == null ? 250 : (decimal)packConfig.Property("filterRad").Value;
                     mapStructureContent = packConfig.Property("structureContent") == null ? false : (bool)packConfig.Property("structureContent").Value;
+
+                    //Map structures
+                    JObject exportMapStructures = (JObject)packConfig["exportMapStructures"];
+                    if (exportMapStructures != null)
+                    {
+                        mapStructureExportFilename = exportMapStructures.Property("jsonFilename") == null ? "" : exportMapStructures.Property("jsonFilename").Value.ToString();
+                        //structureImageFilename = exportStructures.Property("imageFilename") == null ? "" : exportStructures.Property("imageFilename").Value.ToString();
+                        //structureClassName = exportStructures.Property("className") == null ? "" : exportStructures.Property("className").Value.ToString();
+                    }
 
                     //Tribes
                     JObject exportTribes = (JObject)packConfig["exportTribes"];
@@ -460,6 +477,9 @@ namespace ASVExport
                 //    image.Save(structureImageFilename);
                 //}
             }
+
+
+
 
 
 

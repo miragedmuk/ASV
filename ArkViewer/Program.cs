@@ -255,6 +255,12 @@ namespace ARKViewer
 
                                 exportManger.ExportAll(exportFilePath);
                                 break;
+                            case "map":
+                                LogWriter.Info($"Exporting JSON (map) for: {inputFilename}");
+
+                                exportManger.ExportMapStructures(exportFilePath);
+                                break;
+
                             case "structures":
                                 LogWriter.Info($"Exporting JSON (structures) for: {inputFilename}");
 

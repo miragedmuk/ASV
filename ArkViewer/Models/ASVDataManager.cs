@@ -1012,6 +1012,12 @@ namespace ARKViewer.Models
             }
         }
 
+        public void ExportMapStructures(string exportFilename)
+        {
+            pack.ExportJsonMapStructures(exportFilename);
+
+        }
+
         public void ExportPlayerStructures(string exportFilename)
         {
             string exportFolder = Path.GetDirectoryName(exportFilename);

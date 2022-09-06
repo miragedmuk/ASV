@@ -2222,5 +2222,27 @@ namespace ARKViewer
         {
 
         }
+
+        private void btnJsonExportMapStructures_Click(object sender, EventArgs e)
+        {
+            btnJsonExportMapStructures.Enabled = false;
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Title = "Export Map Structures";
+                dialog.Filter = "JSON text file(*.json)|*.json";
+                dialog.InitialDirectory = AppContext.BaseDirectory;
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    if (!Directory.Exists(Path.GetDirectoryName(dialog.FileName))) Directory.CreateDirectory(Path.GetDirectoryName(dialog.FileName));
+                    cm.ExportMapStructures(dialog.FileName);
+                    this.Cursor = Cursors.Default;
+                    MessageBox.Show("Map structure data exported successfully.", "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            btnJsonExportMapStructures.Enabled = true;
+        }
     }
 }
