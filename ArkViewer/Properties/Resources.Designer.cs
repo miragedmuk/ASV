@@ -549,7 +549,16 @@ namespace ARKViewer.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+        internal static System.Drawing.Bitmap beehive
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("structuremarker_beehive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

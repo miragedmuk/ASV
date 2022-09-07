@@ -111,6 +111,7 @@ namespace ARKViewer
             chkMapMagmaNests.Checked = c.MagmaNests;
             chkMapBeaverDams.Checked = c.BeaverDams;
             chkMapGlitches.Checked = c.Glitches;
+            chkMapBeeHives.Checked = c.BeeHives;
 
             isLoading = false;
 
@@ -409,6 +410,29 @@ namespace ARKViewer
 
                 });
             }
+
+            if (c.BeeHives)
+            {
+                var structures = cm.GetBeeHives();
+                Parallel.ForEach(structures, structure =>
+                {
+                    string friendlyName = structure.ClassName;
+                    var mapStructure = Program.ProgramConfig.StructureMap.FirstOrDefault<StructureClassMap>(m => m.ClassName == structure.ClassName);
+                    if (mapStructure != null)
+                    {
+                        friendlyName = mapStructure.FriendlyName;
+                    }
+
+                    ListViewItem newItem = new ListViewItem(friendlyName);
+                    newItem.SubItems.Add(structure.Latitude.GetValueOrDefault(0).ToString("f2"));
+                    newItem.SubItems.Add(structure.Longitude.GetValueOrDefault(0).ToString("f2"));
+                    newItem.Tag = structure;
+
+                    structureBag.Add(newItem);
+
+                });
+            }
+
             if (c.Glitches)
             {
                 var structures = cm.GetGlitchMarkers();
@@ -531,6 +555,7 @@ namespace ARKViewer
             c.MagmaNests = chkMapMagmaNests.Checked;
             c.BeaverDams = chkMapBeaverDams.Checked;
             c.Glitches = chkMapGlitches.Checked;
+            c.BeeHives = chkMapBeeHives.Checked;
 
             PopulateMapStructures();
 
@@ -798,6 +823,16 @@ namespace ARKViewer
 
 
             }
+        }
+
+        private void layoutStructures_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chkMapBeeHives_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateConfig();
         }
     }
 }

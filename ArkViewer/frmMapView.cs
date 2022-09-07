@@ -109,7 +109,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
 
 
@@ -132,7 +133,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
 
             DrawMapImage(cm.GetMapImageItems(tribeId, className, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
@@ -155,7 +157,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
             DrawMapImage(cm.GetMapImageWild(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
         }
@@ -175,7 +178,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
             DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
 
@@ -196,7 +200,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
             DrawMapImage(cm.GetMapImageDroppedItems(droppedPlayerId, droppedClass, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
 
@@ -217,7 +222,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
             DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLat, selectedLon, mapOptions, CustomMarkers));
         }
@@ -237,7 +243,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
             DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLat, selectedLon,mapOptions, CustomMarkers, selectedRealm));
 
@@ -258,7 +265,8 @@ namespace ARKViewer
                 Artifacts = c.Artifacts,
                 GasVeins = c.GasVeins,
                 OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
             };
             DrawMapImage(cm.GetMapImagePlayers(tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
         }

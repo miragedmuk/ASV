@@ -20,6 +20,7 @@ namespace ARKViewer.Models
         public bool WaterVeins { get; set; } = false;
         public bool GasVeins { get; set; } = false;
         public bool Artifacts { get; set; } = false;
+        public bool BeeHives{ get; set; } = false;
 
         public override bool Equals(object obj)
         {
@@ -36,7 +37,9 @@ namespace ARKViewer.Models
                     && this.OilVeins == compareTo.OilVeins
                     && this.WaterVeins == compareTo.WaterVeins
                     && this.GasVeins == compareTo.GasVeins
-                    && this.Artifacts == compareTo.Artifacts;
+                    && this.Artifacts == compareTo.Artifacts
+                    && this.BeeHives == compareTo.BeeHives;
+
             }
 
             return false;
@@ -57,6 +60,7 @@ namespace ARKViewer.Models
             hashCode = hashCode * -1521134295 + WaterVeins.GetHashCode();
             hashCode = hashCode * -1521134295 + GasVeins.GetHashCode();
             hashCode = hashCode * -1521134295 + Artifacts.GetHashCode();
+            hashCode = hashCode * -1521134295 + BeeHives.GetHashCode();
             return hashCode;
         }
     }

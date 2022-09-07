@@ -375,7 +375,6 @@ namespace ASVPack.Models
 
                         long structureStart = DateTime.Now.Ticks;
 
-
                         logWriter.Info($"Identifying map structures");
                         //map structures we care about
                         MapStructures = objectContainer.Objects.Where(x =>
@@ -394,6 +393,8 @@ namespace ASVPack.Models
                             || x.ClassString.StartsWith("GasVein_")
                             || x.ClassString.StartsWith("ArtifactCrate_")
                             || x.ClassString.StartsWith("Structure_PlantSpeciesZ")
+                            || x.ClassString.StartsWith("BeeHive_C")
+
 
 
                             )
