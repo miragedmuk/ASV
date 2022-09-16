@@ -1,4 +1,5 @@
 ﻿using ArkViewer;
+using ArkViewer.Configuration;
 using ARKViewer.Configuration;
 using ARKViewer.Models;
 using ARKViewer.Models.NameMap;
@@ -2980,13 +2981,27 @@ namespace ARKViewer
             this.Cursor = Cursors.WaitCursor;
             Application.DoEvents();
 
-            ASVComboValue selectedItem = (ASVComboValue)cboSelectedMap.SelectedItem;
-
-            Program.ProgramConfig.SelectedFile = selectedItem.Key;
-            if (Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp)
+            switch (cboSelectedMap.SelectedItem)
             {
-                Program.ProgramConfig.SelectedServer = selectedItem.Value;
+                case ASVComboValue comboValue:
+                    Program.ProgramConfig.SelectedFile = comboValue.Key;
+                    if (Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp)
+                    {
+                        Program.ProgramConfig.SelectedServer = comboValue.Value;
+                    }
+
+
+                    break;
+                case OfflineFileConfiguration fileConfig:
+                    Program.ProgramConfig.SelectedFile = fileConfig.Filename;
+                    Program.ProgramConfig.ClusterFolder = fileConfig.ClusterFolder;
+
+                    break;
+                default:
+
+                    break;
             }
+
 
             RefreshMap();
 
@@ -5437,6 +5452,7 @@ namespace ARKViewer
                         ListViewItem newItem = new ListViewItem(foundItem.TribeName);
                         newItem.BackColor = backColor;
                         newItem.ForeColor = foreColor;
+
                         newItem.SubItems.Add(foundItem.ContainerName);
                         newItem.SubItems.Add(foundItem.DisplayName);
                         newItem.SubItems.Add(qualityName);
@@ -5456,7 +5472,11 @@ namespace ARKViewer
                         }
                         
                         newItem.Tag = foundItem;
-                        newItems.Add(newItem);
+
+                        if(!foundItem.UploadedTime.HasValue || (chkItemSearchUploads.Checked))
+                        {
+                            newItems.Add(newItem);
+                        } 
 
                     }
                 }

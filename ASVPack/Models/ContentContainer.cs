@@ -538,6 +538,7 @@ namespace ASVPack.Models
                                 }
                                 else
                                 {
+
                                     return null;
                                 }
 
@@ -1246,12 +1247,8 @@ if (itemObject != null)
 
                     logWriter.Info("Reading cluster data...");
                     var profileFilenames = Directory.GetFiles(clusterFolder, "*");
-                    //profileFilenames.AsParallel().ForAll(x =>
-
-                    var testItems = new List<StructPropertyList>();
-                    var testDinos = new List<StructPropertyList>();
-
-                    foreach (var fileName in profileFilenames)
+                    profileFilenames.AsParallel().ForAll(fileName =>
+                    //foreach (var fileName in profileFilenames)
                     {
                         long itemOwnerId = 0;
                         long.TryParse(System.IO.Path.GetFileNameWithoutExtension(fileName), out itemOwnerId);
@@ -1279,15 +1276,21 @@ if (itemObject != null)
                                                     var item = testItem.GetTypedProperty<PropertyStruct>("ArkTributeItem");
 
                                                     var isInitialItem = (item.Value as StructPropertyList).GetPropertyValue<bool>("bIsInitialItem");
-                                                    //if (!isInitialItem)
+                                                    if (!isInitialItem)
                                                     {
                                                         ContentItem newItem = new ContentItem(item.Value as StructPropertyList);
                                                         //newItem.OwnerPlayerId = itemOwnerId;
-                                                        if(newItem.UploadedTimeInGame!=0) newItem.UploadedTime = GetApproxDateTimeOf(newItem.UploadedTimeInGame);
+                                                        if (newItem.UploadedTimeInGame != 0)
+                                                        {
+                                                            newItem.UploadedTime = GetApproxDateTimeOf(newItem.UploadedTimeInGame);
+                                                            if (!newItem.UploadedTime.HasValue) newItem.UploadedTime = DateTime.MinValue;
+                                                        }
 
                                                         if (newItem.OwnerPlayerId == 0)
                                                         {
-                                                            newItem.OwnerPlayerId = itemOwnerId; //may be wrong but assume filename is either player or tribe id
+                                                            //attempt to find by steam / epic id (filename)
+                                                            var ownerPlayer = Tribes.SelectMany(t => t.Players.Where(p => p.NetworkId == itemOwnerId.ToString())).FirstOrDefault();
+                                                            if (ownerPlayer != null) newItem.OwnerPlayerId = ownerPlayer.Id;
                                                         }
 
                                                         if (newItem.OwnerPlayerId != 0)
@@ -1295,6 +1298,11 @@ if (itemObject != null)
                                                             var targetPlayer = Tribes.SelectMany(m => m.Players).FirstOrDefault(p => p.Id == newItem.OwnerPlayerId || p.TargetingTeam == newItem.OwnerPlayerId);
                                                             if (targetPlayer != null)
                                                             {
+                                                                if(newItem.Quantity == 0)
+                                                                {
+
+                                                                }
+
                                                                 targetPlayer.Inventory.Items.Add(newItem);
                                                             }                    
                                                         }
@@ -1411,7 +1419,7 @@ if (itemObject != null)
                         }
 
                     }
-                    //);
+                    );
 
 
                 }
@@ -1435,8 +1443,16 @@ if (itemObject != null)
 
         public DateTime? GetApproxDateTimeOf(double? objectTime)
         {
-            return objectTime.HasValue
+            try
+            {
+                return objectTime.HasValue
                 && GameSeconds > 0 ? GameSaveTime.AddSeconds(objectTime.Value - GameSeconds) : (DateTime?)null;
+            }
+            catch
+            {
+                return (DateTime?)null;
+            }
+            
         }
 
 

@@ -651,7 +651,7 @@ namespace ARKViewer.Models
 
                                         foundItems.Add(new ASVFoundItem()
                                         {
-                                            ContainerName = container.Container,
+                                            ContainerName = g.UploadedTime.HasValue?"Cluster":container.Container,
                                             TribeId = tribe.TribeId,
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,

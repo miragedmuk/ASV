@@ -40,6 +40,9 @@ namespace ASVPack.Models
             IsBlueprint = uploadData.GetPropertyValue<bool>("bIsBlueprint");
             IsEngram = uploadData.GetPropertyValue<bool>("bIsEngram");
             Quantity = uploadData.GetPropertyValue<int>("ItemQuantity", 0, 1);
+
+            if (Quantity == 0) Quantity = 1;
+
             CraftedByTribe = uploadData.GetPropertyValue<string>("CrafterTribeName");
             CraftedByPlayer = uploadData.GetPropertyValue<string>("CrafterCharacterName");            
             UploadedTimeInGame = uploadData.GetPropertyValue<double>("CreationTime");
