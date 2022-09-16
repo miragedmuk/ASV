@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using ASVPack.Models;
 using System.Globalization;
 using ArkViewer.Models;
+using ArkViewer.Configuration;
 
 namespace ARKViewer.Configuration
 {
@@ -75,9 +76,10 @@ namespace ARKViewer.Configuration
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public bool UpdateNotificationFile { get; set; } = true;
         [DataMember] public string SelectedFile { get; set; }
         [DataMember] public string SelectedServer { get; set; } = "";
+        [DataMember] public string ClusterFolder { get; set; } = "";
         [DataMember] public List<string> StructureExclusions { get; set; } = new List<string>();
         [DataMember] public List<ServerConfiguration> ServerList { get; set; } = new List<ServerConfiguration>();
-        [DataMember] public List<ASVComboValue> OfflineList { get; set; } = new List<ASVComboValue>();
+        [DataMember] public List<OfflineFileConfiguration> OfflineList { get; set; } = new List<OfflineFileConfiguration>();
         [DataMember] public List<ViewerWindow> Windows { get; set; } = new List<ViewerWindow>();
         [DataMember] public int Zoom { get; set; } = 50;
         [DataMember(IsRequired = false)] public int SplitterDistance { get; set; } = 840;
@@ -248,6 +250,7 @@ namespace ARKViewer.Configuration
             Mode = ViewerModes.Mode_SinglePlayer;
             SelectedFile = "TheIsland.ark";
             SelectedServer = "";
+            ClusterFolder = "";
 
             //load colours
 
@@ -535,6 +538,7 @@ JArray itemList = (JArray)itemFile.GetValue("colors");
 
                 this.Mode = savedState.Mode;
                 this.SelectedFile = savedState.SelectedFile;
+                this.ClusterFolder = savedState.ClusterFolder ?? "";
                 this.SelectedServer = savedState.SelectedServer;
                 this.Artifacts = savedState.Artifacts;
                 this.BeaverDams = savedState.BeaverDams;
@@ -571,7 +575,7 @@ JArray itemList = (JArray)itemFile.GetValue("colors");
                 this.Zoom = savedState.Zoom;
                 this.SplitterDistance = savedState.SplitterDistance;
                 this.ServerList = savedState.ServerList;
-                this.OfflineList = savedState.OfflineList?? new List<ASVComboValue>();
+                this.OfflineList = savedState.OfflineList?? new List<OfflineFileConfiguration>();
 
                 savedState = null;
             }

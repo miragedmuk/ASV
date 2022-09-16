@@ -501,7 +501,7 @@ namespace ARKViewer.Models
                             .Select(s => new
                             {
                                 tribe.TribeName,
-                                Container = "Structure",
+                                Container = s.ClassName,
                                 s.Latitude,
                                 s.Longitude,
                                 s.X,
@@ -515,7 +515,7 @@ namespace ARKViewer.Models
                         {
                             foreach (var container in matchedContainers)
                             {
-                                var groupedItems = container.MatchedItems.GroupBy(x => new { ClassName = x.ClassName, IsBluePrint = x.IsBlueprint, x.Rating }).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBluePrint, Rating = g.Key.Rating, Qty = g.Sum(i => i.Quantity) }).ToList();
+                                var groupedItems = container.MatchedItems.GroupBy(x => new { ClassName = x.ClassName, IsBluePrint = x.IsBlueprint, x.Rating, x.UploadedTime }).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBluePrint, Rating = g.Key.Rating, UploadedTime =g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
 
                                 if (groupedItems != null && groupedItems.Count > 0)
                                 {
@@ -525,9 +525,16 @@ namespace ARKViewer.Models
                                         var itemMap = Program.ProgramConfig.ItemMap.FirstOrDefault(m => m.ClassName == g.ClassName);
                                         if (itemMap != null) displayName = itemMap.DisplayName;
 
+                                        string containerName = container.Container;
+                                        var containerMap = Program.ProgramConfig.StructureMap.FirstOrDefault(m => m.ClassName == container.Container);
+                                        if (containerMap != null)
+                                        {
+                                            containerName = containerMap.FriendlyName;
+                                        }
+                                        
                                         foundItems.Add(new ASVFoundItem()
                                         {
-                                            ContainerName = container.Container,
+                                            ContainerName = containerName,
                                             TribeId = tribe.TribeId,
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,
@@ -539,7 +546,8 @@ namespace ARKViewer.Models
                                             Z = (decimal)container.Z,
                                             Quantity = g.Qty,
                                             IsBlueprint = g.IsBlueprint,
-                                            Rating = g.Rating
+                                            Rating = g.Rating,
+                                            UploadedTime = g.UploadedTime
 
                                         });
 
@@ -622,7 +630,7 @@ namespace ARKViewer.Models
                                 s.Longitude,
                                 s.X,
                                 s.Y,
-                                s.Z,
+                                s.Z,                                
                                 MatchedItems = s.Inventory.Items.Where(i => i.ClassName == className || className == "").ToList()
                             })
                             .ToList();
@@ -631,7 +639,7 @@ namespace ARKViewer.Models
                         {
                             foreach (var container in matchedContainers)
                             {
-                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.IsBlueprint, x.Rating } ).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, Qty = g.Sum(i => i.Quantity) }).ToList();
+                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.IsBlueprint, x.Rating, x.UploadedTime } ).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, UploadedTime = g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
 
                                 if (groupedItems != null && groupedItems.Count > 0)
                                 {
@@ -655,8 +663,8 @@ namespace ARKViewer.Models
                                             Z = (decimal)container.Z,
                                             Quantity = g.Qty,
                                             IsBlueprint = g.IsBlueprint,
-                                            Rating = g.Rating
-
+                                            Rating = g.Rating,
+                                            UploadedTime = g.UploadedTime
                                         });
 
                                     });
@@ -664,6 +672,8 @@ namespace ARKViewer.Models
                             }
 
                         }
+
+
                     }
                 }
 
@@ -720,8 +730,9 @@ namespace ARKViewer.Models
                 Task.Run(() => ExportPlayerTribeLogs(Path.Combine(exportPath, "ASV_TribeLogs.json"))),
                 Task.Run(() => ExportTamed(Path.Combine(exportPath, "ASV_Tamed.json"))),
                 Task.Run(() => ExportPlayers(Path.Combine(exportPath, "ASV_Players.json"))),
-                Task.Run(() => ExportPlayerStructures(Path.Combine(exportPath, "ASV_Structures.json")))
-                )
+                Task.Run(() => ExportPlayerStructures(Path.Combine(exportPath, "ASV_Structures.json"))),
+                Task.Run(() => ExportMapStructures(Path.Combine(exportPath,"ASV_MapStructures.json")))
+                );
             ;
         }
 

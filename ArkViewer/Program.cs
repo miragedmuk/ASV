@@ -216,6 +216,14 @@ namespace ARKViewer
                 exportFilePath = Path.GetDirectoryName(exportFilename);
             }
 
+            string clusterFolder = "";
+            if (commandArguments.Length > 4)
+            {
+                clusterFolder = commandArguments[3].ToString().Trim().Replace("\"", "");
+                exportFilename = commandArguments[4].ToString().Trim().Replace("\"", "");
+                exportFilePath = Path.GetDirectoryName(exportFilename);
+            }
+
             try
             {
                 switch (commandOptionCheck)
@@ -245,7 +253,7 @@ namespace ARKViewer
 
                         ContentContainer container = new ContentContainer();
 
-                        container.LoadSaveGame(inputFilename, "");
+                        container.LoadSaveGame(inputFilename, "", clusterFolder);
                         ASVDataManager exportManger = new ASVDataManager(container);
 
                         switch (commandOptionCheck)
@@ -324,6 +332,7 @@ namespace ARKViewer
             //defaults
             string mapFilename = "";
             string exportFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_ContentPack.asv");
+            string clusterFolder = "";
             long tribeId = 0;
             long playerId = 0;
             decimal filterLat = 50;
@@ -348,6 +357,7 @@ namespace ARKViewer
                     JObject packConfig = JObject.Parse(packConfigText);
 
                     mapFilename = packConfig.Property("mapFilename") == null ? "" : packConfig.Property("mapFilename").Value.ToString();
+
                     exportFilename = packConfig.Property("tribeId") == null ? "" : packConfig.Property("exportFilename").Value.ToString();
                     tribeId = packConfig.Property("exportFilename") == null ? 0 : (long)packConfig.Property("tribeId").Value;
                     playerId = packConfig.Property("playerId") == null ? 0 : (long)packConfig.Property("playerId").Value;
@@ -362,6 +372,7 @@ namespace ARKViewer
                     packWild = packConfig.Property("packWild") == null ? true : (bool)packConfig.Property("packWild").Value;
                     packPlayerStructures = packConfig.Property("packPlayerStructures") == null ? true : (bool)packConfig.Property("packPlayerStructures").Value;
 
+                    clusterFolder = packConfig.Property("clusterFolder") == null ? "" : packConfig.Property("clusterFolder").Value.ToString();
 
                 }
                 catch
@@ -387,7 +398,7 @@ namespace ARKViewer
 
             LogWriter.Debug($"Loading .ark save file: {mapFilename}");
             
-            exportPack.LoadSaveGame( mapFilename, "");
+            exportPack.LoadSaveGame( mapFilename, "", clusterFolder);
 
             LogWriter.Debug($"Creating ContentPack");
             ContentPack pack = new ContentPack(exportPack, tribeId, playerId, filterLat, filterLon, filterRad, packStructureLocations, packStructureContent, packTribesPlayers, packTamed, packWild, packPlayerStructures, packDroppedItems);
@@ -435,6 +446,7 @@ namespace ARKViewer
             string tamedClassName = "";
 
             string mapFilename = Program.ProgramConfig.SelectedFile;
+            string clusterFolder = Program.ProgramConfig.ClusterFolder;
 
             if (File.Exists(configFilename))
             {
@@ -525,7 +537,7 @@ namespace ARKViewer
             ContentContainer exportContainer = new ContentContainer();
             LogWriter.Debug($"Loading .ark save file.");
             
-            exportContainer.LoadSaveGame(mapFilename, "");
+            exportContainer.LoadSaveGame(mapFilename, "", clusterFolder);
 
             //filter a pack for export
             LogWriter.Debug($"Loading ContentPack.");

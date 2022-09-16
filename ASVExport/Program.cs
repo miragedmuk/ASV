@@ -82,6 +82,14 @@ namespace ASVExport
                 exportFilePath = Path.GetDirectoryName(exportFilename);
             }
 
+            string clusterFolder = "";
+            if(commandArguments.Length > 4)
+            {
+                clusterFolder = commandArguments[3].ToString().Trim().Replace("\"", "");
+                exportFilename = commandArguments[4].ToString().Trim().Replace("\"", "");
+                exportFilePath = Path.GetDirectoryName(exportFilename);
+            }
+
             try
             {
                 switch (commandOptionCheck)
@@ -112,7 +120,7 @@ namespace ASVExport
 
                         ContentContainer container = new ContentContainer();
                         
-                        container.LoadSaveGame( inputFilename, "");
+                        container.LoadSaveGame( inputFilename, "", clusterFolder);
 
                         ContentPack exportPack = new ContentPack(container, 0, 0, 50, 50, 100, true, true, true, true, true, true, true);
 
@@ -205,6 +213,7 @@ namespace ASVExport
             //defaults
             string mapFilename = "";
             string exportFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_ContentPack.asv");
+            string clusterFolder = "";
             long tribeId = 0;
             long playerId = 0;
             decimal filterLat = 50;
@@ -217,6 +226,7 @@ namespace ASVExport
             bool packTamed = true;
             bool packWild = true;
             bool packPlayerStructures = true;
+            
 
 
             if (File.Exists(configFilename))
@@ -242,7 +252,7 @@ namespace ASVExport
                     packTamed = packConfig.Property("packTamed") == null ? true : (bool)packConfig.Property("packTamed").Value;
                     packWild = packConfig.Property("packWild") == null ? true : (bool)packConfig.Property("packWild").Value;
                     packPlayerStructures = packConfig.Property("packPlayerStructures") == null ? true : (bool)packConfig.Property("packPlayerStructures").Value;
-
+                    clusterFolder = packConfig.Property("clusterFolder") == null ? "" : packConfig.Property("clusterFolder").Value.ToString();
 
                 }
                 catch
@@ -268,7 +278,7 @@ namespace ASVExport
 
             //LogWriter.Debug($"Loading .ark save file: {mapFilename}");
             
-            exportPack.LoadSaveGame(mapFilename, "");
+            exportPack.LoadSaveGame(mapFilename, "", clusterFolder);
 
             //LogWriter.Debug($"Creating ContentPack");
             ContentPack pack = new ContentPack(exportPack, tribeId, playerId, filterLat, filterLon, filterRad, packStructureLocations, packStructureContent, packTribesPlayers, packTamed, packWild, packPlayerStructures, packDroppedItems);
@@ -319,6 +329,7 @@ namespace ASVExport
             string tamedClassName = "";
 
             string mapFilename = "";
+            string clusterFolder = "";
 
             if (File.Exists(configFilename))
             {
@@ -329,6 +340,8 @@ namespace ASVExport
                     JObject packConfig = JObject.Parse(configText);
 
                     mapFilename = packConfig.Property("mapFilename") == null ? "" : packConfig.Property("mapFilename").Value.ToString();
+                    clusterFolder= packConfig.Property("clusterFolder") == null ? "" : packConfig.Property("clusterFolder").Value.ToString();
+
 
                     //if no save file provided, use ProgramConfig
                     if (mapFilename.Length == 0)
@@ -424,7 +437,7 @@ namespace ASVExport
 
             ContentMap loadedMap = new ASVPack.ContentMapPack().SupportedMaps.FirstOrDefault(m => mapFilename.ToLower().Contains(m.Filename.ToLower()));
             
-            exportContainer.LoadSaveGame( mapFilename, "");
+            exportContainer.LoadSaveGame( mapFilename, "", clusterFolder);
 
             //load manager from filtered pack
             //LogWriter.Debug($"Creating filtered ContentPack.");

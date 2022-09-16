@@ -206,7 +206,7 @@ namespace ARKViewer
                     }
 
                     
-                    container.LoadSaveGame(fileName, localProfileFilename);
+                    container.LoadSaveGame(fileName, localProfileFilename, Program.ProgramConfig.ClusterFolder??"");
 
                     //terminals not already in game data
 
@@ -358,8 +358,11 @@ namespace ARKViewer
                 case ViewerModes.Mode_Offline:
                     foreach (var i in Program.ProgramConfig.OfflineList)
                     {
-                        int newIndex = cboSelectedMap.Items.Add(new ASVComboValue(i.Key, i.Value));
-                        if (i.Key.ToLower() == Program.ProgramConfig.SelectedFile.ToLower()) cboSelectedMap.SelectedIndex = newIndex;
+                        if (i != null && i.Name!=null)
+                        {
+                            int newIndex = cboSelectedMap.Items.Add(i);
+                            if (i.Filename.ToLower() == Program.ProgramConfig.SelectedFile.ToLower()) cboSelectedMap.SelectedIndex = newIndex;
+                        }
                     }
                     break;
                 case ViewerModes.Mode_SinglePlayer:
@@ -1140,6 +1143,7 @@ namespace ARKViewer
         private void cboTameClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboTameClass.SelectedIndex != 1 && cboTamedResource.SelectedIndex > 0) cboTamedResource.SelectedIndex = 0;
+            
             LoadTameDetail();
         }
 
@@ -5399,6 +5403,7 @@ namespace ARKViewer
             
             if (cboItemListTribe.SelectedItem == null) return;
             if (cboItemListItem.SelectedItem == null) return;
+            
 
             this.Cursor = Cursors.WaitCursor;
             lblStatus.Text = "Searching inventories....";
@@ -5441,7 +5446,15 @@ namespace ARKViewer
                         newItem.SubItems.Add(foundItem.Latitude.ToString("f2"));
                         newItem.SubItems.Add(foundItem.Longitude.ToString("f2"));
                         newItem.SubItems.Add($"{foundItem?.X} {foundItem?.Y} {foundItem?.Z}");
-
+                        if (foundItem.UploadedTime.HasValue)
+                        {
+                            newItem.SubItems.Add($"{foundItem.UploadedTime.Value.ToString("dd MMM yyyy HH:mm")}");
+                        }
+                        else
+                        {
+                            newItem.SubItems.Add($"");
+                        }
+                        
                         newItem.Tag = foundItem;
                         newItems.Add(newItem);
 
@@ -5831,7 +5844,8 @@ namespace ARKViewer
 
                 //change into a strongly typed list for use in parallel
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
-                Parallel.ForEach(detailList, detail =>
+                //Parallel.ForEach(detailList, detail =>
+                foreach(var detail in detailList)
                 {
                     var dinoMap = ARKViewer.Program.ProgramConfig.DinoMap.Where(dino => dino.ClassName == detail.ClassName).FirstOrDefault();
 
@@ -5875,6 +5889,10 @@ namespace ARKViewer
 
                     }
 
+                    if (detail.UploadedTime.HasValue)
+                    {
+                        addItem = chkTameUploads.Checked;
+                    }
 
                     if (addItem)
                     {
@@ -5888,8 +5906,8 @@ namespace ARKViewer
                         item.SubItems.Add(detail.Gender.ToString());
                         item.SubItems.Add(detail.BaseLevel.ToString());
                         item.SubItems.Add(detail.Level.ToString());
-                        item.SubItems.Add(((decimal)detail.Latitude).ToString("0.00"));
-                        item.SubItems.Add(((decimal)detail.Longitude).ToString("0.00"));
+                        item.SubItems.Add(((decimal)(detail.Latitude??0)).ToString("0.00"));
+                        item.SubItems.Add(((decimal)(detail.Longitude??0)).ToString("0.00"));
                         if (optStatsTamed.Checked)
                         {
                             item.SubItems.Add(detail.TamedStats[0].ToString());
@@ -5951,7 +5969,8 @@ namespace ARKViewer
                                 subItem.BackColor = Color.LightSkyBlue;
                             }
                         }
-                        else if (detail.IsVivarium)
+                        
+                        if (detail.IsVivarium)
                         {
                             item.BackColor = Color.LightGreen;
                             foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
@@ -5960,6 +5979,14 @@ namespace ARKViewer
                             }
                         }
 
+                        if (detail.UploadedTime.HasValue)
+                        {
+                            item.BackColor = Color.WhiteSmoke;
+                            foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                            {
+                                subItem.BackColor = Color.WhiteSmoke;
+                            }
+                        }
 
                         //Colours
                         int colourCheck = (int)detail.Colors[0];
@@ -6029,8 +6056,20 @@ namespace ARKViewer
                         item.SubItems.Add(rig1Name);
                         item.SubItems.Add(rig2Name);
                         item.SubItems.Add(detail.LastAllyInRangeTime.HasValue ? detail.LastAllyInRangeTime.Value.ToString("dd MMM yyyy HH:mm") : "");
+                        if (detail.UploadedTime.HasValue)
+                        {
+                            item.SubItems.Add($"{detail.UploadedTime.Value.ToString("dd MMM yyyy HH:mm")}");
+                        }
+                        else
+                        {
+                            item.SubItems.Add($"");
+                        }
                         item.SubItems.Add(detail.DinoId);
+
+
                         item.SubItems.Add($"{detail.X} {detail.Y} {detail.Z}");
+
+                        
 
                         if (detail.Id == selectedId)
                         {
@@ -6043,7 +6082,8 @@ namespace ARKViewer
                         listItems.Add(item);
                     }
                     
-                });
+                }
+                //);
 
                 lvwTameDetail.Items.AddRange(listItems.ToArray());
 
@@ -6302,7 +6342,7 @@ namespace ARKViewer
 
         private void chkItemSearchBlueprints_CheckedChanged(object sender, EventArgs e)
         {
-            chkItemSearchBlueprints.BackgroundImage = chkItemSearchBlueprints.Checked ? Properties.Resources.blueprints : Properties.Resources.blueprints_unchecked;
+            //chkItemSearchBlueprints.BackgroundImage = chkItemSearchBlueprints.Checked ? Properties.Resources.blueprints : Properties.Resources.blueprints_unchecked;
             LoadItemListDetail();
         }
 
@@ -7460,6 +7500,21 @@ namespace ARKViewer
         private void cboDroppedItemRealm_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDroppedItemDetail();
+        }
+
+        private void cboTameStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadItemListDetail();
+        }
+
+        private void chkItemSearchUploads_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadItemListDetail();
+        }
+
+        private void chkTameUploads_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadTameDetail();
         }
     }
 }

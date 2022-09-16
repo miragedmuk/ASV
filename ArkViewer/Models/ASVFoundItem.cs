@@ -23,6 +23,7 @@ namespace ARKViewer.Models
         public string Quality { get; set; } = "";
         public int? QualityColor { get; set; } = null;
         public float? Rating { get; set; } = null;
+        public DateTime? UploadedTime { get; set; } = null;
 
 
     }

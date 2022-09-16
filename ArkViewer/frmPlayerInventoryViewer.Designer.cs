@@ -34,13 +34,13 @@
             this.lblPlayerFilter = new System.Windows.Forms.Label();
             this.txtPlayerFilter = new System.Windows.Forms.TextBox();
             this.lvwPlayerInventory = new System.Windows.Forms.ListView();
-            this.lvwPlayerInventory_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwPlayerInventory_BP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwPlayerInventory_Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwPlayerInventory_Quality = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwPlayerInventory_Rating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwPlayerInventory_CraftedBy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwPlayerInventory_Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvwPlayerInventory_Item = new System.Windows.Forms.ColumnHeader();
+            this.lvwPlayerInventory_BP = new System.Windows.Forms.ColumnHeader();
+            this.lvwPlayerInventory_Category = new System.Windows.Forms.ColumnHeader();
+            this.lvwPlayerInventory_Quality = new System.Windows.Forms.ColumnHeader();
+            this.lvwPlayerInventory_Rating = new System.Windows.Forms.ColumnHeader();
+            this.lvwPlayerInventory_CraftedBy = new System.Windows.Forms.ColumnHeader();
+            this.lvwPlayerInventory_Qty = new System.Windows.Forms.ColumnHeader();
             this.tabExplorer = new System.Windows.Forms.TabControl();
             this.tpgPlayerInventory = new System.Windows.Forms.TabPage();
             this.lblPlayerLevelLabel = new System.Windows.Forms.Label();
@@ -57,16 +57,16 @@
             this.lblCreatureFilter = new System.Windows.Forms.Label();
             this.txtCreatureFilter = new System.Windows.Forms.TextBox();
             this.lvwCreatureInventory = new System.Windows.Forms.ListView();
-            this.lvwCreatureInventory_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_BP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Quality = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Rating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Crafter = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Lat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Lon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwCreatureInventory_Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvwCreatureInventory_Item = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_BP = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Category = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Quality = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Rating = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Crafter = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Name = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Lat = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Lon = new System.Windows.Forms.ColumnHeader();
+            this.lvwCreatureInventory_Qty = new System.Windows.Forms.ColumnHeader();
             this.tpgStorageInventory = new System.Windows.Forms.TabPage();
             this.picIconStorage = new System.Windows.Forms.PictureBox();
             this.cboStorageType = new System.Windows.Forms.ComboBox();
@@ -76,41 +76,42 @@
             this.lblStorageFilter = new System.Windows.Forms.Label();
             this.txtStorageFilter = new System.Windows.Forms.TextBox();
             this.lvwStorageInventory = new System.Windows.Forms.ListView();
-            this.lvwStorageInventory_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_BP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_Quality = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader20lvwStorageInventory_Rating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_Crafter = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_Container = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_Lat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_Lon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwStorageInventory_Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvwStorageInventory_Item = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_BP = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_Category = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_Quality = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader20lvwStorageInventory_Rating = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_Crafter = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_Container = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_Lat = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_Lon = new System.Windows.Forms.ColumnHeader();
+            this.lvwStorageInventory_Qty = new System.Windows.Forms.ColumnHeader();
             this.tpgEngrams = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lvwEmotes = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.lvwHairstyles = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.lblPlayerEngrams = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lvwEngrams = new System.Windows.Forms.ListView();
-            this.lvwEngrams_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwEngrams_Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvwEngrams_Item = new System.Windows.Forms.ColumnHeader();
+            this.lvwEngrams_Category = new System.Windows.Forms.ColumnHeader();
             this.tpgMissions = new System.Windows.Forms.TabPage();
             this.pnlMissionScores = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lvwPlayerScores = new System.Windows.Forms.ListView();
-            this.lvwPlayerScores_Mission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwPlayerScores_Result = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvwPlayerScores_Mission = new System.Windows.Forms.ColumnHeader();
+            this.lvwPlayerScores_Result = new System.Windows.Forms.ColumnHeader();
             this.picWindowIcon = new System.Windows.Forms.PictureBox();
             this.lblWindowTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblPlayerId = new System.Windows.Forms.Label();
+            this.lvwPlayerInventory_UploadedTime = new System.Windows.Forms.ColumnHeader();
             this.pnlPlayerInventory.SuspendLayout();
             this.tabExplorer.SuspendLayout();
             this.tpgPlayerInventory.SuspendLayout();
@@ -139,19 +140,21 @@
             this.pnlPlayerInventory.Controls.Add(this.lblPlayerFilter);
             this.pnlPlayerInventory.Controls.Add(this.txtPlayerFilter);
             this.pnlPlayerInventory.Controls.Add(this.lvwPlayerInventory);
-            this.pnlPlayerInventory.Location = new System.Drawing.Point(18, 83);
+            this.pnlPlayerInventory.Location = new System.Drawing.Point(21, 96);
+            this.pnlPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlPlayerInventory.Name = "pnlPlayerInventory";
-            this.pnlPlayerInventory.Size = new System.Drawing.Size(689, 364);
+            this.pnlPlayerInventory.Size = new System.Drawing.Size(804, 420);
             this.pnlPlayerInventory.TabIndex = 4;
             // 
             // chkApplyFilterPlayer
             // 
             this.chkApplyFilterPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkApplyFilterPlayer.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkApplyFilterPlayer.Image = global::ARKViewer.Properties.Resources.button_filter;
-            this.chkApplyFilterPlayer.Location = new System.Drawing.Point(642, 323);
+            this.chkApplyFilterPlayer.Image = ((System.Drawing.Image)(resources.GetObject("chkApplyFilterPlayer.Image")));
+            this.chkApplyFilterPlayer.Location = new System.Drawing.Point(749, 373);
+            this.chkApplyFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkApplyFilterPlayer.Name = "chkApplyFilterPlayer";
-            this.chkApplyFilterPlayer.Size = new System.Drawing.Size(35, 35);
+            this.chkApplyFilterPlayer.Size = new System.Drawing.Size(41, 40);
             this.chkApplyFilterPlayer.TabIndex = 3;
             this.chkApplyFilterPlayer.UseVisualStyleBackColor = true;
             this.chkApplyFilterPlayer.CheckedChanged += new System.EventHandler(this.chkApplyFilterPlayer_CheckedChanged);
@@ -160,9 +163,10 @@
             // 
             this.lblPlayerFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPlayerFilter.AutoSize = true;
-            this.lblPlayerFilter.Location = new System.Drawing.Point(8, 335);
+            this.lblPlayerFilter.Location = new System.Drawing.Point(9, 387);
+            this.lblPlayerFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerFilter.Name = "lblPlayerFilter";
-            this.lblPlayerFilter.Size = new System.Drawing.Size(29, 13);
+            this.lblPlayerFilter.Size = new System.Drawing.Size(33, 15);
             this.lblPlayerFilter.TabIndex = 1;
             this.lblPlayerFilter.Text = "Filter";
             // 
@@ -170,9 +174,10 @@
             // 
             this.txtPlayerFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPlayerFilter.Location = new System.Drawing.Point(43, 332);
+            this.txtPlayerFilter.Location = new System.Drawing.Point(50, 383);
+            this.txtPlayerFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPlayerFilter.Name = "txtPlayerFilter";
-            this.txtPlayerFilter.Size = new System.Drawing.Size(593, 20);
+            this.txtPlayerFilter.Size = new System.Drawing.Size(691, 23);
             this.txtPlayerFilter.TabIndex = 2;
             this.txtPlayerFilter.TextChanged += new System.EventHandler(this.txtPlayerFilter_TextChanged);
             // 
@@ -188,12 +193,13 @@
             this.lvwPlayerInventory_Quality,
             this.lvwPlayerInventory_Rating,
             this.lvwPlayerInventory_CraftedBy,
-            this.lvwPlayerInventory_Qty});
+            this.lvwPlayerInventory_Qty,
+            this.lvwPlayerInventory_UploadedTime});
             this.lvwPlayerInventory.FullRowSelect = true;
-            this.lvwPlayerInventory.HideSelection = false;
-            this.lvwPlayerInventory.Location = new System.Drawing.Point(11, 10);
+            this.lvwPlayerInventory.Location = new System.Drawing.Point(13, 12);
+            this.lvwPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwPlayerInventory.Name = "lvwPlayerInventory";
-            this.lvwPlayerInventory.Size = new System.Drawing.Size(666, 310);
+            this.lvwPlayerInventory.Size = new System.Drawing.Size(776, 357);
             this.lvwPlayerInventory.TabIndex = 0;
             this.lvwPlayerInventory.UseCompatibleStateImageBehavior = false;
             this.lvwPlayerInventory.View = System.Windows.Forms.View.Details;
@@ -244,10 +250,11 @@
             this.tabExplorer.Controls.Add(this.tpgStorageInventory);
             this.tabExplorer.Controls.Add(this.tpgEngrams);
             this.tabExplorer.Controls.Add(this.tpgMissions);
-            this.tabExplorer.Location = new System.Drawing.Point(12, 24);
+            this.tabExplorer.Location = new System.Drawing.Point(14, 28);
+            this.tabExplorer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabExplorer.Name = "tabExplorer";
             this.tabExplorer.SelectedIndex = 0;
-            this.tabExplorer.Size = new System.Drawing.Size(732, 509);
+            this.tabExplorer.Size = new System.Drawing.Size(854, 587);
             this.tabExplorer.TabIndex = 0;
             // 
             // tpgPlayerInventory
@@ -258,10 +265,11 @@
             this.tpgPlayerInventory.Controls.Add(this.lblPlayerName);
             this.tpgPlayerInventory.Controls.Add(this.picPlayerGender);
             this.tpgPlayerInventory.Controls.Add(this.pnlPlayerInventory);
-            this.tpgPlayerInventory.Location = new System.Drawing.Point(4, 22);
+            this.tpgPlayerInventory.Location = new System.Drawing.Point(4, 24);
+            this.tpgPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpgPlayerInventory.Name = "tpgPlayerInventory";
-            this.tpgPlayerInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgPlayerInventory.Size = new System.Drawing.Size(724, 483);
+            this.tpgPlayerInventory.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tpgPlayerInventory.Size = new System.Drawing.Size(846, 559);
             this.tpgPlayerInventory.TabIndex = 0;
             this.tpgPlayerInventory.Text = "Player Inventory";
             this.tpgPlayerInventory.UseVisualStyleBackColor = true;
@@ -271,20 +279,22 @@
             this.lblPlayerLevelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPlayerLevelLabel.AutoSize = true;
             this.lblPlayerLevelLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPlayerLevelLabel.Location = new System.Drawing.Point(616, 24);
+            this.lblPlayerLevelLabel.Location = new System.Drawing.Point(719, 28);
+            this.lblPlayerLevelLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerLevelLabel.Name = "lblPlayerLevelLabel";
-            this.lblPlayerLevelLabel.Size = new System.Drawing.Size(65, 13);
+            this.lblPlayerLevelLabel.Size = new System.Drawing.Size(69, 15);
             this.lblPlayerLevelLabel.TabIndex = 2;
             this.lblPlayerLevelLabel.Text = "Player Level";
             // 
             // lblPlayerLevel
             // 
             this.lblPlayerLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlayerLevel.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayerLevel.Location = new System.Drawing.Point(617, 37);
+            this.lblPlayerLevel.Location = new System.Drawing.Point(720, 43);
+            this.lblPlayerLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerLevel.Name = "lblPlayerLevel";
-            this.lblPlayerLevel.Size = new System.Drawing.Size(62, 31);
+            this.lblPlayerLevel.Size = new System.Drawing.Size(72, 36);
             this.lblPlayerLevel.TabIndex = 3;
             this.lblPlayerLevel.Text = "135";
             this.lblPlayerLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -293,11 +303,12 @@
             // 
             this.lblTribeName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTribeName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTribeName.Location = new System.Drawing.Point(97, 51);
+            this.lblTribeName.Location = new System.Drawing.Point(113, 59);
+            this.lblTribeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTribeName.Name = "lblTribeName";
-            this.lblTribeName.Size = new System.Drawing.Size(605, 17);
+            this.lblTribeName.Size = new System.Drawing.Size(706, 20);
             this.lblTribeName.TabIndex = 1;
             this.lblTribeName.Text = "Tribe Name";
             this.lblTribeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,11 +317,12 @@
             // 
             this.lblPlayerName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlayerName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayerName.Location = new System.Drawing.Point(95, 18);
+            this.lblPlayerName.Location = new System.Drawing.Point(111, 21);
+            this.lblPlayerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(466, 31);
+            this.lblPlayerName.Size = new System.Drawing.Size(544, 36);
             this.lblPlayerName.TabIndex = 0;
             this.lblPlayerName.Text = "Player Name";
             this.lblPlayerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -318,10 +330,11 @@
             // picPlayerGender
             // 
             this.picPlayerGender.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picPlayerGender.Image = global::ARKViewer.Properties.Resources.marker_28;
-            this.picPlayerGender.Location = new System.Drawing.Point(40, 18);
+            this.picPlayerGender.Image = ((System.Drawing.Image)(resources.GetObject("picPlayerGender.Image")));
+            this.picPlayerGender.Location = new System.Drawing.Point(47, 21);
+            this.picPlayerGender.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.picPlayerGender.Name = "picPlayerGender";
-            this.picPlayerGender.Size = new System.Drawing.Size(50, 50);
+            this.picPlayerGender.Size = new System.Drawing.Size(58, 57);
             this.picPlayerGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picPlayerGender.TabIndex = 5;
             this.picPlayerGender.TabStop = false;
@@ -332,10 +345,11 @@
             this.tpgCreatureInventory.Controls.Add(this.cboCreatureType);
             this.tpgCreatureInventory.Controls.Add(this.lblCreatureType);
             this.tpgCreatureInventory.Controls.Add(this.pnlCreatureInventory);
-            this.tpgCreatureInventory.Location = new System.Drawing.Point(4, 22);
+            this.tpgCreatureInventory.Location = new System.Drawing.Point(4, 24);
+            this.tpgCreatureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpgCreatureInventory.Name = "tpgCreatureInventory";
-            this.tpgCreatureInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgCreatureInventory.Size = new System.Drawing.Size(724, 483);
+            this.tpgCreatureInventory.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tpgCreatureInventory.Size = new System.Drawing.Size(846, 559);
             this.tpgCreatureInventory.TabIndex = 1;
             this.tpgCreatureInventory.Text = "Creature Inventory";
             this.tpgCreatureInventory.UseVisualStyleBackColor = true;
@@ -344,9 +358,10 @@
             // 
             this.picIconCreature.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picIconCreature.Image = ((System.Drawing.Image)(resources.GetObject("picIconCreature.Image")));
-            this.picIconCreature.Location = new System.Drawing.Point(42, 18);
+            this.picIconCreature.Location = new System.Drawing.Point(49, 21);
+            this.picIconCreature.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.picIconCreature.Name = "picIconCreature";
-            this.picIconCreature.Size = new System.Drawing.Size(50, 50);
+            this.picIconCreature.Size = new System.Drawing.Size(58, 57);
             this.picIconCreature.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picIconCreature.TabIndex = 6;
             this.picIconCreature.TabStop = false;
@@ -355,18 +370,20 @@
             // 
             this.cboCreatureType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCreatureType.FormattingEnabled = true;
-            this.cboCreatureType.Location = new System.Drawing.Point(107, 42);
+            this.cboCreatureType.Location = new System.Drawing.Point(125, 48);
+            this.cboCreatureType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboCreatureType.Name = "cboCreatureType";
-            this.cboCreatureType.Size = new System.Drawing.Size(369, 21);
+            this.cboCreatureType.Size = new System.Drawing.Size(430, 23);
             this.cboCreatureType.TabIndex = 1;
             this.cboCreatureType.SelectedIndexChanged += new System.EventHandler(this.cboCreatureType_SelectedIndexChanged);
             // 
             // lblCreatureType
             // 
             this.lblCreatureType.AutoSize = true;
-            this.lblCreatureType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatureType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCreatureType.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblCreatureType.Location = new System.Drawing.Point(104, 25);
+            this.lblCreatureType.Location = new System.Drawing.Point(121, 29);
+            this.lblCreatureType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreatureType.Name = "lblCreatureType";
             this.lblCreatureType.Size = new System.Drawing.Size(87, 13);
             this.lblCreatureType.TabIndex = 0;
@@ -382,19 +399,21 @@
             this.pnlCreatureInventory.Controls.Add(this.lblCreatureFilter);
             this.pnlCreatureInventory.Controls.Add(this.txtCreatureFilter);
             this.pnlCreatureInventory.Controls.Add(this.lvwCreatureInventory);
-            this.pnlCreatureInventory.Location = new System.Drawing.Point(18, 83);
+            this.pnlCreatureInventory.Location = new System.Drawing.Point(21, 96);
+            this.pnlCreatureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlCreatureInventory.Name = "pnlCreatureInventory";
-            this.pnlCreatureInventory.Size = new System.Drawing.Size(671, 346);
+            this.pnlCreatureInventory.Size = new System.Drawing.Size(783, 399);
             this.pnlCreatureInventory.TabIndex = 2;
             // 
             // chkApplyFilterCreature
             // 
             this.chkApplyFilterCreature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkApplyFilterCreature.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkApplyFilterCreature.Image = global::ARKViewer.Properties.Resources.button_filter;
-            this.chkApplyFilterCreature.Location = new System.Drawing.Point(627, 305);
+            this.chkApplyFilterCreature.Image = ((System.Drawing.Image)(resources.GetObject("chkApplyFilterCreature.Image")));
+            this.chkApplyFilterCreature.Location = new System.Drawing.Point(732, 352);
+            this.chkApplyFilterCreature.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkApplyFilterCreature.Name = "chkApplyFilterCreature";
-            this.chkApplyFilterCreature.Size = new System.Drawing.Size(35, 35);
+            this.chkApplyFilterCreature.Size = new System.Drawing.Size(41, 40);
             this.chkApplyFilterCreature.TabIndex = 3;
             this.chkApplyFilterCreature.UseVisualStyleBackColor = true;
             this.chkApplyFilterCreature.CheckedChanged += new System.EventHandler(this.chkApplyFilterCreature_CheckedChanged);
@@ -403,9 +422,10 @@
             // 
             this.lblCreatureFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCreatureFilter.AutoSize = true;
-            this.lblCreatureFilter.Location = new System.Drawing.Point(6, 317);
+            this.lblCreatureFilter.Location = new System.Drawing.Point(7, 366);
+            this.lblCreatureFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreatureFilter.Name = "lblCreatureFilter";
-            this.lblCreatureFilter.Size = new System.Drawing.Size(29, 13);
+            this.lblCreatureFilter.Size = new System.Drawing.Size(33, 15);
             this.lblCreatureFilter.TabIndex = 1;
             this.lblCreatureFilter.Text = "Filter";
             // 
@@ -413,9 +433,10 @@
             // 
             this.txtCreatureFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCreatureFilter.Location = new System.Drawing.Point(41, 314);
+            this.txtCreatureFilter.Location = new System.Drawing.Point(48, 362);
+            this.txtCreatureFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCreatureFilter.Name = "txtCreatureFilter";
-            this.txtCreatureFilter.Size = new System.Drawing.Size(580, 20);
+            this.txtCreatureFilter.Size = new System.Drawing.Size(676, 23);
             this.txtCreatureFilter.TabIndex = 2;
             this.txtCreatureFilter.TextChanged += new System.EventHandler(this.txtCreatureFilter_TextChanged);
             // 
@@ -436,10 +457,10 @@
             this.lvwCreatureInventory_Lon,
             this.lvwCreatureInventory_Qty});
             this.lvwCreatureInventory.FullRowSelect = true;
-            this.lvwCreatureInventory.HideSelection = false;
-            this.lvwCreatureInventory.Location = new System.Drawing.Point(9, 11);
+            this.lvwCreatureInventory.Location = new System.Drawing.Point(10, 13);
+            this.lvwCreatureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwCreatureInventory.Name = "lvwCreatureInventory";
-            this.lvwCreatureInventory.Size = new System.Drawing.Size(653, 288);
+            this.lvwCreatureInventory.Size = new System.Drawing.Size(761, 332);
             this.lvwCreatureInventory.TabIndex = 0;
             this.lvwCreatureInventory.UseCompatibleStateImageBehavior = false;
             this.lvwCreatureInventory.View = System.Windows.Forms.View.Details;
@@ -500,9 +521,10 @@
             this.tpgStorageInventory.Controls.Add(this.cboStorageType);
             this.tpgStorageInventory.Controls.Add(this.lblStorageType);
             this.tpgStorageInventory.Controls.Add(this.pnlStorageInventory);
-            this.tpgStorageInventory.Location = new System.Drawing.Point(4, 22);
+            this.tpgStorageInventory.Location = new System.Drawing.Point(4, 24);
+            this.tpgStorageInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpgStorageInventory.Name = "tpgStorageInventory";
-            this.tpgStorageInventory.Size = new System.Drawing.Size(724, 483);
+            this.tpgStorageInventory.Size = new System.Drawing.Size(846, 559);
             this.tpgStorageInventory.TabIndex = 2;
             this.tpgStorageInventory.Text = "Storage Inventory";
             this.tpgStorageInventory.UseVisualStyleBackColor = true;
@@ -511,9 +533,10 @@
             // 
             this.picIconStorage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picIconStorage.Image = ((System.Drawing.Image)(resources.GetObject("picIconStorage.Image")));
-            this.picIconStorage.Location = new System.Drawing.Point(42, 18);
+            this.picIconStorage.Location = new System.Drawing.Point(49, 21);
+            this.picIconStorage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.picIconStorage.Name = "picIconStorage";
-            this.picIconStorage.Size = new System.Drawing.Size(50, 50);
+            this.picIconStorage.Size = new System.Drawing.Size(58, 57);
             this.picIconStorage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picIconStorage.TabIndex = 7;
             this.picIconStorage.TabStop = false;
@@ -522,18 +545,20 @@
             // 
             this.cboStorageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStorageType.FormattingEnabled = true;
-            this.cboStorageType.Location = new System.Drawing.Point(107, 42);
+            this.cboStorageType.Location = new System.Drawing.Point(125, 48);
+            this.cboStorageType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboStorageType.Name = "cboStorageType";
-            this.cboStorageType.Size = new System.Drawing.Size(367, 21);
+            this.cboStorageType.Size = new System.Drawing.Size(428, 23);
             this.cboStorageType.TabIndex = 2;
             this.cboStorageType.SelectedIndexChanged += new System.EventHandler(this.cboStorageType_SelectedIndexChanged);
             // 
             // lblStorageType
             // 
             this.lblStorageType.AutoSize = true;
-            this.lblStorageType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStorageType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStorageType.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStorageType.Location = new System.Drawing.Point(104, 25);
+            this.lblStorageType.Location = new System.Drawing.Point(121, 29);
+            this.lblStorageType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStorageType.Name = "lblStorageType";
             this.lblStorageType.Size = new System.Drawing.Size(93, 13);
             this.lblStorageType.TabIndex = 1;
@@ -549,19 +574,21 @@
             this.pnlStorageInventory.Controls.Add(this.lblStorageFilter);
             this.pnlStorageInventory.Controls.Add(this.txtStorageFilter);
             this.pnlStorageInventory.Controls.Add(this.lvwStorageInventory);
-            this.pnlStorageInventory.Location = new System.Drawing.Point(18, 83);
+            this.pnlStorageInventory.Location = new System.Drawing.Point(21, 96);
+            this.pnlStorageInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlStorageInventory.Name = "pnlStorageInventory";
-            this.pnlStorageInventory.Size = new System.Drawing.Size(673, 348);
+            this.pnlStorageInventory.Size = new System.Drawing.Size(785, 402);
             this.pnlStorageInventory.TabIndex = 0;
             // 
             // chkApplyFilterStorage
             // 
             this.chkApplyFilterStorage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkApplyFilterStorage.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkApplyFilterStorage.Image = global::ARKViewer.Properties.Resources.button_filter;
-            this.chkApplyFilterStorage.Location = new System.Drawing.Point(626, 306);
+            this.chkApplyFilterStorage.Image = ((System.Drawing.Image)(resources.GetObject("chkApplyFilterStorage.Image")));
+            this.chkApplyFilterStorage.Location = new System.Drawing.Point(730, 353);
+            this.chkApplyFilterStorage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkApplyFilterStorage.Name = "chkApplyFilterStorage";
-            this.chkApplyFilterStorage.Size = new System.Drawing.Size(35, 35);
+            this.chkApplyFilterStorage.Size = new System.Drawing.Size(41, 40);
             this.chkApplyFilterStorage.TabIndex = 4;
             this.chkApplyFilterStorage.UseVisualStyleBackColor = true;
             // 
@@ -569,9 +596,10 @@
             // 
             this.lblStorageFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblStorageFilter.AutoSize = true;
-            this.lblStorageFilter.Location = new System.Drawing.Point(8, 319);
+            this.lblStorageFilter.Location = new System.Drawing.Point(9, 368);
+            this.lblStorageFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStorageFilter.Name = "lblStorageFilter";
-            this.lblStorageFilter.Size = new System.Drawing.Size(29, 13);
+            this.lblStorageFilter.Size = new System.Drawing.Size(33, 15);
             this.lblStorageFilter.TabIndex = 1;
             this.lblStorageFilter.Text = "Filter";
             // 
@@ -579,9 +607,10 @@
             // 
             this.txtStorageFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStorageFilter.Location = new System.Drawing.Point(43, 316);
+            this.txtStorageFilter.Location = new System.Drawing.Point(50, 365);
+            this.txtStorageFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStorageFilter.Name = "txtStorageFilter";
-            this.txtStorageFilter.Size = new System.Drawing.Size(577, 20);
+            this.txtStorageFilter.Size = new System.Drawing.Size(672, 23);
             this.txtStorageFilter.TabIndex = 2;
             this.txtStorageFilter.TextChanged += new System.EventHandler(this.txtStorageFilter_TextChanged);
             // 
@@ -602,10 +631,10 @@
             this.lvwStorageInventory_Lon,
             this.lvwStorageInventory_Qty});
             this.lvwStorageInventory.FullRowSelect = true;
-            this.lvwStorageInventory.HideSelection = false;
-            this.lvwStorageInventory.Location = new System.Drawing.Point(11, 10);
+            this.lvwStorageInventory.Location = new System.Drawing.Point(13, 12);
+            this.lvwStorageInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwStorageInventory.Name = "lvwStorageInventory";
-            this.lvwStorageInventory.Size = new System.Drawing.Size(650, 290);
+            this.lvwStorageInventory.Size = new System.Drawing.Size(758, 334);
             this.lvwStorageInventory.TabIndex = 0;
             this.lvwStorageInventory.UseCompatibleStateImageBehavior = false;
             this.lvwStorageInventory.View = System.Windows.Forms.View.Details;
@@ -667,10 +696,11 @@
             this.tpgEngrams.Controls.Add(this.panel2);
             this.tpgEngrams.Controls.Add(this.lblPlayerEngrams);
             this.tpgEngrams.Controls.Add(this.panel1);
-            this.tpgEngrams.Location = new System.Drawing.Point(4, 22);
+            this.tpgEngrams.Location = new System.Drawing.Point(4, 24);
+            this.tpgEngrams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpgEngrams.Name = "tpgEngrams";
-            this.tpgEngrams.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgEngrams.Size = new System.Drawing.Size(724, 483);
+            this.tpgEngrams.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tpgEngrams.Size = new System.Drawing.Size(846, 559);
             this.tpgEngrams.TabIndex = 4;
             this.tpgEngrams.Text = "Engrams";
             this.tpgEngrams.UseVisualStyleBackColor = true;
@@ -678,22 +708,24 @@
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(366, 14);
+            this.label3.Location = new System.Drawing.Point(427, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(331, 31);
+            this.label3.Size = new System.Drawing.Size(386, 36);
             this.label3.TabIndex = 14;
             this.label3.Text = "Unlocked Hair Styles";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(21, 15);
+            this.label2.Location = new System.Drawing.Point(24, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(331, 31);
+            this.label2.Size = new System.Drawing.Size(386, 36);
             this.label2.TabIndex = 13;
             this.label2.Text = "Unlocked Emotes";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -705,9 +737,10 @@
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
             this.panel2.Controls.Add(this.lvwEmotes);
             this.panel2.Controls.Add(this.lvwHairstyles);
-            this.panel2.Location = new System.Drawing.Point(26, 48);
+            this.panel2.Location = new System.Drawing.Point(30, 55);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(671, 129);
+            this.panel2.Size = new System.Drawing.Size(783, 149);
             this.panel2.TabIndex = 12;
             // 
             // lvwEmotes
@@ -716,10 +749,10 @@
             this.columnHeader1});
             this.lvwEmotes.FullRowSelect = true;
             this.lvwEmotes.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.lvwEmotes.HideSelection = false;
-            this.lvwEmotes.Location = new System.Drawing.Point(8, 11);
+            this.lvwEmotes.Location = new System.Drawing.Point(9, 13);
+            this.lvwEmotes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwEmotes.Name = "lvwEmotes";
-            this.lvwEmotes.Size = new System.Drawing.Size(318, 108);
+            this.lvwEmotes.Size = new System.Drawing.Size(370, 124);
             this.lvwEmotes.TabIndex = 2;
             this.lvwEmotes.UseCompatibleStateImageBehavior = false;
             this.lvwEmotes.View = System.Windows.Forms.View.Details;
@@ -736,10 +769,10 @@
             this.columnHeader2});
             this.lvwHairstyles.FullRowSelect = true;
             this.lvwHairstyles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.lvwHairstyles.HideSelection = false;
-            this.lvwHairstyles.Location = new System.Drawing.Point(357, 11);
+            this.lvwHairstyles.Location = new System.Drawing.Point(416, 13);
+            this.lvwHairstyles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwHairstyles.Name = "lvwHairstyles";
-            this.lvwHairstyles.Size = new System.Drawing.Size(304, 108);
+            this.lvwHairstyles.Size = new System.Drawing.Size(354, 124);
             this.lvwHairstyles.TabIndex = 1;
             this.lvwHairstyles.UseCompatibleStateImageBehavior = false;
             this.lvwHairstyles.View = System.Windows.Forms.View.Details;
@@ -753,11 +786,12 @@
             // 
             this.lblPlayerEngrams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerEngrams.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerEngrams.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlayerEngrams.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayerEngrams.Location = new System.Drawing.Point(20, 180);
+            this.lblPlayerEngrams.Location = new System.Drawing.Point(23, 208);
+            this.lblPlayerEngrams.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerEngrams.Name = "lblPlayerEngrams";
-            this.lblPlayerEngrams.Size = new System.Drawing.Size(466, 31);
+            this.lblPlayerEngrams.Size = new System.Drawing.Size(544, 36);
             this.lblPlayerEngrams.TabIndex = 11;
             this.lblPlayerEngrams.Text = "Learned Engrams";
             this.lblPlayerEngrams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -769,9 +803,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
             this.panel1.Controls.Add(this.lvwEngrams);
-            this.panel1.Location = new System.Drawing.Point(25, 218);
+            this.panel1.Location = new System.Drawing.Point(29, 252);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(671, 250);
+            this.panel1.Size = new System.Drawing.Size(783, 288);
             this.panel1.TabIndex = 9;
             // 
             // lvwEngrams
@@ -783,10 +818,10 @@
             this.lvwEngrams_Item,
             this.lvwEngrams_Category});
             this.lvwEngrams.FullRowSelect = true;
-            this.lvwEngrams.HideSelection = false;
-            this.lvwEngrams.Location = new System.Drawing.Point(9, 11);
+            this.lvwEngrams.Location = new System.Drawing.Point(10, 13);
+            this.lvwEngrams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwEngrams.Name = "lvwEngrams";
-            this.lvwEngrams.Size = new System.Drawing.Size(653, 227);
+            this.lvwEngrams.Size = new System.Drawing.Size(761, 261);
             this.lvwEngrams.TabIndex = 0;
             this.lvwEngrams.UseCompatibleStateImageBehavior = false;
             this.lvwEngrams.View = System.Windows.Forms.View.Details;
@@ -805,10 +840,11 @@
             // tpgMissions
             // 
             this.tpgMissions.Controls.Add(this.pnlMissionScores);
-            this.tpgMissions.Location = new System.Drawing.Point(4, 22);
+            this.tpgMissions.Location = new System.Drawing.Point(4, 24);
+            this.tpgMissions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tpgMissions.Name = "tpgMissions";
-            this.tpgMissions.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgMissions.Size = new System.Drawing.Size(724, 483);
+            this.tpgMissions.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tpgMissions.Size = new System.Drawing.Size(846, 559);
             this.tpgMissions.TabIndex = 3;
             this.tpgMissions.Text = "Mission Scores";
             this.tpgMissions.UseVisualStyleBackColor = true;
@@ -823,19 +859,21 @@
             this.pnlMissionScores.Controls.Add(this.label1);
             this.pnlMissionScores.Controls.Add(this.textBox1);
             this.pnlMissionScores.Controls.Add(this.lvwPlayerScores);
-            this.pnlMissionScores.Location = new System.Drawing.Point(18, 26);
+            this.pnlMissionScores.Location = new System.Drawing.Point(21, 30);
+            this.pnlMissionScores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlMissionScores.Name = "pnlMissionScores";
-            this.pnlMissionScores.Size = new System.Drawing.Size(684, 434);
+            this.pnlMissionScores.Size = new System.Drawing.Size(798, 501);
             this.pnlMissionScores.TabIndex = 0;
             // 
             // checkBox1
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.Image = global::ARKViewer.Properties.Resources.button_filter;
-            this.checkBox1.Location = new System.Drawing.Point(637, 393);
+            this.checkBox1.Image = ((System.Drawing.Image)(resources.GetObject("checkBox1.Image")));
+            this.checkBox1.Location = new System.Drawing.Point(743, 453);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(35, 35);
+            this.checkBox1.Size = new System.Drawing.Size(41, 40);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -843,9 +881,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 406);
+            this.label1.Location = new System.Drawing.Point(10, 468);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(33, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "Filter";
             // 
@@ -853,9 +892,10 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(44, 403);
+            this.textBox1.Location = new System.Drawing.Point(51, 465);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(587, 20);
+            this.textBox1.Size = new System.Drawing.Size(684, 23);
             this.textBox1.TabIndex = 5;
             // 
             // lvwPlayerScores
@@ -867,10 +907,10 @@
             this.lvwPlayerScores_Mission,
             this.lvwPlayerScores_Result});
             this.lvwPlayerScores.FullRowSelect = true;
-            this.lvwPlayerScores.HideSelection = false;
-            this.lvwPlayerScores.Location = new System.Drawing.Point(12, 11);
+            this.lvwPlayerScores.Location = new System.Drawing.Point(14, 13);
+            this.lvwPlayerScores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvwPlayerScores.Name = "lvwPlayerScores";
-            this.lvwPlayerScores.Size = new System.Drawing.Size(660, 376);
+            this.lvwPlayerScores.Size = new System.Drawing.Size(769, 433);
             this.lvwPlayerScores.TabIndex = 0;
             this.lvwPlayerScores.UseCompatibleStateImageBehavior = false;
             this.lvwPlayerScores.View = System.Windows.Forms.View.Details;
@@ -890,9 +930,10 @@
             // picWindowIcon
             // 
             this.picWindowIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picWindowIcon.Location = new System.Drawing.Point(707, 7);
+            this.picWindowIcon.Location = new System.Drawing.Point(825, 8);
+            this.picWindowIcon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.picWindowIcon.Name = "picWindowIcon";
-            this.picWindowIcon.Size = new System.Drawing.Size(30, 30);
+            this.picWindowIcon.Size = new System.Drawing.Size(35, 35);
             this.picWindowIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picWindowIcon.TabIndex = 7;
             this.picWindowIcon.TabStop = false;
@@ -900,11 +941,12 @@
             // lblWindowTitle
             // 
             this.lblWindowTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWindowTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWindowTitle.Location = new System.Drawing.Point(484, 6);
+            this.lblWindowTitle.Location = new System.Drawing.Point(565, 7);
+            this.lblWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWindowTitle.Name = "lblWindowTitle";
-            this.lblWindowTitle.Size = new System.Drawing.Size(217, 31);
+            this.lblWindowTitle.Size = new System.Drawing.Size(253, 36);
             this.lblWindowTitle.TabIndex = 0;
             this.lblWindowTitle.Text = "Player Explorer";
             this.lblWindowTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -913,10 +955,11 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnClose.Location = new System.Drawing.Point(665, 541);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Location = new System.Drawing.Point(776, 624);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(88, 27);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -925,27 +968,34 @@
             // 
             this.lblPlayerId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPlayerId.AutoSize = true;
-            this.lblPlayerId.Location = new System.Drawing.Point(13, 546);
+            this.lblPlayerId.Location = new System.Drawing.Point(15, 630);
+            this.lblPlayerId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerId.Name = "lblPlayerId";
-            this.lblPlayerId.Size = new System.Drawing.Size(51, 13);
+            this.lblPlayerId.Size = new System.Drawing.Size(55, 15);
             this.lblPlayerId.TabIndex = 0;
             this.lblPlayerId.Text = "Player Id:";
             // 
+            // lvwPlayerInventory_UploadedTime
+            // 
+            this.lvwPlayerInventory_UploadedTime.Text = "Uploaded";
+            this.lvwPlayerInventory_UploadedTime.Width = 120;
+            // 
             // frmPlayerInventoryViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(760, 577);
+            this.ClientSize = new System.Drawing.Size(887, 666);
             this.Controls.Add(this.lblWindowTitle);
             this.Controls.Add(this.lblPlayerId);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.picWindowIcon);
             this.Controls.Add(this.tabExplorer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(750, 400);
+            this.MinimumSize = new System.Drawing.Size(872, 456);
             this.Name = "frmPlayerInventoryViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Player Explorer";
@@ -1061,5 +1111,6 @@
         private System.Windows.Forms.CheckBox chkApplyFilterStorage;
         private System.Windows.Forms.ListView lvwEmotes;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader lvwPlayerInventory_UploadedTime;
     }
 }

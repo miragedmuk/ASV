@@ -318,6 +318,14 @@ namespace ARKViewer
                             newItem.SubItems.Add(invItem.Rating.HasValue ? invItem.Rating.Value.ToString() : "");
                             newItem.SubItems.Add(craftedBy);
                             newItem.SubItems.Add(invItem.Quantity.ToString());
+                            if (invItem.UploadedTimeInGame != 0)
+                            {
+                                newItem.SubItems.Add(invItem.UploadedTime.Value.ToString("dd MMM yyyy HH:mm"));
+                            }
+                            else
+                            {
+                                newItem.SubItems.Add("");
+                            }
                             newItem.ImageIndex = itemIcon - 1;
 
                             listItems.Add(newItem);

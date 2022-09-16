@@ -1,4 +1,5 @@
-﻿using ARKViewer.Configuration;
+﻿using ArkViewer.Configuration;
+using ARKViewer.Configuration;
 using ARKViewer.Models;
 using ARKViewer.Models.NameMap;
 using ASVPack.Models;
@@ -582,16 +583,23 @@ namespace ARKViewer
             {
                 if (cboLocalARK.Items.Count == 0)
                 {
-                    cboLocalARK.Items.Add(new ASVComboValue(SavedConfig.SelectedFile, "Offline File 1"));
+                    var config = new OfflineFileConfiguration()
+                    {
+                        Filename = SavedConfig.SelectedFile,
+                        Name = "Offline File 1",
+                        ClusterFolder = ""
+                    };
+                    cboLocalARK.Items.Add(config);
                 }
 
                 if(cboLocalARK.Items.Count > 0)
                 {
-                    foreach(ASVComboValue item in cboLocalARK.Items)
+                    foreach(OfflineFileConfiguration item in cboLocalARK.Items)
                     {
-                        if (item.Key == SavedConfig.SelectedFile)
+                        if (item.Filename == SavedConfig.SelectedFile)
                         {
                             cboLocalARK.SelectedItem = item;
+                            SavedConfig.ClusterFolder = item.ClusterFolder;
                             break;
                         }
 
@@ -631,10 +639,15 @@ namespace ARKViewer
             if(SavedConfig.OfflineList.Count > 0)
             {
                 cboLocalARK.Items.Clear();
-                foreach(var kv in SavedConfig.OfflineList)
-                {
-                    int newIndex = cboLocalARK.Items.Add(kv);
-                    if (kv.Key == SavedConfig.SelectedFile) cboLocalARK.SelectedIndex = newIndex;
+                foreach (var kv in SavedConfig.OfflineList)
+                { 
+                    if (kv.Name != null)
+                    {
+                        int newIndex = cboLocalARK.Items.Add(kv);
+                        if (kv.Filename == SavedConfig.SelectedFile) cboLocalARK.SelectedIndex = newIndex;
+
+                    }
+
                 }
                 cboLocalARK.Sorted = true;
             }
@@ -779,9 +792,9 @@ namespace ARKViewer
                     return;
                 }
 
-                ASVComboValue selectedItem = (ASVComboValue)cboLocalARK.SelectedItem;
+                OfflineFileConfiguration selectedItem = (OfflineFileConfiguration)cboLocalARK.SelectedItem;
 
-                if (!File.Exists(selectedItem.Key))
+                if (!File.Exists(selectedItem.Filename))
                 {
 
                     MessageBox.Show("Unable to find the selected file.\n\nPlease check the file exists and try again.", "Offline Mode", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -791,7 +804,8 @@ namespace ARKViewer
 
 
                 SavedConfig.Mode = ViewerModes.Mode_Offline;
-                SavedConfig.SelectedFile = selectedItem.Key;
+                SavedConfig.SelectedFile = selectedItem.Filename;
+                SavedConfig.ClusterFolder = selectedItem.ClusterFolder;
             }
 
             if (optContentPack.Checked)
@@ -831,7 +845,7 @@ namespace ARKViewer
             SavedConfig.OfflineList.Clear();
             foreach(var item in cboLocalARK.Items)
             {
-                var i = (ASVComboValue)item;
+                var i = (OfflineFileConfiguration)item;
                 SavedConfig.OfflineList.Add(i);
             }
 
@@ -2125,7 +2139,14 @@ namespace ARKViewer
                 if (selectFile.ShowDialog() == DialogResult.OK)
                 {
                     //commit changes to combo tag
-                    int newIndex = cboLocalARK.Items.Add(new ASVComboValue(selectFile.Filename, selectFile.OfflineName));
+                    OfflineFileConfiguration config = new OfflineFileConfiguration()
+                    {
+                        Name = selectFile.OfflineName,
+                        Filename = selectFile.Filename,
+                        ClusterFolder = selectFile.ClusterFolder
+                    };
+
+                    int newIndex = cboLocalARK.Items.Add(config);
                     cboLocalARK.SelectedIndex = newIndex;
                 }
             }
@@ -2184,14 +2205,20 @@ namespace ARKViewer
         {
             if (cboLocalARK.SelectedIndex < 0) return;
             int selectedIndex = cboLocalARK.SelectedIndex;
-            ASVComboValue selectedValue = (ASVComboValue)cboLocalARK.SelectedItem;
+            OfflineFileConfiguration selectedValue = (OfflineFileConfiguration)cboLocalARK.SelectedItem;
 
             using (frmAddLocalARK selectFile = new frmAddLocalARK(selectedValue))
             {
                 if (selectFile.ShowDialog() == DialogResult.OK)
                 {
                     //commit changes to combo tag
-                    cboLocalARK.Items[selectedIndex] = new ASVComboValue(selectFile.Filename, selectFile.OfflineName);
+                    var config = new OfflineFileConfiguration()
+                    {
+                        Filename = selectFile.Filename,
+                        Name = selectFile.OfflineName,
+                        ClusterFolder = selectFile.ClusterFolder
+                    };
+                    cboLocalARK.Items[selectedIndex] = config;
                 }
             }
         }

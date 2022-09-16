@@ -44,12 +44,124 @@ namespace ASVPack.Models
 
         [DataMember] public bool IsMating { get; set; } = false;
         [DataMember] public bool IsWandering { get; set; } = false;
+        [DataMember] public DateTime? UploadedTime { get; set; } = null;
+        public double UploadedTimeInGame { get; set; } = 0;
 
 
+        public ContentTamedCreature(double uploadTime, GameObject creatureObject, GameObject statusObject): base(creatureObject,statusObject)
+        {
+            UploadedTime = null;
+            UploadedTimeInGame = uploadTime;
+
+
+            TamedTimeInGame = creatureObject.GetPropertyValue<double>("TamedAtTime");
+
+            IsWandering = creatureObject.GetPropertyValue<bool>("bEnableTamedWandering", 0, false);
+            IsMating = creatureObject.GetPropertyValue<bool>("bEnableTamedMating", 0, false);
+
+
+            int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam");
+            int testTeam = creatureObject.GetPropertyValue<int>("TamingTeamID");
+
+
+            TargetingTeam = testTarget;
+            if (TargetingTeam == 2_000_000_000 && IsBaby)
+            {
+                //unclaimed baby, try determine parent targeting team instead
+
+            }
+
+            LastAllyInRangeTimeInGame = creatureObject.GetPropertyValue<double>("LastInAllyRangeTime", 0, 0);
+
+
+
+
+            TribeName = creatureObject.GetPropertyValue<string>("TribeName");
+            Name = creatureObject.GetPropertyValue<string>("TamedName");
+            if (statusObject == null)
+            {
+                Level = 1;
+            }
+            else
+            {
+                int baseLevel = statusObject.GetPropertyValue<int>("BaseCharacterLevel", defaultValue: 1);
+                short extraLevel = statusObject.GetPropertyValue<short>("ExtraCharacterLevel");
+                Level = baseLevel + extraLevel;
+            }
+
+
+            TamedOnServerName = creatureObject.GetPropertyValue<string>("TamedOnServerName");
+            TamerName = creatureObject.GetPropertyValue<string>("TamerString");
+
+            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID");
+            if (ImprintedPlayerId > 0)
+            {
+                ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
+                ImprinterName = creatureObject.GetPropertyValue<string>("ImprinterName");
+                TamerName = "";
+            }
+
+
+            IsCryo = creatureObject.IsCryo;
+            IsVivarium = creatureObject.IsVivarium;
+
+
+
+            if (IsCryo || IsVivarium)
+            {
+                //stored creatures don't have unique DinoId properties.  Negate to make them unique from non cryo tames.
+                Id = -Id;
+            }
+
+            RandomMutationsFemale = creatureObject.GetPropertyValue<int>("RandomMutationsFemale");
+            RandomMutationsMale = creatureObject.GetPropertyValue<int>("RandomMutationsMale");
+
+            TamedStats = new byte[12];
+            if (statusObject != null)
+            {
+                for (var i = 0; i < TamedStats.Length; i++) TamedStats[i] = statusObject.GetPropertyValue<ArkByteValue>("NumberOfLevelUpPointsAppliedTamed", i)?.ByteValue ?? 0;
+
+            }
+
+
+
+
+            //ancestors
+            var parents = creatureObject.GetTypedProperty<PropertyArray>("DinoAncestors");
+            if (parents != null)
+            {
+                ArkArrayStruct parentPropertyStruct = (ArkArrayStruct)parents.Value;
+                if (parentPropertyStruct != null)
+                {
+                    StructPropertyList parentProperties = parentPropertyStruct.Cast<StructPropertyList>().FirstOrDefault();
+                    if (parentProperties != null)
+                    {
+                        int maleId1 = parentProperties.GetPropertyValue<int>("MaleDinoID1");
+                        int maleId2 = parentProperties.GetPropertyValue<int>("MaleDinoID2");
+
+                        long fatherId = (long)maleId1 << 32 | (maleId2 & 0xFFFFFFFFL);
+                        FatherId = fatherId;
+                        FatherName = parentProperties.GetPropertyValue<string>("MaleName");
+
+                        int femaleId1 = parentProperties.GetPropertyValue<int>("FemaleDinoID1");
+                        int femaleId2 = parentProperties.GetPropertyValue<int>("FemaleDinoID2");
+
+                        long motherId = (long)femaleId1 << 32 | (femaleId2 & 0xFFFFFFFFL);
+                        MotherId = motherId;
+                        MotherName = parentProperties.GetPropertyValue<string>("FemaleName");
+
+                    }
+
+                }
+
+            }
+        }
 
         public ContentTamedCreature(GameObject creatureObject, GameObject statusObject) : base(creatureObject, statusObject)
         {
             TamedTimeInGame = creatureObject.GetPropertyValue<double>("TamedAtTime");
+            UploadedTime = null;
+            UploadedTimeInGame = 0;
 
             IsWandering = creatureObject.GetPropertyValue<bool>("bEnableTamedWandering", 0, false);
             IsMating = creatureObject.GetPropertyValue<bool>("bEnableTamedMating", 0, false);

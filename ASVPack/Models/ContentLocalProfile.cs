@@ -19,7 +19,6 @@ namespace ASVPack.Models
 
         public List<ContentTamedCreature> UploadedTames { get; set; } = new List<ContentTamedCreature>();
         public List<ContentPlayer> UploadedCharacters { get; set; } = new List<ContentPlayer>();
-        public List<ContentItemUploaded> UploadedItems { get; set; } = new List<ContentItemUploaded>();
         public List<ContentMarker> MapMarkers { get; set; } = new List<ContentMarker>();
 
         public ContentLocalProfile()

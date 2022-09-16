@@ -1,4 +1,5 @@
-﻿using ARKViewer.Models;
+﻿using ArkViewer.Configuration;
+using ARKViewer.Models;
 using System;
 using System.Drawing;
 using System.IO;
@@ -12,6 +13,8 @@ namespace ARKViewer
 
         public string Filename { get; set; } = "";
         public string OfflineName { get; set; } = "";
+
+        public string ClusterFolder { get; set; } = string.Empty;
 
         private void LoadWindowSettings()
         {
@@ -61,10 +64,11 @@ namespace ARKViewer
         }
 
 
-        public frmAddLocalARK(ASVComboValue selectedValue): this()
+        public frmAddLocalARK(OfflineFileConfiguration selectedValue): this()
         {
-            txtFilename.Text = selectedValue.Key;
-            txtName.Text = selectedValue.Value;
+            txtFilename.Text = selectedValue.Filename;
+            txtName.Text = selectedValue.Name;
+            txtClusterFolder.Text = selectedValue.ClusterFolder ?? "";
             btnSave.Enabled = true;
         }
 
@@ -103,6 +107,7 @@ namespace ARKViewer
         {
             Filename = txtFilename.Text.Trim();
             OfflineName = txtName.Text.Trim();
+            ClusterFolder = txtClusterFolder.Text.Trim();
 
             if(txtName.Text.Trim().Length == 0)
             {
@@ -112,6 +117,24 @@ namespace ARKViewer
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void btnClusterFolder_Click(object sender, EventArgs e)
+        {
+            using(var dialog = new FolderBrowserDialog())
+            {
+                dialog.Description = "Select shared cluster folder location.";
+                if(dialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtClusterFolder.Text = dialog.SelectedPath;
+                    btnSave.Enabled = true;
+                }
+                else
+                {
+                    txtClusterFolder.Text = String.Empty;
+                    btnSave.Enabled = true;
+                }
+            }
         }
     }
 }

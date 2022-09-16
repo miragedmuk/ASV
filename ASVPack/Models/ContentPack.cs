@@ -458,6 +458,11 @@ namespace ASVPack.Models
                             jw.WritePropertyName("isMating");
                             jw.WriteValue(creature.IsMating);
 
+                            if(creature.UploadedTimeInGame != 0)
+                            {
+                                jw.WritePropertyName("uploadTime");
+                                jw.WriteValue(creature.UploadedTime);
+                            }
 
                             bool exportInventories = true;
 
@@ -1462,7 +1467,11 @@ namespace ASVPack.Models
 
 
                         jw.WritePropertyName("tames");
-                        jw.WriteValue(playerTribe.Tames.Count);
+                        jw.WriteValue(playerTribe.Tames.LongCount(c=>c.UploadedTimeInGame ==0));
+
+
+                        jw.WritePropertyName("uploadedTames");
+                        jw.WriteValue(playerTribe.Tames.LongCount(c => c.UploadedTimeInGame != 0));
 
                         jw.WritePropertyName("structures");
                         jw.WriteValue(playerTribe.Structures.Count);
@@ -1604,6 +1613,13 @@ namespace ASVPack.Models
                                                 jw.WritePropertyName("blueprint");
                                                 jw.WriteValue(invItem.IsBlueprint);
 
+                                                if (invItem.UploadedTimeInGame != 0)
+                                                {
+                                                    jw.WritePropertyName("uploadedTime");
+                                                    jw.WriteValue(invItem.UploadedTime);
+
+                                                }
+
                                                 jw.WriteEndObject();
                                             }
 
@@ -1614,6 +1630,7 @@ namespace ASVPack.Models
 
                                     jw.WriteEndArray();
                                 }
+
 
 
                                 jw.WriteEnd();
