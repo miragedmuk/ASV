@@ -460,7 +460,7 @@ namespace ASVPack.Models
 
                             if(creature.UploadedTimeInGame != 0)
                             {
-                                jw.WritePropertyName("uploadTime");
+                                jw.WritePropertyName("uploadedTime");
                                 jw.WriteValue(creature.UploadedTime);
                             }
 

@@ -656,11 +656,11 @@ namespace ARKViewer.Models
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,
                                             DisplayName = displayName,
-                                            Latitude = (decimal)container.Latitude.GetValueOrDefault(0),
-                                            Longitude = (decimal)container.Longitude.GetValueOrDefault(0),
-                                            X = (decimal)container.X,
-                                            Y = (decimal)container.Y,
-                                            Z = (decimal)container.Z,
+                                            Latitude = container.Latitude.HasValue?(decimal)container.Latitude.GetValueOrDefault(0):0,
+                                            Longitude = container.Longitude.HasValue?(decimal)container.Longitude.GetValueOrDefault(0):0,
+                                            X = container.X.HasValue?((decimal)container.X):0,
+                                            Y = container.Y.HasValue ? ((decimal)container.Y) : 0,
+                                            Z = container.Z.HasValue ? ((decimal)container.Z):0,
                                             Quantity = g.Qty,
                                             IsBlueprint = g.IsBlueprint,
                                             Rating = g.Rating,
@@ -978,6 +978,13 @@ namespace ARKViewer.Models
                             jw.WriteValue($"{creature.X} {creature.Y} {creature.Z}");
 
 
+                            if (creature.UploadedTimeInGame != 0)
+                            {
+                                    jw.WritePropertyName("uploadedTime");
+                                    jw.WriteValue(creature.UploadedTime);
+
+                            }
+
                             if (Program.ProgramConfig.ExportInventories)
                             {
                                 jw.WritePropertyName("inventory");
@@ -1037,6 +1044,9 @@ namespace ARKViewer.Models
 
         public void ExportPlayerStructures(string exportFilename)
         {
+            pack.ExportJsonPlayerStructures(exportFilename);
+
+            /*
             string exportFolder = Path.GetDirectoryName(exportFilename);
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
@@ -1131,11 +1141,15 @@ namespace ARKViewer.Models
                 }
 
             }
+            */
         }
 
 
         public void ExportPlayerTribeLogs(string exportFilename)
         {
+            pack.ExportJsonPlayerTribeLogs(exportFilename);
+            /*
+
             string exportFolder = Path.GetDirectoryName(exportFilename);
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
@@ -1181,12 +1195,17 @@ namespace ARKViewer.Models
                 }
 
             }
+            */
 
         }
 
 
         public void ExportPlayerTribes(string exportFilename)
         {
+            pack.ExportJsonPlayerTribes(exportFilename);
+
+
+            /*
             if (File.Exists(exportFilename)) File.Delete(exportFilename);
 
             using (StreamWriter sw = new StreamWriter(exportFilename))
@@ -1256,11 +1275,15 @@ namespace ARKViewer.Models
                 }
 
             }
+            */
 
         }
 
         public void ExportPlayers(string exportFilename)
         {
+            pack.ExportJsonPlayers(exportFilename);
+
+            /*
             string exportFolder = Path.GetDirectoryName(exportFilename);
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
@@ -1387,6 +1410,12 @@ namespace ARKViewer.Models
                                                     jw.WriteValue(itemMap.Category);
                                                 }
 
+                                                if (invItem.UploadedTimeInGame != 0)
+                                                {
+                                                    jw.WritePropertyName("uploadedTime");
+                                                    jw.WriteValue(invItem.UploadedTime);
+                                                }
+
                                                 jw.WriteEndObject();
                                             }
 
@@ -1409,6 +1438,7 @@ namespace ARKViewer.Models
                 }
 
             }
+            */
         }
 
 

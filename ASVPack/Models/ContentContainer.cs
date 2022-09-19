@@ -1300,7 +1300,7 @@ if (itemObject != null)
                                                             {
                                                                 if(newItem.Quantity == 0)
                                                                 {
-
+                                                                    newItem.Quantity = 1;
                                                                 }
 
                                                                 targetPlayer.Inventory.Items.Add(newItem);
@@ -1374,23 +1374,39 @@ if (itemObject != null)
 
                                                             //TODO:// add to a list so we can assign it to the correct tribe
                                                             var targetTribe = Tribes.FirstOrDefault(t => t.TribeId == tamedDino.TargetingTeam);
+                                                            if (targetTribe == null)
+                                                            {
+                                                                //see if we can find a matching steam player in existing tribe
+                                                                var ownerTribe = Tribes.FirstOrDefault(t => t.Players.LongCount(p => p.NetworkId == itemOwnerId.ToString()) > 0);
+                                                                if (ownerTribe != null)
+                                                                {
+                                                                    targetTribe = ownerTribe;
+                                                                }
+
+                                                                if (targetTribe == null)
+                                                                {
+                                                                    targetTribe = new ContentTribe()
+                                                                    {
+                                                                        TribeName = tamedDino.TribeName ?? tamedDino.TamerName ?? tamedDino.ImprinterName,
+                                                                        TribeId = tamedDino.TargetingTeam
+                                                                    };
+                                                                    if (!string.IsNullOrEmpty(targetTribe.TribeName))
+                                                                    {
+                                                                        targetTribe.Tames.Add(tamedDino);
+                                                                        Tribes.Add(targetTribe);
+                                                                    }
+                                                                }
+
+                                                            }
                                                             if (targetTribe != null)
                                                             {
                                                                 targetTribe.Tames.Add(tamedDino);
-                                                            }
-                                                            else
-                                                            {
-                                                                targetTribe = new ContentTribe()
+                                                                if (string.IsNullOrEmpty(tamedDino.TribeName))
                                                                 {
-                                                                    TribeName = tamedDino.TribeName ?? tamedDino.TamerName ?? tamedDino.ImprinterName,
-                                                                    TribeId = tamedDino.TargetingTeam
-                                                                };
-                                                                if (!string.IsNullOrEmpty(targetTribe.TribeName))
-                                                                {
-                                                                    targetTribe.Tames.Add(tamedDino);
-                                                                    Tribes.Add(targetTribe);
+                                                                    tamedDino.TribeName = targetTribe.TribeName;
                                                                 }
                                                             }
+
 
                                                         }
 
