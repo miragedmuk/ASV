@@ -277,6 +277,15 @@
       "LatDiv": 8575.0,
       "LonShift": 50.0,
       "LonDiv": 8575.0
+    },
+    {
+      "MapName": "Svartalfheim",
+      "Filename": "Svartalfheim.ark",
+      "ImageFile": "map_svartalfheim.png",
+      "LatShift": 50.0,
+      "LatDiv": 4065.0,
+      "LonShift": 50.0,
+      "LonDiv": 4065.0
     }
 
   ]

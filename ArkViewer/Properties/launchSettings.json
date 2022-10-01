@@ -1,8 +1,7 @@
 {
   "profiles": {
     "ArkViewer": {
-      "commandName": "Project",
-      "commandLineArgs": "all \"C:\\temp\\vertyco\\Fjordur\\FjordurSavedArks\\fjordur.ark\" \"C:\\temp\\vertyco\\pvp\" \"C:\\temp\\vertyco\\export\""
+      "commandName": "Project"
     }
   }
 }
