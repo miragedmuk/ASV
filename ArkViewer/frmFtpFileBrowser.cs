@@ -343,11 +343,19 @@ namespace ARKViewer
                     txtFTPAddress.Enabled = false;
                     udFTPPort.Enabled = false;
 
+                    FtpConfig c = new FtpConfig();
+                    c.ConnectTimeout = Program.ProgramConfig.FtpTimeout; //5 mins
+                    c.DataConnectionConnectTimeout = Program.ProgramConfig.FtpTimeout; //5 mins
+                    c.DataConnectionReadTimeout = Program.ProgramConfig.FtpTimeout; //5 mins
+                    c.ReadTimeout = Program.ProgramConfig.FtpTimeout; //5 mins
+
                     ftpClient = new FtpClient(txtFTPAddress.Text);
+                    ftpClient.Config = c;
 
                     ftpClient.Credentials.UserName = txtFTPUsername.Text;
                     ftpClient.Credentials.Password = txtFTPPassword.Text;
                     ftpClient.Port = (int)udFTPPort.Value;
+                    
                     ftpClient.ValidateCertificate += FtpClient_ValidateCertificate1; 
 
          
@@ -383,6 +391,7 @@ namespace ARKViewer
                 try
                 {
                     sftpClient = new SftpClient(txtFTPAddress.Text, (int)udFTPPort.Value, txtFTPUsername.Text, txtFTPPassword.Text);
+                    sftpClient.OperationTimeout = new TimeSpan(0,0,0,0,Program.ProgramConfig.FtpTimeout);
                     sftpClient.Connect();
                     btnConnect.Enabled = false;
 

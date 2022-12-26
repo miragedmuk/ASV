@@ -88,6 +88,8 @@ namespace ARKViewer.Configuration
         [DataMember(IsRequired = false)] public bool HideNoBody { get; set; } = true;
         [DataMember(IsRequired = false)] public int CommandPrefix { get; set; } = 0;
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public int FtpDownloadMode { get; set; } = 0;
+        [DataMember(IsRequired = false, EmitDefaultValue = false)] public int FtpTimeout { get; set; } = 300000; //5 mins
+
         [DataMember] public int FtpLoadMode { get; set; } = 0; //manual
 
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public bool SortCommandLineExport { get; set; } = false;
@@ -261,7 +263,7 @@ namespace ARKViewer.Configuration
                 string jsonFileContent = File.ReadAllText(colourMapFilename);
 
                 JObject itemFile = JObject.Parse(jsonFileContent);
-JArray itemList = (JArray)itemFile.GetValue("colors");
+                JArray itemList = (JArray)itemFile.GetValue("colors");
                 foreach (JObject itemObject in itemList)
                 {
                     ColourMap item = new ColourMap();
@@ -569,6 +571,11 @@ JArray itemList = (JArray)itemFile.GetValue("colors");
                 this.HideNoTames = savedState.HideNoTames;
                 this.CommandPrefix = savedState.CommandPrefix;
                 this.FtpDownloadMode = savedState.FtpDownloadMode;
+                if(savedState.FtpTimeout > 0)
+                {
+                    this.FtpTimeout = savedState.FtpTimeout;
+                }               
+
                 this.FtpLoadMode = savedState.FtpLoadMode;
                 if (savedState.Windows != null) this.Windows = savedState.Windows;
                 this.StoredTames = savedState.StoredTames;
