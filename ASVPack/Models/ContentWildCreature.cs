@@ -23,8 +23,14 @@ namespace ASVPack.Models
         public ContentWildCreature(GameObject gameObject, GameObject statusObject) : base(gameObject, statusObject)
         {
             IsTameable = !gameObject.GetPropertyValue<bool>("bForceDisablingTaming");
-            var isAlpha = Regex.IsMatch(ClassName, "Mega[A-Z]") || ClassName.Contains("Mega_") || ClassName.Contains("Alpha_");
-            if (isAlpha) IsTameable = false;
+            if(ClassName.StartsWith("Mega")) 
+            {
+                if (Regex.IsMatch(ClassName, "Mega[A-Z]") || ClassName.StartsWith("Mega_")) IsTameable = false;
+            }
+            else
+            {
+                if (ClassName.Contains("Mega_") || ClassName.Contains("Alpha_")) IsTameable = false;
+            }
         }
     }
 }

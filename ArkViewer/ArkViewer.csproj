@@ -1460,7 +1460,7 @@
     <Content Include="Content\Maps\map_valguero.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FluentFTP" Version="42.1.0" />
+    <PackageReference Include="FluentFTP" Version="43.0.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="NLog" Version="5.1.0" />
