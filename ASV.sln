@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASVPack", "ASVPack\ASVPack.csproj", "{7908848C-E5BE-4A0A-89C6-3CA931D9C74E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASVPack", "ASVPack\ASVPack.csproj", "{7908848C-E5BE-4A0A-89C6-3CA931D9C74E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SavegameToolkit", "ArkSavegameToolkit\SavegameToolkit\SavegameToolkit.csproj", "{9D9A8828-0189-431A-B903-11E01B25CFD8}"
 EndProject
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SavegameToolkitAdditions", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASVExport", "ASVExport\ASVExport.csproj", "{8948B11C-A2D7-4929-BC6A-2EB4323D9EC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkViewer", "ArkViewer\ArkViewer.csproj", "{2694464B-92D2-4DF6-9717-C187442F49C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArkViewer", "ArkViewer\ArkViewer.csproj", "{2694464B-92D2-4DF6-9717-C187442F49C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

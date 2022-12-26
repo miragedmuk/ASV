@@ -293,6 +293,10 @@ namespace ASVPack.Models
                             jw.WritePropertyName("dinoid");
                             jw.WriteValue(creature.DinoId);
 
+                            jw.WritePropertyName("tameable");
+                            jw.WriteValue(creature.IsTameable);
+
+
                             jw.WriteEnd();
                         }
 
@@ -444,10 +448,7 @@ namespace ASVPack.Models
                             jw.WriteValue(creature.RandomMutationsMale);
 
                             jw.WritePropertyName("cryo");
-                            jw.WriteValue(creature.IsCryo);
-
-                            jw.WritePropertyName("viv");
-                            jw.WriteValue(creature.IsVivarium);
+                            jw.WriteValue(creature.IsCryo || creature.IsVivarium);
 
                             jw.WritePropertyName("ccc");
                             jw.WriteValue($"{creature.X} {creature.Y} {creature.Z}");

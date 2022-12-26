@@ -41,12 +41,12 @@ namespace ASVPack.Models
                 if (maxPlayer != null && maxPlayer.HasValue) possibleDates.Add(maxPlayer.Value);
 
 
-                var lastTameRange = Tames.Max(t => t.LastAllyInRangeTime);
+                /*var lastTameRange = Tames.Max(t => t.LastAllyInRangeTime);
                 if (lastTameRange != null && lastTameRange.HasValue) possibleDates.Add(lastTameRange.Value);
 
                 var lastStructureRange = Structures.Max(s => s.LastAllyInRangeTime);
                 if (lastStructureRange != null && lastStructureRange.HasValue) possibleDates.Add(lastStructureRange.Value);
-
+                */
                 if (possibleDates.Count > 0)
                 {
                     //activity

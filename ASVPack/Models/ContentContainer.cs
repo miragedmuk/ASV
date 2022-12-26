@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 namespace ASVPack.Models
 {
     [DataContract]
-    public class ContentContainer
+    public class ContentContainer : IContentContainer
     {
 
         ILogger logWriter = LogManager.GetCurrentClassLogger();
@@ -99,7 +99,7 @@ namespace ASVPack.Models
             }
 
 
-            
+
 
 
 
@@ -497,16 +497,16 @@ namespace ASVPack.Models
                                 {
                                     logWriter.Debug($"Character status found for: {x.ClassString}");
                                     objectContainer.TryGetValue(statusRef.ObjectId, out GameObject statusObject);
-                                                                        ContentWildCreature wild = x.AsWildCreature(statusObject);
+                                    ContentWildCreature wild = x.AsWildCreature(statusObject);
 
-                                                                        //stryder rigs
-                                                                        if (x.ClassString == "TekStrider_Character_BP_C")
-                                                                        {
-                                                                            ObjectReference inventoryRef = x.GetPropertyValue<ObjectReference>("MyInventoryComponent");
-                                    if (inventoryRef != null)
+                                    //stryder rigs
+                                    if (x.ClassString == "TekStrider_Character_BP_C")
                                     {
-                                    var inventComp = objectContainer[inventoryRef.ObjectId];
-                                    if (inventComp != null)
+                                        ObjectReference inventoryRef = x.GetPropertyValue<ObjectReference>("MyInventoryComponent");
+                                        if (inventoryRef != null)
+                                        {
+                                            var inventComp = objectContainer[inventoryRef.ObjectId];
+                                            if (inventComp != null)
                                             {
                                                 PropertyArray equippedItemsArray = inventComp.GetTypedProperty<PropertyArray>("EquippedItems");
 
@@ -534,7 +534,7 @@ namespace ASVPack.Models
 
 
                                     return wild;
-                                
+
                                 }
                                 else
                                 {
@@ -568,7 +568,7 @@ namespace ASVPack.Models
                                                     .ToList();
 
 
-                        
+
                         //player and tribe data
                         long tribeLoadStart = DateTime.Now.Ticks;
                         logWriter.Debug($"Identifying in-game player data");
@@ -810,22 +810,22 @@ namespace ASVPack.Models
 
                                     PropertyArray inventoryItemsArray = inventoryComponent.GetTypedProperty<PropertyArray>("InventoryItems");
                                     if (inventoryItemsArray != null)
-{
+                                    {
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
                                         Parallel.ForEach(objectReferences, objectReference =>
 {
-                                            objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-                                            if (itemObject != null)
-                                            {
-                                                var item = itemObject.AsItem();
-                                                if (!item.IsEngram)
-                                                {
+    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+    if (itemObject != null)
+    {
+        var item = itemObject.AsItem();
+        if (!item.IsEngram)
+        {
 
-                                                    inventoryItems.Add(item);
-                                                }
-                                            }
-                                        });
+            inventoryItems.Add(item);
+        }
+    }
+});
 
 
 
@@ -929,7 +929,7 @@ namespace ASVPack.Models
                         logWriter.Debug($"Populating player structure inventories");
 
                         //Parallel.ForEach(tribeStructures.SelectMany(x => x.Structures), x =>
-                        foreach(var x in tribeStructures.SelectMany(x=>x.Structures))
+                        foreach (var x in tribeStructures.SelectMany(x => x.Structures))
                         {
 
                             var teamId = x.GetPropertyValue<int>("TargetingTeam");
@@ -958,22 +958,22 @@ namespace ASVPack.Models
                                 {
                                     PropertyArray inventoryItemsArray = inventoryComponent.GetTypedProperty<PropertyArray>("InventoryItems");
                                     if (inventoryItemsArray != null)
-{
+                                    {
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
                                         Parallel.ForEach(objectReferences, objectReference =>
 {
-                                            objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-                                            if (itemObject != null)
-                                            {
-                                                var item = itemObject.AsItem();
-                                                if (!item.IsEngram)
-                                                {
+    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+    if (itemObject != null)
+    {
+        var item = itemObject.AsItem();
+        if (!item.IsEngram)
+        {
 
-                                                    inventoryItems.Add(item);
-                                                }
-                                            }
-                                        });
+            inventoryItems.Add(item);
+        }
+    }
+});
                                     }
 
 
@@ -1003,10 +1003,10 @@ namespace ASVPack.Models
                                 structure.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                             }
                             if (!tribe.Structures.Contains(structure)) tribe.Structures.Add(structure);
-                            
+
 
                         }//);
-                        
+
 
                         if (fileTribes.Count > 0) Tribes.AddRange(fileTribes.ToList());
 
@@ -1042,91 +1042,91 @@ namespace ASVPack.Models
 
                         //.. corpses
                         logWriter.Debug($"Identifying any corpse");
-DroppedItems.AddRange(objectContainer.Where(x => x.IsPlayer() && x.HasAnyProperty("MyDeathHarvestingComponent"))
-.Select(x =>
-{
-                                ContentDroppedItem droppedItem = x.AsDroppedItem();
+                        DroppedItems.AddRange(objectContainer.Where(x => x.IsPlayer() && x.HasAnyProperty("MyDeathHarvestingComponent"))
+                        .Select(x =>
+                        {
+                            ContentDroppedItem droppedItem = x.AsDroppedItem();
 
-                                ConcurrentBag<ContentItem> inventoryItems = new ConcurrentBag<ContentItem>();
+                            ConcurrentBag<ContentItem> inventoryItems = new ConcurrentBag<ContentItem>();
 
-                                droppedItem.ClassName = x.ClassString;
-                                droppedItem.IsDeathCache = true;
-                                droppedItem.DroppedByTribeId = x.GetPropertyValue<int>("TargetingTeam", 0, 0);
-                                droppedItem.DroppedByPlayerId = x.GetPropertyValue<long>("LinkedPlayerDataID", 0, 0);
-                                droppedItem.DroppedByName = x.GetPropertyValue<string>("PlayerName");
-                                droppedItem.Latitude = (float)LoadedMap.LatShift + (droppedItem.Y / (float)LoadedMap.LatDiv);
-                                droppedItem.Longitude = (float)LoadedMap.LonShift + (droppedItem.X / (float)LoadedMap.LonDiv);
+                            droppedItem.ClassName = x.ClassString;
+                            droppedItem.IsDeathCache = true;
+                            droppedItem.DroppedByTribeId = x.GetPropertyValue<int>("TargetingTeam", 0, 0);
+                            droppedItem.DroppedByPlayerId = x.GetPropertyValue<long>("LinkedPlayerDataID", 0, 0);
+                            droppedItem.DroppedByName = x.GetPropertyValue<string>("PlayerName");
+                            droppedItem.Latitude = (float)LoadedMap.LatShift + (droppedItem.Y / (float)LoadedMap.LatDiv);
+                            droppedItem.Longitude = (float)LoadedMap.LonShift + (droppedItem.X / (float)LoadedMap.LonDiv);
 
 
-                                if (x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null)
+                            if (x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null)
+                            {
+                                int inventoryRefId = x.GetPropertyValue<ObjectReference>("MyInventoryComponent").ObjectId;
+                                objectContainer.TryGetValue(inventoryRefId, out GameObject inventoryComponent);
+                                if (inventoryComponent != null)
                                 {
-                                    int inventoryRefId = x.GetPropertyValue<ObjectReference>("MyInventoryComponent").ObjectId;
-                                    objectContainer.TryGetValue(inventoryRefId, out GameObject inventoryComponent);
-                                    if (inventoryComponent != null)
+                                    PropertyArray inventoryItemsArray = inventoryComponent.GetTypedProperty<PropertyArray>("InventoryItems");
+                                    if (inventoryItemsArray != null)
                                     {
-                                        PropertyArray inventoryItemsArray = inventoryComponent.GetTypedProperty<PropertyArray>("InventoryItems");
-                                        if (inventoryItemsArray != null)
-                                        {
-                                            ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
+                                        ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
-                                            Parallel.ForEach(objectReferences, objectReference =>
+                                        Parallel.ForEach(objectReferences, objectReference =>
 {
-                                                objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-if (itemObject != null)
-                                                {
-                                                    if (itemObject.GetPropertyValue<bool>("bIsInitialItem", 0, false))
-                                                    {
+    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+    if (itemObject != null)
+    {
+        if (itemObject.GetPropertyValue<bool>("bIsInitialItem", 0, false))
+        {
 
-                                                        var item = itemObject.AsItem();
-                                                        if (!item.IsEngram)
-                                                        {
+            var item = itemObject.AsItem();
+            if (!item.IsEngram)
+            {
 
-                                                            inventoryItems.Add(item);
-                                                        }
+                inventoryItems.Add(item);
+            }
 
-                                                    }
-                                                }
-                                            });
+        }
+    }
+});
 
 
-                                            PropertyArray equippedItemArray = inventoryComponent.GetTypedProperty<PropertyArray>("EquippedItems");
-                                            if (equippedItemArray != null)
-                                            {
-                                                ArkArrayObjectReference equippedReferences = (ArkArrayObjectReference)equippedItemArray.Value;
-                                                Parallel.ForEach(equippedReferences, objectReference =>
-                                                {
-                                                    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-                                                    if (itemObject != null)
-                                                    {
-                                                        if (!itemObject.HasAnyProperty("bIsInitialItem"))
-                                                        {
+                                        PropertyArray equippedItemArray = inventoryComponent.GetTypedProperty<PropertyArray>("EquippedItems");
+                                        if (equippedItemArray != null)
+                                        {
+                                            ArkArrayObjectReference equippedReferences = (ArkArrayObjectReference)equippedItemArray.Value;
+                                            Parallel.ForEach(equippedReferences, objectReference =>
+                    {
+                        objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+                        if (itemObject != null)
+                        {
+                            if (!itemObject.HasAnyProperty("bIsInitialItem"))
+                            {
 
-                                                            var item = itemObject.AsItem();
-                                                            if (!item.IsEngram)
-                                                            {
+                                var item = itemObject.AsItem();
+                                if (!item.IsEngram)
+                                {
 
-                                                                inventoryItems.Add(item);
-                                                            }
+                                    inventoryItems.Add(item);
+                                }
 
-                                                        }
-                                                    }
-                                                });
-                                            }
-
+                            }
+                        }
+                    });
                                         }
 
                                     }
 
-
-
-                                    droppedItem.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                                 }
 
 
 
-                                return droppedItem;
-                            }).ToList()
-                        );
+                                droppedItem.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
+                            }
+
+
+
+                            return droppedItem;
+                        }).ToList()
+                                                );
 
                         //.. bags
                         logWriter.Debug($"Identifying drop bags");
@@ -1156,22 +1156,22 @@ if (itemObject != null)
 
                                             Parallel.ForEach(objectReferences, objectReference =>
 {
-                                                objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-if (itemObject != null)
-{
-                                                    if (!itemObject.HasAnyProperty("bIsInitialItem"))
-                                                    {
+    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+    if (itemObject != null)
+    {
+        if (!itemObject.HasAnyProperty("bIsInitialItem"))
+        {
 
-                                                        var item = itemObject.AsItem();
-                                                        if (!item.IsEngram)
-                                                        {
+            var item = itemObject.AsItem();
+            if (!item.IsEngram)
+            {
 
-                                                            inventoryItems.Add(item);
-                                                        }
+                inventoryItems.Add(item);
+            }
 
-                                                    }
-                                                }
-                                            });
+        }
+    }
+});
                                         }
 
                                     }
@@ -1221,12 +1221,12 @@ if (itemObject != null)
                 }
 
 
-                foreach(var tribe in Tribes)
+                foreach (var tribe in Tribes)
                 {
                     var missingPlayers = tribe.Members.Where(m => !tribe.Players.Any(p => p.Id == m.Key)).ToList();
-                    if(missingPlayers!=null && missingPlayers.Count > 0)
+                    if (missingPlayers != null && missingPlayers.Count > 0)
                     {
-                        foreach(var missingPlayer in missingPlayers)
+                        foreach (var missingPlayer in missingPlayers)
                         {
                             tribe.Players.Add(new ContentPlayer()
                             {
@@ -1236,7 +1236,7 @@ if (itemObject != null)
                             });
                         }
                     }
-                    
+
 
                 }
 
@@ -1298,21 +1298,21 @@ if (itemObject != null)
                                                             var targetPlayer = Tribes.SelectMany(m => m.Players).FirstOrDefault(p => p.Id == newItem.OwnerPlayerId || p.TargetingTeam == newItem.OwnerPlayerId);
                                                             if (targetPlayer != null)
                                                             {
-                                                                if(newItem.Quantity == 0)
+                                                                if (newItem.Quantity == 0)
                                                                 {
                                                                     newItem.Quantity = 1;
                                                                 }
 
                                                                 targetPlayer.Inventory.Items.Add(newItem);
-                                                            }                    
+                                                            }
                                                         }
                                                     }
                                                 }
-                                                catch 
-                                                { 
-                                                
+                                                catch
+                                                {
+
                                                 }
-                                                
+
 
                                             }
 
@@ -1370,7 +1370,7 @@ if (itemObject != null)
                                                             {
                                                                 tamedDino.UploadedTime = DateTime.UnixEpoch.AddSeconds(tamedDino.UploadedTimeInGame);
                                                             }
-                                                            
+
 
                                                             //TODO:// add to a list so we can assign it to the correct tribe
                                                             var targetTribe = Tribes.FirstOrDefault(t => t.TribeId == tamedDino.TargetingTeam);
@@ -1468,7 +1468,7 @@ if (itemObject != null)
             {
                 return (DateTime?)null;
             }
-            
+
         }
 
 

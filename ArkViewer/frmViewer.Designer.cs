@@ -94,6 +94,7 @@ namespace ARKViewer
             this.btnViewMap = new System.Windows.Forms.Button();
             this.tabFeatures = new System.Windows.Forms.TabControl();
             this.tpgWild = new System.Windows.Forms.TabPage();
+            this.chkTameable = new System.Windows.Forms.CheckBox();
             this.cboWildRealm = new System.Windows.Forms.ComboBox();
             this.lblWildRealm = new System.Windows.Forms.Label();
             this.pnlFilterWilds = new System.Windows.Forms.Panel();
@@ -705,7 +706,7 @@ namespace ARKViewer
             this.cboWildClass.Location = new System.Drawing.Point(88, 57);
             this.cboWildClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboWildClass.Name = "cboWildClass";
-            this.cboWildClass.Size = new System.Drawing.Size(688, 24);
+            this.cboWildClass.Size = new System.Drawing.Size(540, 24);
             this.cboWildClass.TabIndex = 13;
             this.cboWildClass.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cboSelected_DrawItem);
             this.cboWildClass.SelectedIndexChanged += new System.EventHandler(this.CboWildClass_SelectedIndexChanged);
@@ -1018,6 +1019,7 @@ namespace ARKViewer
             // 
             // tpgWild
             // 
+            this.tpgWild.Controls.Add(this.chkTameable);
             this.tpgWild.Controls.Add(this.cboWildRealm);
             this.tpgWild.Controls.Add(this.lblWildRealm);
             this.tpgWild.Controls.Add(this.pnlFilterWilds);
@@ -1049,6 +1051,20 @@ namespace ARKViewer
             this.tpgWild.TabIndex = 0;
             this.tpgWild.Text = "Wild Creatures";
             this.tpgWild.UseVisualStyleBackColor = true;
+            // 
+            // chkTameable
+            // 
+            this.chkTameable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkTameable.AutoSize = true;
+            this.chkTameable.Checked = true;
+            this.chkTameable.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTameable.Location = new System.Drawing.Point(648, 59);
+            this.chkTameable.Name = "chkTameable";
+            this.chkTameable.Size = new System.Drawing.Size(76, 19);
+            this.chkTameable.TabIndex = 23;
+            this.chkTameable.Text = "Tameable";
+            this.chkTameable.UseVisualStyleBackColor = true;
+            this.chkTameable.CheckedChanged += new System.EventHandler(this.chkTameable_CheckedChanged);
             // 
             // cboWildRealm
             // 
@@ -4477,6 +4493,7 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwTameDetail_UploadTime;
         private System.Windows.Forms.CheckBox chkTameUploads;
         private System.Windows.Forms.ColumnHeader lvwTameDetail_DinoId;
+        private System.Windows.Forms.CheckBox chkTameable;
     }
 }
 

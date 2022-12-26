@@ -3323,161 +3323,152 @@ namespace ARKViewer
                     ftpClient.Credentials.UserName = selectedServer.Username;
                     ftpClient.Credentials.Password = selectedServer.Password;
                     ftpClient.Port = selectedServer.Port;
-                    ftpClient.ValidateCertificate += FtpClient_ValidateCertificate;
-                    ftpClient.ValidateAnyCertificate = true;
-                    ftpClient.SslProtocols = System.Security.Authentication.SslProtocols.None;
-                    
-                    //try explict
-                    ftpClient.EncryptionMode = FtpEncryptionMode.Explicit;
+                    ftpClient.ValidateCertificate += FtpClient_ValidateCertificate; ;
+
                     try
                     {
                         Program.LogWriter.Debug($"Attempting secure connection (explicit)");
                         ftpClient.Connect();
-                    }
-                    catch (TimeoutException exTimeout)
-                    {
-                        //try implicit
-                        Program.LogWriter.Debug($"Attempting secure connection (implicit)");
-                        ftpClient.EncryptionMode = FtpEncryptionMode.Implicit;
-                        ftpClient.Connect();
-                    }
-                    catch (FtpSecurityNotAvailableException exSecurity)
-                    {
-                        //fail-back to plain text
-                        Program.LogWriter.Debug($"Attempting plain text connection");
-                        ftpClient.EncryptionMode = FtpEncryptionMode.None;
-                        ftpClient.Connect();
-                    }
 
-                    Program.LogWriter.Debug($"Retrieving FTP server files in: {selectedServer.SaveGamePath}");
-                    var serverFiles = ftpClient.GetListing(selectedServer.SaveGamePath);
-                    Program.LogWriter.Debug($"{serverFiles.Length-1} entries found.");
 
-                    string localFilename = "";
+                        Program.LogWriter.Debug($"Retrieving FTP server files in: {selectedServer.SaveGamePath}");
+                        var serverFiles = ftpClient.GetListing(selectedServer.SaveGamePath);
+                        Program.LogWriter.Debug($"{serverFiles.Length - 1} entries found.");
 
-                    //get correct casing for the selected map file
-                    var serverSaveFile = serverFiles.Where(f => f.Name.ToLower() == selectedServer.Map.ToLower()).FirstOrDefault();
-                    if (serverSaveFile != null)
-                    {
-                        Program.LogWriter.Debug($"Found: {serverSaveFile}");
+                        string localFilename = "";
 
-                        string serverGameFilename = serverSaveFile.Name;
-
-                        //check for .tmp file
-                        var serverTempFile = serverFiles.Where(f => f.Name.ToLower() == selectedServer.Map.ToLower().Replace(".ark", ".tmp")).FirstOrDefault();
-                        if (serverTempFile != null)
+                        //get correct casing for the selected map file
+                        var serverSaveFile = serverFiles.Where(f => f.Name.ToLower() == selectedServer.Map.ToLower()).FirstOrDefault();
+                        if (serverSaveFile != null)
                         {
-                            if(serverTempFile.Modified.ToUniversalTime() > serverSaveFile.Modified.ToUniversalTime())
+                            Program.LogWriter.Debug($"Found: {serverSaveFile}");
+
+                            string serverGameFilename = serverSaveFile.Name;
+
+                            //check for .tmp file
+                            var serverTempFile = serverFiles.Where(f => f.Name.ToLower() == selectedServer.Map.ToLower().Replace(".ark", ".tmp")).FirstOrDefault();
+                            if (serverTempFile != null)
                             {
-                                //tmp is newer, use that instead
-                                serverGameFilename = serverTempFile.Name;
-                            }
-                        }
-
-
-                        localFilename = Path.Combine(downloadPath, serverGameFilename);
-                        downloadedFilename = localFilename;
-                        bool shouldDownload = true;
-
-
-                        if (File.Exists(localFilename) && serverSaveFile.Modified.ToUniversalTime() <= File.GetLastWriteTimeUtc(localFilename))
-                        {
-                            if (Program.ProgramConfig.FtpDownloadMode == 0)
-                            {
-                                Program.LogWriter.Debug($"Local file already newer. Ignoring: {serverSaveFile}");
-
-                                shouldDownload = false;
+                                if (serverTempFile.Modified.ToUniversalTime() > serverSaveFile.Modified.ToUniversalTime())
+                                {
+                                    //tmp is newer, use that instead
+                                    serverGameFilename = serverTempFile.Name;
+                                }
                             }
 
-                        }
 
-                        if (shouldDownload)
-                        {
-                            Program.LogWriter.Debug($"Downloading: {serverSaveFile} as {localFilename}");
+                            localFilename = Path.Combine(downloadPath, serverGameFilename);
+                            downloadedFilename = localFilename;
+                            bool shouldDownload = true;
 
-                            using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
+
+                            if (File.Exists(localFilename) && serverSaveFile.Modified.ToUniversalTime() <= File.GetLastWriteTimeUtc(localFilename))
+                            {
+                                if (Program.ProgramConfig.FtpDownloadMode == 0)
+                                {
+                                    Program.LogWriter.Debug($"Local file already newer. Ignoring: {serverSaveFile}");
+
+                                    shouldDownload = false;
+                                }
+
+                            }
+
+                            if (shouldDownload)
                             {
                                 Program.LogWriter.Debug($"Downloading: {serverSaveFile} as {localFilename}");
-                                ftpClient.Download(outputStream, serverSaveFile.FullName);
-                                outputStream.Flush();
+
+                                using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
+                                {
+                                    Program.LogWriter.Debug($"Downloading: {serverSaveFile} as {localFilename}");
+                                    ftpClient.DownloadStream(outputStream, serverSaveFile.FullName);
+                                    outputStream.Flush();
+                                }
+                                File.SetLastWriteTimeUtc(localFilename, serverSaveFile.Modified.ToUniversalTime());
                             }
-                            File.SetLastWriteTimeUtc(localFilename, serverSaveFile.Modified.ToUniversalTime());
-                        }
 
 
 
-                        //get .arktribe files
-                        var serverTribeFiles = serverFiles.Where(f => f.Name.EndsWith(".arktribe"));
-                        if (serverTribeFiles != null && serverTribeFiles.Count() > 0)
-                        {
-                            foreach (var serverTribeFile in serverTribeFiles)
+                            //get .arktribe files
+                            var serverTribeFiles = serverFiles.Where(f => f.Name.EndsWith(".arktribe"));
+                            if (serverTribeFiles != null && serverTribeFiles.Count() > 0)
                             {
-                                Program.LogWriter.Debug($"Found: {serverTribeFile}");
-
-                                localFilename = Path.Combine(downloadPath, serverTribeFile.Name);
-                                shouldDownload = true;
-                                if (File.Exists(localFilename) && serverTribeFile.Modified.ToUniversalTime() <= File.GetLastWriteTimeUtc(localFilename))
+                                foreach (var serverTribeFile in serverTribeFiles)
                                 {
-                                    if (Program.ProgramConfig.FtpDownloadMode == 0)
+                                    Program.LogWriter.Debug($"Found: {serverTribeFile}");
+
+                                    localFilename = Path.Combine(downloadPath, serverTribeFile.Name);
+                                    shouldDownload = true;
+                                    if (File.Exists(localFilename) && serverTribeFile.Modified.ToUniversalTime() <= File.GetLastWriteTimeUtc(localFilename))
                                     {
-                                        Program.LogWriter.Debug($"Local file already newer. Ignoring: {serverTribeFile}");
-                                        shouldDownload = false;
+                                        if (Program.ProgramConfig.FtpDownloadMode == 0)
+                                        {
+                                            Program.LogWriter.Debug($"Local file already newer. Ignoring: {serverTribeFile}");
+                                            shouldDownload = false;
+                                        }
+
                                     }
 
-                                }
 
-
-                                if (shouldDownload)
-                                {
-                                    Program.LogWriter.Debug($"Downloading: {serverTribeFile} as {localFilename}");
-
-                                    using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
+                                    if (shouldDownload)
                                     {
-                                        ftpClient.Download(outputStream, serverTribeFile.FullName);
-                                        outputStream.Flush();
+                                        Program.LogWriter.Debug($"Downloading: {serverTribeFile} as {localFilename}");
+
+                                        using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
+                                        {
+                                            ftpClient.DownloadStream(outputStream, serverTribeFile.FullName);
+                                            outputStream.Flush();
+                                        }
+                                        File.SetLastWriteTimeUtc(localFilename, serverTribeFile.Modified.ToUniversalTime());
                                     }
-                                    File.SetLastWriteTimeUtc(localFilename, serverTribeFile.Modified.ToUniversalTime());
+
                                 }
 
                             }
 
-                        }
 
-
-                        //get .arkprofile files
-                        var serverProfileFiles = serverFiles.Where(f => f.Name.EndsWith(".arkprofile"));
-                        if (serverProfileFiles != null && serverProfileFiles.Count() > 0)
-                        {
-                            foreach (var serverProfileFile in serverProfileFiles)
+                            //get .arkprofile files
+                            var serverProfileFiles = serverFiles.Where(f => f.Name.EndsWith(".arkprofile"));
+                            if (serverProfileFiles != null && serverProfileFiles.Count() > 0)
                             {
-                                Program.LogWriter.Debug($"Found: {serverProfileFile}");
-
-                                localFilename = Path.Combine(downloadPath, serverProfileFile.Name);
-                                shouldDownload = true;
-                                if (File.Exists(localFilename) && serverProfileFile.Modified.ToUniversalTime() <= File.GetLastWriteTimeUtc(localFilename))
+                                foreach (var serverProfileFile in serverProfileFiles)
                                 {
-                                    if (Program.ProgramConfig.FtpDownloadMode == 0)
-                                    {
-                                        Program.LogWriter.Debug($"Local file already newer. Ignoring: {serverProfileFile}");
-                                        shouldDownload = false;
-                                    }
+                                    Program.LogWriter.Debug($"Found: {serverProfileFile}");
 
-                                }
-                                if (shouldDownload)
-                                {
-                                    Program.LogWriter.Debug($"Downloading: {serverProfileFile} as {localFilename}");
-
-                                    using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
+                                    localFilename = Path.Combine(downloadPath, serverProfileFile.Name);
+                                    shouldDownload = true;
+                                    if (File.Exists(localFilename) && serverProfileFile.Modified.ToUniversalTime() <= File.GetLastWriteTimeUtc(localFilename))
                                     {
-                                        ftpClient.Download(outputStream, serverProfileFile.FullName);
-                                        outputStream.Flush();
+                                        if (Program.ProgramConfig.FtpDownloadMode == 0)
+                                        {
+                                            Program.LogWriter.Debug($"Local file already newer. Ignoring: {serverProfileFile}");
+                                            shouldDownload = false;
+                                        }
+
                                     }
-                                    File.SetLastWriteTimeUtc(localFilename, serverProfileFile.Modified.ToUniversalTime());
+                                    if (shouldDownload)
+                                    {
+                                        Program.LogWriter.Debug($"Downloading: {serverProfileFile} as {localFilename}");
+
+                                        using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
+                                        {
+                                            ftpClient.DownloadStream(outputStream, serverProfileFile.FullName);
+                                            outputStream.Flush();
+                                        }
+                                        File.SetLastWriteTimeUtc(localFilename, serverProfileFile.Modified.ToUniversalTime());
+                                    }
                                 }
+
                             }
-
                         }
+
                     }
+                    catch (Exception exFtp)
+                    {
+                        //try implicit
+                        Program.LogWriter.Debug($"Ftp connection failed: {exFtp.Message.ToString()}");
+                    }
+
+
                 }
                 catch (Exception ex)
                 {
@@ -3489,6 +3480,11 @@ namespace ARKViewer
             Program.LogWriter.Trace("END DownloadFtp()");
             return downloadedFilename;
 
+        }
+
+        private void FtpClient_ValidateCertificate(FluentFTP.Client.BaseClient.BaseFtpClient control, FtpSslValidationEventArgs e)
+        {
+            e.Accept = true;
         }
 
         private bool DeletePlayerFtp(ContentPlayer player)
@@ -3518,29 +3514,9 @@ namespace ARKViewer
                         ftpClient.Credentials.UserName = selectedServer.Username;
                         ftpClient.Credentials.Password = selectedServer.Password;
                         ftpClient.Port = selectedServer.Port;
-                        ftpClient.ValidateCertificate += FtpClient_ValidateCertificate;
-                        ftpClient.ValidateAnyCertificate = true;
-                        ftpClient.SslProtocols = System.Security.Authentication.SslProtocols.None;
+                        ftpClient.ValidateCertificate += FtpClient_ValidateCertificate1; ;
 
-                        //try explict
-                        ftpClient.EncryptionMode = FtpEncryptionMode.Explicit;
-                        try
-                        {
-                            ftpClient.Connect();
-                        }
-                        catch (TimeoutException exTimeout)
-                        {
-                            //try implicit
-                            ftpClient.EncryptionMode = FtpEncryptionMode.Implicit;
-                            ftpClient.Connect();
-                        }
-                        catch (FtpSecurityNotAvailableException exSecurity)
-                        {
-                            //fail-back to plain text
-                            ftpClient.EncryptionMode = FtpEncryptionMode.None;
-                            ftpClient.Connect();
-                        }
-
+                        ftpClient.Connect();
                         ftpClient.DeleteFile(ftpFilePath);
 
                     }
@@ -3582,10 +3558,12 @@ namespace ARKViewer
             return returnVal;
         }
 
-        private void FtpClient_ValidateCertificate(FtpClient control, FtpSslValidationEventArgs e)
+        private void FtpClient_ValidateCertificate1(FluentFTP.Client.BaseClient.BaseFtpClient control, FtpSslValidationEventArgs e)
         {
-            e.Accept = true;
+            throw new NotImplementedException();
         }
+
+
 
 
         /***** Drawn Maps ******/
@@ -4365,6 +4343,12 @@ namespace ARKViewer
             float selectedRad = (float)udWildRadius.Value;
 
             var wildDinos = cm.GetWildCreatures(minLevel, maxLevel, selectedLat, selectedLon, selectedRad, "", (cboWildRealm.SelectedItem as ASVComboValue).Key);
+
+            //remove untamable if not selected
+            if(chkTameable.Checked)
+            {
+                wildDinos.RemoveAll(d => !d.IsTameable);
+            }
 
             cboWildClass.Items.Clear();
             int newIndex = 0;
@@ -6306,8 +6290,11 @@ namespace ARKViewer
                         selectedY = (decimal)Math.Round(detail.Latitude.Value, 2);
                     }
 
-
-                    listItems.Add(item);
+                    if((chkTameable.Checked  && detail.IsTameable) || !chkTameable.Checked)
+                    {
+                        listItems.Add(item);
+                    }
+                    
                 });
 
                 lvwWildDetail.Items.AddRange(listItems.ToArray());
@@ -7535,6 +7522,12 @@ namespace ARKViewer
         private void chkTameUploads_CheckedChanged(object sender, EventArgs e)
         {
             LoadTameDetail();
+        }
+
+        private void chkTameable_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshWildSummary();
+            LoadWildDetail();
         }
     }
 }

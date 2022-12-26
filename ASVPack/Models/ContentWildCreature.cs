@@ -12,6 +12,8 @@ namespace ASVPack.Models
     [DataContract]
     public class ContentWildCreature : ContentCreature
     {
+        public bool IsTameable { get; set; } = true; 
+
         public ContentWildCreature() : base()
         {
 
@@ -19,7 +21,9 @@ namespace ASVPack.Models
 
         public ContentWildCreature(GameObject gameObject, GameObject statusObject) : base(gameObject, statusObject)
         {
+            IsTameable = !gameObject.GetPropertyValue<bool>("bForceDisablingTaming");
 
+     
         }
     }
 }

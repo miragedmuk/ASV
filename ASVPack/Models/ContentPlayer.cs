@@ -37,7 +37,7 @@ namespace ASVPack.Models
         [DataMember] public DateTime? LastActiveDateTime { get; set; } = null;
         [DataMember] public int TargetingTeam { get; set; } = int.MinValue; //abandoned
         [DataMember] public List<ContentMissionScore> MissionScores { get; set; } = new List<ContentMissionScore>();
-        
+
 
         public bool HasGameFile { get; set; } = false;
 

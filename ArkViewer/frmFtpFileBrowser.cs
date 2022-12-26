@@ -142,7 +142,7 @@ namespace ARKViewer
                     {
                         FullName = f.FullName,
                         Name = f.Name,
-                        IsFolder = f.Type == FtpFileSystemObjectType.Directory
+                        IsFolder = f.Type ==  FtpObjectType.Directory
                     };
 
                     ListViewItem item = lvwFileBrowser.Items.Add(f.Name);
@@ -150,11 +150,11 @@ namespace ARKViewer
                     item.SubItems.Add(f.Type.ToString());
                     switch (f.Type)
                     {
-                        case FtpFileSystemObjectType.Directory:
+                        case FtpObjectType.Directory:
                             item.ImageIndex = 1;
                             break;
 
-                        case FtpFileSystemObjectType.File:
+                        case FtpObjectType.File:
                             item.ImageIndex = 2;
                             break;
                     }
@@ -335,34 +335,6 @@ namespace ARKViewer
 
                 try
                 {
-                    ftpClient = new FtpClient(txtFTPAddress.Text);
-
-                    ftpClient.Credentials.UserName = txtFTPUsername.Text;
-                    ftpClient.Credentials.Password = txtFTPPassword.Text;
-                    ftpClient.Port = (int)udFTPPort.Value;
-                    ftpClient.ValidateCertificate += FtpClient_ValidateCertificate;
-                    ftpClient.ValidateAnyCertificate = true;
-                    ftpClient.SslProtocols = System.Security.Authentication.SslProtocols.None;
-
-                    //try explict
-                    ftpClient.EncryptionMode = FtpEncryptionMode.Explicit;
-                    try
-                    {
-                        ftpClient.Connect();
-                    }
-                    catch (TimeoutException exTimeout)
-                    {
-                        //try implicit
-                        ftpClient.EncryptionMode = FtpEncryptionMode.Implicit;
-                        ftpClient.Connect();
-                    }
-                    catch (FtpSecurityNotAvailableException exSecurity)
-                    {
-                        //fail-back to plain text
-                        ftpClient.EncryptionMode = FtpEncryptionMode.None;
-                        ftpClient.Connect();
-                    }
-
 
                     btnConnect.Enabled = false;
 
@@ -371,11 +343,23 @@ namespace ARKViewer
                     txtFTPAddress.Enabled = false;
                     udFTPPort.Enabled = false;
 
+                    ftpClient = new FtpClient(txtFTPAddress.Text);
+
+                    ftpClient.Credentials.UserName = txtFTPUsername.Text;
+                    ftpClient.Credentials.Password = txtFTPPassword.Text;
+                    ftpClient.Port = (int)udFTPPort.Value;
+                    ftpClient.ValidateCertificate += FtpClient_ValidateCertificate1; 
+
+         
+                    ftpClient.Connect();
+
+
                     //not found, please select
                     lblStatus.Text = "Please select your save game.";
                     lblStatus.Refresh();
 
                     PopulateServerFileList("/");
+                  
 
 
                 }
@@ -428,10 +412,11 @@ namespace ARKViewer
             optFtpModeSftp.Enabled = true;
         }
 
-        private void FtpClient_ValidateCertificate(FtpClient control, FtpSslValidationEventArgs e)
+        private void FtpClient_ValidateCertificate1(FluentFTP.Client.BaseClient.BaseFtpClient control, FtpSslValidationEventArgs e)
         {
-            e.Accept = true;
+            e.Accept=true;
         }
+
 
         private void lvwFileBrowser_SelectedIndexChanged(object sender, EventArgs e)
         {

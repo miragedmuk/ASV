@@ -34,6 +34,7 @@ namespace ASVPack.Models
         [DataMember] public string Rig1 { get; set; } = "";
         [DataMember] public string Rig2 { get; set; } = "";
 
+
         public override bool Equals(object obj)
         {
             if (obj is ContentCreature) return ((ContentCreature)obj).Id == Id;
@@ -80,6 +81,7 @@ namespace ASVPack.Models
 
             BaseStats = new byte[12] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             for (var i = 0; i < BaseStats.Length; i++) BaseStats[i] = statusObject.GetPropertyValue<ArkByteValue>("NumberOfLevelUpPointsApplied", i)?.ByteValue ?? 0;
+
 
             Colors = new byte[6] { 0, 0, 0, 0, 0, 0 };
             for (var i = 0; i < Colors.Length; i++) Colors[i] = creatureObject.GetPropertyValue<ArkByteValue>("ColorSetIndices", i)?.ByteValue ?? 0;
