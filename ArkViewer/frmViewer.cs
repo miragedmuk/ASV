@@ -385,9 +385,12 @@ namespace ARKViewer
 
         private void RefreshRealms()
         {
+
+
             cboWildRealm.Items.Clear();
             cboWildRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            
+            if (cm.LoadedMap !=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -399,7 +402,7 @@ namespace ARKViewer
 
             cboTameRealm.Items.Clear();
             cboTameRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -411,7 +414,7 @@ namespace ARKViewer
 
             cboStructureRealm.Items.Clear();
             cboStructureRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -423,7 +426,7 @@ namespace ARKViewer
 
             cboPlayerRealm.Items.Clear();
             cboPlayerRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -436,7 +439,7 @@ namespace ARKViewer
 
             cboDroppedItemRealm.Items.Clear();
             cboDroppedItemRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
