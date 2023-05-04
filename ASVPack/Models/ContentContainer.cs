@@ -87,6 +87,7 @@ namespace ASVPack.Models
                             ArkLocalProfile arkProfile = new ArkLocalProfile();
                             arkProfile.ReadBinary(archiveProfile, ReadingOptions.Create().WithBuildComponentTree(true).WithDataFilesObjectMap(false).WithGameObjects(true).WithGameObjectProperties(true));
                             LocalProfile = new ContentLocalProfile(arkProfile);
+                            
                         }
                     }
 
@@ -263,6 +264,7 @@ namespace ASVPack.Models
                                             {
                                                 logWriter.Debug($"Converting to ContentPlayer: {x}");
                                                 ContentPlayer contentPlayer = arkProfile.AsPlayer();
+                                                contentPlayer.PlayerFilename = Path.GetFileName(x);
                                                 if (contentPlayer.Id != 0)
                                                 {
 
@@ -329,6 +331,7 @@ namespace ASVPack.Models
                                         var contentTribe = arkTribe.Tribe.AsTribe();
                                         if (contentTribe != null && contentTribe.TribeName != null)
                                         {
+                                            contentTribe.TribeFileName = Path.GetFileName(x);
                                             contentTribe.TribeFileDate = File.GetLastWriteTimeUtc(x).ToLocalTime();
                                             contentTribe.HasGameFile = true;
                                             fileTribes.Add(contentTribe);
@@ -560,7 +563,8 @@ namespace ASVPack.Models
 
 
                         logWriter.Debug($"Identifying player structures");
-                        var playerStructures = parallelContainer.Where(x => x.IsStructure() && x.GetPropertyValue<int>("TargetingTeam") >= 50_000).GroupBy(x => x.Names[0]).Select(s => s.First()).ToList();
+                        var allStructures = parallelContainer.Where(x => x.IsStructure()).GroupBy(x => x.Names[0]).Select(s => s.First()).ToList();
+                        var playerStructures = allStructures.Where(x => x.GetPropertyValue<int>("TargetingTeam") >= 50_000).ToList();
 
                         var tribeStructures = playerStructures
                                                     .GroupBy(x => new { TribeId = x.GetPropertyValue<int>("TargetingTeam"), TribeName = x.GetPropertyValue<string>("OwnerName") ?? x.GetPropertyValue<string>("TamerString") })
@@ -568,6 +572,30 @@ namespace ASVPack.Models
                                                     .ToList();
 
 
+
+                        var abandonedStructures = allStructures.Where(x=> x.GetPropertyValue<int>("TargetingTeam") < 50_0000).ToList();
+                        abandonedStructures.RemoveAll(s =>
+                            s.ClassString.StartsWith("BeeHive_C")
+                            || s.ClassString.StartsWith("CherufeNest_C")
+                            || s.ClassString.StartsWith("BeaverDam_C")
+                            || s.ClassString.StartsWith("WyvernNest_")
+                            || s.ClassString.StartsWith("RockDrakeNest_C")
+                            || s.ClassString.StartsWith("DeinonychusNest_C")
+                        );
+                        
+                        var abandonedTribe = fileTribes.FirstOrDefault(t => t.TribeId == int.MinValue);
+                        if (abandonedTribe != null)
+                        {
+                            abandonedStructures.ForEach(
+                                s => {
+                                    var structure = s.AsStructure();
+                                    structure.Latitude = (float)LoadedMap.LatShift + (structure.Y / (float)LoadedMap.LatDiv);
+                                    structure.Longitude = (float)LoadedMap.LonShift + (structure.X / (float)LoadedMap.LonDiv);
+                                    abandonedTribe.Structures.Add(structure);
+                                    }                                
+                                );
+                        }
+                        
 
                         //player and tribe data
                         long tribeLoadStart = DateTime.Now.Ticks;
@@ -1240,6 +1268,7 @@ namespace ASVPack.Models
 
                 }
 
+                
 
                 //cluster data
                 if (!string.IsNullOrEmpty(clusterFolder) && Directory.Exists(clusterFolder))
@@ -1411,6 +1440,7 @@ namespace ASVPack.Models
                                                         }
 
                                                     }
+                                                    
 
                                                 }
 
@@ -1421,12 +1451,18 @@ namespace ASVPack.Models
                                             }
 
                                         }
+
                                     }
 
 
+
                                 }
+
                             }
 
+
+
+                            
 
                         }
                         catch
@@ -1436,12 +1472,10 @@ namespace ASVPack.Models
 
                     }
                     );
-
-
+                    
                 }
 
-
-
+                
                 long endTicks = DateTime.Now.Ticks;
                 var duration = TimeSpan.FromTicks(endTicks - startTicks);
 

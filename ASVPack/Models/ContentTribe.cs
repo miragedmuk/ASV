@@ -62,6 +62,7 @@ namespace ASVPack.Models
             }
         }
         public bool HasGameFile { get; set; } = false;
+        public string TribeFileName { get; set; } = string.Empty;
 
         public ContentTribe(GameObject tribeObject)
         {

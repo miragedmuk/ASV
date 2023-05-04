@@ -2,7 +2,7 @@
 
 namespace ARKViewer
 {
-    
+
 
     partial class frmViewer
     {
@@ -32,4111 +32,3793 @@ namespace ARKViewer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewer));
-            this.lvwWildDetail = new System.Windows.Forms.ListView();
-            this.lvwWildDetail_Name = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Sex = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Base = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Level = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Lat = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Lon = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_HP = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Stam = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Melee = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Weight = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Speed = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Food = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Oxygen = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Craft = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Colour1 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Colour2 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Colour3 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Colour4 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Colour5 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Colour6 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Id = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Scale = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Rig1 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_Rig2 = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_DinoId = new System.Windows.Forms.ColumnHeader();
-            this.lvwWildDetail_CCC = new System.Windows.Forms.ColumnHeader();
-            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuContext_PlayerId = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContext_SteamId = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContext_TribeId = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContext_DinoId = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContext_Export = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContext_Structures = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContext_Tames = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuContext_Players = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblWildTotal = new System.Windows.Forms.Label();
-            this.lblMapDate = new System.Windows.Forms.Label();
-            this.cboWildClass = new System.Windows.Forms.ComboBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnPlayerInventory = new System.Windows.Forms.Button();
-            this.btnPlayerTribeLog = new System.Windows.Forms.Button();
-            this.btnStructureExclusionFilter = new System.Windows.Forms.Button();
-            this.btnCopyCommandPlayer = new System.Windows.Forms.Button();
-            this.btnCopyCommandStructure = new System.Windows.Forms.Button();
-            this.btnDinoAncestors = new System.Windows.Forms.Button();
-            this.btnDinoInventory = new System.Windows.Forms.Button();
-            this.btnCopyCommandWild = new System.Windows.Forms.Button();
-            this.btnCopyCommandTamed = new System.Windows.Forms.Button();
-            this.chkCryo = new System.Windows.Forms.CheckBox();
-            this.btnCopyCommandDropped = new System.Windows.Forms.Button();
-            this.btnTribeCopyCommand = new System.Windows.Forms.Button();
-            this.btnTribeLog = new System.Windows.Forms.Button();
-            this.btnStructureInventory = new System.Windows.Forms.Button();
-            this.btnDeletePlayer = new System.Windows.Forms.Button();
-            this.btnDropInventory = new System.Windows.Forms.Button();
-            this.btnViewMap = new System.Windows.Forms.Button();
-            this.tabFeatures = new System.Windows.Forms.TabControl();
-            this.tpgWild = new System.Windows.Forms.TabPage();
-            this.chkTameable = new System.Windows.Forms.CheckBox();
-            this.cboWildRealm = new System.Windows.Forms.ComboBox();
-            this.lblWildRealm = new System.Windows.Forms.Label();
-            this.pnlFilterWilds = new System.Windows.Forms.Panel();
-            this.btnFindWild = new System.Windows.Forms.Button();
-            this.txtFilterWild = new System.Windows.Forms.TextBox();
-            this.cboWildResource = new System.Windows.Forms.ComboBox();
-            this.lblResource = new System.Windows.Forms.Label();
-            this.lblWildRadius = new System.Windows.Forms.Label();
-            this.udWildRadius = new System.Windows.Forms.NumericUpDown();
-            this.lblWildLon = new System.Windows.Forms.Label();
-            this.udWildLon = new System.Windows.Forms.NumericUpDown();
-            this.lblWildLat = new System.Windows.Forms.Label();
-            this.udWildLat = new System.Windows.Forms.NumericUpDown();
-            this.lblWildMin = new System.Windows.Forms.Label();
-            this.lblWildMax = new System.Windows.Forms.Label();
-            this.udWildMin = new System.Windows.Forms.NumericUpDown();
-            this.udWildMax = new System.Windows.Forms.NumericUpDown();
-            this.lblWildCommand = new System.Windows.Forms.Label();
-            this.cboConsoleCommandsWild = new System.Windows.Forms.ComboBox();
-            this.lblSelectedWildTotal = new System.Windows.Forms.Label();
-            this.lblWildClass = new System.Windows.Forms.Label();
-            this.tpgTamed = new System.Windows.Forms.TabPage();
-            this.chkTameUploads = new System.Windows.Forms.CheckBox();
-            this.cboTameRealm = new System.Windows.Forms.ComboBox();
-            this.lblTameRealm = new System.Windows.Forms.Label();
-            this.pnlFilterTamed = new System.Windows.Forms.Panel();
-            this.btnFindTamed = new System.Windows.Forms.Button();
-            this.txtFilterTamed = new System.Windows.Forms.TextBox();
-            this.cboTamedResource = new System.Windows.Forms.ComboBox();
-            this.lblTameResource = new System.Windows.Forms.Label();
-            this.lblTamedCommand = new System.Windows.Forms.Label();
-            this.cboConsoleCommandsTamed = new System.Windows.Forms.ComboBox();
-            this.cboTameTribes = new System.Windows.Forms.ComboBox();
-            this.cboTamePlayers = new System.Windows.Forms.ComboBox();
-            this.lblTameCreature = new System.Windows.Forms.Label();
-            this.lblTamePlayer = new System.Windows.Forms.Label();
-            this.lblTameTribe = new System.Windows.Forms.Label();
-            this.lvwTameDetail = new System.Windows.Forms.ListView();
-            this.lvwTameDetail_Creature = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Name = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Wandering = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Mating = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Sex = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Base = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Level = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Lat = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Lon = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_HP = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Stam = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Melee = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Weight = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Speed = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Food = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Oxygen = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Craft = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Server = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Tamer = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Imprinter = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Imprint = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Cryo = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Colour1 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Colour2 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Colour3 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Colour4 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Colour5 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Colour6 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_MutationsFemale = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_MutationsMale = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Id = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Scale = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Rig1 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_Rig2 = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_TribeInRange = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_UploadTime = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_DinoId = new System.Windows.Forms.ColumnHeader();
-            this.lvwTameDetail_CCC = new System.Windows.Forms.ColumnHeader();
-            this.lblTameTotal = new System.Windows.Forms.Label();
-            this.pnlTameStatTypes = new System.Windows.Forms.Panel();
-            this.lblStats = new System.Windows.Forms.Label();
-            this.optStatsTamed = new System.Windows.Forms.RadioButton();
-            this.optStatsBase = new System.Windows.Forms.RadioButton();
-            this.cboTameClass = new System.Windows.Forms.ComboBox();
-            this.tpgStructures = new System.Windows.Forms.TabPage();
-            this.cboStructureRealm = new System.Windows.Forms.ComboBox();
-            this.lblStructureRealm = new System.Windows.Forms.Label();
-            this.pnlFilterStructures = new System.Windows.Forms.Panel();
-            this.btnFindStructures = new System.Windows.Forms.Button();
-            this.txtFilterStructures = new System.Windows.Forms.TextBox();
-            this.lblStructureTotal = new System.Windows.Forms.Label();
-            this.lblCommandStructure = new System.Windows.Forms.Label();
-            this.cboConsoleCommandsStructure = new System.Windows.Forms.ComboBox();
-            this.lblStructureStructure = new System.Windows.Forms.Label();
-            this.cboStructureStructure = new System.Windows.Forms.ComboBox();
-            this.lblStructurePlayer = new System.Windows.Forms.Label();
-            this.lblStructureTribe = new System.Windows.Forms.Label();
-            this.cboStructureTribe = new System.Windows.Forms.ComboBox();
-            this.cboStructurePlayer = new System.Windows.Forms.ComboBox();
-            this.lvwStructureLocations = new System.Windows.Forms.ListView();
-            this.lvwStructureLocations_Tribe = new System.Windows.Forms.ColumnHeader();
-            this.lvwStructureLocations_Structure = new System.Windows.Forms.ColumnHeader();
-            this.lvwStructureLocations_Lat = new System.Windows.Forms.ColumnHeader();
-            this.lvwStructureLocations_Lon = new System.Windows.Forms.ColumnHeader();
-            this.lvwStructureLocations_LastTime = new System.Windows.Forms.ColumnHeader();
-            this.lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
-            this.lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
-            this.tpgTribes = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lvwTribes = new System.Windows.Forms.ListView();
-            this.lvwTribes_Id = new System.Windows.Forms.ColumnHeader();
-            this.lvwTribes_Name = new System.Windows.Forms.ColumnHeader();
-            this.lvwTribes_Players = new System.Windows.Forms.ColumnHeader();
-            this.lvwTribes_Tames = new System.Windows.Forms.ColumnHeader();
-            this.lvwTribes_Structures = new System.Windows.Forms.ColumnHeader();
-            this.lvwTribes_Active = new System.Windows.Forms.ColumnHeader();
-            this.pnlFilterTribes = new System.Windows.Forms.Panel();
-            this.btnFilterTribe = new System.Windows.Forms.Button();
-            this.txtFilterTribe = new System.Windows.Forms.TextBox();
-            this.btnSaveChartImage = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.udChartTop = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboChartType = new System.Windows.Forms.ComboBox();
-            this.chartTribes = new ArkViewer.ChartControl();
-            this.chkTribeStructures = new System.Windows.Forms.CheckBox();
-            this.chkTribeTames = new System.Windows.Forms.CheckBox();
-            this.chkTribePlayers = new System.Windows.Forms.CheckBox();
-            this.lblTribeCopyCommand = new System.Windows.Forms.Label();
-            this.cboTribeCopyCommand = new System.Windows.Forms.ComboBox();
-            this.tpgPlayers = new System.Windows.Forms.TabPage();
-            this.cboPlayerRealm = new System.Windows.Forms.ComboBox();
-            this.lblPlayerRealm = new System.Windows.Forms.Label();
-            this.pnlFilterPlayers = new System.Windows.Forms.Panel();
-            this.btnFilterPlayer = new System.Windows.Forms.Button();
-            this.txtFilterPlayer = new System.Windows.Forms.TextBox();
-            this.lblPlayerTotal = new System.Windows.Forms.Label();
-            this.lblCommandPlayer = new System.Windows.Forms.Label();
-            this.cboConsoleCommandsPlayerTribe = new System.Windows.Forms.ComboBox();
-            this.lblPlayersPlayer = new System.Windows.Forms.Label();
-            this.lblPlayersTribe = new System.Windows.Forms.Label();
-            this.cboTribes = new System.Windows.Forms.ComboBox();
-            this.cboPlayers = new System.Windows.Forms.ComboBox();
-            this.lvwPlayers = new System.Windows.Forms.ListView();
-            this.lvwPlayers_PlayerId = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Name = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Tribe = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Sex = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Level = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Lat = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Lon = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Hp = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Stam = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Melee = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Weight = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Speed = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Food = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Water = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Oxygen = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Crafting = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_Fortitude = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_LastOnline = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_SteamName = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_SteamId = new System.Windows.Forms.ColumnHeader();
-            this.lvwPlayers_CCC = new System.Windows.Forms.ColumnHeader();
-            this.tpgDroppedItems = new System.Windows.Forms.TabPage();
-            this.cboDroppedItemRealm = new System.Windows.Forms.ComboBox();
-            this.lblDroppedItemRealm = new System.Windows.Forms.Label();
-            this.pnlFilterDropped = new System.Windows.Forms.Panel();
-            this.btnFindDropped = new System.Windows.Forms.Button();
-            this.txtFilterDropped = new System.Windows.Forms.TextBox();
-            this.chkDroppedBlueprints = new System.Windows.Forms.CheckBox();
-            this.cboDroppedItem = new System.Windows.Forms.ComboBox();
-            this.lblDroppedPlayer = new System.Windows.Forms.Label();
-            this.cboDroppedPlayer = new System.Windows.Forms.ComboBox();
-            this.lblCopyCommandDropped = new System.Windows.Forms.Label();
-            this.cboCopyCommandDropped = new System.Windows.Forms.ComboBox();
-            this.lblCountDropped = new System.Windows.Forms.Label();
-            this.lblDroppedItem = new System.Windows.Forms.Label();
-            this.lvwDroppedItems = new System.Windows.Forms.ListView();
-            this.lvwDroppedItems_Item = new System.Windows.Forms.ColumnHeader();
-            this.lvwDroppedItems_Bp = new System.Windows.Forms.ColumnHeader();
-            this.lvwDroppedItems_DroppedBy = new System.Windows.Forms.ColumnHeader();
-            this.lvwDroppedItems_Lat = new System.Windows.Forms.ColumnHeader();
-            this.lvwDroppedItems_Lon = new System.Windows.Forms.ColumnHeader();
-            this.lvwDroppedItems_Tribe = new System.Windows.Forms.ColumnHeader();
-            this.lvwDroppedItems_Player = new System.Windows.Forms.ColumnHeader();
-            this.lvwDroppedItems_CCC = new System.Windows.Forms.ColumnHeader();
-            this.tpgItemList = new System.Windows.Forms.TabPage();
-            this.chkItemSearchUploads = new System.Windows.Forms.CheckBox();
-            this.pnlFilterSearch = new System.Windows.Forms.Panel();
-            this.btnFindSearched = new System.Windows.Forms.Button();
-            this.txtFilterSearch = new System.Windows.Forms.TextBox();
-            this.chkItemSearchBlueprints = new System.Windows.Forms.CheckBox();
-            this.cboItemListItem = new System.Windows.Forms.ComboBox();
-            this.lblItemListTribe = new System.Windows.Forms.Label();
-            this.cboItemListTribe = new System.Windows.Forms.ComboBox();
-            this.btnItemListCommand = new System.Windows.Forms.Button();
-            this.lblItemListCommand = new System.Windows.Forms.Label();
-            this.cboItemListCommand = new System.Windows.Forms.ComboBox();
-            this.lblItemListCount = new System.Windows.Forms.Label();
-            this.lblItemListItem = new System.Windows.Forms.Label();
-            this.lvwItemList = new System.Windows.Forms.ListView();
-            this.lvwItemList_Tribe = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_Container = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_Item = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_Quality = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_Rating = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_BP = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_Quantity = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_Lat = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_Lon = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_CCC = new System.Windows.Forms.ColumnHeader();
-            this.lvwItemList_UploadTime = new System.Windows.Forms.ColumnHeader();
-            this.tpgLocalProfile = new System.Windows.Forms.TabPage();
-            this.pnlUploadedStats = new System.Windows.Forms.Panel();
-            this.lblUploadedStats = new System.Windows.Forms.Label();
-            this.optUploadedStatsTamed = new System.Windows.Forms.RadioButton();
-            this.optUploadedStatsBase = new System.Windows.Forms.RadioButton();
-            this.lblUploadedCountItems = new System.Windows.Forms.Label();
-            this.lblUploadedCountTames = new System.Windows.Forms.Label();
-            this.lblUploadedCountCharacters = new System.Windows.Forms.Label();
-            this.lblUploadedItems = new System.Windows.Forms.Label();
-            this.lvwUploadedItems = new System.Windows.Forms.ListView();
-            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader9 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader18 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader19 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader22 = new System.Windows.Forms.ColumnHeader();
-            this.lblUploadedTames = new System.Windows.Forms.Label();
-            this.lblUploadedCharacters = new System.Windows.Forms.Label();
-            this.lvwUploadedCharacters = new System.Windows.Forms.ListView();
-            this.columnHeader37 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader39 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader40 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader43 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader44 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader45 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader46 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader47 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader48 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader49 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader50 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader51 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader52 = new System.Windows.Forms.ColumnHeader();
-            this.lvwUploadedTames = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader10 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader11 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader12 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader13 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader14 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader15 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader16 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader17 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader20 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader21 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader23 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader24 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader25 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader26 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader27 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader28 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader29 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader30 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader33 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader34 = new System.Windows.Forms.ColumnHeader();
-            this.tpgLeaderboard = new System.Windows.Forms.TabPage();
-            this.cboLeaderboardPlayer = new System.Windows.Forms.ComboBox();
-            this.lblMissionPlayer = new System.Windows.Forms.Label();
-            this.lvwLeaderboardSummary = new System.Windows.Forms.ListView();
-            this.columnHeader32 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader35 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader36 = new System.Windows.Forms.ColumnHeader();
-            this.lvwLeaderboard = new System.Windows.Forms.ListView();
-            this.lvwLeaderboard_Mission = new System.Windows.Forms.ColumnHeader();
-            this.lvwLeaderboard_Tribe = new System.Windows.Forms.ColumnHeader();
-            this.lvwLeaderboard_Player = new System.Windows.Forms.ColumnHeader();
-            this.lvwLeaderboard_Score = new System.Windows.Forms.ColumnHeader();
-            this.cboLeaderboardMission = new System.Windows.Forms.ComboBox();
-            this.lblLeaderboardMission = new System.Windows.Forms.Label();
-            this.cboLeaderboardTribe = new System.Windows.Forms.ComboBox();
-            this.lblLeaderboardTribe = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblSubTitle = new System.Windows.Forms.Label();
-            this.lblMapTypeName = new System.Windows.Forms.Label();
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblMap = new System.Windows.Forms.Label();
-            this.cboSelectedMap = new System.Windows.Forms.ComboBox();
-            this.mnuContext.SuspendLayout();
-            this.tabFeatures.SuspendLayout();
-            this.tpgWild.SuspendLayout();
-            this.pnlFilterWilds.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildRadius)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildLon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildLat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildMax)).BeginInit();
-            this.tpgTamed.SuspendLayout();
-            this.pnlFilterTamed.SuspendLayout();
-            this.pnlTameStatTypes.SuspendLayout();
-            this.tpgStructures.SuspendLayout();
-            this.pnlFilterStructures.SuspendLayout();
-            this.tpgTribes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.pnlFilterTribes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.udChartTop)).BeginInit();
-            this.tpgPlayers.SuspendLayout();
-            this.pnlFilterPlayers.SuspendLayout();
-            this.tpgDroppedItems.SuspendLayout();
-            this.pnlFilterDropped.SuspendLayout();
-            this.tpgItemList.SuspendLayout();
-            this.pnlFilterSearch.SuspendLayout();
-            this.tpgLocalProfile.SuspendLayout();
-            this.pnlUploadedStats.SuspendLayout();
-            this.tpgLeaderboard.SuspendLayout();
-            this.SuspendLayout();
+            lvwWildDetail = new System.Windows.Forms.ListView();
+            lvwWildDetail_Name = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Sex = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Base = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Level = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_HP = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Stam = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Melee = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Weight = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Speed = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Food = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Oxygen = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Craft = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Colour1 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Colour2 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Colour3 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Colour4 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Colour5 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Colour6 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Id = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Scale = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Rig1 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_Rig2 = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_DinoId = new System.Windows.Forms.ColumnHeader();
+            lvwWildDetail_CCC = new System.Windows.Forms.ColumnHeader();
+            mnuContext = new System.Windows.Forms.ContextMenuStrip(components);
+            mnuContext_PlayerId = new System.Windows.Forms.ToolStripMenuItem();
+            mnuContext_SteamId = new System.Windows.Forms.ToolStripMenuItem();
+            mnuContext_TribeId = new System.Windows.Forms.ToolStripMenuItem();
+            mnuContext_DinoId = new System.Windows.Forms.ToolStripMenuItem();
+            mnuContext_Export = new System.Windows.Forms.ToolStripMenuItem();
+            mnuContext_Structures = new System.Windows.Forms.ToolStripMenuItem();
+            mnuContext_Tames = new System.Windows.Forms.ToolStripMenuItem();
+            mnuContext_Players = new System.Windows.Forms.ToolStripMenuItem();
+            lblWildTotal = new System.Windows.Forms.Label();
+            lblMapDate = new System.Windows.Forms.Label();
+            cboWildClass = new System.Windows.Forms.ComboBox();
+            btnRefresh = new System.Windows.Forms.Button();
+            btnSettings = new System.Windows.Forms.Button();
+            btnPlayerInventory = new System.Windows.Forms.Button();
+            btnPlayerTribeLog = new System.Windows.Forms.Button();
+            btnStructureExclusionFilter = new System.Windows.Forms.Button();
+            btnCopyCommandPlayer = new System.Windows.Forms.Button();
+            btnCopyCommandStructure = new System.Windows.Forms.Button();
+            btnDinoAncestors = new System.Windows.Forms.Button();
+            btnDinoInventory = new System.Windows.Forms.Button();
+            btnCopyCommandWild = new System.Windows.Forms.Button();
+            btnCopyCommandTamed = new System.Windows.Forms.Button();
+            chkCryo = new System.Windows.Forms.CheckBox();
+            btnCopyCommandDropped = new System.Windows.Forms.Button();
+            btnTribeCopyCommand = new System.Windows.Forms.Button();
+            btnTribeLog = new System.Windows.Forms.Button();
+            btnStructureInventory = new System.Windows.Forms.Button();
+            btnDeletePlayer = new System.Windows.Forms.Button();
+            btnDropInventory = new System.Windows.Forms.Button();
+            btnViewMap = new System.Windows.Forms.Button();
+            tabFeatures = new System.Windows.Forms.TabControl();
+            tpgWild = new System.Windows.Forms.TabPage();
+            chkTameable = new System.Windows.Forms.CheckBox();
+            cboWildRealm = new System.Windows.Forms.ComboBox();
+            lblWildRealm = new System.Windows.Forms.Label();
+            pnlFilterWilds = new System.Windows.Forms.Panel();
+            btnFindWild = new System.Windows.Forms.Button();
+            txtFilterWild = new System.Windows.Forms.TextBox();
+            cboWildResource = new System.Windows.Forms.ComboBox();
+            lblResource = new System.Windows.Forms.Label();
+            lblWildRadius = new System.Windows.Forms.Label();
+            udWildRadius = new System.Windows.Forms.NumericUpDown();
+            lblWildLon = new System.Windows.Forms.Label();
+            udWildLon = new System.Windows.Forms.NumericUpDown();
+            lblWildLat = new System.Windows.Forms.Label();
+            udWildLat = new System.Windows.Forms.NumericUpDown();
+            lblWildMin = new System.Windows.Forms.Label();
+            lblWildMax = new System.Windows.Forms.Label();
+            udWildMin = new System.Windows.Forms.NumericUpDown();
+            udWildMax = new System.Windows.Forms.NumericUpDown();
+            lblWildCommand = new System.Windows.Forms.Label();
+            cboConsoleCommandsWild = new System.Windows.Forms.ComboBox();
+            lblSelectedWildTotal = new System.Windows.Forms.Label();
+            lblWildClass = new System.Windows.Forms.Label();
+            tpgTamed = new System.Windows.Forms.TabPage();
+            chkTameUploads = new System.Windows.Forms.CheckBox();
+            cboTameRealm = new System.Windows.Forms.ComboBox();
+            lblTameRealm = new System.Windows.Forms.Label();
+            pnlFilterTamed = new System.Windows.Forms.Panel();
+            btnFindTamed = new System.Windows.Forms.Button();
+            txtFilterTamed = new System.Windows.Forms.TextBox();
+            cboTamedResource = new System.Windows.Forms.ComboBox();
+            lblTameResource = new System.Windows.Forms.Label();
+            lblTamedCommand = new System.Windows.Forms.Label();
+            cboConsoleCommandsTamed = new System.Windows.Forms.ComboBox();
+            cboTameTribes = new System.Windows.Forms.ComboBox();
+            cboTamePlayers = new System.Windows.Forms.ComboBox();
+            lblTameCreature = new System.Windows.Forms.Label();
+            lblTamePlayer = new System.Windows.Forms.Label();
+            lblTameTribe = new System.Windows.Forms.Label();
+            lvwTameDetail = new System.Windows.Forms.ListView();
+            lvwTameDetail_Creature = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Name = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Wandering = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Mating = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Sex = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Base = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Level = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_HP = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Stam = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Melee = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Weight = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Speed = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Food = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Oxygen = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Craft = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Server = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Tamer = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Imprinter = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Imprint = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Cryo = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Colour1 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Colour2 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Colour3 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Colour4 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Colour5 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Colour6 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_MutationsFemale = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_MutationsMale = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Id = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Scale = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Rig1 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Rig2 = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_TribeInRange = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_UploadTime = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_DinoId = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_CCC = new System.Windows.Forms.ColumnHeader();
+            lblTameTotal = new System.Windows.Forms.Label();
+            pnlTameStatTypes = new System.Windows.Forms.Panel();
+            lblStats = new System.Windows.Forms.Label();
+            optStatsTamed = new System.Windows.Forms.RadioButton();
+            optStatsBase = new System.Windows.Forms.RadioButton();
+            cboTameClass = new System.Windows.Forms.ComboBox();
+            tpgStructures = new System.Windows.Forms.TabPage();
+            cboStructureRealm = new System.Windows.Forms.ComboBox();
+            lblStructureRealm = new System.Windows.Forms.Label();
+            pnlFilterStructures = new System.Windows.Forms.Panel();
+            btnFindStructures = new System.Windows.Forms.Button();
+            txtFilterStructures = new System.Windows.Forms.TextBox();
+            lblStructureTotal = new System.Windows.Forms.Label();
+            lblCommandStructure = new System.Windows.Forms.Label();
+            cboConsoleCommandsStructure = new System.Windows.Forms.ComboBox();
+            lblStructureStructure = new System.Windows.Forms.Label();
+            cboStructureStructure = new System.Windows.Forms.ComboBox();
+            lblStructurePlayer = new System.Windows.Forms.Label();
+            lblStructureTribe = new System.Windows.Forms.Label();
+            cboStructureTribe = new System.Windows.Forms.ComboBox();
+            cboStructurePlayer = new System.Windows.Forms.ComboBox();
+            lvwStructureLocations = new System.Windows.Forms.ListView();
+            lvwStructureLocations_Tribe = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_Structure = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_LastTime = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
+            tpgTribes = new System.Windows.Forms.TabPage();
+            splitContainer1 = new System.Windows.Forms.SplitContainer();
+            lvwTribes = new System.Windows.Forms.ListView();
+            lvwTribes_Id = new System.Windows.Forms.ColumnHeader();
+            lvwTribes_Name = new System.Windows.Forms.ColumnHeader();
+            lvwTribes_Players = new System.Windows.Forms.ColumnHeader();
+            lvwTribes_Tames = new System.Windows.Forms.ColumnHeader();
+            lvwTribes_Structures = new System.Windows.Forms.ColumnHeader();
+            lvwTribes_Active = new System.Windows.Forms.ColumnHeader();
+            pnlFilterTribes = new System.Windows.Forms.Panel();
+            btnFilterTribe = new System.Windows.Forms.Button();
+            txtFilterTribe = new System.Windows.Forms.TextBox();
+            btnSaveChartImage = new System.Windows.Forms.Button();
+            label2 = new System.Windows.Forms.Label();
+            udChartTop = new System.Windows.Forms.NumericUpDown();
+            label1 = new System.Windows.Forms.Label();
+            cboChartType = new System.Windows.Forms.ComboBox();
+            chartTribes = new ArkViewer.ChartControl();
+            chkTribeStructures = new System.Windows.Forms.CheckBox();
+            chkTribeTames = new System.Windows.Forms.CheckBox();
+            chkTribePlayers = new System.Windows.Forms.CheckBox();
+            lblTribeCopyCommand = new System.Windows.Forms.Label();
+            cboTribeCopyCommand = new System.Windows.Forms.ComboBox();
+            tpgPlayers = new System.Windows.Forms.TabPage();
+            cboPlayerRealm = new System.Windows.Forms.ComboBox();
+            lblPlayerRealm = new System.Windows.Forms.Label();
+            pnlFilterPlayers = new System.Windows.Forms.Panel();
+            btnFilterPlayer = new System.Windows.Forms.Button();
+            txtFilterPlayer = new System.Windows.Forms.TextBox();
+            lblPlayerTotal = new System.Windows.Forms.Label();
+            lblCommandPlayer = new System.Windows.Forms.Label();
+            cboConsoleCommandsPlayerTribe = new System.Windows.Forms.ComboBox();
+            lblPlayersPlayer = new System.Windows.Forms.Label();
+            lblPlayersTribe = new System.Windows.Forms.Label();
+            cboTribes = new System.Windows.Forms.ComboBox();
+            cboPlayers = new System.Windows.Forms.ComboBox();
+            lvwPlayers = new System.Windows.Forms.ListView();
+            lvwPlayers_PlayerId = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Name = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Tribe = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Sex = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Level = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Hp = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Stam = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Melee = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Weight = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Speed = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Food = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Water = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Oxygen = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Crafting = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_Fortitude = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_LastOnline = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_SteamName = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_SteamId = new System.Windows.Forms.ColumnHeader();
+            lvwPlayers_CCC = new System.Windows.Forms.ColumnHeader();
+            tpgDroppedItems = new System.Windows.Forms.TabPage();
+            cboDroppedItemRealm = new System.Windows.Forms.ComboBox();
+            lblDroppedItemRealm = new System.Windows.Forms.Label();
+            pnlFilterDropped = new System.Windows.Forms.Panel();
+            btnFindDropped = new System.Windows.Forms.Button();
+            txtFilterDropped = new System.Windows.Forms.TextBox();
+            chkDroppedBlueprints = new System.Windows.Forms.CheckBox();
+            cboDroppedItem = new System.Windows.Forms.ComboBox();
+            lblDroppedPlayer = new System.Windows.Forms.Label();
+            cboDroppedPlayer = new System.Windows.Forms.ComboBox();
+            lblCopyCommandDropped = new System.Windows.Forms.Label();
+            cboCopyCommandDropped = new System.Windows.Forms.ComboBox();
+            lblCountDropped = new System.Windows.Forms.Label();
+            lblDroppedItem = new System.Windows.Forms.Label();
+            lvwDroppedItems = new System.Windows.Forms.ListView();
+            lvwDroppedItems_Item = new System.Windows.Forms.ColumnHeader();
+            lvwDroppedItems_Bp = new System.Windows.Forms.ColumnHeader();
+            lvwDroppedItems_DroppedBy = new System.Windows.Forms.ColumnHeader();
+            lvwDroppedItems_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwDroppedItems_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwDroppedItems_Tribe = new System.Windows.Forms.ColumnHeader();
+            lvwDroppedItems_Player = new System.Windows.Forms.ColumnHeader();
+            lvwDroppedItems_CCC = new System.Windows.Forms.ColumnHeader();
+            tpgItemList = new System.Windows.Forms.TabPage();
+            chkItemSearchUploads = new System.Windows.Forms.CheckBox();
+            pnlFilterSearch = new System.Windows.Forms.Panel();
+            btnFindSearched = new System.Windows.Forms.Button();
+            txtFilterSearch = new System.Windows.Forms.TextBox();
+            chkItemSearchBlueprints = new System.Windows.Forms.CheckBox();
+            cboItemListItem = new System.Windows.Forms.ComboBox();
+            lblItemListTribe = new System.Windows.Forms.Label();
+            cboItemListTribe = new System.Windows.Forms.ComboBox();
+            btnItemListCommand = new System.Windows.Forms.Button();
+            lblItemListCommand = new System.Windows.Forms.Label();
+            cboItemListCommand = new System.Windows.Forms.ComboBox();
+            lblItemListCount = new System.Windows.Forms.Label();
+            lblItemListItem = new System.Windows.Forms.Label();
+            lvwItemList = new System.Windows.Forms.ListView();
+            lvwItemList_Tribe = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Container = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Item = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Quality = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Rating = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_BP = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Quantity = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_CCC = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_UploadTime = new System.Windows.Forms.ColumnHeader();
+            tpgLocalProfile = new System.Windows.Forms.TabPage();
+            pnlUploadedStats = new System.Windows.Forms.Panel();
+            lblUploadedStats = new System.Windows.Forms.Label();
+            optUploadedStatsTamed = new System.Windows.Forms.RadioButton();
+            optUploadedStatsBase = new System.Windows.Forms.RadioButton();
+            lblUploadedCountItems = new System.Windows.Forms.Label();
+            lblUploadedCountTames = new System.Windows.Forms.Label();
+            lblUploadedCountCharacters = new System.Windows.Forms.Label();
+            lblUploadedItems = new System.Windows.Forms.Label();
+            lvwUploadedItems = new System.Windows.Forms.ListView();
+            columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            columnHeader9 = new System.Windows.Forms.ColumnHeader();
+            columnHeader18 = new System.Windows.Forms.ColumnHeader();
+            columnHeader19 = new System.Windows.Forms.ColumnHeader();
+            columnHeader22 = new System.Windows.Forms.ColumnHeader();
+            lblUploadedTames = new System.Windows.Forms.Label();
+            lblUploadedCharacters = new System.Windows.Forms.Label();
+            lvwUploadedCharacters = new System.Windows.Forms.ListView();
+            columnHeader37 = new System.Windows.Forms.ColumnHeader();
+            columnHeader39 = new System.Windows.Forms.ColumnHeader();
+            columnHeader40 = new System.Windows.Forms.ColumnHeader();
+            columnHeader43 = new System.Windows.Forms.ColumnHeader();
+            columnHeader44 = new System.Windows.Forms.ColumnHeader();
+            columnHeader45 = new System.Windows.Forms.ColumnHeader();
+            columnHeader46 = new System.Windows.Forms.ColumnHeader();
+            columnHeader47 = new System.Windows.Forms.ColumnHeader();
+            columnHeader48 = new System.Windows.Forms.ColumnHeader();
+            columnHeader49 = new System.Windows.Forms.ColumnHeader();
+            columnHeader50 = new System.Windows.Forms.ColumnHeader();
+            columnHeader51 = new System.Windows.Forms.ColumnHeader();
+            columnHeader52 = new System.Windows.Forms.ColumnHeader();
+            lvwUploadedTames = new System.Windows.Forms.ListView();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            columnHeader10 = new System.Windows.Forms.ColumnHeader();
+            columnHeader11 = new System.Windows.Forms.ColumnHeader();
+            columnHeader12 = new System.Windows.Forms.ColumnHeader();
+            columnHeader13 = new System.Windows.Forms.ColumnHeader();
+            columnHeader14 = new System.Windows.Forms.ColumnHeader();
+            columnHeader15 = new System.Windows.Forms.ColumnHeader();
+            columnHeader16 = new System.Windows.Forms.ColumnHeader();
+            columnHeader17 = new System.Windows.Forms.ColumnHeader();
+            columnHeader20 = new System.Windows.Forms.ColumnHeader();
+            columnHeader21 = new System.Windows.Forms.ColumnHeader();
+            columnHeader23 = new System.Windows.Forms.ColumnHeader();
+            columnHeader24 = new System.Windows.Forms.ColumnHeader();
+            columnHeader25 = new System.Windows.Forms.ColumnHeader();
+            columnHeader26 = new System.Windows.Forms.ColumnHeader();
+            columnHeader27 = new System.Windows.Forms.ColumnHeader();
+            columnHeader28 = new System.Windows.Forms.ColumnHeader();
+            columnHeader29 = new System.Windows.Forms.ColumnHeader();
+            columnHeader30 = new System.Windows.Forms.ColumnHeader();
+            columnHeader33 = new System.Windows.Forms.ColumnHeader();
+            columnHeader34 = new System.Windows.Forms.ColumnHeader();
+            tpgLeaderboard = new System.Windows.Forms.TabPage();
+            cboLeaderboardPlayer = new System.Windows.Forms.ComboBox();
+            lblMissionPlayer = new System.Windows.Forms.Label();
+            lvwLeaderboardSummary = new System.Windows.Forms.ListView();
+            columnHeader32 = new System.Windows.Forms.ColumnHeader();
+            columnHeader35 = new System.Windows.Forms.ColumnHeader();
+            columnHeader36 = new System.Windows.Forms.ColumnHeader();
+            lvwLeaderboard = new System.Windows.Forms.ListView();
+            lvwLeaderboard_Mission = new System.Windows.Forms.ColumnHeader();
+            lvwLeaderboard_Tribe = new System.Windows.Forms.ColumnHeader();
+            lvwLeaderboard_Player = new System.Windows.Forms.ColumnHeader();
+            lvwLeaderboard_Score = new System.Windows.Forms.ColumnHeader();
+            cboLeaderboardMission = new System.Windows.Forms.ComboBox();
+            lblLeaderboardMission = new System.Windows.Forms.Label();
+            cboLeaderboardTribe = new System.Windows.Forms.ComboBox();
+            lblLeaderboardTribe = new System.Windows.Forms.Label();
+            lblStatus = new System.Windows.Forms.Label();
+            lblTitle = new System.Windows.Forms.Label();
+            lblSubTitle = new System.Windows.Forms.Label();
+            lblMapTypeName = new System.Windows.Forms.Label();
+            lblVersion = new System.Windows.Forms.Label();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            lblMap = new System.Windows.Forms.Label();
+            cboSelectedMap = new System.Windows.Forms.ComboBox();
+            mnuContext.SuspendLayout();
+            tabFeatures.SuspendLayout();
+            tpgWild.SuspendLayout();
+            pnlFilterWilds.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udWildRadius).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMax).BeginInit();
+            tpgTamed.SuspendLayout();
+            pnlFilterTamed.SuspendLayout();
+            pnlTameStatTypes.SuspendLayout();
+            tpgStructures.SuspendLayout();
+            pnlFilterStructures.SuspendLayout();
+            tpgTribes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            pnlFilterTribes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udChartTop).BeginInit();
+            tpgPlayers.SuspendLayout();
+            pnlFilterPlayers.SuspendLayout();
+            tpgDroppedItems.SuspendLayout();
+            pnlFilterDropped.SuspendLayout();
+            tpgItemList.SuspendLayout();
+            pnlFilterSearch.SuspendLayout();
+            tpgLocalProfile.SuspendLayout();
+            pnlUploadedStats.SuspendLayout();
+            tpgLeaderboard.SuspendLayout();
+            SuspendLayout();
             // 
             // lvwWildDetail
             // 
-            this.lvwWildDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwWildDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwWildDetail_Name,
-            this.lvwWildDetail_Sex,
-            this.lvwWildDetail_Base,
-            this.lvwWildDetail_Level,
-            this.lvwWildDetail_Lat,
-            this.lvwWildDetail_Lon,
-            this.lvwWildDetail_HP,
-            this.lvwWildDetail_Stam,
-            this.lvwWildDetail_Melee,
-            this.lvwWildDetail_Weight,
-            this.lvwWildDetail_Speed,
-            this.lvwWildDetail_Food,
-            this.lvwWildDetail_Oxygen,
-            this.lvwWildDetail_Craft,
-            this.lvwWildDetail_Colour1,
-            this.lvwWildDetail_Colour2,
-            this.lvwWildDetail_Colour3,
-            this.lvwWildDetail_Colour4,
-            this.lvwWildDetail_Colour5,
-            this.lvwWildDetail_Colour6,
-            this.lvwWildDetail_Id,
-            this.lvwWildDetail_Scale,
-            this.lvwWildDetail_Rig1,
-            this.lvwWildDetail_Rig2,
-            this.lvwWildDetail_DinoId,
-            this.lvwWildDetail_CCC});
-            this.lvwWildDetail.ContextMenuStrip = this.mnuContext;
-            this.lvwWildDetail.FullRowSelect = true;
-            this.lvwWildDetail.Location = new System.Drawing.Point(13, 89);
-            this.lvwWildDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwWildDetail.MultiSelect = false;
-            this.lvwWildDetail.Name = "lvwWildDetail";
-            this.lvwWildDetail.Size = new System.Drawing.Size(1073, 333);
-            this.lvwWildDetail.TabIndex = 14;
-            this.lvwWildDetail.UseCompatibleStateImageBehavior = false;
-            this.lvwWildDetail.View = System.Windows.Forms.View.Details;
-            this.lvwWildDetail.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwWildDetail_ColumnClick);
-            this.lvwWildDetail.SelectedIndexChanged += new System.EventHandler(this.LvwWildDetail_SelectedIndexChanged);
-            this.lvwWildDetail.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvwWildDetail_MouseClick);
+            lvwWildDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwWildDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwWildDetail_Name, lvwWildDetail_Sex, lvwWildDetail_Base, lvwWildDetail_Level, lvwWildDetail_Lat, lvwWildDetail_Lon, lvwWildDetail_HP, lvwWildDetail_Stam, lvwWildDetail_Melee, lvwWildDetail_Weight, lvwWildDetail_Speed, lvwWildDetail_Food, lvwWildDetail_Oxygen, lvwWildDetail_Craft, lvwWildDetail_Colour1, lvwWildDetail_Colour2, lvwWildDetail_Colour3, lvwWildDetail_Colour4, lvwWildDetail_Colour5, lvwWildDetail_Colour6, lvwWildDetail_Id, lvwWildDetail_Scale, lvwWildDetail_Rig1, lvwWildDetail_Rig2, lvwWildDetail_DinoId, lvwWildDetail_CCC });
+            lvwWildDetail.ContextMenuStrip = mnuContext;
+            lvwWildDetail.FullRowSelect = true;
+            lvwWildDetail.Location = new System.Drawing.Point(13, 89);
+            lvwWildDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwWildDetail.MultiSelect = false;
+            lvwWildDetail.Name = "lvwWildDetail";
+            lvwWildDetail.Size = new System.Drawing.Size(1073, 333);
+            lvwWildDetail.TabIndex = 14;
+            lvwWildDetail.UseCompatibleStateImageBehavior = false;
+            lvwWildDetail.View = System.Windows.Forms.View.Details;
+            lvwWildDetail.ColumnClick += lvwWildDetail_ColumnClick;
+            lvwWildDetail.SelectedIndexChanged += LvwWildDetail_SelectedIndexChanged;
+            lvwWildDetail.MouseClick += lvwWildDetail_MouseClick;
             // 
             // lvwWildDetail_Name
             // 
-            this.lvwWildDetail_Name.Text = "Creature";
-            this.lvwWildDetail_Name.Width = 142;
+            lvwWildDetail_Name.Text = "Creature";
+            lvwWildDetail_Name.Width = 142;
             // 
             // lvwWildDetail_Sex
             // 
-            this.lvwWildDetail_Sex.Text = "Sex";
-            this.lvwWildDetail_Sex.Width = 52;
+            lvwWildDetail_Sex.Text = "Sex";
+            lvwWildDetail_Sex.Width = 52;
             // 
             // lvwWildDetail_Base
             // 
-            this.lvwWildDetail_Base.Text = "Base";
-            this.lvwWildDetail_Base.Width = 0;
+            lvwWildDetail_Base.Text = "Base";
+            lvwWildDetail_Base.Width = 0;
             // 
             // lvwWildDetail_Level
             // 
-            this.lvwWildDetail_Level.Text = "Lvl";
-            this.lvwWildDetail_Level.Width = 40;
+            lvwWildDetail_Level.Text = "Lvl";
+            lvwWildDetail_Level.Width = 40;
             // 
             // lvwWildDetail_Lat
             // 
-            this.lvwWildDetail_Lat.Text = "Lat";
-            this.lvwWildDetail_Lat.Width = 51;
+            lvwWildDetail_Lat.Text = "Lat";
+            lvwWildDetail_Lat.Width = 51;
             // 
             // lvwWildDetail_Lon
             // 
-            this.lvwWildDetail_Lon.Text = "Lon";
-            this.lvwWildDetail_Lon.Width = 40;
+            lvwWildDetail_Lon.Text = "Lon";
+            lvwWildDetail_Lon.Width = 40;
             // 
             // lvwWildDetail_HP
             // 
-            this.lvwWildDetail_HP.Text = "HP";
-            this.lvwWildDetail_HP.Width = 45;
+            lvwWildDetail_HP.Text = "HP";
+            lvwWildDetail_HP.Width = 45;
             // 
             // lvwWildDetail_Stam
             // 
-            this.lvwWildDetail_Stam.Text = "Stam";
-            this.lvwWildDetail_Stam.Width = 45;
+            lvwWildDetail_Stam.Text = "Stam";
+            lvwWildDetail_Stam.Width = 45;
             // 
             // lvwWildDetail_Melee
             // 
-            this.lvwWildDetail_Melee.Text = "Melee";
-            this.lvwWildDetail_Melee.Width = 48;
+            lvwWildDetail_Melee.Text = "Melee";
+            lvwWildDetail_Melee.Width = 48;
             // 
             // lvwWildDetail_Weight
             // 
-            this.lvwWildDetail_Weight.Text = "Weight";
-            this.lvwWildDetail_Weight.Width = 55;
+            lvwWildDetail_Weight.Text = "Weight";
+            lvwWildDetail_Weight.Width = 55;
             // 
             // lvwWildDetail_Speed
             // 
-            this.lvwWildDetail_Speed.Text = "Speed";
-            this.lvwWildDetail_Speed.Width = 50;
+            lvwWildDetail_Speed.Text = "Speed";
+            lvwWildDetail_Speed.Width = 50;
             // 
             // lvwWildDetail_Food
             // 
-            this.lvwWildDetail_Food.Text = "Food";
-            this.lvwWildDetail_Food.Width = 47;
+            lvwWildDetail_Food.Text = "Food";
+            lvwWildDetail_Food.Width = 47;
             // 
             // lvwWildDetail_Oxygen
             // 
-            this.lvwWildDetail_Oxygen.Text = "Oxygen";
-            this.lvwWildDetail_Oxygen.Width = 53;
+            lvwWildDetail_Oxygen.Text = "Oxygen";
+            lvwWildDetail_Oxygen.Width = 53;
             // 
             // lvwWildDetail_Craft
             // 
-            this.lvwWildDetail_Craft.Text = "Craft";
-            this.lvwWildDetail_Craft.Width = 50;
+            lvwWildDetail_Craft.Text = "Craft";
+            lvwWildDetail_Craft.Width = 50;
             // 
             // lvwWildDetail_Colour1
             // 
-            this.lvwWildDetail_Colour1.Text = "C0";
-            this.lvwWildDetail_Colour1.Width = 35;
+            lvwWildDetail_Colour1.Text = "C0";
+            lvwWildDetail_Colour1.Width = 35;
             // 
             // lvwWildDetail_Colour2
             // 
-            this.lvwWildDetail_Colour2.Text = "C1";
-            this.lvwWildDetail_Colour2.Width = 35;
+            lvwWildDetail_Colour2.Text = "C1";
+            lvwWildDetail_Colour2.Width = 35;
             // 
             // lvwWildDetail_Colour3
             // 
-            this.lvwWildDetail_Colour3.Text = "C2";
-            this.lvwWildDetail_Colour3.Width = 35;
+            lvwWildDetail_Colour3.Text = "C2";
+            lvwWildDetail_Colour3.Width = 35;
             // 
             // lvwWildDetail_Colour4
             // 
-            this.lvwWildDetail_Colour4.Text = "C3";
-            this.lvwWildDetail_Colour4.Width = 35;
+            lvwWildDetail_Colour4.Text = "C3";
+            lvwWildDetail_Colour4.Width = 35;
             // 
             // lvwWildDetail_Colour5
             // 
-            this.lvwWildDetail_Colour5.Text = "C4";
-            this.lvwWildDetail_Colour5.Width = 35;
+            lvwWildDetail_Colour5.Text = "C4";
+            lvwWildDetail_Colour5.Width = 35;
             // 
             // lvwWildDetail_Colour6
             // 
-            this.lvwWildDetail_Colour6.Text = "C5";
-            this.lvwWildDetail_Colour6.Width = 35;
+            lvwWildDetail_Colour6.Text = "C5";
+            lvwWildDetail_Colour6.Width = 35;
             // 
             // lvwWildDetail_Id
             // 
-            this.lvwWildDetail_Id.Text = "Id";
-            this.lvwWildDetail_Id.Width = 0;
+            lvwWildDetail_Id.Text = "Id";
+            lvwWildDetail_Id.Width = 0;
             // 
             // lvwWildDetail_Scale
             // 
-            this.lvwWildDetail_Scale.Text = "Scale";
+            lvwWildDetail_Scale.Text = "Scale";
             // 
             // lvwWildDetail_Rig1
             // 
-            this.lvwWildDetail_Rig1.Text = "Rig 1";
-            this.lvwWildDetail_Rig1.Width = 100;
+            lvwWildDetail_Rig1.Text = "Rig 1";
+            lvwWildDetail_Rig1.Width = 100;
             // 
             // lvwWildDetail_Rig2
             // 
-            this.lvwWildDetail_Rig2.Text = "Rig 2";
-            this.lvwWildDetail_Rig2.Width = 100;
+            lvwWildDetail_Rig2.Text = "Rig 2";
+            lvwWildDetail_Rig2.Width = 100;
             // 
             // lvwWildDetail_DinoId
             // 
-            this.lvwWildDetail_DinoId.Text = "DinoId";
-            this.lvwWildDetail_DinoId.Width = 0;
+            lvwWildDetail_DinoId.Text = "DinoId";
+            lvwWildDetail_DinoId.Width = 0;
             // 
             // lvwWildDetail_CCC
             // 
-            this.lvwWildDetail_CCC.Text = "CCC";
-            this.lvwWildDetail_CCC.Width = 0;
+            lvwWildDetail_CCC.Text = "CCC";
+            lvwWildDetail_CCC.Width = 0;
             // 
             // mnuContext
             // 
-            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuContext_PlayerId,
-            this.mnuContext_SteamId,
-            this.mnuContext_TribeId,
-            this.mnuContext_DinoId,
-            this.mnuContext_Export,
-            this.mnuContext_Structures,
-            this.mnuContext_Tames,
-            this.mnuContext_Players});
-            this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(156, 180);
+            mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { mnuContext_PlayerId, mnuContext_SteamId, mnuContext_TribeId, mnuContext_DinoId, mnuContext_Export, mnuContext_Structures, mnuContext_Tames, mnuContext_Players });
+            mnuContext.Name = "mnuContext";
+            mnuContext.Size = new System.Drawing.Size(156, 180);
+            mnuContext.Opening += mnuContext_Opening;
             // 
             // mnuContext_PlayerId
             // 
-            this.mnuContext_PlayerId.Name = "mnuContext_PlayerId";
-            this.mnuContext_PlayerId.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_PlayerId.Text = "Copy Player ID";
-            this.mnuContext_PlayerId.Click += new System.EventHandler(this.mnuContext_PlayerId_Click);
+            mnuContext_PlayerId.Name = "mnuContext_PlayerId";
+            mnuContext_PlayerId.Size = new System.Drawing.Size(155, 22);
+            mnuContext_PlayerId.Text = "Copy Player ID";
+            mnuContext_PlayerId.Click += mnuContext_PlayerId_Click;
             // 
             // mnuContext_SteamId
             // 
-            this.mnuContext_SteamId.Name = "mnuContext_SteamId";
-            this.mnuContext_SteamId.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_SteamId.Text = "Copy Steam ID";
-            this.mnuContext_SteamId.Click += new System.EventHandler(this.mnuContext_SteamId_Click);
+            mnuContext_SteamId.Name = "mnuContext_SteamId";
+            mnuContext_SteamId.Size = new System.Drawing.Size(155, 22);
+            mnuContext_SteamId.Text = "Copy Steam ID";
+            mnuContext_SteamId.Click += mnuContext_SteamId_Click;
             // 
             // mnuContext_TribeId
             // 
-            this.mnuContext_TribeId.Name = "mnuContext_TribeId";
-            this.mnuContext_TribeId.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_TribeId.Text = "Copy Tribe ID";
-            this.mnuContext_TribeId.Click += new System.EventHandler(this.mnuContext_TribeId_Click);
+            mnuContext_TribeId.Name = "mnuContext_TribeId";
+            mnuContext_TribeId.Size = new System.Drawing.Size(155, 22);
+            mnuContext_TribeId.Text = "Copy Tribe ID";
+            mnuContext_TribeId.Click += mnuContext_TribeId_Click;
             // 
             // mnuContext_DinoId
             // 
-            this.mnuContext_DinoId.Name = "mnuContext_DinoId";
-            this.mnuContext_DinoId.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_DinoId.Text = "Copy DinoId";
-            this.mnuContext_DinoId.Click += new System.EventHandler(this.mnuContext_DinoId_Click);
+            mnuContext_DinoId.Name = "mnuContext_DinoId";
+            mnuContext_DinoId.Size = new System.Drawing.Size(155, 22);
+            mnuContext_DinoId.Text = "Copy DinoId";
+            mnuContext_DinoId.Click += mnuContext_DinoId_Click;
             // 
             // mnuContext_Export
             // 
-            this.mnuContext_Export.Name = "mnuContext_Export";
-            this.mnuContext_Export.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_Export.Text = "Export Data";
-            this.mnuContext_Export.Click += new System.EventHandler(this.mnuContext_ExportData_Click);
+            mnuContext_Export.Name = "mnuContext_Export";
+            mnuContext_Export.Size = new System.Drawing.Size(155, 22);
+            mnuContext_Export.Text = "Export Data";
+            mnuContext_Export.Click += mnuContext_ExportData_Click;
             // 
             // mnuContext_Structures
             // 
-            this.mnuContext_Structures.Name = "mnuContext_Structures";
-            this.mnuContext_Structures.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_Structures.Text = "View Structures";
-            this.mnuContext_Structures.Visible = false;
-            this.mnuContext_Structures.Click += new System.EventHandler(this.mnuContext_Structures_Click);
+            mnuContext_Structures.Name = "mnuContext_Structures";
+            mnuContext_Structures.Size = new System.Drawing.Size(155, 22);
+            mnuContext_Structures.Text = "View Structures";
+            mnuContext_Structures.Visible = false;
+            mnuContext_Structures.Click += mnuContext_Structures_Click;
             // 
             // mnuContext_Tames
             // 
-            this.mnuContext_Tames.Name = "mnuContext_Tames";
-            this.mnuContext_Tames.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_Tames.Text = "View Tames";
-            this.mnuContext_Tames.Visible = false;
-            this.mnuContext_Tames.Click += new System.EventHandler(this.mnuContext_Tames_Click);
+            mnuContext_Tames.Name = "mnuContext_Tames";
+            mnuContext_Tames.Size = new System.Drawing.Size(155, 22);
+            mnuContext_Tames.Text = "View Tames";
+            mnuContext_Tames.Visible = false;
+            mnuContext_Tames.Click += mnuContext_Tames_Click;
             // 
             // mnuContext_Players
             // 
-            this.mnuContext_Players.Name = "mnuContext_Players";
-            this.mnuContext_Players.Size = new System.Drawing.Size(155, 22);
-            this.mnuContext_Players.Text = "View Players";
-            this.mnuContext_Players.Visible = false;
-            this.mnuContext_Players.Click += new System.EventHandler(this.mnuContext_Players_Click);
+            mnuContext_Players.Name = "mnuContext_Players";
+            mnuContext_Players.Size = new System.Drawing.Size(155, 22);
+            mnuContext_Players.Text = "View Players";
+            mnuContext_Players.Visible = false;
+            mnuContext_Players.Click += mnuContext_Players_Click;
             // 
             // lblWildTotal
             // 
-            this.lblWildTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblWildTotal.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildTotal.Location = new System.Drawing.Point(936, 471);
-            this.lblWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildTotal.Name = "lblWildTotal";
-            this.lblWildTotal.Size = new System.Drawing.Size(152, 35);
-            this.lblWildTotal.TabIndex = 19;
-            this.lblWildTotal.Text = "Total: 0";
-            this.lblWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblWildTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildTotal.Location = new System.Drawing.Point(936, 471);
+            lblWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildTotal.Name = "lblWildTotal";
+            lblWildTotal.Size = new System.Drawing.Size(152, 35);
+            lblWildTotal.TabIndex = 19;
+            lblWildTotal.Text = "Total: 0";
+            lblWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMapDate
             // 
-            this.lblMapDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMapDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblMapDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMapDate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblMapDate.Location = new System.Drawing.Point(737, 6);
-            this.lblMapDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMapDate.Name = "lblMapDate";
-            this.lblMapDate.Size = new System.Drawing.Size(383, 21);
-            this.lblMapDate.TabIndex = 3;
-            this.lblMapDate.Text = "No Map Loaded";
-            this.lblMapDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            lblMapDate.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblMapDate.BackColor = System.Drawing.Color.Transparent;
+            lblMapDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMapDate.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblMapDate.Location = new System.Drawing.Point(737, 6);
+            lblMapDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMapDate.Name = "lblMapDate";
+            lblMapDate.Size = new System.Drawing.Size(383, 21);
+            lblMapDate.TabIndex = 3;
+            lblMapDate.Text = "No Map Loaded";
+            lblMapDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboWildClass
             // 
-            this.cboWildClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboWildClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboWildClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboWildClass.FormattingEnabled = true;
-            this.cboWildClass.Location = new System.Drawing.Point(88, 57);
-            this.cboWildClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboWildClass.Name = "cboWildClass";
-            this.cboWildClass.Size = new System.Drawing.Size(540, 24);
-            this.cboWildClass.TabIndex = 13;
-            this.cboWildClass.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cboSelected_DrawItem);
-            this.cboWildClass.SelectedIndexChanged += new System.EventHandler(this.CboWildClass_SelectedIndexChanged);
+            cboWildClass.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            cboWildClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboWildClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildClass.FormattingEnabled = true;
+            cboWildClass.Location = new System.Drawing.Point(88, 57);
+            cboWildClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWildClass.Name = "cboWildClass";
+            cboWildClass.Size = new System.Drawing.Size(540, 24);
+            cboWildClass.TabIndex = 13;
+            cboWildClass.DrawItem += cboSelected_DrawItem;
+            cboWildClass.SelectedIndexChanged += CboWildClass_SelectedIndexChanged;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(931, 635);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(58, 58);
-            this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnRefresh, "Refresh loaded map.");
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRefresh.Image = (System.Drawing.Image)resources.GetObject("btnRefresh.Image");
+            btnRefresh.Location = new System.Drawing.Point(931, 635);
+            btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new System.Drawing.Size(58, 58);
+            btnRefresh.TabIndex = 2;
+            btnRefresh.TabStop = false;
+            toolTip1.SetToolTip(btnRefresh, "Refresh loaded map.");
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // btnSettings
             // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(1062, 635);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(58, 58);
-            this.btnSettings.TabIndex = 4;
-            this.btnSettings.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnSettings, "Show available settings.");
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnSettings.Image = (System.Drawing.Image)resources.GetObject("btnSettings.Image");
+            btnSettings.Location = new System.Drawing.Point(1062, 635);
+            btnSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new System.Drawing.Size(58, 58);
+            btnSettings.TabIndex = 4;
+            btnSettings.TabStop = false;
+            toolTip1.SetToolTip(btnSettings, "Show available settings.");
+            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
             // 
             // btnPlayerInventory
             // 
-            this.btnPlayerInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPlayerInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPlayerInventory.Enabled = false;
-            this.btnPlayerInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnPlayerInventory.Image")));
-            this.btnPlayerInventory.Location = new System.Drawing.Point(509, 463);
-            this.btnPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnPlayerInventory.Name = "btnPlayerInventory";
-            this.btnPlayerInventory.Size = new System.Drawing.Size(47, 46);
-            this.btnPlayerInventory.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnPlayerInventory, "Show player explorer.");
-            this.btnPlayerInventory.UseVisualStyleBackColor = true;
-            this.btnPlayerInventory.Click += new System.EventHandler(this.btnPlayerInventory_Click);
+            btnPlayerInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnPlayerInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnPlayerInventory.Enabled = false;
+            btnPlayerInventory.Image = (System.Drawing.Image)resources.GetObject("btnPlayerInventory.Image");
+            btnPlayerInventory.Location = new System.Drawing.Point(509, 463);
+            btnPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnPlayerInventory.Name = "btnPlayerInventory";
+            btnPlayerInventory.Size = new System.Drawing.Size(47, 46);
+            btnPlayerInventory.TabIndex = 9;
+            toolTip1.SetToolTip(btnPlayerInventory, "Show player explorer.");
+            btnPlayerInventory.UseVisualStyleBackColor = true;
+            btnPlayerInventory.Click += btnPlayerInventory_Click;
             // 
             // btnPlayerTribeLog
             // 
-            this.btnPlayerTribeLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPlayerTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPlayerTribeLog.Enabled = false;
-            this.btnPlayerTribeLog.Image = ((System.Drawing.Image)(resources.GetObject("btnPlayerTribeLog.Image")));
-            this.btnPlayerTribeLog.Location = new System.Drawing.Point(458, 463);
-            this.btnPlayerTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnPlayerTribeLog.Name = "btnPlayerTribeLog";
-            this.btnPlayerTribeLog.Size = new System.Drawing.Size(47, 46);
-            this.btnPlayerTribeLog.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnPlayerTribeLog, "View tribe log.");
-            this.btnPlayerTribeLog.UseVisualStyleBackColor = true;
-            this.btnPlayerTribeLog.Click += new System.EventHandler(this.btnPlayerTribeLog_Click);
+            btnPlayerTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnPlayerTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnPlayerTribeLog.Enabled = false;
+            btnPlayerTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnPlayerTribeLog.Image");
+            btnPlayerTribeLog.Location = new System.Drawing.Point(458, 463);
+            btnPlayerTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnPlayerTribeLog.Name = "btnPlayerTribeLog";
+            btnPlayerTribeLog.Size = new System.Drawing.Size(47, 46);
+            btnPlayerTribeLog.TabIndex = 8;
+            toolTip1.SetToolTip(btnPlayerTribeLog, "View tribe log.");
+            btnPlayerTribeLog.UseVisualStyleBackColor = true;
+            btnPlayerTribeLog.Click += btnPlayerTribeLog_Click;
             // 
             // btnStructureExclusionFilter
             // 
-            this.btnStructureExclusionFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStructureExclusionFilter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStructureExclusionFilter.Image = ((System.Drawing.Image)(resources.GetObject("btnStructureExclusionFilter.Image")));
-            this.btnStructureExclusionFilter.Location = new System.Drawing.Point(1040, 8);
-            this.btnStructureExclusionFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnStructureExclusionFilter.Name = "btnStructureExclusionFilter";
-            this.btnStructureExclusionFilter.Size = new System.Drawing.Size(47, 46);
-            this.btnStructureExclusionFilter.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.btnStructureExclusionFilter, "Structure exclusion list");
-            this.btnStructureExclusionFilter.UseVisualStyleBackColor = true;
-            this.btnStructureExclusionFilter.Click += new System.EventHandler(this.btnStructureExclusionFilter_Click);
+            btnStructureExclusionFilter.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnStructureExclusionFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnStructureExclusionFilter.Image = (System.Drawing.Image)resources.GetObject("btnStructureExclusionFilter.Image");
+            btnStructureExclusionFilter.Location = new System.Drawing.Point(1040, 8);
+            btnStructureExclusionFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnStructureExclusionFilter.Name = "btnStructureExclusionFilter";
+            btnStructureExclusionFilter.Size = new System.Drawing.Size(47, 46);
+            btnStructureExclusionFilter.TabIndex = 6;
+            toolTip1.SetToolTip(btnStructureExclusionFilter, "Structure exclusion list");
+            btnStructureExclusionFilter.UseVisualStyleBackColor = true;
+            btnStructureExclusionFilter.Click += btnStructureExclusionFilter_Click;
             // 
             // btnCopyCommandPlayer
             // 
-            this.btnCopyCommandPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopyCommandPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCopyCommandPlayer.Enabled = false;
-            this.btnCopyCommandPlayer.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyCommandPlayer.Image")));
-            this.btnCopyCommandPlayer.Location = new System.Drawing.Point(408, 463);
-            this.btnCopyCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCopyCommandPlayer.Name = "btnCopyCommandPlayer";
-            this.btnCopyCommandPlayer.Size = new System.Drawing.Size(47, 46);
-            this.btnCopyCommandPlayer.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnCopyCommandPlayer, "Copy command to clipboard.");
-            this.btnCopyCommandPlayer.UseVisualStyleBackColor = true;
-            this.btnCopyCommandPlayer.Click += new System.EventHandler(this.btnCopyCommandPlayer_Click);
+            btnCopyCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandPlayer.Enabled = false;
+            btnCopyCommandPlayer.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandPlayer.Image");
+            btnCopyCommandPlayer.Location = new System.Drawing.Point(408, 463);
+            btnCopyCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandPlayer.Name = "btnCopyCommandPlayer";
+            btnCopyCommandPlayer.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandPlayer.TabIndex = 7;
+            toolTip1.SetToolTip(btnCopyCommandPlayer, "Copy command to clipboard.");
+            btnCopyCommandPlayer.UseVisualStyleBackColor = true;
+            btnCopyCommandPlayer.Click += btnCopyCommandPlayer_Click;
             // 
             // btnCopyCommandStructure
             // 
-            this.btnCopyCommandStructure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopyCommandStructure.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCopyCommandStructure.Enabled = false;
-            this.btnCopyCommandStructure.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyCommandStructure.Image")));
-            this.btnCopyCommandStructure.Location = new System.Drawing.Point(402, 466);
-            this.btnCopyCommandStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCopyCommandStructure.Name = "btnCopyCommandStructure";
-            this.btnCopyCommandStructure.Size = new System.Drawing.Size(47, 46);
-            this.btnCopyCommandStructure.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.btnCopyCommandStructure, "Copy command to clipboard.");
-            this.btnCopyCommandStructure.UseVisualStyleBackColor = true;
-            this.btnCopyCommandStructure.Click += new System.EventHandler(this.btnCopyCommandStructure_Click);
+            btnCopyCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandStructure.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandStructure.Enabled = false;
+            btnCopyCommandStructure.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandStructure.Image");
+            btnCopyCommandStructure.Location = new System.Drawing.Point(402, 466);
+            btnCopyCommandStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandStructure.Name = "btnCopyCommandStructure";
+            btnCopyCommandStructure.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandStructure.TabIndex = 10;
+            toolTip1.SetToolTip(btnCopyCommandStructure, "Copy command to clipboard.");
+            btnCopyCommandStructure.UseVisualStyleBackColor = true;
+            btnCopyCommandStructure.Click += btnCopyCommandStructure_Click;
             // 
             // btnDinoAncestors
             // 
-            this.btnDinoAncestors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDinoAncestors.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDinoAncestors.Enabled = false;
-            this.btnDinoAncestors.Image = ((System.Drawing.Image)(resources.GetObject("btnDinoAncestors.Image")));
-            this.btnDinoAncestors.Location = new System.Drawing.Point(656, 465);
-            this.btnDinoAncestors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnDinoAncestors.Name = "btnDinoAncestors";
-            this.btnDinoAncestors.Size = new System.Drawing.Size(47, 46);
-            this.btnDinoAncestors.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnDinoAncestors, "View breeding lines.");
-            this.btnDinoAncestors.UseVisualStyleBackColor = true;
-            this.btnDinoAncestors.Click += new System.EventHandler(this.btnDinoAncestors_Click);
+            btnDinoAncestors.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDinoAncestors.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDinoAncestors.Enabled = false;
+            btnDinoAncestors.Image = (System.Drawing.Image)resources.GetObject("btnDinoAncestors.Image");
+            btnDinoAncestors.Location = new System.Drawing.Point(656, 465);
+            btnDinoAncestors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDinoAncestors.Name = "btnDinoAncestors";
+            btnDinoAncestors.Size = new System.Drawing.Size(47, 46);
+            btnDinoAncestors.TabIndex = 12;
+            toolTip1.SetToolTip(btnDinoAncestors, "View breeding lines.");
+            btnDinoAncestors.UseVisualStyleBackColor = true;
+            btnDinoAncestors.Click += btnDinoAncestors_Click;
             // 
             // btnDinoInventory
             // 
-            this.btnDinoInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDinoInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDinoInventory.Enabled = false;
-            this.btnDinoInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnDinoInventory.Image")));
-            this.btnDinoInventory.Location = new System.Drawing.Point(707, 465);
-            this.btnDinoInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnDinoInventory.Name = "btnDinoInventory";
-            this.btnDinoInventory.Size = new System.Drawing.Size(47, 46);
-            this.btnDinoInventory.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnDinoInventory, "View inventory.");
-            this.btnDinoInventory.UseVisualStyleBackColor = true;
-            this.btnDinoInventory.Click += new System.EventHandler(this.btnDinoInventory_Click);
+            btnDinoInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDinoInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDinoInventory.Enabled = false;
+            btnDinoInventory.Image = (System.Drawing.Image)resources.GetObject("btnDinoInventory.Image");
+            btnDinoInventory.Location = new System.Drawing.Point(707, 465);
+            btnDinoInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDinoInventory.Name = "btnDinoInventory";
+            btnDinoInventory.Size = new System.Drawing.Size(47, 46);
+            btnDinoInventory.TabIndex = 13;
+            toolTip1.SetToolTip(btnDinoInventory, "View inventory.");
+            btnDinoInventory.UseVisualStyleBackColor = true;
+            btnDinoInventory.Click += btnDinoInventory_Click;
             // 
             // btnCopyCommandWild
             // 
-            this.btnCopyCommandWild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopyCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCopyCommandWild.Enabled = false;
-            this.btnCopyCommandWild.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyCommandWild.Image")));
-            this.btnCopyCommandWild.Location = new System.Drawing.Point(408, 465);
-            this.btnCopyCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCopyCommandWild.Name = "btnCopyCommandWild";
-            this.btnCopyCommandWild.Size = new System.Drawing.Size(47, 46);
-            this.btnCopyCommandWild.TabIndex = 17;
-            this.toolTip1.SetToolTip(this.btnCopyCommandWild, "Copy command to clipboard.");
-            this.btnCopyCommandWild.UseVisualStyleBackColor = true;
-            this.btnCopyCommandWild.Click += new System.EventHandler(this.btnCopyCommandWild_Click);
+            btnCopyCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandWild.Enabled = false;
+            btnCopyCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandWild.Image");
+            btnCopyCommandWild.Location = new System.Drawing.Point(408, 465);
+            btnCopyCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandWild.Name = "btnCopyCommandWild";
+            btnCopyCommandWild.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandWild.TabIndex = 17;
+            toolTip1.SetToolTip(btnCopyCommandWild, "Copy command to clipboard.");
+            btnCopyCommandWild.UseVisualStyleBackColor = true;
+            btnCopyCommandWild.Click += btnCopyCommandWild_Click;
             // 
             // btnCopyCommandTamed
             // 
-            this.btnCopyCommandTamed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopyCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCopyCommandTamed.Enabled = false;
-            this.btnCopyCommandTamed.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyCommandTamed.Image")));
-            this.btnCopyCommandTamed.Location = new System.Drawing.Point(604, 465);
-            this.btnCopyCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCopyCommandTamed.Name = "btnCopyCommandTamed";
-            this.btnCopyCommandTamed.Size = new System.Drawing.Size(47, 46);
-            this.btnCopyCommandTamed.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.btnCopyCommandTamed, "Copy command to clipboard.");
-            this.btnCopyCommandTamed.UseVisualStyleBackColor = true;
-            this.btnCopyCommandTamed.Click += new System.EventHandler(this.btnCopyCommandTamed_Click);
+            btnCopyCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandTamed.Enabled = false;
+            btnCopyCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandTamed.Image");
+            btnCopyCommandTamed.Location = new System.Drawing.Point(604, 465);
+            btnCopyCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandTamed.Name = "btnCopyCommandTamed";
+            btnCopyCommandTamed.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandTamed.TabIndex = 11;
+            toolTip1.SetToolTip(btnCopyCommandTamed, "Copy command to clipboard.");
+            btnCopyCommandTamed.UseVisualStyleBackColor = true;
+            btnCopyCommandTamed.Click += btnCopyCommandTamed_Click;
             // 
             // chkCryo
             // 
-            this.chkCryo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chkCryo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkCryo.Location = new System.Drawing.Point(89, 79);
-            this.chkCryo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkCryo.Name = "chkCryo";
-            this.chkCryo.Size = new System.Drawing.Size(105, 27);
-            this.chkCryo.TabIndex = 6;
-            this.chkCryo.Text = "Include Stored";
-            this.toolTip1.SetToolTip(this.chkCryo, "Show / hide stored tames.");
-            this.chkCryo.UseVisualStyleBackColor = true;
-            this.chkCryo.CheckedChanged += new System.EventHandler(this.chkCryo_CheckedChanged);
+            chkCryo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkCryo.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkCryo.Location = new System.Drawing.Point(89, 79);
+            chkCryo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkCryo.Name = "chkCryo";
+            chkCryo.Size = new System.Drawing.Size(105, 27);
+            chkCryo.TabIndex = 6;
+            chkCryo.Text = "Include Stored";
+            toolTip1.SetToolTip(chkCryo, "Show / hide stored tames.");
+            chkCryo.UseVisualStyleBackColor = true;
+            chkCryo.CheckedChanged += chkCryo_CheckedChanged;
             // 
             // btnCopyCommandDropped
             // 
-            this.btnCopyCommandDropped.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopyCommandDropped.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCopyCommandDropped.Enabled = false;
-            this.btnCopyCommandDropped.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyCommandDropped.Image")));
-            this.btnCopyCommandDropped.Location = new System.Drawing.Point(408, 466);
-            this.btnCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCopyCommandDropped.Name = "btnCopyCommandDropped";
-            this.btnCopyCommandDropped.Size = new System.Drawing.Size(47, 46);
-            this.btnCopyCommandDropped.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnCopyCommandDropped, "Copy command to clipboard.");
-            this.btnCopyCommandDropped.UseVisualStyleBackColor = true;
-            this.btnCopyCommandDropped.Click += new System.EventHandler(this.btnCopyCommandDropped_Click);
+            btnCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandDropped.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandDropped.Enabled = false;
+            btnCopyCommandDropped.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandDropped.Image");
+            btnCopyCommandDropped.Location = new System.Drawing.Point(408, 466);
+            btnCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandDropped.Name = "btnCopyCommandDropped";
+            btnCopyCommandDropped.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandDropped.TabIndex = 7;
+            toolTip1.SetToolTip(btnCopyCommandDropped, "Copy command to clipboard.");
+            btnCopyCommandDropped.UseVisualStyleBackColor = true;
+            btnCopyCommandDropped.Click += btnCopyCommandDropped_Click;
             // 
             // btnTribeCopyCommand
             // 
-            this.btnTribeCopyCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTribeCopyCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTribeCopyCommand.Enabled = false;
-            this.btnTribeCopyCommand.Image = ((System.Drawing.Image)(resources.GetObject("btnTribeCopyCommand.Image")));
-            this.btnTribeCopyCommand.Location = new System.Drawing.Point(408, 464);
-            this.btnTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnTribeCopyCommand.Name = "btnTribeCopyCommand";
-            this.btnTribeCopyCommand.Size = new System.Drawing.Size(47, 46);
-            this.btnTribeCopyCommand.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnTribeCopyCommand, "Copy command to clipboard.");
-            this.btnTribeCopyCommand.UseVisualStyleBackColor = true;
-            this.btnTribeCopyCommand.Click += new System.EventHandler(this.btnTribeCopyCommand_Click);
+            btnTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnTribeCopyCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnTribeCopyCommand.Enabled = false;
+            btnTribeCopyCommand.Image = (System.Drawing.Image)resources.GetObject("btnTribeCopyCommand.Image");
+            btnTribeCopyCommand.Location = new System.Drawing.Point(408, 464);
+            btnTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnTribeCopyCommand.Name = "btnTribeCopyCommand";
+            btnTribeCopyCommand.Size = new System.Drawing.Size(47, 46);
+            btnTribeCopyCommand.TabIndex = 3;
+            toolTip1.SetToolTip(btnTribeCopyCommand, "Copy command to clipboard.");
+            btnTribeCopyCommand.UseVisualStyleBackColor = true;
+            btnTribeCopyCommand.Click += btnTribeCopyCommand_Click;
             // 
             // btnTribeLog
             // 
-            this.btnTribeLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTribeLog.Enabled = false;
-            this.btnTribeLog.Image = ((System.Drawing.Image)(resources.GetObject("btnTribeLog.Image")));
-            this.btnTribeLog.Location = new System.Drawing.Point(460, 464);
-            this.btnTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnTribeLog.Name = "btnTribeLog";
-            this.btnTribeLog.Size = new System.Drawing.Size(47, 46);
-            this.btnTribeLog.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnTribeLog, "View tribe log.");
-            this.btnTribeLog.UseVisualStyleBackColor = true;
-            this.btnTribeLog.Click += new System.EventHandler(this.btnTribeLog_Click);
+            btnTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnTribeLog.Enabled = false;
+            btnTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnTribeLog.Image");
+            btnTribeLog.Location = new System.Drawing.Point(460, 464);
+            btnTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnTribeLog.Name = "btnTribeLog";
+            btnTribeLog.Size = new System.Drawing.Size(47, 46);
+            btnTribeLog.TabIndex = 4;
+            toolTip1.SetToolTip(btnTribeLog, "View tribe log.");
+            btnTribeLog.UseVisualStyleBackColor = true;
+            btnTribeLog.Click += btnTribeLog_Click;
             // 
             // btnStructureInventory
             // 
-            this.btnStructureInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnStructureInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStructureInventory.Enabled = false;
-            this.btnStructureInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnStructureInventory.Image")));
-            this.btnStructureInventory.Location = new System.Drawing.Point(453, 466);
-            this.btnStructureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnStructureInventory.Name = "btnStructureInventory";
-            this.btnStructureInventory.Size = new System.Drawing.Size(47, 46);
-            this.btnStructureInventory.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.btnStructureInventory, "View inventory.");
-            this.btnStructureInventory.UseVisualStyleBackColor = true;
-            this.btnStructureInventory.Click += new System.EventHandler(this.btnStructureInventory_Click);
+            btnStructureInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnStructureInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnStructureInventory.Enabled = false;
+            btnStructureInventory.Image = (System.Drawing.Image)resources.GetObject("btnStructureInventory.Image");
+            btnStructureInventory.Location = new System.Drawing.Point(453, 466);
+            btnStructureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnStructureInventory.Name = "btnStructureInventory";
+            btnStructureInventory.Size = new System.Drawing.Size(47, 46);
+            btnStructureInventory.TabIndex = 11;
+            toolTip1.SetToolTip(btnStructureInventory, "View inventory.");
+            btnStructureInventory.UseVisualStyleBackColor = true;
+            btnStructureInventory.Click += btnStructureInventory_Click;
             // 
             // btnDeletePlayer
             // 
-            this.btnDeletePlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeletePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeletePlayer.Enabled = false;
-            this.btnDeletePlayer.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletePlayer.Image")));
-            this.btnDeletePlayer.Location = new System.Drawing.Point(559, 463);
-            this.btnDeletePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnDeletePlayer.Name = "btnDeletePlayer";
-            this.btnDeletePlayer.Size = new System.Drawing.Size(47, 46);
-            this.btnDeletePlayer.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.btnDeletePlayer, "Remove player.");
-            this.btnDeletePlayer.UseVisualStyleBackColor = true;
-            this.btnDeletePlayer.Click += new System.EventHandler(this.btnDeletePlayer_Click);
+            btnDeletePlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDeletePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDeletePlayer.Enabled = false;
+            btnDeletePlayer.Image = (System.Drawing.Image)resources.GetObject("btnDeletePlayer.Image");
+            btnDeletePlayer.Location = new System.Drawing.Point(559, 463);
+            btnDeletePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDeletePlayer.Name = "btnDeletePlayer";
+            btnDeletePlayer.Size = new System.Drawing.Size(47, 46);
+            btnDeletePlayer.TabIndex = 10;
+            toolTip1.SetToolTip(btnDeletePlayer, "Remove player.");
+            btnDeletePlayer.UseVisualStyleBackColor = true;
+            btnDeletePlayer.Click += btnDeletePlayer_Click;
             // 
             // btnDropInventory
             // 
-            this.btnDropInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDropInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDropInventory.Enabled = false;
-            this.btnDropInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnDropInventory.Image")));
-            this.btnDropInventory.Location = new System.Drawing.Point(460, 466);
-            this.btnDropInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnDropInventory.Name = "btnDropInventory";
-            this.btnDropInventory.Size = new System.Drawing.Size(47, 46);
-            this.btnDropInventory.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnDropInventory, "View inventory.");
-            this.btnDropInventory.UseVisualStyleBackColor = true;
-            this.btnDropInventory.Click += new System.EventHandler(this.btnDropInventory_Click);
+            btnDropInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDropInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDropInventory.Enabled = false;
+            btnDropInventory.Image = (System.Drawing.Image)resources.GetObject("btnDropInventory.Image");
+            btnDropInventory.Location = new System.Drawing.Point(460, 466);
+            btnDropInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDropInventory.Name = "btnDropInventory";
+            btnDropInventory.Size = new System.Drawing.Size(47, 46);
+            btnDropInventory.TabIndex = 8;
+            toolTip1.SetToolTip(btnDropInventory, "View inventory.");
+            btnDropInventory.UseVisualStyleBackColor = true;
+            btnDropInventory.Click += btnDropInventory_Click;
             // 
             // btnViewMap
             // 
-            this.btnViewMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnViewMap.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewMap.Image = ((System.Drawing.Image)(resources.GetObject("btnViewMap.Image")));
-            this.btnViewMap.Location = new System.Drawing.Point(996, 635);
-            this.btnViewMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnViewMap.Name = "btnViewMap";
-            this.btnViewMap.Size = new System.Drawing.Size(58, 58);
-            this.btnViewMap.TabIndex = 3;
-            this.btnViewMap.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnViewMap, "Show map image view.");
-            this.btnViewMap.UseVisualStyleBackColor = true;
-            this.btnViewMap.Click += new System.EventHandler(this.btnViewMap_Click);
+            btnViewMap.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnViewMap.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnViewMap.Image = (System.Drawing.Image)resources.GetObject("btnViewMap.Image");
+            btnViewMap.Location = new System.Drawing.Point(996, 635);
+            btnViewMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnViewMap.Name = "btnViewMap";
+            btnViewMap.Size = new System.Drawing.Size(58, 58);
+            btnViewMap.TabIndex = 3;
+            btnViewMap.TabStop = false;
+            toolTip1.SetToolTip(btnViewMap, "Show map image view.");
+            btnViewMap.UseVisualStyleBackColor = true;
+            btnViewMap.Click += btnViewMap_Click;
             // 
             // tabFeatures
             // 
-            this.tabFeatures.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabFeatures.Controls.Add(this.tpgWild);
-            this.tabFeatures.Controls.Add(this.tpgTamed);
-            this.tabFeatures.Controls.Add(this.tpgStructures);
-            this.tabFeatures.Controls.Add(this.tpgTribes);
-            this.tabFeatures.Controls.Add(this.tpgPlayers);
-            this.tabFeatures.Controls.Add(this.tpgDroppedItems);
-            this.tabFeatures.Controls.Add(this.tpgItemList);
-            this.tabFeatures.Controls.Add(this.tpgLocalProfile);
-            this.tabFeatures.Controls.Add(this.tpgLeaderboard);
-            this.tabFeatures.HotTrack = true;
-            this.tabFeatures.Location = new System.Drawing.Point(10, 80);
-            this.tabFeatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabFeatures.Name = "tabFeatures";
-            this.tabFeatures.SelectedIndex = 0;
-            this.tabFeatures.Size = new System.Drawing.Size(1112, 548);
-            this.tabFeatures.TabIndex = 0;
-            this.tabFeatures.SelectedIndexChanged += new System.EventHandler(this.tabFeatures_SelectedIndexChanged);
+            tabFeatures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            tabFeatures.Controls.Add(tpgWild);
+            tabFeatures.Controls.Add(tpgTamed);
+            tabFeatures.Controls.Add(tpgStructures);
+            tabFeatures.Controls.Add(tpgTribes);
+            tabFeatures.Controls.Add(tpgPlayers);
+            tabFeatures.Controls.Add(tpgDroppedItems);
+            tabFeatures.Controls.Add(tpgItemList);
+            tabFeatures.Controls.Add(tpgLocalProfile);
+            tabFeatures.Controls.Add(tpgLeaderboard);
+            tabFeatures.HotTrack = true;
+            tabFeatures.Location = new System.Drawing.Point(10, 80);
+            tabFeatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabFeatures.Name = "tabFeatures";
+            tabFeatures.SelectedIndex = 0;
+            tabFeatures.Size = new System.Drawing.Size(1112, 548);
+            tabFeatures.TabIndex = 0;
+            tabFeatures.SelectedIndexChanged += tabFeatures_SelectedIndexChanged;
             // 
             // tpgWild
             // 
-            this.tpgWild.Controls.Add(this.chkTameable);
-            this.tpgWild.Controls.Add(this.cboWildRealm);
-            this.tpgWild.Controls.Add(this.lblWildRealm);
-            this.tpgWild.Controls.Add(this.pnlFilterWilds);
-            this.tpgWild.Controls.Add(this.cboWildResource);
-            this.tpgWild.Controls.Add(this.lblResource);
-            this.tpgWild.Controls.Add(this.lblWildRadius);
-            this.tpgWild.Controls.Add(this.udWildRadius);
-            this.tpgWild.Controls.Add(this.lblWildLon);
-            this.tpgWild.Controls.Add(this.udWildLon);
-            this.tpgWild.Controls.Add(this.lblWildLat);
-            this.tpgWild.Controls.Add(this.udWildLat);
-            this.tpgWild.Controls.Add(this.lblWildMin);
-            this.tpgWild.Controls.Add(this.lblWildMax);
-            this.tpgWild.Controls.Add(this.udWildMin);
-            this.tpgWild.Controls.Add(this.udWildMax);
-            this.tpgWild.Controls.Add(this.btnCopyCommandWild);
-            this.tpgWild.Controls.Add(this.lblWildCommand);
-            this.tpgWild.Controls.Add(this.cboConsoleCommandsWild);
-            this.tpgWild.Controls.Add(this.lblSelectedWildTotal);
-            this.tpgWild.Controls.Add(this.lblWildClass);
-            this.tpgWild.Controls.Add(this.lvwWildDetail);
-            this.tpgWild.Controls.Add(this.lblWildTotal);
-            this.tpgWild.Controls.Add(this.cboWildClass);
-            this.tpgWild.Location = new System.Drawing.Point(4, 24);
-            this.tpgWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgWild.Name = "tpgWild";
-            this.tpgWild.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgWild.Size = new System.Drawing.Size(1104, 520);
-            this.tpgWild.TabIndex = 0;
-            this.tpgWild.Text = "Wild Creatures";
-            this.tpgWild.UseVisualStyleBackColor = true;
+            tpgWild.Controls.Add(chkTameable);
+            tpgWild.Controls.Add(cboWildRealm);
+            tpgWild.Controls.Add(lblWildRealm);
+            tpgWild.Controls.Add(pnlFilterWilds);
+            tpgWild.Controls.Add(cboWildResource);
+            tpgWild.Controls.Add(lblResource);
+            tpgWild.Controls.Add(lblWildRadius);
+            tpgWild.Controls.Add(udWildRadius);
+            tpgWild.Controls.Add(lblWildLon);
+            tpgWild.Controls.Add(udWildLon);
+            tpgWild.Controls.Add(lblWildLat);
+            tpgWild.Controls.Add(udWildLat);
+            tpgWild.Controls.Add(lblWildMin);
+            tpgWild.Controls.Add(lblWildMax);
+            tpgWild.Controls.Add(udWildMin);
+            tpgWild.Controls.Add(udWildMax);
+            tpgWild.Controls.Add(btnCopyCommandWild);
+            tpgWild.Controls.Add(lblWildCommand);
+            tpgWild.Controls.Add(cboConsoleCommandsWild);
+            tpgWild.Controls.Add(lblSelectedWildTotal);
+            tpgWild.Controls.Add(lblWildClass);
+            tpgWild.Controls.Add(lvwWildDetail);
+            tpgWild.Controls.Add(lblWildTotal);
+            tpgWild.Controls.Add(cboWildClass);
+            tpgWild.Location = new System.Drawing.Point(4, 24);
+            tpgWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgWild.Name = "tpgWild";
+            tpgWild.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgWild.Size = new System.Drawing.Size(1104, 520);
+            tpgWild.TabIndex = 0;
+            tpgWild.Text = "Wild Creatures";
+            tpgWild.UseVisualStyleBackColor = true;
             // 
             // chkTameable
             // 
-            this.chkTameable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkTameable.AutoSize = true;
-            this.chkTameable.Checked = true;
-            this.chkTameable.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTameable.Location = new System.Drawing.Point(648, 59);
-            this.chkTameable.Name = "chkTameable";
-            this.chkTameable.Size = new System.Drawing.Size(76, 19);
-            this.chkTameable.TabIndex = 23;
-            this.chkTameable.Text = "Tameable";
-            this.chkTameable.UseVisualStyleBackColor = true;
-            this.chkTameable.CheckedChanged += new System.EventHandler(this.chkTameable_CheckedChanged);
+            chkTameable.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            chkTameable.AutoSize = true;
+            chkTameable.Checked = true;
+            chkTameable.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkTameable.Location = new System.Drawing.Point(648, 59);
+            chkTameable.Name = "chkTameable";
+            chkTameable.Size = new System.Drawing.Size(76, 19);
+            chkTameable.TabIndex = 23;
+            chkTameable.Text = "Tameable";
+            chkTameable.UseVisualStyleBackColor = true;
+            chkTameable.CheckedChanged += chkTameable_CheckedChanged;
             // 
             // cboWildRealm
             // 
-            this.cboWildRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboWildRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboWildRealm.FormattingEnabled = true;
-            this.cboWildRealm.Location = new System.Drawing.Point(862, 15);
-            this.cboWildRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboWildRealm.Name = "cboWildRealm";
-            this.cboWildRealm.Size = new System.Drawing.Size(222, 23);
-            this.cboWildRealm.TabIndex = 22;
-            this.cboWildRealm.SelectedIndexChanged += new System.EventHandler(this.cboWildRealm_SelectedIndexChanged);
+            cboWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboWildRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildRealm.FormattingEnabled = true;
+            cboWildRealm.Location = new System.Drawing.Point(862, 15);
+            cboWildRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWildRealm.Name = "cboWildRealm";
+            cboWildRealm.Size = new System.Drawing.Size(222, 23);
+            cboWildRealm.TabIndex = 22;
+            cboWildRealm.SelectedIndexChanged += cboWildRealm_SelectedIndexChanged;
             // 
             // lblWildRealm
             // 
-            this.lblWildRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblWildRealm.AutoSize = true;
-            this.lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildRealm.Location = new System.Drawing.Point(788, 20);
-            this.lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildRealm.Name = "lblWildRealm";
-            this.lblWildRealm.Size = new System.Drawing.Size(46, 13);
-            this.lblWildRealm.TabIndex = 21;
-            this.lblWildRealm.Text = "Realm:";
+            lblWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblWildRealm.AutoSize = true;
+            lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildRealm.Location = new System.Drawing.Point(788, 20);
+            lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildRealm.Name = "lblWildRealm";
+            lblWildRealm.Size = new System.Drawing.Size(46, 13);
+            lblWildRealm.TabIndex = 21;
+            lblWildRealm.Text = "Realm:";
             // 
             // pnlFilterWilds
             // 
-            this.pnlFilterWilds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilterWilds.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlFilterWilds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFilterWilds.Controls.Add(this.btnFindWild);
-            this.pnlFilterWilds.Controls.Add(this.txtFilterWild);
-            this.pnlFilterWilds.Location = new System.Drawing.Point(13, 421);
-            this.pnlFilterWilds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlFilterWilds.Name = "pnlFilterWilds";
-            this.pnlFilterWilds.Size = new System.Drawing.Size(1073, 33);
-            this.pnlFilterWilds.TabIndex = 20;
+            pnlFilterWilds.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterWilds.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterWilds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterWilds.Controls.Add(btnFindWild);
+            pnlFilterWilds.Controls.Add(txtFilterWild);
+            pnlFilterWilds.Location = new System.Drawing.Point(13, 421);
+            pnlFilterWilds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterWilds.Name = "pnlFilterWilds";
+            pnlFilterWilds.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterWilds.TabIndex = 20;
             // 
             // btnFindWild
             // 
-            this.btnFindWild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindWild.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFindWild.Image = ((System.Drawing.Image)(resources.GetObject("btnFindWild.Image")));
-            this.btnFindWild.Location = new System.Drawing.Point(1037, -1);
-            this.btnFindWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFindWild.Name = "btnFindWild";
-            this.btnFindWild.Size = new System.Drawing.Size(35, 33);
-            this.btnFindWild.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnFindWild, "Find next");
-            this.btnFindWild.UseVisualStyleBackColor = true;
-            this.btnFindWild.Click += new System.EventHandler(this.btnFindWild_Click);
+            btnFindWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindWild.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindWild.Image = (System.Drawing.Image)resources.GetObject("btnFindWild.Image");
+            btnFindWild.Location = new System.Drawing.Point(1037, -1);
+            btnFindWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindWild.Name = "btnFindWild";
+            btnFindWild.Size = new System.Drawing.Size(35, 33);
+            btnFindWild.TabIndex = 8;
+            toolTip1.SetToolTip(btnFindWild, "Find next");
+            btnFindWild.UseVisualStyleBackColor = true;
+            btnFindWild.Click += btnFindWild_Click;
             // 
             // txtFilterWild
             // 
-            this.txtFilterWild.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilterWild.Location = new System.Drawing.Point(12, 3);
-            this.txtFilterWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFilterWild.Name = "txtFilterWild";
-            this.txtFilterWild.Size = new System.Drawing.Size(1013, 23);
-            this.txtFilterWild.TabIndex = 6;
-            this.txtFilterWild.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterWild_KeyDown);
+            txtFilterWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterWild.Location = new System.Drawing.Point(12, 3);
+            txtFilterWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterWild.Name = "txtFilterWild";
+            txtFilterWild.Size = new System.Drawing.Size(1013, 23);
+            txtFilterWild.TabIndex = 6;
+            txtFilterWild.KeyDown += txtFilterWild_KeyDown;
             // 
             // cboWildResource
             // 
-            this.cboWildResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboWildResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboWildResource.FormattingEnabled = true;
-            this.cboWildResource.Location = new System.Drawing.Point(863, 55);
-            this.cboWildResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboWildResource.Name = "cboWildResource";
-            this.cboWildResource.Size = new System.Drawing.Size(222, 23);
-            this.cboWildResource.TabIndex = 11;
-            this.cboWildResource.SelectedIndexChanged += new System.EventHandler(this.cboWildResource_SelectedIndexChanged);
+            cboWildResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboWildResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildResource.FormattingEnabled = true;
+            cboWildResource.Location = new System.Drawing.Point(863, 55);
+            cboWildResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWildResource.Name = "cboWildResource";
+            cboWildResource.Size = new System.Drawing.Size(222, 23);
+            cboWildResource.TabIndex = 11;
+            cboWildResource.SelectedIndexChanged += cboWildResource_SelectedIndexChanged;
             // 
             // lblResource
             // 
-            this.lblResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblResource.AutoSize = true;
-            this.lblResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblResource.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblResource.Location = new System.Drawing.Point(786, 60);
-            this.lblResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblResource.Name = "lblResource";
-            this.lblResource.Size = new System.Drawing.Size(65, 13);
-            this.lblResource.TabIndex = 10;
-            this.lblResource.Text = "Resource:";
+            lblResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblResource.AutoSize = true;
+            lblResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblResource.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblResource.Location = new System.Drawing.Point(786, 60);
+            lblResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblResource.Name = "lblResource";
+            lblResource.Size = new System.Drawing.Size(65, 13);
+            lblResource.TabIndex = 10;
+            lblResource.Text = "Resource:";
             // 
             // lblWildRadius
             // 
-            this.lblWildRadius.AutoSize = true;
-            this.lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildRadius.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildRadius.Location = new System.Drawing.Point(490, 20);
-            this.lblWildRadius.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildRadius.Name = "lblWildRadius";
-            this.lblWildRadius.Size = new System.Drawing.Size(50, 13);
-            this.lblWildRadius.TabIndex = 8;
-            this.lblWildRadius.Text = "Radius:";
+            lblWildRadius.AutoSize = true;
+            lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildRadius.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildRadius.Location = new System.Drawing.Point(490, 20);
+            lblWildRadius.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildRadius.Name = "lblWildRadius";
+            lblWildRadius.Size = new System.Drawing.Size(50, 13);
+            lblWildRadius.TabIndex = 8;
+            lblWildRadius.Text = "Radius:";
             // 
             // udWildRadius
             // 
-            this.udWildRadius.DecimalPlaces = 2;
-            this.udWildRadius.Location = new System.Drawing.Point(553, 16);
-            this.udWildRadius.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.udWildRadius.Name = "udWildRadius";
-            this.udWildRadius.Size = new System.Drawing.Size(75, 23);
-            this.udWildRadius.TabIndex = 9;
-            this.udWildRadius.Value = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            131072});
-            this.udWildRadius.ValueChanged += new System.EventHandler(this.udWildRadius_ValueChanged);
-            this.udWildRadius.Enter += new System.EventHandler(this.udWildRadius_Enter);
-            this.udWildRadius.MouseClick += new System.Windows.Forms.MouseEventHandler(this.udWildRadius_MouseClick);
+            udWildRadius.DecimalPlaces = 2;
+            udWildRadius.Location = new System.Drawing.Point(553, 16);
+            udWildRadius.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildRadius.Name = "udWildRadius";
+            udWildRadius.Size = new System.Drawing.Size(75, 23);
+            udWildRadius.TabIndex = 9;
+            udWildRadius.Value = new decimal(new int[] { 10000, 0, 0, 131072 });
+            udWildRadius.ValueChanged += udWildRadius_ValueChanged;
+            udWildRadius.Enter += udWildRadius_Enter;
+            udWildRadius.MouseClick += udWildRadius_MouseClick;
             // 
             // lblWildLon
             // 
-            this.lblWildLon.AutoSize = true;
-            this.lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildLon.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildLon.Location = new System.Drawing.Point(371, 20);
-            this.lblWildLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildLon.Name = "lblWildLon";
-            this.lblWildLon.Size = new System.Drawing.Size(32, 13);
-            this.lblWildLon.TabIndex = 6;
-            this.lblWildLon.Text = "Lon:";
+            lblWildLon.AutoSize = true;
+            lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildLon.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildLon.Location = new System.Drawing.Point(371, 20);
+            lblWildLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildLon.Name = "lblWildLon";
+            lblWildLon.Size = new System.Drawing.Size(32, 13);
+            lblWildLon.TabIndex = 6;
+            lblWildLon.Text = "Lon:";
             // 
             // udWildLon
             // 
-            this.udWildLon.DecimalPlaces = 2;
-            this.udWildLon.Location = new System.Drawing.Point(413, 16);
-            this.udWildLon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.udWildLon.Name = "udWildLon";
-            this.udWildLon.Size = new System.Drawing.Size(75, 23);
-            this.udWildLon.TabIndex = 7;
-            this.udWildLon.Value = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            131072});
-            this.udWildLon.ValueChanged += new System.EventHandler(this.udWildLon_ValueChanged);
-            this.udWildLon.Enter += new System.EventHandler(this.udWildLon_Enter);
-            this.udWildLon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.udWildLon_MouseClick);
+            udWildLon.DecimalPlaces = 2;
+            udWildLon.Location = new System.Drawing.Point(413, 16);
+            udWildLon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildLon.Name = "udWildLon";
+            udWildLon.Size = new System.Drawing.Size(75, 23);
+            udWildLon.TabIndex = 7;
+            udWildLon.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
+            udWildLon.ValueChanged += udWildLon_ValueChanged;
+            udWildLon.Enter += udWildLon_Enter;
+            udWildLon.MouseClick += udWildLon_MouseClick;
             // 
             // lblWildLat
             // 
-            this.lblWildLat.AutoSize = true;
-            this.lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildLat.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildLat.Location = new System.Drawing.Point(251, 20);
-            this.lblWildLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildLat.Name = "lblWildLat";
-            this.lblWildLat.Size = new System.Drawing.Size(29, 13);
-            this.lblWildLat.TabIndex = 4;
-            this.lblWildLat.Text = "Lat:";
+            lblWildLat.AutoSize = true;
+            lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildLat.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildLat.Location = new System.Drawing.Point(251, 20);
+            lblWildLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildLat.Name = "lblWildLat";
+            lblWildLat.Size = new System.Drawing.Size(29, 13);
+            lblWildLat.TabIndex = 4;
+            lblWildLat.Text = "Lat:";
             // 
             // udWildLat
             // 
-            this.udWildLat.DecimalPlaces = 2;
-            this.udWildLat.Location = new System.Drawing.Point(293, 16);
-            this.udWildLat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.udWildLat.Name = "udWildLat";
-            this.udWildLat.Size = new System.Drawing.Size(75, 23);
-            this.udWildLat.TabIndex = 5;
-            this.udWildLat.Value = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            131072});
-            this.udWildLat.ValueChanged += new System.EventHandler(this.udWildLat_ValueChanged);
-            this.udWildLat.Enter += new System.EventHandler(this.udWildLat_Enter);
-            this.udWildLat.MouseClick += new System.Windows.Forms.MouseEventHandler(this.udWildLat_MouseClick);
+            udWildLat.DecimalPlaces = 2;
+            udWildLat.Location = new System.Drawing.Point(293, 16);
+            udWildLat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildLat.Name = "udWildLat";
+            udWildLat.Size = new System.Drawing.Size(75, 23);
+            udWildLat.TabIndex = 5;
+            udWildLat.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
+            udWildLat.ValueChanged += udWildLat_ValueChanged;
+            udWildLat.Enter += udWildLat_Enter;
+            udWildLat.MouseClick += udWildLat_MouseClick;
             // 
             // lblWildMin
             // 
-            this.lblWildMin.AutoSize = true;
-            this.lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildMin.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildMin.Location = new System.Drawing.Point(49, 20);
-            this.lblWildMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildMin.Name = "lblWildMin";
-            this.lblWildMin.Size = new System.Drawing.Size(31, 13);
-            this.lblWildMin.TabIndex = 0;
-            this.lblWildMin.Text = "Min:";
+            lblWildMin.AutoSize = true;
+            lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildMin.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildMin.Location = new System.Drawing.Point(49, 20);
+            lblWildMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildMin.Name = "lblWildMin";
+            lblWildMin.Size = new System.Drawing.Size(31, 13);
+            lblWildMin.TabIndex = 0;
+            lblWildMin.Text = "Min:";
             // 
             // lblWildMax
             // 
-            this.lblWildMax.AutoSize = true;
-            this.lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildMax.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildMax.Location = new System.Drawing.Point(145, 20);
-            this.lblWildMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildMax.Name = "lblWildMax";
-            this.lblWildMax.Size = new System.Drawing.Size(34, 13);
-            this.lblWildMax.TabIndex = 2;
-            this.lblWildMax.Text = "Max:";
+            lblWildMax.AutoSize = true;
+            lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildMax.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildMax.Location = new System.Drawing.Point(145, 20);
+            lblWildMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildMax.Name = "lblWildMax";
+            lblWildMax.Size = new System.Drawing.Size(34, 13);
+            lblWildMax.TabIndex = 2;
+            lblWildMax.Text = "Max:";
             // 
             // udWildMin
             // 
-            this.udWildMin.Location = new System.Drawing.Point(88, 16);
-            this.udWildMin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.udWildMin.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.udWildMin.Name = "udWildMin";
-            this.udWildMin.Size = new System.Drawing.Size(44, 23);
-            this.udWildMin.TabIndex = 1;
-            this.udWildMin.ValueChanged += new System.EventHandler(this.udWildMin_ValueChanged);
-            this.udWildMin.Enter += new System.EventHandler(this.udWildMin_Enter);
-            this.udWildMin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.udWildMin_MouseClick);
+            udWildMin.Location = new System.Drawing.Point(88, 16);
+            udWildMin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildMin.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            udWildMin.Name = "udWildMin";
+            udWildMin.Size = new System.Drawing.Size(44, 23);
+            udWildMin.TabIndex = 1;
+            udWildMin.ValueChanged += udWildMin_ValueChanged;
+            udWildMin.Enter += udWildMin_Enter;
+            udWildMin.MouseClick += udWildMin_MouseClick;
             // 
             // udWildMax
             // 
-            this.udWildMax.Location = new System.Drawing.Point(191, 16);
-            this.udWildMax.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.udWildMax.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.udWildMax.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.udWildMax.Name = "udWildMax";
-            this.udWildMax.Size = new System.Drawing.Size(56, 23);
-            this.udWildMax.TabIndex = 3;
-            this.udWildMax.Value = new decimal(new int[] {
-            190,
-            0,
-            0,
-            0});
-            this.udWildMax.ValueChanged += new System.EventHandler(this.udWildMax_ValueChanged);
-            this.udWildMax.Enter += new System.EventHandler(this.udWildMax_Enter);
-            this.udWildMax.MouseClick += new System.Windows.Forms.MouseEventHandler(this.udWildMax_MouseClick);
+            udWildMax.Location = new System.Drawing.Point(191, 16);
+            udWildMax.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildMax.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            udWildMax.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            udWildMax.Name = "udWildMax";
+            udWildMax.Size = new System.Drawing.Size(56, 23);
+            udWildMax.TabIndex = 3;
+            udWildMax.Value = new decimal(new int[] { 190, 0, 0, 0 });
+            udWildMax.ValueChanged += udWildMax_ValueChanged;
+            udWildMax.Enter += udWildMax_Enter;
+            udWildMax.MouseClick += udWildMax_MouseClick;
             // 
             // lblWildCommand
             // 
-            this.lblWildCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblWildCommand.AutoSize = true;
-            this.lblWildCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildCommand.Location = new System.Drawing.Point(16, 479);
-            this.lblWildCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildCommand.Name = "lblWildCommand";
-            this.lblWildCommand.Size = new System.Drawing.Size(65, 13);
-            this.lblWildCommand.TabIndex = 15;
-            this.lblWildCommand.Text = "Command:";
+            lblWildCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblWildCommand.AutoSize = true;
+            lblWildCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildCommand.Location = new System.Drawing.Point(16, 479);
+            lblWildCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildCommand.Name = "lblWildCommand";
+            lblWildCommand.Size = new System.Drawing.Size(65, 13);
+            lblWildCommand.TabIndex = 15;
+            lblWildCommand.Text = "Command:";
             // 
             // cboConsoleCommandsWild
             // 
-            this.cboConsoleCommandsWild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboConsoleCommandsWild.FormattingEnabled = true;
-            this.cboConsoleCommandsWild.Items.AddRange(new object[] {
-            "DestroyAll <ClassName>",
-            "GMSummon \"<ClassName>\" <Level> ",
-            "SetPlayerPos  <x> <y> <z>",
-            "TeleportCreatureToMe <DinoId>",
-            "TeleportToCreature <DinoId>"});
-            this.cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
-            this.cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
-            this.cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 23);
-            this.cboConsoleCommandsWild.TabIndex = 16;
+            cboConsoleCommandsWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsWild.FormattingEnabled = true;
+            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName>", "GMSummon \"<ClassName>\" <Level> ", "SetPlayerPos  <x> <y> <z>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
+            cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
+            cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
+            cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsWild.TabIndex = 16;
             // 
             // lblSelectedWildTotal
             // 
-            this.lblSelectedWildTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSelectedWildTotal.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblSelectedWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSelectedWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblSelectedWildTotal.Location = new System.Drawing.Point(788, 471);
-            this.lblSelectedWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSelectedWildTotal.Name = "lblSelectedWildTotal";
-            this.lblSelectedWildTotal.Size = new System.Drawing.Size(144, 35);
-            this.lblSelectedWildTotal.TabIndex = 18;
-            this.lblSelectedWildTotal.Text = "Count: 0";
-            this.lblSelectedWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblSelectedWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblSelectedWildTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblSelectedWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblSelectedWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblSelectedWildTotal.Location = new System.Drawing.Point(788, 471);
+            lblSelectedWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSelectedWildTotal.Name = "lblSelectedWildTotal";
+            lblSelectedWildTotal.Size = new System.Drawing.Size(144, 35);
+            lblSelectedWildTotal.TabIndex = 18;
+            lblSelectedWildTotal.Text = "Count: 0";
+            lblSelectedWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblWildClass
             // 
-            this.lblWildClass.AutoSize = true;
-            this.lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWildClass.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWildClass.Location = new System.Drawing.Point(16, 61);
-            this.lblWildClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWildClass.Name = "lblWildClass";
-            this.lblWildClass.Size = new System.Drawing.Size(59, 13);
-            this.lblWildClass.TabIndex = 12;
-            this.lblWildClass.Text = "Creature:";
+            lblWildClass.AutoSize = true;
+            lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildClass.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildClass.Location = new System.Drawing.Point(16, 61);
+            lblWildClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildClass.Name = "lblWildClass";
+            lblWildClass.Size = new System.Drawing.Size(59, 13);
+            lblWildClass.TabIndex = 12;
+            lblWildClass.Text = "Creature:";
             // 
             // tpgTamed
             // 
-            this.tpgTamed.Controls.Add(this.chkTameUploads);
-            this.tpgTamed.Controls.Add(this.cboTameRealm);
-            this.tpgTamed.Controls.Add(this.lblTameRealm);
-            this.tpgTamed.Controls.Add(this.pnlFilterTamed);
-            this.tpgTamed.Controls.Add(this.cboTamedResource);
-            this.tpgTamed.Controls.Add(this.lblTameResource);
-            this.tpgTamed.Controls.Add(this.chkCryo);
-            this.tpgTamed.Controls.Add(this.btnCopyCommandTamed);
-            this.tpgTamed.Controls.Add(this.lblTamedCommand);
-            this.tpgTamed.Controls.Add(this.cboConsoleCommandsTamed);
-            this.tpgTamed.Controls.Add(this.cboTameTribes);
-            this.tpgTamed.Controls.Add(this.cboTamePlayers);
-            this.tpgTamed.Controls.Add(this.lblTameCreature);
-            this.tpgTamed.Controls.Add(this.lblTamePlayer);
-            this.tpgTamed.Controls.Add(this.lblTameTribe);
-            this.tpgTamed.Controls.Add(this.btnDinoAncestors);
-            this.tpgTamed.Controls.Add(this.btnDinoInventory);
-            this.tpgTamed.Controls.Add(this.lvwTameDetail);
-            this.tpgTamed.Controls.Add(this.lblTameTotal);
-            this.tpgTamed.Controls.Add(this.pnlTameStatTypes);
-            this.tpgTamed.Controls.Add(this.cboTameClass);
-            this.tpgTamed.Location = new System.Drawing.Point(4, 24);
-            this.tpgTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgTamed.Name = "tpgTamed";
-            this.tpgTamed.Size = new System.Drawing.Size(1104, 520);
-            this.tpgTamed.TabIndex = 3;
-            this.tpgTamed.Text = "Tamed Creatures";
-            this.tpgTamed.UseVisualStyleBackColor = true;
+            tpgTamed.Controls.Add(chkTameUploads);
+            tpgTamed.Controls.Add(cboTameRealm);
+            tpgTamed.Controls.Add(lblTameRealm);
+            tpgTamed.Controls.Add(pnlFilterTamed);
+            tpgTamed.Controls.Add(cboTamedResource);
+            tpgTamed.Controls.Add(lblTameResource);
+            tpgTamed.Controls.Add(chkCryo);
+            tpgTamed.Controls.Add(btnCopyCommandTamed);
+            tpgTamed.Controls.Add(lblTamedCommand);
+            tpgTamed.Controls.Add(cboConsoleCommandsTamed);
+            tpgTamed.Controls.Add(cboTameTribes);
+            tpgTamed.Controls.Add(cboTamePlayers);
+            tpgTamed.Controls.Add(lblTameCreature);
+            tpgTamed.Controls.Add(lblTamePlayer);
+            tpgTamed.Controls.Add(lblTameTribe);
+            tpgTamed.Controls.Add(btnDinoAncestors);
+            tpgTamed.Controls.Add(btnDinoInventory);
+            tpgTamed.Controls.Add(lvwTameDetail);
+            tpgTamed.Controls.Add(lblTameTotal);
+            tpgTamed.Controls.Add(pnlTameStatTypes);
+            tpgTamed.Controls.Add(cboTameClass);
+            tpgTamed.Location = new System.Drawing.Point(4, 24);
+            tpgTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgTamed.Name = "tpgTamed";
+            tpgTamed.Size = new System.Drawing.Size(1104, 520);
+            tpgTamed.TabIndex = 3;
+            tpgTamed.Text = "Tamed Creatures";
+            tpgTamed.UseVisualStyleBackColor = true;
             // 
             // chkTameUploads
             // 
-            this.chkTameUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chkTameUploads.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkTameUploads.Location = new System.Drawing.Point(199, 77);
-            this.chkTameUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkTameUploads.Name = "chkTameUploads";
-            this.chkTameUploads.Size = new System.Drawing.Size(121, 31);
-            this.chkTameUploads.TabIndex = 25;
-            this.chkTameUploads.Text = "Include Uploads";
-            this.chkTameUploads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.chkTameUploads, "Show / hide uploaded tames");
-            this.chkTameUploads.UseVisualStyleBackColor = true;
-            this.chkTameUploads.CheckedChanged += new System.EventHandler(this.chkTameUploads_CheckedChanged);
+            chkTameUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkTameUploads.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTameUploads.Location = new System.Drawing.Point(199, 77);
+            chkTameUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTameUploads.Name = "chkTameUploads";
+            chkTameUploads.Size = new System.Drawing.Size(121, 31);
+            chkTameUploads.TabIndex = 25;
+            chkTameUploads.Text = "Include Uploads";
+            chkTameUploads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(chkTameUploads, "Show / hide uploaded tames");
+            chkTameUploads.UseVisualStyleBackColor = true;
+            chkTameUploads.CheckedChanged += chkTameUploads_CheckedChanged;
             // 
             // cboTameRealm
             // 
-            this.cboTameRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboTameRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTameRealm.FormattingEnabled = true;
-            this.cboTameRealm.Location = new System.Drawing.Point(865, 23);
-            this.cboTameRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTameRealm.Name = "cboTameRealm";
-            this.cboTameRealm.Size = new System.Drawing.Size(222, 23);
-            this.cboTameRealm.TabIndex = 24;
-            this.cboTameRealm.SelectedIndexChanged += new System.EventHandler(this.cboTameRealm_SelectedIndexChanged);
+            cboTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboTameRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameRealm.FormattingEnabled = true;
+            cboTameRealm.Location = new System.Drawing.Point(865, 23);
+            cboTameRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTameRealm.Name = "cboTameRealm";
+            cboTameRealm.Size = new System.Drawing.Size(222, 23);
+            cboTameRealm.TabIndex = 24;
+            cboTameRealm.SelectedIndexChanged += cboTameRealm_SelectedIndexChanged;
             // 
             // lblTameRealm
             // 
-            this.lblTameRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTameRealm.AutoSize = true;
-            this.lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTameRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTameRealm.Location = new System.Drawing.Point(791, 28);
-            this.lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTameRealm.Name = "lblTameRealm";
-            this.lblTameRealm.Size = new System.Drawing.Size(46, 13);
-            this.lblTameRealm.TabIndex = 23;
-            this.lblTameRealm.Text = "Realm:";
+            lblTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblTameRealm.AutoSize = true;
+            lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameRealm.Location = new System.Drawing.Point(791, 28);
+            lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameRealm.Name = "lblTameRealm";
+            lblTameRealm.Size = new System.Drawing.Size(46, 13);
+            lblTameRealm.TabIndex = 23;
+            lblTameRealm.Text = "Realm:";
             // 
             // pnlFilterTamed
             // 
-            this.pnlFilterTamed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilterTamed.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlFilterTamed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFilterTamed.Controls.Add(this.btnFindTamed);
-            this.pnlFilterTamed.Controls.Add(this.txtFilterTamed);
-            this.pnlFilterTamed.Location = new System.Drawing.Point(13, 423);
-            this.pnlFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlFilterTamed.Name = "pnlFilterTamed";
-            this.pnlFilterTamed.Size = new System.Drawing.Size(1073, 33);
-            this.pnlFilterTamed.TabIndex = 21;
+            pnlFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterTamed.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterTamed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterTamed.Controls.Add(btnFindTamed);
+            pnlFilterTamed.Controls.Add(txtFilterTamed);
+            pnlFilterTamed.Location = new System.Drawing.Point(13, 423);
+            pnlFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterTamed.Name = "pnlFilterTamed";
+            pnlFilterTamed.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterTamed.TabIndex = 21;
             // 
             // btnFindTamed
             // 
-            this.btnFindTamed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindTamed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFindTamed.Image = ((System.Drawing.Image)(resources.GetObject("btnFindTamed.Image")));
-            this.btnFindTamed.Location = new System.Drawing.Point(1037, -1);
-            this.btnFindTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFindTamed.Name = "btnFindTamed";
-            this.btnFindTamed.Size = new System.Drawing.Size(35, 33);
-            this.btnFindTamed.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnFindTamed, "Find next");
-            this.btnFindTamed.UseVisualStyleBackColor = true;
-            this.btnFindTamed.Click += new System.EventHandler(this.btnFindTamed_Click);
+            btnFindTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindTamed.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindTamed.Image = (System.Drawing.Image)resources.GetObject("btnFindTamed.Image");
+            btnFindTamed.Location = new System.Drawing.Point(1037, -1);
+            btnFindTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindTamed.Name = "btnFindTamed";
+            btnFindTamed.Size = new System.Drawing.Size(35, 33);
+            btnFindTamed.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindTamed, "Find next");
+            btnFindTamed.UseVisualStyleBackColor = true;
+            btnFindTamed.Click += btnFindTamed_Click;
             // 
             // txtFilterTamed
             // 
-            this.txtFilterTamed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilterTamed.Location = new System.Drawing.Point(12, 3);
-            this.txtFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFilterTamed.Name = "txtFilterTamed";
-            this.txtFilterTamed.Size = new System.Drawing.Size(1013, 23);
-            this.txtFilterTamed.TabIndex = 6;
-            this.txtFilterTamed.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterTamed_KeyDown);
+            txtFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterTamed.Location = new System.Drawing.Point(12, 3);
+            txtFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterTamed.Name = "txtFilterTamed";
+            txtFilterTamed.Size = new System.Drawing.Size(1013, 23);
+            txtFilterTamed.TabIndex = 6;
+            txtFilterTamed.KeyDown += txtFilterTamed_KeyDown;
             // 
             // cboTamedResource
             // 
-            this.cboTamedResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTamedResource.FormattingEnabled = true;
-            this.cboTamedResource.Location = new System.Drawing.Point(420, 53);
-            this.cboTamedResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTamedResource.Name = "cboTamedResource";
-            this.cboTamedResource.Size = new System.Drawing.Size(231, 23);
-            this.cboTamedResource.TabIndex = 16;
-            this.cboTamedResource.SelectedIndexChanged += new System.EventHandler(this.cboTamedResource_SelectedIndexChanged);
+            cboTamedResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTamedResource.FormattingEnabled = true;
+            cboTamedResource.Location = new System.Drawing.Point(420, 53);
+            cboTamedResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTamedResource.Name = "cboTamedResource";
+            cboTamedResource.Size = new System.Drawing.Size(231, 23);
+            cboTamedResource.TabIndex = 16;
+            cboTamedResource.SelectedIndexChanged += cboTamedResource_SelectedIndexChanged;
             // 
             // lblTameResource
             // 
-            this.lblTameResource.AutoSize = true;
-            this.lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTameResource.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTameResource.Location = new System.Drawing.Point(340, 59);
-            this.lblTameResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTameResource.Name = "lblTameResource";
-            this.lblTameResource.Size = new System.Drawing.Size(65, 13);
-            this.lblTameResource.TabIndex = 15;
-            this.lblTameResource.Text = "Resource:";
+            lblTameResource.AutoSize = true;
+            lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameResource.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameResource.Location = new System.Drawing.Point(340, 59);
+            lblTameResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameResource.Name = "lblTameResource";
+            lblTameResource.Size = new System.Drawing.Size(65, 13);
+            lblTameResource.TabIndex = 15;
+            lblTameResource.Text = "Resource:";
             // 
             // lblTamedCommand
             // 
-            this.lblTamedCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTamedCommand.AutoSize = true;
-            this.lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTamedCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTamedCommand.Location = new System.Drawing.Point(224, 479);
-            this.lblTamedCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTamedCommand.Name = "lblTamedCommand";
-            this.lblTamedCommand.Size = new System.Drawing.Size(65, 13);
-            this.lblTamedCommand.TabIndex = 9;
-            this.lblTamedCommand.Text = "Command:";
+            lblTamedCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblTamedCommand.AutoSize = true;
+            lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTamedCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTamedCommand.Location = new System.Drawing.Point(224, 479);
+            lblTamedCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTamedCommand.Name = "lblTamedCommand";
+            lblTamedCommand.Size = new System.Drawing.Size(65, 13);
+            lblTamedCommand.TabIndex = 9;
+            lblTamedCommand.Text = "Command:";
             // 
             // cboConsoleCommandsTamed
             // 
-            this.cboConsoleCommandsTamed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboConsoleCommandsTamed.FormattingEnabled = true;
-            this.cboConsoleCommandsTamed.Items.AddRange(new object[] {
-            "DestroyTribeIdDinos <TribeID>",
-            "GMSummon \"<ClassName>\"  <Level> | <DoTame>",
-            "GMSummon \"<ClassName>\"  <Level>",
-            "TakeTribe <TribeID>",
-            "SetPlayerPos  <x> <y> <z>",
-            "TeleportCreatureToMe <DinoId>",
-            "TeleportToCreature <DinoId>",
-            "Cryo <DinoId>"});
-            this.cboConsoleCommandsTamed.Location = new System.Drawing.Point(303, 475);
-            this.cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
-            this.cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 23);
-            this.cboConsoleCommandsTamed.TabIndex = 10;
+            cboConsoleCommandsTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsTamed.FormattingEnabled = true;
+            cboConsoleCommandsTamed.Items.AddRange(new object[] { "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "GMSummon \"<ClassName>\"  <Level>", "TakeTribe <TribeID>", "SetPlayerPos  <x> <y> <z>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>", "Cryo <DinoId>" });
+            cboConsoleCommandsTamed.Location = new System.Drawing.Point(303, 475);
+            cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
+            cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 23);
+            cboConsoleCommandsTamed.TabIndex = 10;
             // 
             // cboTameTribes
             // 
-            this.cboTameTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTameTribes.FormattingEnabled = true;
-            this.cboTameTribes.Location = new System.Drawing.Point(89, 18);
-            this.cboTameTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTameTribes.Name = "cboTameTribes";
-            this.cboTameTribes.Size = new System.Drawing.Size(231, 23);
-            this.cboTameTribes.TabIndex = 1;
-            this.cboTameTribes.SelectedIndexChanged += new System.EventHandler(this.cboTameTribes_SelectedIndexChanged);
+            cboTameTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameTribes.FormattingEnabled = true;
+            cboTameTribes.Location = new System.Drawing.Point(89, 18);
+            cboTameTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTameTribes.Name = "cboTameTribes";
+            cboTameTribes.Size = new System.Drawing.Size(231, 23);
+            cboTameTribes.TabIndex = 1;
+            cboTameTribes.SelectedIndexChanged += cboTameTribes_SelectedIndexChanged;
             // 
             // cboTamePlayers
             // 
-            this.cboTamePlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTamePlayers.FormattingEnabled = true;
-            this.cboTamePlayers.Location = new System.Drawing.Point(420, 21);
-            this.cboTamePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTamePlayers.Name = "cboTamePlayers";
-            this.cboTamePlayers.Size = new System.Drawing.Size(231, 23);
-            this.cboTamePlayers.TabIndex = 3;
-            this.cboTamePlayers.SelectedIndexChanged += new System.EventHandler(this.cboTamePlayers_SelectedIndexChanged);
+            cboTamePlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTamePlayers.FormattingEnabled = true;
+            cboTamePlayers.Location = new System.Drawing.Point(420, 21);
+            cboTamePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTamePlayers.Name = "cboTamePlayers";
+            cboTamePlayers.Size = new System.Drawing.Size(231, 23);
+            cboTamePlayers.TabIndex = 3;
+            cboTamePlayers.SelectedIndexChanged += cboTamePlayers_SelectedIndexChanged;
             // 
             // lblTameCreature
             // 
-            this.lblTameCreature.AutoSize = true;
-            this.lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTameCreature.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTameCreature.Location = new System.Drawing.Point(22, 59);
-            this.lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTameCreature.Name = "lblTameCreature";
-            this.lblTameCreature.Size = new System.Drawing.Size(59, 13);
-            this.lblTameCreature.TabIndex = 4;
-            this.lblTameCreature.Text = "Creature:";
+            lblTameCreature.AutoSize = true;
+            lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameCreature.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameCreature.Location = new System.Drawing.Point(22, 59);
+            lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameCreature.Name = "lblTameCreature";
+            lblTameCreature.Size = new System.Drawing.Size(59, 13);
+            lblTameCreature.TabIndex = 4;
+            lblTameCreature.Text = "Creature:";
             // 
             // lblTamePlayer
             // 
-            this.lblTamePlayer.AutoSize = true;
-            this.lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTamePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTamePlayer.Location = new System.Drawing.Point(352, 23);
-            this.lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTamePlayer.Name = "lblTamePlayer";
-            this.lblTamePlayer.Size = new System.Drawing.Size(46, 13);
-            this.lblTamePlayer.TabIndex = 2;
-            this.lblTamePlayer.Text = "Player:";
+            lblTamePlayer.AutoSize = true;
+            lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTamePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTamePlayer.Location = new System.Drawing.Point(352, 23);
+            lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTamePlayer.Name = "lblTamePlayer";
+            lblTamePlayer.Size = new System.Drawing.Size(46, 13);
+            lblTamePlayer.TabIndex = 2;
+            lblTamePlayer.Text = "Player:";
             // 
             // lblTameTribe
             // 
-            this.lblTameTribe.AutoSize = true;
-            this.lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTameTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTameTribe.Location = new System.Drawing.Point(21, 21);
-            this.lblTameTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTameTribe.Name = "lblTameTribe";
-            this.lblTameTribe.Size = new System.Drawing.Size(40, 13);
-            this.lblTameTribe.TabIndex = 0;
-            this.lblTameTribe.Text = "Tribe:";
+            lblTameTribe.AutoSize = true;
+            lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameTribe.Location = new System.Drawing.Point(21, 21);
+            lblTameTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameTribe.Name = "lblTameTribe";
+            lblTameTribe.Size = new System.Drawing.Size(40, 13);
+            lblTameTribe.TabIndex = 0;
+            lblTameTribe.Text = "Tribe:";
             // 
             // lvwTameDetail
             // 
-            this.lvwTameDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwTameDetail_Creature,
-            this.lvwTameDetail_Name,
-            this.lvwTameDetail_Wandering,
-            this.lvwTameDetail_Mating,
-            this.lvwTameDetail_Sex,
-            this.lvwTameDetail_Base,
-            this.lvwTameDetail_Level,
-            this.lvwTameDetail_Lat,
-            this.lvwTameDetail_Lon,
-            this.lvwTameDetail_HP,
-            this.lvwTameDetail_Stam,
-            this.lvwTameDetail_Melee,
-            this.lvwTameDetail_Weight,
-            this.lvwTameDetail_Speed,
-            this.lvwTameDetail_Food,
-            this.lvwTameDetail_Oxygen,
-            this.lvwTameDetail_Craft,
-            this.lvwTameDetail_Server,
-            this.lvwTameDetail_Tamer,
-            this.lvwTameDetail_Imprinter,
-            this.lvwTameDetail_Imprint,
-            this.lvwTameDetail_Cryo,
-            this.lvwTameDetail_Colour1,
-            this.lvwTameDetail_Colour2,
-            this.lvwTameDetail_Colour3,
-            this.lvwTameDetail_Colour4,
-            this.lvwTameDetail_Colour5,
-            this.lvwTameDetail_Colour6,
-            this.lvwTameDetail_MutationsFemale,
-            this.lvwTameDetail_MutationsMale,
-            this.lvwTameDetail_Id,
-            this.lvwTameDetail_Scale,
-            this.lvwTameDetail_Rig1,
-            this.lvwTameDetail_Rig2,
-            this.lvwTameDetail_TribeInRange,
-            this.lvwTameDetail_UploadTime,
-            this.lvwTameDetail_DinoId,
-            this.lvwTameDetail_CCC});
-            this.lvwTameDetail.ContextMenuStrip = this.mnuContext;
-            this.lvwTameDetail.FullRowSelect = true;
-            this.lvwTameDetail.Location = new System.Drawing.Point(13, 112);
-            this.lvwTameDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwTameDetail.MultiSelect = false;
-            this.lvwTameDetail.Name = "lvwTameDetail";
-            this.lvwTameDetail.Size = new System.Drawing.Size(1073, 312);
-            this.lvwTameDetail.TabIndex = 7;
-            this.lvwTameDetail.UseCompatibleStateImageBehavior = false;
-            this.lvwTameDetail.View = System.Windows.Forms.View.Details;
-            this.lvwTameDetail.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwTameDetail_ColumnClick);
-            this.lvwTameDetail.SelectedIndexChanged += new System.EventHandler(this.lvwTameDetail_SelectedIndexChanged);
-            this.lvwTameDetail.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvwTameDetail_MouseClick);
+            lvwTameDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Wandering, lvwTameDetail_Mating, lvwTameDetail_Sex, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Cryo, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
+            lvwTameDetail.ContextMenuStrip = mnuContext;
+            lvwTameDetail.FullRowSelect = true;
+            lvwTameDetail.Location = new System.Drawing.Point(13, 112);
+            lvwTameDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwTameDetail.MultiSelect = false;
+            lvwTameDetail.Name = "lvwTameDetail";
+            lvwTameDetail.Size = new System.Drawing.Size(1073, 312);
+            lvwTameDetail.TabIndex = 7;
+            lvwTameDetail.UseCompatibleStateImageBehavior = false;
+            lvwTameDetail.View = System.Windows.Forms.View.Details;
+            lvwTameDetail.ColumnClick += lvwTameDetail_ColumnClick;
+            lvwTameDetail.SelectedIndexChanged += lvwTameDetail_SelectedIndexChanged;
+            lvwTameDetail.MouseClick += lvwTameDetail_MouseClick;
             // 
             // lvwTameDetail_Creature
             // 
-            this.lvwTameDetail_Creature.Text = "Creature";
-            this.lvwTameDetail_Creature.Width = 140;
+            lvwTameDetail_Creature.Text = "Creature";
+            lvwTameDetail_Creature.Width = 140;
             // 
             // lvwTameDetail_Name
             // 
-            this.lvwTameDetail_Name.Text = "Name";
-            this.lvwTameDetail_Name.Width = 150;
+            lvwTameDetail_Name.Text = "Name";
+            lvwTameDetail_Name.Width = 150;
             // 
             // lvwTameDetail_Wandering
             // 
-            this.lvwTameDetail_Wandering.Text = "Wandering";
-            this.lvwTameDetail_Wandering.Width = 70;
+            lvwTameDetail_Wandering.Text = "Wandering";
+            lvwTameDetail_Wandering.Width = 70;
             // 
             // lvwTameDetail_Mating
             // 
-            this.lvwTameDetail_Mating.Text = "Mating";
+            lvwTameDetail_Mating.Text = "Mating";
             // 
             // lvwTameDetail_Sex
             // 
-            this.lvwTameDetail_Sex.Text = "Sex";
+            lvwTameDetail_Sex.Text = "Sex";
             // 
             // lvwTameDetail_Base
             // 
-            this.lvwTameDetail_Base.Text = "Base";
-            this.lvwTameDetail_Base.Width = 50;
+            lvwTameDetail_Base.Text = "Base";
+            lvwTameDetail_Base.Width = 50;
             // 
             // lvwTameDetail_Level
             // 
-            this.lvwTameDetail_Level.Text = "Lvl";
-            this.lvwTameDetail_Level.Width = 41;
+            lvwTameDetail_Level.Text = "Lvl";
+            lvwTameDetail_Level.Width = 41;
             // 
             // lvwTameDetail_Lat
             // 
-            this.lvwTameDetail_Lat.Text = "Lat";
-            this.lvwTameDetail_Lat.Width = 58;
+            lvwTameDetail_Lat.Text = "Lat";
+            lvwTameDetail_Lat.Width = 58;
             // 
             // lvwTameDetail_Lon
             // 
-            this.lvwTameDetail_Lon.Text = "Lon";
-            this.lvwTameDetail_Lon.Width = 57;
+            lvwTameDetail_Lon.Text = "Lon";
+            lvwTameDetail_Lon.Width = 57;
             // 
             // lvwTameDetail_HP
             // 
-            this.lvwTameDetail_HP.Text = "HP";
-            this.lvwTameDetail_HP.Width = 45;
+            lvwTameDetail_HP.Text = "HP";
+            lvwTameDetail_HP.Width = 45;
             // 
             // lvwTameDetail_Stam
             // 
-            this.lvwTameDetail_Stam.Text = "Stam";
-            this.lvwTameDetail_Stam.Width = 45;
+            lvwTameDetail_Stam.Text = "Stam";
+            lvwTameDetail_Stam.Width = 45;
             // 
             // lvwTameDetail_Melee
             // 
-            this.lvwTameDetail_Melee.Text = "Melee";
-            this.lvwTameDetail_Melee.Width = 48;
+            lvwTameDetail_Melee.Text = "Melee";
+            lvwTameDetail_Melee.Width = 48;
             // 
             // lvwTameDetail_Weight
             // 
-            this.lvwTameDetail_Weight.Text = "Weight";
-            this.lvwTameDetail_Weight.Width = 55;
+            lvwTameDetail_Weight.Text = "Weight";
+            lvwTameDetail_Weight.Width = 55;
             // 
             // lvwTameDetail_Speed
             // 
-            this.lvwTameDetail_Speed.Text = "Speed";
-            this.lvwTameDetail_Speed.Width = 50;
+            lvwTameDetail_Speed.Text = "Speed";
+            lvwTameDetail_Speed.Width = 50;
             // 
             // lvwTameDetail_Food
             // 
-            this.lvwTameDetail_Food.Text = "Food";
-            this.lvwTameDetail_Food.Width = 47;
+            lvwTameDetail_Food.Text = "Food";
+            lvwTameDetail_Food.Width = 47;
             // 
             // lvwTameDetail_Oxygen
             // 
-            this.lvwTameDetail_Oxygen.Text = "Oxygen";
-            this.lvwTameDetail_Oxygen.Width = 53;
+            lvwTameDetail_Oxygen.Text = "Oxygen";
+            lvwTameDetail_Oxygen.Width = 53;
             // 
             // lvwTameDetail_Craft
             // 
-            this.lvwTameDetail_Craft.Text = "Craft";
-            this.lvwTameDetail_Craft.Width = 50;
+            lvwTameDetail_Craft.Text = "Craft";
+            lvwTameDetail_Craft.Width = 50;
             // 
             // lvwTameDetail_Server
             // 
-            this.lvwTameDetail_Server.Text = "Server";
-            this.lvwTameDetail_Server.Width = 150;
+            lvwTameDetail_Server.Text = "Server";
+            lvwTameDetail_Server.Width = 150;
             // 
             // lvwTameDetail_Tamer
             // 
-            this.lvwTameDetail_Tamer.Text = "Tamer";
-            this.lvwTameDetail_Tamer.Width = 105;
+            lvwTameDetail_Tamer.Text = "Tamer";
+            lvwTameDetail_Tamer.Width = 105;
             // 
             // lvwTameDetail_Imprinter
             // 
-            this.lvwTameDetail_Imprinter.Text = "Imprinter";
-            this.lvwTameDetail_Imprinter.Width = 105;
+            lvwTameDetail_Imprinter.Text = "Imprinter";
+            lvwTameDetail_Imprinter.Width = 105;
             // 
             // lvwTameDetail_Imprint
             // 
-            this.lvwTameDetail_Imprint.Text = "Imprint";
+            lvwTameDetail_Imprint.Text = "Imprint";
             // 
             // lvwTameDetail_Cryo
             // 
-            this.lvwTameDetail_Cryo.Text = "Stored";
+            lvwTameDetail_Cryo.Text = "Stored";
             // 
             // lvwTameDetail_Colour1
             // 
-            this.lvwTameDetail_Colour1.Text = "C0";
-            this.lvwTameDetail_Colour1.Width = 35;
+            lvwTameDetail_Colour1.Text = "C0";
+            lvwTameDetail_Colour1.Width = 35;
             // 
             // lvwTameDetail_Colour2
             // 
-            this.lvwTameDetail_Colour2.Text = "C1";
-            this.lvwTameDetail_Colour2.Width = 35;
+            lvwTameDetail_Colour2.Text = "C1";
+            lvwTameDetail_Colour2.Width = 35;
             // 
             // lvwTameDetail_Colour3
             // 
-            this.lvwTameDetail_Colour3.Text = "C2";
-            this.lvwTameDetail_Colour3.Width = 35;
+            lvwTameDetail_Colour3.Text = "C2";
+            lvwTameDetail_Colour3.Width = 35;
             // 
             // lvwTameDetail_Colour4
             // 
-            this.lvwTameDetail_Colour4.Text = "C3";
-            this.lvwTameDetail_Colour4.Width = 35;
+            lvwTameDetail_Colour4.Text = "C3";
+            lvwTameDetail_Colour4.Width = 35;
             // 
             // lvwTameDetail_Colour5
             // 
-            this.lvwTameDetail_Colour5.Text = "C4";
-            this.lvwTameDetail_Colour5.Width = 35;
+            lvwTameDetail_Colour5.Text = "C4";
+            lvwTameDetail_Colour5.Width = 35;
             // 
             // lvwTameDetail_Colour6
             // 
-            this.lvwTameDetail_Colour6.Text = "C5";
-            this.lvwTameDetail_Colour6.Width = 35;
+            lvwTameDetail_Colour6.Text = "C5";
+            lvwTameDetail_Colour6.Width = 35;
             // 
             // lvwTameDetail_MutationsFemale
             // 
-            this.lvwTameDetail_MutationsFemale.Text = "Mut (F)";
+            lvwTameDetail_MutationsFemale.Text = "Mut (F)";
             // 
             // lvwTameDetail_MutationsMale
             // 
-            this.lvwTameDetail_MutationsMale.Text = "Mut (M)";
+            lvwTameDetail_MutationsMale.Text = "Mut (M)";
             // 
             // lvwTameDetail_Id
             // 
-            this.lvwTameDetail_Id.Text = "Id";
-            this.lvwTameDetail_Id.Width = 0;
+            lvwTameDetail_Id.Text = "Id";
+            lvwTameDetail_Id.Width = 0;
             // 
             // lvwTameDetail_Scale
             // 
-            this.lvwTameDetail_Scale.Text = "Scale";
+            lvwTameDetail_Scale.Text = "Scale";
             // 
             // lvwTameDetail_Rig1
             // 
-            this.lvwTameDetail_Rig1.Text = "Rig1";
-            this.lvwTameDetail_Rig1.Width = 100;
+            lvwTameDetail_Rig1.Text = "Rig1";
+            lvwTameDetail_Rig1.Width = 100;
             // 
             // lvwTameDetail_Rig2
             // 
-            this.lvwTameDetail_Rig2.Text = "Rig2";
-            this.lvwTameDetail_Rig2.Width = 100;
+            lvwTameDetail_Rig2.Text = "Rig2";
+            lvwTameDetail_Rig2.Width = 100;
             // 
             // lvwTameDetail_TribeInRange
             // 
-            this.lvwTameDetail_TribeInRange.Text = "Tribe In Range";
-            this.lvwTameDetail_TribeInRange.Width = 120;
+            lvwTameDetail_TribeInRange.Text = "Tribe In Range";
+            lvwTameDetail_TribeInRange.Width = 120;
             // 
             // lvwTameDetail_UploadTime
             // 
-            this.lvwTameDetail_UploadTime.Text = "Uploaded";
-            this.lvwTameDetail_UploadTime.Width = 120;
+            lvwTameDetail_UploadTime.Text = "Uploaded";
+            lvwTameDetail_UploadTime.Width = 120;
             // 
             // lvwTameDetail_DinoId
             // 
-            this.lvwTameDetail_DinoId.Text = "DinoId";
-            this.lvwTameDetail_DinoId.Width = 0;
+            lvwTameDetail_DinoId.Text = "Creature Id";
+            lvwTameDetail_DinoId.Width = 150;
             // 
             // lvwTameDetail_CCC
             // 
-            this.lvwTameDetail_CCC.Text = "CCC";
-            this.lvwTameDetail_CCC.Width = 0;
+            lvwTameDetail_CCC.Text = "CCC";
+            lvwTameDetail_CCC.Width = 0;
             // 
             // lblTameTotal
             // 
-            this.lblTameTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTameTotal.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblTameTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTameTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTameTotal.Location = new System.Drawing.Point(943, 471);
-            this.lblTameTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTameTotal.Name = "lblTameTotal";
-            this.lblTameTotal.Size = new System.Drawing.Size(144, 35);
-            this.lblTameTotal.TabIndex = 14;
-            this.lblTameTotal.Text = "Count: 0";
-            this.lblTameTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTameTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblTameTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblTameTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblTameTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameTotal.Location = new System.Drawing.Point(943, 471);
+            lblTameTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameTotal.Name = "lblTameTotal";
+            lblTameTotal.Size = new System.Drawing.Size(144, 35);
+            lblTameTotal.TabIndex = 14;
+            lblTameTotal.Text = "Count: 0";
+            lblTameTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlTameStatTypes
             // 
-            this.pnlTameStatTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlTameStatTypes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTameStatTypes.Controls.Add(this.lblStats);
-            this.pnlTameStatTypes.Controls.Add(this.optStatsTamed);
-            this.pnlTameStatTypes.Controls.Add(this.optStatsBase);
-            this.pnlTameStatTypes.Location = new System.Drawing.Point(13, 466);
-            this.pnlTameStatTypes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlTameStatTypes.Name = "pnlTameStatTypes";
-            this.pnlTameStatTypes.Size = new System.Drawing.Size(204, 39);
-            this.pnlTameStatTypes.TabIndex = 8;
+            pnlTameStatTypes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            pnlTameStatTypes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlTameStatTypes.Controls.Add(lblStats);
+            pnlTameStatTypes.Controls.Add(optStatsTamed);
+            pnlTameStatTypes.Controls.Add(optStatsBase);
+            pnlTameStatTypes.Location = new System.Drawing.Point(13, 466);
+            pnlTameStatTypes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlTameStatTypes.Name = "pnlTameStatTypes";
+            pnlTameStatTypes.Size = new System.Drawing.Size(204, 39);
+            pnlTameStatTypes.TabIndex = 8;
             // 
             // lblStats
             // 
-            this.lblStats.AutoSize = true;
-            this.lblStats.Location = new System.Drawing.Point(2, 12);
-            this.lblStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStats.Name = "lblStats";
-            this.lblStats.Size = new System.Drawing.Size(35, 15);
-            this.lblStats.TabIndex = 0;
-            this.lblStats.Text = "Stats:";
+            lblStats.AutoSize = true;
+            lblStats.Location = new System.Drawing.Point(2, 12);
+            lblStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStats.Name = "lblStats";
+            lblStats.Size = new System.Drawing.Size(35, 15);
+            lblStats.TabIndex = 0;
+            lblStats.Text = "Stats:";
             // 
             // optStatsTamed
             // 
-            this.optStatsTamed.AutoSize = true;
-            this.optStatsTamed.Location = new System.Drawing.Point(113, 9);
-            this.optStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.optStatsTamed.Name = "optStatsTamed";
-            this.optStatsTamed.Size = new System.Drawing.Size(60, 19);
-            this.optStatsTamed.TabIndex = 2;
-            this.optStatsTamed.Text = "Tamed";
-            this.optStatsTamed.UseVisualStyleBackColor = true;
-            this.optStatsTamed.CheckedChanged += new System.EventHandler(this.optStatsTamed_CheckedChanged);
+            optStatsTamed.AutoSize = true;
+            optStatsTamed.Location = new System.Drawing.Point(113, 9);
+            optStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optStatsTamed.Name = "optStatsTamed";
+            optStatsTamed.Size = new System.Drawing.Size(60, 19);
+            optStatsTamed.TabIndex = 2;
+            optStatsTamed.Text = "Tamed";
+            optStatsTamed.UseVisualStyleBackColor = true;
+            optStatsTamed.CheckedChanged += optStatsTamed_CheckedChanged;
             // 
             // optStatsBase
             // 
-            this.optStatsBase.AutoSize = true;
-            this.optStatsBase.Checked = true;
-            this.optStatsBase.Location = new System.Drawing.Point(49, 9);
-            this.optStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.optStatsBase.Name = "optStatsBase";
-            this.optStatsBase.Size = new System.Drawing.Size(49, 19);
-            this.optStatsBase.TabIndex = 1;
-            this.optStatsBase.TabStop = true;
-            this.optStatsBase.Text = "Base";
-            this.optStatsBase.UseVisualStyleBackColor = true;
-            this.optStatsBase.CheckedChanged += new System.EventHandler(this.optStatsBase_CheckedChanged);
+            optStatsBase.AutoSize = true;
+            optStatsBase.Checked = true;
+            optStatsBase.Location = new System.Drawing.Point(49, 9);
+            optStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optStatsBase.Name = "optStatsBase";
+            optStatsBase.Size = new System.Drawing.Size(49, 19);
+            optStatsBase.TabIndex = 1;
+            optStatsBase.TabStop = true;
+            optStatsBase.Text = "Base";
+            optStatsBase.UseVisualStyleBackColor = true;
+            optStatsBase.CheckedChanged += optStatsBase_CheckedChanged;
             // 
             // cboTameClass
             // 
-            this.cboTameClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTameClass.FormattingEnabled = true;
-            this.cboTameClass.Location = new System.Drawing.Point(89, 53);
-            this.cboTameClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTameClass.Name = "cboTameClass";
-            this.cboTameClass.Size = new System.Drawing.Size(231, 23);
-            this.cboTameClass.TabIndex = 5;
-            this.cboTameClass.SelectedIndexChanged += new System.EventHandler(this.cboTameClass_SelectedIndexChanged);
+            cboTameClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameClass.FormattingEnabled = true;
+            cboTameClass.Location = new System.Drawing.Point(89, 53);
+            cboTameClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTameClass.Name = "cboTameClass";
+            cboTameClass.Size = new System.Drawing.Size(231, 23);
+            cboTameClass.TabIndex = 5;
+            cboTameClass.SelectedIndexChanged += cboTameClass_SelectedIndexChanged;
             // 
             // tpgStructures
             // 
-            this.tpgStructures.Controls.Add(this.cboStructureRealm);
-            this.tpgStructures.Controls.Add(this.lblStructureRealm);
-            this.tpgStructures.Controls.Add(this.pnlFilterStructures);
-            this.tpgStructures.Controls.Add(this.btnStructureInventory);
-            this.tpgStructures.Controls.Add(this.lblStructureTotal);
-            this.tpgStructures.Controls.Add(this.btnCopyCommandStructure);
-            this.tpgStructures.Controls.Add(this.lblCommandStructure);
-            this.tpgStructures.Controls.Add(this.cboConsoleCommandsStructure);
-            this.tpgStructures.Controls.Add(this.btnStructureExclusionFilter);
-            this.tpgStructures.Controls.Add(this.lblStructureStructure);
-            this.tpgStructures.Controls.Add(this.cboStructureStructure);
-            this.tpgStructures.Controls.Add(this.lblStructurePlayer);
-            this.tpgStructures.Controls.Add(this.lblStructureTribe);
-            this.tpgStructures.Controls.Add(this.cboStructureTribe);
-            this.tpgStructures.Controls.Add(this.cboStructurePlayer);
-            this.tpgStructures.Controls.Add(this.lvwStructureLocations);
-            this.tpgStructures.Location = new System.Drawing.Point(4, 24);
-            this.tpgStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgStructures.Name = "tpgStructures";
-            this.tpgStructures.Size = new System.Drawing.Size(1104, 520);
-            this.tpgStructures.TabIndex = 2;
-            this.tpgStructures.Text = "Player Structures";
-            this.tpgStructures.UseVisualStyleBackColor = true;
+            tpgStructures.Controls.Add(cboStructureRealm);
+            tpgStructures.Controls.Add(lblStructureRealm);
+            tpgStructures.Controls.Add(pnlFilterStructures);
+            tpgStructures.Controls.Add(btnStructureInventory);
+            tpgStructures.Controls.Add(lblStructureTotal);
+            tpgStructures.Controls.Add(btnCopyCommandStructure);
+            tpgStructures.Controls.Add(lblCommandStructure);
+            tpgStructures.Controls.Add(cboConsoleCommandsStructure);
+            tpgStructures.Controls.Add(btnStructureExclusionFilter);
+            tpgStructures.Controls.Add(lblStructureStructure);
+            tpgStructures.Controls.Add(cboStructureStructure);
+            tpgStructures.Controls.Add(lblStructurePlayer);
+            tpgStructures.Controls.Add(lblStructureTribe);
+            tpgStructures.Controls.Add(cboStructureTribe);
+            tpgStructures.Controls.Add(cboStructurePlayer);
+            tpgStructures.Controls.Add(lvwStructureLocations);
+            tpgStructures.Location = new System.Drawing.Point(4, 24);
+            tpgStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgStructures.Name = "tpgStructures";
+            tpgStructures.Size = new System.Drawing.Size(1104, 520);
+            tpgStructures.TabIndex = 2;
+            tpgStructures.Text = "Player Structures";
+            tpgStructures.UseVisualStyleBackColor = true;
             // 
             // cboStructureRealm
             // 
-            this.cboStructureRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStructureRealm.FormattingEnabled = true;
-            this.cboStructureRealm.Location = new System.Drawing.Point(438, 49);
-            this.cboStructureRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboStructureRealm.Name = "cboStructureRealm";
-            this.cboStructureRealm.Size = new System.Drawing.Size(224, 23);
-            this.cboStructureRealm.TabIndex = 24;
-            this.cboStructureRealm.SelectedIndexChanged += new System.EventHandler(this.cboStructureRealm_SelectedIndexChanged);
+            cboStructureRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureRealm.FormattingEnabled = true;
+            cboStructureRealm.Location = new System.Drawing.Point(438, 49);
+            cboStructureRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructureRealm.Name = "cboStructureRealm";
+            cboStructureRealm.Size = new System.Drawing.Size(224, 23);
+            cboStructureRealm.TabIndex = 24;
+            cboStructureRealm.SelectedIndexChanged += cboStructureRealm_SelectedIndexChanged;
             // 
             // lblStructureRealm
             // 
-            this.lblStructureRealm.AutoSize = true;
-            this.lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStructureRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructureRealm.Location = new System.Drawing.Point(364, 54);
-            this.lblStructureRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStructureRealm.Name = "lblStructureRealm";
-            this.lblStructureRealm.Size = new System.Drawing.Size(46, 13);
-            this.lblStructureRealm.TabIndex = 23;
-            this.lblStructureRealm.Text = "Realm:";
+            lblStructureRealm.AutoSize = true;
+            lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureRealm.Location = new System.Drawing.Point(364, 54);
+            lblStructureRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureRealm.Name = "lblStructureRealm";
+            lblStructureRealm.Size = new System.Drawing.Size(46, 13);
+            lblStructureRealm.TabIndex = 23;
+            lblStructureRealm.Text = "Realm:";
             // 
             // pnlFilterStructures
             // 
-            this.pnlFilterStructures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilterStructures.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlFilterStructures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFilterStructures.Controls.Add(this.btnFindStructures);
-            this.pnlFilterStructures.Controls.Add(this.txtFilterStructures);
-            this.pnlFilterStructures.Location = new System.Drawing.Point(13, 430);
-            this.pnlFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlFilterStructures.Name = "pnlFilterStructures";
-            this.pnlFilterStructures.Size = new System.Drawing.Size(1073, 33);
-            this.pnlFilterStructures.TabIndex = 22;
+            pnlFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterStructures.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterStructures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterStructures.Controls.Add(btnFindStructures);
+            pnlFilterStructures.Controls.Add(txtFilterStructures);
+            pnlFilterStructures.Location = new System.Drawing.Point(13, 430);
+            pnlFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterStructures.Name = "pnlFilterStructures";
+            pnlFilterStructures.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterStructures.TabIndex = 22;
             // 
             // btnFindStructures
             // 
-            this.btnFindStructures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindStructures.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFindStructures.Image = ((System.Drawing.Image)(resources.GetObject("btnFindStructures.Image")));
-            this.btnFindStructures.Location = new System.Drawing.Point(1037, -1);
-            this.btnFindStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFindStructures.Name = "btnFindStructures";
-            this.btnFindStructures.Size = new System.Drawing.Size(35, 33);
-            this.btnFindStructures.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnFindStructures, "Find next");
-            this.btnFindStructures.UseVisualStyleBackColor = true;
-            this.btnFindStructures.Click += new System.EventHandler(this.btnFindStructures_Click);
+            btnFindStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindStructures.Image = (System.Drawing.Image)resources.GetObject("btnFindStructures.Image");
+            btnFindStructures.Location = new System.Drawing.Point(1037, -1);
+            btnFindStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindStructures.Name = "btnFindStructures";
+            btnFindStructures.Size = new System.Drawing.Size(35, 33);
+            btnFindStructures.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindStructures, "Find next");
+            btnFindStructures.UseVisualStyleBackColor = true;
+            btnFindStructures.Click += btnFindStructures_Click;
             // 
             // txtFilterStructures
             // 
-            this.txtFilterStructures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilterStructures.Location = new System.Drawing.Point(12, 3);
-            this.txtFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFilterStructures.Name = "txtFilterStructures";
-            this.txtFilterStructures.Size = new System.Drawing.Size(1013, 23);
-            this.txtFilterStructures.TabIndex = 6;
-            this.txtFilterStructures.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterStructures_KeyDown);
+            txtFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterStructures.Location = new System.Drawing.Point(12, 3);
+            txtFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterStructures.Name = "txtFilterStructures";
+            txtFilterStructures.Size = new System.Drawing.Size(1013, 23);
+            txtFilterStructures.TabIndex = 6;
+            txtFilterStructures.KeyDown += txtFilterStructures_KeyDown;
             // 
             // lblStructureTotal
             // 
-            this.lblStructureTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStructureTotal.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblStructureTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblStructureTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructureTotal.Location = new System.Drawing.Point(943, 474);
-            this.lblStructureTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStructureTotal.Name = "lblStructureTotal";
-            this.lblStructureTotal.Size = new System.Drawing.Size(144, 35);
-            this.lblStructureTotal.TabIndex = 12;
-            this.lblStructureTotal.Text = "Total: 0";
-            this.lblStructureTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblStructureTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblStructureTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblStructureTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblStructureTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureTotal.Location = new System.Drawing.Point(943, 474);
+            lblStructureTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureTotal.Name = "lblStructureTotal";
+            lblStructureTotal.Size = new System.Drawing.Size(144, 35);
+            lblStructureTotal.TabIndex = 12;
+            lblStructureTotal.Text = "Total: 0";
+            lblStructureTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCommandStructure
             // 
-            this.lblCommandStructure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCommandStructure.AutoSize = true;
-            this.lblCommandStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCommandStructure.Location = new System.Drawing.Point(10, 479);
-            this.lblCommandStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCommandStructure.Name = "lblCommandStructure";
-            this.lblCommandStructure.Size = new System.Drawing.Size(65, 13);
-            this.lblCommandStructure.TabIndex = 8;
-            this.lblCommandStructure.Text = "Command:";
+            lblCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblCommandStructure.AutoSize = true;
+            lblCommandStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCommandStructure.Location = new System.Drawing.Point(10, 479);
+            lblCommandStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCommandStructure.Name = "lblCommandStructure";
+            lblCommandStructure.Size = new System.Drawing.Size(65, 13);
+            lblCommandStructure.TabIndex = 8;
+            lblCommandStructure.Text = "Command:";
             // 
             // cboConsoleCommandsStructure
             // 
-            this.cboConsoleCommandsStructure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboConsoleCommandsStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboConsoleCommandsStructure.FormattingEnabled = true;
-            this.cboConsoleCommandsStructure.Items.AddRange(new object[] {
-            "DestroyTribeId <TribeID> ",
-            "DestroyTribeIdDinos <TribeID>",
-            "DestroyTribeIdPlayers <TribeID>",
-            "DestroyTribeIdStructures <TribeID>",
-            "TakeTribe <TribeID>",
-            "SetPlayerPos  <x> <y> <z>"});
-            this.cboConsoleCommandsStructure.Location = new System.Drawing.Point(90, 475);
-            this.cboConsoleCommandsStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboConsoleCommandsStructure.Name = "cboConsoleCommandsStructure";
-            this.cboConsoleCommandsStructure.Size = new System.Drawing.Size(305, 23);
-            this.cboConsoleCommandsStructure.TabIndex = 9;
-            this.cboConsoleCommandsStructure.SelectedIndexChanged += new System.EventHandler(this.cboConsoleCommandsStructure_SelectedIndexChanged);
+            cboConsoleCommandsStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsStructure.FormattingEnabled = true;
+            cboConsoleCommandsStructure.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "TakeTribe <TribeID>", "SetPlayerPos  <x> <y> <z>" });
+            cboConsoleCommandsStructure.Location = new System.Drawing.Point(90, 475);
+            cboConsoleCommandsStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsStructure.Name = "cboConsoleCommandsStructure";
+            cboConsoleCommandsStructure.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsStructure.TabIndex = 9;
+            cboConsoleCommandsStructure.SelectedIndexChanged += cboConsoleCommandsStructure_SelectedIndexChanged;
             // 
             // lblStructureStructure
             // 
-            this.lblStructureStructure.AutoSize = true;
-            this.lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStructureStructure.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructureStructure.Location = new System.Drawing.Point(18, 54);
-            this.lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStructureStructure.Name = "lblStructureStructure";
-            this.lblStructureStructure.Size = new System.Drawing.Size(63, 13);
-            this.lblStructureStructure.TabIndex = 4;
-            this.lblStructureStructure.Text = "Structure:";
+            lblStructureStructure.AutoSize = true;
+            lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureStructure.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureStructure.Location = new System.Drawing.Point(18, 54);
+            lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureStructure.Name = "lblStructureStructure";
+            lblStructureStructure.Size = new System.Drawing.Size(63, 13);
+            lblStructureStructure.TabIndex = 4;
+            lblStructureStructure.Text = "Structure:";
             // 
             // cboStructureStructure
             // 
-            this.cboStructureStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStructureStructure.FormattingEnabled = true;
-            this.cboStructureStructure.Location = new System.Drawing.Point(99, 50);
-            this.cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboStructureStructure.Name = "cboStructureStructure";
-            this.cboStructureStructure.Size = new System.Drawing.Size(237, 23);
-            this.cboStructureStructure.TabIndex = 5;
-            this.cboStructureStructure.SelectedIndexChanged += new System.EventHandler(this.cboStructureStructure_SelectedIndexChanged);
+            cboStructureStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureStructure.FormattingEnabled = true;
+            cboStructureStructure.Location = new System.Drawing.Point(99, 50);
+            cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructureStructure.Name = "cboStructureStructure";
+            cboStructureStructure.Size = new System.Drawing.Size(237, 23);
+            cboStructureStructure.TabIndex = 5;
+            cboStructureStructure.SelectedIndexChanged += cboStructureStructure_SelectedIndexChanged;
             // 
             // lblStructurePlayer
             // 
-            this.lblStructurePlayer.AutoSize = true;
-            this.lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStructurePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructurePlayer.Location = new System.Drawing.Point(364, 21);
-            this.lblStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStructurePlayer.Name = "lblStructurePlayer";
-            this.lblStructurePlayer.Size = new System.Drawing.Size(46, 13);
-            this.lblStructurePlayer.TabIndex = 2;
-            this.lblStructurePlayer.Text = "Player:";
+            lblStructurePlayer.AutoSize = true;
+            lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructurePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructurePlayer.Location = new System.Drawing.Point(364, 21);
+            lblStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructurePlayer.Name = "lblStructurePlayer";
+            lblStructurePlayer.Size = new System.Drawing.Size(46, 13);
+            lblStructurePlayer.TabIndex = 2;
+            lblStructurePlayer.Text = "Player:";
             // 
             // lblStructureTribe
             // 
-            this.lblStructureTribe.AutoSize = true;
-            this.lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStructureTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructureTribe.Location = new System.Drawing.Point(49, 21);
-            this.lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStructureTribe.Name = "lblStructureTribe";
-            this.lblStructureTribe.Size = new System.Drawing.Size(40, 13);
-            this.lblStructureTribe.TabIndex = 0;
-            this.lblStructureTribe.Text = "Tribe:";
+            lblStructureTribe.AutoSize = true;
+            lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureTribe.Location = new System.Drawing.Point(49, 21);
+            lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureTribe.Name = "lblStructureTribe";
+            lblStructureTribe.Size = new System.Drawing.Size(40, 13);
+            lblStructureTribe.TabIndex = 0;
+            lblStructureTribe.Text = "Tribe:";
             // 
             // cboStructureTribe
             // 
-            this.cboStructureTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStructureTribe.FormattingEnabled = true;
-            this.cboStructureTribe.Location = new System.Drawing.Point(99, 18);
-            this.cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboStructureTribe.Name = "cboStructureTribe";
-            this.cboStructureTribe.Size = new System.Drawing.Size(237, 23);
-            this.cboStructureTribe.TabIndex = 1;
-            this.cboStructureTribe.SelectedIndexChanged += new System.EventHandler(this.cboStructureTribe_SelectedIndexChanged);
+            cboStructureTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureTribe.FormattingEnabled = true;
+            cboStructureTribe.Location = new System.Drawing.Point(99, 18);
+            cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructureTribe.Name = "cboStructureTribe";
+            cboStructureTribe.Size = new System.Drawing.Size(237, 23);
+            cboStructureTribe.TabIndex = 1;
+            cboStructureTribe.SelectedIndexChanged += cboStructureTribe_SelectedIndexChanged;
             // 
             // cboStructurePlayer
             // 
-            this.cboStructurePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStructurePlayer.FormattingEnabled = true;
-            this.cboStructurePlayer.Location = new System.Drawing.Point(438, 18);
-            this.cboStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboStructurePlayer.Name = "cboStructurePlayer";
-            this.cboStructurePlayer.Size = new System.Drawing.Size(224, 23);
-            this.cboStructurePlayer.TabIndex = 3;
-            this.cboStructurePlayer.SelectedIndexChanged += new System.EventHandler(this.cboStructurePlayer_SelectedIndexChanged);
+            cboStructurePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructurePlayer.FormattingEnabled = true;
+            cboStructurePlayer.Location = new System.Drawing.Point(438, 18);
+            cboStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructurePlayer.Name = "cboStructurePlayer";
+            cboStructurePlayer.Size = new System.Drawing.Size(224, 23);
+            cboStructurePlayer.TabIndex = 3;
+            cboStructurePlayer.SelectedIndexChanged += cboStructurePlayer_SelectedIndexChanged;
             // 
             // lvwStructureLocations
             // 
-            this.lvwStructureLocations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwStructureLocations_Tribe,
-            this.lvwStructureLocations_Structure,
-            this.lvwStructureLocations_Lat,
-            this.lvwStructureLocations_Lon,
-            this.lvwStructureLocations_LastTime,
-            this.lvwStructureLocations_DecayReset,
-            this.lvwStructureLocations_CCC});
-            this.lvwStructureLocations.ContextMenuStrip = this.mnuContext;
-            this.lvwStructureLocations.FullRowSelect = true;
-            this.lvwStructureLocations.Location = new System.Drawing.Point(13, 83);
-            this.lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwStructureLocations.MultiSelect = false;
-            this.lvwStructureLocations.Name = "lvwStructureLocations";
-            this.lvwStructureLocations.Size = new System.Drawing.Size(1073, 348);
-            this.lvwStructureLocations.TabIndex = 7;
-            this.lvwStructureLocations.UseCompatibleStateImageBehavior = false;
-            this.lvwStructureLocations.View = System.Windows.Forms.View.Details;
-            this.lvwStructureLocations.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwStructureLocations_ColumnClick);
-            this.lvwStructureLocations.SelectedIndexChanged += new System.EventHandler(this.lvwStructureLocations_SelectedIndexChanged);
-            this.lvwStructureLocations.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvwStructureLocations_MouseClick);
+            lvwStructureLocations.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStructureLocations_Tribe, lvwStructureLocations_Structure, lvwStructureLocations_Lat, lvwStructureLocations_Lon, lvwStructureLocations_LastTime, lvwStructureLocations_DecayReset, lvwStructureLocations_CCC });
+            lvwStructureLocations.ContextMenuStrip = mnuContext;
+            lvwStructureLocations.FullRowSelect = true;
+            lvwStructureLocations.Location = new System.Drawing.Point(13, 83);
+            lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwStructureLocations.MultiSelect = false;
+            lvwStructureLocations.Name = "lvwStructureLocations";
+            lvwStructureLocations.Size = new System.Drawing.Size(1073, 348);
+            lvwStructureLocations.TabIndex = 7;
+            lvwStructureLocations.UseCompatibleStateImageBehavior = false;
+            lvwStructureLocations.View = System.Windows.Forms.View.Details;
+            lvwStructureLocations.ColumnClick += lvwStructureLocations_ColumnClick;
+            lvwStructureLocations.SelectedIndexChanged += lvwStructureLocations_SelectedIndexChanged;
+            lvwStructureLocations.MouseClick += lvwStructureLocations_MouseClick;
             // 
             // lvwStructureLocations_Tribe
             // 
-            this.lvwStructureLocations_Tribe.Text = "Tribe";
-            this.lvwStructureLocations_Tribe.Width = 200;
+            lvwStructureLocations_Tribe.Text = "Tribe";
+            lvwStructureLocations_Tribe.Width = 200;
             // 
             // lvwStructureLocations_Structure
             // 
-            this.lvwStructureLocations_Structure.Text = "Structure";
-            this.lvwStructureLocations_Structure.Width = 200;
+            lvwStructureLocations_Structure.Text = "Structure";
+            lvwStructureLocations_Structure.Width = 200;
             // 
             // lvwStructureLocations_Lat
             // 
-            this.lvwStructureLocations_Lat.Text = "Lat";
-            this.lvwStructureLocations_Lat.Width = 79;
+            lvwStructureLocations_Lat.Text = "Lat";
+            lvwStructureLocations_Lat.Width = 79;
             // 
             // lvwStructureLocations_Lon
             // 
-            this.lvwStructureLocations_Lon.Text = "Lon";
-            this.lvwStructureLocations_Lon.Width = 71;
+            lvwStructureLocations_Lon.Text = "Lon";
+            lvwStructureLocations_Lon.Width = 71;
             // 
             // lvwStructureLocations_LastTime
             // 
-            this.lvwStructureLocations_LastTime.Text = "Tribe In Range";
-            this.lvwStructureLocations_LastTime.Width = 120;
+            lvwStructureLocations_LastTime.Text = "Tribe In Range";
+            lvwStructureLocations_LastTime.Width = 120;
             // 
             // lvwStructureLocations_DecayReset
             // 
-            this.lvwStructureLocations_DecayReset.Text = "Decay Reset";
-            this.lvwStructureLocations_DecayReset.Width = 80;
+            lvwStructureLocations_DecayReset.Text = "Decay Reset";
+            lvwStructureLocations_DecayReset.Width = 80;
             // 
             // lvwStructureLocations_CCC
             // 
-            this.lvwStructureLocations_CCC.Text = "CCC";
-            this.lvwStructureLocations_CCC.Width = 0;
+            lvwStructureLocations_CCC.Text = "CCC";
+            lvwStructureLocations_CCC.Width = 0;
             // 
             // tpgTribes
             // 
-            this.tpgTribes.Controls.Add(this.splitContainer1);
-            this.tpgTribes.Controls.Add(this.chkTribeStructures);
-            this.tpgTribes.Controls.Add(this.chkTribeTames);
-            this.tpgTribes.Controls.Add(this.chkTribePlayers);
-            this.tpgTribes.Controls.Add(this.btnTribeCopyCommand);
-            this.tpgTribes.Controls.Add(this.lblTribeCopyCommand);
-            this.tpgTribes.Controls.Add(this.cboTribeCopyCommand);
-            this.tpgTribes.Controls.Add(this.btnTribeLog);
-            this.tpgTribes.Location = new System.Drawing.Point(4, 24);
-            this.tpgTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgTribes.Name = "tpgTribes";
-            this.tpgTribes.Size = new System.Drawing.Size(1104, 520);
-            this.tpgTribes.TabIndex = 5;
-            this.tpgTribes.Text = "Tribes";
-            this.tpgTribes.UseVisualStyleBackColor = true;
+            tpgTribes.Controls.Add(splitContainer1);
+            tpgTribes.Controls.Add(chkTribeStructures);
+            tpgTribes.Controls.Add(chkTribeTames);
+            tpgTribes.Controls.Add(chkTribePlayers);
+            tpgTribes.Controls.Add(btnTribeCopyCommand);
+            tpgTribes.Controls.Add(lblTribeCopyCommand);
+            tpgTribes.Controls.Add(cboTribeCopyCommand);
+            tpgTribes.Controls.Add(btnTribeLog);
+            tpgTribes.Location = new System.Drawing.Point(4, 24);
+            tpgTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgTribes.Name = "tpgTribes";
+            tpgTribes.Size = new System.Drawing.Size(1104, 520);
+            tpgTribes.TabIndex = 5;
+            tpgTribes.Text = "Tribes";
+            tpgTribes.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(11, 20);
-            this.splitContainer1.Name = "splitContainer1";
+            splitContainer1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            splitContainer1.Location = new System.Drawing.Point(11, 20);
+            splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.lvwTribes);
-            this.splitContainer1.Panel1.Controls.Add(this.pnlFilterTribes);
+            splitContainer1.Panel1.Controls.Add(lvwTribes);
+            splitContainer1.Panel1.Controls.Add(pnlFilterTribes);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnSaveChartImage);
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.udChartTop);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Panel2.Controls.Add(this.cboChartType);
-            this.splitContainer1.Panel2.Controls.Add(this.chartTribes);
-            this.splitContainer1.Size = new System.Drawing.Size(1075, 438);
-            this.splitContainer1.SplitterDistance = 746;
-            this.splitContainer1.TabIndex = 24;
+            splitContainer1.Panel2.Controls.Add(btnSaveChartImage);
+            splitContainer1.Panel2.Controls.Add(label2);
+            splitContainer1.Panel2.Controls.Add(udChartTop);
+            splitContainer1.Panel2.Controls.Add(label1);
+            splitContainer1.Panel2.Controls.Add(cboChartType);
+            splitContainer1.Panel2.Controls.Add(chartTribes);
+            splitContainer1.Size = new System.Drawing.Size(1075, 438);
+            splitContainer1.SplitterDistance = 746;
+            splitContainer1.TabIndex = 24;
             // 
             // lvwTribes
             // 
-            this.lvwTribes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwTribes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwTribes_Id,
-            this.lvwTribes_Name,
-            this.lvwTribes_Players,
-            this.lvwTribes_Tames,
-            this.lvwTribes_Structures,
-            this.lvwTribes_Active});
-            this.lvwTribes.ContextMenuStrip = this.mnuContext;
-            this.lvwTribes.FullRowSelect = true;
-            this.lvwTribes.Location = new System.Drawing.Point(5, 3);
-            this.lvwTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwTribes.Name = "lvwTribes";
-            this.lvwTribes.Size = new System.Drawing.Size(740, 395);
-            this.lvwTribes.TabIndex = 0;
-            this.lvwTribes.UseCompatibleStateImageBehavior = false;
-            this.lvwTribes.View = System.Windows.Forms.View.Details;
-            this.lvwTribes.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwTribes_ColumnClick);
-            this.lvwTribes.SelectedIndexChanged += new System.EventHandler(this.lvwTribes_SelectedIndexChanged);
-            this.lvwTribes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvwTribes_MouseClick);
+            lvwTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwTribes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTribes_Id, lvwTribes_Name, lvwTribes_Players, lvwTribes_Tames, lvwTribes_Structures, lvwTribes_Active });
+            lvwTribes.ContextMenuStrip = mnuContext;
+            lvwTribes.FullRowSelect = true;
+            lvwTribes.Location = new System.Drawing.Point(5, 3);
+            lvwTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwTribes.Name = "lvwTribes";
+            lvwTribes.Size = new System.Drawing.Size(740, 395);
+            lvwTribes.TabIndex = 0;
+            lvwTribes.UseCompatibleStateImageBehavior = false;
+            lvwTribes.View = System.Windows.Forms.View.Details;
+            lvwTribes.ColumnClick += lvwTribes_ColumnClick;
+            lvwTribes.SelectedIndexChanged += lvwTribes_SelectedIndexChanged;
+            lvwTribes.MouseClick += lvwTribes_MouseClick;
             // 
             // lvwTribes_Id
             // 
-            this.lvwTribes_Id.Text = "Id";
-            this.lvwTribes_Id.Width = 150;
+            lvwTribes_Id.Text = "Id";
+            lvwTribes_Id.Width = 150;
             // 
             // lvwTribes_Name
             // 
-            this.lvwTribes_Name.Text = "Name";
-            this.lvwTribes_Name.Width = 228;
+            lvwTribes_Name.Text = "Name";
+            lvwTribes_Name.Width = 228;
             // 
             // lvwTribes_Players
             // 
-            this.lvwTribes_Players.Text = "Players";
-            this.lvwTribes_Players.Width = 75;
+            lvwTribes_Players.Text = "Players";
+            lvwTribes_Players.Width = 75;
             // 
             // lvwTribes_Tames
             // 
-            this.lvwTribes_Tames.Text = "Tames";
-            this.lvwTribes_Tames.Width = 75;
+            lvwTribes_Tames.Text = "Tames";
+            lvwTribes_Tames.Width = 75;
             // 
             // lvwTribes_Structures
             // 
-            this.lvwTribes_Structures.Text = "Structures";
-            this.lvwTribes_Structures.Width = 75;
+            lvwTribes_Structures.Text = "Structures";
+            lvwTribes_Structures.Width = 75;
             // 
             // lvwTribes_Active
             // 
-            this.lvwTribes_Active.Text = "Last Active";
-            this.lvwTribes_Active.Width = 127;
+            lvwTribes_Active.Text = "Last Active";
+            lvwTribes_Active.Width = 127;
             // 
             // pnlFilterTribes
             // 
-            this.pnlFilterTribes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilterTribes.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlFilterTribes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFilterTribes.Controls.Add(this.btnFilterTribe);
-            this.pnlFilterTribes.Controls.Add(this.txtFilterTribe);
-            this.pnlFilterTribes.Location = new System.Drawing.Point(5, 400);
-            this.pnlFilterTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlFilterTribes.Name = "pnlFilterTribes";
-            this.pnlFilterTribes.Size = new System.Drawing.Size(740, 33);
-            this.pnlFilterTribes.TabIndex = 23;
+            pnlFilterTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterTribes.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterTribes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterTribes.Controls.Add(btnFilterTribe);
+            pnlFilterTribes.Controls.Add(txtFilterTribe);
+            pnlFilterTribes.Location = new System.Drawing.Point(5, 400);
+            pnlFilterTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterTribes.Name = "pnlFilterTribes";
+            pnlFilterTribes.Size = new System.Drawing.Size(740, 33);
+            pnlFilterTribes.TabIndex = 23;
             // 
             // btnFilterTribe
             // 
-            this.btnFilterTribe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFilterTribe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilterTribe.Image = ((System.Drawing.Image)(resources.GetObject("btnFilterTribe.Image")));
-            this.btnFilterTribe.Location = new System.Drawing.Point(704, -1);
-            this.btnFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFilterTribe.Name = "btnFilterTribe";
-            this.btnFilterTribe.Size = new System.Drawing.Size(35, 33);
-            this.btnFilterTribe.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnFilterTribe, "Find next");
-            this.btnFilterTribe.UseVisualStyleBackColor = true;
-            this.btnFilterTribe.Click += new System.EventHandler(this.btnFilterTribe_Click);
+            btnFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFilterTribe.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFilterTribe.Image = (System.Drawing.Image)resources.GetObject("btnFilterTribe.Image");
+            btnFilterTribe.Location = new System.Drawing.Point(704, -1);
+            btnFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFilterTribe.Name = "btnFilterTribe";
+            btnFilterTribe.Size = new System.Drawing.Size(35, 33);
+            btnFilterTribe.TabIndex = 9;
+            toolTip1.SetToolTip(btnFilterTribe, "Find next");
+            btnFilterTribe.UseVisualStyleBackColor = true;
+            btnFilterTribe.Click += btnFilterTribe_Click;
             // 
             // txtFilterTribe
             // 
-            this.txtFilterTribe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilterTribe.Location = new System.Drawing.Point(12, 3);
-            this.txtFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFilterTribe.Name = "txtFilterTribe";
-            this.txtFilterTribe.Size = new System.Drawing.Size(680, 23);
-            this.txtFilterTribe.TabIndex = 6;
-            this.txtFilterTribe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterTribe_KeyDown);
+            txtFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterTribe.Location = new System.Drawing.Point(12, 3);
+            txtFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterTribe.Name = "txtFilterTribe";
+            txtFilterTribe.Size = new System.Drawing.Size(680, 23);
+            txtFilterTribe.TabIndex = 6;
+            txtFilterTribe.KeyDown += txtFilterTribe_KeyDown;
             // 
             // btnSaveChartImage
             // 
-            this.btnSaveChartImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveChartImage.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveChartImage.Image")));
-            this.btnSaveChartImage.Location = new System.Drawing.Point(269, 42);
-            this.btnSaveChartImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSaveChartImage.Name = "btnSaveChartImage";
-            this.btnSaveChartImage.Size = new System.Drawing.Size(43, 33);
-            this.btnSaveChartImage.TabIndex = 52;
-            this.btnSaveChartImage.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnSaveChartImage, "Save chart image.");
-            this.btnSaveChartImage.UseVisualStyleBackColor = true;
-            this.btnSaveChartImage.Click += new System.EventHandler(this.btnSaveChart_Click);
+            btnSaveChartImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnSaveChartImage.Image = (System.Drawing.Image)resources.GetObject("btnSaveChartImage.Image");
+            btnSaveChartImage.Location = new System.Drawing.Point(269, 42);
+            btnSaveChartImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnSaveChartImage.Name = "btnSaveChartImage";
+            btnSaveChartImage.Size = new System.Drawing.Size(43, 33);
+            btnSaveChartImage.TabIndex = 52;
+            btnSaveChartImage.TabStop = false;
+            toolTip1.SetToolTip(btnSaveChartImage, "Save chart image.");
+            btnSaveChartImage.UseVisualStyleBackColor = true;
+            btnSaveChartImage.Click += btnSaveChart_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(12, 46);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Top:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label2.ForeColor = System.Drawing.Color.DarkSlateGray;
+            label2.Location = new System.Drawing.Point(12, 46);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(33, 13);
+            label2.TabIndex = 7;
+            label2.Text = "Top:";
             // 
             // udChartTop
             // 
-            this.udChartTop.Location = new System.Drawing.Point(72, 43);
-            this.udChartTop.Name = "udChartTop";
-            this.udChartTop.Size = new System.Drawing.Size(63, 23);
-            this.udChartTop.TabIndex = 6;
-            this.udChartTop.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.udChartTop.ValueChanged += new System.EventHandler(this.udChartTop_ValueChanged);
+            udChartTop.Location = new System.Drawing.Point(72, 43);
+            udChartTop.Name = "udChartTop";
+            udChartTop.Size = new System.Drawing.Size(63, 23);
+            udChartTop.TabIndex = 6;
+            udChartTop.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            udChartTop.ValueChanged += udChartTop_ValueChanged;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(12, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Chart:";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            label1.Location = new System.Drawing.Point(12, 17);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(41, 13);
+            label1.TabIndex = 4;
+            label1.Text = "Chart:";
             // 
             // cboChartType
             // 
-            this.cboChartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboChartType.FormattingEnabled = true;
-            this.cboChartType.Items.AddRange(new object[] {
-            "Tribes by No. Players",
-            "Tribes by No. Tames",
-            "Tribes by No. Structures"});
-            this.cboChartType.Location = new System.Drawing.Point(72, 13);
-            this.cboChartType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboChartType.Name = "cboChartType";
-            this.cboChartType.Size = new System.Drawing.Size(240, 23);
-            this.cboChartType.TabIndex = 5;
-            this.cboChartType.SelectedIndexChanged += new System.EventHandler(this.cboChartType_SelectedIndexChanged);
+            cboChartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboChartType.FormattingEnabled = true;
+            cboChartType.Items.AddRange(new object[] { "Tribes by No. Players", "Tribes by No. Tames", "Tribes by No. Structures" });
+            cboChartType.Location = new System.Drawing.Point(72, 13);
+            cboChartType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboChartType.Name = "cboChartType";
+            cboChartType.Size = new System.Drawing.Size(240, 23);
+            cboChartType.TabIndex = 5;
+            cboChartType.SelectedIndexChanged += cboChartType_SelectedIndexChanged;
             // 
             // chartTribes
             // 
-            this.chartTribes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chartTribes.CausesValidation = false;
-            this.chartTribes.Location = new System.Drawing.Point(10, 81);
-            this.chartTribes.Name = "chartTribes";
-            this.chartTribes.Size = new System.Drawing.Size(302, 306);
-            this.chartTribes.SubTitle = "";
-            this.chartTribes.TabIndex = 0;
-            this.chartTribes.Title = "ASV Tribes";
+            chartTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            chartTribes.CausesValidation = false;
+            chartTribes.Location = new System.Drawing.Point(10, 81);
+            chartTribes.Name = "chartTribes";
+            chartTribes.Size = new System.Drawing.Size(302, 306);
+            chartTribes.SubTitle = "";
+            chartTribes.TabIndex = 0;
+            chartTribes.Title = "ASV Tribes";
             // 
             // chkTribeStructures
             // 
-            this.chkTribeStructures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkTribeStructures.BackColor = System.Drawing.Color.PaleGreen;
-            this.chkTribeStructures.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.chkTribeStructures.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkTribeStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTribeStructures.ForeColor = System.Drawing.Color.ForestGreen;
-            this.chkTribeStructures.Location = new System.Drawing.Point(945, 467);
-            this.chkTribeStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkTribeStructures.Name = "chkTribeStructures";
-            this.chkTribeStructures.Size = new System.Drawing.Size(141, 40);
-            this.chkTribeStructures.TabIndex = 7;
-            this.chkTribeStructures.Text = "Structure Markers";
-            this.chkTribeStructures.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.chkTribeStructures, "Show structure markers.");
-            this.chkTribeStructures.UseVisualStyleBackColor = false;
-            this.chkTribeStructures.CheckedChanged += new System.EventHandler(this.chkTribeStructures_CheckedChanged);
+            chkTribeStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkTribeStructures.BackColor = System.Drawing.Color.PaleGreen;
+            chkTribeStructures.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            chkTribeStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTribeStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkTribeStructures.ForeColor = System.Drawing.Color.ForestGreen;
+            chkTribeStructures.Location = new System.Drawing.Point(945, 467);
+            chkTribeStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTribeStructures.Name = "chkTribeStructures";
+            chkTribeStructures.Size = new System.Drawing.Size(141, 40);
+            chkTribeStructures.TabIndex = 7;
+            chkTribeStructures.Text = "Structure Markers";
+            chkTribeStructures.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(chkTribeStructures, "Show structure markers.");
+            chkTribeStructures.UseVisualStyleBackColor = false;
+            chkTribeStructures.CheckedChanged += chkTribeStructures_CheckedChanged;
             // 
             // chkTribeTames
             // 
-            this.chkTribeTames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkTribeTames.BackColor = System.Drawing.Color.Gold;
-            this.chkTribeTames.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.chkTribeTames.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkTribeTames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTribeTames.ForeColor = System.Drawing.Color.Chocolate;
-            this.chkTribeTames.Location = new System.Drawing.Point(816, 467);
-            this.chkTribeTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkTribeTames.Name = "chkTribeTames";
-            this.chkTribeTames.Size = new System.Drawing.Size(122, 40);
-            this.chkTribeTames.TabIndex = 6;
-            this.chkTribeTames.Text = "Tame Markers";
-            this.chkTribeTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.chkTribeTames, "Show tame markers.");
-            this.chkTribeTames.UseVisualStyleBackColor = false;
-            this.chkTribeTames.CheckedChanged += new System.EventHandler(this.chkTribeTames_CheckedChanged);
+            chkTribeTames.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkTribeTames.BackColor = System.Drawing.Color.Gold;
+            chkTribeTames.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            chkTribeTames.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTribeTames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkTribeTames.ForeColor = System.Drawing.Color.Chocolate;
+            chkTribeTames.Location = new System.Drawing.Point(816, 467);
+            chkTribeTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTribeTames.Name = "chkTribeTames";
+            chkTribeTames.Size = new System.Drawing.Size(122, 40);
+            chkTribeTames.TabIndex = 6;
+            chkTribeTames.Text = "Tame Markers";
+            chkTribeTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(chkTribeTames, "Show tame markers.");
+            chkTribeTames.UseVisualStyleBackColor = false;
+            chkTribeTames.CheckedChanged += chkTribeTames_CheckedChanged;
             // 
             // chkTribePlayers
             // 
-            this.chkTribePlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkTribePlayers.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.chkTribePlayers.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.chkTribePlayers.Checked = true;
-            this.chkTribePlayers.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTribePlayers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkTribePlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTribePlayers.ForeColor = System.Drawing.Color.LightCyan;
-            this.chkTribePlayers.Location = new System.Drawing.Point(676, 467);
-            this.chkTribePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkTribePlayers.Name = "chkTribePlayers";
-            this.chkTribePlayers.Size = new System.Drawing.Size(133, 40);
-            this.chkTribePlayers.TabIndex = 5;
-            this.chkTribePlayers.Text = "Player Markers";
-            this.chkTribePlayers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTip1.SetToolTip(this.chkTribePlayers, "Show player markers.");
-            this.chkTribePlayers.UseVisualStyleBackColor = false;
-            this.chkTribePlayers.CheckedChanged += new System.EventHandler(this.chkTribePlayers_CheckedChanged);
+            chkTribePlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkTribePlayers.BackColor = System.Drawing.Color.CornflowerBlue;
+            chkTribePlayers.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            chkTribePlayers.Checked = true;
+            chkTribePlayers.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkTribePlayers.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTribePlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkTribePlayers.ForeColor = System.Drawing.Color.LightCyan;
+            chkTribePlayers.Location = new System.Drawing.Point(676, 467);
+            chkTribePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTribePlayers.Name = "chkTribePlayers";
+            chkTribePlayers.Size = new System.Drawing.Size(133, 40);
+            chkTribePlayers.TabIndex = 5;
+            chkTribePlayers.Text = "Player Markers";
+            chkTribePlayers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(chkTribePlayers, "Show player markers.");
+            chkTribePlayers.UseVisualStyleBackColor = false;
+            chkTribePlayers.CheckedChanged += chkTribePlayers_CheckedChanged;
             // 
             // lblTribeCopyCommand
             // 
-            this.lblTribeCopyCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTribeCopyCommand.AutoSize = true;
-            this.lblTribeCopyCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTribeCopyCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTribeCopyCommand.Location = new System.Drawing.Point(16, 478);
-            this.lblTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTribeCopyCommand.Name = "lblTribeCopyCommand";
-            this.lblTribeCopyCommand.Size = new System.Drawing.Size(65, 13);
-            this.lblTribeCopyCommand.TabIndex = 1;
-            this.lblTribeCopyCommand.Text = "Command:";
+            lblTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblTribeCopyCommand.AutoSize = true;
+            lblTribeCopyCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTribeCopyCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTribeCopyCommand.Location = new System.Drawing.Point(16, 478);
+            lblTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTribeCopyCommand.Name = "lblTribeCopyCommand";
+            lblTribeCopyCommand.Size = new System.Drawing.Size(65, 13);
+            lblTribeCopyCommand.TabIndex = 1;
+            lblTribeCopyCommand.Text = "Command:";
             // 
             // cboTribeCopyCommand
             // 
-            this.cboTribeCopyCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTribeCopyCommand.FormattingEnabled = true;
-            this.cboTribeCopyCommand.Items.AddRange(new object[] {
-            "DestroyTribeId <TribeID> ",
-            "DestroyTribeIdDinos <TribeID>",
-            "DestroyTribeIdPlayers <TribeID>",
-            "DestroyTribeIdStructures <TribeID>",
-            "RenameTribe \"<TribeName>\" ",
-            "TakeTribe <TribeID>",
-            "TribeStructureAudit <TribeID>",
-            "TribeDinoAudit  <TribeID>",
-            "RM <FileCsvList>",
-            "DEL <FileCsvList>"});
-            this.cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
-            this.cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTribeCopyCommand.Name = "cboTribeCopyCommand";
-            this.cboTribeCopyCommand.Size = new System.Drawing.Size(305, 23);
-            this.cboTribeCopyCommand.TabIndex = 2;
+            cboTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTribeCopyCommand.FormattingEnabled = true;
+            cboTribeCopyCommand.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "TakeTribe <TribeID>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "RM <FileCsvList>", "DEL <FileCsvList>" });
+            cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
+            cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTribeCopyCommand.Name = "cboTribeCopyCommand";
+            cboTribeCopyCommand.Size = new System.Drawing.Size(305, 23);
+            cboTribeCopyCommand.TabIndex = 2;
             // 
             // tpgPlayers
             // 
-            this.tpgPlayers.Controls.Add(this.cboPlayerRealm);
-            this.tpgPlayers.Controls.Add(this.lblPlayerRealm);
-            this.tpgPlayers.Controls.Add(this.pnlFilterPlayers);
-            this.tpgPlayers.Controls.Add(this.btnDeletePlayer);
-            this.tpgPlayers.Controls.Add(this.lblPlayerTotal);
-            this.tpgPlayers.Controls.Add(this.btnCopyCommandPlayer);
-            this.tpgPlayers.Controls.Add(this.lblCommandPlayer);
-            this.tpgPlayers.Controls.Add(this.cboConsoleCommandsPlayerTribe);
-            this.tpgPlayers.Controls.Add(this.btnPlayerTribeLog);
-            this.tpgPlayers.Controls.Add(this.btnPlayerInventory);
-            this.tpgPlayers.Controls.Add(this.lblPlayersPlayer);
-            this.tpgPlayers.Controls.Add(this.lblPlayersTribe);
-            this.tpgPlayers.Controls.Add(this.cboTribes);
-            this.tpgPlayers.Controls.Add(this.cboPlayers);
-            this.tpgPlayers.Controls.Add(this.lvwPlayers);
-            this.tpgPlayers.Location = new System.Drawing.Point(4, 24);
-            this.tpgPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgPlayers.Name = "tpgPlayers";
-            this.tpgPlayers.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgPlayers.Size = new System.Drawing.Size(1104, 520);
-            this.tpgPlayers.TabIndex = 1;
-            this.tpgPlayers.Text = "Players";
-            this.tpgPlayers.UseVisualStyleBackColor = true;
+            tpgPlayers.Controls.Add(cboPlayerRealm);
+            tpgPlayers.Controls.Add(lblPlayerRealm);
+            tpgPlayers.Controls.Add(pnlFilterPlayers);
+            tpgPlayers.Controls.Add(btnDeletePlayer);
+            tpgPlayers.Controls.Add(lblPlayerTotal);
+            tpgPlayers.Controls.Add(btnCopyCommandPlayer);
+            tpgPlayers.Controls.Add(lblCommandPlayer);
+            tpgPlayers.Controls.Add(cboConsoleCommandsPlayerTribe);
+            tpgPlayers.Controls.Add(btnPlayerTribeLog);
+            tpgPlayers.Controls.Add(btnPlayerInventory);
+            tpgPlayers.Controls.Add(lblPlayersPlayer);
+            tpgPlayers.Controls.Add(lblPlayersTribe);
+            tpgPlayers.Controls.Add(cboTribes);
+            tpgPlayers.Controls.Add(cboPlayers);
+            tpgPlayers.Controls.Add(lvwPlayers);
+            tpgPlayers.Location = new System.Drawing.Point(4, 24);
+            tpgPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgPlayers.Name = "tpgPlayers";
+            tpgPlayers.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgPlayers.Size = new System.Drawing.Size(1104, 520);
+            tpgPlayers.TabIndex = 1;
+            tpgPlayers.Text = "Players";
+            tpgPlayers.UseVisualStyleBackColor = true;
             // 
             // cboPlayerRealm
             // 
-            this.cboPlayerRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboPlayerRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPlayerRealm.FormattingEnabled = true;
-            this.cboPlayerRealm.Location = new System.Drawing.Point(865, 17);
-            this.cboPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboPlayerRealm.Name = "cboPlayerRealm";
-            this.cboPlayerRealm.Size = new System.Drawing.Size(222, 23);
-            this.cboPlayerRealm.TabIndex = 25;
-            this.cboPlayerRealm.SelectedIndexChanged += new System.EventHandler(this.cboPlayerRealm_SelectedIndexChanged);
+            cboPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboPlayerRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPlayerRealm.FormattingEnabled = true;
+            cboPlayerRealm.Location = new System.Drawing.Point(865, 17);
+            cboPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPlayerRealm.Name = "cboPlayerRealm";
+            cboPlayerRealm.Size = new System.Drawing.Size(222, 23);
+            cboPlayerRealm.TabIndex = 25;
+            cboPlayerRealm.SelectedIndexChanged += cboPlayerRealm_SelectedIndexChanged;
             // 
             // lblPlayerRealm
             // 
-            this.lblPlayerRealm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerRealm.AutoSize = true;
-            this.lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlayerRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayerRealm.Location = new System.Drawing.Point(791, 22);
-            this.lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlayerRealm.Name = "lblPlayerRealm";
-            this.lblPlayerRealm.Size = new System.Drawing.Size(46, 13);
-            this.lblPlayerRealm.TabIndex = 24;
-            this.lblPlayerRealm.Text = "Realm:";
+            lblPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblPlayerRealm.AutoSize = true;
+            lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayerRealm.Location = new System.Drawing.Point(791, 22);
+            lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerRealm.Name = "lblPlayerRealm";
+            lblPlayerRealm.Size = new System.Drawing.Size(46, 13);
+            lblPlayerRealm.TabIndex = 24;
+            lblPlayerRealm.Text = "Realm:";
             // 
             // pnlFilterPlayers
             // 
-            this.pnlFilterPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilterPlayers.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlFilterPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFilterPlayers.Controls.Add(this.btnFilterPlayer);
-            this.pnlFilterPlayers.Controls.Add(this.txtFilterPlayer);
-            this.pnlFilterPlayers.Location = new System.Drawing.Point(14, 420);
-            this.pnlFilterPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlFilterPlayers.Name = "pnlFilterPlayers";
-            this.pnlFilterPlayers.Size = new System.Drawing.Size(1072, 33);
-            this.pnlFilterPlayers.TabIndex = 23;
+            pnlFilterPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterPlayers.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterPlayers.Controls.Add(btnFilterPlayer);
+            pnlFilterPlayers.Controls.Add(txtFilterPlayer);
+            pnlFilterPlayers.Location = new System.Drawing.Point(14, 420);
+            pnlFilterPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterPlayers.Name = "pnlFilterPlayers";
+            pnlFilterPlayers.Size = new System.Drawing.Size(1072, 33);
+            pnlFilterPlayers.TabIndex = 23;
             // 
             // btnFilterPlayer
             // 
-            this.btnFilterPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFilterPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilterPlayer.Image = ((System.Drawing.Image)(resources.GetObject("btnFilterPlayer.Image")));
-            this.btnFilterPlayer.Location = new System.Drawing.Point(1036, -1);
-            this.btnFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFilterPlayer.Name = "btnFilterPlayer";
-            this.btnFilterPlayer.Size = new System.Drawing.Size(35, 33);
-            this.btnFilterPlayer.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnFilterPlayer, "Find next");
-            this.btnFilterPlayer.UseVisualStyleBackColor = true;
-            this.btnFilterPlayer.Click += new System.EventHandler(this.btnFilterPlayer_Click);
+            btnFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFilterPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFilterPlayer.Image = (System.Drawing.Image)resources.GetObject("btnFilterPlayer.Image");
+            btnFilterPlayer.Location = new System.Drawing.Point(1036, -1);
+            btnFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFilterPlayer.Name = "btnFilterPlayer";
+            btnFilterPlayer.Size = new System.Drawing.Size(35, 33);
+            btnFilterPlayer.TabIndex = 9;
+            toolTip1.SetToolTip(btnFilterPlayer, "Find next");
+            btnFilterPlayer.UseVisualStyleBackColor = true;
+            btnFilterPlayer.Click += btnFilterPlayer_Click;
             // 
             // txtFilterPlayer
             // 
-            this.txtFilterPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilterPlayer.Location = new System.Drawing.Point(12, 3);
-            this.txtFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFilterPlayer.Name = "txtFilterPlayer";
-            this.txtFilterPlayer.Size = new System.Drawing.Size(1012, 23);
-            this.txtFilterPlayer.TabIndex = 6;
-            this.txtFilterPlayer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterPlayer_KeyDown);
+            txtFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterPlayer.Location = new System.Drawing.Point(12, 3);
+            txtFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterPlayer.Name = "txtFilterPlayer";
+            txtFilterPlayer.Size = new System.Drawing.Size(1012, 23);
+            txtFilterPlayer.TabIndex = 6;
+            txtFilterPlayer.KeyDown += txtFilterPlayer_KeyDown;
             // 
             // lblPlayerTotal
             // 
-            this.lblPlayerTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerTotal.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblPlayerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPlayerTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayerTotal.Location = new System.Drawing.Point(943, 468);
-            this.lblPlayerTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlayerTotal.Name = "lblPlayerTotal";
-            this.lblPlayerTotal.Size = new System.Drawing.Size(144, 35);
-            this.lblPlayerTotal.TabIndex = 11;
-            this.lblPlayerTotal.Text = "Total: 0";
-            this.lblPlayerTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblPlayerTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblPlayerTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblPlayerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPlayerTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayerTotal.Location = new System.Drawing.Point(943, 468);
+            lblPlayerTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerTotal.Name = "lblPlayerTotal";
+            lblPlayerTotal.Size = new System.Drawing.Size(144, 35);
+            lblPlayerTotal.TabIndex = 11;
+            lblPlayerTotal.Text = "Total: 0";
+            lblPlayerTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCommandPlayer
             // 
-            this.lblCommandPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCommandPlayer.AutoSize = true;
-            this.lblCommandPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCommandPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblCommandPlayer.Location = new System.Drawing.Point(16, 475);
-            this.lblCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCommandPlayer.Name = "lblCommandPlayer";
-            this.lblCommandPlayer.Size = new System.Drawing.Size(65, 13);
-            this.lblCommandPlayer.TabIndex = 5;
-            this.lblCommandPlayer.Text = "Command:";
+            lblCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblCommandPlayer.AutoSize = true;
+            lblCommandPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCommandPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCommandPlayer.Location = new System.Drawing.Point(16, 475);
+            lblCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCommandPlayer.Name = "lblCommandPlayer";
+            lblCommandPlayer.Size = new System.Drawing.Size(65, 13);
+            lblCommandPlayer.TabIndex = 5;
+            lblCommandPlayer.Text = "Command:";
             // 
             // cboConsoleCommandsPlayerTribe
             // 
-            this.cboConsoleCommandsPlayerTribe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
-            this.cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] {
-            "AllowPlayerToJoinNoCheck <SteamID>",
-            "BanPlayer <SteamID>",
-            "ClearPlayerInventory <PlayerID> true true true",
-            "DefeatAllBosses <PlayerID> ",
-            "DestroyTribeId <TribeID> ",
-            "DestroyTribeIdDinos <TribeID>",
-            "DestroyTribeIdPlayers <TribeID>",
-            "DestroyTribeIdStructures <TribeID>",
-            "DisallowPlayerToJoinNoCheck <SteamID> ",
-            "GetPlayerIDForSteamID <SteamID> ",
-            "GetSteamIDForPlayerID <PlayerID> ",
-            "GiveCreativeModeToPlayer <PlayerID> ",
-            "GiveTekengramsTo <PlayerID> tek",
-            "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>" +
-                "",
-            "KickPlayer <SteamID> ",
-            "KillPlayer <PlayerID>",
-            "MaxAscend <PlayerID>  ",
-            "RenamePlayer \"<CharacterName>\" <NewName>",
-            "RenameTribe \"<TribeName>\" <NewName>",
-            "ServerChatToPlayer <PlayerName>",
-            "SetImprintedPlayer \"<CharacterName>\" <PlayerID>",
-            "SetPlayerPos  <x> <y> <z>",
-            "TakeTribe <TribeID>",
-            "TeleportPlayerIDToMe <PlayerID>",
-            "TeleportPlayerNameToMe <CharacterName>",
-            "TeleportToPlayer <PlayerID>",
-            "TeleportToPlayerName <CharacterName>",
-            "TribeStructureAudit <TribeID>",
-            "TribeDinoAudit  <TribeID>",
-            "UnbanPlayer <SteamID>",
-            "RM <FileCsvList>",
-            "DEL <FileCsvList>",
-            "AddChibiExpToPlayer <PlayerID> <HowMuch>"});
-            this.cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
-            this.cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
-            this.cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 23);
-            this.cboConsoleCommandsPlayerTribe.TabIndex = 6;
-            this.cboConsoleCommandsPlayerTribe.SelectedIndexChanged += new System.EventHandler(this.cboConsoleCommandsPlayerTribe_SelectedIndexChanged);
+            cboConsoleCommandsPlayerTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
+            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveTekengramsTo <PlayerID> tek", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "UnbanPlayer <SteamID>", "RM <FileCsvList>", "DEL <FileCsvList>", "AddChibiExpToPlayer <PlayerID> <HowMuch>" });
+            cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
+            cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
+            cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsPlayerTribe.TabIndex = 6;
+            cboConsoleCommandsPlayerTribe.SelectedIndexChanged += cboConsoleCommandsPlayerTribe_SelectedIndexChanged;
             // 
             // lblPlayersPlayer
             // 
-            this.lblPlayersPlayer.AutoSize = true;
-            this.lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlayersPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayersPlayer.Location = new System.Drawing.Point(405, 21);
-            this.lblPlayersPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlayersPlayer.Name = "lblPlayersPlayer";
-            this.lblPlayersPlayer.Size = new System.Drawing.Size(46, 13);
-            this.lblPlayersPlayer.TabIndex = 2;
-            this.lblPlayersPlayer.Text = "Player:";
+            lblPlayersPlayer.AutoSize = true;
+            lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayersPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayersPlayer.Location = new System.Drawing.Point(405, 21);
+            lblPlayersPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayersPlayer.Name = "lblPlayersPlayer";
+            lblPlayersPlayer.Size = new System.Drawing.Size(46, 13);
+            lblPlayersPlayer.TabIndex = 2;
+            lblPlayersPlayer.Text = "Player:";
             // 
             // lblPlayersTribe
             // 
-            this.lblPlayersTribe.AutoSize = true;
-            this.lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPlayersTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayersTribe.Location = new System.Drawing.Point(16, 21);
-            this.lblPlayersTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlayersTribe.Name = "lblPlayersTribe";
-            this.lblPlayersTribe.Size = new System.Drawing.Size(40, 13);
-            this.lblPlayersTribe.TabIndex = 0;
-            this.lblPlayersTribe.Text = "Tribe:";
+            lblPlayersTribe.AutoSize = true;
+            lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayersTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayersTribe.Location = new System.Drawing.Point(16, 21);
+            lblPlayersTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayersTribe.Name = "lblPlayersTribe";
+            lblPlayersTribe.Size = new System.Drawing.Size(40, 13);
+            lblPlayersTribe.TabIndex = 0;
+            lblPlayersTribe.Text = "Tribe:";
             // 
             // cboTribes
             // 
-            this.cboTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTribes.FormattingEnabled = true;
-            this.cboTribes.Location = new System.Drawing.Point(70, 17);
-            this.cboTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTribes.Name = "cboTribes";
-            this.cboTribes.Size = new System.Drawing.Size(313, 23);
-            this.cboTribes.TabIndex = 1;
-            this.cboTribes.SelectedIndexChanged += new System.EventHandler(this.cboTribes_SelectedIndexChanged);
+            cboTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTribes.FormattingEnabled = true;
+            cboTribes.Location = new System.Drawing.Point(70, 17);
+            cboTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTribes.Name = "cboTribes";
+            cboTribes.Size = new System.Drawing.Size(313, 23);
+            cboTribes.TabIndex = 1;
+            cboTribes.SelectedIndexChanged += cboTribes_SelectedIndexChanged;
             // 
             // cboPlayers
             // 
-            this.cboPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPlayers.FormattingEnabled = true;
-            this.cboPlayers.Location = new System.Drawing.Point(465, 17);
-            this.cboPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboPlayers.Name = "cboPlayers";
-            this.cboPlayers.Size = new System.Drawing.Size(232, 23);
-            this.cboPlayers.TabIndex = 3;
-            this.cboPlayers.SelectedIndexChanged += new System.EventHandler(this.cboPlayers_SelectedIndexChanged);
+            cboPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPlayers.FormattingEnabled = true;
+            cboPlayers.Location = new System.Drawing.Point(465, 17);
+            cboPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPlayers.Name = "cboPlayers";
+            cboPlayers.Size = new System.Drawing.Size(232, 23);
+            cboPlayers.TabIndex = 3;
+            cboPlayers.SelectedIndexChanged += cboPlayers_SelectedIndexChanged;
             // 
             // lvwPlayers
             // 
-            this.lvwPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwPlayers_PlayerId,
-            this.lvwPlayers_Name,
-            this.lvwPlayers_Tribe,
-            this.lvwPlayers_Sex,
-            this.lvwPlayers_Level,
-            this.lvwPlayers_Lat,
-            this.lvwPlayers_Lon,
-            this.lvwPlayers_Hp,
-            this.lvwPlayers_Stam,
-            this.lvwPlayers_Melee,
-            this.lvwPlayers_Weight,
-            this.lvwPlayers_Speed,
-            this.lvwPlayers_Food,
-            this.lvwPlayers_Water,
-            this.lvwPlayers_Oxygen,
-            this.lvwPlayers_Crafting,
-            this.lvwPlayers_Fortitude,
-            this.lvwPlayers_LastOnline,
-            this.lvwPlayers_SteamName,
-            this.lvwPlayers_SteamId,
-            this.lvwPlayers_CCC});
-            this.lvwPlayers.ContextMenuStrip = this.mnuContext;
-            this.lvwPlayers.FullRowSelect = true;
-            this.lvwPlayers.Location = new System.Drawing.Point(14, 60);
-            this.lvwPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwPlayers.Name = "lvwPlayers";
-            this.lvwPlayers.Size = new System.Drawing.Size(1072, 361);
-            this.lvwPlayers.TabIndex = 4;
-            this.lvwPlayers.UseCompatibleStateImageBehavior = false;
-            this.lvwPlayers.View = System.Windows.Forms.View.Details;
-            this.lvwPlayers.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwPlayers_ColumnClick);
-            this.lvwPlayers.SelectedIndexChanged += new System.EventHandler(this.lvwPlayers_SelectedIndexChanged);
-            this.lvwPlayers.Click += new System.EventHandler(this.lvwPlayers_Click);
-            this.lvwPlayers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvwPlayers_MouseClick);
+            lvwPlayers.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwPlayers_PlayerId, lvwPlayers_Name, lvwPlayers_Tribe, lvwPlayers_Sex, lvwPlayers_Level, lvwPlayers_Lat, lvwPlayers_Lon, lvwPlayers_Hp, lvwPlayers_Stam, lvwPlayers_Melee, lvwPlayers_Weight, lvwPlayers_Speed, lvwPlayers_Food, lvwPlayers_Water, lvwPlayers_Oxygen, lvwPlayers_Crafting, lvwPlayers_Fortitude, lvwPlayers_LastOnline, lvwPlayers_SteamName, lvwPlayers_SteamId, lvwPlayers_CCC });
+            lvwPlayers.ContextMenuStrip = mnuContext;
+            lvwPlayers.FullRowSelect = true;
+            lvwPlayers.Location = new System.Drawing.Point(14, 60);
+            lvwPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwPlayers.Name = "lvwPlayers";
+            lvwPlayers.Size = new System.Drawing.Size(1072, 361);
+            lvwPlayers.TabIndex = 4;
+            lvwPlayers.UseCompatibleStateImageBehavior = false;
+            lvwPlayers.View = System.Windows.Forms.View.Details;
+            lvwPlayers.ColumnClick += lvwPlayers_ColumnClick;
+            lvwPlayers.SelectedIndexChanged += lvwPlayers_SelectedIndexChanged;
+            lvwPlayers.Click += lvwPlayers_Click;
+            lvwPlayers.MouseClick += lvwPlayers_MouseClick;
             // 
             // lvwPlayers_PlayerId
             // 
-            this.lvwPlayers_PlayerId.Text = "Id";
-            this.lvwPlayers_PlayerId.Width = 100;
+            lvwPlayers_PlayerId.Text = "Id";
+            lvwPlayers_PlayerId.Width = 100;
             // 
             // lvwPlayers_Name
             // 
-            this.lvwPlayers_Name.Text = "Name";
-            this.lvwPlayers_Name.Width = 90;
+            lvwPlayers_Name.Text = "Name";
+            lvwPlayers_Name.Width = 90;
             // 
             // lvwPlayers_Tribe
             // 
-            this.lvwPlayers_Tribe.Text = "Tribe";
-            this.lvwPlayers_Tribe.Width = 90;
+            lvwPlayers_Tribe.Text = "Tribe";
+            lvwPlayers_Tribe.Width = 90;
             // 
             // lvwPlayers_Sex
             // 
-            this.lvwPlayers_Sex.Text = "Sex";
-            this.lvwPlayers_Sex.Width = 55;
+            lvwPlayers_Sex.Text = "Sex";
+            lvwPlayers_Sex.Width = 55;
             // 
             // lvwPlayers_Level
             // 
-            this.lvwPlayers_Level.Text = "Lvl";
-            this.lvwPlayers_Level.Width = 35;
+            lvwPlayers_Level.Text = "Lvl";
+            lvwPlayers_Level.Width = 35;
             // 
             // lvwPlayers_Lat
             // 
-            this.lvwPlayers_Lat.Text = "Lat";
-            this.lvwPlayers_Lat.Width = 45;
+            lvwPlayers_Lat.Text = "Lat";
+            lvwPlayers_Lat.Width = 45;
             // 
             // lvwPlayers_Lon
             // 
-            this.lvwPlayers_Lon.Text = "Lon";
-            this.lvwPlayers_Lon.Width = 45;
+            lvwPlayers_Lon.Text = "Lon";
+            lvwPlayers_Lon.Width = 45;
             // 
             // lvwPlayers_Hp
             // 
-            this.lvwPlayers_Hp.Text = "HP";
-            this.lvwPlayers_Hp.Width = 45;
+            lvwPlayers_Hp.Text = "HP";
+            lvwPlayers_Hp.Width = 45;
             // 
             // lvwPlayers_Stam
             // 
-            this.lvwPlayers_Stam.Text = "Stam";
-            this.lvwPlayers_Stam.Width = 45;
+            lvwPlayers_Stam.Text = "Stam";
+            lvwPlayers_Stam.Width = 45;
             // 
             // lvwPlayers_Melee
             // 
-            this.lvwPlayers_Melee.Text = "Melee";
-            this.lvwPlayers_Melee.Width = 48;
+            lvwPlayers_Melee.Text = "Melee";
+            lvwPlayers_Melee.Width = 48;
             // 
             // lvwPlayers_Weight
             // 
-            this.lvwPlayers_Weight.Text = "Weight";
-            this.lvwPlayers_Weight.Width = 55;
+            lvwPlayers_Weight.Text = "Weight";
+            lvwPlayers_Weight.Width = 55;
             // 
             // lvwPlayers_Speed
             // 
-            this.lvwPlayers_Speed.Text = "Speed";
-            this.lvwPlayers_Speed.Width = 50;
+            lvwPlayers_Speed.Text = "Speed";
+            lvwPlayers_Speed.Width = 50;
             // 
             // lvwPlayers_Food
             // 
-            this.lvwPlayers_Food.Text = "Food";
-            this.lvwPlayers_Food.Width = 47;
+            lvwPlayers_Food.Text = "Food";
+            lvwPlayers_Food.Width = 47;
             // 
             // lvwPlayers_Water
             // 
-            this.lvwPlayers_Water.Text = "Water";
+            lvwPlayers_Water.Text = "Water";
             // 
             // lvwPlayers_Oxygen
             // 
-            this.lvwPlayers_Oxygen.Text = "Oxygen";
-            this.lvwPlayers_Oxygen.Width = 53;
+            lvwPlayers_Oxygen.Text = "Oxygen";
+            lvwPlayers_Oxygen.Width = 53;
             // 
             // lvwPlayers_Crafting
             // 
-            this.lvwPlayers_Crafting.Text = "Crafting";
+            lvwPlayers_Crafting.Text = "Crafting";
             // 
             // lvwPlayers_Fortitude
             // 
-            this.lvwPlayers_Fortitude.Text = "Fortitude";
+            lvwPlayers_Fortitude.Text = "Fortitude";
             // 
             // lvwPlayers_LastOnline
             // 
-            this.lvwPlayers_LastOnline.Text = "Last Online";
-            this.lvwPlayers_LastOnline.Width = 140;
+            lvwPlayers_LastOnline.Text = "Last Online";
+            lvwPlayers_LastOnline.Width = 140;
             // 
             // lvwPlayers_SteamName
             // 
-            this.lvwPlayers_SteamName.Text = "Steam Name";
-            this.lvwPlayers_SteamName.Width = 150;
+            lvwPlayers_SteamName.Text = "Steam Name";
+            lvwPlayers_SteamName.Width = 150;
             // 
             // lvwPlayers_SteamId
             // 
-            this.lvwPlayers_SteamId.Text = "Steam Id";
-            this.lvwPlayers_SteamId.Width = 0;
+            lvwPlayers_SteamId.Text = "Steam Id";
+            lvwPlayers_SteamId.Width = 0;
             // 
             // lvwPlayers_CCC
             // 
-            this.lvwPlayers_CCC.Text = "CCC";
-            this.lvwPlayers_CCC.Width = 0;
+            lvwPlayers_CCC.Text = "CCC";
+            lvwPlayers_CCC.Width = 0;
             // 
             // tpgDroppedItems
             // 
-            this.tpgDroppedItems.Controls.Add(this.cboDroppedItemRealm);
-            this.tpgDroppedItems.Controls.Add(this.lblDroppedItemRealm);
-            this.tpgDroppedItems.Controls.Add(this.pnlFilterDropped);
-            this.tpgDroppedItems.Controls.Add(this.chkDroppedBlueprints);
-            this.tpgDroppedItems.Controls.Add(this.btnDropInventory);
-            this.tpgDroppedItems.Controls.Add(this.cboDroppedItem);
-            this.tpgDroppedItems.Controls.Add(this.lblDroppedPlayer);
-            this.tpgDroppedItems.Controls.Add(this.cboDroppedPlayer);
-            this.tpgDroppedItems.Controls.Add(this.btnCopyCommandDropped);
-            this.tpgDroppedItems.Controls.Add(this.lblCopyCommandDropped);
-            this.tpgDroppedItems.Controls.Add(this.cboCopyCommandDropped);
-            this.tpgDroppedItems.Controls.Add(this.lblCountDropped);
-            this.tpgDroppedItems.Controls.Add(this.lblDroppedItem);
-            this.tpgDroppedItems.Controls.Add(this.lvwDroppedItems);
-            this.tpgDroppedItems.Location = new System.Drawing.Point(4, 24);
-            this.tpgDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgDroppedItems.Name = "tpgDroppedItems";
-            this.tpgDroppedItems.Size = new System.Drawing.Size(1104, 520);
-            this.tpgDroppedItems.TabIndex = 4;
-            this.tpgDroppedItems.Text = "Dropped Items";
-            this.tpgDroppedItems.UseVisualStyleBackColor = true;
+            tpgDroppedItems.Controls.Add(cboDroppedItemRealm);
+            tpgDroppedItems.Controls.Add(lblDroppedItemRealm);
+            tpgDroppedItems.Controls.Add(pnlFilterDropped);
+            tpgDroppedItems.Controls.Add(chkDroppedBlueprints);
+            tpgDroppedItems.Controls.Add(btnDropInventory);
+            tpgDroppedItems.Controls.Add(cboDroppedItem);
+            tpgDroppedItems.Controls.Add(lblDroppedPlayer);
+            tpgDroppedItems.Controls.Add(cboDroppedPlayer);
+            tpgDroppedItems.Controls.Add(btnCopyCommandDropped);
+            tpgDroppedItems.Controls.Add(lblCopyCommandDropped);
+            tpgDroppedItems.Controls.Add(cboCopyCommandDropped);
+            tpgDroppedItems.Controls.Add(lblCountDropped);
+            tpgDroppedItems.Controls.Add(lblDroppedItem);
+            tpgDroppedItems.Controls.Add(lvwDroppedItems);
+            tpgDroppedItems.Location = new System.Drawing.Point(4, 24);
+            tpgDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgDroppedItems.Name = "tpgDroppedItems";
+            tpgDroppedItems.Size = new System.Drawing.Size(1104, 520);
+            tpgDroppedItems.TabIndex = 4;
+            tpgDroppedItems.Text = "Dropped Items";
+            tpgDroppedItems.UseVisualStyleBackColor = true;
             // 
             // cboDroppedItemRealm
             // 
-            this.cboDroppedItemRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDroppedItemRealm.FormattingEnabled = true;
-            this.cboDroppedItemRealm.Location = new System.Drawing.Point(736, 17);
-            this.cboDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboDroppedItemRealm.Name = "cboDroppedItemRealm";
-            this.cboDroppedItemRealm.Size = new System.Drawing.Size(222, 23);
-            this.cboDroppedItemRealm.TabIndex = 24;
-            this.cboDroppedItemRealm.SelectedIndexChanged += new System.EventHandler(this.cboDroppedItemRealm_SelectedIndexChanged);
+            cboDroppedItemRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedItemRealm.FormattingEnabled = true;
+            cboDroppedItemRealm.Location = new System.Drawing.Point(736, 17);
+            cboDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDroppedItemRealm.Name = "cboDroppedItemRealm";
+            cboDroppedItemRealm.Size = new System.Drawing.Size(222, 23);
+            cboDroppedItemRealm.TabIndex = 24;
+            cboDroppedItemRealm.SelectedIndexChanged += cboDroppedItemRealm_SelectedIndexChanged;
             // 
             // lblDroppedItemRealm
             // 
-            this.lblDroppedItemRealm.AutoSize = true;
-            this.lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDroppedItemRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblDroppedItemRealm.Location = new System.Drawing.Point(662, 22);
-            this.lblDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDroppedItemRealm.Name = "lblDroppedItemRealm";
-            this.lblDroppedItemRealm.Size = new System.Drawing.Size(46, 13);
-            this.lblDroppedItemRealm.TabIndex = 23;
-            this.lblDroppedItemRealm.Text = "Realm:";
+            lblDroppedItemRealm.AutoSize = true;
+            lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedItemRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedItemRealm.Location = new System.Drawing.Point(662, 22);
+            lblDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDroppedItemRealm.Name = "lblDroppedItemRealm";
+            lblDroppedItemRealm.Size = new System.Drawing.Size(46, 13);
+            lblDroppedItemRealm.TabIndex = 23;
+            lblDroppedItemRealm.Text = "Realm:";
             // 
             // pnlFilterDropped
             // 
-            this.pnlFilterDropped.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilterDropped.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlFilterDropped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFilterDropped.Controls.Add(this.btnFindDropped);
-            this.pnlFilterDropped.Controls.Add(this.txtFilterDropped);
-            this.pnlFilterDropped.Location = new System.Drawing.Point(13, 428);
-            this.pnlFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlFilterDropped.Name = "pnlFilterDropped";
-            this.pnlFilterDropped.Size = new System.Drawing.Size(1075, 33);
-            this.pnlFilterDropped.TabIndex = 22;
+            pnlFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterDropped.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterDropped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterDropped.Controls.Add(btnFindDropped);
+            pnlFilterDropped.Controls.Add(txtFilterDropped);
+            pnlFilterDropped.Location = new System.Drawing.Point(13, 428);
+            pnlFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterDropped.Name = "pnlFilterDropped";
+            pnlFilterDropped.Size = new System.Drawing.Size(1075, 33);
+            pnlFilterDropped.TabIndex = 22;
             // 
             // btnFindDropped
             // 
-            this.btnFindDropped.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindDropped.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFindDropped.Image = ((System.Drawing.Image)(resources.GetObject("btnFindDropped.Image")));
-            this.btnFindDropped.Location = new System.Drawing.Point(1040, -1);
-            this.btnFindDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFindDropped.Name = "btnFindDropped";
-            this.btnFindDropped.Size = new System.Drawing.Size(35, 33);
-            this.btnFindDropped.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnFindDropped, "Find next");
-            this.btnFindDropped.UseVisualStyleBackColor = true;
-            this.btnFindDropped.Click += new System.EventHandler(this.btnFindDropped_Click);
+            btnFindDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindDropped.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindDropped.Image = (System.Drawing.Image)resources.GetObject("btnFindDropped.Image");
+            btnFindDropped.Location = new System.Drawing.Point(1040, -1);
+            btnFindDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindDropped.Name = "btnFindDropped";
+            btnFindDropped.Size = new System.Drawing.Size(35, 33);
+            btnFindDropped.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindDropped, "Find next");
+            btnFindDropped.UseVisualStyleBackColor = true;
+            btnFindDropped.Click += btnFindDropped_Click;
             // 
             // txtFilterDropped
             // 
-            this.txtFilterDropped.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilterDropped.Location = new System.Drawing.Point(12, 3);
-            this.txtFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFilterDropped.Name = "txtFilterDropped";
-            this.txtFilterDropped.Size = new System.Drawing.Size(1015, 23);
-            this.txtFilterDropped.TabIndex = 6;
-            this.txtFilterDropped.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterDropped_KeyDown);
+            txtFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterDropped.Location = new System.Drawing.Point(12, 3);
+            txtFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterDropped.Name = "txtFilterDropped";
+            txtFilterDropped.Size = new System.Drawing.Size(1015, 23);
+            txtFilterDropped.TabIndex = 6;
+            txtFilterDropped.KeyDown += txtFilterDropped_KeyDown;
             // 
             // chkDroppedBlueprints
             // 
-            this.chkDroppedBlueprints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkDroppedBlueprints.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkDroppedBlueprints.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkDroppedBlueprints.BackgroundImage")));
-            this.chkDroppedBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chkDroppedBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkDroppedBlueprints.Location = new System.Drawing.Point(1042, 6);
-            this.chkDroppedBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkDroppedBlueprints.Name = "chkDroppedBlueprints";
-            this.chkDroppedBlueprints.Size = new System.Drawing.Size(47, 46);
-            this.chkDroppedBlueprints.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.chkDroppedBlueprints, "Show / hide blueprints.");
-            this.chkDroppedBlueprints.UseVisualStyleBackColor = true;
-            this.chkDroppedBlueprints.CheckedChanged += new System.EventHandler(this.chkDroppedBlueprints_CheckedChanged);
+            chkDroppedBlueprints.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            chkDroppedBlueprints.Appearance = System.Windows.Forms.Appearance.Button;
+            chkDroppedBlueprints.BackgroundImage = (System.Drawing.Image)resources.GetObject("chkDroppedBlueprints.BackgroundImage");
+            chkDroppedBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkDroppedBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkDroppedBlueprints.Location = new System.Drawing.Point(1042, 6);
+            chkDroppedBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkDroppedBlueprints.Name = "chkDroppedBlueprints";
+            chkDroppedBlueprints.Size = new System.Drawing.Size(47, 46);
+            chkDroppedBlueprints.TabIndex = 10;
+            toolTip1.SetToolTip(chkDroppedBlueprints, "Show / hide blueprints.");
+            chkDroppedBlueprints.UseVisualStyleBackColor = true;
+            chkDroppedBlueprints.CheckedChanged += chkDroppedBlueprints_CheckedChanged;
             // 
             // cboDroppedItem
             // 
-            this.cboDroppedItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDroppedItem.FormattingEnabled = true;
-            this.cboDroppedItem.Location = new System.Drawing.Point(390, 17);
-            this.cboDroppedItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboDroppedItem.Name = "cboDroppedItem";
-            this.cboDroppedItem.Size = new System.Drawing.Size(248, 23);
-            this.cboDroppedItem.TabIndex = 3;
-            this.cboDroppedItem.SelectedIndexChanged += new System.EventHandler(this.cboDroppedItem_SelectedIndexChanged);
+            cboDroppedItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedItem.FormattingEnabled = true;
+            cboDroppedItem.Location = new System.Drawing.Point(390, 17);
+            cboDroppedItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDroppedItem.Name = "cboDroppedItem";
+            cboDroppedItem.Size = new System.Drawing.Size(248, 23);
+            cboDroppedItem.TabIndex = 3;
+            cboDroppedItem.SelectedIndexChanged += cboDroppedItem_SelectedIndexChanged;
             // 
             // lblDroppedPlayer
             // 
-            this.lblDroppedPlayer.AutoSize = true;
-            this.lblDroppedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDroppedPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblDroppedPlayer.Location = new System.Drawing.Point(20, 21);
-            this.lblDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDroppedPlayer.Name = "lblDroppedPlayer";
-            this.lblDroppedPlayer.Size = new System.Drawing.Size(46, 13);
-            this.lblDroppedPlayer.TabIndex = 0;
-            this.lblDroppedPlayer.Text = "Player:";
+            lblDroppedPlayer.AutoSize = true;
+            lblDroppedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedPlayer.Location = new System.Drawing.Point(20, 21);
+            lblDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDroppedPlayer.Name = "lblDroppedPlayer";
+            lblDroppedPlayer.Size = new System.Drawing.Size(46, 13);
+            lblDroppedPlayer.TabIndex = 0;
+            lblDroppedPlayer.Text = "Player:";
             // 
             // cboDroppedPlayer
             // 
-            this.cboDroppedPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDroppedPlayer.FormattingEnabled = true;
-            this.cboDroppedPlayer.Location = new System.Drawing.Point(80, 18);
-            this.cboDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboDroppedPlayer.Name = "cboDroppedPlayer";
-            this.cboDroppedPlayer.Size = new System.Drawing.Size(254, 23);
-            this.cboDroppedPlayer.TabIndex = 1;
-            this.cboDroppedPlayer.SelectedIndexChanged += new System.EventHandler(this.cboDroppedPlayer_SelectedIndexChanged);
+            cboDroppedPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedPlayer.FormattingEnabled = true;
+            cboDroppedPlayer.Location = new System.Drawing.Point(80, 18);
+            cboDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDroppedPlayer.Name = "cboDroppedPlayer";
+            cboDroppedPlayer.Size = new System.Drawing.Size(254, 23);
+            cboDroppedPlayer.TabIndex = 1;
+            cboDroppedPlayer.SelectedIndexChanged += cboDroppedPlayer_SelectedIndexChanged;
             // 
             // lblCopyCommandDropped
             // 
-            this.lblCopyCommandDropped.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCopyCommandDropped.AutoSize = true;
-            this.lblCopyCommandDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCopyCommandDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblCopyCommandDropped.Location = new System.Drawing.Point(16, 481);
-            this.lblCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCopyCommandDropped.Name = "lblCopyCommandDropped";
-            this.lblCopyCommandDropped.Size = new System.Drawing.Size(65, 13);
-            this.lblCopyCommandDropped.TabIndex = 5;
-            this.lblCopyCommandDropped.Text = "Command:";
+            lblCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblCopyCommandDropped.AutoSize = true;
+            lblCopyCommandDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCopyCommandDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCopyCommandDropped.Location = new System.Drawing.Point(16, 481);
+            lblCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCopyCommandDropped.Name = "lblCopyCommandDropped";
+            lblCopyCommandDropped.Size = new System.Drawing.Size(65, 13);
+            lblCopyCommandDropped.TabIndex = 5;
+            lblCopyCommandDropped.Text = "Command:";
             // 
             // cboCopyCommandDropped
             // 
-            this.cboCopyCommandDropped.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboCopyCommandDropped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCopyCommandDropped.FormattingEnabled = true;
-            this.cboCopyCommandDropped.Items.AddRange(new object[] {
-            "SetPlayerPos  <x> <y> <z>"});
-            this.cboCopyCommandDropped.Location = new System.Drawing.Point(96, 478);
-            this.cboCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboCopyCommandDropped.Name = "cboCopyCommandDropped";
-            this.cboCopyCommandDropped.Size = new System.Drawing.Size(305, 23);
-            this.cboCopyCommandDropped.TabIndex = 6;
+            cboCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboCopyCommandDropped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboCopyCommandDropped.FormattingEnabled = true;
+            cboCopyCommandDropped.Items.AddRange(new object[] { "SetPlayerPos  <x> <y> <z>" });
+            cboCopyCommandDropped.Location = new System.Drawing.Point(96, 478);
+            cboCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboCopyCommandDropped.Name = "cboCopyCommandDropped";
+            cboCopyCommandDropped.Size = new System.Drawing.Size(305, 23);
+            cboCopyCommandDropped.TabIndex = 6;
             // 
             // lblCountDropped
             // 
-            this.lblCountDropped.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCountDropped.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblCountDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCountDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblCountDropped.Location = new System.Drawing.Point(945, 472);
-            this.lblCountDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCountDropped.Name = "lblCountDropped";
-            this.lblCountDropped.Size = new System.Drawing.Size(144, 35);
-            this.lblCountDropped.TabIndex = 9;
-            this.lblCountDropped.Text = "Count: 0";
-            this.lblCountDropped.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblCountDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblCountDropped.BackColor = System.Drawing.Color.AliceBlue;
+            lblCountDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblCountDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCountDropped.Location = new System.Drawing.Point(945, 472);
+            lblCountDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCountDropped.Name = "lblCountDropped";
+            lblCountDropped.Size = new System.Drawing.Size(144, 35);
+            lblCountDropped.TabIndex = 9;
+            lblCountDropped.Text = "Count: 0";
+            lblCountDropped.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDroppedItem
             // 
-            this.lblDroppedItem.AutoSize = true;
-            this.lblDroppedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDroppedItem.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblDroppedItem.Location = new System.Drawing.Point(342, 22);
-            this.lblDroppedItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDroppedItem.Name = "lblDroppedItem";
-            this.lblDroppedItem.Size = new System.Drawing.Size(35, 13);
-            this.lblDroppedItem.TabIndex = 2;
-            this.lblDroppedItem.Text = "Item:";
+            lblDroppedItem.AutoSize = true;
+            lblDroppedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedItem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedItem.Location = new System.Drawing.Point(342, 22);
+            lblDroppedItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDroppedItem.Name = "lblDroppedItem";
+            lblDroppedItem.Size = new System.Drawing.Size(35, 13);
+            lblDroppedItem.TabIndex = 2;
+            lblDroppedItem.Text = "Item:";
             // 
             // lvwDroppedItems
             // 
-            this.lvwDroppedItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwDroppedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwDroppedItems_Item,
-            this.lvwDroppedItems_Bp,
-            this.lvwDroppedItems_DroppedBy,
-            this.lvwDroppedItems_Lat,
-            this.lvwDroppedItems_Lon,
-            this.lvwDroppedItems_Tribe,
-            this.lvwDroppedItems_Player,
-            this.lvwDroppedItems_CCC});
-            this.lvwDroppedItems.FullRowSelect = true;
-            this.lvwDroppedItems.Location = new System.Drawing.Point(13, 60);
-            this.lvwDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwDroppedItems.MultiSelect = false;
-            this.lvwDroppedItems.Name = "lvwDroppedItems";
-            this.lvwDroppedItems.Size = new System.Drawing.Size(1075, 369);
-            this.lvwDroppedItems.TabIndex = 4;
-            this.lvwDroppedItems.UseCompatibleStateImageBehavior = false;
-            this.lvwDroppedItems.View = System.Windows.Forms.View.Details;
-            this.lvwDroppedItems.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwDroppedItems_ColumnClick);
-            this.lvwDroppedItems.SelectedIndexChanged += new System.EventHandler(this.lvwDroppedItems_SelectedIndexChanged);
+            lvwDroppedItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwDroppedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwDroppedItems_Item, lvwDroppedItems_Bp, lvwDroppedItems_DroppedBy, lvwDroppedItems_Lat, lvwDroppedItems_Lon, lvwDroppedItems_Tribe, lvwDroppedItems_Player, lvwDroppedItems_CCC });
+            lvwDroppedItems.FullRowSelect = true;
+            lvwDroppedItems.Location = new System.Drawing.Point(13, 60);
+            lvwDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwDroppedItems.MultiSelect = false;
+            lvwDroppedItems.Name = "lvwDroppedItems";
+            lvwDroppedItems.Size = new System.Drawing.Size(1075, 369);
+            lvwDroppedItems.TabIndex = 4;
+            lvwDroppedItems.UseCompatibleStateImageBehavior = false;
+            lvwDroppedItems.View = System.Windows.Forms.View.Details;
+            lvwDroppedItems.ColumnClick += lvwDroppedItems_ColumnClick;
+            lvwDroppedItems.SelectedIndexChanged += lvwDroppedItems_SelectedIndexChanged;
             // 
             // lvwDroppedItems_Item
             // 
-            this.lvwDroppedItems_Item.Text = "Item";
-            this.lvwDroppedItems_Item.Width = 180;
+            lvwDroppedItems_Item.Text = "Item";
+            lvwDroppedItems_Item.Width = 180;
             // 
             // lvwDroppedItems_Bp
             // 
-            this.lvwDroppedItems_Bp.Text = "BP";
+            lvwDroppedItems_Bp.Text = "BP";
             // 
             // lvwDroppedItems_DroppedBy
             // 
-            this.lvwDroppedItems_DroppedBy.Text = "Dropped By";
-            this.lvwDroppedItems_DroppedBy.Width = 169;
+            lvwDroppedItems_DroppedBy.Text = "Dropped By";
+            lvwDroppedItems_DroppedBy.Width = 169;
             // 
             // lvwDroppedItems_Lat
             // 
-            this.lvwDroppedItems_Lat.Text = "Lat";
+            lvwDroppedItems_Lat.Text = "Lat";
             // 
             // lvwDroppedItems_Lon
             // 
-            this.lvwDroppedItems_Lon.Text = "Lon";
+            lvwDroppedItems_Lon.Text = "Lon";
             // 
             // lvwDroppedItems_Tribe
             // 
-            this.lvwDroppedItems_Tribe.Text = "Tribe";
-            this.lvwDroppedItems_Tribe.Width = 105;
+            lvwDroppedItems_Tribe.Text = "Tribe";
+            lvwDroppedItems_Tribe.Width = 105;
             // 
             // lvwDroppedItems_Player
             // 
-            this.lvwDroppedItems_Player.Text = "Player";
-            this.lvwDroppedItems_Player.Width = 109;
+            lvwDroppedItems_Player.Text = "Player";
+            lvwDroppedItems_Player.Width = 109;
             // 
             // lvwDroppedItems_CCC
             // 
-            this.lvwDroppedItems_CCC.Text = "CCC";
-            this.lvwDroppedItems_CCC.Width = 0;
+            lvwDroppedItems_CCC.Text = "CCC";
+            lvwDroppedItems_CCC.Width = 0;
             // 
             // tpgItemList
             // 
-            this.tpgItemList.Controls.Add(this.chkItemSearchUploads);
-            this.tpgItemList.Controls.Add(this.pnlFilterSearch);
-            this.tpgItemList.Controls.Add(this.chkItemSearchBlueprints);
-            this.tpgItemList.Controls.Add(this.cboItemListItem);
-            this.tpgItemList.Controls.Add(this.lblItemListTribe);
-            this.tpgItemList.Controls.Add(this.cboItemListTribe);
-            this.tpgItemList.Controls.Add(this.btnItemListCommand);
-            this.tpgItemList.Controls.Add(this.lblItemListCommand);
-            this.tpgItemList.Controls.Add(this.cboItemListCommand);
-            this.tpgItemList.Controls.Add(this.lblItemListCount);
-            this.tpgItemList.Controls.Add(this.lblItemListItem);
-            this.tpgItemList.Controls.Add(this.lvwItemList);
-            this.tpgItemList.Location = new System.Drawing.Point(4, 24);
-            this.tpgItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgItemList.Name = "tpgItemList";
-            this.tpgItemList.Size = new System.Drawing.Size(1104, 520);
-            this.tpgItemList.TabIndex = 6;
-            this.tpgItemList.Text = "Item Search";
-            this.tpgItemList.UseVisualStyleBackColor = true;
+            tpgItemList.Controls.Add(chkItemSearchUploads);
+            tpgItemList.Controls.Add(pnlFilterSearch);
+            tpgItemList.Controls.Add(chkItemSearchBlueprints);
+            tpgItemList.Controls.Add(cboItemListItem);
+            tpgItemList.Controls.Add(lblItemListTribe);
+            tpgItemList.Controls.Add(cboItemListTribe);
+            tpgItemList.Controls.Add(btnItemListCommand);
+            tpgItemList.Controls.Add(lblItemListCommand);
+            tpgItemList.Controls.Add(cboItemListCommand);
+            tpgItemList.Controls.Add(lblItemListCount);
+            tpgItemList.Controls.Add(lblItemListItem);
+            tpgItemList.Controls.Add(lvwItemList);
+            tpgItemList.Location = new System.Drawing.Point(4, 24);
+            tpgItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgItemList.Name = "tpgItemList";
+            tpgItemList.Size = new System.Drawing.Size(1104, 520);
+            tpgItemList.TabIndex = 6;
+            tpgItemList.Text = "Item Search";
+            tpgItemList.UseVisualStyleBackColor = true;
             // 
             // chkItemSearchUploads
             // 
-            this.chkItemSearchUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chkItemSearchUploads.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkItemSearchUploads.Location = new System.Drawing.Point(792, 7);
-            this.chkItemSearchUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkItemSearchUploads.Name = "chkItemSearchUploads";
-            this.chkItemSearchUploads.Size = new System.Drawing.Size(122, 47);
-            this.chkItemSearchUploads.TabIndex = 23;
-            this.chkItemSearchUploads.Text = "Include uploads";
-            this.toolTip1.SetToolTip(this.chkItemSearchUploads, "Show / hide blueprints.");
-            this.chkItemSearchUploads.UseVisualStyleBackColor = true;
-            this.chkItemSearchUploads.CheckedChanged += new System.EventHandler(this.chkItemSearchUploads_CheckedChanged);
+            chkItemSearchUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkItemSearchUploads.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkItemSearchUploads.Location = new System.Drawing.Point(792, 7);
+            chkItemSearchUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkItemSearchUploads.Name = "chkItemSearchUploads";
+            chkItemSearchUploads.Size = new System.Drawing.Size(122, 47);
+            chkItemSearchUploads.TabIndex = 23;
+            chkItemSearchUploads.Text = "Include uploads";
+            toolTip1.SetToolTip(chkItemSearchUploads, "Show / hide blueprints.");
+            chkItemSearchUploads.UseVisualStyleBackColor = true;
+            chkItemSearchUploads.CheckedChanged += chkItemSearchUploads_CheckedChanged;
             // 
             // pnlFilterSearch
             // 
-            this.pnlFilterSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilterSearch.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlFilterSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlFilterSearch.Controls.Add(this.btnFindSearched);
-            this.pnlFilterSearch.Controls.Add(this.txtFilterSearch);
-            this.pnlFilterSearch.Location = new System.Drawing.Point(13, 428);
-            this.pnlFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlFilterSearch.Name = "pnlFilterSearch";
-            this.pnlFilterSearch.Size = new System.Drawing.Size(1073, 33);
-            this.pnlFilterSearch.TabIndex = 22;
+            pnlFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterSearch.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterSearch.Controls.Add(btnFindSearched);
+            pnlFilterSearch.Controls.Add(txtFilterSearch);
+            pnlFilterSearch.Location = new System.Drawing.Point(13, 428);
+            pnlFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterSearch.Name = "pnlFilterSearch";
+            pnlFilterSearch.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterSearch.TabIndex = 22;
             // 
             // btnFindSearched
             // 
-            this.btnFindSearched.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindSearched.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFindSearched.Image = ((System.Drawing.Image)(resources.GetObject("btnFindSearched.Image")));
-            this.btnFindSearched.Location = new System.Drawing.Point(1037, -1);
-            this.btnFindSearched.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFindSearched.Name = "btnFindSearched";
-            this.btnFindSearched.Size = new System.Drawing.Size(35, 33);
-            this.btnFindSearched.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnFindSearched, "Find next");
-            this.btnFindSearched.UseVisualStyleBackColor = true;
-            this.btnFindSearched.Click += new System.EventHandler(this.btnFindSearched_Click);
+            btnFindSearched.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindSearched.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindSearched.Image = (System.Drawing.Image)resources.GetObject("btnFindSearched.Image");
+            btnFindSearched.Location = new System.Drawing.Point(1037, -1);
+            btnFindSearched.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindSearched.Name = "btnFindSearched";
+            btnFindSearched.Size = new System.Drawing.Size(35, 33);
+            btnFindSearched.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindSearched, "Find next");
+            btnFindSearched.UseVisualStyleBackColor = true;
+            btnFindSearched.Click += btnFindSearched_Click;
             // 
             // txtFilterSearch
             // 
-            this.txtFilterSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilterSearch.Location = new System.Drawing.Point(12, 3);
-            this.txtFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFilterSearch.Name = "txtFilterSearch";
-            this.txtFilterSearch.Size = new System.Drawing.Size(1013, 23);
-            this.txtFilterSearch.TabIndex = 6;
-            this.txtFilterSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterSearch_KeyDown);
+            txtFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterSearch.Location = new System.Drawing.Point(12, 3);
+            txtFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterSearch.Name = "txtFilterSearch";
+            txtFilterSearch.Size = new System.Drawing.Size(1013, 23);
+            txtFilterSearch.TabIndex = 6;
+            txtFilterSearch.KeyDown += txtFilterSearch_KeyDown;
             // 
             // chkItemSearchBlueprints
             // 
-            this.chkItemSearchBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chkItemSearchBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkItemSearchBlueprints.Location = new System.Drawing.Point(662, 7);
-            this.chkItemSearchBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkItemSearchBlueprints.Name = "chkItemSearchBlueprints";
-            this.chkItemSearchBlueprints.Size = new System.Drawing.Size(122, 47);
-            this.chkItemSearchBlueprints.TabIndex = 11;
-            this.chkItemSearchBlueprints.Text = "Include blueprints";
-            this.toolTip1.SetToolTip(this.chkItemSearchBlueprints, "Show / hide blueprints.");
-            this.chkItemSearchBlueprints.UseVisualStyleBackColor = true;
-            this.chkItemSearchBlueprints.CheckedChanged += new System.EventHandler(this.chkItemSearchBlueprints_CheckedChanged);
+            chkItemSearchBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkItemSearchBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkItemSearchBlueprints.Location = new System.Drawing.Point(662, 7);
+            chkItemSearchBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkItemSearchBlueprints.Name = "chkItemSearchBlueprints";
+            chkItemSearchBlueprints.Size = new System.Drawing.Size(122, 47);
+            chkItemSearchBlueprints.TabIndex = 11;
+            chkItemSearchBlueprints.Text = "Include blueprints";
+            toolTip1.SetToolTip(chkItemSearchBlueprints, "Show / hide blueprints.");
+            chkItemSearchBlueprints.UseVisualStyleBackColor = true;
+            chkItemSearchBlueprints.CheckedChanged += chkItemSearchBlueprints_CheckedChanged;
             // 
             // cboItemListItem
             // 
-            this.cboItemListItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboItemListItem.FormattingEnabled = true;
-            this.cboItemListItem.Location = new System.Drawing.Point(390, 17);
-            this.cboItemListItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboItemListItem.Name = "cboItemListItem";
-            this.cboItemListItem.Size = new System.Drawing.Size(251, 23);
-            this.cboItemListItem.TabIndex = 3;
-            this.cboItemListItem.SelectedIndexChanged += new System.EventHandler(this.cboItemListItem_SelectedIndexChanged);
+            cboItemListItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListItem.FormattingEnabled = true;
+            cboItemListItem.Location = new System.Drawing.Point(390, 17);
+            cboItemListItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboItemListItem.Name = "cboItemListItem";
+            cboItemListItem.Size = new System.Drawing.Size(251, 23);
+            cboItemListItem.TabIndex = 3;
+            cboItemListItem.SelectedIndexChanged += cboItemListItem_SelectedIndexChanged;
             // 
             // lblItemListTribe
             // 
-            this.lblItemListTribe.AutoSize = true;
-            this.lblItemListTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblItemListTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblItemListTribe.Location = new System.Drawing.Point(20, 21);
-            this.lblItemListTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblItemListTribe.Name = "lblItemListTribe";
-            this.lblItemListTribe.Size = new System.Drawing.Size(40, 13);
-            this.lblItemListTribe.TabIndex = 0;
-            this.lblItemListTribe.Text = "Tribe:";
+            lblItemListTribe.AutoSize = true;
+            lblItemListTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListTribe.Location = new System.Drawing.Point(20, 21);
+            lblItemListTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListTribe.Name = "lblItemListTribe";
+            lblItemListTribe.Size = new System.Drawing.Size(40, 13);
+            lblItemListTribe.TabIndex = 0;
+            lblItemListTribe.Text = "Tribe:";
             // 
             // cboItemListTribe
             // 
-            this.cboItemListTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboItemListTribe.FormattingEnabled = true;
-            this.cboItemListTribe.Location = new System.Drawing.Point(80, 18);
-            this.cboItemListTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboItemListTribe.Name = "cboItemListTribe";
-            this.cboItemListTribe.Size = new System.Drawing.Size(254, 23);
-            this.cboItemListTribe.TabIndex = 1;
-            this.cboItemListTribe.SelectedIndexChanged += new System.EventHandler(this.cboItemListTribe_SelectedIndexChanged);
+            cboItemListTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListTribe.FormattingEnabled = true;
+            cboItemListTribe.Location = new System.Drawing.Point(80, 18);
+            cboItemListTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboItemListTribe.Name = "cboItemListTribe";
+            cboItemListTribe.Size = new System.Drawing.Size(254, 23);
+            cboItemListTribe.TabIndex = 1;
+            cboItemListTribe.SelectedIndexChanged += cboItemListTribe_SelectedIndexChanged;
             // 
             // btnItemListCommand
             // 
-            this.btnItemListCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnItemListCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnItemListCommand.Enabled = false;
-            this.btnItemListCommand.Image = ((System.Drawing.Image)(resources.GetObject("btnItemListCommand.Image")));
-            this.btnItemListCommand.Location = new System.Drawing.Point(408, 466);
-            this.btnItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnItemListCommand.Name = "btnItemListCommand";
-            this.btnItemListCommand.Size = new System.Drawing.Size(47, 46);
-            this.btnItemListCommand.TabIndex = 7;
-            this.btnItemListCommand.UseVisualStyleBackColor = true;
-            this.btnItemListCommand.Click += new System.EventHandler(this.btnItemListCommand_Click);
+            btnItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnItemListCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnItemListCommand.Enabled = false;
+            btnItemListCommand.Image = (System.Drawing.Image)resources.GetObject("btnItemListCommand.Image");
+            btnItemListCommand.Location = new System.Drawing.Point(408, 466);
+            btnItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnItemListCommand.Name = "btnItemListCommand";
+            btnItemListCommand.Size = new System.Drawing.Size(47, 46);
+            btnItemListCommand.TabIndex = 7;
+            btnItemListCommand.UseVisualStyleBackColor = true;
+            btnItemListCommand.Click += btnItemListCommand_Click;
             // 
             // lblItemListCommand
             // 
-            this.lblItemListCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblItemListCommand.AutoSize = true;
-            this.lblItemListCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblItemListCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblItemListCommand.Location = new System.Drawing.Point(16, 481);
-            this.lblItemListCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblItemListCommand.Name = "lblItemListCommand";
-            this.lblItemListCommand.Size = new System.Drawing.Size(65, 13);
-            this.lblItemListCommand.TabIndex = 5;
-            this.lblItemListCommand.Text = "Command:";
+            lblItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblItemListCommand.AutoSize = true;
+            lblItemListCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListCommand.Location = new System.Drawing.Point(16, 481);
+            lblItemListCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListCommand.Name = "lblItemListCommand";
+            lblItemListCommand.Size = new System.Drawing.Size(65, 13);
+            lblItemListCommand.TabIndex = 5;
+            lblItemListCommand.Text = "Command:";
             // 
             // cboItemListCommand
             // 
-            this.cboItemListCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboItemListCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboItemListCommand.FormattingEnabled = true;
-            this.cboItemListCommand.Items.AddRange(new object[] {
-            "SetPlayerPos  <x> <y> <z>"});
-            this.cboItemListCommand.Location = new System.Drawing.Point(96, 478);
-            this.cboItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboItemListCommand.Name = "cboItemListCommand";
-            this.cboItemListCommand.Size = new System.Drawing.Size(305, 23);
-            this.cboItemListCommand.TabIndex = 6;
+            cboItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboItemListCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListCommand.FormattingEnabled = true;
+            cboItemListCommand.Items.AddRange(new object[] { "SetPlayerPos  <x> <y> <z>" });
+            cboItemListCommand.Location = new System.Drawing.Point(96, 478);
+            cboItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboItemListCommand.Name = "cboItemListCommand";
+            cboItemListCommand.Size = new System.Drawing.Size(305, 23);
+            cboItemListCommand.TabIndex = 6;
             // 
             // lblItemListCount
             // 
-            this.lblItemListCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblItemListCount.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblItemListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblItemListCount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblItemListCount.Location = new System.Drawing.Point(943, 472);
-            this.lblItemListCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblItemListCount.Name = "lblItemListCount";
-            this.lblItemListCount.Size = new System.Drawing.Size(144, 35);
-            this.lblItemListCount.TabIndex = 8;
-            this.lblItemListCount.Text = "Count: 0";
-            this.lblItemListCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblItemListCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblItemListCount.BackColor = System.Drawing.Color.AliceBlue;
+            lblItemListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblItemListCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListCount.Location = new System.Drawing.Point(943, 472);
+            lblItemListCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListCount.Name = "lblItemListCount";
+            lblItemListCount.Size = new System.Drawing.Size(144, 35);
+            lblItemListCount.TabIndex = 8;
+            lblItemListCount.Text = "Count: 0";
+            lblItemListCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblItemListItem
             // 
-            this.lblItemListItem.AutoSize = true;
-            this.lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblItemListItem.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblItemListItem.Location = new System.Drawing.Point(342, 22);
-            this.lblItemListItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblItemListItem.Name = "lblItemListItem";
-            this.lblItemListItem.Size = new System.Drawing.Size(35, 13);
-            this.lblItemListItem.TabIndex = 2;
-            this.lblItemListItem.Text = "Item:";
+            lblItemListItem.AutoSize = true;
+            lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListItem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListItem.Location = new System.Drawing.Point(342, 22);
+            lblItemListItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListItem.Name = "lblItemListItem";
+            lblItemListItem.Size = new System.Drawing.Size(35, 13);
+            lblItemListItem.TabIndex = 2;
+            lblItemListItem.Text = "Item:";
             // 
             // lvwItemList
             // 
-            this.lvwItemList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwItemList_Tribe,
-            this.lvwItemList_Container,
-            this.lvwItemList_Item,
-            this.lvwItemList_Quality,
-            this.lvwItemList_Rating,
-            this.lvwItemList_BP,
-            this.lvwItemList_Quantity,
-            this.lvwItemList_Lat,
-            this.lvwItemList_Lon,
-            this.lvwItemList_CCC,
-            this.lvwItemList_UploadTime});
-            this.lvwItemList.FullRowSelect = true;
-            this.lvwItemList.Location = new System.Drawing.Point(13, 60);
-            this.lvwItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwItemList.MultiSelect = false;
-            this.lvwItemList.Name = "lvwItemList";
-            this.lvwItemList.Size = new System.Drawing.Size(1073, 369);
-            this.lvwItemList.TabIndex = 4;
-            this.lvwItemList.UseCompatibleStateImageBehavior = false;
-            this.lvwItemList.View = System.Windows.Forms.View.Details;
-            this.lvwItemList.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwItemList_ColumnClick);
-            this.lvwItemList.SelectedIndexChanged += new System.EventHandler(this.lvwItemList_SelectedIndexChanged);
+            lvwItemList.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwItemList_Tribe, lvwItemList_Container, lvwItemList_Item, lvwItemList_Quality, lvwItemList_Rating, lvwItemList_BP, lvwItemList_Quantity, lvwItemList_Lat, lvwItemList_Lon, lvwItemList_CCC, lvwItemList_UploadTime });
+            lvwItemList.FullRowSelect = true;
+            lvwItemList.Location = new System.Drawing.Point(13, 60);
+            lvwItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwItemList.MultiSelect = false;
+            lvwItemList.Name = "lvwItemList";
+            lvwItemList.Size = new System.Drawing.Size(1073, 369);
+            lvwItemList.TabIndex = 4;
+            lvwItemList.UseCompatibleStateImageBehavior = false;
+            lvwItemList.View = System.Windows.Forms.View.Details;
+            lvwItemList.ColumnClick += lvwItemList_ColumnClick;
+            lvwItemList.SelectedIndexChanged += lvwItemList_SelectedIndexChanged;
             // 
             // lvwItemList_Tribe
             // 
-            this.lvwItemList_Tribe.Text = "Tribe";
-            this.lvwItemList_Tribe.Width = 175;
+            lvwItemList_Tribe.Text = "Tribe";
+            lvwItemList_Tribe.Width = 175;
             // 
             // lvwItemList_Container
             // 
-            this.lvwItemList_Container.Text = "Container";
-            this.lvwItemList_Container.Width = 175;
+            lvwItemList_Container.Text = "Container";
+            lvwItemList_Container.Width = 175;
             // 
             // lvwItemList_Item
             // 
-            this.lvwItemList_Item.Text = "Item";
-            this.lvwItemList_Item.Width = 175;
+            lvwItemList_Item.Text = "Item";
+            lvwItemList_Item.Width = 175;
             // 
             // lvwItemList_Quality
             // 
-            this.lvwItemList_Quality.Text = "Quality";
-            this.lvwItemList_Quality.Width = 80;
+            lvwItemList_Quality.Text = "Quality";
+            lvwItemList_Quality.Width = 80;
             // 
             // lvwItemList_Rating
             // 
-            this.lvwItemList_Rating.Text = "Rating";
+            lvwItemList_Rating.Text = "Rating";
             // 
             // lvwItemList_BP
             // 
-            this.lvwItemList_BP.Text = "BP";
-            this.lvwItemList_BP.Width = 40;
+            lvwItemList_BP.Text = "BP";
+            lvwItemList_BP.Width = 40;
             // 
             // lvwItemList_Quantity
             // 
-            this.lvwItemList_Quantity.Text = "Qty";
+            lvwItemList_Quantity.Text = "Qty";
             // 
             // lvwItemList_Lat
             // 
-            this.lvwItemList_Lat.Text = "Lat";
+            lvwItemList_Lat.Text = "Lat";
             // 
             // lvwItemList_Lon
             // 
-            this.lvwItemList_Lon.Text = "Lon";
+            lvwItemList_Lon.Text = "Lon";
             // 
             // lvwItemList_CCC
             // 
-            this.lvwItemList_CCC.Text = "CCC";
-            this.lvwItemList_CCC.Width = 0;
+            lvwItemList_CCC.Text = "CCC";
+            lvwItemList_CCC.Width = 0;
             // 
             // lvwItemList_UploadTime
             // 
-            this.lvwItemList_UploadTime.Text = "Uploaded";
-            this.lvwItemList_UploadTime.Width = 120;
+            lvwItemList_UploadTime.Text = "Uploaded";
+            lvwItemList_UploadTime.Width = 120;
             // 
             // tpgLocalProfile
             // 
-            this.tpgLocalProfile.Controls.Add(this.pnlUploadedStats);
-            this.tpgLocalProfile.Controls.Add(this.lblUploadedCountItems);
-            this.tpgLocalProfile.Controls.Add(this.lblUploadedCountTames);
-            this.tpgLocalProfile.Controls.Add(this.lblUploadedCountCharacters);
-            this.tpgLocalProfile.Controls.Add(this.lblUploadedItems);
-            this.tpgLocalProfile.Controls.Add(this.lvwUploadedItems);
-            this.tpgLocalProfile.Controls.Add(this.lblUploadedTames);
-            this.tpgLocalProfile.Controls.Add(this.lblUploadedCharacters);
-            this.tpgLocalProfile.Controls.Add(this.lvwUploadedCharacters);
-            this.tpgLocalProfile.Controls.Add(this.lvwUploadedTames);
-            this.tpgLocalProfile.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tpgLocalProfile.Location = new System.Drawing.Point(4, 24);
-            this.tpgLocalProfile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgLocalProfile.Name = "tpgLocalProfile";
-            this.tpgLocalProfile.Size = new System.Drawing.Size(1104, 520);
-            this.tpgLocalProfile.TabIndex = 7;
-            this.tpgLocalProfile.Text = "Local Profile";
-            this.tpgLocalProfile.UseVisualStyleBackColor = true;
+            tpgLocalProfile.Controls.Add(pnlUploadedStats);
+            tpgLocalProfile.Controls.Add(lblUploadedCountItems);
+            tpgLocalProfile.Controls.Add(lblUploadedCountTames);
+            tpgLocalProfile.Controls.Add(lblUploadedCountCharacters);
+            tpgLocalProfile.Controls.Add(lblUploadedItems);
+            tpgLocalProfile.Controls.Add(lvwUploadedItems);
+            tpgLocalProfile.Controls.Add(lblUploadedTames);
+            tpgLocalProfile.Controls.Add(lblUploadedCharacters);
+            tpgLocalProfile.Controls.Add(lvwUploadedCharacters);
+            tpgLocalProfile.Controls.Add(lvwUploadedTames);
+            tpgLocalProfile.ForeColor = System.Drawing.SystemColors.ControlText;
+            tpgLocalProfile.Location = new System.Drawing.Point(4, 24);
+            tpgLocalProfile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgLocalProfile.Name = "tpgLocalProfile";
+            tpgLocalProfile.Size = new System.Drawing.Size(1104, 520);
+            tpgLocalProfile.TabIndex = 7;
+            tpgLocalProfile.Text = "Local Profile";
+            tpgLocalProfile.UseVisualStyleBackColor = true;
             // 
             // pnlUploadedStats
             // 
-            this.pnlUploadedStats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlUploadedStats.Controls.Add(this.lblUploadedStats);
-            this.pnlUploadedStats.Controls.Add(this.optUploadedStatsTamed);
-            this.pnlUploadedStats.Controls.Add(this.optUploadedStatsBase);
-            this.pnlUploadedStats.Location = new System.Drawing.Point(15, 316);
-            this.pnlUploadedStats.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlUploadedStats.Name = "pnlUploadedStats";
-            this.pnlUploadedStats.Size = new System.Drawing.Size(204, 39);
-            this.pnlUploadedStats.TabIndex = 17;
+            pnlUploadedStats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlUploadedStats.Controls.Add(lblUploadedStats);
+            pnlUploadedStats.Controls.Add(optUploadedStatsTamed);
+            pnlUploadedStats.Controls.Add(optUploadedStatsBase);
+            pnlUploadedStats.Location = new System.Drawing.Point(15, 316);
+            pnlUploadedStats.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlUploadedStats.Name = "pnlUploadedStats";
+            pnlUploadedStats.Size = new System.Drawing.Size(204, 39);
+            pnlUploadedStats.TabIndex = 17;
             // 
             // lblUploadedStats
             // 
-            this.lblUploadedStats.AutoSize = true;
-            this.lblUploadedStats.Location = new System.Drawing.Point(2, 12);
-            this.lblUploadedStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUploadedStats.Name = "lblUploadedStats";
-            this.lblUploadedStats.Size = new System.Drawing.Size(35, 15);
-            this.lblUploadedStats.TabIndex = 0;
-            this.lblUploadedStats.Text = "Stats:";
+            lblUploadedStats.AutoSize = true;
+            lblUploadedStats.Location = new System.Drawing.Point(2, 12);
+            lblUploadedStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedStats.Name = "lblUploadedStats";
+            lblUploadedStats.Size = new System.Drawing.Size(35, 15);
+            lblUploadedStats.TabIndex = 0;
+            lblUploadedStats.Text = "Stats:";
             // 
             // optUploadedStatsTamed
             // 
-            this.optUploadedStatsTamed.AutoSize = true;
-            this.optUploadedStatsTamed.Location = new System.Drawing.Point(113, 9);
-            this.optUploadedStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.optUploadedStatsTamed.Name = "optUploadedStatsTamed";
-            this.optUploadedStatsTamed.Size = new System.Drawing.Size(60, 19);
-            this.optUploadedStatsTamed.TabIndex = 2;
-            this.optUploadedStatsTamed.Text = "Tamed";
-            this.optUploadedStatsTamed.UseVisualStyleBackColor = true;
+            optUploadedStatsTamed.AutoSize = true;
+            optUploadedStatsTamed.Location = new System.Drawing.Point(113, 9);
+            optUploadedStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optUploadedStatsTamed.Name = "optUploadedStatsTamed";
+            optUploadedStatsTamed.Size = new System.Drawing.Size(60, 19);
+            optUploadedStatsTamed.TabIndex = 2;
+            optUploadedStatsTamed.Text = "Tamed";
+            optUploadedStatsTamed.UseVisualStyleBackColor = true;
             // 
             // optUploadedStatsBase
             // 
-            this.optUploadedStatsBase.AutoSize = true;
-            this.optUploadedStatsBase.Checked = true;
-            this.optUploadedStatsBase.Location = new System.Drawing.Point(49, 9);
-            this.optUploadedStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.optUploadedStatsBase.Name = "optUploadedStatsBase";
-            this.optUploadedStatsBase.Size = new System.Drawing.Size(49, 19);
-            this.optUploadedStatsBase.TabIndex = 1;
-            this.optUploadedStatsBase.TabStop = true;
-            this.optUploadedStatsBase.Text = "Base";
-            this.optUploadedStatsBase.UseVisualStyleBackColor = true;
-            this.optUploadedStatsBase.CheckedChanged += new System.EventHandler(this.optUploadedStatsBase_CheckedChanged);
+            optUploadedStatsBase.AutoSize = true;
+            optUploadedStatsBase.Checked = true;
+            optUploadedStatsBase.Location = new System.Drawing.Point(49, 9);
+            optUploadedStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optUploadedStatsBase.Name = "optUploadedStatsBase";
+            optUploadedStatsBase.Size = new System.Drawing.Size(49, 19);
+            optUploadedStatsBase.TabIndex = 1;
+            optUploadedStatsBase.TabStop = true;
+            optUploadedStatsBase.Text = "Base";
+            optUploadedStatsBase.UseVisualStyleBackColor = true;
+            optUploadedStatsBase.CheckedChanged += optUploadedStatsBase_CheckedChanged;
             // 
             // lblUploadedCountItems
             // 
-            this.lblUploadedCountItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUploadedCountItems.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblUploadedCountItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUploadedCountItems.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblUploadedCountItems.Location = new System.Drawing.Point(961, 486);
-            this.lblUploadedCountItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUploadedCountItems.Name = "lblUploadedCountItems";
-            this.lblUploadedCountItems.Size = new System.Drawing.Size(126, 24);
-            this.lblUploadedCountItems.TabIndex = 16;
-            this.lblUploadedCountItems.Text = "Count: 0";
-            this.lblUploadedCountItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblUploadedCountItems.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblUploadedCountItems.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountItems.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountItems.Location = new System.Drawing.Point(961, 486);
+            lblUploadedCountItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCountItems.Name = "lblUploadedCountItems";
+            lblUploadedCountItems.Size = new System.Drawing.Size(126, 24);
+            lblUploadedCountItems.TabIndex = 16;
+            lblUploadedCountItems.Text = "Count: 0";
+            lblUploadedCountItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUploadedCountTames
             // 
-            this.lblUploadedCountTames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUploadedCountTames.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblUploadedCountTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUploadedCountTames.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblUploadedCountTames.Location = new System.Drawing.Point(961, 313);
-            this.lblUploadedCountTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUploadedCountTames.Name = "lblUploadedCountTames";
-            this.lblUploadedCountTames.Size = new System.Drawing.Size(126, 24);
-            this.lblUploadedCountTames.TabIndex = 15;
-            this.lblUploadedCountTames.Text = "Count: 0";
-            this.lblUploadedCountTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblUploadedCountTames.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblUploadedCountTames.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountTames.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountTames.Location = new System.Drawing.Point(961, 313);
+            lblUploadedCountTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCountTames.Name = "lblUploadedCountTames";
+            lblUploadedCountTames.Size = new System.Drawing.Size(126, 24);
+            lblUploadedCountTames.TabIndex = 15;
+            lblUploadedCountTames.Text = "Count: 0";
+            lblUploadedCountTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUploadedCountCharacters
             // 
-            this.lblUploadedCountCharacters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUploadedCountCharacters.BackColor = System.Drawing.Color.AliceBlue;
-            this.lblUploadedCountCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUploadedCountCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblUploadedCountCharacters.Location = new System.Drawing.Point(961, 145);
-            this.lblUploadedCountCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUploadedCountCharacters.Name = "lblUploadedCountCharacters";
-            this.lblUploadedCountCharacters.Size = new System.Drawing.Size(126, 24);
-            this.lblUploadedCountCharacters.TabIndex = 14;
-            this.lblUploadedCountCharacters.Text = "Count: 0";
-            this.lblUploadedCountCharacters.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblUploadedCountCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblUploadedCountCharacters.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountCharacters.Location = new System.Drawing.Point(961, 145);
+            lblUploadedCountCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCountCharacters.Name = "lblUploadedCountCharacters";
+            lblUploadedCountCharacters.Size = new System.Drawing.Size(126, 24);
+            lblUploadedCountCharacters.TabIndex = 14;
+            lblUploadedCountCharacters.Text = "Count: 0";
+            lblUploadedCountCharacters.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUploadedItems
             // 
-            this.lblUploadedItems.AutoSize = true;
-            this.lblUploadedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblUploadedItems.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblUploadedItems.Location = new System.Drawing.Point(12, 359);
-            this.lblUploadedItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUploadedItems.Name = "lblUploadedItems";
-            this.lblUploadedItems.Size = new System.Drawing.Size(78, 13);
-            this.lblUploadedItems.TabIndex = 13;
-            this.lblUploadedItems.Text = "Stored Items";
+            lblUploadedItems.AutoSize = true;
+            lblUploadedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedItems.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedItems.Location = new System.Drawing.Point(12, 359);
+            lblUploadedItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedItems.Name = "lblUploadedItems";
+            lblUploadedItems.Size = new System.Drawing.Size(78, 13);
+            lblUploadedItems.TabIndex = 13;
+            lblUploadedItems.Text = "Stored Items";
             // 
             // lvwUploadedItems
             // 
-            this.lvwUploadedItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwUploadedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader18,
-            this.columnHeader19,
-            this.columnHeader22});
-            this.lvwUploadedItems.FullRowSelect = true;
-            this.lvwUploadedItems.Location = new System.Drawing.Point(15, 377);
-            this.lvwUploadedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwUploadedItems.MultiSelect = false;
-            this.lvwUploadedItems.Name = "lvwUploadedItems";
-            this.lvwUploadedItems.Size = new System.Drawing.Size(1073, 104);
-            this.lvwUploadedItems.TabIndex = 12;
-            this.lvwUploadedItems.UseCompatibleStateImageBehavior = false;
-            this.lvwUploadedItems.View = System.Windows.Forms.View.Details;
-            this.lvwUploadedItems.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwUploadedItems_ColumnClick);
+            lvwUploadedItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader8, columnHeader9, columnHeader18, columnHeader19, columnHeader22 });
+            lvwUploadedItems.FullRowSelect = true;
+            lvwUploadedItems.Location = new System.Drawing.Point(15, 377);
+            lvwUploadedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwUploadedItems.MultiSelect = false;
+            lvwUploadedItems.Name = "lvwUploadedItems";
+            lvwUploadedItems.Size = new System.Drawing.Size(1073, 104);
+            lvwUploadedItems.TabIndex = 12;
+            lvwUploadedItems.UseCompatibleStateImageBehavior = false;
+            lvwUploadedItems.View = System.Windows.Forms.View.Details;
+            lvwUploadedItems.ColumnClick += lvwUploadedItems_ColumnClick;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "Item";
-            this.columnHeader8.Width = 175;
+            columnHeader8.Text = "Item";
+            columnHeader8.Width = 175;
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "Quality";
-            this.columnHeader9.Width = 80;
+            columnHeader9.Text = "Quality";
+            columnHeader9.Width = 80;
             // 
             // columnHeader18
             // 
-            this.columnHeader18.Text = "Rating";
+            columnHeader18.Text = "Rating";
             // 
             // columnHeader19
             // 
-            this.columnHeader19.Text = "BP";
-            this.columnHeader19.Width = 40;
+            columnHeader19.Text = "BP";
+            columnHeader19.Width = 40;
             // 
             // columnHeader22
             // 
-            this.columnHeader22.Text = "Qty";
+            columnHeader22.Text = "Qty";
             // 
             // lblUploadedTames
             // 
-            this.lblUploadedTames.AutoSize = true;
-            this.lblUploadedTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblUploadedTames.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblUploadedTames.Location = new System.Drawing.Point(12, 153);
-            this.lblUploadedTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUploadedTames.Name = "lblUploadedTames";
-            this.lblUploadedTames.Size = new System.Drawing.Size(102, 13);
-            this.lblUploadedTames.TabIndex = 11;
-            this.lblUploadedTames.Text = "Uploaded Tames";
+            lblUploadedTames.AutoSize = true;
+            lblUploadedTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedTames.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedTames.Location = new System.Drawing.Point(12, 153);
+            lblUploadedTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedTames.Name = "lblUploadedTames";
+            lblUploadedTames.Size = new System.Drawing.Size(102, 13);
+            lblUploadedTames.TabIndex = 11;
+            lblUploadedTames.Text = "Uploaded Tames";
             // 
             // lblUploadedCharacters
             // 
-            this.lblUploadedCharacters.AutoSize = true;
-            this.lblUploadedCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblUploadedCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblUploadedCharacters.Location = new System.Drawing.Point(12, 18);
-            this.lblUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUploadedCharacters.Name = "lblUploadedCharacters";
-            this.lblUploadedCharacters.Size = new System.Drawing.Size(126, 13);
-            this.lblUploadedCharacters.TabIndex = 10;
-            this.lblUploadedCharacters.Text = "Uploaded Characters";
+            lblUploadedCharacters.AutoSize = true;
+            lblUploadedCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCharacters.Location = new System.Drawing.Point(12, 18);
+            lblUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCharacters.Name = "lblUploadedCharacters";
+            lblUploadedCharacters.Size = new System.Drawing.Size(126, 13);
+            lblUploadedCharacters.TabIndex = 10;
+            lblUploadedCharacters.Text = "Uploaded Characters";
             // 
             // lvwUploadedCharacters
             // 
-            this.lvwUploadedCharacters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwUploadedCharacters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader37,
-            this.columnHeader39,
-            this.columnHeader40,
-            this.columnHeader43,
-            this.columnHeader44,
-            this.columnHeader45,
-            this.columnHeader46,
-            this.columnHeader47,
-            this.columnHeader48,
-            this.columnHeader49,
-            this.columnHeader50,
-            this.columnHeader51,
-            this.columnHeader52});
-            this.lvwUploadedCharacters.ContextMenuStrip = this.mnuContext;
-            this.lvwUploadedCharacters.FullRowSelect = true;
-            this.lvwUploadedCharacters.Location = new System.Drawing.Point(15, 42);
-            this.lvwUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwUploadedCharacters.Name = "lvwUploadedCharacters";
-            this.lvwUploadedCharacters.Size = new System.Drawing.Size(1072, 100);
-            this.lvwUploadedCharacters.TabIndex = 9;
-            this.lvwUploadedCharacters.UseCompatibleStateImageBehavior = false;
-            this.lvwUploadedCharacters.View = System.Windows.Forms.View.Details;
-            this.lvwUploadedCharacters.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwUploadedCharacters_ColumnClick);
+            lvwUploadedCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedCharacters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader37, columnHeader39, columnHeader40, columnHeader43, columnHeader44, columnHeader45, columnHeader46, columnHeader47, columnHeader48, columnHeader49, columnHeader50, columnHeader51, columnHeader52 });
+            lvwUploadedCharacters.ContextMenuStrip = mnuContext;
+            lvwUploadedCharacters.FullRowSelect = true;
+            lvwUploadedCharacters.Location = new System.Drawing.Point(15, 42);
+            lvwUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwUploadedCharacters.Name = "lvwUploadedCharacters";
+            lvwUploadedCharacters.Size = new System.Drawing.Size(1072, 100);
+            lvwUploadedCharacters.TabIndex = 9;
+            lvwUploadedCharacters.UseCompatibleStateImageBehavior = false;
+            lvwUploadedCharacters.View = System.Windows.Forms.View.Details;
+            lvwUploadedCharacters.ColumnClick += lvwUploadedCharacters_ColumnClick;
             // 
             // columnHeader37
             // 
-            this.columnHeader37.Text = "Name";
-            this.columnHeader37.Width = 90;
+            columnHeader37.Text = "Name";
+            columnHeader37.Width = 90;
             // 
             // columnHeader39
             // 
-            this.columnHeader39.Text = "Sex";
-            this.columnHeader39.Width = 55;
+            columnHeader39.Text = "Sex";
+            columnHeader39.Width = 55;
             // 
             // columnHeader40
             // 
-            this.columnHeader40.Text = "Lvl";
-            this.columnHeader40.Width = 35;
+            columnHeader40.Text = "Lvl";
+            columnHeader40.Width = 35;
             // 
             // columnHeader43
             // 
-            this.columnHeader43.Text = "HP";
-            this.columnHeader43.Width = 45;
+            columnHeader43.Text = "HP";
+            columnHeader43.Width = 45;
             // 
             // columnHeader44
             // 
-            this.columnHeader44.Text = "Stam";
-            this.columnHeader44.Width = 45;
+            columnHeader44.Text = "Stam";
+            columnHeader44.Width = 45;
             // 
             // columnHeader45
             // 
-            this.columnHeader45.Text = "Melee";
-            this.columnHeader45.Width = 48;
+            columnHeader45.Text = "Melee";
+            columnHeader45.Width = 48;
             // 
             // columnHeader46
             // 
-            this.columnHeader46.Text = "Weight";
-            this.columnHeader46.Width = 55;
+            columnHeader46.Text = "Weight";
+            columnHeader46.Width = 55;
             // 
             // columnHeader47
             // 
-            this.columnHeader47.Text = "Speed";
-            this.columnHeader47.Width = 50;
+            columnHeader47.Text = "Speed";
+            columnHeader47.Width = 50;
             // 
             // columnHeader48
             // 
-            this.columnHeader48.Text = "Food";
-            this.columnHeader48.Width = 47;
+            columnHeader48.Text = "Food";
+            columnHeader48.Width = 47;
             // 
             // columnHeader49
             // 
-            this.columnHeader49.Text = "Water";
+            columnHeader49.Text = "Water";
             // 
             // columnHeader50
             // 
-            this.columnHeader50.Text = "Oxygen";
-            this.columnHeader50.Width = 53;
+            columnHeader50.Text = "Oxygen";
+            columnHeader50.Width = 53;
             // 
             // columnHeader51
             // 
-            this.columnHeader51.Text = "Crafting";
+            columnHeader51.Text = "Crafting";
             // 
             // columnHeader52
             // 
-            this.columnHeader52.Text = "Fortitude";
+            columnHeader52.Text = "Fortitude";
             // 
             // lvwUploadedTames
             // 
-            this.lvwUploadedTames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwUploadedTames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15,
-            this.columnHeader16,
-            this.columnHeader17,
-            this.columnHeader20,
-            this.columnHeader21,
-            this.columnHeader23,
-            this.columnHeader24,
-            this.columnHeader25,
-            this.columnHeader26,
-            this.columnHeader27,
-            this.columnHeader28,
-            this.columnHeader29,
-            this.columnHeader30,
-            this.columnHeader33,
-            this.columnHeader34});
-            this.lvwUploadedTames.ContextMenuStrip = this.mnuContext;
-            this.lvwUploadedTames.FullRowSelect = true;
-            this.lvwUploadedTames.Location = new System.Drawing.Point(15, 175);
-            this.lvwUploadedTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwUploadedTames.MultiSelect = false;
-            this.lvwUploadedTames.Name = "lvwUploadedTames";
-            this.lvwUploadedTames.Size = new System.Drawing.Size(1072, 133);
-            this.lvwUploadedTames.TabIndex = 8;
-            this.lvwUploadedTames.UseCompatibleStateImageBehavior = false;
-            this.lvwUploadedTames.View = System.Windows.Forms.View.Details;
-            this.lvwUploadedTames.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwUploadedTames_ColumnClick);
+            lvwUploadedTames.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedTames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader5, columnHeader6, columnHeader7, columnHeader10, columnHeader11, columnHeader12, columnHeader13, columnHeader14, columnHeader15, columnHeader16, columnHeader17, columnHeader20, columnHeader21, columnHeader23, columnHeader24, columnHeader25, columnHeader26, columnHeader27, columnHeader28, columnHeader29, columnHeader30, columnHeader33, columnHeader34 });
+            lvwUploadedTames.ContextMenuStrip = mnuContext;
+            lvwUploadedTames.FullRowSelect = true;
+            lvwUploadedTames.Location = new System.Drawing.Point(15, 175);
+            lvwUploadedTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwUploadedTames.MultiSelect = false;
+            lvwUploadedTames.Name = "lvwUploadedTames";
+            lvwUploadedTames.Size = new System.Drawing.Size(1072, 133);
+            lvwUploadedTames.TabIndex = 8;
+            lvwUploadedTames.UseCompatibleStateImageBehavior = false;
+            lvwUploadedTames.View = System.Windows.Forms.View.Details;
+            lvwUploadedTames.ColumnClick += lvwUploadedTames_ColumnClick;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Creature";
-            this.columnHeader1.Width = 140;
+            columnHeader1.Text = "Creature";
+            columnHeader1.Width = 140;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 150;
+            columnHeader2.Text = "Name";
+            columnHeader2.Width = 150;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Sex";
+            columnHeader5.Text = "Sex";
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Base";
-            this.columnHeader6.Width = 50;
+            columnHeader6.Text = "Base";
+            columnHeader6.Width = 50;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Lvl";
-            this.columnHeader7.Width = 41;
+            columnHeader7.Text = "Lvl";
+            columnHeader7.Width = 41;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "HP";
-            this.columnHeader10.Width = 45;
+            columnHeader10.Text = "HP";
+            columnHeader10.Width = 45;
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "Stam";
-            this.columnHeader11.Width = 45;
+            columnHeader11.Text = "Stam";
+            columnHeader11.Width = 45;
             // 
             // columnHeader12
             // 
-            this.columnHeader12.Text = "Melee";
-            this.columnHeader12.Width = 48;
+            columnHeader12.Text = "Melee";
+            columnHeader12.Width = 48;
             // 
             // columnHeader13
             // 
-            this.columnHeader13.Text = "Weight";
-            this.columnHeader13.Width = 55;
+            columnHeader13.Text = "Weight";
+            columnHeader13.Width = 55;
             // 
             // columnHeader14
             // 
-            this.columnHeader14.Text = "Speed";
-            this.columnHeader14.Width = 50;
+            columnHeader14.Text = "Speed";
+            columnHeader14.Width = 50;
             // 
             // columnHeader15
             // 
-            this.columnHeader15.Text = "Food";
-            this.columnHeader15.Width = 47;
+            columnHeader15.Text = "Food";
+            columnHeader15.Width = 47;
             // 
             // columnHeader16
             // 
-            this.columnHeader16.Text = "Oxygen";
-            this.columnHeader16.Width = 53;
+            columnHeader16.Text = "Oxygen";
+            columnHeader16.Width = 53;
             // 
             // columnHeader17
             // 
-            this.columnHeader17.Text = "Craft";
-            this.columnHeader17.Width = 50;
+            columnHeader17.Text = "Craft";
+            columnHeader17.Width = 50;
             // 
             // columnHeader20
             // 
-            this.columnHeader20.Text = "Imprinter";
-            this.columnHeader20.Width = 105;
+            columnHeader20.Text = "Imprinter";
+            columnHeader20.Width = 105;
             // 
             // columnHeader21
             // 
-            this.columnHeader21.Text = "Imprint";
+            columnHeader21.Text = "Imprint";
             // 
             // columnHeader23
             // 
-            this.columnHeader23.Text = "C0";
-            this.columnHeader23.Width = 35;
+            columnHeader23.Text = "C0";
+            columnHeader23.Width = 35;
             // 
             // columnHeader24
             // 
-            this.columnHeader24.Text = "C1";
-            this.columnHeader24.Width = 35;
+            columnHeader24.Text = "C1";
+            columnHeader24.Width = 35;
             // 
             // columnHeader25
             // 
-            this.columnHeader25.Text = "C2";
-            this.columnHeader25.Width = 35;
+            columnHeader25.Text = "C2";
+            columnHeader25.Width = 35;
             // 
             // columnHeader26
             // 
-            this.columnHeader26.Text = "C3";
-            this.columnHeader26.Width = 35;
+            columnHeader26.Text = "C3";
+            columnHeader26.Width = 35;
             // 
             // columnHeader27
             // 
-            this.columnHeader27.Text = "C4";
-            this.columnHeader27.Width = 35;
+            columnHeader27.Text = "C4";
+            columnHeader27.Width = 35;
             // 
             // columnHeader28
             // 
-            this.columnHeader28.Text = "C5";
-            this.columnHeader28.Width = 35;
+            columnHeader28.Text = "C5";
+            columnHeader28.Width = 35;
             // 
             // columnHeader29
             // 
-            this.columnHeader29.Text = "Mut (F)";
+            columnHeader29.Text = "Mut (F)";
             // 
             // columnHeader30
             // 
-            this.columnHeader30.Text = "Mut (M)";
+            columnHeader30.Text = "Mut (M)";
             // 
             // columnHeader33
             // 
-            this.columnHeader33.Text = "Rig1";
-            this.columnHeader33.Width = 100;
+            columnHeader33.Text = "Rig1";
+            columnHeader33.Width = 100;
             // 
             // columnHeader34
             // 
-            this.columnHeader34.Text = "Rig2";
-            this.columnHeader34.Width = 100;
+            columnHeader34.Text = "Rig2";
+            columnHeader34.Width = 100;
             // 
             // tpgLeaderboard
             // 
-            this.tpgLeaderboard.Controls.Add(this.cboLeaderboardPlayer);
-            this.tpgLeaderboard.Controls.Add(this.lblMissionPlayer);
-            this.tpgLeaderboard.Controls.Add(this.lvwLeaderboardSummary);
-            this.tpgLeaderboard.Controls.Add(this.lvwLeaderboard);
-            this.tpgLeaderboard.Controls.Add(this.cboLeaderboardMission);
-            this.tpgLeaderboard.Controls.Add(this.lblLeaderboardMission);
-            this.tpgLeaderboard.Controls.Add(this.cboLeaderboardTribe);
-            this.tpgLeaderboard.Controls.Add(this.lblLeaderboardTribe);
-            this.tpgLeaderboard.Location = new System.Drawing.Point(4, 24);
-            this.tpgLeaderboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tpgLeaderboard.Name = "tpgLeaderboard";
-            this.tpgLeaderboard.Size = new System.Drawing.Size(1104, 520);
-            this.tpgLeaderboard.TabIndex = 8;
-            this.tpgLeaderboard.Text = "Leaderboard";
-            this.tpgLeaderboard.UseVisualStyleBackColor = true;
+            tpgLeaderboard.Controls.Add(cboLeaderboardPlayer);
+            tpgLeaderboard.Controls.Add(lblMissionPlayer);
+            tpgLeaderboard.Controls.Add(lvwLeaderboardSummary);
+            tpgLeaderboard.Controls.Add(lvwLeaderboard);
+            tpgLeaderboard.Controls.Add(cboLeaderboardMission);
+            tpgLeaderboard.Controls.Add(lblLeaderboardMission);
+            tpgLeaderboard.Controls.Add(cboLeaderboardTribe);
+            tpgLeaderboard.Controls.Add(lblLeaderboardTribe);
+            tpgLeaderboard.Location = new System.Drawing.Point(4, 24);
+            tpgLeaderboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tpgLeaderboard.Name = "tpgLeaderboard";
+            tpgLeaderboard.Size = new System.Drawing.Size(1104, 520);
+            tpgLeaderboard.TabIndex = 8;
+            tpgLeaderboard.Text = "Leaderboard";
+            tpgLeaderboard.UseVisualStyleBackColor = true;
             // 
             // cboLeaderboardPlayer
             // 
-            this.cboLeaderboardPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLeaderboardPlayer.FormattingEnabled = true;
-            this.cboLeaderboardPlayer.Location = new System.Drawing.Point(469, 243);
-            this.cboLeaderboardPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboLeaderboardPlayer.Name = "cboLeaderboardPlayer";
-            this.cboLeaderboardPlayer.Size = new System.Drawing.Size(279, 23);
-            this.cboLeaderboardPlayer.TabIndex = 18;
-            this.cboLeaderboardPlayer.SelectedIndexChanged += new System.EventHandler(this.cboLeaderboardPlayer_SelectedIndexChanged);
+            cboLeaderboardPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardPlayer.FormattingEnabled = true;
+            cboLeaderboardPlayer.Location = new System.Drawing.Point(469, 243);
+            cboLeaderboardPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboLeaderboardPlayer.Name = "cboLeaderboardPlayer";
+            cboLeaderboardPlayer.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardPlayer.TabIndex = 18;
+            cboLeaderboardPlayer.SelectedIndexChanged += cboLeaderboardPlayer_SelectedIndexChanged;
             // 
             // lblMissionPlayer
             // 
-            this.lblMissionPlayer.AutoSize = true;
-            this.lblMissionPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMissionPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblMissionPlayer.Location = new System.Drawing.Point(401, 248);
-            this.lblMissionPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMissionPlayer.Name = "lblMissionPlayer";
-            this.lblMissionPlayer.Size = new System.Drawing.Size(46, 13);
-            this.lblMissionPlayer.TabIndex = 17;
-            this.lblMissionPlayer.Text = "Player:";
+            lblMissionPlayer.AutoSize = true;
+            lblMissionPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMissionPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblMissionPlayer.Location = new System.Drawing.Point(401, 248);
+            lblMissionPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMissionPlayer.Name = "lblMissionPlayer";
+            lblMissionPlayer.Size = new System.Drawing.Size(46, 13);
+            lblMissionPlayer.TabIndex = 17;
+            lblMissionPlayer.Text = "Player:";
             // 
             // lvwLeaderboardSummary
             // 
-            this.lvwLeaderboardSummary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwLeaderboardSummary.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader32,
-            this.columnHeader35,
-            this.columnHeader36});
-            this.lvwLeaderboardSummary.ContextMenuStrip = this.mnuContext;
-            this.lvwLeaderboardSummary.FullRowSelect = true;
-            this.lvwLeaderboardSummary.Location = new System.Drawing.Point(14, 67);
-            this.lvwLeaderboardSummary.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwLeaderboardSummary.MultiSelect = false;
-            this.lvwLeaderboardSummary.Name = "lvwLeaderboardSummary";
-            this.lvwLeaderboardSummary.Size = new System.Drawing.Size(1073, 164);
-            this.lvwLeaderboardSummary.TabIndex = 16;
-            this.lvwLeaderboardSummary.UseCompatibleStateImageBehavior = false;
-            this.lvwLeaderboardSummary.View = System.Windows.Forms.View.Details;
-            this.lvwLeaderboardSummary.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwLeaderboardSummary_ColumnClick);
+            lvwLeaderboardSummary.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwLeaderboardSummary.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader32, columnHeader35, columnHeader36 });
+            lvwLeaderboardSummary.ContextMenuStrip = mnuContext;
+            lvwLeaderboardSummary.FullRowSelect = true;
+            lvwLeaderboardSummary.Location = new System.Drawing.Point(14, 67);
+            lvwLeaderboardSummary.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwLeaderboardSummary.MultiSelect = false;
+            lvwLeaderboardSummary.Name = "lvwLeaderboardSummary";
+            lvwLeaderboardSummary.Size = new System.Drawing.Size(1073, 164);
+            lvwLeaderboardSummary.TabIndex = 16;
+            lvwLeaderboardSummary.UseCompatibleStateImageBehavior = false;
+            lvwLeaderboardSummary.View = System.Windows.Forms.View.Details;
+            lvwLeaderboardSummary.ColumnClick += lvwLeaderboardSummary_ColumnClick;
             // 
             // columnHeader32
             // 
-            this.columnHeader32.Text = "Tribe";
-            this.columnHeader32.Width = 170;
+            columnHeader32.Text = "Tribe";
+            columnHeader32.Width = 170;
             // 
             // columnHeader35
             // 
-            this.columnHeader35.Text = "Player";
-            this.columnHeader35.Width = 179;
+            columnHeader35.Text = "Player";
+            columnHeader35.Width = 179;
             // 
             // columnHeader36
             // 
-            this.columnHeader36.Text = "Mission Count";
-            this.columnHeader36.Width = 113;
+            columnHeader36.Text = "Mission Count";
+            columnHeader36.Width = 113;
             // 
             // lvwLeaderboard
             // 
-            this.lvwLeaderboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwLeaderboard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwLeaderboard_Mission,
-            this.lvwLeaderboard_Tribe,
-            this.lvwLeaderboard_Player,
-            this.lvwLeaderboard_Score});
-            this.lvwLeaderboard.ContextMenuStrip = this.mnuContext;
-            this.lvwLeaderboard.FullRowSelect = true;
-            this.lvwLeaderboard.Location = new System.Drawing.Point(14, 276);
-            this.lvwLeaderboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwLeaderboard.MultiSelect = false;
-            this.lvwLeaderboard.Name = "lvwLeaderboard";
-            this.lvwLeaderboard.Size = new System.Drawing.Size(1073, 221);
-            this.lvwLeaderboard.TabIndex = 15;
-            this.lvwLeaderboard.UseCompatibleStateImageBehavior = false;
-            this.lvwLeaderboard.View = System.Windows.Forms.View.Details;
-            this.lvwLeaderboard.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwLeaderboard_ColumnClick);
+            lvwLeaderboard.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwLeaderboard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwLeaderboard_Mission, lvwLeaderboard_Tribe, lvwLeaderboard_Player, lvwLeaderboard_Score });
+            lvwLeaderboard.ContextMenuStrip = mnuContext;
+            lvwLeaderboard.FullRowSelect = true;
+            lvwLeaderboard.Location = new System.Drawing.Point(14, 276);
+            lvwLeaderboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwLeaderboard.MultiSelect = false;
+            lvwLeaderboard.Name = "lvwLeaderboard";
+            lvwLeaderboard.Size = new System.Drawing.Size(1073, 221);
+            lvwLeaderboard.TabIndex = 15;
+            lvwLeaderboard.UseCompatibleStateImageBehavior = false;
+            lvwLeaderboard.View = System.Windows.Forms.View.Details;
+            lvwLeaderboard.ColumnClick += lvwLeaderboard_ColumnClick;
             // 
             // lvwLeaderboard_Mission
             // 
-            this.lvwLeaderboard_Mission.Text = "Mission";
-            this.lvwLeaderboard_Mission.Width = 350;
+            lvwLeaderboard_Mission.Text = "Mission";
+            lvwLeaderboard_Mission.Width = 350;
             // 
             // lvwLeaderboard_Tribe
             // 
-            this.lvwLeaderboard_Tribe.Text = "Tribe";
-            this.lvwLeaderboard_Tribe.Width = 170;
+            lvwLeaderboard_Tribe.Text = "Tribe";
+            lvwLeaderboard_Tribe.Width = 170;
             // 
             // lvwLeaderboard_Player
             // 
-            this.lvwLeaderboard_Player.Text = "Player";
-            this.lvwLeaderboard_Player.Width = 179;
+            lvwLeaderboard_Player.Text = "Player";
+            lvwLeaderboard_Player.Width = 179;
             // 
             // lvwLeaderboard_Score
             // 
-            this.lvwLeaderboard_Score.Text = "Score";
-            this.lvwLeaderboard_Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.lvwLeaderboard_Score.Width = 77;
+            lvwLeaderboard_Score.Text = "Score";
+            lvwLeaderboard_Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            lvwLeaderboard_Score.Width = 77;
             // 
             // cboLeaderboardMission
             // 
-            this.cboLeaderboardMission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLeaderboardMission.FormattingEnabled = true;
-            this.cboLeaderboardMission.Location = new System.Drawing.Point(80, 243);
-            this.cboLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboLeaderboardMission.Name = "cboLeaderboardMission";
-            this.cboLeaderboardMission.Size = new System.Drawing.Size(279, 23);
-            this.cboLeaderboardMission.TabIndex = 9;
-            this.cboLeaderboardMission.SelectedIndexChanged += new System.EventHandler(this.cboLeaderboardMission_SelectedIndexChanged);
+            cboLeaderboardMission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardMission.FormattingEnabled = true;
+            cboLeaderboardMission.Location = new System.Drawing.Point(80, 243);
+            cboLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboLeaderboardMission.Name = "cboLeaderboardMission";
+            cboLeaderboardMission.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardMission.TabIndex = 9;
+            cboLeaderboardMission.SelectedIndexChanged += cboLeaderboardMission_SelectedIndexChanged;
             // 
             // lblLeaderboardMission
             // 
-            this.lblLeaderboardMission.AutoSize = true;
-            this.lblLeaderboardMission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLeaderboardMission.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblLeaderboardMission.Location = new System.Drawing.Point(13, 248);
-            this.lblLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLeaderboardMission.Name = "lblLeaderboardMission";
-            this.lblLeaderboardMission.Size = new System.Drawing.Size(53, 13);
-            this.lblLeaderboardMission.TabIndex = 8;
-            this.lblLeaderboardMission.Text = "Mission:";
+            lblLeaderboardMission.AutoSize = true;
+            lblLeaderboardMission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblLeaderboardMission.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblLeaderboardMission.Location = new System.Drawing.Point(13, 248);
+            lblLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLeaderboardMission.Name = "lblLeaderboardMission";
+            lblLeaderboardMission.Size = new System.Drawing.Size(53, 13);
+            lblLeaderboardMission.TabIndex = 8;
+            lblLeaderboardMission.Text = "Mission:";
             // 
             // cboLeaderboardTribe
             // 
-            this.cboLeaderboardTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLeaderboardTribe.FormattingEnabled = true;
-            this.cboLeaderboardTribe.Location = new System.Drawing.Point(80, 31);
-            this.cboLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboLeaderboardTribe.Name = "cboLeaderboardTribe";
-            this.cboLeaderboardTribe.Size = new System.Drawing.Size(279, 23);
-            this.cboLeaderboardTribe.TabIndex = 5;
-            this.cboLeaderboardTribe.SelectedIndexChanged += new System.EventHandler(this.cboLeaderboardTribe_SelectedIndexChanged);
+            cboLeaderboardTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardTribe.FormattingEnabled = true;
+            cboLeaderboardTribe.Location = new System.Drawing.Point(80, 31);
+            cboLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboLeaderboardTribe.Name = "cboLeaderboardTribe";
+            cboLeaderboardTribe.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardTribe.TabIndex = 5;
+            cboLeaderboardTribe.SelectedIndexChanged += cboLeaderboardTribe_SelectedIndexChanged;
             // 
             // lblLeaderboardTribe
             // 
-            this.lblLeaderboardTribe.AutoSize = true;
-            this.lblLeaderboardTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLeaderboardTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblLeaderboardTribe.Location = new System.Drawing.Point(13, 36);
-            this.lblLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLeaderboardTribe.Name = "lblLeaderboardTribe";
-            this.lblLeaderboardTribe.Size = new System.Drawing.Size(40, 13);
-            this.lblLeaderboardTribe.TabIndex = 4;
-            this.lblLeaderboardTribe.Text = "Tribe:";
+            lblLeaderboardTribe.AutoSize = true;
+            lblLeaderboardTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblLeaderboardTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblLeaderboardTribe.Location = new System.Drawing.Point(13, 36);
+            lblLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLeaderboardTribe.Name = "lblLeaderboardTribe";
+            lblLeaderboardTribe.Size = new System.Drawing.Size(40, 13);
+            lblLeaderboardTribe.TabIndex = 4;
+            lblLeaderboardTribe.Text = "Tribe:";
             // 
             // lblStatus
             // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatus.AutoEllipsis = true;
-            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStatus.ForeColor = System.Drawing.Color.CadetBlue;
-            this.lblStatus.Location = new System.Drawing.Point(19, 635);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(908, 58);
-            this.lblStatus.TabIndex = 1;
-            this.lblStatus.Text = "Loading...";
-            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblStatus.AutoEllipsis = true;
+            lblStatus.BackColor = System.Drawing.Color.Transparent;
+            lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStatus.ForeColor = System.Drawing.Color.CadetBlue;
+            lblStatus.Location = new System.Drawing.Point(19, 635);
+            lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new System.Drawing.Size(908, 58);
+            lblStatus.TabIndex = 1;
+            lblStatus.Text = "Loading...";
+            lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTitle.Location = new System.Drawing.Point(15, 1);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(71, 31);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "ASV";
+            lblTitle.AutoSize = true;
+            lblTitle.BackColor = System.Drawing.Color.Transparent;
+            lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTitle.Location = new System.Drawing.Point(15, 1);
+            lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new System.Drawing.Size(71, 31);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "ASV";
             // 
             // lblSubTitle
             // 
-            this.lblSubTitle.AutoSize = true;
-            this.lblSubTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSubTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblSubTitle.Location = new System.Drawing.Point(19, 38);
-            this.lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(189, 16);
-            this.lblSubTitle.TabIndex = 2;
-            this.lblSubTitle.Text = "ARK Savegame Visualiser";
+            lblSubTitle.AutoSize = true;
+            lblSubTitle.BackColor = System.Drawing.Color.Transparent;
+            lblSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblSubTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblSubTitle.Location = new System.Drawing.Point(19, 38);
+            lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSubTitle.Name = "lblSubTitle";
+            lblSubTitle.Size = new System.Drawing.Size(189, 16);
+            lblSubTitle.TabIndex = 2;
+            lblSubTitle.Text = "ARK Savegame Visualiser";
             // 
             // lblMapTypeName
             // 
-            this.lblMapTypeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMapTypeName.BackColor = System.Drawing.Color.Transparent;
-            this.lblMapTypeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMapTypeName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblMapTypeName.Location = new System.Drawing.Point(532, 30);
-            this.lblMapTypeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMapTypeName.Name = "lblMapTypeName";
-            this.lblMapTypeName.Size = new System.Drawing.Size(588, 21);
-            this.lblMapTypeName.TabIndex = 4;
-            this.lblMapTypeName.Text = "Unknown Data";
-            this.lblMapTypeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            lblMapTypeName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblMapTypeName.BackColor = System.Drawing.Color.Transparent;
+            lblMapTypeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblMapTypeName.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblMapTypeName.Location = new System.Drawing.Point(532, 30);
+            lblMapTypeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMapTypeName.Name = "lblMapTypeName";
+            lblMapTypeName.Size = new System.Drawing.Size(588, 21);
+            lblMapTypeName.TabIndex = 4;
+            lblMapTypeName.Text = "Unknown Data";
+            lblMapTypeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblVersion
             // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.BackColor = System.Drawing.Color.Transparent;
-            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblVersion.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblVersion.Location = new System.Drawing.Point(92, 16);
-            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(31, 16);
-            this.lblVersion.TabIndex = 1;
-            this.lblVersion.Text = "v0.0";
+            lblVersion.AutoSize = true;
+            lblVersion.BackColor = System.Drawing.Color.Transparent;
+            lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblVersion.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblVersion.Location = new System.Drawing.Point(92, 16);
+            lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblVersion.Name = "lblVersion";
+            lblVersion.Size = new System.Drawing.Size(31, 16);
+            lblVersion.TabIndex = 1;
+            lblVersion.Text = "v0.0";
             // 
             // lblMap
             // 
-            this.lblMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMap.AutoSize = true;
-            this.lblMap.BackColor = System.Drawing.Color.Transparent;
-            this.lblMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMap.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblMap.Location = new System.Drawing.Point(775, 82);
-            this.lblMap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMap.Name = "lblMap";
-            this.lblMap.Size = new System.Drawing.Size(89, 13);
-            this.lblMap.TabIndex = 25;
-            this.lblMap.Text = "Selected Map:";
+            lblMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblMap.AutoSize = true;
+            lblMap.BackColor = System.Drawing.Color.Transparent;
+            lblMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMap.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblMap.Location = new System.Drawing.Point(775, 82);
+            lblMap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMap.Name = "lblMap";
+            lblMap.Size = new System.Drawing.Size(89, 13);
+            lblMap.TabIndex = 25;
+            lblMap.Text = "Selected Map:";
             // 
             // cboSelectedMap
             // 
-            this.cboSelectedMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboSelectedMap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSelectedMap.FormattingEnabled = true;
-            this.cboSelectedMap.Location = new System.Drawing.Point(878, 77);
-            this.cboSelectedMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboSelectedMap.Name = "cboSelectedMap";
-            this.cboSelectedMap.Size = new System.Drawing.Size(241, 23);
-            this.cboSelectedMap.TabIndex = 26;
-            this.cboSelectedMap.SelectedIndexChanged += new System.EventHandler(this.cboSelectedMap_SelectedIndexChanged);
+            cboSelectedMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboSelectedMap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboSelectedMap.FormattingEnabled = true;
+            cboSelectedMap.Location = new System.Drawing.Point(878, 77);
+            cboSelectedMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboSelectedMap.Name = "cboSelectedMap";
+            cboSelectedMap.Size = new System.Drawing.Size(241, 23);
+            cboSelectedMap.TabIndex = 26;
+            cboSelectedMap.SelectedIndexChanged += cboSelectedMap_SelectedIndexChanged;
             // 
             // frmViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1136, 705);
-            this.Controls.Add(this.lblVersion);
-            this.Controls.Add(this.lblSubTitle);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.lblMap);
-            this.Controls.Add(this.cboSelectedMap);
-            this.Controls.Add(this.lblMapTypeName);
-            this.Controls.Add(this.lblMapDate);
-            this.Controls.Add(this.btnViewMap);
-            this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.tabFeatures);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MinimumSize = new System.Drawing.Size(1152, 744);
-            this.Name = "frmViewer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ARK Savegame Visualiser";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmViewer_FormClosed);
-            this.ResizeEnd += new System.EventHandler(this.frmViewer_ResizeEnd);
-            this.LocationChanged += new System.EventHandler(this.frmViewer_LocationChanged);
-            this.Enter += new System.EventHandler(this.frmViewer_Enter);
-            this.Resize += new System.EventHandler(this.frmViewer_Resize);
-            this.mnuContext.ResumeLayout(false);
-            this.tabFeatures.ResumeLayout(false);
-            this.tpgWild.ResumeLayout(false);
-            this.tpgWild.PerformLayout();
-            this.pnlFilterWilds.ResumeLayout(false);
-            this.pnlFilterWilds.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildRadius)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildLon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildLat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udWildMax)).EndInit();
-            this.tpgTamed.ResumeLayout(false);
-            this.tpgTamed.PerformLayout();
-            this.pnlFilterTamed.ResumeLayout(false);
-            this.pnlFilterTamed.PerformLayout();
-            this.pnlTameStatTypes.ResumeLayout(false);
-            this.pnlTameStatTypes.PerformLayout();
-            this.tpgStructures.ResumeLayout(false);
-            this.tpgStructures.PerformLayout();
-            this.pnlFilterStructures.ResumeLayout(false);
-            this.pnlFilterStructures.PerformLayout();
-            this.tpgTribes.ResumeLayout(false);
-            this.tpgTribes.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.pnlFilterTribes.ResumeLayout(false);
-            this.pnlFilterTribes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.udChartTop)).EndInit();
-            this.tpgPlayers.ResumeLayout(false);
-            this.tpgPlayers.PerformLayout();
-            this.pnlFilterPlayers.ResumeLayout(false);
-            this.pnlFilterPlayers.PerformLayout();
-            this.tpgDroppedItems.ResumeLayout(false);
-            this.tpgDroppedItems.PerformLayout();
-            this.pnlFilterDropped.ResumeLayout(false);
-            this.pnlFilterDropped.PerformLayout();
-            this.tpgItemList.ResumeLayout(false);
-            this.tpgItemList.PerformLayout();
-            this.pnlFilterSearch.ResumeLayout(false);
-            this.pnlFilterSearch.PerformLayout();
-            this.tpgLocalProfile.ResumeLayout(false);
-            this.tpgLocalProfile.PerformLayout();
-            this.pnlUploadedStats.ResumeLayout(false);
-            this.pnlUploadedStats.PerformLayout();
-            this.tpgLeaderboard.ResumeLayout(false);
-            this.tpgLeaderboard.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.LightBlue;
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ClientSize = new System.Drawing.Size(1136, 705);
+            Controls.Add(lblVersion);
+            Controls.Add(lblSubTitle);
+            Controls.Add(lblTitle);
+            Controls.Add(lblMap);
+            Controls.Add(cboSelectedMap);
+            Controls.Add(lblMapTypeName);
+            Controls.Add(lblMapDate);
+            Controls.Add(btnViewMap);
+            Controls.Add(btnRefresh);
+            Controls.Add(btnSettings);
+            Controls.Add(lblStatus);
+            Controls.Add(tabFeatures);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(1152, 744);
+            Name = "frmViewer";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "ARK Savegame Visualiser";
+            FormClosed += frmViewer_FormClosed;
+            ResizeEnd += frmViewer_ResizeEnd;
+            LocationChanged += frmViewer_LocationChanged;
+            Enter += frmViewer_Enter;
+            Resize += frmViewer_Resize;
+            mnuContext.ResumeLayout(false);
+            tabFeatures.ResumeLayout(false);
+            tpgWild.ResumeLayout(false);
+            tpgWild.PerformLayout();
+            pnlFilterWilds.ResumeLayout(false);
+            pnlFilterWilds.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udWildRadius).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMax).EndInit();
+            tpgTamed.ResumeLayout(false);
+            tpgTamed.PerformLayout();
+            pnlFilterTamed.ResumeLayout(false);
+            pnlFilterTamed.PerformLayout();
+            pnlTameStatTypes.ResumeLayout(false);
+            pnlTameStatTypes.PerformLayout();
+            tpgStructures.ResumeLayout(false);
+            tpgStructures.PerformLayout();
+            pnlFilterStructures.ResumeLayout(false);
+            pnlFilterStructures.PerformLayout();
+            tpgTribes.ResumeLayout(false);
+            tpgTribes.PerformLayout();
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            pnlFilterTribes.ResumeLayout(false);
+            pnlFilterTribes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udChartTop).EndInit();
+            tpgPlayers.ResumeLayout(false);
+            tpgPlayers.PerformLayout();
+            pnlFilterPlayers.ResumeLayout(false);
+            pnlFilterPlayers.PerformLayout();
+            tpgDroppedItems.ResumeLayout(false);
+            tpgDroppedItems.PerformLayout();
+            pnlFilterDropped.ResumeLayout(false);
+            pnlFilterDropped.PerformLayout();
+            tpgItemList.ResumeLayout(false);
+            tpgItemList.PerformLayout();
+            pnlFilterSearch.ResumeLayout(false);
+            pnlFilterSearch.PerformLayout();
+            tpgLocalProfile.ResumeLayout(false);
+            tpgLocalProfile.PerformLayout();
+            pnlUploadedStats.ResumeLayout(false);
+            pnlUploadedStats.PerformLayout();
+            tpgLeaderboard.ResumeLayout(false);
+            tpgLeaderboard.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

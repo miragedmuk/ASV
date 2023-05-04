@@ -1480,6 +1480,8 @@ namespace ASVPack.Models
                         jw.WritePropertyName("active");
                         jw.WriteValue(playerTribe.LastActive);
 
+                        jw.WritePropertyName("dataFile");
+                        jw.WriteValue(playerTribe.TribeFileName);
 
                         jw.WriteEnd();
                     }
@@ -1589,6 +1591,9 @@ namespace ASVPack.Models
 
                                 jw.WritePropertyName("steamid");
                                 jw.WriteValue(player.NetworkId);
+
+                                jw.WritePropertyName("dataFile");
+                                jw.WriteValue(player.PlayerFilename);
 
                                 bool exportInventories = true;
 

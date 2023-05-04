@@ -168,7 +168,10 @@ namespace ASVPack.Models
                                         var playerObject = storedGameObjects[0];
                                         var contentPlayer = new ContentPlayer(playerObject);
 
-                                        if (contentPlayer != null) UploadedCharacters.Add(contentPlayer);
+                                        if (contentPlayer != null)
+                                        {
+                                            UploadedCharacters.Add(contentPlayer);
+                                        }
 
                                     }
 

@@ -40,6 +40,7 @@ namespace ASVPack.Models
 
 
         public bool HasGameFile { get; set; } = false;
+        public string PlayerFilename { get; set; } = string.Empty;
 
         public bool IsSpawned()
         {

@@ -31,7 +31,7 @@ namespace ARKViewer
         frmMapView MapViewer = null;
 
         private bool isLoading = false;
-        
+
         private ColumnHeader SortingColumn_DetailTame = null;
         private ColumnHeader SortingColumn_DetailWild = null;
         private ColumnHeader SortingColumn_Players = null;
@@ -130,10 +130,10 @@ namespace ARKViewer
 
             this.Cursor = Cursors.WaitCursor;
 
-            if(Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp)
+            if (Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp)
             {
                 long downloadStartTicks = DateTime.Now.Ticks;
-                if(Program.ProgramConfig.FtpLoadMode == 1 || doUserDownload || !File.Exists(fileName))
+                if (Program.ProgramConfig.FtpLoadMode == 1 || doUserDownload || !File.Exists(fileName))
                 {
                     UpdateProgress("Checking FTP server for new content.");
 
@@ -155,7 +155,7 @@ namespace ARKViewer
 
                 }
 
-                
+
             }
 
             cm = null;
@@ -165,7 +165,7 @@ namespace ARKViewer
             UpdateProgress("Loading content.");
 
             long startLoadTicks = DateTime.Now.Ticks;
-            
+
             //remove in-game markers, will re-load if Local Profile contains any
             Program.ProgramConfig.MapMarkerList.RemoveAll(x => x.InGameMarker == true);
 
@@ -176,12 +176,12 @@ namespace ARKViewer
                 {
                     //asv pack (compressed)
                     ContentPack pack = new ContentPack(File.ReadAllBytes(fileName));
-                    Program.ProgramConfig.GlitchMarkers.Where(m=>m.Map == cm.LoadedMap.MapName).ToList().ForEach(x =>
+                    Program.ProgramConfig.GlitchMarkers.Where(m => m.Map == cm.LoadedMap.MapName).ToList().ForEach(x =>
                     {
                         pack.GlitchMarkers.Add(new ContentStructure()
                         {
                             ClassName = "ASV_Glitch",
-                            HasDecayTimeReset=false,
+                            HasDecayTimeReset = false,
                             X = x.X,
                             Y = x.Y,
                             Z = x.Z,
@@ -206,8 +206,8 @@ namespace ARKViewer
                         localProfileFilename = Path.Combine(steamFolder, @"LocalProfiles\PlayerLocalData.arkprofile");
                     }
 
-                    
-                    container.LoadSaveGame(fileName, localProfileFilename, Program.ProgramConfig.ClusterFolder??"");
+
+                    container.LoadSaveGame(fileName, localProfileFilename, Program.ProgramConfig.ClusterFolder ?? "");
 
                     //terminals not already in game data
 
@@ -215,7 +215,7 @@ namespace ARKViewer
                     //glitches
                     Program.ProgramConfig.GlitchMarkers.ForEach(x =>
                     {
-                        if(x.Map.ToLower().StartsWith(container.MapName.ToLower()))
+                        if (x.Map.ToLower().StartsWith(container.MapName.ToLower()))
                         {
                             container.MapStructures.Add(new ContentStructure()
                             {
@@ -244,7 +244,7 @@ namespace ARKViewer
                     }
 
                     cm = new ASVDataManager(container);
-  
+
 
                 }
 
@@ -301,7 +301,7 @@ namespace ARKViewer
 
                 RefreshWildSummary();
                 RefreshTamedProductionResources();
-                
+
                 RefreshTamedSummary();
                 RefreshTribeSummary();
                 RefreshPlayerTribes();
@@ -313,7 +313,7 @@ namespace ARKViewer
 
                 RefreshLeaderboardTribes();
                 RefreshLeaderboardMissions();
-                
+
                 LoadUploadedCharacters();
                 LoadUploadedItems();
                 LoadUploadedTames();
@@ -332,7 +332,7 @@ namespace ARKViewer
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 frmErrorReport errorReport = new frmErrorReport(ex.Message, ex.StackTrace);
 
@@ -345,21 +345,21 @@ namespace ARKViewer
             switch (Program.ProgramConfig.Mode)
             {
                 case ViewerModes.Mode_Ftp:
-                    foreach(var i in Program.ProgramConfig.ServerList)
+                    foreach (var i in Program.ProgramConfig.ServerList)
                     {
                         string localFilename = Path.Combine(AppContext.BaseDirectory, $@"{i.Name}\", i.Map);
 
                         int newIndex = cboSelectedMap.Items.Add(new ASVComboValue(localFilename, i.Name));
                         if (localFilename.ToLower() == Program.ProgramConfig.SelectedFile.ToLower())
-                        { 
-                            cboSelectedMap.SelectedIndex = newIndex; 
+                        {
+                            cboSelectedMap.SelectedIndex = newIndex;
                         }
                     }
                     break;
                 case ViewerModes.Mode_Offline:
                     foreach (var i in Program.ProgramConfig.OfflineList)
                     {
-                        if (i != null && i.Name!=null)
+                        if (i != null && i.Name != null)
                         {
                             int newIndex = cboSelectedMap.Items.Add(i);
                             if (i.Filename.ToLower() == Program.ProgramConfig.SelectedFile.ToLower()) cboSelectedMap.SelectedIndex = newIndex;
@@ -378,7 +378,7 @@ namespace ARKViewer
             }
             cboSelectedMap.Sorted = true;
             isLoading = false;
-            
+
             this.Cursor = Cursors.Default;
             Program.LogWriter.Trace("END LoadContent()");
         }
@@ -389,20 +389,20 @@ namespace ARKViewer
 
             cboWildRealm.Items.Clear();
             cboWildRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            
-            if (cm.LoadedMap !=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+
+            if (cm.LoadedMap != null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
                     cboWildRealm.Items.Add(new ASVComboValue(realmRegion.RegionName, realmRegion.RegionName));
                 }
-                
+
             }
             cboWildRealm.SelectedIndex = 0;
 
             cboTameRealm.Items.Clear();
             cboTameRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap != null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -414,7 +414,7 @@ namespace ARKViewer
 
             cboStructureRealm.Items.Clear();
             cboStructureRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap != null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -426,7 +426,7 @@ namespace ARKViewer
 
             cboPlayerRealm.Items.Clear();
             cboPlayerRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap != null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -439,7 +439,7 @@ namespace ARKViewer
 
             cboDroppedItemRealm.Items.Clear();
             cboDroppedItemRealm.Items.Add(new ASVComboValue("", "All Realms"));
-            if (cm.LoadedMap!=null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
+            if (cm.LoadedMap != null && cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
             {
                 foreach (var realmRegion in cm.LoadedMap.Regions)
                 {
@@ -479,7 +479,7 @@ namespace ARKViewer
                 DrawMap(selectedX, selectedY);
 
 
-                
+
 
 
             }
@@ -558,7 +558,7 @@ namespace ARKViewer
                 settings.SavedConfig.Save();
                 ARKViewer.Program.ProgramConfig = settings.SavedConfig;
 
-                
+
                 if (!File.Exists(settings.SavedConfig.SelectedFile))
                 {
                     if (settings.SavedConfig.Mode == ViewerModes.Mode_Ftp)
@@ -578,7 +578,7 @@ namespace ARKViewer
 
                     UpdateProgress("Loading content pack..");
 
-                    LoadContent(settings.SavedConfig.SelectedFile,false);
+                    LoadContent(settings.SavedConfig.SelectedFile, false);
 
                     this.Cursor = Cursors.Default;
 
@@ -898,7 +898,7 @@ namespace ARKViewer
             switch (tabFeatures.SelectedTab.Name)
             {
                 case "tpgWild":
-                    if(lvwWildDetail.Items.Count == 0) LoadWildDetail();
+                    if (lvwWildDetail.Items.Count == 0) LoadWildDetail();
                     break;
                 case "tpgTamed":
                     if (lvwTameDetail.Items.Count == 0) LoadTameDetail();
@@ -926,9 +926,9 @@ namespace ARKViewer
 
                     break;
             }
-            
-            
-            
+
+
+
             DrawMap(0, 0);
             this.Cursor = Cursors.Default;
         }
@@ -1138,7 +1138,7 @@ namespace ARKViewer
             var playerTribe = cm.GetPlayerTribe(playerId);
             if (playerTribe != null)
             {
-                var foundTribe = cboTameTribes.Items.Cast<ASVComboValue>().First(x=> x.Key == playerTribe.TribeId.ToString());
+                var foundTribe = cboTameTribes.Items.Cast<ASVComboValue>().First(x => x.Key == playerTribe.TribeId.ToString());
                 cboTameTribes.SelectedIndex = cboTameTribes.Items.IndexOf(foundTribe);
             }
 
@@ -1147,7 +1147,7 @@ namespace ARKViewer
         private void cboTameClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboTameClass.SelectedIndex != 1 && cboTamedResource.SelectedIndex > 0) cboTamedResource.SelectedIndex = 0;
-            
+
             LoadTameDetail();
         }
 
@@ -1883,7 +1883,7 @@ namespace ARKViewer
                 mnuContext_PlayerId.Visible = false;
                 mnuContext_SteamId.Visible = false;
                 mnuContext_TribeId.Visible = true;
-                mnuContext_Structures.Visible = true ;
+                mnuContext_Structures.Visible = true;
                 mnuContext_Tames.Visible = true;
                 mnuContext_Players.Visible = true;
                 mnuContext_DinoId.Visible = false;
@@ -3031,7 +3031,7 @@ namespace ARKViewer
                 foreach (string saveFilename in saveFiles)
                 {
                     string fileName = Path.GetFileName(saveFilename);
-                    if (Program.MapPack.SupportedMaps.Any(m=> m.Filename.ToLower() == fileName.ToLower()))
+                    if (Program.MapPack.SupportedMaps.Any(m => m.Filename.ToLower() == fileName.ToLower()))
                     {
                         ContentMap selectedMap = Program.MapPack.SupportedMaps.First(m => m.Filename.ToLower() == fileName.ToLower());
 
@@ -3040,7 +3040,7 @@ namespace ARKViewer
                         {
                             ASVComboValue comboValue = new ASVComboValue(saveFilename, knownMapName);
                             int newIndex = cboSelectedMap.Items.Add(comboValue);
-                        
+
                         }
 
                     }
@@ -3048,11 +3048,11 @@ namespace ARKViewer
                 }
 
             }
-            
-            for(int x =0; x<cboSelectedMap.Items.Count; x++)
+
+            for (int x = 0; x < cboSelectedMap.Items.Count; x++)
             {
                 ASVComboValue itemValue = (ASVComboValue)cboSelectedMap.Items[x];
-                if(itemValue.Key == Program.ProgramConfig.SelectedFile)
+                if (itemValue.Key == Program.ProgramConfig.SelectedFile)
                 {
                     cboSelectedMap.SelectedIndex = x;
                     break;
@@ -3201,7 +3201,7 @@ namespace ARKViewer
                                     var tmpFilename = files.FirstOrDefault(x => x.Name == serverFile.Name.Replace(".ark", ".tmp"));
                                     if (tmpFilename != null)
                                     {
-                                        if(tmpFilename.LastWriteTimeUtc > serverFile.LastWriteTimeUtc)
+                                        if (tmpFilename.LastWriteTimeUtc > serverFile.LastWriteTimeUtc)
                                         {
                                             //tmp is newer, use that instead
                                             serverFilename = tmpFilename.FullName;
@@ -3209,7 +3209,7 @@ namespace ARKViewer
                                     }
 
                                 }
-                                
+
                                 Program.LogWriter.Debug($"Downloading: {serverFilename} as {localFilename}");
 
                                 //delete local if any
@@ -3235,7 +3235,7 @@ namespace ARKViewer
             }
             catch (Exception ex)
             {
-                Program.LogWriter.Error(ex,"Unable to download latest game data");
+                Program.LogWriter.Error(ex, "Unable to download latest game data");
                 MessageBox.Show($"Unable to download latest game data.\n\n{ex.Message.ToString()}", "Connection Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
@@ -3246,7 +3246,7 @@ namespace ARKViewer
 
         private void Sftp_ErrorOccurred(object sender, Renci.SshNet.Common.ExceptionEventArgs e)
         {
-           
+
         }
 
         private string DownloadFtp()
@@ -3475,7 +3475,7 @@ namespace ARKViewer
                 }
                 catch (Exception ex)
                 {
-                    Program.LogWriter.Error(ex,"Unable to download latest game data");
+                    Program.LogWriter.Error(ex, "Unable to download latest game data");
                     MessageBox.Show($"Unable to download latest game data.\n\n{ex.Message.ToString()}", "Connection Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -3579,7 +3579,7 @@ namespace ARKViewer
             long startContentTicks = DateTime.Now.Ticks;
 
             UpdateProgress("Loading content pack. Please wait.");
-            LoadContent(Program.ProgramConfig.SelectedFile,downloadData);
+            LoadContent(Program.ProgramConfig.SelectedFile, downloadData);
             long endContentTicks = DateTime.Now.Ticks;
 
             if (cm == null || cm.ContentDate == null || cm.ContentDate.Equals(new DateTime()))
@@ -3619,7 +3619,7 @@ namespace ARKViewer
                 return;
             }
 
-            if(selectedX!=0 || selectedY != 0)
+            if (selectedX != 0 || selectedY != 0)
             {
                 MapViewer.BringToFront();
             }
@@ -3752,7 +3752,7 @@ namespace ARKViewer
                     {
                         if (droppedClass == "0") droppedClass = "";
 
-                        MapViewer.DrawMapImageDroppedItems(droppedPlayerId, droppedClass, selectedY, selectedX , (cboDroppedItemRealm.SelectedItem as ASVComboValue).Key);
+                        MapViewer.DrawMapImageDroppedItems(droppedPlayerId, droppedClass, selectedY, selectedX, (cboDroppedItemRealm.SelectedItem as ASVComboValue).Key);
                     }
 
 
@@ -4105,7 +4105,7 @@ namespace ARKViewer
             //udChartTopStructures.Maximum = allTribes.Count;
 
             if (cboChartType.SelectedIndex < 0) cboChartType.SelectedIndex = 0;
-            
+
 
         }
 
@@ -4116,7 +4116,7 @@ namespace ARKViewer
             {
                 case 1:
                     DrawTribeChartTames();
-                    
+
                     break;
 
                 case 2:
@@ -4164,7 +4164,7 @@ namespace ARKViewer
             chartTribes.ClearElements();
             chartTribes.SubTitle = $"Top {(int)udChartTop.Value} by structure count.";
 
-            var allTribes = cm.GetTribes(0).Where(x => x.Structures!=null);
+            var allTribes = cm.GetTribes(0).Where(x => x.Structures != null);
             if (allTribes == null) return;
 
 
@@ -4192,7 +4192,7 @@ namespace ARKViewer
             {
                 int nextRand = rndChartColor.Next();
                 Random rndNew = new Random(nextRand);
-                
+
 
                 long r = (long)Math.Floor((rndNew.NextDouble() * 16));
                 color += letters[r];
@@ -4233,7 +4233,7 @@ namespace ARKViewer
             lblStatus.Refresh();
 
 
-            
+
 
             int classIndex = 0;
             string selectedClass = "";
@@ -4274,7 +4274,7 @@ namespace ARKViewer
                                 .OrderBy(o => o.Name);
 
             cboTameClass.Items.Clear();
-            cboTameClass.Items.Add(new ASVCreatureSummary() { ClassName = "-1", Name = "[Please Select]", Count = 0});
+            cboTameClass.Items.Add(new ASVCreatureSummary() { ClassName = "-1", Name = "[Please Select]", Count = 0 });
 
             if (tamedSummary != null && tamedSummary.Count() > 0)
             {
@@ -4348,7 +4348,7 @@ namespace ARKViewer
             var wildDinos = cm.GetWildCreatures(minLevel, maxLevel, selectedLat, selectedLon, selectedRad, "", (cboWildRealm.SelectedItem as ASVComboValue).Key);
 
             //remove untamable if not selected
-            if(chkTameable.Checked)
+            if (chkTameable.Checked)
             {
                 wildDinos.RemoveAll(d => !d.IsTameable);
             }
@@ -4464,8 +4464,8 @@ namespace ARKViewer
 
         }
 
-        
-        
+
+
         /********* User Selections *********/
         private void RefreshPlayerTribes()
         {
@@ -4551,7 +4551,7 @@ namespace ARKViewer
             cboLeaderboardTribe.SelectedIndex = 0;
         }
 
-        
+
 
         private void RefreshLeaderboardMissions()
         {
@@ -4562,7 +4562,7 @@ namespace ARKViewer
             cboLeaderboardMission.Items.Add(new ASVComboValue("", "[All Missions]"));
 
             var leaderboards = cm.GetLeaderboards();
-            if(leaderboards!=null && leaderboards.Count > 0)
+            if (leaderboards != null && leaderboards.Count > 0)
             {
 
                 leaderboards.OrderBy(x => x.MissionTag).ToList().ForEach(x =>
@@ -4935,7 +4935,7 @@ namespace ARKViewer
 
             List<ASVComboValue> newItems = new List<ASVComboValue>();
 
-            if (selectedTribeId ==  -1) selectedTribeId = 0;
+            if (selectedTribeId == -1) selectedTribeId = 0;
             var tribes = cm.GetTribes(selectedTribeId);
             foreach (var tribe in tribes)
             {
@@ -5111,7 +5111,7 @@ namespace ARKViewer
                 {
 
                     if (!(playerStructure.Latitude.GetValueOrDefault(0) == 0 && playerStructure.Longitude.GetValueOrDefault(0) == 0))
-{
+                    {
 
                         bool addItem = true;
 
@@ -5163,7 +5163,7 @@ namespace ARKViewer
 
                             listItems.Add(newItem);
                         }
-                        
+
                     }
 
 
@@ -5201,10 +5201,10 @@ namespace ARKViewer
             //Name, Sex, Lvl, Hp, Stam, Melee, Weight, Speed, Food, Water, Oxygen, Crafting, Fortitude
 
             ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
-            
+
             foreach (var player in cm.GetUploadedCharacters())
             {
-   
+
                 ListViewItem newItem = new ListViewItem(player.CharacterName);
                 newItem.SubItems.Add(player.Gender.ToString());
                 newItem.SubItems.Add(player.Level.ToString());
@@ -5236,10 +5236,10 @@ namespace ARKViewer
                 newItem.Tag = player;
 
                 listItems.Add(newItem);
-             
+
             }
 
-    
+
 
 
             lvwUploadedCharacters.Items.AddRange(listItems.ToArray());
@@ -5401,11 +5401,11 @@ namespace ARKViewer
             if (cm == null) return;
 
             if (tabFeatures.SelectedTab.Name != "tpgItemList") return;
-            
-            
+
+
             if (cboItemListTribe.SelectedItem == null) return;
             if (cboItemListItem.SelectedItem == null) return;
-            
+
 
             this.Cursor = Cursors.WaitCursor;
             lblStatus.Text = "Searching inventories....";
@@ -5423,7 +5423,7 @@ namespace ARKViewer
             {
                 foreach (var foundItem in foundItems)
                 {
-                    if(chkItemSearchBlueprints.Checked || !chkItemSearchBlueprints.Checked &! foundItem.IsBlueprint)
+                    if (chkItemSearchBlueprints.Checked || !chkItemSearchBlueprints.Checked & !foundItem.IsBlueprint)
                     {
                         string qualityName = "";
                         Color backColor = SystemColors.Window;
@@ -5457,13 +5457,13 @@ namespace ARKViewer
                         {
                             newItem.SubItems.Add($"");
                         }
-                        
+
                         newItem.Tag = foundItem;
 
-                        if(!foundItem.UploadedTime.HasValue || (chkItemSearchUploads.Checked))
+                        if (!foundItem.UploadedTime.HasValue || (chkItemSearchUploads.Checked))
                         {
                             newItems.Add(newItem);
-                        } 
+                        }
 
                     }
                 }
@@ -5555,7 +5555,7 @@ namespace ARKViewer
                                             && player.Latitude <= selectedRegion.LatitudeEnd
                                             && player.Longitude >= selectedRegion.LongitudeStart
                                             && player.Longitude <= selectedRegion.LongitudeEnd;
-                                
+
 
                             }
 
@@ -5721,7 +5721,7 @@ namespace ARKViewer
 
                     Parallel.ForEach(droppedItems, droppedItem =>
                     {
-                        if(chkDroppedBlueprints.Checked || !chkDroppedBlueprints.Checked &! droppedItem.IsBlueprint)
+                        if (chkDroppedBlueprints.Checked || !chkDroppedBlueprints.Checked & !droppedItem.IsBlueprint)
                         {
                             string itemName = droppedItem.ClassName;
                             ItemClassMap itemMap = Program.ProgramConfig.ItemMap.Where(m => m.ClassName == droppedItem.ClassName).FirstOrDefault();
@@ -5748,7 +5748,7 @@ namespace ARKViewer
                             newItem.SubItems.Add(tribeName);
                             newItem.SubItems.Add(playerName);
                             listItems.Add(newItem);
-                        }                        
+                        }
 
                     });
                 }
@@ -5852,7 +5852,7 @@ namespace ARKViewer
                 //change into a strongly typed list for use in parallel
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
                 //Parallel.ForEach(detailList, detail =>
-                foreach(var detail in detailList)
+                foreach (var detail in detailList)
                 {
                     var dinoMap = ARKViewer.Program.ProgramConfig.DinoMap.Where(dino => dino.ClassName == detail.ClassName).FirstOrDefault();
 
@@ -5875,7 +5875,7 @@ namespace ARKViewer
                     if (detail.Longitude.HasValue)
                     {
                         //check realm
-                        
+
                         if (!string.IsNullOrEmpty(selectedRealm))
                         {
                             if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
@@ -5913,8 +5913,8 @@ namespace ARKViewer
                         item.SubItems.Add(detail.Gender.ToString());
                         item.SubItems.Add(detail.BaseLevel.ToString());
                         item.SubItems.Add(detail.Level.ToString());
-                        item.SubItems.Add(((decimal)(detail.Latitude??0)).ToString("0.00"));
-                        item.SubItems.Add(((decimal)(detail.Longitude??0)).ToString("0.00"));
+                        item.SubItems.Add(((decimal)(detail.Latitude ?? 0)).ToString("0.00"));
+                        item.SubItems.Add(((decimal)(detail.Longitude ?? 0)).ToString("0.00"));
                         if (optStatsTamed.Checked)
                         {
                             item.SubItems.Add(detail.TamedStats[0].ToString());
@@ -5976,7 +5976,7 @@ namespace ARKViewer
                                 subItem.BackColor = Color.LightSkyBlue;
                             }
                         }
-                        
+
                         if (detail.IsVivarium)
                         {
                             item.BackColor = Color.LightGreen;
@@ -6076,7 +6076,7 @@ namespace ARKViewer
 
                         item.SubItems.Add($"{detail.X} {detail.Y} {detail.Z}");
 
-                        
+
 
                         if (detail.Id == selectedId)
                         {
@@ -6088,7 +6088,7 @@ namespace ARKViewer
 
                         listItems.Add(item);
                     }
-                    
+
                 }
                 //);
 
@@ -6188,9 +6188,9 @@ namespace ARKViewer
                 {
                     var dinoMap = ARKViewer.Program.ProgramConfig.DinoMap.Where(dino => dino.ClassName == detail.ClassName).FirstOrDefault();
                     string creatureName = dinoMap == null ? detail.ClassName : dinoMap.FriendlyName;
-                    
-                    
-                    
+
+
+
                     ListViewItem item = new ListViewItem(creatureName);//lvwWildDetail.Items.Add(creatureName);
                     item.Tag = detail;
                     item.UseItemStyleForSubItems = false;
@@ -6273,11 +6273,11 @@ namespace ARKViewer
                     }
 
                     item.SubItems.Add(detail.Id.ToString());
-                    item.SubItems.Add(Math.Round(detail.WildScale,1).ToString("f1"));
+                    item.SubItems.Add(Math.Round(detail.WildScale, 1).ToString("f1"));
 
 
 
-                    string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x=>x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
+                    string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
                     string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
                     item.SubItems.Add(rig1Name);
                     item.SubItems.Add(rig2Name);
@@ -6293,11 +6293,11 @@ namespace ARKViewer
                         selectedY = (decimal)Math.Round(detail.Latitude.Value, 2);
                     }
 
-                    if((chkTameable.Checked  && detail.IsTameable) || !chkTameable.Checked)
+                    if ((chkTameable.Checked && detail.IsTameable) || !chkTameable.Checked)
                     {
                         listItems.Add(item);
                     }
-                    
+
                 });
 
                 lvwWildDetail.Items.AddRange(listItems.ToArray());
@@ -6458,10 +6458,10 @@ namespace ARKViewer
 
 
 
-            
+
             //btnSaveChartPlayers.Enabled = false;
             //this.Cursor = Cursors.WaitCursor;
-            
+
             //using(SaveFileDialog dialog = new SaveFileDialog())
             //{
             //    dialog.Filter = "PNG Image File (*.png)|*.png";
@@ -6484,7 +6484,7 @@ namespace ARKViewer
 
         private void btnSaveChartStructures_Click(object sender, EventArgs e)
         {
-           
+
             //var chart = chartTribeStructures;
             //btnSaveChartStructures.Enabled = false;
             //this.Cursor = Cursors.WaitCursor;
@@ -6511,7 +6511,7 @@ namespace ARKViewer
 
             //btnSaveChartStructures.Enabled = true;
 
-            
+
         }
 
         private void btnSaveChartTames_Click(object sender, EventArgs e)
@@ -6539,7 +6539,7 @@ namespace ARKViewer
 
             //this.Cursor = Cursors.Default;
             //btnSaveChartTames.Enabled = true;
-            
+
         }
 
         private void FindNextWild()
@@ -6549,7 +6549,7 @@ namespace ARKViewer
             int maxItemIndex = lvwWildDetail.Items.Count - 1;
             if (lvwWildDetail.SelectedItems.Count > 0) currentItemIndex = lvwWildDetail.SelectedItems[0].Index;
 
-            for(int nextIndex = currentItemIndex+1; nextIndex <= maxItemIndex; nextIndex++)
+            for (int nextIndex = currentItemIndex + 1; nextIndex <= maxItemIndex; nextIndex++)
             {
                 bool searchFound = lvwWildDetail.Items[nextIndex].SubItems.Cast<ListViewItem.ListViewSubItem>().Any(x => x.Text.ToLower().Contains(searchString));
 
@@ -6576,14 +6576,14 @@ namespace ARKViewer
             if (lvwTameDetail.SelectedItems.Count > 0) currentItemIndex = lvwTameDetail.SelectedItems[0].Index;
 
 
-            for (int nextIndex = currentItemIndex+1; nextIndex <= maxItemIndex; nextIndex++)
+            for (int nextIndex = currentItemIndex + 1; nextIndex <= maxItemIndex; nextIndex++)
             {
                 bool searchFound = lvwTameDetail.Items[nextIndex].SubItems.Cast<ListViewItem.ListViewSubItem>().Any(x => x.Text.ToLower().Contains(searchString));
 
                 var tamedDino = lvwTameDetail.Items[nextIndex].Tag as ContentTamedCreature;
                 if (tamedDino.DinoId == searchString) searchFound = true;
 
-                
+
                 if (searchFound)
                 {
                     lvwTameDetail.SelectedItems.Clear();
@@ -6686,8 +6686,8 @@ namespace ARKViewer
             int maxItemIndex = lvwTribes.Items.Count - 1;
             if (lvwTribes.SelectedItems.Count > 0) currentItemIndex = lvwTribes.SelectedItems[0].Index;
 
-            for (int nextIndex = currentItemIndex + 1; nextIndex <= maxItemIndex; nextIndex++) 
-            { 
+            for (int nextIndex = currentItemIndex + 1; nextIndex <= maxItemIndex; nextIndex++)
+            {
                 bool searchFound = lvwTribes.Items[nextIndex].SubItems.Cast<ListViewItem.ListViewSubItem>().Any(x => x.Text.ToLower().Contains(searchString));
                 if (searchFound)
                 {
@@ -6799,7 +6799,7 @@ namespace ARKViewer
             switch (tabFeatures.SelectedTab.Name)
             {
                 case "tpgTribes":
-                    if(lvwTribes.SelectedItems.Count > 0)
+                    if (lvwTribes.SelectedItems.Count > 0)
                     {
                         ContentTribe selectedTribe = (ContentTribe)lvwTribes.SelectedItems[0].Tag;
                         selectedTribeId = selectedTribe.TribeId;
@@ -6821,7 +6821,7 @@ namespace ARKViewer
                     break;
             }
 
-            if(selectedTribeId !=  0)
+            if (selectedTribeId != 0)
             {
                 tabFeatures.SelectTab("tpgStructures");
                 var foundTribe = cboStructureTribe.Items.Cast<ASVComboValue>().FirstOrDefault(x => x.Key == selectedTribeId.ToString());
@@ -6952,7 +6952,7 @@ namespace ARKViewer
             if (cm == null) return;
 
             int selectedTribeId = 0;
-            if(cboLeaderboardTribe.SelectedIndex > 0)
+            if (cboLeaderboardTribe.SelectedIndex > 0)
             {
                 ASVComboValue selectedValue = (ASVComboValue)cboLeaderboardTribe.SelectedItem;
                 int.TryParse(selectedValue.Key, out selectedTribeId);
@@ -6964,7 +6964,7 @@ namespace ARKViewer
 
             //tribe, player, mission count
             var leaderboards = cm.GetLeaderboards();
-            if(leaderboards!=null && leaderboards.Count > 0)
+            if (leaderboards != null && leaderboards.Count > 0)
             {
                 var playerSummary = leaderboards
                 .SelectMany(x => x.Scores)
@@ -6997,10 +6997,10 @@ namespace ARKViewer
                     }
                 }
             }
-            
+
 
             cboLeaderboardPlayer.SelectedIndex = 0;
-            
+
 
 
         }
@@ -7015,13 +7015,13 @@ namespace ARKViewer
             string selectedPlayer = "";
 
             if (cboLeaderboardPlayer.SelectedIndex > 0) selectedPlayer = cboLeaderboardPlayer.SelectedItem.ToString();
-             
-            if(cboLeaderboardTribe.SelectedIndex > 0)
+
+            if (cboLeaderboardTribe.SelectedIndex > 0)
             {
                 ASVComboValue selectedValue = (ASVComboValue)cboLeaderboardTribe.SelectedItem;
                 int.TryParse(selectedValue.Key, out selectedTribeId);
             }
-            if(cboLeaderboardMission.SelectedIndex > 0)
+            if (cboLeaderboardMission.SelectedIndex > 0)
             {
                 ASVComboValue selectedValue = (ASVComboValue)cboLeaderboardMission.SelectedItem;
                 selectedMission = selectedValue.Key;
@@ -7036,12 +7036,12 @@ namespace ARKViewer
                 .SelectMany(x => x.Scores)
                 .Where(x => x.TargetingTeam > 0)
                 .ToList();
-            
-            if(leaderboards != null)
+
+            if (leaderboards != null)
             {
                 foreach (var leaderboard in leaderboards)
                 {
-                    if(selectedPlayer == "" || selectedPlayer.ToLower() == leaderboard.PlayerName.ToLower())
+                    if (selectedPlayer == "" || selectedPlayer.ToLower() == leaderboard.PlayerName.ToLower())
                     {
                         string tribeName = "";
                         var tribe = cm.GetTribes(leaderboard.TargetingTeam).FirstOrDefault();
@@ -7360,7 +7360,7 @@ namespace ARKViewer
             switch (tabFeatures.SelectedTab.Name)
             {
                 case "tpgWild":
-                    if(lvwWildDetail.SelectedItems.Count > 0)
+                    if (lvwWildDetail.SelectedItems.Count > 0)
                     {
                         var wildDino = lvwWildDetail.SelectedItems[0].Tag as ContentWildCreature;
                         Clipboard.SetText(wildDino.DinoId);
@@ -7374,7 +7374,7 @@ namespace ARKViewer
                 case "tpgTamed":
                     if (lvwTameDetail.SelectedItems.Count > 0)
                     {
-                        var tamedDino  = lvwTameDetail.SelectedItems[0].Tag as ContentTamedCreature;
+                        var tamedDino = lvwTameDetail.SelectedItems[0].Tag as ContentTamedCreature;
                         Clipboard.SetText(tamedDino.DinoId);
                     }
                     else
@@ -7484,7 +7484,7 @@ namespace ARKViewer
         {
             frmTest testForm = new frmTest(cm);
             testForm.Show();
-            
+
         }
 
         private void cboWildRealm_SelectedIndexChanged(object sender, EventArgs e)
@@ -7531,6 +7531,11 @@ namespace ARKViewer
         {
             RefreshWildSummary();
             LoadWildDetail();
+        }
+
+        private void mnuContext_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }
