@@ -180,7 +180,11 @@ namespace SavegameToolkit
                                         int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
                                         if (obTeam != containerTeam)
                                         {
-                                            creatureObject.Properties.RemoveAt(creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam"));
+                                            var propertyIndex = creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam");
+                                            if (propertyIndex != -1) 
+                                            {
+                                                creatureObject.Properties.RemoveAt(propertyIndex);
+                                            }
                                             creatureObject.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
 
 
