@@ -106,86 +106,81 @@ namespace SavegameToolkit
             //foreach (var storedPod in validStored)
             Parallel.ForEach(validStored, storedPod =>
             {
-            ArkArrayStruct customItemDatas = storedPod.GetPropertyValue<IArkArray, ArkArrayStruct>("CustomItemDatas");
-            StructPropertyList customDinoData = (StructPropertyList)customItemDatas?.FirstOrDefault(cd => ((StructPropertyList)cd).GetTypedProperty<PropertyName>("CustomDataName").Value.Name == "Dino");
-            PropertyStruct customDataBytes = customDinoData?.Properties.FirstOrDefault(p => p.NameString == "CustomDataBytes") as PropertyStruct;
+                ArkArrayStruct customItemDatas = storedPod.GetPropertyValue<IArkArray, ArkArrayStruct>("CustomItemDatas");
+                StructPropertyList customDinoData = (StructPropertyList)customItemDatas?.FirstOrDefault(cd => ((StructPropertyList)cd).GetTypedProperty<PropertyName>("CustomDataName").Value.Name == "Dino");
+                PropertyStruct customDataBytes = customDinoData?.Properties.FirstOrDefault(p => p.NameString == "CustomDataBytes") as PropertyStruct;
 
-            PropertyArray byteArrays = (customDataBytes?.Value as StructPropertyList)?.Properties.FirstOrDefault(property => property.NameString == "ByteArrays") as PropertyArray;
-            ArkArrayStruct byteArraysValue = byteArrays?.Value as ArkArrayStruct;
-            if ((byteArraysValue?.Any() ?? false))
-            {
-                ArkArrayUInt8 creatureBytes = ((byteArraysValue?[0] as StructPropertyList)?.Properties.FirstOrDefault(p => p.NameString == "Bytes") as PropertyArray)?.Value as ArkArrayUInt8;
-                if (creatureBytes != null)
+                PropertyArray byteArrays = (customDataBytes?.Value as StructPropertyList)?.Properties.FirstOrDefault(property => property.NameString == "ByteArrays") as PropertyArray;
+                ArkArrayStruct byteArraysValue = byteArrays?.Value as ArkArrayStruct;
+                if ((byteArraysValue?.Any() ?? false))
                 {
-
-
-                    var cryoStream = new System.IO.MemoryStream(creatureBytes.ToArray<byte>());
-
-                    using (ArkArchive cryoArchive = new ArkArchive(cryoStream))
+                    ArkArrayUInt8 creatureBytes = ((byteArraysValue?[0] as StructPropertyList)?.Properties.FirstOrDefault(p => p.NameString == "Bytes") as PropertyArray)?.Value as ArkArrayUInt8;
+                    if (creatureBytes != null)
                     {
-                        // number of serialized objects
-                        int objCount = cryoArchive.ReadInt();
-                        if (objCount != 0)
+
+
+                        var cryoStream = new System.IO.MemoryStream(creatureBytes.ToArray<byte>());
+
+                        using (ArkArchive cryoArchive = new ArkArchive(cryoStream))
                         {
-                            var storedGameObjects = new List<GameObject>(objCount);
-                            for (int oi = 0; oi < objCount; oi++)
+                            // number of serialized objects
+                            int objCount = cryoArchive.ReadInt();
+                            if (objCount != 0)
                             {
-                                storedGameObjects.Add(new GameObject(cryoArchive));
-                            }
-
-                            foreach (var ob in storedGameObjects)
-                            {
-                                ob.LoadProperties(cryoArchive, new GameObject(), 0);
-                            }
-
-                            var creatureObject = storedGameObjects[0];
-                            var statusObject = storedGameObjects[1];
-
-                            // assume the first object is the creature object
-                            string creatureActorId = creatureObject.Names[0].ToString();
-
-                            if (storedPod.ClassString.Contains("Vivarium"))
-                            {
-                                //vivarium
-                                creatureObject.IsVivarium = true;
-                            }
-                            else
-                            {
-                                creatureObject.IsCryo = true;
-                            }
-
-                            // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
-                            if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
-                                creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
-
-
-                            //get parent of cryopod owner inventory
-                            var podParentRef = storedPod.GetPropertyValue<ObjectReference>("OwnerInventory");
-                            if (podParentRef != null)
-                            {
-                                var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
-
-                                //determine if we need to re-team the podded animal
-                                if (podParent != null)
+                                var storedGameObjects = new List<GameObject>(objCount);
+                                for (int oi = 0; oi < objCount; oi++)
                                 {
-                                    if (podParent.ClassString.Contains("_Vivarium"))
-                                    {
-                                        creatureObject.IsCryo = false;
-                                        creatureObject.IsVivarium = true;
-                                    }
+                                    storedGameObjects.Add(new GameObject(cryoArchive));
+                                }
 
-                                    creatureObject.Location = podParent.Location;
+                                foreach (var ob in storedGameObjects)
+                                {
+                                    ob.LoadProperties(cryoArchive, new GameObject(), 0);
+                                }
 
-                                    int obTeam = creatureObject.GetPropertyValue<int>("TargetingTeam");
-                                    int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
-                                    if (obTeam != containerTeam)
+                                var creatureObject = storedGameObjects[0];
+                                var statusObject = storedGameObjects[1];
+
+                                // assume the first object is the creature object
+                                string creatureActorId = creatureObject.Names[0].ToString();
+
+                                if (storedPod.ClassString.Contains("Vivarium"))
+                                {
+                                    //vivarium
+                                    creatureObject.IsVivarium = true;
+                                }
+                                else
+                                {
+                                    creatureObject.IsCryo = true;
+                                }
+
+                                // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
+                                if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
+                                    creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
+
+
+                                //get parent of cryopod owner inventory
+                                var podParentRef = storedPod.GetPropertyValue<ObjectReference>("OwnerInventory");
+                                if (podParentRef != null)
+                                {
+                                    var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
+
+                                    //determine if we need to re-team the podded animal
+                                    if (podParent != null)
                                     {
-                                        var foundIndex = creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam");
-                                        if(foundIndex > 0)
+                                        if (podParent.ClassString.Contains("_Vivarium"))
                                         {
-                                            creatureObject.Properties.RemoveAt(foundIndex);
+                                            creatureObject.IsCryo = false;
+                                            creatureObject.IsVivarium = true;
                                         }
 
+                                        creatureObject.Location = podParent.Location;
+
+                                        int obTeam = creatureObject.GetPropertyValue<int>("TargetingTeam");
+                                        int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
+                                        if (obTeam != containerTeam)
+                                        {
+                                            creatureObject.Properties.RemoveAt(creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam"));
                                             creatureObject.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
 
 
@@ -198,21 +193,14 @@ namespace SavegameToolkit
                                         }
                                     }
                                 }
-
-
-
-
                                 cbStored.Add(new Tuple<GameObject, GameObject>(creatureObject, statusObject));
-
                             }
 
                         }
-
                     }
-                }
 
-            }
-            );
+                }
+            });
 
             long propertyEnd = DateTime.Now.Ticks;
             var timeTaken3 = TimeSpan.FromTicks(propertyEnd - identifyEnd);
