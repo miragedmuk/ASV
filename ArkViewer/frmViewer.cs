@@ -5908,8 +5908,8 @@ namespace ARKViewer
                         item.UseItemStyleForSubItems = false;
 
                         item.SubItems.Add(creatureName);
-                        item.SubItems.Add(detail.IsWandering ? "Yes" : "No");
-                        item.SubItems.Add(detail.IsMating ? "Yes" : "No");
+
+
                         item.SubItems.Add(detail.Gender.ToString());
                         item.SubItems.Add(detail.BaseLevel.ToString());
                         item.SubItems.Add(detail.Level.ToString());
@@ -5962,6 +5962,13 @@ namespace ARKViewer
                         item.SubItems.Add(tamerName);
                         item.SubItems.Add(detail.ImprinterName);
                         item.SubItems.Add((detail.ImprintQuality * 100).ToString("f0"));
+
+
+
+                        item.SubItems.Add(detail.IsWandering ? "Yes" : "No");
+                        item.SubItems.Add(detail.IsMating ? "Yes" : "No");
+                        item.SubItems.Add(detail.IsNeutered ? "Yes" : "No");
+
 
                         bool isStored = detail.IsCryo | detail.IsVivarium;
 

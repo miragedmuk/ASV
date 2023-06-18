@@ -581,7 +581,16 @@ namespace ASVPack.Models
                             || s.ClassString.StartsWith("WyvernNest_")
                             || s.ClassString.StartsWith("RockDrakeNest_C")
                             || s.ClassString.StartsWith("DeinonychusNest_C")
+                            || s.ClassString.StartsWith("GasVein_")
+                            || s.ClassString.StartsWith("OilVein_")
+                            || s.ClassString.StartsWith("WaterVein_")
+                            || s.ClassString.StartsWith("ArtifactCrate_")
+                            || s.ClassString.StartsWith("TributeTerminal_")
+                            || s.ClassString.Contains("_Button_")
+                            
                         );
+
+
                         
                         var abandonedTribe = fileTribes.FirstOrDefault(t => t.TribeId == int.MinValue);
                         if (abandonedTribe != null)
@@ -873,12 +882,19 @@ namespace ASVPack.Models
                                             if (x.ClassString == "TekStrider_Character_BP_C")
                                             {
                                                 objectContainer.TryGetValue(equippedReferences[0].ObjectId, out GameObject rig1Object);
-                                                var itemRig1 = rig1Object.AsItem();
-                                                creature.Rig1 = itemRig1.ClassName;
+                                                if (rig1Object != null)
+                                                {
+                                                    var itemRig1 = rig1Object.AsItem();
+                                                    creature.Rig1 = itemRig1.ClassName;
+                                                }
 
-                                                objectContainer.TryGetValue(equippedReferences[1].ObjectId, out GameObject rig2Object);
-                                                var itemRig2 = rig2Object.AsItem();
-                                                creature.Rig2 = itemRig2.ClassName;
+                                                if(equippedReferences.Count > 1)
+                                                {
+                                                    objectContainer.TryGetValue(equippedReferences[1].ObjectId, out GameObject rig2Object);
+                                                    var itemRig2 = rig2Object.AsItem();
+                                                    creature.Rig2 = itemRig2.ClassName;
+                                                }
+
                                             }
                                             else
                                             {

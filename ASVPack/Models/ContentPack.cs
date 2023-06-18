@@ -459,7 +459,11 @@ namespace ASVPack.Models
                             jw.WritePropertyName("isMating");
                             jw.WriteValue(creature.IsMating);
 
-                            if(creature.UploadedTimeInGame != 0)
+                            jw.WritePropertyName("isNeutered");
+                            jw.WriteValue(creature.IsNeutered);
+
+
+                            if (creature.UploadedTimeInGame != 0)
                             {
                                 jw.WritePropertyName("uploadedTime");
                                 jw.WriteValue(creature.UploadedTime);

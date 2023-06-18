@@ -137,6 +137,7 @@ namespace ARKViewer
             lvwTameDetail_Name = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Wandering = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Mating = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Neutered = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Sex = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Base = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Level = new System.Windows.Forms.ColumnHeader();
@@ -1508,7 +1509,7 @@ namespace ARKViewer
             // lvwTameDetail
             // 
             lvwTameDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Wandering, lvwTameDetail_Mating, lvwTameDetail_Sex, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Cryo, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
+            lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Sex, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Mating, lvwTameDetail_Wandering, lvwTameDetail_Neutered, lvwTameDetail_Cryo, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
             lvwTameDetail.ContextMenuStrip = mnuContext;
             lvwTameDetail.FullRowSelect = true;
             lvwTameDetail.Location = new System.Drawing.Point(13, 112);
@@ -1541,6 +1542,11 @@ namespace ARKViewer
             // lvwTameDetail_Mating
             // 
             lvwTameDetail_Mating.Text = "Mating";
+            // 
+            // lvwTameDetail_Neutered
+            // 
+            lvwTameDetail_Neutered.Text = "Neutered";
+            lvwTameDetail_Neutered.Width = 65;
             // 
             // lvwTameDetail_Sex
             // 
@@ -4176,6 +4182,7 @@ namespace ARKViewer
         private System.Windows.Forms.CheckBox chkTameUploads;
         private System.Windows.Forms.ColumnHeader lvwTameDetail_DinoId;
         private System.Windows.Forms.CheckBox chkTameable;
+        private System.Windows.Forms.ColumnHeader lvwTameDetail_Neutered;
     }
 }
 

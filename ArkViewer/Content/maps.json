@@ -170,6 +170,50 @@
         }
       ]
     },
+	{
+      "MapName": "Fjell",
+      "Filename": "viking_p.ark",
+      "ImageFile": "map_fjordur.png",
+      "LatShift": 50.0,
+      "LatDiv": 7140.0,
+      "LonShift": 50.0,
+      "LonDiv": 7140.0,
+      "Regions": [
+        {
+          "RegionName": "Asgard",
+          "ImageFile": "fjordur_asgard.png",
+          "LatStart": 17.47,
+          "LatEnd": 68.93,
+          "LonStart": 5.11,
+          "LonEnd": 56.57,
+          "ZStart": -435000,
+          "ZEnd": -160000,
+          "MarkerColor": "#eded09"
+        },
+        {
+          "RegionName": "Vanaheim",
+          "ImageFile": "fjordur_vanaheim.png",
+          "LatStart": -9.15,
+          "LatEnd": 33.73,
+          "LonStart": 62.5,
+          "LonEnd": 105.38,
+          "ZStart": -190000,
+          "ZEnd": -115000,
+          "MarkerColor": "#86f091"
+        },
+        {
+          "RegionName": "Jotunheim",
+          "ImageFile": "fjordur_jotenheim.png",
+          "LatStart": 54.48,
+          "LatEnd": 97.36,
+          "LonStart": 21.35,
+          "LonEnd": 64.23,
+          "ZStart": -160000,
+          "ZEnd": -100000,
+          "MarkerColor": "#869df0"
+        }
+      ]
+    },
     {
       "MapName": "Tiamat Prime",
       "Filename": "tiamatprime.ark",
