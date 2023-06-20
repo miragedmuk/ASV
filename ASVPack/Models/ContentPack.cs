@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO.Compression;
@@ -1306,6 +1307,12 @@ namespace ASVPack.Models
 
                                 jw.WritePropertyName("struct");
                                 jw.WriteValue(structure.ClassName);
+
+                                jw.WritePropertyName("name");
+                                jw.WriteValue(structure.DisplayName == structure.ClassName ? "" : structure.DisplayName);
+
+                                jw.WritePropertyName("locked");
+                                jw.WriteValue(structure.IsLocked);
 
                                 jw.WritePropertyName("lat");
                                 jw.WriteValue(structure.Latitude.GetValueOrDefault(0));

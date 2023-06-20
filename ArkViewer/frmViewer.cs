@@ -5156,6 +5156,9 @@ namespace ARKViewer
 
                             newItem.SubItems.Add(playerStructure.Latitude.Value.ToString("0.00"));
                             newItem.SubItems.Add(playerStructure.Longitude.Value.ToString("0.00"));
+                            newItem.SubItems.Add(playerStructure.DisplayName == playerStructure.ClassName?"":playerStructure.DisplayName);
+                            newItem.SubItems.Add(playerStructure.IsLocked ? "Yes" : "No");
+
                             newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
                             newItem.SubItems.Add(playerStructure.HasDecayTimeReset ? "Yes" : "No");
                             newItem.SubItems.Add($"{playerStructure.X} {playerStructure.Y} {playerStructure.Z}");
