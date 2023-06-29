@@ -35,7 +35,7 @@ namespace ASVPack.Models
         [DataMember] public string Rig2 { get; set; } = "";
 
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is ContentCreature) return ((ContentCreature)obj).Id == Id;
             return false;

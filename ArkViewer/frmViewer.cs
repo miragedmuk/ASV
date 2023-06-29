@@ -5979,29 +5979,38 @@ namespace ARKViewer
 
                         if (detail.IsCryo)
                         {
-                            item.BackColor = Color.LightSkyBlue;
 
+                            item.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorCryopod);
+                            item.ForeColor = Program.IdealTextColor(item.BackColor);
                             foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
                             {
-                                subItem.BackColor = Color.LightSkyBlue;
+                                subItem.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorCryopod);
+                                subItem.ForeColor = Program.IdealTextColor(subItem.BackColor);
+
                             }
                         }
 
                         if (detail.IsVivarium)
                         {
-                            item.BackColor = Color.LightGreen;
+
+                            item.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorVivarium);
+                            item.ForeColor = Program.IdealTextColor(item.BackColor);
                             foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
                             {
-                                subItem.BackColor = Color.LightGreen;
+                                subItem.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorVivarium);
+                                subItem.ForeColor = Program.IdealTextColor(subItem.BackColor);
+
                             }
                         }
 
                         if (detail.UploadedTime.HasValue)
                         {
-                            item.BackColor = Color.WhiteSmoke;
+                            item.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorUploaded);
+                            item.ForeColor = Program.IdealTextColor(item.BackColor);
                             foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
                             {
-                                subItem.BackColor = Color.WhiteSmoke;
+                                subItem.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorUploaded);
+                                subItem.ForeColor = Program.IdealTextColor(subItem.BackColor);
                             }
                         }
 
@@ -6146,6 +6155,7 @@ namespace ARKViewer
             this.Cursor = Cursors.Default;
 
         }
+
 
         private void LoadWildDetail()
         {

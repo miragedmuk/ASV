@@ -186,49 +186,57 @@ namespace ASVPack.Models
                             if (leaderBoardContainer != null)
                             {
                                 var leaderBoardContainerProperties = leaderBoardContainer.Value as StructPropertyList;
-                                var leaderBoards = leaderBoardContainerProperties.GetTypedProperty<PropertyArray>("Leaderboards");
-                                foreach (StructPropertyList leaderBoard in leaderBoards.Value as ArkArrayStruct)
+                                if (leaderBoardContainerProperties != null)
                                 {
-
-                                    string fullTag = leaderBoard.GetTypedProperty<PropertyName>("MissionTag").Value.Name;
-
-                                    ContentLeaderboard board = new ContentLeaderboard()
+                                    var leaderBoards = leaderBoardContainerProperties.GetTypedProperty<PropertyArray>("Leaderboards");
+                                    if (leaderBoards != null)
                                     {
-                                        FullTag = fullTag,
-                                        MissionTag = fullTag.Substring(fullTag.LastIndexOf(".") + 1),
-                                        Scores = new List<ContentMissionScore>()
-                                    };
-
-                                    var scoreRows = leaderBoard.GetTypedProperty<PropertyArray>("Rows");
-                                    if (scoreRows != null)
-                                    {
-                                        ArkArrayStruct rows = scoreRows.Value as ArkArrayStruct;
-                                        foreach (StructPropertyList rowProperties in rows)
+                                        foreach (StructPropertyList leaderBoard in (ArkArrayStruct)leaderBoards.Value)
                                         {
-                                            int tribeId = rowProperties.GetPropertyValue<int>("TribeId");
-                                            long.TryParse(rowProperties.GetPropertyValue<string>("PlayerNetId"), out long dataId);
-                                            string playerName = rowProperties.GetPropertyValue<string>("StringValue");
 
-                                            float floatValue = rowProperties.GetPropertyValue<float>("FloatValue");
-                                            int intValue = rowProperties.GetPropertyValue<int>("IntValue");
+                                            string fullTag = leaderBoard.GetTypedProperty<PropertyName>("MissionTag").Value.Name;
 
-                                            string stringScore = floatValue.ToString($"f{intValue}");
-                                            decimal.TryParse(stringScore, out decimal scoreValue);
-
-                                            board.Scores.Add(new ContentMissionScore()
+                                            ContentLeaderboard board = new ContentLeaderboard()
                                             {
                                                 FullTag = fullTag,
                                                 MissionTag = fullTag.Substring(fullTag.LastIndexOf(".") + 1),
-                                                NetworkId = dataId,
-                                                TargetingTeam = tribeId,
-                                                PlayerName = playerName,
-                                                HighScore = scoreValue
-                                            });
+                                                Scores = new List<ContentMissionScore>()
+                                            };
+
+                                            var scoreRows = leaderBoard.GetTypedProperty<PropertyArray>("Rows");
+                                            if (scoreRows != null )
+                                            {
+                                                ArkArrayStruct rows = (ArkArrayStruct)scoreRows.Value;
+                                                foreach (StructPropertyList rowProperties in rows)
+                                                {
+                                                    int tribeId = rowProperties.GetPropertyValue<int>("TribeId");
+                                                    long.TryParse(rowProperties.GetPropertyValue<string>("PlayerNetId"), out long dataId);
+                                                    string playerName = rowProperties.GetPropertyValue<string>("StringValue");
+
+                                                    float floatValue = rowProperties.GetPropertyValue<float>("FloatValue");
+                                                    int intValue = rowProperties.GetPropertyValue<int>("IntValue");
+
+                                                    string stringScore = floatValue.ToString($"f{intValue}");
+                                                    decimal.TryParse(stringScore, out decimal scoreValue);
+
+                                                    board.Scores.Add(new ContentMissionScore()
+                                                    {
+                                                        FullTag = fullTag,
+                                                        MissionTag = fullTag.Substring(fullTag.LastIndexOf(".") + 1),
+                                                        NetworkId = dataId,
+                                                        TargetingTeam = tribeId,
+                                                        PlayerName = playerName,
+                                                        HighScore = scoreValue
+                                                    });
+                                                }
+                                            }
+
+                                            leaderboardList.Add(board);
                                         }
                                     }
-
-                                    leaderboardList.Add(board);
+                                    
                                 }
+                                
 
                                 Leaderboards = leaderboardList;
 
@@ -238,61 +246,63 @@ namespace ASVPack.Models
 
 
                         var filePath = Path.GetDirectoryName(saveFilename);
-                        long profileStart = DateTime.Now.Ticks;
-                        logWriter.Info("Reading .arkprofile(s)");
                         ConcurrentBag<ContentPlayer> fileProfiles = new ConcurrentBag<ContentPlayer>();
-                        var profileFilenames = Directory.GetFiles(filePath, "*.arkprofile");
-                        profileFilenames.AsParallel().ForAll(x =>
+
+                        if (filePath != null)
                         {
-                            try
+                            long profileStart = DateTime.Now.Ticks;
+                            logWriter.Info("Reading .arkprofile(s)");
+
+                            var profileFilenames = Directory.GetFiles(filePath, "*.arkprofile");
+                            profileFilenames.AsParallel().ForAll(x =>
                             {
-                                logWriter.Debug($"Reading profile data: {x}");
-                                using (Stream streamProfile = new FileStream(x, FileMode.Open))
+                                try
                                 {
-
-
-                                    using (ArkArchive archiveProfile = new ArkArchive(streamProfile))
+                                    logWriter.Debug($"Reading profile data: {x}");
+                                    using (Stream streamProfile = new FileStream(x, FileMode.Open))
                                     {
-                                        ArkProfile arkProfile = new ArkProfile();
-                                        arkProfile.ReadBinary(archiveProfile, ReadingOptions.Create().WithBuildComponentTree(false).WithDataFilesObjectMap(false).WithGameObjects(true).WithGameObjectProperties(true));
 
-                                        if (arkProfile.Profile != null)
+
+                                        using (ArkArchive archiveProfile = new ArkArchive(streamProfile))
                                         {
-                                            string profileMapName = arkProfile.Profile.Names[3].Name.ToLower();
-                                            logWriter.Debug($"Profile map identified as: {profileMapName}");
-                                            if (profileMapName == MapName.ToLower())
+                                            ArkProfile arkProfile = new ArkProfile();
+                                            arkProfile.ReadBinary(archiveProfile, ReadingOptions.Create().WithBuildComponentTree(false).WithDataFilesObjectMap(false).WithGameObjects(true).WithGameObjectProperties(true));
+
+                                            if (arkProfile.Profile != null)
                                             {
-                                                logWriter.Debug($"Converting to ContentPlayer: {x}");
-                                                ContentPlayer contentPlayer = arkProfile.AsPlayer();
-                                                contentPlayer.PlayerFilename = Path.GetFileName(x);
-                                                if (contentPlayer.Id != 0)
+                                                string profileMapName = arkProfile.Profile.Names[3].Name.ToLower();
+                                                logWriter.Debug($"Profile map identified as: {profileMapName}");
+                                                if (profileMapName == MapName.ToLower())
                                                 {
+                                                    logWriter.Debug($"Converting to ContentPlayer: {x}");
+                                                    ContentPlayer contentPlayer = arkProfile.AsPlayer();
+                                                    contentPlayer.PlayerFilename = Path.GetFileName(x);
+                                                    if (contentPlayer.Id != 0)
+                                                    {
 
-                                                    contentPlayer.LastActiveDateTime = GetApproxDateTimeOf(contentPlayer.LastTimeInGame);
+                                                        contentPlayer.LastActiveDateTime = GetApproxDateTimeOf(contentPlayer.LastTimeInGame);
 
 
 
-                                                    fileProfiles.Add(contentPlayer);
+                                                        fileProfiles.Add(contentPlayer);
+                                                    }
+
                                                 }
-
                                             }
+
+
                                         }
-
-
                                     }
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                logWriter.Debug($"Failed to read profile data: {x}");
-                            }
-                        });
-                        long profileEnd = DateTime.Now.Ticks;
+                                catch (Exception ex)
+                                {
+                                    logWriter.Debug($"Failed to read profile data: {x}");
+                                }
+                            });
+                            long profileEnd = DateTime.Now.Ticks;
+                        }
 
-
-
-
-
+                        
                         ConcurrentBag<ContentTribe> fileTribes = new ConcurrentBag<ContentTribe>();
                         //add fake tribes for abandoned and unclaimed
                         fileTribes.Add(new ContentTribe()
@@ -541,11 +551,10 @@ namespace ASVPack.Models
                                 }
                                 else
                                 {
-
-                                    return null;
+                                    return new ContentWildCreature() { ClassName = "" };
                                 }
 
-                            }).Where(x => x != null).Distinct().ToList();
+                            }).Where(x=>x.ClassName.Length > 0).Distinct().ToList();
 
 
 
@@ -575,18 +584,14 @@ namespace ASVPack.Models
 
                         var abandonedStructures = allStructures.Where(x=> x.GetPropertyValue<int>("TargetingTeam") < 50_0000).ToList();
                         abandonedStructures.RemoveAll(s =>
-                            s.ClassString.StartsWith("BeeHive_C")
-                            || s.ClassString.StartsWith("CherufeNest_C")
-                            || s.ClassString.StartsWith("BeaverDam_C")
-                            || s.ClassString.StartsWith("WyvernNest_")
-                            || s.ClassString.StartsWith("RockDrakeNest_C")
-                            || s.ClassString.StartsWith("DeinonychusNest_C")
-                            || s.ClassString.StartsWith("GasVein_")
-                            || s.ClassString.StartsWith("OilVein_")
-                            || s.ClassString.StartsWith("WaterVein_")
+                            s.ClassString.StartsWith("BeeHive_C")         
                             || s.ClassString.StartsWith("ArtifactCrate_")
                             || s.ClassString.StartsWith("TributeTerminal_")
-                            || s.ClassString.Contains("_Button_")
+                            || s.ClassString.Contains("Button_")
+                            || s.ClassString.StartsWith("SupplyCrate_")
+                            || s.ClassString.Contains("Nest_")
+                            || s.ClassString.Contains("Vein_")
+                            || s.ClassString.Contains("Beaver")                        
                             
                         );
 
@@ -682,7 +687,7 @@ namespace ASVPack.Models
 
                         if (missingTameTribes != null && missingTameTribes.Count > 0)
                         {
-                            logWriter.Debug($"Identified tame tribes: {missingStructureTribes.Count}");
+                            logWriter.Debug($"Identified tame tribes: {missingTameTribes.Count}");
 
                             missingTameTribes.ForEach(tribe =>
                             {
@@ -925,7 +930,7 @@ namespace ASVPack.Models
                                     creature.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                                 }
 
-                                tribe.Tames.Add(creature);
+                                if(tribe!=null) tribe.Tames.Add(creature);
 
                             }
 
@@ -1046,8 +1051,7 @@ namespace ASVPack.Models
 
                                 structure.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                             }
-                            if (!tribe.Structures.Contains(structure)) tribe.Structures.Add(structure);
-
+                            if (tribe!=null && !tribe.Structures.Contains(structure)) tribe.Structures.Add(structure);
 
                         }//);
 
@@ -1314,16 +1318,16 @@ namespace ASVPack.Models
                                         var itemList = propList.GetTypedProperty<PropertyArray>("ArkItems");
                                         if (itemList != null)
                                         {
-                                            foreach (StructPropertyList testItem in itemList.Value as ArkArrayStruct)
+                                            foreach (StructPropertyList testItem in (ArkArrayStruct)itemList.Value)
                                             {
                                                 try
                                                 {
                                                     var item = testItem.GetTypedProperty<PropertyStruct>("ArkTributeItem");
 
-                                                    var isInitialItem = (item.Value as StructPropertyList).GetPropertyValue<bool>("bIsInitialItem");
+                                                    var isInitialItem = ((StructPropertyList)item.Value).GetPropertyValue<bool>("bIsInitialItem");
                                                     if (!isInitialItem)
                                                     {
-                                                        ContentItem newItem = new ContentItem(item.Value as StructPropertyList);
+                                                        ContentItem newItem = new ContentItem((StructPropertyList)item.Value);
                                                         //newItem.OwnerPlayerId = itemOwnerId;
                                                         if (newItem.UploadedTimeInGame != 0)
                                                         {
@@ -1364,11 +1368,11 @@ namespace ASVPack.Models
                                         }
 
                                         var dinoList = propList.GetTypedProperty<PropertyArray>("ArkTamedDinosData");
-                                        if (dinoList != null)
+                                        if (dinoList != null && dinoList.Value!=null)
                                         {
 
 
-                                            foreach (StructPropertyList dinoData in dinoList.Value as ArkArrayStruct)
+                                            foreach (StructPropertyList dinoData in (ArkArrayStruct)dinoList.Value)
                                             {
                                                 var byteArray = dinoData.GetTypedProperty<PropertyArray>("DinoData");
                                                 int uploadTime = dinoData.GetPropertyValue<int>("UploadTime");

@@ -290,7 +290,7 @@ namespace ASVPack.Models
 
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is ContentPlayer) return ((ContentPlayer)obj).Id == Id;
             return false;

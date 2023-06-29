@@ -98,7 +98,7 @@ namespace ASVPack.Models
 
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is ContentTribe) return ((ContentTribe)obj).TribeId == TribeId;
             return false;

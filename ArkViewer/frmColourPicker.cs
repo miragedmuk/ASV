@@ -74,6 +74,7 @@ namespace ARKViewer
                     newItem.SubItems.Add(colourMap.Hex);
                     newItem.SubItems.Add("");
                     newItem.SubItems[2].BackColor = colourMap.Color;
+                    newItem.SubItems[2].ForeColor = Program.IdealTextColor(colourMap.Color);
                     newItem.Tag = colourMap;
                 }
 

@@ -151,5 +151,10 @@ namespace ARKViewer
         {
             UpdateWindowSettings();
         }
+
+        private void pnlColour_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -29,220 +29,218 @@ namespace ARKViewer
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblRGB = new System.Windows.Forms.Label();
-            this.lblColourId = new System.Windows.Forms.Label();
-            this.btnCcancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.udId = new System.Windows.Forms.NumericUpDown();
-            this.lblColour = new System.Windows.Forms.Label();
-            this.pnlColour = new System.Windows.Forms.Panel();
-            this.udR = new System.Windows.Forms.NumericUpDown();
-            this.udG = new System.Windows.Forms.NumericUpDown();
-            this.udB = new System.Windows.Forms.NumericUpDown();
-            this.grpWrapper = new System.Windows.Forms.GroupBox();
-            this.lblColourDetails = new System.Windows.Forms.Label();
-            this.lblHeaderWrapper = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.udId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udB)).BeginInit();
-            this.grpWrapper.SuspendLayout();
-            this.SuspendLayout();
+            lblRGB = new System.Windows.Forms.Label();
+            lblColourId = new System.Windows.Forms.Label();
+            btnCcancel = new System.Windows.Forms.Button();
+            btnSave = new System.Windows.Forms.Button();
+            udId = new System.Windows.Forms.NumericUpDown();
+            lblColour = new System.Windows.Forms.Label();
+            pnlColour = new System.Windows.Forms.Panel();
+            udR = new System.Windows.Forms.NumericUpDown();
+            udG = new System.Windows.Forms.NumericUpDown();
+            udB = new System.Windows.Forms.NumericUpDown();
+            grpWrapper = new System.Windows.Forms.GroupBox();
+            lblColourDetails = new System.Windows.Forms.Label();
+            lblHeaderWrapper = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)udId).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udR).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udG).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udB).BeginInit();
+            grpWrapper.SuspendLayout();
+            SuspendLayout();
             // 
             // lblRGB
             // 
-            this.lblRGB.BackColor = System.Drawing.SystemColors.Control;
-            this.lblRGB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRGB.ForeColor = System.Drawing.Color.DimGray;
-            this.lblRGB.Location = new System.Drawing.Point(24, 95);
-            this.lblRGB.Name = "lblRGB";
-            this.lblRGB.Size = new System.Drawing.Size(292, 23);
-            this.lblRGB.TabIndex = 2;
-            this.lblRGB.Text = "RGB";
-            this.lblRGB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblRGB.BackColor = System.Drawing.SystemColors.Control;
+            lblRGB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblRGB.ForeColor = System.Drawing.Color.DimGray;
+            lblRGB.Location = new System.Drawing.Point(28, 110);
+            lblRGB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblRGB.Name = "lblRGB";
+            lblRGB.Size = new System.Drawing.Size(341, 27);
+            lblRGB.TabIndex = 2;
+            lblRGB.Text = "RGB";
+            lblRGB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblColourId
             // 
-            this.lblColourId.BackColor = System.Drawing.SystemColors.Control;
-            this.lblColourId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColourId.ForeColor = System.Drawing.Color.DimGray;
-            this.lblColourId.Location = new System.Drawing.Point(23, 43);
-            this.lblColourId.Name = "lblColourId";
-            this.lblColourId.Size = new System.Drawing.Size(278, 23);
-            this.lblColourId.TabIndex = 0;
-            this.lblColourId.Text = "Id";
-            this.lblColourId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblColourId.BackColor = System.Drawing.SystemColors.Control;
+            lblColourId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblColourId.ForeColor = System.Drawing.Color.DimGray;
+            lblColourId.Location = new System.Drawing.Point(27, 50);
+            lblColourId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblColourId.Name = "lblColourId";
+            lblColourId.Size = new System.Drawing.Size(324, 27);
+            lblColourId.TabIndex = 0;
+            lblColourId.Text = "Id";
+            lblColourId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCcancel
             // 
-            this.btnCcancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCcancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCcancel.Location = new System.Drawing.Point(280, 255);
-            this.btnCcancel.Name = "btnCcancel";
-            this.btnCcancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCcancel.TabIndex = 2;
-            this.btnCcancel.Text = "Close";
-            this.btnCcancel.UseVisualStyleBackColor = true;
+            btnCcancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnCcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCcancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnCcancel.Location = new System.Drawing.Point(327, 294);
+            btnCcancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCcancel.Name = "btnCcancel";
+            btnCcancel.Size = new System.Drawing.Size(88, 27);
+            btnCcancel.TabIndex = 2;
+            btnCcancel.Text = "Close";
+            btnCcancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(197, 255);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnSave.Location = new System.Drawing.Point(230, 294);
+            btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new System.Drawing.Size(88, 27);
+            btnSave.TabIndex = 1;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // udId
             // 
-            this.udId.Location = new System.Drawing.Point(24, 70);
-            this.udId.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.udId.Name = "udId";
-            this.udId.Size = new System.Drawing.Size(290, 20);
-            this.udId.TabIndex = 1;
-            this.udId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.udId.ValueChanged += new System.EventHandler(this.udId_ValueChanged);
+            udId.Location = new System.Drawing.Point(28, 81);
+            udId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udId.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
+            udId.Name = "udId";
+            udId.Size = new System.Drawing.Size(338, 23);
+            udId.TabIndex = 1;
+            udId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            udId.ValueChanged += udId_ValueChanged;
             // 
             // lblColour
             // 
-            this.lblColour.BackColor = System.Drawing.SystemColors.Control;
-            this.lblColour.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColour.ForeColor = System.Drawing.Color.DimGray;
-            this.lblColour.Location = new System.Drawing.Point(24, 151);
-            this.lblColour.Name = "lblColour";
-            this.lblColour.Size = new System.Drawing.Size(292, 23);
-            this.lblColour.TabIndex = 6;
-            this.lblColour.Text = "Colour";
-            this.lblColour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblColour.BackColor = System.Drawing.SystemColors.Control;
+            lblColour.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblColour.ForeColor = System.Drawing.Color.DimGray;
+            lblColour.Location = new System.Drawing.Point(28, 174);
+            lblColour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblColour.Name = "lblColour";
+            lblColour.Size = new System.Drawing.Size(341, 27);
+            lblColour.TabIndex = 6;
+            lblColour.Text = "Colour";
+            lblColour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlColour
             // 
-            this.pnlColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlColour.Location = new System.Drawing.Point(24, 178);
-            this.pnlColour.Name = "pnlColour";
-            this.pnlColour.Size = new System.Drawing.Size(290, 25);
-            this.pnlColour.TabIndex = 7;
-            this.pnlColour.Click += new System.EventHandler(this.pnlColour_Click);
+            pnlColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlColour.Location = new System.Drawing.Point(28, 205);
+            pnlColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlColour.Name = "pnlColour";
+            pnlColour.Size = new System.Drawing.Size(338, 29);
+            pnlColour.TabIndex = 7;
+            pnlColour.Click += pnlColour_Click;
+            pnlColour.Paint += pnlColour_Paint;
             // 
             // udR
             // 
-            this.udR.Location = new System.Drawing.Point(27, 121);
-            this.udR.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.udR.Name = "udR";
-            this.udR.Size = new System.Drawing.Size(92, 20);
-            this.udR.TabIndex = 3;
-            this.udR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.udR.ValueChanged += new System.EventHandler(this.udR_ValueChanged);
+            udR.Location = new System.Drawing.Point(31, 140);
+            udR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udR.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            udR.Name = "udR";
+            udR.Size = new System.Drawing.Size(107, 23);
+            udR.TabIndex = 3;
+            udR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            udR.ValueChanged += udR_ValueChanged;
             // 
             // udG
             // 
-            this.udG.Location = new System.Drawing.Point(124, 121);
-            this.udG.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.udG.Name = "udG";
-            this.udG.Size = new System.Drawing.Size(92, 20);
-            this.udG.TabIndex = 4;
-            this.udG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.udG.ValueChanged += new System.EventHandler(this.udG_ValueChanged);
+            udG.Location = new System.Drawing.Point(145, 140);
+            udG.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udG.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            udG.Name = "udG";
+            udG.Size = new System.Drawing.Size(107, 23);
+            udG.TabIndex = 4;
+            udG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            udG.ValueChanged += udG_ValueChanged;
             // 
             // udB
             // 
-            this.udB.Location = new System.Drawing.Point(222, 121);
-            this.udB.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.udB.Name = "udB";
-            this.udB.Size = new System.Drawing.Size(92, 20);
-            this.udB.TabIndex = 5;
-            this.udB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.udB.ValueChanged += new System.EventHandler(this.udB_ValueChanged);
+            udB.Location = new System.Drawing.Point(259, 140);
+            udB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udB.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            udB.Name = "udB";
+            udB.Size = new System.Drawing.Size(107, 23);
+            udB.TabIndex = 5;
+            udB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            udB.ValueChanged += udB_ValueChanged;
             // 
             // grpWrapper
             // 
-            this.grpWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpWrapper.Controls.Add(this.lblColourDetails);
-            this.grpWrapper.Controls.Add(this.udB);
-            this.grpWrapper.Controls.Add(this.lblHeaderWrapper);
-            this.grpWrapper.Controls.Add(this.udG);
-            this.grpWrapper.Controls.Add(this.lblColourId);
-            this.grpWrapper.Controls.Add(this.udR);
-            this.grpWrapper.Controls.Add(this.lblRGB);
-            this.grpWrapper.Controls.Add(this.pnlColour);
-            this.grpWrapper.Controls.Add(this.udId);
-            this.grpWrapper.Controls.Add(this.lblColour);
-            this.grpWrapper.Location = new System.Drawing.Point(12, 12);
-            this.grpWrapper.Name = "grpWrapper";
-            this.grpWrapper.Size = new System.Drawing.Size(341, 226);
-            this.grpWrapper.TabIndex = 0;
-            this.grpWrapper.TabStop = false;
+            grpWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            grpWrapper.Controls.Add(lblColourDetails);
+            grpWrapper.Controls.Add(udB);
+            grpWrapper.Controls.Add(lblHeaderWrapper);
+            grpWrapper.Controls.Add(udG);
+            grpWrapper.Controls.Add(lblColourId);
+            grpWrapper.Controls.Add(udR);
+            grpWrapper.Controls.Add(lblRGB);
+            grpWrapper.Controls.Add(pnlColour);
+            grpWrapper.Controls.Add(udId);
+            grpWrapper.Controls.Add(lblColour);
+            grpWrapper.Location = new System.Drawing.Point(14, 14);
+            grpWrapper.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpWrapper.Name = "grpWrapper";
+            grpWrapper.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpWrapper.Size = new System.Drawing.Size(398, 261);
+            grpWrapper.TabIndex = 0;
+            grpWrapper.TabStop = false;
             // 
             // lblColourDetails
             // 
-            this.lblColourDetails.AutoSize = true;
-            this.lblColourDetails.BackColor = System.Drawing.Color.Transparent;
-            this.lblColourDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColourDetails.Location = new System.Drawing.Point(11, 17);
-            this.lblColourDetails.Name = "lblColourDetails";
-            this.lblColourDetails.Size = new System.Drawing.Size(98, 15);
-            this.lblColourDetails.TabIndex = 1;
-            this.lblColourDetails.Text = "Colour Details";
-            this.lblColourDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblColourDetails.AutoSize = true;
+            lblColourDetails.BackColor = System.Drawing.Color.Transparent;
+            lblColourDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblColourDetails.Location = new System.Drawing.Point(13, 20);
+            lblColourDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblColourDetails.Name = "lblColourDetails";
+            lblColourDetails.Size = new System.Drawing.Size(98, 15);
+            lblColourDetails.TabIndex = 1;
+            lblColourDetails.Text = "Colour Details";
+            lblColourDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHeaderWrapper
             // 
-            this.lblHeaderWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHeaderWrapper.BackColor = System.Drawing.Color.Aqua;
-            this.lblHeaderWrapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeaderWrapper.Location = new System.Drawing.Point(0, 0);
-            this.lblHeaderWrapper.Name = "lblHeaderWrapper";
-            this.lblHeaderWrapper.Size = new System.Drawing.Size(343, 6);
-            this.lblHeaderWrapper.TabIndex = 0;
-            this.lblHeaderWrapper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblHeaderWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblHeaderWrapper.BackColor = System.Drawing.Color.Aqua;
+            lblHeaderWrapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderWrapper.Location = new System.Drawing.Point(0, 0);
+            lblHeaderWrapper.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHeaderWrapper.Name = "lblHeaderWrapper";
+            lblHeaderWrapper.Size = new System.Drawing.Size(400, 7);
+            lblHeaderWrapper.TabIndex = 0;
+            lblHeaderWrapper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmColourEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCcancel;
-            this.ClientSize = new System.Drawing.Size(368, 290);
-            this.Controls.Add(this.grpWrapper);
-            this.Controls.Add(this.btnCcancel);
-            this.Controls.Add(this.btnSave);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "frmColourEditor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Colour Editor";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmColourEditor_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.udId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udB)).EndInit();
-            this.grpWrapper.ResumeLayout(false);
-            this.grpWrapper.PerformLayout();
-            this.ResumeLayout(false);
-
+            AcceptButton = btnSave;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            CancelButton = btnCcancel;
+            ClientSize = new System.Drawing.Size(429, 335);
+            Controls.Add(grpWrapper);
+            Controls.Add(btnCcancel);
+            Controls.Add(btnSave);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "frmColourEditor";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Colour Editor";
+            FormClosed += frmColourEditor_FormClosed;
+            ((System.ComponentModel.ISupportInitialize)udId).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udR).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udG).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udB).EndInit();
+            grpWrapper.ResumeLayout(false);
+            grpWrapper.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

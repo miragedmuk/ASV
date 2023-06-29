@@ -64,7 +64,7 @@ namespace SavegameToolkit {
 
         public bool HasParentNames => Names.Count > 1;
 
-        public GameObject() { }
+        public GameObject() {}
      
         public GameObject(ArkArchive archive) : this() {
             readBinary(archive);
@@ -75,7 +75,7 @@ namespace SavegameToolkit {
         }
 
         public string ClassString {
-            get => ClassName?.ToString();
+            get => ClassName?.ToString()??"";
             set => ClassName = ArkName.From(value);
         }
 
@@ -387,7 +387,14 @@ namespace SavegameToolkit {
 
         public void AddComponent(GameObject component)
         {
-            Components.Add(component.Names[0], component);
+            try
+            {
+                Components.Add(component.Names[0], component);
+            }
+            catch (Exception ex)
+            {
+                //component by name already exists, ignore duplicate
+            }            
         }
 
         public static void ClearUUIDCache() => uuidCache.Clear();

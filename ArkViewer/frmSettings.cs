@@ -25,7 +25,7 @@ namespace ARKViewer
         ASVDataManager cm = null;
         bool changesApplied = false;
 
-        
+
 
         public ViewerConfiguration SavedConfig { get; set; }
         public frmSettings()
@@ -54,7 +54,7 @@ namespace ARKViewer
 
             SavedConfig = Program.ProgramConfig;
         }
-        public frmSettings(ASVDataManager manager): this()
+        public frmSettings(ASVDataManager manager) : this()
         {
 
             cm = manager;
@@ -169,7 +169,7 @@ namespace ARKViewer
 
             }
 
-            
+
 
 
             lvwColours.EndUpdate();
@@ -258,7 +258,7 @@ namespace ARKViewer
             lvwDinoClasses.EndUpdate();
 
 
-            
+
 
 
             this.Cursor = Cursors.Default;
@@ -340,7 +340,7 @@ namespace ARKViewer
             lvwItemMap.EndUpdate();
 
 
-            
+
 
             this.Cursor = Cursors.Default;
         }
@@ -466,8 +466,8 @@ namespace ARKViewer
 
             //get registry path for steam apps 
             cboMapSinglePlayer.Items.Clear();
-            
-            
+
+
             string directoryCheck = Program.ProgramConfig.ArkSavedGameFolder;
             if (directoryCheck.Length == 0) directoryCheck = Program.GetSteamFolder();
 
@@ -517,6 +517,15 @@ namespace ARKViewer
             PopulateDinoClassMap("");
             PopulateStructureClassMap("");
             PopulateItemClassMap("");
+            
+            lblCryopodHighlight.BackColor = Color.FromArgb(SavedConfig.HighlightColorCryopod);
+            lblCryopodHighlight.ForeColor = Program.IdealTextColor(lblCryopodHighlight.BackColor);
+
+            lblVivariumHighlight.BackColor = Color.FromArgb(SavedConfig.HighlightColorVivarium);
+            lblVivariumHighlight.ForeColor = Program.IdealTextColor(lblVivariumHighlight.BackColor);
+
+            lblUploadedHighlight.BackColor = Color.FromArgb(SavedConfig.HighlightColorUploaded);
+            lblUploadedHighlight.ForeColor = Program.IdealTextColor(lblUploadedHighlight.BackColor);
 
 
             chkUpdateNotificationSingle.Checked = SavedConfig.UpdateNotificationSingle;
@@ -592,9 +601,9 @@ namespace ARKViewer
                     cboLocalARK.Items.Add(config);
                 }
 
-                if(cboLocalARK.Items.Count > 0)
+                if (cboLocalARK.Items.Count > 0)
                 {
-                    foreach(OfflineFileConfiguration item in cboLocalARK.Items)
+                    foreach (OfflineFileConfiguration item in cboLocalARK.Items)
                     {
                         if (item.Filename == SavedConfig.SelectedFile)
                         {
@@ -613,8 +622,8 @@ namespace ARKViewer
             }
 
             cboFtpMap.Items.Clear();
-            
-            foreach (var knownMap in Program.MapPack.SupportedMaps.OrderBy(o=>o.MapName))
+
+            foreach (var knownMap in Program.MapPack.SupportedMaps.OrderBy(o => o.MapName))
             {
                 ASVComboValue comboValue = new ASVComboValue(knownMap.Filename, knownMap.MapName);
                 int newIndex = cboFtpMap.Items.Add(comboValue);
@@ -636,11 +645,11 @@ namespace ARKViewer
                 }
             }
 
-            if(SavedConfig.OfflineList.Count > 0)
+            if (SavedConfig.OfflineList.Count > 0)
             {
                 cboLocalARK.Items.Clear();
                 foreach (var kv in SavedConfig.OfflineList)
-                { 
+                {
                     if (kv.Name != null)
                     {
                         int newIndex = cboLocalARK.Items.Add(kv);
@@ -677,7 +686,7 @@ namespace ARKViewer
             lblSelectedMapContentPack.BackColor = optContentPack.Checked ? Color.Aqua : Color.LightGray;
 
             chkUpdateNotificationSingle.Enabled = optSinglePlayer.Checked;
-            
+
             cboMapSinglePlayer.Enabled = optSinglePlayer.Checked;
             btnSelectFolder.Enabled = optSinglePlayer.Checked;
 
@@ -843,7 +852,7 @@ namespace ARKViewer
             }
 
             SavedConfig.OfflineList.Clear();
-            foreach(var item in cboLocalARK.Items)
+            foreach (var item in cboLocalARK.Items)
             {
                 var i = (OfflineFileConfiguration)item;
                 SavedConfig.OfflineList.Add(i);
@@ -2225,11 +2234,11 @@ namespace ARKViewer
 
         private void btnSelectFolder_Click(object sender, EventArgs e)
         {
-            using(FolderBrowserDialog dialog = new FolderBrowserDialog())
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
             {
                 dialog.Description = @"Please select location of 'ARK\ShooterGame\Saved'";
-                if(Program.ProgramConfig.ArkSavedGameFolder.Length > 0) dialog.SelectedPath = Program.ProgramConfig.ArkSavedGameFolder;
-                if(dialog.ShowDialog() == DialogResult.OK)
+                if (Program.ProgramConfig.ArkSavedGameFolder.Length > 0) dialog.SelectedPath = Program.ProgramConfig.ArkSavedGameFolder;
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     string folderCheck = dialog.SelectedPath;
                     string savedLocal = Path.Combine(folderCheck, @"SavedArksLocal\");
@@ -2270,6 +2279,57 @@ namespace ARKViewer
                 }
             }
             btnJsonExportMapStructures.Enabled = true;
+        }
+
+        private void lblVivariumHighlight_Click(object sender, EventArgs e)
+        {
+            ColourMap map = new ColourMap();
+            map.Id = int.MaxValue;
+            map.Hex = ColorTranslator.ToHtml(lblVivariumHighlight.BackColor);
+
+
+            frmColourEditor picker = new frmColourEditor(map);
+            if (picker.ShowDialog() == DialogResult.OK)
+            {
+                lblVivariumHighlight.BackColor = ColorTranslator.FromHtml(picker.SelectedMap.Hex);
+                lblVivariumHighlight.ForeColor = Program.IdealTextColor(lblVivariumHighlight.BackColor);
+                Program.ProgramConfig.HighlightColorVivarium = lblVivariumHighlight.BackColor.ToArgb();
+
+            }
+
+
+        }
+
+        private void lblCryopodHighlight_Click(object sender, EventArgs e)
+        {
+            ColourMap map = new ColourMap();
+            map.Id = int.MaxValue;
+            map.Hex = ColorTranslator.ToHtml(lblCryopodHighlight.BackColor);
+
+
+            frmColourEditor picker = new frmColourEditor(map);
+            if (picker.ShowDialog() == DialogResult.OK)
+            {
+                lblCryopodHighlight.BackColor = ColorTranslator.FromHtml(picker.SelectedMap.Hex);
+                lblCryopodHighlight.ForeColor = Program.IdealTextColor(lblCryopodHighlight.BackColor);
+                Program.ProgramConfig.HighlightColorCryopod = lblCryopodHighlight.BackColor.ToArgb();
+            }
+        }
+
+        private void lblUploadedHighlight_Click(object sender, EventArgs e)
+        {
+            ColourMap map = new ColourMap();
+            map.Id = int.MaxValue;
+            map.Hex = ColorTranslator.ToHtml(lblUploadedHighlight.BackColor);
+
+
+            frmColourEditor picker = new frmColourEditor(map);
+            if (picker.ShowDialog() == DialogResult.OK)
+            {
+                lblUploadedHighlight.BackColor = ColorTranslator.FromHtml(picker.SelectedMap.Hex);
+                lblUploadedHighlight.ForeColor = Program.IdealTextColor(lblUploadedHighlight.BackColor);
+                Program.ProgramConfig.HighlightColorVivarium = lblUploadedHighlight.BackColor.ToArgb();
+            }
         }
     }
 }

@@ -28,6 +28,8 @@ namespace ARKViewer.Configuration
         Mode_ContentPack = 3
     }
 
+    
+
     [DataContract]
     public class ViewerConfiguration
     {
@@ -98,6 +100,10 @@ namespace ARKViewer.Configuration
         [DataMember(IsRequired = false)] public bool StoredTames { get; set; } = false;
         [DataMember] public string ArkSavedGameFolder { get; set; } = "";
 
+        [DataMember(IsRequired = false, EmitDefaultValue = false)] public int HighlightColorVivarium { get; set; } = System.Drawing.Color.LightGreen.ToArgb();
+        [DataMember(IsRequired = false, EmitDefaultValue = false)] public int HighlightColorCryopod { get; set; } = System.Drawing.Color.LightSkyBlue.ToArgb();
+        [DataMember(IsRequired = false, EmitDefaultValue = false)] public int HighlightColorUploaded { get; set; } = System.Drawing.Color.WhiteSmoke.ToArgb();
+
 
         public List<DinoClassMap> DinoMap = new List<DinoClassMap>();
         public List<ContentMarker> MapMarkerList { get; set; } = new List<ContentMarker>();
@@ -111,6 +117,8 @@ namespace ARKViewer.Configuration
 
         public List<MissionMap> MissionMaps { get; set; } = new List<MissionMap>();
         
+
+
 
         public ViewerConfiguration()
         {
@@ -566,11 +574,17 @@ namespace ARKViewer.Configuration
                 if (this.TribeLogColours.TextColourMap == null) this.TribeLogColours.TextColourMap = new List<LogTextColourMap>();
                 if (savedState.StructureExclusions != null) this.StructureExclusions = savedState.StructureExclusions;
 
+                if(savedState.HighlightColorCryopod !=0) this.HighlightColorCryopod = savedState.HighlightColorCryopod;
+                if (savedState.HighlightColorVivarium != 0) this.HighlightColorVivarium= savedState.HighlightColorVivarium;
+                if (savedState.HighlightColorUploaded != 0) this.HighlightColorUploaded= savedState.HighlightColorUploaded;
+
+
                 this.HideNoBody = savedState.HideNoBody;
                 this.HideNoStructures = savedState.HideNoStructures;
                 this.HideNoTames = savedState.HideNoTames;
                 this.CommandPrefix = savedState.CommandPrefix;
                 this.FtpDownloadMode = savedState.FtpDownloadMode;
+
                 if(savedState.FtpTimeout > 0)
                 {
                     this.FtpTimeout = savedState.FtpTimeout;
