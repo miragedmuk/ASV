@@ -2328,7 +2328,7 @@ namespace ARKViewer
             {
                 lblUploadedHighlight.BackColor = ColorTranslator.FromHtml(picker.SelectedMap.Hex);
                 lblUploadedHighlight.ForeColor = Program.IdealTextColor(lblUploadedHighlight.BackColor);
-                Program.ProgramConfig.HighlightColorVivarium = lblUploadedHighlight.BackColor.ToArgb();
+                Program.ProgramConfig.HighlightColorUploaded = lblUploadedHighlight.BackColor.ToArgb();
             }
         }
     }

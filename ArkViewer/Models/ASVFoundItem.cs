@@ -13,6 +13,8 @@ namespace ARKViewer.Models
         public string ContainerName { get; set; } = "Structure";
         public string ClassName { get; set; } = "";
         public string DisplayName { get; set; } = "";
+        public long? PlayerId { get; set; } = null;
+        public string PlayerName { get; set; } = "";
         public bool IsBlueprint { get; set; } = false;
         public int Quantity { get; set; } = 0;
         public decimal Latitude { get; set; } = 0;

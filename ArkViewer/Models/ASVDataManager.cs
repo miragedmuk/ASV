@@ -502,6 +502,7 @@ namespace ARKViewer.Models
                             {
                                 tribe.TribeName,
                                 Container = s.ClassName,
+                   
                                 s.Latitude,
                                 s.Longitude,
                                 s.X,
@@ -515,7 +516,7 @@ namespace ARKViewer.Models
                         {
                             foreach (var container in matchedContainers)
                             {
-                                var groupedItems = container.MatchedItems.GroupBy(x => new { ClassName = x.ClassName, IsBluePrint = x.IsBlueprint, x.Rating, x.UploadedTime }).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBluePrint, Rating = g.Key.Rating, UploadedTime =g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
+                                var groupedItems = container.MatchedItems.GroupBy(x => new { ClassName = x.ClassName, IsBluePrint = x.IsBlueprint, x.Rating, x.UploadedTime, x.OwnerPlayerId, x.CraftedByPlayer}).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBluePrint, Rating = g.Key.Rating, OwnerPlayerId = g.Key.OwnerPlayerId, g.Key.CraftedByPlayer, UploadedTime =g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
 
                                 if (groupedItems != null && groupedItems.Count > 0)
                                 {
@@ -539,6 +540,8 @@ namespace ARKViewer.Models
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,
                                             DisplayName = displayName,
+                                            PlayerId = g.OwnerPlayerId,
+                                            PlayerName = tribe.Players.FirstOrDefault(p=>p.Id == g.OwnerPlayerId)?.Name,
                                             Latitude = (decimal)container.Latitude.GetValueOrDefault(0),
                                             Longitude = (decimal)container.Longitude.GetValueOrDefault(0),
                                             X = (decimal)container.X,
@@ -626,6 +629,8 @@ namespace ARKViewer.Models
                             {
                                 tribe.TribeName,
                                 Container = "Player",
+                                PlayerId = s.Id,
+                                PlayerName = s.CharacterName,
                                 s.Latitude,
                                 s.Longitude,
                                 s.X,
@@ -639,7 +644,7 @@ namespace ARKViewer.Models
                         {
                             foreach (var container in matchedContainers)
                             {
-                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.IsBlueprint, x.Rating, x.UploadedTime } ).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, UploadedTime = g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
+                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.IsBlueprint, x.Rating, x.UploadedTime} ).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, UploadedTime = g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
 
                                 if (groupedItems != null && groupedItems.Count > 0)
                                 {
@@ -652,6 +657,8 @@ namespace ARKViewer.Models
                                         foundItems.Add(new ASVFoundItem()
                                         {
                                             ContainerName = g.UploadedTime.HasValue?"Cluster":container.Container,
+                                            PlayerId = container.PlayerId,
+                                            PlayerName = container.PlayerName,
                                             TribeId = tribe.TribeId,
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,

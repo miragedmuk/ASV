@@ -198,6 +198,8 @@ namespace ARKViewer
             lvwStructureLocations_Structure = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Lat = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_Name = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_Locked = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_LastTime = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
@@ -298,6 +300,7 @@ namespace ARKViewer
             lblItemListItem = new System.Windows.Forms.Label();
             lvwItemList = new System.Windows.Forms.ListView();
             lvwItemList_Tribe = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Player = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Container = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Item = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Quality = new System.Windows.Forms.ColumnHeader();
@@ -389,8 +392,6 @@ namespace ARKViewer
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             lblMap = new System.Windows.Forms.Label();
             cboSelectedMap = new System.Windows.Forms.ComboBox();
-            lvwStructureLocations_Name = new System.Windows.Forms.ColumnHeader();
-            lvwStructureLocations_Locked = new System.Windows.Forms.ColumnHeader();
             mnuContext.SuspendLayout();
             tabFeatures.SuspendLayout();
             tpgWild.SuspendLayout();
@@ -2020,6 +2021,15 @@ namespace ARKViewer
             lvwStructureLocations_Lon.Text = "Lon";
             lvwStructureLocations_Lon.Width = 71;
             // 
+            // lvwStructureLocations_Name
+            // 
+            lvwStructureLocations_Name.Text = "Name";
+            lvwStructureLocations_Name.Width = 180;
+            // 
+            // lvwStructureLocations_Locked
+            // 
+            lvwStructureLocations_Locked.Text = "Locked";
+            // 
             // lvwStructureLocations_LastTime
             // 
             lvwStructureLocations_LastTime.Text = "Tribe In Range";
@@ -3035,7 +3045,7 @@ namespace ARKViewer
             // lvwItemList
             // 
             lvwItemList.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwItemList_Tribe, lvwItemList_Container, lvwItemList_Item, lvwItemList_Quality, lvwItemList_Rating, lvwItemList_BP, lvwItemList_Quantity, lvwItemList_Lat, lvwItemList_Lon, lvwItemList_CCC, lvwItemList_UploadTime });
+            lvwItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwItemList_Tribe, lvwItemList_Container, lvwItemList_Player, lvwItemList_Item, lvwItemList_Quality, lvwItemList_Rating, lvwItemList_BP, lvwItemList_Quantity, lvwItemList_Lat, lvwItemList_Lon, lvwItemList_CCC, lvwItemList_UploadTime });
             lvwItemList.FullRowSelect = true;
             lvwItemList.Location = new System.Drawing.Point(13, 60);
             lvwItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3051,12 +3061,17 @@ namespace ARKViewer
             // lvwItemList_Tribe
             // 
             lvwItemList_Tribe.Text = "Tribe";
-            lvwItemList_Tribe.Width = 175;
+            lvwItemList_Tribe.Width = 150;
+            // 
+            // lvwItemList_Player
+            // 
+            lvwItemList_Player.Text = "Player";
+            lvwItemList_Player.Width = 150;
             // 
             // lvwItemList_Container
             // 
             lvwItemList_Container.Text = "Container";
-            lvwItemList_Container.Width = 175;
+            lvwItemList_Container.Width = 160;
             // 
             // lvwItemList_Item
             // 
@@ -3071,6 +3086,7 @@ namespace ARKViewer
             // lvwItemList_Rating
             // 
             lvwItemList_Rating.Text = "Rating";
+            lvwItemList_Rating.Width = 50;
             // 
             // lvwItemList_BP
             // 
@@ -3080,6 +3096,7 @@ namespace ARKViewer
             // lvwItemList_Quantity
             // 
             lvwItemList_Quantity.Text = "Qty";
+            lvwItemList_Quantity.Width = 50;
             // 
             // lvwItemList_Lat
             // 
@@ -3746,15 +3763,6 @@ namespace ARKViewer
             cboSelectedMap.TabIndex = 26;
             cboSelectedMap.SelectedIndexChanged += cboSelectedMap_SelectedIndexChanged;
             // 
-            // lvwStructureLocations_Name
-            // 
-            lvwStructureLocations_Name.Text = "Name";
-            lvwStructureLocations_Name.Width = 180;
-            // 
-            // lvwStructureLocations_Locked
-            // 
-            lvwStructureLocations_Locked.Text = "Locked";
-            // 
             // frmViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -4196,6 +4204,7 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwTameDetail_Neutered;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Name;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Locked;
+        private System.Windows.Forms.ColumnHeader lvwItemList_Player;
     }
 }
 

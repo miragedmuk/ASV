@@ -5156,7 +5156,7 @@ namespace ARKViewer
 
                             newItem.SubItems.Add(playerStructure.Latitude.Value.ToString("0.00"));
                             newItem.SubItems.Add(playerStructure.Longitude.Value.ToString("0.00"));
-                            newItem.SubItems.Add(playerStructure.DisplayName == playerStructure.ClassName?"":playerStructure.DisplayName);
+                            newItem.SubItems.Add(playerStructure.DisplayName == playerStructure.ClassName ? "" : playerStructure.DisplayName);
                             newItem.SubItems.Add(playerStructure.IsLocked ? "Yes" : "No");
 
                             newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
@@ -5440,10 +5440,11 @@ namespace ARKViewer
                         }
 
                         ListViewItem newItem = new ListViewItem(foundItem.TribeName);
+ 
                         newItem.BackColor = backColor;
                         newItem.ForeColor = foreColor;
-
                         newItem.SubItems.Add(foundItem.ContainerName);
+                        newItem.SubItems.Add(foundItem.PlayerName);
                         newItem.SubItems.Add(foundItem.DisplayName);
                         newItem.SubItems.Add(qualityName);
                         newItem.SubItems.Add(foundItem.Rating.HasValue ? foundItem.Rating.Value.ToString() : "");
