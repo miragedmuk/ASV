@@ -330,7 +330,18 @@
       "LatDiv": 4065.0,
       "LonShift": 50.0,
       "LonDiv": 4065.0
+    },
+	    {
+      "MapName": "TaeniaStella The RenewalAlpha",
+      "Filename": "TaeniaStella.ark",
+      "ImageFile": "map_taeniastella.png",
+      "LatShift": 48.9,
+      "LatDiv": 15500.0,
+      "LonShift": 48.9,
+      "LonDiv": 15500.0
     }
+	
+	
 
   ]
 }
