@@ -270,7 +270,6 @@ namespace SavegameToolkit
 
             extractBinaryObjectStoredCreatures(options);
 
-
             OldNameList = archive.HasUnknownNames ? archive.NameTable : null;
             HasUnknownData = archive.HasUnknownData;
         }
@@ -279,7 +278,7 @@ namespace SavegameToolkit
         {
             SaveVersion = archive.ReadShort();
 
-            if (SaveVersion < 5 || SaveVersion > 9)
+            if (SaveVersion < 5 || SaveVersion > 10)
             {
                 throw new NotSupportedException("Found unknown Version " + SaveVersion);
             }
@@ -502,6 +501,8 @@ namespace SavegameToolkit
                 archive.DebugMessage("non-zero unknown V9 fields, expecting duplicated set per 349.10");
                 hibernationV9_34910Unknown1 = archive.ReadInt();
                 hibernationV9_34910Unknown2 = archive.ReadInt();
+
+
                 if (!(hibernationV8Unknown1 == archive.ReadInt()
                       && hibernationV8Unknown2 == archive.ReadInt()
                       && hibernationV8Unknown3 == archive.ReadInt()
@@ -513,6 +514,7 @@ namespace SavegameToolkit
                 }
             }
 
+      
             // No hibernate section if we reached the nameTable
             if (archive.Position == nameTableOffset)
             {
