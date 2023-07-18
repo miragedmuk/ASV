@@ -16,6 +16,7 @@ Click OAuth2 > Url Generator
 		+ Attach Files
 		+ Mention Everyone
 		+ Use Slash Commands
+	> Copy link and paste it into your web browser to add the bot to your server.
 		
 Open botconfig.json from ASVBot folder 
 	+ add the bot token value.
