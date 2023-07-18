@@ -1,0 +1,25 @@
+﻿https://discord.com/developers/applications
+
+Create a new Discord Application
+Click Bot and Create a new Bot 
+	> Reset Token then COPY the new Token for use in ASVBot configuration.
+	> Change bot to non-public. We add it to our own server/channels via url link next.
+	> Grant Mesaage Intent
+Click OAuth2 > Url Generator
+	> Scopes: 
+		+ bot
+		+ applications.commands
+	> General Permissions: 
+		+ Read Messages / View Channels
+		+ Send Messages
+		+ Send Messages in Threads
+		+ Attach Files
+		+ Mention Everyone
+		+ Use Slash Commands
+		
+Open botconfig.json from ASVBot folder 
+	+ add the bot token value.
+	+ add ark save file and cluster folder locations.
+	+ add your discord server id - can be copied once you turn developer mode on for discord client.
+
+
