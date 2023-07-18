@@ -144,6 +144,10 @@ namespace ASVBot.Commands
             if(discordPlayerLink != null )
             {
                 discordPlayerLink.IsVerified=true;
+                discordPlayerLink.MaxRadius = (float)radius;
+                discordPlayerLink.ResultLocation = showLoc;
+                discordPlayerLink.ResultStats = showStats;
+                discordPlayerLink.MarkedMaps = allowMaps;
                 responseString = $"Account link verified: {discordUsername} now linked with {discordPlayerLink.ArkCharacterName} ({discordPlayerLink.ArkPlayerId})";
             }
 

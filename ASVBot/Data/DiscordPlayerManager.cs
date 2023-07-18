@@ -30,6 +30,7 @@ namespace ASVBot.Data
                 discordPlayer.ArkPlayerId = arkPlayerId;
                 discordPlayer.ArkCharacterName = arkCharacterName;
                 discordPlayer.MaxRadius = radius;
+                discordPlayer.IsVerified = false; //need to be re-verified
             }
             else
             {
