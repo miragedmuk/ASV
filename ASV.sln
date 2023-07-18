@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASVExport", "ASVExport\ASVE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArkViewer", "ArkViewer\ArkViewer.csproj", "{2694464B-92D2-4DF6-9717-C187442F49C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASVBot", "ASVBot\ASVBot.csproj", "{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASVApi", "ASVApi\ASVApi.csproj", "{960BAF67-79F9-4883-ABED-6483ED85B649}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{2694464B-92D2-4DF6-9717-C187442F49C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2694464B-92D2-4DF6-9717-C187442F49C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2694464B-92D2-4DF6-9717-C187442F49C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960BAF67-79F9-4883-ABED-6483ED85B649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960BAF67-79F9-4883-ABED-6483ED85B649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960BAF67-79F9-4883-ABED-6483ED85B649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960BAF67-79F9-4883-ABED-6483ED85B649}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

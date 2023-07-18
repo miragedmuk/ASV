@@ -22,6 +22,11 @@ namespace ASVPack.Models
     public class ContentContainer : IContentContainer
     {
 
+        private DateTime loadedTimestamp = DateTime.MinValue;
+        private string loadedFilename = string.Empty;
+        private string loadedClusterFolder = string.Empty;
+
+
         ILogger logWriter = LogManager.GetCurrentClassLogger();
         private ContentMapPack mapPack = new ContentMapPack();
 
@@ -58,7 +63,9 @@ namespace ASVPack.Models
 
         public void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder)
         {
-            ContentMap selectedMap = null;
+            loadedFilename = saveFilename;
+            loadedClusterFolder = clusterFolder;
+
 
             logWriter.Trace("BEGIN LoadSaveGame()");
 
@@ -69,6 +76,14 @@ namespace ASVPack.Models
                 throw new FileNotFoundException();
             }
 
+            if(File.GetLastWriteTimeUtc(saveFilename) <= loadedTimestamp) 
+            {
+                return;
+            }
+
+            ContentMap selectedMap = null;
+
+            loadedTimestamp = File.GetLastWriteTimeUtc(saveFilename);
 
             LoadDefaults();
 
@@ -1524,6 +1539,21 @@ namespace ASVPack.Models
             }
 
         }
+
+        public bool Reload()
+        {
+            if(loadedTimestamp < File.GetLastWriteTimeUtc(loadedFilename))
+            {
+                LoadSaveGame(loadedFilename, string.Empty, loadedClusterFolder);
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+
 
 
     }

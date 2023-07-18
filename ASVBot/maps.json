@@ -1,0 +1,347 @@
+{
+  "maps": [
+    {
+      "MapName": "The Island",
+      "Filename": "theisland.ark",
+      "ImageFile": "map_theisland.png",
+      "LatShift": 50.0,
+      "LatDiv": 8000.0,
+      "LonShift": 50.0,
+      "LonDiv": 8000.0
+    },
+    {
+      "MapName": "The Center",
+      "Filename": "thecenter.ark",
+      "ImageFile": "map_thecenter.png",
+      "LatShift": 30.34223747253418,
+      "LatDiv": 9584.0,
+      "LonShift": 55.10416793823242,
+      "LonDiv": 9600.0
+    },
+    {
+      "MapName": "Scorched Earth",
+      "Filename": "scorchedearth_p.ark",
+      "ImageFile": "map_scorchedearth.png",
+      "LatShift": 50.0,
+      "LatDiv": 8000.0,
+      "LonShift": 50.0,
+      "LonDiv": 8000.0
+    },
+    {
+      "MapName": "Aberration",
+      "Filename": "aberration_p.ark",
+      "ImageFile": "map_aberration.png",
+      "LatShift": 50.0,
+      "LatDiv": 8000.0,
+      "LonShift": 50.0,
+      "LonDiv": 8000.0
+    },
+    {
+      "MapName": "Extinction",
+      "Filename": "extinction.ark",
+      "ImageFile": "map_extinction.png",
+      "LatShift": 50.0,
+      "LatDiv": 8000.0,
+      "LonShift": 50.0,
+      "LonDiv": 8000.0
+    },
+    {
+      "MapName": "Ragnarok",
+      "Filename": "ragnarok.ark",
+      "ImageFile": "map_ragnarok.png",
+      "LatShift": 50.009388,
+      "LatDiv": 13100.0,
+      "LonShift": 50.009388,
+      "LonDiv": 13100.0
+    },
+    {
+      "MapName": "Valguero",
+      "Filename": "valguero_p.ark",
+      "ImageFile": "map_valguero.png",
+      "LatShift": 50.0,
+      "LatDiv": 8161.0,
+      "LonShift": 50.0,
+      "LonDiv": 8161.0
+    },
+    {
+      "MapName": "Crystal Isles",
+      "Filename": "crystalisles.ark",
+      "ImageFile": "map_crystalisles.png",
+      "LatShift": 48.687,
+      "LatDiv": 15882.02,
+      "LonShift": 49.9481,
+      "LonDiv": 16988.76
+    },
+    {
+      "MapName": "Genesis",
+      "Filename": "genesis.ark",
+      "ImageFile": "map_genesis.png",
+      "LatShift": 50.0,
+      "LatDiv": 10500.0,
+      "LonShift": 50.0,
+      "LonDiv": 10500.0
+    },
+    {
+      "MapName": "Genesis 2",
+      "Filename": "gen2.ark",
+      "ImageFile": "map_gen2.png",
+      "LatShift": 49.6,
+      "LatDiv": 14500.0,
+      "LonShift": 49.6,
+      "LonDiv": 14500.0
+    },
+    {
+      "MapName": "Astral ARK",
+      "Filename": "astralark.ark",
+      "ImageFile": "map_astralark.png",
+      "LatShift": 50.0,
+      "LatDiv": 2000.0,
+      "LonShift": 50.0,
+      "LonDiv": 2000.0
+    },
+    {
+      "MapName": "Hope",
+      "Filename": "hope.ark",
+      "ImageFile": "map_hope.png",
+      "LatShift": 50.0,
+      "LatDiv": 6850.0,
+      "LonShift": 50.0,
+      "LonDiv": 6850.0
+    },
+    {
+      "MapName": "Tunguska",
+      "Filename": "tunguska_p.ark",
+      "ImageFile": "map_tunguska.png",
+      "LatShift": 46.8,
+      "LatDiv": 14000.0,
+      "LonShift": 49.29,
+      "LonDiv": 13300.0
+    },
+    {
+      "MapName": "Caballus",
+      "Filename": "caballus_p.ark",
+      "ImageFile": "map_caballus.png",
+      "LatShift": 50.0,
+      "LatDiv": 8125.0,
+      "LonShift": 50.0,
+      "LonDiv": 8125.0
+    },
+    {
+      "MapName": "Fjordur",
+      "Filename": "fjordur.ark",
+      "ImageFile": "map_fjordur.png",
+      "LatShift": 50.0,
+      "LatDiv": 7140.0,
+      "LonShift": 50.0,
+      "LonDiv": 7140.0,
+      "Regions": [
+        {
+          "RegionName": "Asgard",
+          "ImageFile": "fjordur_asgard.png",
+          "LatStart": 17.47,
+          "LatEnd": 68.93,
+          "LonStart": 5.11,
+          "LonEnd": 56.57,
+          "ZStart": -435000,
+          "ZEnd": -160000,
+          "MarkerColor": "#eded09"
+        },
+        {
+          "RegionName": "Vanaheim",
+          "ImageFile": "fjordur_vanaheim.png",
+          "LatStart": -9.15,
+          "LatEnd": 33.73,
+          "LonStart": 62.5,
+          "LonEnd": 105.38,
+          "ZStart": -190000,
+          "ZEnd": -115000,
+          "MarkerColor": "#86f091"
+        },
+        {
+          "RegionName": "Jotunheim",
+          "ImageFile": "fjordur_jotenheim.png",
+          "LatStart": 54.48,
+          "LatEnd": 97.36,
+          "LonStart": 21.35,
+          "LonEnd": 64.23,
+          "ZStart": -160000,
+          "ZEnd": -100000,
+          "MarkerColor": "#869df0"
+        }
+      ]
+    },
+	{
+      "MapName": "Fjell",
+      "Filename": "viking_p.ark",
+      "ImageFile": "map_fjordur.png",
+      "LatShift": 50.0,
+      "LatDiv": 7140.0,
+      "LonShift": 50.0,
+      "LonDiv": 7140.0,
+      "Regions": [
+        {
+          "RegionName": "Asgard",
+          "ImageFile": "fjordur_asgard.png",
+          "LatStart": 17.47,
+          "LatEnd": 68.93,
+          "LonStart": 5.11,
+          "LonEnd": 56.57,
+          "ZStart": -435000,
+          "ZEnd": -160000,
+          "MarkerColor": "#eded09"
+        },
+        {
+          "RegionName": "Vanaheim",
+          "ImageFile": "fjordur_vanaheim.png",
+          "LatStart": -9.15,
+          "LatEnd": 33.73,
+          "LonStart": 62.5,
+          "LonEnd": 105.38,
+          "ZStart": -190000,
+          "ZEnd": -115000,
+          "MarkerColor": "#86f091"
+        },
+        {
+          "RegionName": "Jotunheim",
+          "ImageFile": "fjordur_jotenheim.png",
+          "LatStart": 54.48,
+          "LatEnd": 97.36,
+          "LonStart": 21.35,
+          "LonEnd": 64.23,
+          "ZStart": -160000,
+          "ZEnd": -100000,
+          "MarkerColor": "#869df0"
+        }
+      ]
+    },
+    {
+      "MapName": "Tiamat Prime",
+      "Filename": "tiamatprime.ark",
+      "ImageFile": "map_tiamat.png",
+      "LatShift": 50.0,
+      "LatDiv": 8000.0,
+      "LonShift": 50.0,
+      "LonDiv": 8000.0
+    },
+    {
+      "MapName": "Glacius",
+      "Filename": "glacius_p.ark",
+      "ImageFile": "map_glacius.png",
+      "LatShift": 50.0,
+      "LatDiv": 16250.0,
+      "LonShift": 50.0,
+      "LonDiv": 16250.0
+    },
+    {
+      "MapName": "Antartika",
+      "Filename": "antartika.ark",
+      "ImageFile": "map_antartika.png",
+      "LatShift": 50.0,
+      "LatDiv": 8000.0,
+      "LonShift": 50.0,
+      "LonDiv": 8000.0
+    },
+    {
+      "MapName": "Lost Island",
+      "Filename": "lostisland.ark",
+      "ImageFile": "map_lostisland.png",
+      "LatShift": 51.6,
+      "LatDiv": 15300.0,
+      "LonShift": 49.0,
+      "LonDiv": 15300.0
+    },
+    {
+      "MapName": "Amissa",
+      "Filename": "amissa.ark",
+      "ImageFile": "map_amissa.png",
+      "LatShift": 49.9,
+      "LatDiv": 10900.0,
+      "LonShift": 49.9,
+      "LonDiv": 10850.0
+    },
+    {
+      "MapName": "Olympus",
+      "Filename": "olympus.ark",
+      "ImageFile": "map_olympus.png",
+      "LatShift": 0.0,
+      "LatDiv": 8130.0,
+      "LonShift": 0.0,
+      "LonDiv": 8130.0
+    },
+    {
+      "MapName": "Ebenus Astrum",
+      "Filename": "ebenusastrum.ark",
+      "ImageFile": "map_ebenusastrum.png",
+      "LatShift": 52.9,
+      "LatDiv": 8650.0,
+      "LonShift": 25.0,
+      "LonDiv": 18500.0
+    },
+    {
+      "MapName": "ARKForum Event Map",
+      "Filename": "arkforum_eventmap.ark",
+      "ImageFile": "map_arkforum.png",
+      "LatShift": 50.0,
+      "LatDiv": 1500.0,
+      "LonShift": 50.0,
+      "LonDiv": 1500.0
+    },
+    {
+      "MapName": "The Volcano",
+      "Filename": "thevolcano.ark",
+      "ImageFile": "map_thevolcano.png",
+      "LatShift": 50.0,
+      "LatDiv": 9200.0,
+      "LonShift": 50.0,
+      "LonDiv": 9200.0
+    },
+    {
+      "MapName": "The Earrion",
+      "Filename": "earrion_p.ark",
+      "ImageFile": "map_theearrion.png",
+      "LatShift": 50.0,
+      "LatDiv": 6250.0,
+      "LonShift": 50.0,
+      "LonDiv": 6250.0
+    },
+    {
+      "MapName": "Alemia",
+      "Filename": "Alemia_P.ark",
+      "ImageFile": "map_alemia.png",
+      "LatShift": 50.0,
+      "LatDiv": 8150.0,
+      "LonShift": 50.0,
+      "LonDiv": 8150.0
+    },
+    {
+      "MapName": "Velius",
+      "Filename": "Velius_P.ark",
+      "ImageFile": "map_velius.png",
+      "LatShift": 50.0,
+      "LatDiv": 8575.0,
+      "LonShift": 50.0,
+      "LonDiv": 8575.0
+    },
+    {
+      "MapName": "Svartalfheim",
+      "Filename": "Svartalfheim.ark",
+      "ImageFile": "map_svartalfheim.png",
+      "LatShift": 50.0,
+      "LatDiv": 4065.0,
+      "LonShift": 50.0,
+      "LonDiv": 4065.0
+    },
+	    {
+      "MapName": "TaeniaStella The RenewalAlpha",
+      "Filename": "TaeniaStella.ark",
+      "ImageFile": "map_taeniastella.png",
+      "LatShift": 48.9,
+      "LatDiv": 15500.0,
+      "LonShift": 48.9,
+      "LonDiv": 15500.0
+    }
+	
+	
+
+  ]
+}

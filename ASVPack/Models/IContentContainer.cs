@@ -15,5 +15,7 @@
 
         DateTime? GetApproxDateTimeOf(double? objectTime);
         void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder);
+        bool Reload();
+        
     }
 }
