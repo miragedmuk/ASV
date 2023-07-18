@@ -249,7 +249,7 @@ namespace ASVBot.Commands
 
 
 
-            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's your wild summary showing creatures within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildSummary.txt",fileStream).AddMention(new UserMention(ctx.Member)));
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the wild summary showing creatures within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildSummary.txt",fileStream).AddMention(new UserMention(ctx.Member)));
 
             fileStream.Dispose();
 
@@ -358,7 +358,7 @@ namespace ASVBot.Commands
             File.WriteAllText(tmpFilename, responseString);
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
-            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's your report showing selected creature type(s) within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the report showing selected creature type(s) within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
 
             fileStream.Close();
             fileStream.Dispose();
@@ -415,7 +415,7 @@ namespace ASVBot.Commands
             mapImage.Save(tmpFilename,System.Drawing.Imaging.ImageFormat.Jpeg);
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
-            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's your map showing selected creature type(s) within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildDetails.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing selected creature type(s) within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildDetails.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
 
         }
 
@@ -498,7 +498,7 @@ namespace ASVBot.Commands
             File.WriteAllText(tmpFilename, responseString);
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
-            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's your report showing your tames for the selected creature type(s).").AddFile("TameDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the report showing your tames for the selected creature type(s).").AddFile("TameDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
 
             fileStream.Close();
             fileStream.Dispose();
@@ -533,7 +533,7 @@ namespace ASVBot.Commands
             mapImage.Save(tmpFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
-            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's your map showing tame locations.").AddFile("Tames.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing tame locations.").AddFile("Tames.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
 
         }
 
