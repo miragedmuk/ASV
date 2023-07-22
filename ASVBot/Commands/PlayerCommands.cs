@@ -14,28 +14,37 @@ using System.IO;
 using NLog.LayoutRenderers.Wrappers;
 using System.Drawing;
 using System.Reflection.PortableExecutable;
+using Microsoft.VisualBasic.FileIO;
 
 namespace ASVBot.Commands
 {
+    [SlashCommandGroup("player", "Player commands for ASVBot.")]
     public class PlayerCommands: ApplicationCommandModule
     {
         IContentContainer arkPack;
         IDiscordPlayerManager playerManager;
-        List<ICreatureMap> creatureMap;
+        List<IClassMap> classMaps;
+        
         ContentContainerGraphics graphicsContainer;
 
 
-        public PlayerCommands(IContentContainer arkPack, IDiscordPlayerManager discordPlayerManager,  List<ICreatureMap> creatureMap, ContentContainerGraphics graphicsContainer)
+        public PlayerCommands(IContentContainer arkPack, IDiscordPlayerManager discordPlayerManager,  List<IClassMap> classMap, ContentContainerGraphics graphicsContainer)
         {
             this.arkPack = arkPack;
             this.playerManager = discordPlayerManager;
-            this.creatureMap = creatureMap;
+            this.classMaps = classMap;
             this.graphicsContainer = graphicsContainer;
         }
 
         [SlashCommand("asv-link", "Link your discord handle to your game handle.")]
         public async Task LinkPlayer(InteractionContext ctx, [Option("gamerTag", "Steam Id / Epic Id / Gamertag")] string playerId)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
             string responseString = string.Empty;
 
@@ -98,6 +107,13 @@ namespace ASVBot.Commands
         [SlashCommand("asv-unlink", "Unlink your discord handle from your game handle.")]
         public async Task UnlinkPlayer(InteractionContext ctx)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
+
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
             var responseString = "";
@@ -120,6 +136,13 @@ namespace ASVBot.Commands
         [SlashCommand("asv-server-summary", "Displays an overview summary of the loaded map data.")]
         public async Task GetSummary(InteractionContext ctx)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
+
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
             StringBuilder sb = new StringBuilder();
@@ -145,6 +168,12 @@ namespace ASVBot.Commands
         [SlashCommand("asv-maptime", "Return the map name and timestamp when game was last saved.")]
         public async Task GetMapTimestamp(InteractionContext ctx)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             string responseString = $"**{arkPack.LoadedMap.MapName}** ({arkPack.GameSaveTime.ToString()})";
 
 
@@ -156,6 +185,12 @@ namespace ASVBot.Commands
         [SlashCommand("asv-creaturelist", "View list of creature types available on this ARK.")]
         public async Task GetCreatureTypes (InteractionContext ctx)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
             if (discordUser == null || !discordUser.IsVerified)
             {
@@ -168,18 +203,18 @@ namespace ASVBot.Commands
             string responseHeader = "Class Name,Friendly Name";
             List<string> responseLines = new List<string>();
 
-            var unknownWildCreatures = arkPack.WildCreatures.Where(w => !creatureMap.Any(c => c.ClassName.ToLower() == w.ClassName.ToLower())).GroupBy(g=>g.ClassName).Select(s=>new CreatureMap() { ClassName = s.Key, FriendlyName=s.Key }).ToList();
+            var unknownWildCreatures = arkPack.WildCreatures.Where(w => !classMaps.Any(c => c.ClassName.ToLower() == w.ClassName.ToLower())).GroupBy(g=>g.ClassName).Select(s=>new ClassMap() { ClassName = s.Key, FriendlyName=s.Key }).ToList();
             if(unknownWildCreatures!=null && unknownWildCreatures.Count > 0)
             {
-                creatureMap.AddRange(unknownWildCreatures);
+                classMaps.AddRange(unknownWildCreatures);
             }
-            var unknownTamedCreatures = arkPack.Tribes.SelectMany(t=>t.Tames.Where(c => !creatureMap.Any(m=>m.ClassName.ToLower() == c.ClassName.ToLower()))).GroupBy(g => g.ClassName).Select(s => new CreatureMap() { ClassName = s.Key, FriendlyName = s.Key }).ToList();
+            var unknownTamedCreatures = arkPack.Tribes.SelectMany(t=>t.Tames.Where(c => !classMaps.Any(m=>m.ClassName.ToLower() == c.ClassName.ToLower()))).GroupBy(g => g.ClassName).Select(s => new ClassMap() { ClassName = s.Key, FriendlyName = s.Key }).ToList();
             if (unknownTamedCreatures != null && unknownTamedCreatures.Count > 0)
             {
-                creatureMap.AddRange(unknownTamedCreatures);
+                classMaps.AddRange(unknownTamedCreatures);
             }
 
-            foreach(var cm in creatureMap.OrderBy(o => o.ClassName))
+            foreach(var cm in classMaps.OrderBy(o => o.ClassName))
             {
                 responseLines.Add($"{cm.ClassName},{cm.FriendlyName}");
             }
@@ -201,6 +236,12 @@ namespace ASVBot.Commands
         [SlashCommand("asv-wild-summary", "View summary of wild creatures available on this ARK.")]
         public async Task GetWildSummary(InteractionContext ctx)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
             if(discordUser == null || !discordUser.IsVerified) 
             {
@@ -259,6 +300,12 @@ namespace ASVBot.Commands
         [SlashCommand("asv-wild-detail", "Show details of selected wild creature types nearby.")]
         public async Task GetWildDetail(InteractionContext ctx, [Option("class_name", "Creature Type")]string selectedClass)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
             if (discordUser == null || !discordUser.IsVerified)
             {
@@ -327,7 +374,7 @@ namespace ASVBot.Commands
                 StringBuilder sbLine = new StringBuilder();
 
                 string creatureType = wild.ClassName;
-                var cMap = creatureMap.FirstOrDefault(c => c.ClassName.ToLower() == wild.ClassName.ToLower());
+                var cMap = classMaps.FirstOrDefault(c => c.ClassName.ToLower() == wild.ClassName.ToLower());
                 if (cMap != null) creatureType = cMap.FriendlyName;
 
 
@@ -368,6 +415,12 @@ namespace ASVBot.Commands
         [SlashCommand("asv-wild-map", "Show map of selected wild creature types nearby.")]
         public async Task GetWildMapImage(InteractionContext ctx, [Option("class_name", "Creature Type")] string creatureType)
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
             if (discordUser == null || !discordUser.IsVerified)
             {
@@ -423,6 +476,12 @@ namespace ASVBot.Commands
         [SlashCommand("asv-my-tames", "Show list of your tames and where they are.")]
         public async Task GetMyTames(InteractionContext ctx,[Option("creatureType", "Type of creature(s) to limit the results to (Optional)")] string creatureType = "")
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
             if (discordUser == null || !discordUser.IsVerified)
             {
@@ -447,7 +506,7 @@ namespace ASVBot.Commands
                     StringBuilder responseLineData = new StringBuilder();
 
                     var creatureTypeName = tame.ClassName;
-                    var cm = creatureMap.FirstOrDefault(c => c.ClassName.ToLower() == tame.ClassName.ToLower());
+                    var cm = classMaps.FirstOrDefault(c => c.ClassName.ToLower() == tame.ClassName.ToLower());
                     if (cm != null) creatureTypeName = cm.FriendlyName;
 
                     responseLineData.Append($"{creatureTypeName}");
@@ -509,6 +568,12 @@ namespace ASVBot.Commands
         [SlashCommand("asv-my-tames-map", "Show map of your tames with markers of where they are.")]
         public async Task GetMyTamesMap(InteractionContext ctx, [Option("creatureType","Type of creature(s) to limit the results to (Optional)")]string creatureType = "")
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
             if (discordUser == null || !discordUser.IsVerified)
             {
@@ -525,8 +590,7 @@ namespace ASVBot.Commands
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
-            //todo://
-            var mapImage = graphicsContainer.GetMapImageWild("", 50, 50, 100);
+            var mapImage = graphicsContainer.GetMapImageTamed(discordUser.ArkPlayerId,creatureType);
 
 
             string tmpFilename = Path.GetTempFileName();
@@ -537,10 +601,15 @@ namespace ASVBot.Commands
 
         }
 
-        //asv-my-structures
         [SlashCommand("asv-my-structures", "Show list of your structures and where they are.")]
-        public async Task GetMyStructures(InteractionContext ctx)
+        public async Task GetMyStructures(InteractionContext ctx, [Option("structureType", "Type of structure to search.")]string structureType = "")
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
             var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
             if (discordUser == null || !discordUser.IsVerified)
             {
@@ -548,16 +617,114 @@ namespace ASVBot.Commands
                 return;
             }
 
-
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+
+            var responseHeader = "Structure,Lat,Lon,Inventory,Locked";
+            List<string> responseLines = new List<string>();
+
+            var tribeStructures = arkPack.Tribes.Where(t => t.Players.Any(p => p.Id == discordUser.ArkPlayerId)).SelectMany(s => s.Structures).Where(t => t.ClassName.ToLower().Contains(structureType.ToLower())).ToList();
+            if (tribeStructures != null && tribeStructures.Count > 0)
+            {
+             
+                foreach (var structure in tribeStructures.OrderBy(t => t.ClassName))
+                {
+                    StringBuilder responseLineData = new StringBuilder();
+
+                    var structureTypeName = structure.ClassName;
+                    var cm = classMaps.FirstOrDefault(c => c.ClassName.ToLower() == structure.ClassName.ToLower());
+                    if (cm != null) structureTypeName = cm.FriendlyName;
+
+                    responseLineData.Append($"{structureTypeName}");
+                    responseLineData.Append($",{structure.Latitude.GetValueOrDefault(0).ToString("f1")}");
+                    responseLineData.Append($",{structure.Longitude.GetValueOrDefault(0).ToString("f1")}");
+                    responseLineData.Append($",{(structure.Inventory!=null && structure.Inventory.Items!=null && structure.Inventory.Items.Count > 0)}");
+                    responseLineData.Append($",{structure.IsLocked}");
+
+                    responseLines.Add(responseLineData.ToString());
+
+                }
+
+            }
+            else
+            {
+                //no tames
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - You don't seem to have any structures on this server.").AddMention(new UserMention(ctx.Member)));
+                return;
+            }
+
+            var responseString = FormatResponseTable(responseHeader, responseLines);
+
+            var tmpFilename = Path.GetTempFileName();
+            File.WriteAllText(tmpFilename, responseString);
+            FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
+
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the report showing your structures for the selected type(s).").AddFile("StructureDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
+
+            fileStream.Close();
+            fileStream.Dispose();
+            File.Delete(tmpFilename);
 
 
         }
 
-        //asv-my-items
-        [SlashCommand("asv-my-items", "Show list of your items and where they are.")]
-        public async Task GetMyItems(InteractionContext ctx)
+        //TODO://
+        [SlashCommand("asv-my-structures-map", "Show map of your structures and where they are.")]
+        public async Task GetMyStructuresMap(InteractionContext ctx, [Option("structureType", "Type of structure to search.")] string structureFilter = "")
         {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
+            var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
+            if (discordUser == null || !discordUser.IsVerified)
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("Command unavailable until user-link has been verified."));
+                return;
+            }
+
+            if (!discordUser.MarkedMaps)
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("Your account does not have permission to receive map images."));
+                return;
+            }
+
+
+            await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+
+
+
+
+
+
+        }
+
+        //TODO:// asv-my-items
+        [SlashCommand("asv-my-items", "Show list of your items and where they are.")]
+        public async Task GetMyItems(InteractionContext ctx, [Option("searchTerm", "Search by item type.")]string itemFilter = "")
+        {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
+
+            await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+        }
+
+        //TODO:// asv-my-items
+        [SlashCommand("asv-my-items-map", "Show list of your items and where they are.")]
+        public async Task GetMyItemsMap(InteractionContext ctx, [Option("searchItem", "Search by item type.")] string itemFilter = "")
+        {
+            if (!arkPack.IsLoaded())
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
+                return;
+            }
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
@@ -642,7 +809,7 @@ namespace ASVBot.Commands
             var wildSummary = arkPack.WildCreatures
                 .Where(w => ((Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius) && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)))
                 .GroupBy(c => c.ClassName)
-                .Select(g => new { ClassName = g.Key, Name = creatureMap.Count(d => d.ClassName == g.Key) == 0 ? g.Key : creatureMap.Where(d => d.ClassName == g.Key).First().FriendlyName, Count = g.Count(), Min = g.Min(l => l.BaseLevel), Max = g.Max(l => l.BaseLevel) })
+                .Select(g => new { ClassName = g.Key, Name = classMaps.Count(d => d.ClassName == g.Key) == 0 ? g.Key : classMaps.Where(d => d.ClassName == g.Key).First().FriendlyName, Count = g.Count(), Min = g.Min(l => l.BaseLevel), Max = g.Max(l => l.BaseLevel) })
                 .OrderBy(o => o.Name);
 
             var summaryMin = wildSummary.Min(s => s.Min);
@@ -667,12 +834,6 @@ namespace ASVBot.Commands
             return responseString;
         }
 
-        private long GetPlayerId(string discordUsername)
-        {
-            var discordUser = playerManager.GetPlayers().FirstOrDefault(p => p.DiscordUsername == discordUsername);
-            if (discordUser != null) return discordUser.ArkPlayerId;
-            return 0;
-        }
 
     }
 }

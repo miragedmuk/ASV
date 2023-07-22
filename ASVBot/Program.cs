@@ -16,7 +16,7 @@ namespace ASVBot
     {
         public static ContentContainer arkPack = new ContentContainer();
         private static BotConfig config = new BotConfig();
-        private static List<ICreatureMap> creatureMap = new List<ICreatureMap>();
+        private static List<IClassMap> classMaps = new List<IClassMap>();
         private static ContentContainerGraphics graphicsContainer = null;
 
         static async Task Main(string[] args)
@@ -29,10 +29,12 @@ namespace ASVBot
             }
 
 
+            classMaps = new List<IClassMap>();
+
             var creatureMapConfigFilename = Path.Combine(AppContext.BaseDirectory, "creaturemap.json");
             if (File.Exists(creatureMapConfigFilename))
             {
-                creatureMap = new List<ICreatureMap>();
+
 
                 string jsonFileContent = File.ReadAllText(creatureMapConfigFilename);
 
@@ -44,13 +46,37 @@ namespace ASVBot
                     {
                         if (dinoObject != null)
                         {
-                            ICreatureMap dino = new CreatureMap();
+                            IClassMap dino = new ClassMap();
                             dino.ClassName = dinoObject.Value<string>("ClassName")??"";
                             dino.FriendlyName = dinoObject.Value<string>("FriendlyName")??"";
-                            creatureMap.Add(dino);
+                            classMaps.Add(dino);
                         }
                     }
                 }               
+
+            }
+
+            var structureMapConfigFilename = Path.Combine(AppContext.BaseDirectory, "structuremap.json");
+            if (File.Exists(structureMapConfigFilename))
+            {
+
+                string jsonFileContent = File.ReadAllText(structureMapConfigFilename);
+
+                JObject structureFile = JObject.Parse(jsonFileContent);
+                JArray structureList = (JArray)structureFile.GetValue("structures");
+                if (structureList != null)
+                {
+                    foreach (JObject structureObject in structureList)
+                    {
+                        if (structureObject != null)
+                        {
+                            IClassMap structureMap = new ClassMap();
+                            structureMap.ClassName = structureObject.Value<string>("ClassName") ?? "";
+                            structureMap.FriendlyName = structureObject.Value<string>("FriendlyName") ?? "";
+                            classMaps.Add(structureMap);
+                        }
+                    }
+                }
 
             }
 
@@ -82,7 +108,7 @@ namespace ASVBot
                             .AddSingleton<ContentContainerGraphics>(graphicsContainer)
                             .AddSingleton<IContentContainer>(arkPack)         
                             .AddSingleton<IDiscordPlayerManager>(new DiscordPlayerManager())                            
-                            .AddSingleton<List<ICreatureMap>>(creatureMap)
+                            .AddSingleton<List<IClassMap>>(classMaps)
 
                             .BuildServiceProvider()
             });

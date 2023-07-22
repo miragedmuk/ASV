@@ -14,6 +14,7 @@ using System.Reflection.PortableExecutable;
 
 namespace ASVBot.Commands
 {
+    [SlashCommandGroup("admin", "Admin commands for ASVBot.")]
     public class AdminCommands: ApplicationCommandModule
     {
         IContentContainer arkPack;
@@ -98,7 +99,7 @@ namespace ASVBot.Commands
             return sb.ToString();
         }
 
-        [SlashCommand("asv-player-list", "List discord users of ASVBot.")]
+        [SlashCommand("asv-admin-users", "List discord users of ASVBot.")]
         public async Task GetUsers(InteractionContext ctx, [Option("unverified", "Show only unverified users.")]bool onlyUnverified)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -133,7 +134,7 @@ namespace ASVBot.Commands
         //asv-player-remove
         //asv-player-deny
 
-        [SlashCommand("asv-player-verify","Verify a user request to link to an ARK character.")]
+        [SlashCommand("asv-admin-verify","Verify a user request to link to an ARK character.")]
         public async Task VerifyUser(InteractionContext ctx, [Option("discordUsername","Discord user to verify")]string discordUsername, [Option("userRadius", "Max radius to scan around player location.")]double radius, [Option("showLoc", "Include location data in responses.")]bool showLoc, [Option("showStats", "Show creature statistics in responses.")]bool showStats, [Option("allowMaps", "Allow user to request map images with markers of creature locations.")]bool allowMaps)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -156,7 +157,7 @@ namespace ASVBot.Commands
         }
 
 
-        [SlashCommand("asv-admin-saveplayers", "Commit any player data changes since last save.")]
+        [SlashCommand("asv-admin-save", "Commit any player data changes since last save.")]
         public async Task SavePlayers(InteractionContext ctx)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);

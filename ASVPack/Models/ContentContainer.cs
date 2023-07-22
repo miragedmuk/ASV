@@ -42,6 +42,13 @@ namespace ASVPack.Models
         [DataMember] public DateTime GameSaveTime { get; set; } = new DateTime();
         [DataMember] public float GameSeconds { get; set; } = 0;
 
+
+        private bool isLoaded = false;
+        public bool IsLoaded()
+        {
+            return isLoaded;
+        }
+
         private void LoadDefaults()
         {
             try
@@ -65,7 +72,7 @@ namespace ASVPack.Models
         {
             loadedFilename = saveFilename;
             loadedClusterFolder = clusterFolder;
-
+            isLoaded = false;
 
             logWriter.Trace("BEGIN LoadSaveGame()");
 
@@ -1497,8 +1504,6 @@ namespace ASVPack.Models
 
 
 
-                            
-
                         }
                         catch
                         {
@@ -1510,7 +1515,8 @@ namespace ASVPack.Models
                     
                 }
 
-                
+
+                isLoaded = true;                
                 long endTicks = DateTime.Now.Ticks;
                 var duration = TimeSpan.FromTicks(endTicks - startTicks);
 
@@ -1518,6 +1524,7 @@ namespace ASVPack.Models
             }
             catch (Exception ex)
             {
+                isLoaded = false;
                 logWriter.Error(ex, "LoadSaveGame failed");
                 throw;
             }

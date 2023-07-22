@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ASVBot.Data
 {
     [DataContract]
-    public class CreatureMap: ICreatureMap
+    public class ClassMap: IClassMap
     {
         [DataMember]
         public string ClassName { get; set; } = string.Empty;

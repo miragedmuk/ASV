@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ASVBot.Data
 {
-    public interface ICreatureMap
+    public interface IClassMap
     {
         string ClassName { get; set; }
         
