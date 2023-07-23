@@ -2,5 +2,6 @@
   "arkSaveFile": "C:\\Ark\\TheIsland.ark",
   "arkClusterFolder": "",
   "discordBotToken": "",
-  "discordServerId": 0
+  "discordServerId": 0,
+  "reloadCheckMins":  5
 }
