@@ -723,7 +723,6 @@ namespace ASVBot.Commands
 
         }
 
-        //TODO:// asv-my-items
         [SlashCommand("asv-my-items", "Show list of your items and where they are.")]
         public async Task GetMyItems(InteractionContext ctx, [Option("searchTerm", "Search by item type.")]string itemFilter = "")
         {
@@ -743,7 +742,7 @@ namespace ASVBot.Commands
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
 
-            var responseHeader = "Storage,Item,Rating,Lat,Lon";
+            var responseHeader = "Storage,Lat,Lon,Item,Rating,Count";
 
             List<string> responseLines = new List<string>();
 
@@ -751,12 +750,13 @@ namespace ASVBot.Commands
                                             .Where(t => t.Players.Any(p => p.Id == discordUser.ArkPlayerId))
                                             .SelectMany(s => s.Structures)
                                             .Where(t =>
-                                                        (t.Inventory != null && t.Inventory.Items != null)
+                                                        (t.Inventory != null && t.Inventory.Items != null && t.Inventory.Items.LongCount(i=> !i.IsEngram &! i.IsBlueprint && i.ClassName.ToLower().Contains(itemFilter))> 0)
                                             ).ToList();
 
 
 
-            List<string> distinctStructureItemCounts = new List<string>();
+            List<Tuple<string, string, string, string, float, int>> itemList = new List<Tuple<string, string, string, string, float, int>>();
+
 
             if (tribeStructures != null && tribeStructures.Count > 0)
             {
@@ -769,32 +769,90 @@ namespace ASVBot.Commands
 
                     containerType = string.Concat(containerType, containerName);
 
-                    var groupedItems = tribeStructure.Inventory.Items.GroupBy(g => new { ClassName = g.ClassName, Rating = g.Rating }).Select(i => new { ClassName = i.Key.ClassName, Rating = i.Key.Rating, Count = i.Count() }).toliist();
+                    var groupedItems = tribeStructure.Inventory.Items.GroupBy(g => new { ClassName = g.ClassName, Rating = g.Rating }).Select(i => new { ClassName = i.Key.ClassName, Rating = i.Key.Rating, Count = i.Count() }).ToList();
                     foreach(var itemCountPair in groupedItems)
                     {
-                        string itemName = itemCountPair.Key.ClassName;
-                        var itemClassMap = classMaps.FirstOrDefault(c=>c.ClassName.ToLower() == itemCountPair.k.ClassName.ToLower());
+                        string itemName = itemCountPair.ClassName;
+                        var itemClassMap = classMaps.FirstOrDefault(c=>c.ClassName.ToLower() == itemCountPair.ClassName.ToLower());
                         if(itemClassMap!=null) itemName = itemClassMap.FriendlyName;
 
                         //Container, Lat, Lon, Item, Rating, Count 
+                        itemList.Add(new Tuple<string,string,string,string,float,int>(containerType, 
+                                    tribeStructure.Latitude.GetValueOrDefault(0).ToString("f1"),
+                                    tribeStructure.Longitude.GetValueOrDefault(0).ToString("f1"),
+                                    itemName,
+                                    itemCountPair.Rating.GetValueOrDefault(0),
+                                    itemCountPair.Count
+                                    ));
+
 
 
 
                     }
 
                 }
-
-
             }
 
 
 
-            //else
-            //{
-            //    //no tames
-            //    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - You don't seem to have any structures on this server.").AddMention(new UserMention(ctx.Member)));
-            //    return;
-            //}
+            var tribePlayers = arkPack.Tribes
+                                            .Where(t => t.Players.Any(p => p.Id == discordUser.ArkPlayerId))
+                                            .SelectMany(s => s.Players)
+                                            .Where(t =>
+                                                        (t.Inventory != null && t.Inventory.Items != null && t.Inventory.Items.LongCount(i => !i.IsEngram & !i.IsBlueprint && i.ClassName.ToLower().Contains(itemFilter)) > 0)
+                                            ).ToList();
+
+
+            if (tribePlayers != null && tribePlayers.Count > 0)
+            {
+                foreach (var tribePlayer in tribePlayers)
+                {
+                    string containerType = "Player - ";
+                    string containerName = tribePlayer.CharacterName;                   
+                    containerType = string.Concat(containerType, containerName);
+
+                    var groupedItems = tribePlayer.Inventory.Items.GroupBy(g => new { ClassName = g.ClassName, Rating = g.Rating }).Select(i => new { ClassName = i.Key.ClassName, Rating = i.Key.Rating, Count = i.Count() }).ToList();
+                    foreach (var itemCountPair in groupedItems)
+                    {
+                        string itemName = itemCountPair.ClassName;
+                        var itemClassMap = classMaps.FirstOrDefault(c => c.ClassName.ToLower() == itemCountPair.ClassName.ToLower());
+                        if (itemClassMap != null) itemName = itemClassMap.FriendlyName;
+
+                        //Container, Lat, Lon, Item, Rating, Count 
+                        itemList.Add(new Tuple<string,string,string,string,float,int>(containerType,
+                                    tribePlayer.Latitude.GetValueOrDefault(0).ToString("f1"),
+                                    tribePlayer.Longitude.GetValueOrDefault(0).ToString("f1"),
+                                    itemName,
+                                    itemCountPair.Rating.GetValueOrDefault(0),
+                                    itemCountPair.Count
+                                    ));
+
+
+
+
+                    }
+
+                }
+            }
+
+            if(itemList.Count ==0)
+            {
+                //no items matching search
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - You don't seem to have any items that match your query.").AddMention(new UserMention(ctx.Member)));
+                return;
+            }
+
+
+            foreach (var itemMatch in itemList.OrderBy(o => o.Item1).ThenBy(o => o.Item4))
+            {
+                string itemString = itemMatch.Item1;
+                itemString = string.Concat(itemString, ",", itemMatch.Item2);
+                itemString = string.Concat(itemString, ",", itemMatch.Item3);
+                itemString = string.Concat(itemString, ",", itemMatch.Item4);
+                itemString = string.Concat(itemString, ",", itemMatch.Item5);
+                itemString = string.Concat(itemString, ",", itemMatch.Item6);
+                responseLines.Add(itemString);
+            }
 
             var responseString = FormatResponseTable(responseHeader, responseLines);
 
@@ -802,14 +860,11 @@ namespace ASVBot.Commands
             File.WriteAllText(tmpFilename, responseString);
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
-            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the report showing your structures for the selected type(s).").AddFile("StructureDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the report showing your items for the selected type(s).").AddFile("ItemDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
 
             fileStream.Close();
             fileStream.Dispose();
             File.Delete(tmpFilename);
-
-
-
 
         }
 

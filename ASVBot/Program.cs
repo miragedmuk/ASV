@@ -81,6 +81,31 @@ namespace ASVBot
 
             }
 
+            var itemMapConfigFilename = Path.Combine(AppContext.BaseDirectory, "itemmap.json");
+            if (File.Exists(itemMapConfigFilename))
+            {
+
+                string jsonFileContent = File.ReadAllText(itemMapConfigFilename);
+
+                JObject itemFile = JObject.Parse(jsonFileContent);
+                JArray itemList = (JArray)itemFile.GetValue("items");
+                if (itemList != null)
+                {
+                    foreach (JObject itemObject in itemList)
+                    {
+                        if (itemObject != null)
+                        {
+                            IClassMap itemMap = new ClassMap();
+                            itemMap.ClassName = itemObject.Value<string>("ClassName") ?? "";
+                            itemMap.FriendlyName = itemObject.Value<string>("FriendlyName") ?? "";
+                            classMaps.Add(itemMap);
+                        }
+                    }
+                }
+
+            }
+
+
             var configFileData = File.ReadAllText(configFilename);
             config = JsonConvert.DeserializeObject<BotConfig>(configFileData)??new BotConfig();
 
