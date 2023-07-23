@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Reflection.Metadata;
+using System.Timers;
 
 namespace ASVBot
 {
@@ -89,6 +90,11 @@ namespace ASVBot
             }
 
             arkPack.LoadSaveGame(config.ArkSaveFile, string.Empty, config.ArkClusterFolder);
+            System.Timers.Timer reloadTimer = new System.Timers.Timer(60 * config.AutoReloadTimeMinutes);
+            reloadTimer.Elapsed += (sender,args) =>
+            {
+                arkPack.Reload();
+            };
 
             var discord = new DiscordClient(new DiscordConfiguration()
             {
@@ -120,6 +126,7 @@ namespace ASVBot
             await Task.Delay(-1);
 
         }
+
 
         private static void RegisterCommands(SlashCommandsExtension slash)
         {

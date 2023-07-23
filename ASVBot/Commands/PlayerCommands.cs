@@ -18,7 +18,6 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace ASVBot.Commands
 {
-    [SlashCommandGroup("player", "Player commands for ASVBot.")]
     public class PlayerCommands: ApplicationCommandModule
     {
         IContentContainer arkPack;
@@ -227,7 +226,9 @@ namespace ASVBot.Commands
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the list of creatures on this ARK.").AddFile("CreatureList.txt", fileStream).AddMention(new UserMention(ctx.Member)));
 
+            fileStream.Close();
             fileStream.Dispose();
+            File.Delete(tmpFilename);
 
         }
 
@@ -292,7 +293,9 @@ namespace ASVBot.Commands
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the wild summary showing creatures within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildSummary.txt",fileStream).AddMention(new UserMention(ctx.Member)));
 
+            fileStream.Close();
             fileStream.Dispose();
+            File.Delete(tmpFilename);
 
         }
         
@@ -409,6 +412,7 @@ namespace ASVBot.Commands
 
             fileStream.Close();
             fileStream.Dispose();
+            File.Delete(tmpFilename);
 
         }
         
@@ -470,6 +474,9 @@ namespace ASVBot.Commands
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing selected creature type(s) within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildDetails.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
 
+            fileStream.Close();
+            fileStream.Dispose();
+            File.Delete(tmpFilename);
         }
 
         //asv-my-tames
@@ -561,6 +568,7 @@ namespace ASVBot.Commands
 
             fileStream.Close();
             fileStream.Dispose();
+            File.Delete(tmpFilename);
 
 
         }
@@ -598,6 +606,10 @@ namespace ASVBot.Commands
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing tame locations.").AddFile("Tames.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
+
+            fileStream.Close();
+            fileStream.Dispose();
+            File.Delete(tmpFilename);
 
         }
 
@@ -668,7 +680,7 @@ namespace ASVBot.Commands
 
         }
 
-        //TODO://
+
         [SlashCommand("asv-my-structures-map", "Show map of your structures and where they are.")]
         public async Task GetMyStructuresMap(InteractionContext ctx, [Option("structureType", "Type of structure to search.")] string structureFilter = "")
         {
@@ -694,11 +706,20 @@ namespace ASVBot.Commands
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
+            var mapImage = graphicsContainer.GetMapImageStructures(discordUser.ArkPlayerId, structureFilter);
+            if (mapImage != null)
+            {
 
+            }
+            string tmpFilename = Path.GetTempFileName();
+            mapImage.Save(tmpFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
+            FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing tame locations.").AddFile("Tames.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
 
-
-
+            fileStream.Close();
+            fileStream.Dispose();
+            File.Delete(tmpFilename);
 
         }
 
@@ -712,7 +733,83 @@ namespace ASVBot.Commands
                 return;
             }
 
+            var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
+            if (discordUser == null || !discordUser.IsVerified)
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("Command unavailable until user-link has been verified."));
+                return;
+            }
+
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+
+            var responseHeader = "Storage,Item,Rating,Lat,Lon";
+
+            List<string> responseLines = new List<string>();
+
+            var tribeStructures = arkPack.Tribes
+                                            .Where(t => t.Players.Any(p => p.Id == discordUser.ArkPlayerId))
+                                            .SelectMany(s => s.Structures)
+                                            .Where(t =>
+                                                        (t.Inventory != null && t.Inventory.Items != null)
+                                            ).ToList();
+
+
+
+            List<string> distinctStructureItemCounts = new List<string>();
+
+            if (tribeStructures != null && tribeStructures.Count > 0)
+            {
+                foreach (var tribeStructure in tribeStructures)
+                {
+                    string containerType = "Structure - ";
+                    string containerName = tribeStructure.ClassName;
+                    var classMap = classMaps.FirstOrDefault(c => c.ClassName.ToLower() == tribeStructure.ClassName.ToLower());
+                    if (classMap != null) containerName = classMap.FriendlyName;
+
+                    containerType = string.Concat(containerType, containerName);
+
+                    var groupedItems = tribeStructure.Inventory.Items.GroupBy(g => new { ClassName = g.ClassName, Rating = g.Rating }).Select(i => new { ClassName = i.Key.ClassName, Rating = i.Key.Rating, Count = i.Count() }).toliist();
+                    foreach(var itemCountPair in groupedItems)
+                    {
+                        string itemName = itemCountPair.Key.ClassName;
+                        var itemClassMap = classMaps.FirstOrDefault(c=>c.ClassName.ToLower() == itemCountPair.k.ClassName.ToLower());
+                        if(itemClassMap!=null) itemName = itemClassMap.FriendlyName;
+
+                        //Container, Lat, Lon, Item, Rating, Count 
+
+
+
+                    }
+
+                }
+
+
+            }
+
+
+
+            //else
+            //{
+            //    //no tames
+            //    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - You don't seem to have any structures on this server.").AddMention(new UserMention(ctx.Member)));
+            //    return;
+            //}
+
+            var responseString = FormatResponseTable(responseHeader, responseLines);
+
+            var tmpFilename = Path.GetTempFileName();
+            File.WriteAllText(tmpFilename, responseString);
+            FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
+
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the report showing your structures for the selected type(s).").AddFile("StructureDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
+
+            fileStream.Close();
+            fileStream.Dispose();
+            File.Delete(tmpFilename);
+
+
+
 
         }
 
@@ -727,6 +824,10 @@ namespace ASVBot.Commands
             }
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+
+
+
 
         }
 

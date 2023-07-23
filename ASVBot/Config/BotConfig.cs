@@ -22,8 +22,9 @@ namespace ASVBot.Config
 
         [DataMember(Name = "discordServerId")]
         public long DiscordServerId { get; set; } = 0;
-        [DataMember(Name = "adminUsers")]
-        public List<string> AdminUsers { get; set; } = new List<string>();  
+
+        [DataMember(Name ="reloadCheckMins")]
+        public int AutoReloadTimeMinutes{ get; set; } = 5;
 
     }
 }

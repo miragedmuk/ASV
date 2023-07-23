@@ -83,6 +83,47 @@ namespace ASVPack.Models
 
         }
 
+        public Bitmap GetMapImageStructures(long playerId, string structureType)
+        {
+
+            Bitmap bitmap = new Bitmap(1024, 1024);
+            Graphics graphics = Graphics.FromImage(bitmap);
+            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+            graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
+
+
+            var playerTribe = arkPack.Tribes.FirstOrDefault(t => t.Players.Any(p => p.Id == playerId));
+            if (playerTribe != null)
+            {
+                var playerStructures = playerTribe.Structures
+                .Where(w => w.ClassName.ToLower().Contains(structureType.ToLower()))
+                .OrderBy(o => o.ClassName).ToList();
+
+                foreach (var wild in playerStructures)
+                {
+                    var markerX = (decimal)(wild.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerY = (decimal)(wild.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerSize = 10f;
+
+
+                    Color markerColor = Color.WhiteSmoke;
+                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+
+                    Color borderColour = Color.Blue;
+                    int borderSize = 1;
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                }
+            }
+
+
+
+
+            return bitmap;
+
+        }
+
 
         /**** Map & Overlays ****/
         public Bitmap GetMapImageWild(string className, float filterLat, float filterLon, float filterRadius)

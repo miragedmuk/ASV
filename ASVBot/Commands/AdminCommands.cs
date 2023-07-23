@@ -14,7 +14,6 @@ using System.Reflection.PortableExecutable;
 
 namespace ASVBot.Commands
 {
-    [SlashCommandGroup("admin", "Admin commands for ASVBot.")]
     public class AdminCommands: ApplicationCommandModule
     {
         IContentContainer arkPack;
