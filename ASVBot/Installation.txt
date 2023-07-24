@@ -10,7 +10,6 @@ Click OAuth2 > Url Generator
 		+ bot
 		+ applications.commands
 	> General Permissions: 
-		+ Read Messages / View Channels
 		+ Send Messages
 		+ Send Messages in Threads
 		+ Attach Files

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -25,6 +26,30 @@ namespace ASVBot.Config
 
         [DataMember(Name ="reloadCheckMins")]
         public int AutoReloadTimeMinutes{ get; set; } = 5;
+
+        public void Save()
+        {
+            string configFilename = Path.Combine(AppContext.BaseDirectory, "botconfig.json");
+            File.WriteAllText(configFilename,JsonConvert.SerializeObject(this));
+        }
+        public void Load()
+        {
+            string configFilename = Path.Combine(AppContext.BaseDirectory, "botconfig.json");
+            if(File.Exists(configFilename))
+            {
+                var configFileData = File.ReadAllText(configFilename);
+                var config = JsonConvert.DeserializeObject<BotConfig>(configFileData) ?? new BotConfig();
+
+                this.ArkSaveFile = config.ArkSaveFile;
+                this.ArkClusterFolder = config.ArkClusterFolder;
+                this.AutoReloadTimeMinutes = config.AutoReloadTimeMinutes;
+                this.DiscordBotToken = config.DiscordBotToken;
+                this.DiscordServerId = config.DiscordServerId;
+
+            }
+        }
+
+
 
     }
 }

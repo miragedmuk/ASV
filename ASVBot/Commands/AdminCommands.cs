@@ -12,6 +12,7 @@ using SavegameToolkit;
 using ASVBot.Data;
 using System.Reflection.PortableExecutable;
 using DSharpPlus.SlashCommands.Attributes;
+using ASVBot.Config;
 
 namespace ASVBot.Commands
 {
@@ -20,12 +21,13 @@ namespace ASVBot.Commands
     {
         IContentContainer arkPack;
         IDiscordPlayerManager playerManager;
-        
+        BotConfig botConfig;
 
-        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan) 
+        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan, BotConfig config) 
         { 
             this.arkPack = arkPack;
             this.playerManager = playerMan;
+            this.botConfig = config;
         }
 
 
@@ -175,6 +177,10 @@ namespace ASVBot.Commands
 
             arkPack = new ContentContainer();
             arkPack.LoadSaveGame(arkFilename, string.Empty, clusterFolder);
+            botConfig.ArkSaveFile = arkFilename;
+            botConfig.ArkClusterFolder = clusterFolder;
+            botConfig.Save();
+            
             responseString = $"Map loaded: {arkPack.LoadedMap.MapName} ({arkPack.GameSaveTime.ToString()})";
 
             //Some time consuming task like a database call or a complex operation

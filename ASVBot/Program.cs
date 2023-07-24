@@ -106,8 +106,8 @@ namespace ASVBot
             }
 
 
-            var configFileData = File.ReadAllText(configFilename);
-            config = JsonConvert.DeserializeObject<BotConfig>(configFileData)??new BotConfig();
+
+            config.Load();
 
             if(!File.Exists(config.ArkSaveFile))
             {
