@@ -25,14 +25,16 @@ namespace ASVBot.Commands
         List<IClassMap> classMaps;
         
         ContentContainerGraphics graphicsContainer;
+        IResponseDataFormatter dataFormatter;
 
 
-        public PlayerCommands(IContentContainer arkPack, IDiscordPlayerManager discordPlayerManager,  List<IClassMap> classMap, ContentContainerGraphics graphicsContainer)
+        public PlayerCommands(IContentContainer arkPack, IDiscordPlayerManager discordPlayerManager,  List<IClassMap> classMap, ContentContainerGraphics graphicsContainer, IResponseDataFormatter dataFormatter)
         {
             this.arkPack = arkPack;
             this.playerManager = discordPlayerManager;
             this.classMaps = classMap;
             this.graphicsContainer = graphicsContainer;
+            this.dataFormatter = dataFormatter;
         }
 
 
@@ -126,7 +128,7 @@ namespace ASVBot.Commands
                 responseLines.Add($"{cm.ClassName},{cm.FriendlyName}");
             }
 
-            var responseString = FormatResponseTable(responseHeader,responseLines);
+            var responseString = dataFormatter.FormatResponseTable(responseHeader,responseLines);
             var tmpFilename = Path.GetTempFileName();
             File.WriteAllText(tmpFilename, responseString);
 
@@ -288,7 +290,7 @@ namespace ASVBot.Commands
                 lineItems.Add(sbLine.ToString());
             }
 
-            var responseString = FormatResponseTable(sbHeader.ToString(),lineItems);
+            var responseString = dataFormatter.FormatResponseTable(sbHeader.ToString(),lineItems);
 
             var tmpFilename = Path.GetTempFileName();
             File.WriteAllText(tmpFilename, responseString);
@@ -426,7 +428,7 @@ namespace ASVBot.Commands
                 return;
             }
 
-            var responseString = FormatResponseTable(responseHeader, responseLines);
+            var responseString = dataFormatter.FormatResponseTable(responseHeader, responseLines);
 
             var tmpFilename = Path.GetTempFileName();
             File.WriteAllText(tmpFilename, responseString);
@@ -514,7 +516,7 @@ namespace ASVBot.Commands
                 return;
             }
 
-            var responseString = FormatResponseTable(responseHeader, responseLines);
+            var responseString = dataFormatter.FormatResponseTable(responseHeader, responseLines);
 
             var tmpFilename = Path.GetTempFileName();
             File.WriteAllText(tmpFilename, responseString);
@@ -686,7 +688,7 @@ namespace ASVBot.Commands
                 responseLines.Add(itemString);
             }
 
-            var responseString = FormatResponseTable(responseHeader, responseLines);
+            var responseString = dataFormatter.FormatResponseTable(responseHeader, responseLines);
 
             var tmpFilename = Path.GetTempFileName();
             File.WriteAllText(tmpFilename, responseString);
@@ -715,77 +717,6 @@ namespace ASVBot.Commands
         }
 
 
-        private string FormatResponseTable(string header, List<string> lines)
-        {
-            if (lines.Count == 0) return header.Length > 0 ? header: string.Empty;
-
-            StringBuilder sb = new StringBuilder();
-
-            if (header.Contains(",")) //multi-col input
-            {
-                //check header and first line match column count
-                var headerSplit = header.Split(',');
-                var firstLineSplit = lines.First().Split(',');
-
-                if(headerSplit.Length != firstLineSplit.Length)
-                {
-
-                    return string.Empty;
-                }
-
-                int colCount = headerSplit.Length;
-                var colSizes = new int[colCount];
-
-                for(int col = 0; col < colCount; col++)
-                {
-                    var maxColHeader = headerSplit[col].Length;
-                    var maxColLine = lines.Max(l => l.Split(',')[col].Length);
-                    if(maxColHeader >= maxColLine)
-                    {
-                        colSizes[col] = maxColHeader;
-                    }
-                    else
-                    {
-                        colSizes[col] = maxColLine;
-                    }
-                }
-
-                //now parse it out providing spacing as necessary
-                for(int col = 0; col < colCount; col++)
-                {
-                    string colHeader = headerSplit[col];
-                    sb.Append(colHeader.PadRight(colSizes[col] + 2));
-                }
-                sb.Append('\n');
-
-                foreach(var line in lines)
-                {
-                    var lineSplit = line.Split(',');
-                    if(lineSplit.Length != headerSplit.Length)
-                    {
-                        //line cols dont match header, skip this one?
-                    }
-                    else
-                    {
-                        for (int col = 0; col < colCount; col++)
-                        {
-                            string colText = lineSplit[col];
-                            sb.Append(colText.PadRight(colSizes[col] + 2));
-                        }
-                        sb.Append('\n');
-                    }
-                }
-            }
-            else
-            {
-                //no cols so just append the header to the lines and return
-                sb.AppendLine(header);
-                sb.AppendJoin('\n', lines);
-            }
-
-            return sb.ToString();
-        }
-        
         private string GetWildSummary(float fromLat, float fromLon, float fromRadius)
         {
      
@@ -813,7 +744,7 @@ namespace ASVBot.Commands
             }
 
             
-            string responseString = FormatResponseTable("Creature,Count,Min,Max", lineData);
+            string responseString = dataFormatter.FormatResponseTable("Creature,Count,Min,Max", lineData);
 
             return responseString;
         }

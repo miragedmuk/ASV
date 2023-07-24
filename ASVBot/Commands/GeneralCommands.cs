@@ -37,6 +37,11 @@ namespace ASVBot.Commands
         [SlashCommand("asv-link", "Link your discord handle to your game handle.")]
         public async Task LinkPlayer(InteractionContext ctx, [Option("gamerTag", "Steam Id / Epic Id / Gamertag")] string playerId)
         {
+            if(playerManager.GetDeniedPlayers().Any(d=>d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower()))
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("You are not allowed to use ASVBot. Please raise this with a moderator or admin if you believe this to be in error."));
+                return;
+            }
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
             string responseString = string.Empty;
@@ -108,8 +113,8 @@ namespace ASVBot.Commands
             var discordUser = playerManager.GetPlayers().FirstOrDefault(p => p.DiscordUsername == ctx.Member.Username);
             if (discordUser != null)
             {
+                responseString = $"{ctx.Member.DisplayName} unlinked from {discordUser.ArkCharacterName}.";
                 playerManager.RemovePlayer(ctx.Member.Username);
-                responseString = $"{ctx.Member.DisplayName} unlinked from gamer tag.";
             }
             else
             {

@@ -140,6 +140,7 @@ namespace ASVBot
                             .AddSingleton<IContentContainer>(arkPack)         
                             .AddSingleton<IDiscordPlayerManager>(new DiscordPlayerManager())                            
                             .AddSingleton<List<IClassMap>>(classMaps)
+                            .AddSingleton<IResponseDataFormatter>(new ResponseDataFormatter())
 
                             .BuildServiceProvider()
             });

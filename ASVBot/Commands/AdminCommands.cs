@@ -22,85 +22,17 @@ namespace ASVBot.Commands
         IContentContainer arkPack;
         IDiscordPlayerManager playerManager;
         BotConfig botConfig;
+        IResponseDataFormatter dataFormatter;
 
-        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan, BotConfig config) 
+        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan, BotConfig config,IResponseDataFormatter responseFormatter) 
         { 
             this.arkPack = arkPack;
             this.playerManager = playerMan;
             this.botConfig = config;
+            this.dataFormatter = responseFormatter;
         }
 
 
-        private string FormatResponseTable(string header, List<string> lines)
-        {
-            if (lines.Count == 0) return header.Length > 0 ? header : string.Empty;
-
-            StringBuilder sb = new StringBuilder();
-
-            if (header.Contains(",")) //multi-col input
-            {
-                //check header and first line match column count
-                var headerSplit = header.Split(',');
-                var firstLineSplit = lines.First().Split(',');
-
-                if (headerSplit.Length != firstLineSplit.Length)
-                {
-
-                    return string.Empty;
-                }
-
-                int colCount = headerSplit.Length;
-                var colSizes = new int[colCount];
-
-                for (int col = 0; col < colCount; col++)
-                {
-                    var maxColHeader = headerSplit[col].Length;
-                    var maxColLine = lines.Max(l => l.Split(',')[col].Length);
-                    if (maxColHeader >= maxColLine)
-                    {
-                        colSizes[col] = maxColHeader;
-                    }
-                    else
-                    {
-                        colSizes[col] = maxColLine;
-                    }
-                }
-
-                //now parse it out providing spacing as necessary
-                for (int col = 0; col < colCount; col++)
-                {
-                    string colHeader = headerSplit[col];
-                    sb.Append(colHeader.PadRight(colSizes[col] + 2));
-                }
-                sb.Append('\n');
-
-                foreach (var line in lines)
-                {
-                    var lineSplit = line.Split(',');
-                    if (lineSplit.Length != headerSplit.Length)
-                    {
-                        //line cols dont match header, skip this one?
-                    }
-                    else
-                    {
-                        for (int col = 0; col < colCount; col++)
-                        {
-                            string colText = lineSplit[col];
-                            sb.Append(colText.PadRight(colSizes[col] + 2));
-                        }
-                        sb.Append('\n');
-                    }
-                }
-            }
-            else
-            {
-                //no cols so just append the header to the lines and return
-                sb.AppendLine(header);
-                sb.AppendJoin('\n', lines);
-            }
-
-            return sb.ToString();
-        }
 
         [SlashCommand("list-users", "List discord users of ASVBot.")]
         public async Task GetUsers(InteractionContext ctx, [Option("unverified", "Show only unverified users.")]bool onlyUnverified)
@@ -122,7 +54,7 @@ namespace ASVBot.Commands
                 }
             }
             
-            string responseString = FormatResponseTable(reportHeader, reportLines);
+            string responseString = dataFormatter.FormatResponseTable(reportHeader, reportLines);
 
             var tmpFilename = Path.GetTempFileName();
             File.WriteAllText(tmpFilename, responseString);
@@ -159,13 +91,40 @@ namespace ASVBot.Commands
 
         }
 
+        [SlashCommand("remove-user", "Remove user from any pending request and deny lists.")]
+        public async Task RemoveUser(InteractionContext ctx, [Option("discordUsername", "Discord user to verify")] string discordUsername)
+        {
+            await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
-        [SlashCommand("save", "Commit any player data changes since last save.")]
+            string responseString = $"Account link request removed: {discordUsername})";
+
+            playerManager.RemovePlayer(discordUsername);            
+
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
+
+        }
+
+
+        [SlashCommand("deny-user", "Reject any user request to link to an ARK character and deny and future requests.")]
+        public async Task DenyUser(InteractionContext ctx, [Option("discordUsername", "Discord user to deny")] string discordUsername)
+        {
+            await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+            string responseString = $"Account link denied: {discordUsername})";
+            playerManager.DenyPlayer(discordUsername);
+            
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
+
+        }
+
+
+        [SlashCommand("save", "Commit any data changes since last save.")]
         public async Task SavePlayers(InteractionContext ctx)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
             playerManager.Save();
-            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Player data saved."));
+            botConfig.Save();
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Bot data saved."));
         }
 
         [SlashCommand("load", "Load ARK save game data.")]

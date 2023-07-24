@@ -10,6 +10,8 @@ namespace ASVBot.Data
     internal class DiscordPlayerManager : IDiscordPlayerManager
     {
         private List<IDiscordPlayer> discordPlayers = new List<IDiscordPlayer>();
+        private List<IDiscordPlayer> deniedPlayers = new List<IDiscordPlayer>();
+
         private string playerFilename = Path.Combine(AppContext.BaseDirectory, "discordplayers.json");
 
         public DiscordPlayerManager() 
@@ -46,14 +48,43 @@ namespace ASVBot.Data
 
         public void RemovePlayer(string discordUsername)
         {
-            if (discordPlayers.LongCount(d => d.DiscordUsername.ToLower() == discordUsername.ToLower()) > 0)
+            var playerItem = discordPlayers.FirstOrDefault(d => d.DiscordUsername.ToLower() == discordUsername.ToLower());
+            if (playerItem != null)
             {
-                var playerItem = discordPlayers.First(d => d.DiscordUsername.ToLower() == discordUsername.ToLower());
-                if (playerItem != null)
-                {
-                    discordPlayers.Remove(playerItem);
-                }
+                discordPlayers.Remove(playerItem);
             }
+
+            playerItem = deniedPlayers.FirstOrDefault(d => d.DiscordUsername.ToLower() == discordUsername.ToLower());
+            if (playerItem != null)
+            {
+                deniedPlayers.Remove(playerItem);
+            }
+        }
+
+        public void DenyPlayer(string discordUsername)
+        {
+            var alreadyDenied =deniedPlayers.FirstOrDefault(p=>p.DiscordUsername.ToLower() == discordUsername.ToLower());
+            if(alreadyDenied == null) 
+            {
+                deniedPlayers.Add(new DiscordPlayer()
+                {
+                    DiscordUsername = discordUsername,
+                    ArkCharacterName=string.Empty,
+                    ArkPlayerId=0,
+                    IsVerified = false,
+                    MarkedMaps = false,
+                    MaxRadius  =0,
+                    ResultLocation=false,
+                    ResultStats=false
+                });
+            }
+
+            var alreadyVerifiedOrPending = discordPlayers.FirstOrDefault(d => d.DiscordUsername.ToLower() == discordUsername.ToLower());
+            if(alreadyVerifiedOrPending != null) 
+            {
+                discordPlayers.Remove(alreadyVerifiedOrPending);
+            }
+
         }
 
         public void Load()
@@ -78,6 +109,11 @@ namespace ASVBot.Data
 
             }
             
+        }
+
+        public List<IDiscordPlayer> GetDeniedPlayers()
+        {
+            throw new NotImplementedException();
         }
     }
 }
