@@ -37,11 +37,6 @@ namespace ASVBot.Commands
         [SlashCommand("asv-link", "Link your discord handle to your game handle.")]
         public async Task LinkPlayer(InteractionContext ctx, [Option("gamerTag", "Steam Id / Epic Id / Gamertag")] string playerId)
         {
-            if (!arkPack.IsLoaded())
-            {
-                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
-                return;
-            }
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
             string responseString = string.Empty;
@@ -105,11 +100,6 @@ namespace ASVBot.Commands
         [SlashCommand("asv-unlink", "Unlink your discord handle from your game handle.")]
         public async Task UnlinkPlayer(InteractionContext ctx)
         {
-            if (!arkPack.IsLoaded())
-            {
-                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("No ARK currently loaded. Please try again later."));
-                return;
-            }
 
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
