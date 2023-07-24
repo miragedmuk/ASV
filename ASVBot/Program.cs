@@ -159,11 +159,14 @@ namespace ASVBot
             {
                 slash.RegisterCommands<AdminCommands>((ulong)config.DiscordServerId);               
                 slash.RegisterCommands<PlayerCommands>((ulong)config.DiscordServerId);
+                slash.RegisterCommands<GeneralCommands>((ulong)config.DiscordServerId);
+
             }
             else
             {
                 slash.RegisterCommands<AdminCommands>();
                 slash.RegisterCommands<PlayerCommands>();
+                slash.RegisterCommands<GeneralCommands>();
             }
         }
     }

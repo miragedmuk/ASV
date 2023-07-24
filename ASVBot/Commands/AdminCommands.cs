@@ -11,9 +11,11 @@ using ASVPack;
 using SavegameToolkit;
 using ASVBot.Data;
 using System.Reflection.PortableExecutable;
+using DSharpPlus.SlashCommands.Attributes;
 
 namespace ASVBot.Commands
 {
+    [SlashCommandGroup("asv-admin", "Admin commands",false)]
     public class AdminCommands: ApplicationCommandModule
     {
         IContentContainer arkPack;
@@ -98,7 +100,7 @@ namespace ASVBot.Commands
             return sb.ToString();
         }
 
-        [SlashCommand("asv-admin-users", "List discord users of ASVBot.")]
+        [SlashCommand("list-users", "List discord users of ASVBot.")]
         public async Task GetUsers(InteractionContext ctx, [Option("unverified", "Show only unverified users.")]bool onlyUnverified)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -133,7 +135,7 @@ namespace ASVBot.Commands
         //asv-player-remove
         //asv-player-deny
 
-        [SlashCommand("asv-admin-verify","Verify a user request to link to an ARK character.")]
+        [SlashCommand("verify-user","Verify a user request to link to an ARK character.")]
         public async Task VerifyUser(InteractionContext ctx, [Option("discordUsername","Discord user to verify")]string discordUsername, [Option("userRadius", "Max radius to scan around player location.")]double radius, [Option("showLoc", "Include location data in responses.")]bool showLoc, [Option("showStats", "Show creature statistics in responses.")]bool showStats, [Option("allowMaps", "Allow user to request map images with markers of creature locations.")]bool allowMaps)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -156,7 +158,7 @@ namespace ASVBot.Commands
         }
 
 
-        [SlashCommand("asv-admin-save", "Commit any player data changes since last save.")]
+        [SlashCommand("save", "Commit any player data changes since last save.")]
         public async Task SavePlayers(InteractionContext ctx)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -164,8 +166,8 @@ namespace ASVBot.Commands
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Player data saved."));
         }
 
-        [SlashCommand("asv-admin-load", "Load ARK save game data.")]
-        public async Task Load(InteractionContext ctx, [Option("arkSaveFile", ".ark filename to load.")]string arkFilename, [Option("arkClusterFolder", "Cluster folder (optional)")]string clusterFolder)
+        [SlashCommand("load", "Load ARK save game data.")]
+        public async Task Load(InteractionContext ctx, [Option("arkSaveFile", ".ark filename to load.")]string arkFilename, [Option("arkClusterFolder", "Cluster folder (optional)")]string clusterFolder="")
         {
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -179,7 +181,7 @@ namespace ASVBot.Commands
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
         }
 
-        [SlashCommand("asv-admin-reload", "Re-load the save game data if timestamp has changed.")]
+        [SlashCommand("reload", "Re-load the save game data if timestamp has changed.")]
         public async Task Reload(InteractionContext ctx)
         {
 
