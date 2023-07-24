@@ -119,6 +119,11 @@ namespace ASVBot
             reloadTimer.Elapsed += (sender,args) =>
             {
                 arkPack.Reload();
+                if(reloadTimer.Interval != (60 * config.AutoReloadTimeMinutes))
+                {
+                    //config changed, update interval
+                    reloadTimer.Interval = (60 * config.AutoReloadTimeMinutes);
+                }
             };
 
             var discord = new DiscordClient(new DiscordConfiguration()
