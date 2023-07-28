@@ -118,7 +118,11 @@ namespace ASVBot
             System.Timers.Timer reloadTimer = new System.Timers.Timer(60 * config.AutoReloadTimeMinutes);
             reloadTimer.Elapsed += (sender,args) =>
             {
-                arkPack.Reload();
+                if (config.AutoReloadTimeMinutes != 0)
+                {
+                    arkPack.Reload();
+                }
+
                 if(reloadTimer.Interval != (60 * config.AutoReloadTimeMinutes))
                 {
                     //config changed, update interval

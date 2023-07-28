@@ -98,30 +98,72 @@ namespace ASVPack.Models
             var playerTribe = arkPack.Tribes.FirstOrDefault(t => t.Players.Any(p => p.Id == playerId));
             if (playerTribe != null)
             {
-                /*
 
-                var filteredTames = playerTribe.Tames
-                .Where(w => w.ClassName.ToLower().Contains(itemType.ToLower()))
-                .OrderBy(o => o.ClassName).ThenByDescending(o => o.BaseLevel).ToList();
 
-                foreach (var wild in filteredTames)
+                var tribeStructures = arkPack.Tribes
+                                            .Where(t => t.Players.Any(p => p.Id == playerId))
+                                            .SelectMany(s => s.Structures)
+                                            .Where(t =>
+                                                        (t.Inventory != null && t.Inventory.Items != null && t.Inventory.Items.LongCount(i => !i.IsEngram & !i.IsBlueprint && i.ClassName.ToLower().Contains(itemType)) > 0)
+                                            ).ToList();
+
+
+
+                List<Tuple<string, string, string, string, float, int>> itemList = new List<Tuple<string, string, string, string, float, int>>();
+
+
+                if (tribeStructures != null && tribeStructures.Count > 0)
                 {
-                    var markerX = (decimal)(wild.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerY = (decimal)(wild.Latitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerSize = 10f;
+                    foreach (var tribeStructure in tribeStructures)
+                    {
+
+                        var markerX = (decimal)(tribeStructure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                        var markerY = (decimal)(tribeStructure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                        var markerSize = 10f;
 
 
-                    Color markerColor = Color.WhiteSmoke;
-                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                        Color markerColor = Color.WhiteSmoke;
+                        graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
-                    Color borderColour = Color.Blue;
-                    int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                        Color borderColour = Color.Blue;
+                        int borderSize = 1;
+                        graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+
+
+                    }
                 }
-                */
+
+
+
+                var tribePlayers = arkPack.Tribes
+                                                .Where(t => t.Players.Any(p => p.Id == playerId))
+                                                .SelectMany(s => s.Players)
+                                                .Where(t =>
+                                                            (t.Inventory != null && t.Inventory.Items != null && t.Inventory.Items.LongCount(i => !i.IsEngram & !i.IsBlueprint && i.ClassName.ToLower().Contains(itemType)) > 0)
+                                                ).ToList();
+
+
+                if (tribePlayers != null && tribePlayers.Count > 0)
+                {
+                    foreach (var tribePlayer in tribePlayers)
+                    {
+                        var markerX = (decimal)(tribePlayer.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                        var markerY = (decimal)(tribePlayer.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                        var markerSize = 10f;
+
+
+                        Color markerColor = Color.WhiteSmoke;
+                        graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+
+                        Color borderColour = Color.Blue;
+                        int borderSize = 1;
+                        graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+
+
+                    }
+                }
+
             }
-
-
 
 
             return bitmap;

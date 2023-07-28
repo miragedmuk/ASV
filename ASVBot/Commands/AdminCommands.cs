@@ -118,6 +118,7 @@ namespace ASVBot.Commands
         }
 
 
+
         [SlashCommand("save", "Commit any data changes since last save.")]
         public async Task SavePlayers(InteractionContext ctx)
         {
@@ -127,7 +128,7 @@ namespace ASVBot.Commands
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Bot data saved."));
         }
 
-        [SlashCommand("load", "Load ARK save game data.")]
+        [SlashCommand("ark-load", "Load ARK save game data.")]
         public async Task Load(InteractionContext ctx, [Option("arkSaveFile", ".ark filename to load.")]string arkFilename, [Option("arkClusterFolder", "Cluster folder (optional)")]string clusterFolder="")
         {
 
@@ -146,18 +147,18 @@ namespace ASVBot.Commands
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
         }
 
-        [SlashCommand("reload-interval", "Interval in minutes to check game save and re-load if timestamp changed.")]
-        public async Task SetReloadInterval(InteractionContext ctx, [Option("", "")]int minutes)
+        [SlashCommand("ark-reloadinterval", "Interval in minutes to check game save and re-load if timestamp changed (0 to disable auto-reload).")]
+        public async Task SetReloadInterval(InteractionContext ctx, [Option("intervalMins", "Minutes between each check for any game save changes.")]long minutes = 5)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
-            botConfig.AutoReloadTimeMinutes=minutes;
+            botConfig.AutoReloadTimeMinutes=(int)minutes;
             botConfig.Save();
             string responseString = $"Re-load check interval now set to {minutes} mins.";
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
         }
 
 
-        [SlashCommand("reload", "Re-load the save game data if timestamp has changed.")]
+        [SlashCommand("ark-reload", "Re-load the save game data if timestamp has changed.")]
         public async Task Reload(InteractionContext ctx)
         {
 
@@ -176,5 +177,39 @@ namespace ASVBot.Commands
             //Some time consuming task like a database call or a complex operation
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
         }
+
+
+        //ark-tribes <filterText> <tribeId | tribeName | discordUser>
+        /*
+            TribeId, Tribe Name, OwnerId, Owner, Player Count, Structure Count, Tame Count, Last Active
+
+        */
+
+        //ark-players <filterText> <tribeId | tribeName | discordUser>
+        /*
+            TribeId, Tribe Name, Player Id, Player Name, Gender, Level, Lat, Lon
+
+        */
+
+        //ark-structures <filterText> <tribeId | tribeName | discordUser>
+        /*
+            TribeId, Tribe Name, Structure, Name, Lat, Lon, Inventory, Locked
+        */
+
+
+        //ark-tames <filterText> <tribeId | tribeName | discordUser>
+        /*
+            Tribe Id, Tribe Name, Creature, Name, Level, 
+
+        */
+
+
+        //ark-items <filterText> <tribeId | tribeName | discordUser>
+        /*
+
+
+
+        */
+
     }
 }

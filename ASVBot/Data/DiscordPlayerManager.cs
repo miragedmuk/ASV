@@ -113,7 +113,7 @@ namespace ASVBot.Data
 
         public List<IDiscordPlayer> GetDeniedPlayers()
         {
-            throw new NotImplementedException();
+            return deniedPlayers;
         }
     }
 }

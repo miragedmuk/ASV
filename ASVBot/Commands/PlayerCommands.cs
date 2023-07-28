@@ -702,16 +702,33 @@ namespace ASVBot.Commands
 
         }
 
-        //TODO:// asv-my-items
         [SlashCommand("asv-my-items-map", "Show list of your items and where they are.")]
         public async Task GetMyItemsMap(InteractionContext ctx, [Option("searchItem", "Search by item type.")] string itemFilter = "")
         {
 
 
+            var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
+
+
+            if (!discordUser.MarkedMaps)
+            {
+                await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("Your account does not have permission to receive map images."));
+                return;
+            }
+
+
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
+            var mapImage = graphicsContainer.GetMapImageItems(discordUser.ArkPlayerId, itemFilter);
+            string tmpFilename = Path.GetTempFileName();
+            mapImage.Save(tmpFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
+            FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing matching item locations.").AddFile("Items.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
 
+            fileStream.Close();
+            fileStream.Dispose();
+            File.Delete(tmpFilename);
 
 
         }
