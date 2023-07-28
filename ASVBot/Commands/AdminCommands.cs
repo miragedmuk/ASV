@@ -147,7 +147,7 @@ namespace ASVBot.Commands
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
         }
 
-        [SlashCommand("ark-reloadinterval", "Interval in minutes to check game save and re-load if timestamp changed (0 to disable auto-reload).")]
+        [SlashCommand("ark-reload-interval", "Interval in minutes to check game save and re-load if timestamp changed (0 to disable auto-reload).")]
         public async Task SetReloadInterval(InteractionContext ctx, [Option("intervalMins", "Minutes between each check for any game save changes.")]long minutes = 5)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
