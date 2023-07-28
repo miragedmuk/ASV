@@ -576,7 +576,7 @@ namespace ASVBot.Commands
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
 
-            var responseHeader = "Storage,Lat,Lon,Item,Rating,Count";
+            var responseHeader = "Storage,Lat,Lon,Item,Rating,Quality,Count";
 
             List<string> responseLines = new List<string>();
 
