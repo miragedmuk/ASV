@@ -134,7 +134,7 @@ namespace ASVBot
             {
                 Token = config.DiscordBotToken,
                 TokenType = TokenType.Bot,
-                Intents = DiscordIntents.All
+                Intents = DiscordIntents.AllUnprivileged
             });
 
             graphicsContainer = new ContentContainerGraphics(arkPack, new ContentMapPack());

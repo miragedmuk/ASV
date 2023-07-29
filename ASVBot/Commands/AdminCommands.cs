@@ -597,7 +597,7 @@ namespace ASVBot.Commands
 
                             if (tribeStructure.Inventory != null && tribeStructure.Inventory.Items.Count > 0)
                             {
-                                foreach (var matchItem in tribeStructure.Inventory.Items.Where(i => i.ClassName.ToLower().Contains(itemFilter.ToLower())))
+                                foreach (var matchItem in tribeStructure.Inventory.Items.Where(i => !i.IsEngram && !i.IsBlueprint && i.ClassName.ToLower().Contains(itemFilter.ToLower())))
                                 {
                                     items.Add(new Tuple<ContentTribe, string, string, float, float, ContentItem>(tribe, containerType, displayName, tribeStructure.Latitude.GetValueOrDefault(0), tribeStructure.Longitude.GetValueOrDefault(0), matchItem));
                                 }
@@ -622,7 +622,7 @@ namespace ASVBot.Commands
                             
                             if (tribePlayer.Inventory != null && tribePlayer.Inventory.Items.Count > 0)
                             {
-                                foreach (var matchItem in tribePlayer.Inventory.Items.Where(i => i.ClassName.ToLower().Contains(itemFilter.ToLower())))
+                                foreach (var matchItem in tribePlayer.Inventory.Items.Where(i => !i.IsEngram && !i.IsBlueprint && i.ClassName.ToLower().Contains(itemFilter.ToLower())))
                                 {
                                     items.Add(new Tuple<ContentTribe, string, string, float, float, ContentItem>(tribe, containerType, displayName, tribePlayer.Latitude.GetValueOrDefault(0), tribePlayer.Longitude.GetValueOrDefault(0), matchItem));
                                 }
