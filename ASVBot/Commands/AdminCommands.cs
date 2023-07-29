@@ -25,13 +25,14 @@ namespace ASVBot.Commands
         IDiscordPlayerManager playerManager;
         BotConfig botConfig;
         IResponseDataFormatter dataFormatter;
-
-        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan, BotConfig config,IResponseDataFormatter responseFormatter) 
+        List<IClassMap> classMaps;
+        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan, BotConfig config,IResponseDataFormatter responseFormatter, List<IClassMap> objectMap) 
         { 
             this.arkPack = arkPack;
             this.playerManager = playerMan;
             this.botConfig = config;
             this.dataFormatter = responseFormatter;
+            this.classMaps = objectMap;
         }
 
 
@@ -352,12 +353,13 @@ namespace ASVBot.Commands
         /*
             TribeId, Tribe Name, Structure, Name, Lat, Lon, Inventory, Locked
         */
+        [SlashCommand("ark-structures","List player structures filtered by type and tribe.",false)]
         public async Task ListArkStructures(InteractionContext ctx, [Option("structFilter","Structure type filter (optional)")]string structureType="",[Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
 
-            string reportHeader = "Tribe Id,Tribe,Structure,Name,Lat,Lon,Last Active,Inventory,Locked";
+            string reportHeader = "Tribe Id,Tribe,Structure,Name,Ally In Range,Lat,Lon,Inventory,Locked";
             List<string> reportLines = new List<string>();
 
 
@@ -382,15 +384,34 @@ namespace ASVBot.Commands
                 return;
             }
 
+
+            List<ContentStructure> playerMatched = new List<ContentStructure>();
+
             foreach (var tribe in tribes)
             {
                 foreach (var playerStructure in tribe.Structures.Where(s=>s.ClassName.ToLower().Contains(structureType.ToLower())))
                 {
-                    string structureName = playerStructure.ClassName;
-                    //TODO://
 
+                    playerMatched.Add(playerStructure);
                     
                 }
+            }
+
+            foreach (var playerStructure in playerMatched.OrderBy(o => o.ClassName).ThenBy(o => o.Latitude.GetValueOrDefault(0)).ThenBy(o => o.Longitude.GetValueOrDefault(0)))
+            {
+                string structureName = playerStructure.ClassName;
+                var structureMap = classMaps.FirstOrDefault(c => c.ClassName.ToLower().Contains(playerStructure.ClassName.ToLower()));
+                if (structureMap != null) structureName = structureMap.FriendlyName;
+
+                string playerNamed = playerStructure.ClassName == playerStructure.DisplayName ? "" : playerStructure.DisplayName;
+
+                bool hasInvent = playerStructure.Inventory != null && playerStructure.Inventory.Items != null && playerStructure.Inventory.Items.Count > 0;
+
+
+                var tribe = tribes.First(t => t.TribeId == playerStructure.TargetingTeam);
+
+                reportLines.Add($"{tribe.TribeId},{tribe.TribeName},{structureName},{playerNamed},{playerStructure.LastAllyInRangeTime.ToString()},{playerStructure.Latitude.GetValueOrDefault(0).ToString("f1")},{playerStructure.Longitude.GetValueOrDefault(0).ToString("f1")},{hasInvent},{playerStructure.IsLocked}");
+
             }
 
             string responseString = dataFormatter.FormatResponseTable(reportHeader, reportLines);
@@ -409,14 +430,99 @@ namespace ASVBot.Commands
             Tribe Id, Tribe Name, Creature, Name, Level, 
 
         */
-        public async Task ListArkTames(InteractionContext ctx)
+
+        [SlashCommand("ark-tames", "List player tames filtered by type and tribe.", false)]
+        public async Task ListArkTames(InteractionContext ctx, [Option("creatureFilter", "Creature type filter (optional)")] string creatureType = "", [Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
-            string reportHeader = "";
+            var reportHeader = "Tribe Id,Tribe,Id, Creature,Name,Gender,Base,Level,Lat,Lon,HP0,Stam0,Melee0,Weight0,Speed0,Food0,Oxy0,Craft0,HP1,Stam1,Melee1,Weight1,Speed1,Food1,Oxy1,Craft1,Wandering,Mating,Neutered";
+
             List<string> reportLines = new List<string>();
 
-            //TODO://
+
+            var tribes = arkPack.Tribes;
+            if (tribeFilter != null && tribeFilter.Length > 0)
+            {
+                tribes = arkPack.Tribes.Where(t => t.TribeId.ToString() == tribeFilter || t.TribeFileName == tribeFilter).ToList();
+            }
+            if (discordMember != null)
+            {
+                var discordUser = playerManager.GetPlayers().FirstOrDefault(p => p.DiscordUsername.ToLower() == discordMember.Username.ToLower());
+                if (discordUser != null)
+                {
+
+                    tribes = tribes.Where(t => t.Players.LongCount(p => p.Id == discordUser.ArkPlayerId) > 0).ToList();
+                }
+            }
+
+            if (tribes.Count == 0)
+            {
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Unable to find any tribe data matching your filter."));
+                return;
+            }
+
+
+            List<ContentTamedCreature> playerMatched = new List<ContentTamedCreature>();
+
+            foreach (var tribe in tribes)
+            {
+                foreach (var playerTame in tribe.Tames.Where(s => s.ClassName.ToLower().Contains(creatureType.ToLower())))
+                {
+
+                    playerMatched.Add(playerTame);
+
+                }
+            }
+
+            foreach (var playerTame in playerMatched.OrderBy(o => o.ClassName).ThenBy(o => o.Latitude.GetValueOrDefault(0)).ThenBy(o => o.Longitude.GetValueOrDefault(0)))
+            {
+                string creatureName = playerTame.ClassName;
+                var structureMap = classMaps.FirstOrDefault(c => c.ClassName.ToLower().Contains(playerTame.ClassName.ToLower()));
+                if (structureMap != null) creatureName = structureMap.FriendlyName;
+
+                string playerNamed = playerTame.Name;
+
+                bool hasInvent = playerTame.Inventory != null && playerTame.Inventory.Items != null && playerTame.Inventory.Items.Count > 0;
+
+                //Tribe Id,Tribe,Creature,Name,Gender,Base,Level,Lat,Lon,HP0,Stam0,Melee0,Weight0,Speed0,Food0,Oxy0,Craft0,HP1,Stam1,Melee1,Weight1,Speed1,Food1,Oxy1,Craft1,Wandering,Mating,Neutered
+                StringBuilder sbTame = new StringBuilder();
+                sbTame.Append($"{playerTame.TargetingTeam}");
+                sbTame.Append($",{playerTame.TribeName}");
+                sbTame.Append($",{playerTame.DinoId}");
+                sbTame.Append($",{creatureName}");
+                sbTame.Append($",{playerTame.Name}");
+                sbTame.Append($",{playerTame.Gender}");
+                sbTame.Append($",{playerTame.BaseLevel}");
+                sbTame.Append($",{playerTame.Level}");
+                sbTame.Append($",{playerTame.Latitude.GetValueOrDefault(0).ToString("f1")}");
+                sbTame.Append($",{playerTame.Longitude.GetValueOrDefault(0).ToString("f1")}");
+
+                sbTame.Append($",{playerTame.BaseStats[0]}"); //hp
+                sbTame.Append($",{playerTame.BaseStats[1]}"); //stam
+                sbTame.Append($",{playerTame.BaseStats[8]}"); //melee
+                sbTame.Append($",{playerTame.BaseStats[7]}"); //weight
+                sbTame.Append($",{playerTame.BaseStats[9]}"); //speed
+                sbTame.Append($",{playerTame.BaseStats[4]}"); //food
+                sbTame.Append($",{playerTame.BaseStats[3]}"); //oxy
+                sbTame.Append($",{playerTame.BaseStats[11]}"); //craft
+
+                sbTame.Append($",{playerTame.TamedStats[0]}"); //hp
+                sbTame.Append($",{playerTame.TamedStats[1]}"); //stam
+                sbTame.Append($",{playerTame.TamedStats[8]}"); //melee
+                sbTame.Append($",{playerTame.TamedStats[7]}"); //weight
+                sbTame.Append($",{playerTame.TamedStats[9]}"); //speed
+                sbTame.Append($",{playerTame.TamedStats[4]}"); //food
+                sbTame.Append($",{playerTame.TamedStats[3]}"); //oxy
+                sbTame.Append($",{playerTame.TamedStats[11]}"); //craft
+
+                sbTame.Append($",{playerTame.IsWandering}");
+                sbTame.Append($",{playerTame.IsMating}");
+                sbTame.Append($",{playerTame.IsNeutered}");
+
+
+                reportLines.Add(sbTame.ToString());
+            }
 
             string responseString = dataFormatter.FormatResponseTable(reportHeader, reportLines);
 
