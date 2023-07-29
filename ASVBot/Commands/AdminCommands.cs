@@ -18,16 +18,16 @@ using System.Diagnostics;
 
 namespace ASVBot.Commands
 {
-    [SlashCommandGroup("asv-admin", "Admin commands",false)]
-    public class AdminCommands: ApplicationCommandModule
+    [SlashCommandGroup("asv-admin", "Admin commands", false)]
+    public class AdminCommands : ApplicationCommandModule
     {
         IContentContainer arkPack;
         IDiscordPlayerManager playerManager;
         BotConfig botConfig;
         IResponseDataFormatter dataFormatter;
         List<IClassMap> classMaps;
-        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan, BotConfig config,IResponseDataFormatter responseFormatter, List<IClassMap> objectMap) 
-        { 
+        public AdminCommands(IContentContainer arkPack, IDiscordPlayerManager playerMan, BotConfig config, IResponseDataFormatter responseFormatter, List<IClassMap> objectMap)
+        {
             this.arkPack = arkPack;
             this.playerManager = playerMan;
             this.botConfig = config;
@@ -38,16 +38,16 @@ namespace ASVBot.Commands
 
 
         [SlashCommand("list-users", "List discord users of ASVBot.")]
-        public async Task GetUsers(InteractionContext ctx, [Option("unverified", "Show only unverified users.")]bool onlyUnverified)
+        public async Task GetUsers(InteractionContext ctx, [Option("unverified", "Show only unverified users.")] bool onlyUnverified)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
             string reportHeader = "User,Ark Id,Ark Name,Max Radius,Location,Stats,Maps";
             List<string> reportLines = new List<string>();
 
-            foreach(var botUser in playerManager.GetPlayers().OrderBy(o => o.DiscordUsername))
+            foreach (var botUser in playerManager.GetPlayers().OrderBy(o => o.DiscordUsername))
             {
-                if(onlyUnverified && botUser.IsVerified)
+                if (onlyUnverified && botUser.IsVerified)
                 {
                     //ignore
                 }
@@ -56,7 +56,7 @@ namespace ASVBot.Commands
                     reportLines.Add($"{botUser.DiscordUsername},{botUser.ArkPlayerId},{botUser.ArkCharacterName},{botUser.MaxRadius},{botUser.ResultLocation},{botUser.ResultStats},{botUser.MarkedMaps}");
                 }
             }
-            
+
             string responseString = dataFormatter.FormatResponseTable(reportHeader, reportLines);
 
             var tmpFilename = Path.GetTempFileName();
@@ -70,17 +70,17 @@ namespace ASVBot.Commands
         }
 
 
-        [SlashCommand("verify-user","Verify a user request to link to an ARK character.")]
-        public async Task VerifyUser(InteractionContext ctx, [Option("discordUsername","Discord user to verify")]string discordUsername, [Option("userRadius", "Max radius to scan around player location.")]double radius, [Option("showLoc", "Include location data in responses.")]bool showLoc, [Option("showStats", "Show creature statistics in responses.")]bool showStats, [Option("allowMaps", "Allow user to request map images with markers of creature locations.")]bool allowMaps)
+        [SlashCommand("verify-user", "Verify a user request to link to an ARK character.")]
+        public async Task VerifyUser(InteractionContext ctx, [Option("discordUsername", "Discord user to verify")] string discordUsername, [Option("userRadius", "Max radius to scan around player location.")] double radius, [Option("showLoc", "Include location data in responses.")] bool showLoc, [Option("showStats", "Show creature statistics in responses.")] bool showStats, [Option("allowMaps", "Allow user to request map images with markers of creature locations.")] bool allowMaps)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
             string responseString = $"No discord user link request found matching: {discordUsername}";
 
             var discordPlayerLink = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == discordUsername.ToLower());
-            if(discordPlayerLink != null )
+            if (discordPlayerLink != null)
             {
-                discordPlayerLink.IsVerified=true;
+                discordPlayerLink.IsVerified = true;
                 discordPlayerLink.MaxRadius = (float)radius;
                 discordPlayerLink.ResultLocation = showLoc;
                 discordPlayerLink.ResultStats = showStats;
@@ -93,7 +93,7 @@ namespace ASVBot.Commands
         }
 
         [SlashCommand("add-user", "Add and auto-verify a user link to an ARK character.")]
-        public async Task AddUser(InteractionContext ctx, [Option("discordUsername", "Discord user to assign")] string discordUsername, [Option("arkPlayerId","ARK playerId to link this discord user to.")]long arkPlayerId,[Option("userRadius", "Max radius to scan around player location.")] double radius = 100, [Option("showLoc", "Include location data in responses.")] bool showLoc = true, [Option("showStats", "Show creature statistics in responses.")] bool showStats = true, [Option("allowMaps", "Allow user to request map images with markers of creature locations.")] bool allowMaps = true)
+        public async Task AddUser(InteractionContext ctx, [Option("discordUsername", "Discord user to assign")] string discordUsername, [Option("arkPlayerId", "ARK playerId to link this discord user to.")] long arkPlayerId, [Option("userRadius", "Max radius to scan around player location.")] double radius = 100, [Option("showLoc", "Include location data in responses.")] bool showLoc = true, [Option("showStats", "Show creature statistics in responses.")] bool showStats = true, [Option("allowMaps", "Allow user to request map images with markers of creature locations.")] bool allowMaps = true)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
@@ -112,9 +112,9 @@ namespace ASVBot.Commands
             }
             else
             {
-                var arkPlayer = arkPack.Tribes.SelectMany(t=>t.Players.Where(p=>p.Id == arkPlayerId)).FirstOrDefault();
+                var arkPlayer = arkPack.Tribes.SelectMany(t => t.Players.Where(p => p.Id == arkPlayerId)).FirstOrDefault();
 
-                if (arkPlayer==null)
+                if (arkPlayer == null)
                 {
                     responseString = "Unable to find ARK player matching provided Id.";
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
@@ -126,7 +126,7 @@ namespace ASVBot.Commands
                     DiscordUsername = discordUsername,
                     ArkCharacterName = arkPlayer.CharacterName,
                     ArkPlayerId = arkPlayerId,
-                    MarkedMaps= allowMaps,
+                    MarkedMaps = allowMaps,
                     ResultLocation = showLoc,
                     ResultStats = showStats,
                     MaxRadius = (float)radius,
@@ -148,7 +148,7 @@ namespace ASVBot.Commands
 
             string responseString = $"Account link request removed: {discordUsername})";
 
-            playerManager.RemovePlayer(discordUsername);            
+            playerManager.RemovePlayer(discordUsername);
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
 
@@ -162,7 +162,7 @@ namespace ASVBot.Commands
 
             string responseString = $"Account link denied: {discordUsername})";
             playerManager.DenyPlayer(discordUsername);
-            
+
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
 
         }
@@ -179,7 +179,7 @@ namespace ASVBot.Commands
         }
 
         [SlashCommand("ark-load", "Load ARK save game data.")]
-        public async Task Load(InteractionContext ctx, [Option("arkSaveFile", ".ark filename to load.")]string arkFilename, [Option("arkClusterFolder", "Cluster folder (optional)")]string clusterFolder="")
+        public async Task Load(InteractionContext ctx, [Option("arkSaveFile", ".ark filename to load.")] string arkFilename, [Option("arkClusterFolder", "Cluster folder (optional)")] string clusterFolder = "")
         {
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -190,7 +190,7 @@ namespace ASVBot.Commands
             botConfig.ArkSaveFile = arkFilename;
             botConfig.ArkClusterFolder = clusterFolder;
             botConfig.Save();
-            
+
             responseString = $"Map loaded: {arkPack.LoadedMap.MapName} ({arkPack.GameSaveTime.ToString()})";
 
             //Some time consuming task like a database call or a complex operation
@@ -198,10 +198,10 @@ namespace ASVBot.Commands
         }
 
         [SlashCommand("ark-reload-interval", "Interval in minutes to check game save and re-load if timestamp changed (0 to disable auto-reload).")]
-        public async Task SetReloadInterval(InteractionContext ctx, [Option("intervalMins", "Minutes between each check for any game save changes.")]long minutes = 5)
+        public async Task SetReloadInterval(InteractionContext ctx, [Option("intervalMins", "Minutes between each check for any game save changes.")] long minutes = 5)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
-            botConfig.AutoReloadTimeMinutes=(int)minutes;
+            botConfig.AutoReloadTimeMinutes = (int)minutes;
             botConfig.Save();
             string responseString = $"Re-load check interval now set to {minutes} mins.";
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
@@ -222,7 +222,7 @@ namespace ASVBot.Commands
             else
             {
                 responseString = $"Map already up to date: {arkPack.LoadedMap.MapName} ({arkPack.GameSaveTime.ToString()})";
-            }           
+            }
 
             //Some time consuming task like a database call or a complex operation
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent(responseString));
@@ -243,8 +243,8 @@ namespace ASVBot.Commands
             TribeId, Tribe Name, OwnerId, Owner, Player Count, Structure Count, Tame Count, Last Active
 
         */
-        [SlashCommand("ark-tribes","List tribe(s) summary associated with a tribe id, name or discord user.",false)]
-        public async Task ListArkTribes(InteractionContext ctx, [Option("tribeFilter","Tribe Id or Tribe Name (Optional)")]string tribeFilter = "", [Option("discordUser","Discord user filter [optional]")]DiscordUser discordMember = null)
+        [SlashCommand("ark-tribes", "List tribe(s) summary associated with a tribe id, name or discord user.", false)]
+        public async Task ListArkTribes(InteractionContext ctx, [Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
         {
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
@@ -253,33 +253,33 @@ namespace ASVBot.Commands
             List<string> reportLines = new List<string>();
 
             var tribes = arkPack.Tribes;
-            if(tribeFilter!=null && tribeFilter.Length>0)
+            if (tribeFilter != null && tribeFilter.Length > 0)
             {
-                tribes = arkPack.Tribes.Where(t=>t.TribeId.ToString() == tribeFilter || t.TribeFileName == tribeFilter).ToList();
+                tribes = arkPack.Tribes.Where(t => t.TribeId.ToString() == tribeFilter || t.TribeFileName == tribeFilter).ToList();
             }
-            if(discordMember!=null)
+            if (discordMember != null)
             {
                 var discordUser = playerManager.GetPlayers().FirstOrDefault(p => p.DiscordUsername.ToLower() == discordMember.Username.ToLower());
-                if(discordUser!=null)
+                if (discordUser != null)
                 {
-                    
-                    tribes = tribes.Where(t=>t.Players.LongCount(p=>p.Id == discordUser.ArkPlayerId) > 0).ToList();
+
+                    tribes = tribes.Where(t => t.Players.LongCount(p => p.Id == discordUser.ArkPlayerId) > 0).ToList();
                 }
             }
 
-            if(tribes.Count == 0)
+            if (tribes.Count == 0)
             {
                 await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Unable to find any tribe data matching your filter."));
                 return;
             }
 
-            foreach(var tribe in tribes)
+            foreach (var tribe in tribes)
             {
                 var structCount = tribe.Structures.Count();
                 var tameCount = tribe.Tames.Count();
                 var playerCount = tribe.Players.Count();
 
-                reportLines.Add($"{tribe.TribeId.ToString().Trim()},{tribe.TribeName},{tribe.LastActive.Value.ToString()??"Unknown"},{playerCount},{structCount},{tameCount}");
+                reportLines.Add($"{tribe.TribeId.ToString().Trim()},{tribe.TribeName},{tribe.LastActive.Value.ToString() ?? "Unknown"},{playerCount},{structCount},{tameCount}");
 
             }
 
@@ -299,7 +299,7 @@ namespace ASVBot.Commands
 
         */
         [SlashCommand("ark-players", "List players associated with a tribe id, name or discord user.", false)]
-        public async Task ListArkPlayers(InteractionContext ctx,[Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
+        public async Task ListArkPlayers(InteractionContext ctx, [Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
@@ -330,12 +330,12 @@ namespace ASVBot.Commands
 
             foreach (var tribe in tribes)
             {
-               foreach(var player in tribe.Players)
-               {
+                foreach (var player in tribe.Players)
+                {
 
-                    reportLines.Add($"{tribe.TribeId},{tribe.TribeName},{player.Id},{player.CharacterName},{player.Name},{player.NetworkId},{player.Level},{player.Gender},{player.Latitude.GetValueOrDefault(0).ToString("f1")},{player.Longitude.GetValueOrDefault(0).ToString("f1")},{player.LastActiveDateTime.Value.ToString()??"Unknown"}");
+                    reportLines.Add($"{tribe.TribeId},{tribe.TribeName},{player.Id},{player.CharacterName},{player.Name},{player.NetworkId},{player.Level},{player.Gender},{player.Latitude.GetValueOrDefault(0).ToString("f1")},{player.Longitude.GetValueOrDefault(0).ToString("f1")},{player.LastActiveDateTime.Value.ToString() ?? "Unknown"}");
 
-               }
+                }
             }
 
 
@@ -353,8 +353,8 @@ namespace ASVBot.Commands
         /*
             TribeId, Tribe Name, Structure, Name, Lat, Lon, Inventory, Locked
         */
-        [SlashCommand("ark-structures","List player structures filtered by type and tribe.",false)]
-        public async Task ListArkStructures(InteractionContext ctx, [Option("structFilter","Structure type filter (optional)")]string structureType="",[Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
+        [SlashCommand("ark-structures", "List player structures filtered by type and tribe.", false)]
+        public async Task ListArkStructures(InteractionContext ctx, [Option("structFilter", "Structure type filter (optional)")] string structureType = "", [Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
@@ -389,11 +389,11 @@ namespace ASVBot.Commands
 
             foreach (var tribe in tribes)
             {
-                foreach (var playerStructure in tribe.Structures.Where(s=>s.ClassName.ToLower().Contains(structureType.ToLower())))
+                foreach (var playerStructure in tribe.Structures.Where(s => s.ClassName.ToLower().Contains(structureType.ToLower())))
                 {
 
                     playerMatched.Add(playerStructure);
-                    
+
                 }
             }
 
@@ -536,14 +536,122 @@ namespace ASVBot.Commands
 
 
         //ark-items <filterText> <tribeId | tribeName | discordUser>
-        public async Task ListArkItems(InteractionContext ctx)
+        [SlashCommand("ark-items", "List player items filtered by type and tribe.", false)]
+        public async Task ListArkItems(InteractionContext ctx, [Option("itemFilter", "Item type filter (optional)")] string itemFilter = "", [Option("tribeFilter", "Tribe Id or Tribe Name (Optional)")] string tribeFilter = "", [Option("discordUser", "Discord user filter [optional]")] DiscordUser discordMember = null)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
-            string reportHeader = "";
+
+            //"1065785058,PR,Player,Jr,47.4,71.0,Flak Gauntlets,3.7404695,1"
+
+            var reportHeader = "Tribe Id,Tribe,Storage,Name,Lat,Lon,Item,Rating,Count";
+
             List<string> reportLines = new List<string>();
 
-            //TODO://
+
+            var tribes = arkPack.Tribes;
+            if (tribeFilter != null && tribeFilter.Length > 0)
+            {
+                tribes = arkPack.Tribes.Where(t => t.TribeId.ToString() == tribeFilter || t.TribeFileName == tribeFilter).ToList();
+            }
+            if (discordMember != null)
+            {
+                var discordUser = playerManager.GetPlayers().FirstOrDefault(p => p.DiscordUsername.ToLower() == discordMember.Username.ToLower());
+                if (discordUser != null)
+                {
+
+                    tribes = tribes.Where(t => t.Players.LongCount(p => p.Id == discordUser.ArkPlayerId) > 0).ToList();
+                }
+            }
+
+            if (tribes.Count == 0)
+            {
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Unable to find any tribe data matching your filter."));
+                return;
+            }
+
+
+            List<Tuple<ContentTribe, string, string, float, float, ContentItem>> items = new List<Tuple<ContentTribe, string, string, float, float, ContentItem>>();
+
+            foreach(var tribe in tribes)
+            {
+                if (tribe != null)
+                {
+                    var tribeStructures = tribe.Structures
+                                            .Where(t =>
+                                                        (t.Inventory != null && t.Inventory.Items != null && t.Inventory.Items.LongCount(i => !i.IsEngram & !i.IsBlueprint && i.ClassName.ToLower().Contains()) > 0)
+                                            ).ToList();
+
+                    if (tribeStructures != null)
+                    {
+                        foreach (var tribeStructure in tribeStructures)
+                        {
+                            string containerType = "Structure - ";
+                            string containerName = tribeStructure.ClassName;
+                            var classMap = classMaps.FirstOrDefault(c => c.ClassName.ToLower() == tribeStructure.ClassName.ToLower());
+                            if (classMap != null) containerName = classMap.FriendlyName;
+                            containerType = string.Concat(containerType, containerName);
+
+                            string displayName = "";
+                            if (tribeStructure.DisplayName != tribeStructure.ClassName) displayName = tribeStructure.DisplayName;
+
+                            if (tribeStructure.Inventory != null && tribeStructure.Inventory.Items.Count > 0)
+                            {
+                                foreach (var matchItem in tribeStructure.Inventory.Items.Where(i => i.ClassName.ToLower().Contains(itemFilter.ToLower())))
+                                {
+                                    items.Add(new Tuple<ContentTribe, string, string, float, float, ContentItem>(tribe, containerType, displayName, tribeStructure.Latitude.GetValueOrDefault(0), tribeStructure.Longitude.GetValueOrDefault(0), matchItem));
+                                }
+                            }
+                        }
+                    }
+
+
+
+                    var tribePlayers = tribe.Players.Where(p =>
+                                                            p.Inventory != null
+                                                            && p.Inventory.Items != null
+                                                            && p.Inventory.Items.LongCount(
+                                                                i => i.ClassName.ToLower().Contains(itemFilter.ToLower())
+                                                                ) > 0);
+                    if (tribePlayers != null)
+                    {
+                        foreach (var tribePlayer in tribePlayers)
+                        {
+                            string containerType = "Player";
+                            string displayName = tribePlayer.CharacterName;
+                            
+                            if (tribePlayer.Inventory != null && tribePlayer.Inventory.Items.Count > 0)
+                            {
+                                foreach (var matchItem in tribePlayer.Inventory.Items.Where(i => i.ClassName.ToLower().Contains(itemFilter.ToLower())))
+                                {
+                                    items.Add(new Tuple<ContentTribe, string, string, float, float, ContentItem>(tribe, containerType, displayName, tribePlayer.Latitude.GetValueOrDefault(0), tribePlayer.Longitude.GetValueOrDefault(0), matchItem));
+                                }
+                            }
+                        }
+
+
+                    }
+                        
+                }
+            }
+
+            if (items.Count == 0)
+            {
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Unable to find any item data matching your filter(s)."));
+
+                return;
+            }
+
+            foreach(var item in items.OrderBy(o => o.Item1.TribeName).ThenBy(o => o.Item2).ThenBy(o => o.Item3).ThenBy(o => o.Item4).ThenBy(o => o.Item5))
+            {
+                //Tribe Id,Tribe,Storage,Name,Lat,Lon,Item,Rating,Count
+                string itemName = item.Item6.ClassName;
+                var itemMap = classMaps.FirstOrDefault(c=>c.ClassName.ToLower() == item.Item6.ClassName.ToLower());
+                if (itemMap != null) itemName = itemMap.FriendlyName;
+
+                reportLines.Add($"{item.Item1.TribeId},{item.Item1.TribeName},{item.Item2},{item.Item3},{item.Item4.ToString("f1")},{item.Item5.ToString("f1")},{itemName},{item.Item6.Rating},{item.Item6.Quantity}");
+            }
+
 
             string responseString = dataFormatter.FormatResponseTable(reportHeader, reportLines);
 
@@ -552,8 +660,8 @@ namespace ASVBot.Commands
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("").AddFile("asvbot-arkitems.txt", fileStream));
+
+
         }
-
-
     }
 }
