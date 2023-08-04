@@ -82,6 +82,9 @@ namespace ARKViewer.Models
 
                 string imageFilePath = AppContext.BaseDirectory;
                 string imageFilename = Program.MapPack.SupportedMaps.FirstOrDefault(m => m.Filename.ToLower().Contains(MapFilename.ToLower()))?.ImageFile;
+
+
+
                 if(Realm!=null && Realm.Length > 0)
                 {
                     var selectedRealm = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == Realm);
@@ -102,7 +105,9 @@ namespace ARKViewer.Models
 
                 try
                 {
-                    return Image.FromFile(Path.Combine(imageFilePath, "Maps\\", imageFilename));
+                    string fullMapFilePath = Path.Combine(imageFilePath, "Maps\\", imageFilename);
+
+                    return Image.FromFile(fullMapFilePath);
                 }
                 catch 
                 {

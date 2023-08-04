@@ -11,6 +11,8 @@
     <ApplicationIcon>ASV.ico</ApplicationIcon>
     <IsPublishable>False</IsPublishable>
     <NeutralLanguage>en-GB</NeutralLanguage>
+    <BaseOutputPath>c:\temp\ASV\</BaseOutputPath>
+    <StartupObject>ARKViewer.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>full</DebugType>
@@ -26,9 +28,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="itemmap.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="MainView.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="mapmarkers.json">
@@ -58,10 +57,10 @@
     <None Update="Maps\map_svartalfheim.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Maps\map_velius.png">
+    <None Update="Maps\map_taeniastella.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="MapView.png">
+    <None Update="Maps\map_velius.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="structuremap.json">
@@ -4293,6 +4292,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="NLog" Version="5.1.1" />
     <PackageReference Include="SSH.NET" Version="2020.0.2" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Form1.cs" />
@@ -4308,8 +4308,5 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
   </ItemGroup>
 </Project>

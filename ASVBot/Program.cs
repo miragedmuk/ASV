@@ -8,7 +8,11 @@ using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Reflection.Metadata;
+using System.Threading.Tasks;
 using System.Timers;
 
 namespace ASVBot
@@ -25,7 +29,9 @@ namespace ASVBot
             var configFilename = Path.Combine(AppContext.BaseDirectory, "botconfig.json");
             if(!File.Exists(configFilename))
             {
-
+                Console.WriteLine("Unable to locate botconfig.json");
+                Console.Read();
+                Environment.Exit(-1);
                 return;
             }
 
@@ -111,7 +117,10 @@ namespace ASVBot
 
             if(!File.Exists(config.ArkSaveFile))
             {
-                return;
+                Console.WriteLine("No arkSaveFile specified in botconfig.json.");
+                Console.Read();
+                Environment.Exit(-1);
+
             }
 
             arkPack.LoadSaveGame(config.ArkSaveFile, string.Empty, config.ArkClusterFolder);
@@ -129,6 +138,13 @@ namespace ASVBot
                     reloadTimer.Interval = (60 * config.AutoReloadTimeMinutes);
                 }
             };
+
+            if (config.DiscordBotToken.Length == 0)
+            {
+                Console.WriteLine("No discordBotToken specified in botconfig.json.");
+                Console.Read();
+                Environment.Exit(-1);
+            }
 
             var discord = new DiscordClient(new DiscordConfiguration()
             {

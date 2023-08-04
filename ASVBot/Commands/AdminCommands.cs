@@ -15,9 +15,11 @@ using DSharpPlus.SlashCommands.Attributes;
 using ASVBot.Config;
 using SavegameToolkitAdditions.IndexMappings;
 using System.Diagnostics;
+using System.IO;
 
 namespace ASVBot.Commands
 {
+    [SlashRequireUserPermissions(Permissions.Administrator | Permissions.ModerateMembers)]
     [SlashCommandGroup("asv-admin", "Admin commands", false)]
     public class AdminCommands : ApplicationCommandModule
     {
@@ -38,7 +40,7 @@ namespace ASVBot.Commands
 
 
         [SlashCommand("list-users", "List discord users of ASVBot.")]
-        public async Task GetUsers(InteractionContext ctx, [Option("unverified", "Show only unverified users.")] bool onlyUnverified)
+        public async Task GetUsers(InteractionContext ctx, [Option("unverified", "Show only unverified users.")] bool onlyUnverified = true)
         {
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
