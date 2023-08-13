@@ -278,13 +278,19 @@ namespace SavegameToolkit
         {
             SaveVersion = archive.ReadShort();
 
-            if (SaveVersion < 5 || SaveVersion > 10)
+            if (SaveVersion < 5 || SaveVersion > 11)
             {
                 throw new NotSupportedException("Found unknown Version " + SaveVersion);
             }
 
             if (SaveVersion > 6)
             {
+                if(SaveVersion == 11)
+                {
+                    //no idea what the additional data is and dont care for ASV for work - skip em to get to hibernation offset.
+                    archive.SkipBytes(64);
+                }
+
                 hibernationOffset = archive.ReadInt();
                 int shouldBeZero = archive.ReadInt();
                 if (shouldBeZero != 0)
@@ -301,15 +307,17 @@ namespace SavegameToolkit
             {
                 nameTableOffset = archive.ReadInt();
                 propertiesBlockOffset = archive.ReadInt();
+
+
             }
             else
             {
-                nameTableOffset = 0;
+                nameTableOffset = 0;              
                 propertiesBlockOffset = 0;
             }
 
-            GameTime = archive.ReadFloat();
 
+            GameTime = archive.ReadFloat();
             SaveCount = SaveVersion > 8 ? archive.ReadInt() : 0;
         }
 
@@ -318,12 +326,13 @@ namespace SavegameToolkit
             long position = archive.Position;
 
             archive.Position = nameTableOffset;
-
             int nameCount = archive.ReadInt();
+
             List<string> nameTable = new List<string>(nameCount);
             for (int n = 0; n < nameCount; n++)
             {
-                nameTable.Add(archive.ReadString());
+                var stringValue = archive.ReadString();
+                nameTable.Add(stringValue);
             }
 
             archive.SetNameTable(nameTable);
