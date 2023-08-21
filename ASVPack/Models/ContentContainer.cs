@@ -77,6 +77,12 @@ namespace ASVPack.Models
             logWriter.Trace("BEGIN LoadSaveGame()");
 
 
+
+            
+
+
+
+
             if (!File.Exists(saveFilename))
             {
                 logWriter.Error($"LoadSaveGame failed - unable to find file: {saveFilename}");
@@ -121,6 +127,8 @@ namespace ASVPack.Models
                 //ignore, not really that bothered about LocalProfile, added bonus if it is read in.
             }
 
+
+                       
 
 
 

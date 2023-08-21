@@ -18,6 +18,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -1953,10 +1954,12 @@ namespace ARKViewer
                                 if (lvwWildDetail.Items.Count > 0)
                                 {
                                     JArray jsonItems = new JArray();
+
                                     foreach (ListViewItem item in lvwWildDetail.Items)
                                     {
+                                        JObject jsonItem = new JObject();
+
                                         //row > columns 
-                                        JArray jsonFields = new JArray();
                                         foreach (ColumnHeader header in lvwWildDetail.Columns)
                                         {
 
@@ -1965,31 +1968,29 @@ namespace ARKViewer
                                             headerText = headerText.Replace("> ", "");
 
 
-                                            JObject jsonField = new JObject();
-                                            if (double.TryParse(item.SubItems[header.Index].Text, out _))
+                                            if (long.TryParse(item.SubItems[header.Index].Text, out _))
                                             {
                                                 if (item.SubItems[header.Index].Text.Contains("."))
                                                 {
                                                     decimal.TryParse(item.SubItems[header.Index].Text, out decimal decValue);
 
-                                                    jsonField.Add(new JProperty(headerText, decValue));
+                                                    jsonItem.Add(new JProperty(headerText, decValue));
                                                 }
                                                 else
                                                 {
-                                                    int.TryParse(item.SubItems[header.Index].Text, out int intValue);
+                                                    long.TryParse(item.SubItems[header.Index].Text, out long intValue);
 
-                                                    jsonField.Add(new JProperty(headerText, intValue));
+                                                    jsonItem.Add(new JProperty(headerText, intValue));
                                                 }
                                             }
                                             else
                                             {
-                                                jsonField.Add(new JProperty(headerText, item.SubItems[header.Index].Text));
+                                                jsonItem.Add(new JProperty(headerText, item.SubItems[header.Index].Text));
                                             }
-
-
-                                            jsonFields.Add(jsonField);
+                                            
                                         }
-                                        jsonItems.Add(jsonFields);
+
+                                        jsonItems.Add(jsonItem);
 
                                     }
                                     File.WriteAllText(saveDialog.FileName, jsonItems.ToString());
@@ -2072,7 +2073,7 @@ namespace ARKViewer
                                     foreach (ListViewItem item in lvwTameDetail.Items)
                                     {
                                         //row > columns 
-                                        JArray jsonFields = new JArray();
+                                        JObject jsonField = new JObject();
                                         foreach (ColumnHeader header in lvwTameDetail.Columns)
                                         {
 
@@ -2081,8 +2082,7 @@ namespace ARKViewer
                                             headerText = headerText.Replace("> ", "");
 
 
-                                            JObject jsonField = new JObject();
-                                            if (double.TryParse(item.SubItems[header.Index].Text, out _))
+                                            if (long.TryParse(item.SubItems[header.Index].Text, out _))
                                             {
                                                 if (item.SubItems[header.Index].Text.Contains("."))
                                                 {
@@ -2092,7 +2092,7 @@ namespace ARKViewer
                                                 }
                                                 else
                                                 {
-                                                    int.TryParse(item.SubItems[header.Index].Text, out int intValue);
+                                                    long.TryParse(item.SubItems[header.Index].Text, out long intValue);
 
                                                     jsonField.Add(new JProperty(headerText, intValue));
                                                 }
@@ -2103,9 +2103,8 @@ namespace ARKViewer
                                             }
 
 
-                                            jsonFields.Add(jsonField);
                                         }
-                                        jsonItems.Add(jsonFields);
+                                        jsonItems.Add(jsonField);
 
                                     }
                                     File.WriteAllText(saveDialog.FileName, jsonItems.ToString());
@@ -2189,7 +2188,7 @@ namespace ARKViewer
                                     foreach (ListViewItem item in lvwStructureLocations.Items)
                                     {
                                         //row > columns 
-                                        JArray jsonFields = new JArray();
+                                        JObject jsonField = new JObject();
                                         foreach (ColumnHeader header in lvwStructureLocations.Columns)
                                         {
 
@@ -2198,7 +2197,7 @@ namespace ARKViewer
                                             headerText = headerText.Replace("> ", "");
 
 
-                                            JObject jsonField = new JObject();
+
                                             if (double.TryParse(item.SubItems[header.Index].Text, out _))
                                             {
                                                 if (item.SubItems[header.Index].Text.Contains("."))
@@ -2220,9 +2219,8 @@ namespace ARKViewer
                                             }
 
 
-                                            jsonFields.Add(jsonField);
                                         }
-                                        jsonItems.Add(jsonFields);
+                                        jsonItems.Add(jsonField);
 
                                     }
                                     File.WriteAllText(saveDialog.FileName, jsonItems.ToString());
@@ -2305,7 +2303,7 @@ namespace ARKViewer
                                     foreach (ListViewItem item in lvwStructureLocations.Items)
                                     {
                                         //row > columns 
-                                        JArray jsonFields = new JArray();
+                                        JObject jsonField = new JObject();
                                         foreach (ColumnHeader header in lvwStructureLocations.Columns)
                                         {
 
@@ -2314,7 +2312,7 @@ namespace ARKViewer
                                             headerText = headerText.Replace("> ", "");
 
 
-                                            JObject jsonField = new JObject();
+
                                             if (double.TryParse(item.SubItems[header.Index].Text, out _))
                                             {
                                                 if (item.SubItems[header.Index].Text.Contains("."))
@@ -2336,9 +2334,8 @@ namespace ARKViewer
                                             }
 
 
-                                            jsonFields.Add(jsonField);
                                         }
-                                        jsonItems.Add(jsonFields);
+                                        jsonItems.Add(jsonField);
 
                                     }
                                     File.WriteAllText(saveDialog.FileName, jsonItems.ToString());
@@ -2422,7 +2419,7 @@ namespace ARKViewer
                                     foreach (ListViewItem item in lvwPlayers.Items)
                                     {
                                         //row > columns 
-                                        JArray jsonFields = new JArray();
+                                        JObject jsonField = new JObject();
                                         foreach (ColumnHeader header in lvwPlayers.Columns)
                                         {
 
@@ -2431,7 +2428,7 @@ namespace ARKViewer
                                             headerText = headerText.Replace("> ", "");
 
 
-                                            JObject jsonField = new JObject();
+
                                             if (double.TryParse(item.SubItems[header.Index].Text, out _))
                                             {
                                                 if (item.SubItems[header.Index].Text.Contains("."))
@@ -2453,9 +2450,8 @@ namespace ARKViewer
                                             }
 
 
-                                            jsonFields.Add(jsonField);
                                         }
-                                        jsonItems.Add(jsonFields);
+                                        jsonItems.Add(jsonField);
 
                                     }
                                     File.WriteAllText(saveDialog.FileName, jsonItems.ToString());
@@ -2538,7 +2534,7 @@ namespace ARKViewer
                                     foreach (ListViewItem item in lvwDroppedItems.Items)
                                     {
                                         //row > columns 
-                                        JArray jsonFields = new JArray();
+                                        JObject jsonField = new JObject();
                                         foreach (ColumnHeader header in lvwDroppedItems.Columns)
                                         {
 
@@ -2547,7 +2543,7 @@ namespace ARKViewer
                                             headerText = headerText.Replace("> ", "");
 
 
-                                            JObject jsonField = new JObject();
+
                                             if (double.TryParse(item.SubItems[header.Index].Text, out _))
                                             {
                                                 if (item.SubItems[header.Index].Text.Contains("."))
@@ -2569,9 +2565,8 @@ namespace ARKViewer
                                             }
 
 
-                                            jsonFields.Add(jsonField);
                                         }
-                                        jsonItems.Add(jsonFields);
+                                        jsonItems.Add(jsonField);
 
                                     }
                                     File.WriteAllText(saveDialog.FileName, jsonItems.ToString());
