@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SavegameToolkit.Arrays;
@@ -582,83 +583,16 @@ namespace SavegameToolkit
                     var creatureDataOffset = cryoDataOffset + storedOffset;
                     archive.Position = creatureDataOffset;
 
-                    var objectType = archive.ReadString(); //type?
-                    if (objectType.Equals("dino", StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        var unknown1 = archive.ReadInt(); //unknown
-                        var className = archive.ReadString(); //classname
-                        var nameAndLevel = archive.ReadString(); //name and level
-                        var colorCodeCsv = archive.ReadString(); //csv list of color #
-                        var unknown2 = archive.ReadInt();//?
-                        var gender = archive.ReadString(); //gender
+                    ArkStore storeSummary = new ArkStore(archive);
+                    storeSummary.LoadProperties(archive);
+                    var dinoComponent = storeSummary.CreatureComponent;
+                    var dinoCharacterStatusComponent = storeSummary.CreatureComponent;
+                    var dinoInventoryComponent = storeSummary.CreatureComponent;
 
-                        archive.SkipBytes(14);//?
-
-                        var hp = archive.ReadFloat();
-                        var stamina = archive.ReadFloat();
-                        var weight = archive.ReadFloat();
-                        var oxy = archive.ReadFloat();
-                        var food = archive.ReadFloat();
-                        var speed = archive.ReadFloat();
-                        var imprint = archive.ReadFloat();
-                        var torpor = archive.ReadFloat();
-
-
-                        archive.SkipBytes(16); //unknown, need to identify
-
-                        var hpMax = archive.ReadFloat();
-                        var staminaMax = archive.ReadFloat();
-                        var weightMax = archive.ReadFloat();
-                        var oxyMax = archive.ReadFloat();
-                        var foodMax = archive.ReadFloat();
-                        var speedMax = archive.ReadFloat();
-                        var imprintMax = archive.ReadFloat();
-                        var torporMax = archive.ReadFloat();
-
-                        archive.SkipBytes(20);//?
-
-                        var colorCount = archive.ReadInt(); //color name count
-                        List<string> colorNames = new List<string>();
-                        while (colorCount-- > 0)
-                        {
-                            var colorName = archive.ReadString();
-                            colorNames.Add(colorName);
-                        }
-
-                    }
-
-
-                    archive.SkipBytes(8);//?
-                    var propertyStartOffset = archive.Position;
-
-                    var objectCount = archive.ReadInt();
-                    bool useNameTable = archive.UseNameTable;
-                    archive.UseNameTable = false;
-
-
-                    GameObject? dinoComponent = null;
-                    GameObject? dinoCharacterStatusComponent = null;
-                    GameObject? dinoTamedInventoryComponent = null;
-
-                    if (objectCount > 0)
-                    {
-                        dinoComponent = new GameObject(archive); //Rex_Character_BP_C
-                    }
                     
-                    if (objectCount > 1)
-                    {
-                        dinoCharacterStatusComponent = new GameObject(archive); //DinoCharacterStatusComponent_BP_Rex_C
-                    }
-                    
-                    if (objectCount > 2)
-                    {
-                        dinoTamedInventoryComponent = new GameObject(archive); //DinoTamedInventoryComponent_Rex_C
-                    }
-
                     //re-map and add properties as appropriate
                     if (dinoComponent != null)
                     {
-                        dinoComponent.LoadProperties(archive, new GameObject(), (int)propertyStartOffset);
                         dinoComponent.IsCryo = o.ClassString.Contains("cryo", StringComparison.InvariantCultureIgnoreCase);
                         dinoComponent.IsVivarium = o.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
 
@@ -708,7 +642,6 @@ namespace SavegameToolkit
 
                         if (dinoCharacterStatusComponent != null)
                         {
-                            dinoCharacterStatusComponent.LoadProperties(archive, new GameObject(), (int)propertyStartOffset);
                             addObject(dinoCharacterStatusComponent, true);
 
                             var statusComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
@@ -716,20 +649,16 @@ namespace SavegameToolkit
 
                         }
 
-                        if (dinoTamedInventoryComponent != null)
+                        if (dinoInventoryComponent != null)
                         {
-                            dinoTamedInventoryComponent.LoadProperties(archive, new GameObject(), (int)propertyStartOffset);
-                            addObject(dinoTamedInventoryComponent, true);
+                            addObject(dinoInventoryComponent, true);
 
                             var inventoryComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyInventoryComponent");
-                            inventoryComponentRef.Value.ObjectId = dinoTamedInventoryComponent.Id;
+                            inventoryComponentRef.Value.ObjectId = dinoInventoryComponent.Id;
                         }
-
 
                         addObject(dinoComponent, true);
                     }
-
-                    archive.UseNameTable = useNameTable;
 
                 }
             }

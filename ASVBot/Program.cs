@@ -8,6 +8,7 @@ using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SavegameToolkitAdditions.IndexMappings;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,20 +30,97 @@ namespace ASVBot
             var configFilename = Path.Combine(AppContext.BaseDirectory, "botconfig.json");
             if(!File.Exists(configFilename))
             {
-                Console.WriteLine("Unable to locate botconfig.json");
-                Console.Read();
-                Environment.Exit(-1);
-                return;
+                Console.WriteLine("Unable to locate botconfig.json.");
+                Console.WriteLine("Would you like to specify settings now? (Y/N)");
+                var keyEntered = Console.ReadKey();
+                if(keyEntered.KeyChar.ToString().Equals("y", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    BotConfig newConfig = new BotConfig();
+
+                    Console.WriteLine("Please provide ARK filename:");
+                    var filenameProvided = Console.ReadLine();
+                    
+                    //check main save file exists
+                    if(!File.Exists(filenameProvided))
+                    {
+                        Console.WriteLine("Unable to continue.  No config settings available.");
+                        Environment.Exit(-1);
+                        return;
+                    }
+
+                    newConfig.ArkSaveFile = filenameProvided;
+
+                    string clusterFolder = string.Empty;
+                    Console.WriteLine("Is this save part of a cluster? (Y/N)");
+                    if(keyEntered.KeyChar.ToString().Equals("y", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        bool tryAgain = true;
+                        while(tryAgain)
+                        {
+                            Console.WriteLine("Please provide shared Cluster folder location:");
+                            var clusterFolderProvided = Console.ReadLine();
+                            //check cluster folder exists
+                            if (Directory.Exists(clusterFolderProvided))
+                            {
+                                clusterFolder = clusterFolderProvided;
+                                tryAgain = false;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Unable to locate cluster folder. Try again? (Y/N)");
+                                tryAgain = keyEntered.KeyChar.ToString().Equals("y", StringComparison.InvariantCultureIgnoreCase);
+                            }
+                        }
+                    }
+                    newConfig.ArkClusterFolder = clusterFolder;
+
+                    Console.WriteLine("Please provide your Discord bot token:");
+                    var botTokenProvided = Console.ReadLine();
+                    newConfig.DiscordBotToken = botTokenProvided;
+
+
+                    bool getServerId = true;
+
+                    while (getServerId)
+                    {
+                        Console.WriteLine("Please provide your Discord server channel id:");
+                        var serverIdProvided = Console.ReadLine();
+                        if (!long.TryParse(serverIdProvided, out var serverId))
+                        {
+                            Console.WriteLine("Unable to parse channel id as a number. Try again? (Y/N)");
+                            getServerId = keyEntered.KeyChar.ToString().Equals("y", StringComparison.InvariantCultureIgnoreCase);
+                        }
+                        else
+                        {
+                            newConfig.DiscordServerId = serverId;
+                            getServerId = false;
+                        }
+
+                    }
+
+                    if (newConfig.DiscordServerId != 0)
+                    {
+                        newConfig.Save();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unable to continue. One or more values were not provided to create a new config file.");
+                        Environment.Exit(-1);
+                        return;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Unable to continue.  No config settings available.");
+                    Environment.Exit(-1);
+                    return;
+                }
             }
 
-
             classMaps = new List<IClassMap>();
-
             var creatureMapConfigFilename = Path.Combine(AppContext.BaseDirectory, "creaturemap.json");
             if (File.Exists(creatureMapConfigFilename))
             {
-
-
                 string jsonFileContent = File.ReadAllText(creatureMapConfigFilename);
 
                 JObject dinoFile = JObject.Parse(jsonFileContent);
@@ -110,8 +188,6 @@ namespace ASVBot
                 }
 
             }
-
-
 
             config.Load();
 
