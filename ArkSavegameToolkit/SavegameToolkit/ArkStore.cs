@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using SavegameToolkit.Arrays;
 using System.Runtime.InteropServices.ObjectiveC;
+using SavegameToolkit.Types;
 
 namespace SavegameToolkit
 {
-    internal class ArkStore : GameObjectContainerMixin
+    public class ArkStore : GameObjectContainerMixin
     {
         public string ClassName { get; internal set; } = string.Empty;
         public string Summary { get;internal set; } = string.Empty;
@@ -21,7 +22,7 @@ namespace SavegameToolkit
         public GameObject? CreatureComponent { get; internal set; } = null;
         public GameObject? StatusComponent { get; internal set; } = null;
         public GameObject? InventoryComponent { get; internal set; } = null;
-        
+
         private long propertiesOffset = 0;
 
         public ArkStore(ArkArchive archive) 
@@ -119,17 +120,17 @@ namespace SavegameToolkit
                 Objects.Add(new GameObject(archive));
             }
 
-            if (objectCount > 0)
+            if (Objects.Count > 0)
             {
                 CreatureComponent = Objects[0];
             }
 
-            if (objectCount > 1)
+            if (Objects.Count > 1)
             {
                 StatusComponent = Objects[1];
             }
 
-            if (objectCount > 2)
+            if (Objects.Count > 2)
             {
                 InventoryComponent = Objects[2];
             }

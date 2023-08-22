@@ -161,8 +161,6 @@ namespace ASVPack.Models
                                 .WithDataFilesObjectMap(false)
                                 .WithBuildComponentTree(true));
 
-
-
                         if (!arkSavegame.HibernationEntries.Any())
                         {
                             objectContainer = arkSavegame;

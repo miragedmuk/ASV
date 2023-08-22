@@ -72,9 +72,13 @@ namespace SavegameToolkit
 
         public List<HibernationEntry> HibernationEntries { get; } = new List<HibernationEntry>();
 
+        public List<StoredSummaryEntry> StoredSummaryEntries { get; } = new List<StoredSummaryEntry>();
+
         public bool HasUnknownNames => OldNameList != null;
 
         public bool HasUnknownData { get; set; }
+
+
 
         private HashSet<string> nameTableForWriteBinary;
 
@@ -525,8 +529,9 @@ namespace SavegameToolkit
         private void readBinaryStoredObjects(ArkArchive archive, ReadingOptions options)
         {
 
-            var inventoryContainers = Objects.Where(x => x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null).ToList();
+            if (!options.StoredCreatures) return;
 
+            var inventoryContainers = Objects.Where(x => x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null).ToList();
 
             var validStored = Objects
                 .Where(o =>
@@ -586,8 +591,8 @@ namespace SavegameToolkit
                     ArkStore storeSummary = new ArkStore(archive);
                     storeSummary.LoadProperties(archive);
                     var dinoComponent = storeSummary.CreatureComponent;
-                    var dinoCharacterStatusComponent = storeSummary.CreatureComponent;
-                    var dinoInventoryComponent = storeSummary.CreatureComponent;
+                    var dinoCharacterStatusComponent = storeSummary.StatusComponent;
+                    var dinoInventoryComponent = storeSummary.InventoryComponent;
 
                     
                     //re-map and add properties as appropriate
@@ -658,8 +663,12 @@ namespace SavegameToolkit
                         }
 
                         addObject(dinoComponent, true);
-                    }
 
+                        int tribeId = dinoComponent.GetPropertyValue<int>("TargetingTeam");
+                        
+                        var newSummary = new StoredSummaryEntry(tribeId, dinoComponent.Location, dinoComponent.ClassString, storeSummary.Summary, storeSummary.Gender, storeSummary.Colors, storeSummary.Stats);
+                        StoredSummaryEntries.Add(newSummary);
+                    }
                 }
             }
         }
