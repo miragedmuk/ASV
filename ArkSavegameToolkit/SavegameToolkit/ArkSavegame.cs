@@ -1,13 +1,4 @@
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO.Compression;
-using System.Linq;
-using System.Numerics;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SavegameToolkit.Arrays;
@@ -298,10 +289,6 @@ namespace SavegameToolkit
             var timeTaken = TimeSpan.FromTicks(endRead - startRead);
             Console.WriteLine($"Read ended in {timeTaken.ToString()}");
 
-
-            var test = Objects.Where(f => f.ClassString.Contains("rex", StringComparison.InvariantCultureIgnoreCase)).ToList();
-
-
             OldNameList = archive.HasUnknownNames ? archive.NameTable : null;
             HasUnknownData = archive.HasUnknownData;
         }
@@ -489,11 +476,6 @@ namespace SavegameToolkit
                 while (count-- > 0)
                 {
                     var newObject = new GameObject(archive);
-
-                    if(newObject.ClassString.Contains("rex", StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        Debug.Print("");
-                    }
                     addObject(newObject, options.BuildComponentTree);
                 }
             }
