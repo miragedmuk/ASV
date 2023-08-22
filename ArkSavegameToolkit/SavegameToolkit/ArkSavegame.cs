@@ -542,6 +542,8 @@ namespace SavegameToolkit
         private void readBinaryStoredObjects(ArkArchive archive, ReadingOptions options)
         {
 
+            var inventoryContainers = Objects.Where(x => x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null).ToList();
+
 
             var validStored = Objects
                 .Where(o =>
@@ -642,15 +644,109 @@ namespace SavegameToolkit
                         }
 
                     }
+
+
+                    archive.SkipBytes(8);//?
+                    var propertyStartOffset = archive.Position;
+
+                    var objectCount = archive.ReadInt();
                     bool useNameTable = archive.UseNameTable;
                     archive.UseNameTable = false;
 
-                    archive.SkipBytes(12);//?
 
-                    var dinoComponent = new GameObject(archive); //Rex_Character_BP_C
-                    var dinoCharacterStatusComponent = new GameObject(archive); //DinoCharacterStatusComponent_BP_Rex_C
-                    var dinoTamedInventoryComponent = new GameObject(archive); //DinoTamedInventoryComponent_Rex_C
+                    GameObject? dinoComponent = null;
+                    GameObject? dinoCharacterStatusComponent = null;
+                    GameObject? dinoTamedInventoryComponent = null;
+
+                    if (objectCount > 0)
+                    {
+                        dinoComponent = new GameObject(archive); //Rex_Character_BP_C
+                    }
                     
+                    if (objectCount > 1)
+                    {
+                        dinoCharacterStatusComponent = new GameObject(archive); //DinoCharacterStatusComponent_BP_Rex_C
+                    }
+                    
+                    if (objectCount > 2)
+                    {
+                        dinoTamedInventoryComponent = new GameObject(archive); //DinoTamedInventoryComponent_Rex_C
+                    }
+
+                    //re-map and add properties as appropriate
+                    if (dinoComponent != null)
+                    {
+                        dinoComponent.LoadProperties(archive, new GameObject(), (int)propertyStartOffset);
+                        dinoComponent.IsCryo = o.ClassString.Contains("cryo", StringComparison.InvariantCultureIgnoreCase);
+                        dinoComponent.IsVivarium = o.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
+
+                        // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
+                        if (dinoComponent.GetPropertyValue<string>("TribeName")?.Length == 0 && dinoComponent.GetPropertyValue<string>("TamerString")?.Length > 0)
+                            dinoComponent.Properties.Add(new PropertyString("TribeName", dinoComponent.GetPropertyValue<string>("TamerString")));
+
+
+                        //get parent of cryopod owner inventory
+                        var podParentRef = o.GetPropertyValue<ObjectReference>("OwnerInventory");
+                        if (podParentRef != null)
+                        {
+                            var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
+
+                            //determine if we need to re-team the podded animal
+                            if (podParent != null)
+                            {
+                                if (podParent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase))
+                                {
+                                    dinoComponent.IsCryo = false;
+                                    dinoComponent.IsVivarium = true;
+                                }
+
+                                dinoComponent.Location = podParent.Location;
+
+                                int obTeam = dinoComponent.GetPropertyValue<int>("TargetingTeam");
+                                int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
+                                if (obTeam != containerTeam)
+                                {
+                                    var propertyIndex = dinoComponent.Properties.FindIndex(i => i.NameString == "TargetingTeam");
+                                    if (propertyIndex != -1)
+                                    {
+                                        dinoComponent.Properties.RemoveAt(propertyIndex);
+                                    }
+                                    dinoComponent.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
+
+
+                                    if (dinoComponent.HasAnyProperty("TamingTeamID"))
+                                    {
+                                        dinoComponent.Properties.RemoveAt(dinoComponent.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
+                                        dinoComponent.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
+                                    }
+
+                                }
+                            }
+                        }
+
+                        if (dinoCharacterStatusComponent != null)
+                        {
+                            dinoCharacterStatusComponent.LoadProperties(archive, new GameObject(), (int)propertyStartOffset);
+                            addObject(dinoCharacterStatusComponent, true);
+
+                            var statusComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
+                            statusComponentRef.Value.ObjectId = dinoCharacterStatusComponent.Id;
+
+                        }
+
+                        if (dinoTamedInventoryComponent != null)
+                        {
+                            dinoTamedInventoryComponent.LoadProperties(archive, new GameObject(), (int)propertyStartOffset);
+                            addObject(dinoTamedInventoryComponent, true);
+
+                            var inventoryComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyInventoryComponent");
+                            inventoryComponentRef.Value.ObjectId = dinoTamedInventoryComponent.Id;
+                        }
+
+
+                        addObject(dinoComponent, true);
+                    }
+
                     archive.UseNameTable = useNameTable;
 
                 }
