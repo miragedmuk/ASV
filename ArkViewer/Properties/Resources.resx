@@ -121,8 +121,8 @@
   <data name="structure_marker_wyvern" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\48px-Alpha_Fire_Wyvern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="structure_marker_trophy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Trophy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconfinder_themes_1419100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconfinder_themes_1419100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blueprints" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blueprints.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,20 +145,17 @@
   <data name="marker_29" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\002-woman.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconfinder_themes_1419100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconfinder_themes_1419100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="TribeLogs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TribeLogs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_document" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_export" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="structure_marker_magmasaur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\marker_magmasaur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="structure_marker_plantx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\structure_marker_plantx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stopicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stopicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,26 +163,29 @@
   <data name="playicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="beacon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\beacon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="structure_marker_deino" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48px-Deinonychus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blueprints_unchecked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blueprints_unchecked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loveicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loveicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_zoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_cryooff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_cryooff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="marker_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\001-man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="beacon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_export" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marker_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\001-man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,11 +211,20 @@
   <data name="structure_marker_lizard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\structure_marker_lizard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="button_filterex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_filterex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dino_green_icon_dvr_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dino_green_icon_dvr_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\003-add-file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_zoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="structure_marker_gas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\oil-and-gas-icon-12215.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="structuremarker_beehive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\structuremarker_beehive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="structure_marker_oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\petroleum-icon-png-14374.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,8 +232,8 @@
   <data name="structure_marker_water" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\water-icon-png-14374.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loveicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loveicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="structure_marker_trophy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Trophy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="structure_marker_beaver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\48px-Giant_Beaver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,14 +241,11 @@
   <data name="structure_marker_rockdrake" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Strucutre_Marker_RockDrake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="structure_marker_gas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oil-and-gas-icon-12215.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="structure_marker_magmasaur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\marker_magmasaur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="structure_marker_deino" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48px-Deinonychus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\003-add-file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,19 +262,16 @@
   <data name="button_family" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_family.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_filterex" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_filterex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_cryooff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_cryooff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="structure_marker_plantx" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\structure_marker_plantx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="structure_marker_obelisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tower-icon-25704.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="structuremarker_beehive" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\structuremarker_beehive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="asvicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\asvicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -300,8 +300,8 @@ namespace ARKViewer
             lblItemListItem = new System.Windows.Forms.Label();
             lvwItemList = new System.Windows.Forms.ListView();
             lvwItemList_Tribe = new System.Windows.Forms.ColumnHeader();
-            lvwItemList_Player = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Container = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_Player = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Item = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Quality = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Rating = new System.Windows.Forms.ColumnHeader();
@@ -392,6 +392,7 @@ namespace ARKViewer
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             lblMap = new System.Windows.Forms.Label();
             cboSelectedMap = new System.Windows.Forms.ComboBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
             mnuContext.SuspendLayout();
             tabFeatures.SuspendLayout();
             tpgWild.SuspendLayout();
@@ -422,6 +423,7 @@ namespace ARKViewer
             tpgLocalProfile.SuspendLayout();
             pnlUploadedStats.SuspendLayout();
             tpgLeaderboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lvwWildDetail
@@ -3063,15 +3065,15 @@ namespace ARKViewer
             lvwItemList_Tribe.Text = "Tribe";
             lvwItemList_Tribe.Width = 150;
             // 
-            // lvwItemList_Player
-            // 
-            lvwItemList_Player.Text = "Player";
-            lvwItemList_Player.Width = 150;
-            // 
             // lvwItemList_Container
             // 
             lvwItemList_Container.Text = "Container";
             lvwItemList_Container.Width = 160;
+            // 
+            // lvwItemList_Player
+            // 
+            lvwItemList_Player.Text = "Player";
+            lvwItemList_Player.Width = 150;
             // 
             // lvwItemList_Item
             // 
@@ -3690,7 +3692,7 @@ namespace ARKViewer
             lblTitle.BackColor = System.Drawing.Color.Transparent;
             lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTitle.Location = new System.Drawing.Point(15, 1);
+            lblTitle.Location = new System.Drawing.Point(96, 11);
             lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new System.Drawing.Size(71, 31);
@@ -3703,7 +3705,7 @@ namespace ARKViewer
             lblSubTitle.BackColor = System.Drawing.Color.Transparent;
             lblSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblSubTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblSubTitle.Location = new System.Drawing.Point(19, 38);
+            lblSubTitle.Location = new System.Drawing.Point(100, 48);
             lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblSubTitle.Name = "lblSubTitle";
             lblSubTitle.Size = new System.Drawing.Size(189, 16);
@@ -3730,7 +3732,7 @@ namespace ARKViewer
             lblVersion.BackColor = System.Drawing.Color.Transparent;
             lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             lblVersion.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblVersion.Location = new System.Drawing.Point(92, 16);
+            lblVersion.Location = new System.Drawing.Point(173, 26);
             lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new System.Drawing.Size(31, 16);
@@ -3763,6 +3765,16 @@ namespace ARKViewer
             cboSelectedMap.TabIndex = 26;
             cboSelectedMap.SelectedIndexChanged += cboSelectedMap_SelectedIndexChanged;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new System.Drawing.Point(25, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(64, 64);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 27;
+            pictureBox1.TabStop = false;
+            // 
             // frmViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -3770,6 +3782,7 @@ namespace ARKViewer
             BackColor = System.Drawing.Color.LightBlue;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             ClientSize = new System.Drawing.Size(1136, 705);
+            Controls.Add(pictureBox1);
             Controls.Add(lblVersion);
             Controls.Add(lblSubTitle);
             Controls.Add(lblTitle);
@@ -3842,6 +3855,7 @@ namespace ARKViewer
             pnlUploadedStats.PerformLayout();
             tpgLeaderboard.ResumeLayout(false);
             tpgLeaderboard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -4205,6 +4219,7 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Name;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Locked;
         private System.Windows.Forms.ColumnHeader lvwItemList_Player;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

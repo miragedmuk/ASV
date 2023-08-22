@@ -1987,7 +1987,7 @@ namespace ARKViewer
                                             {
                                                 jsonItem.Add(new JProperty(headerText, item.SubItems[header.Index].Text));
                                             }
-                                            
+
                                         }
 
                                         jsonItems.Add(jsonItem);
@@ -5435,7 +5435,7 @@ namespace ARKViewer
                         }
 
                         ListViewItem newItem = new ListViewItem(foundItem.TribeName);
- 
+
                         newItem.BackColor = backColor;
                         newItem.ForeColor = foreColor;
                         newItem.SubItems.Add(foundItem.ContainerName);

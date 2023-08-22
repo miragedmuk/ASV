@@ -8,7 +8,7 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ASV.ico</ApplicationIcon>
+    <ApplicationIcon>asv2.ico</ApplicationIcon>
     <IsPublishable>False</IsPublishable>
     <NeutralLanguage>en-GB</NeutralLanguage>
     <BaseOutputPath>c:\temp\ASV\</BaseOutputPath>
@@ -83,7 +83,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ASV.ico" />
+    <Content Include="asv2.ico" />
     <Content Include="images\001-cave.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
