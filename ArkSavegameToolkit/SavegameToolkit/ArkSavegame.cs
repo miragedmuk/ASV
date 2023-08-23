@@ -311,22 +311,14 @@ namespace SavegameToolkit
             {
                 if(SaveVersion > 10 )
                 {
-                    storedOffset = archive.ReadInt();
-                    var v11Unknown1 = archive.ReadInt(); //0
-                    var v11Unknown2 = archive.ReadInt(); //length of storage? on my data with no additional hibernation it seems to match size of file when added to the storedOffset.
-                    var v11Unknown3 = archive.ReadInt(); //0
-                    var v11Unknown4 = archive.ReadInt(); //file size or some other pointer
-                    var v11Unknown5 = archive.ReadInt(); //0
-                    var v11Unknown6 = archive.ReadInt(); //0
-                    var v11Unknown7 = archive.ReadInt(); //0
-                    var v11Unknown8 = archive.ReadInt(); //file size or some other pointer
-                    var v11Unknown9 = archive.ReadInt(); //0
-                    var v11Unknown10 = archive.ReadInt(); //0
-                    var v11Unknown11 = archive.ReadInt(); //0
-                    var v11Unknown12 = archive.ReadInt(); //file size or some other pointer
-                    var v11Unknown13 = archive.ReadInt(); //0
-                    var v11Unknown14 = archive.ReadInt(); //0
-                    var v11Unknown15 = archive.ReadInt(); //0
+                    storedOffset = (int)archive.ReadLong();
+                    var v11Unknown1 = archive.ReadLong(); //length of storage? on my data with no additional hibernation it seems to match size of file when added to the storedOffset.
+                    var v11Unknown2 = archive.ReadLong(); //file size or some other pointer 
+                    var v11Unknown3 = archive.ReadLong(); //0
+                    var v11Unknown4 = archive.ReadLong(); //file size or some other pointer
+                    var v11Unknown5 = archive.ReadLong(); //0
+                    var v11Unknown6 = archive.ReadLong(); //file size or some other pointer
+                    var v11Unknown7 = archive.ReadLong(); //0
 
 
 
