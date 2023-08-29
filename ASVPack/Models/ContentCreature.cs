@@ -48,11 +48,19 @@ namespace ASVPack.Models
 
         public ContentCreature()
         {
+            ClassName = string.Empty;
+            BaseStats = new byte[12] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            Colors = new byte[6] { 0, 0, 0, 0, 0, 0 };
+            ProductionResources = new string[0]; 
+
+
+
 
         }
         public ContentCreature(GameObject creatureObject, GameObject statusObject)
         {
 
+            ProductionResources = new string[0];
 
             //populate asv objects
             Id = creatureObject.GetDinoId();
@@ -80,8 +88,10 @@ namespace ASVPack.Models
             IsBaby = creatureObject.GetPropertyValue<bool>("bIsBaby", 0, false);
 
             BaseStats = new byte[12] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            for (var i = 0; i < BaseStats.Length; i++) BaseStats[i] = statusObject.GetPropertyValue<ArkByteValue>("NumberOfLevelUpPointsApplied", i)?.ByteValue ?? 0;
-
+            if(statusObject != null)
+            {
+                for (var i = 0; i < BaseStats.Length; i++) BaseStats[i] = statusObject.GetPropertyValue<ArkByteValue>("NumberOfLevelUpPointsApplied", i)?.ByteValue ?? 0;
+            }
 
             Colors = new byte[6] { 0, 0, 0, 0, 0, 0 };
             for (var i = 0; i < Colors.Length; i++) Colors[i] = creatureObject.GetPropertyValue<ArkByteValue>("ColorSetIndices", i)?.ByteValue ?? 0;

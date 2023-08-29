@@ -28,7 +28,7 @@ namespace ASVPack.Models
 
         public ContentLocalProfile(ArkLocalProfile profile)
         {
-            var playerMapMarkers = (ArkArrayStruct)profile.LocalProfile.GetTypedProperty<PropertyArray>("MapMarkersPerMaps")?.Value;
+            var playerMapMarkers = (ArkArrayStruct)profile.LocalProfile.GetTypedProperty<PropertyArray>("MapMarkersPerMaps").Value;
             if (playerMapMarkers != null && playerMapMarkers.Count > 0)
             {
                 foreach (StructPropertyList playerMaps in playerMapMarkers)
@@ -86,7 +86,7 @@ namespace ASVPack.Models
 
                             PropertyArray byteArrays = tame.GetTypedProperty<PropertyArray>("DinoData");
 
-                            ArkArrayUInt8 creatureBytes = byteArrays.Value as ArkArrayUInt8;
+                            ArkArrayUInt8? creatureBytes = byteArrays.Value as ArkArrayUInt8;
                             if (creatureBytes != null)
                             {
                                 var creatureStream = new System.IO.MemoryStream(creatureBytes.ToArray<byte>());
@@ -141,7 +141,7 @@ namespace ASVPack.Models
 
                             PropertyArray byteArrays = playerProp.GetTypedProperty<PropertyArray>("PlayerDataBytes");
 
-                            ArkArrayUInt8 playerBytes = byteArrays.Value as ArkArrayUInt8;
+                            ArkArrayUInt8? playerBytes = byteArrays.Value as ArkArrayUInt8;
                             if (playerBytes != null)
                             {
                                 var playerStream = new System.IO.MemoryStream(playerBytes.ToArray<byte>());

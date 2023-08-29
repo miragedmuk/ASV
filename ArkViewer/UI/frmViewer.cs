@@ -262,7 +262,7 @@ namespace ARKViewer
 
                 MapViewer.OnMapClicked += MapViewer_OnMapClicked;
 
-                string mapFileDateString = (cm.ContentDate.Equals(new DateTime()) ? "n/a" : cm.ContentDate.ToString("dd MMM yyyy HH:mm"));
+                string mapFileDateString = (cm.ContentDate.Equals(new DateTime()) ? "n/a" : cm.ContentDate.GetValueOrDefault(DateTime.Now).ToString("dd MMM yyyy HH:mm"));
                 lblMapDate.Text = $"{cm.MapName}: {mapFileDateString}";
 
                 switch (Program.ProgramConfig.Mode)
@@ -1406,6 +1406,49 @@ namespace ARKViewer
                 commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedCreature.Z + 250:0.00}"));
                 commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
 
+
+                if (commandText.Contains("<BlueprintPath>"))
+                {
+                    var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
+                    if (dinoMap != null)
+                    {
+                        commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
+                    }
+
+
+                }
+                commandText = commandText.Replace("<BaseLevel>", selectedCreature.BaseLevel.ToString());
+                commandText = commandText = commandText.Replace("<AddedLevels>", "0");
+                commandText = commandText.Replace("<hp-w>", selectedCreature.BaseStats[0].ToString());
+                commandText = commandText.Replace("<stam-w>", selectedCreature.BaseStats[1].ToString());
+                commandText = commandText.Replace("<oxy-w>", selectedCreature.BaseStats[3].ToString());
+                commandText = commandText.Replace("<food-w>", selectedCreature.BaseStats[4].ToString());
+                commandText = commandText.Replace("<weight-w>", selectedCreature.BaseStats[7].ToString());
+                commandText = commandText.Replace("<melee-w>", selectedCreature.BaseStats[8].ToString());
+                commandText = commandText.Replace("<craft-w>", selectedCreature.BaseStats[11].ToString());
+
+
+                commandText = commandText.Replace("<hp-t>", "0");
+                commandText = commandText.Replace("<stam-t>", "0");
+                commandText = commandText.Replace("<oxy-t>", "0");
+                commandText = commandText.Replace("<food-t>", "0");
+                commandText = commandText.Replace("<weight-t>", "0");
+                commandText = commandText.Replace("<melee-t>", "0");
+                commandText = commandText.Replace("<craft-t>", "0");
+
+
+                commandText = commandText.Replace("<c0>", selectedCreature.Colors[0].ToString());
+                commandText = commandText.Replace("<c1>", selectedCreature.Colors[1].ToString());
+                commandText = commandText.Replace("<c2>", selectedCreature.Colors[2].ToString());
+                commandText = commandText.Replace("<c3>", selectedCreature.Colors[3].ToString());
+                commandText = commandText.Replace("<c4>", selectedCreature.Colors[4].ToString());
+                commandText = commandText.Replace("<c5>", selectedCreature.Colors[5].ToString());
+
+                commandText = commandText.Replace("<ImprintedName>", "");
+                commandText = commandText.Replace("<ImprintedPlayerId>", "0");
+                commandText = commandText.Replace("<ImprintQuality>", "0");
+
+
                 switch (Program.ProgramConfig.CommandPrefix)
                 {
                     case 1:
@@ -1442,6 +1485,54 @@ namespace ARKViewer
                 commandText = commandText.Replace("<TribeID>", selectedCreature.TargetingTeam.ToString("f0"));
                 commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
 
+                if (commandText.Contains("<BlueprintPath>"))
+                {
+                    var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
+                    if (dinoMap != null)
+                    {
+                        commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
+                    }
+                    else
+                    {
+                        lblStatus.Text = $"Command failed: No blueprint path can be found for the selected creature.";
+                        lblStatus.Refresh();
+                        return;
+                    }
+                }
+
+                commandText = commandText.Replace("<BaseLevel>", selectedCreature.BaseLevel.ToString());
+                commandText = commandText.Replace("<AddedLevels>", (selectedCreature.Level - selectedCreature.BaseLevel).ToString());
+                commandText = commandText.Replace("<hp-w>", selectedCreature.BaseStats[0].ToString());
+                commandText = commandText.Replace("<stam-w>", selectedCreature.BaseStats[1].ToString());
+                commandText = commandText.Replace("<oxy-w>", selectedCreature.BaseStats[3].ToString());
+                commandText = commandText.Replace("<food-w>", selectedCreature.BaseStats[4].ToString());
+                commandText = commandText.Replace("<weight-w>", selectedCreature.BaseStats[7].ToString());
+                commandText = commandText.Replace("<melee-w>", selectedCreature.BaseStats[8].ToString());
+                commandText = commandText.Replace("<craft-w>", selectedCreature.BaseStats[11].ToString());
+                commandText = commandText.Replace("<speed-w>", selectedCreature.BaseStats[9].ToString());
+
+
+                commandText = commandText.Replace("<hp-t>", selectedCreature.TamedStats[0].ToString());
+                commandText = commandText.Replace("<stam-t>", selectedCreature.TamedStats[1].ToString());
+                commandText = commandText.Replace("<oxy-t>", selectedCreature.TamedStats[3].ToString());
+                commandText = commandText.Replace("<food-t>", selectedCreature.TamedStats[4].ToString());
+                commandText = commandText.Replace("<weight-t>", selectedCreature.TamedStats[7].ToString());
+                commandText = commandText.Replace("<melee-t>", selectedCreature.TamedStats[8].ToString());
+                commandText = commandText.Replace("<craft-t>", selectedCreature.TamedStats[11].ToString());
+                commandText = commandText.Replace("<speed-t>", selectedCreature.TamedStats[9].ToString());
+
+
+                commandText = commandText.Replace("<c0>", selectedCreature.Colors[0].ToString());
+                commandText = commandText.Replace("<c1>", selectedCreature.Colors[1].ToString());
+                commandText = commandText.Replace("<c2>", selectedCreature.Colors[2].ToString());
+                commandText = commandText.Replace("<c3>", selectedCreature.Colors[3].ToString());
+                commandText = commandText.Replace("<c4>", selectedCreature.Colors[4].ToString());
+                commandText = commandText.Replace("<c5>", selectedCreature.Colors[5].ToString());
+
+                commandText = commandText.Replace("<ImprintedName>", selectedCreature.ImprinterName);
+                commandText = commandText.Replace("<ImprintedPlayerId>", selectedCreature.ImprintedPlayerId.ToString());
+                commandText = commandText.Replace("<ImprintQuality>", selectedCreature.ImprintQuality.ToString());
+                commandText = commandText.Replace("<Name>", selectedCreature.Name);
 
                 commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
                 commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
@@ -3594,6 +3685,8 @@ namespace ARKViewer
 
         private void ShowMapViewer()
         {
+            if (cm == null) return;
+
             if (MapViewer == null || MapViewer.IsDisposed)
             {
                 MapViewer = frmMapView.GetForm(cm);
@@ -7496,13 +7589,6 @@ namespace ARKViewer
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmTest testForm = new frmTest(cm);
-            testForm.Show();
-
-        }
-
         private void cboWildRealm_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadWildDetail();
@@ -7550,6 +7636,11 @@ namespace ARKViewer
         }
 
         private void mnuContext_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void lblTameTotal_Click(object sender, EventArgs e)
         {
 
         }

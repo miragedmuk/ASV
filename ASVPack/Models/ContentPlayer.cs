@@ -55,11 +55,12 @@ namespace ASVPack.Models
         {
             var playerData = (StructPropertyList)playerObject.GetTypedProperty<PropertyStruct>("MyData").Value;
 
+            if (playerData == null) return;
 
             HasGameFile = true;
             Id = playerData.GetPropertyValue<long>("PlayerDataID");
 
-            StructUniqueNetIdRepl netId = (StructUniqueNetIdRepl)playerData.GetTypedProperty<PropertyStruct>("UniqueID")?.Value;
+            StructUniqueNetIdRepl? netId = (StructUniqueNetIdRepl?)playerData.GetTypedProperty<PropertyStruct>("UniqueID")?.Value;
             NetworkId = netId == null ? "" : netId.NetId;
             Name = playerData.GetPropertyValue<string>("PlayerName") ?? "Unknown";
             CharacterName = Name;
@@ -131,7 +132,7 @@ namespace ASVPack.Models
             HasGameFile = true;
             Id = playerData.GetPropertyValue<long>("PlayerDataID");
 
-            StructUniqueNetIdRepl netId = (StructUniqueNetIdRepl)playerData.GetTypedProperty<PropertyStruct>("UniqueID")?.Value;
+            StructUniqueNetIdRepl? netId = (StructUniqueNetIdRepl?)playerData.GetTypedProperty<PropertyStruct>("UniqueID")?.Value;
             NetworkId = netId == null ? "" : netId.NetId;
             Name = playerData.GetPropertyValue<string>("PlayerName") ?? "Unknown";
             CharacterName = Name;
@@ -277,7 +278,7 @@ namespace ASVPack.Models
             LastTimeInGame = playerComponent.GetPropertyValue<double>("SavedLastTimeHadController");
             Name = playerComponent.GetPropertyValue<string>("PlatformProfileName");
             CharacterName = playerComponent.GetPropertyValue<string>("PlayerName");
-            Level = getFullLevel(statusComponent);
+            if(statusComponent!=null) Level = getFullLevel(statusComponent);
             Gender = playerComponent.ClassName.Name.ToLower().Contains("female") ? "Female" : "Male";
 
             if (playerComponent.Location != null)

@@ -41,7 +41,7 @@ namespace ARKViewer.Models
         public ContentMap LoadedMap { get; internal set; } = null;
         
 
-        public DateTime ContentDate
+        public DateTime? ContentDate
         {
             get
             {

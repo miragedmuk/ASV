@@ -24,11 +24,11 @@ namespace ASVBot.Commands
         IDiscordPlayerManager playerManager;
         List<IClassMap> classMaps;
         
-        ContentContainerGraphics graphicsContainer;
+        DrawingContainer graphicsContainer;
         IResponseDataFormatter dataFormatter;
 
 
-        public PlayerCommands(IContentContainer arkPack, IDiscordPlayerManager discordPlayerManager,  List<IClassMap> classMap, ContentContainerGraphics graphicsContainer, IResponseDataFormatter dataFormatter)
+        public PlayerCommands(IContentContainer arkPack, IDiscordPlayerManager discordPlayerManager,  List<IClassMap> classMap, DrawingContainer graphicsContainer, IResponseDataFormatter dataFormatter)
         {
             this.arkPack = arkPack;
             this.playerManager = discordPlayerManager;
@@ -343,13 +343,11 @@ namespace ASVBot.Commands
             float fromLon = arkPlayer.Longitude.GetValueOrDefault(0);
             float fromRadius = discordPlayer.MaxRadius;
 
-            var mapImage = graphicsContainer.GetMapImageWild(creatureType, fromLat,fromLon, fromRadius);
-
-
             string tmpFilename = Path.GetTempFileName();
-            mapImage.Save(tmpFilename,System.Drawing.Imaging.ImageFormat.Jpeg);
-            FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
+            var mapImage = graphicsContainer.SaveMapImageWild(tmpFilename, creatureType, fromLat,fromLon, fromRadius);
 
+
+            FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing selected creature type(s) within a radius of {fromRadius} from {fromLat.ToString("f1")}/{fromLon.ToString("f1")}.").AddFile("WildDetails.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
 
             fileStream.Close();
@@ -460,11 +458,10 @@ namespace ASVBot.Commands
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
-            var mapImage = graphicsContainer.GetMapImageTamed(discordUser.ArkPlayerId,creatureType);
-
-
             string tmpFilename = Path.GetTempFileName();
-            mapImage.Save(tmpFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            var mapImage = graphicsContainer.SaveMapImageTamed(tmpFilename, discordUser.ArkPlayerId,creatureType);
+
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing tame locations.").AddFile("Tames.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
@@ -548,14 +545,10 @@ namespace ASVBot.Commands
 
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
-
-            var mapImage = graphicsContainer.GetMapImageStructures(discordUser.ArkPlayerId, structureFilter);
-            if (mapImage != null)
-            {
-
-            }
+            
             string tmpFilename = Path.GetTempFileName();
-            mapImage.Save(tmpFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
+            var mapImage = graphicsContainer.SaveMapImageStructures(tmpFilename, discordUser.ArkPlayerId, structureFilter);
+            
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing tame locations.").AddFile("Tames.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
@@ -719,11 +712,10 @@ namespace ASVBot.Commands
 
             await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
 
-            var mapImage = graphicsContainer.GetMapImageItems(discordUser.ArkPlayerId, itemFilter);
             string tmpFilename = Path.GetTempFileName();
-            mapImage.Save(tmpFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
+            var mapImage = graphicsContainer.SaveMapImageItems(tmpFilename, discordUser.ArkPlayerId, itemFilter);
+            
             FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
-
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the map showing matching item locations.").AddFile("Items.jpg", fileStream).AddMention(new UserMention(ctx.Member)));
 
             fileStream.Close();

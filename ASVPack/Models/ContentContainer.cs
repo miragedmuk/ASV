@@ -94,7 +94,7 @@ namespace ASVPack.Models
                 return;
             }
 
-            ContentMap selectedMap = null;
+            ContentMap? selectedMap = null;
 
             loadedTimestamp = File.GetLastWriteTimeUtc(saveFilename);
 
@@ -140,7 +140,7 @@ namespace ASVPack.Models
             {
                 List<ContentTribe> tribeContentList = new List<ContentTribe>();
 
-                GameObjectContainer objectContainer = null;
+                GameObjectContainer? objectContainer = null;
                 GameSaveTime = new FileInfo(saveFilename).LastWriteTimeUtc.ToLocalTime();
 
 
@@ -187,9 +187,10 @@ namespace ASVPack.Models
 
                         logWriter.Debug($"Loading map location data for: {MapName}.ark");
                         selectedMap = mapPack.GetMap($"{MapName}.ark");
-                        LoadedMap = selectedMap;
+
                         if (selectedMap != null)
                         {
+                            LoadedMap = selectedMap;
                             logWriter.Debug($"Map location data loaded for: {selectedMap.MapName}");
                         }
                         else
@@ -273,10 +274,10 @@ namespace ASVPack.Models
 
 
 
-                        var filePath = Path.GetDirectoryName(saveFilename);
+                        var filePath = Path.GetDirectoryName(saveFilename)??"";
                         ConcurrentBag<ContentPlayer> fileProfiles = new ConcurrentBag<ContentPlayer>();
 
-                        if (filePath != null)
+                        if (filePath.Length > 0)
                         {
                             long profileStart = DateTime.Now.Ticks;
                             logWriter.Info("Reading .arkprofile(s)");
@@ -322,7 +323,7 @@ namespace ASVPack.Models
                                         }
                                     }
                                 }
-                                catch (Exception ex)
+                                catch 
                                 {
                                     logWriter.Debug($"Failed to read profile data: {x}");
                                 }
@@ -378,7 +379,7 @@ namespace ASVPack.Models
                                     }
                                 }
                             }
-                            catch (Exception ex)
+                            catch 
                             {
                                 logWriter.Debug($"Failed to read tribe data: {x}");
                             }
@@ -745,7 +746,7 @@ namespace ASVPack.Models
                             //foreach (var player in tribePlayers)
                             {
 
-                                GameObject arkPlayer = gamePlayers.FirstOrDefault(x => x.GetPropertyValue<long>("LinkedPlayerDataID") == player.Id);
+                                GameObject? arkPlayer = gamePlayers.FirstOrDefault(x => x.GetPropertyValue<long>("LinkedPlayerDataID") == player.Id);
 
                                 if (arkPlayer != null)
                                 {
@@ -1252,7 +1253,7 @@ namespace ASVPack.Models
 
                                     }
 
-                                    if (inventoryComponent.HasAnyProperty("EquippedItems"))
+                                    if (inventoryComponent!=null && inventoryComponent.HasAnyProperty("EquippedItems"))
                                     {
                                         PropertyArray inventoryItemsArray = inventoryComponent.GetTypedProperty<PropertyArray>("EquippedItems");
                                         if (inventoryItemsArray != null)
@@ -1340,7 +1341,7 @@ namespace ASVPack.Models
                                     cloudInventory.ReadBinary(clusterArchive, ReadingOptions.Create().WithBuildComponentTree(true).WithDataFilesObjectMap(false).WithGameObjects(true).WithGameObjectProperties(true));
 
                                     PropertyStruct propTest = cloudInventory.GetTypedProperty<PropertyStruct>("MyArkData");
-                                    StructPropertyList propList = propTest.Value as StructPropertyList;
+                                    StructPropertyList? propList = propTest.Value as StructPropertyList;
                                     if (propList != null)
                                     {
                                         var itemList = propList.GetTypedProperty<PropertyArray>("ArkItems");

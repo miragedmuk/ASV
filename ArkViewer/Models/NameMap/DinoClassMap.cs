@@ -14,6 +14,7 @@ namespace ARKViewer.Models.NameMap
         public string ClassName { get; set; }
         [DataMember]
         public string FriendlyName { get; set; }
-
+        [DataMember]
+        public string BlueprintPath { get; set; }
     }
 }

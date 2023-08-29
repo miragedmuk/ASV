@@ -94,7 +94,7 @@ namespace ASVPack.Models
             TamerName = creatureObject.GetPropertyValue<string>("TamerString");
 
             ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID");
-            if (ImprintedPlayerId > 0)
+            if (ImprintedPlayerId > 0 && statusObject!=null)
             {
                 ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
                 ImprinterName = creatureObject.GetPropertyValue<string>("ImprinterName");
@@ -134,7 +134,7 @@ namespace ASVPack.Models
                 ArkArrayStruct parentPropertyStruct = (ArkArrayStruct)parents.Value;
                 if (parentPropertyStruct != null)
                 {
-                    StructPropertyList parentProperties = parentPropertyStruct.Cast<StructPropertyList>().FirstOrDefault();
+                    StructPropertyList? parentProperties = parentPropertyStruct.Cast<StructPropertyList>().FirstOrDefault();
                     if (parentProperties != null)
                     {
                         int maleId1 = parentProperties.GetPropertyValue<int>("MaleDinoID1");
@@ -202,7 +202,7 @@ namespace ASVPack.Models
             TamerName = creatureObject.GetPropertyValue<string>("TamerString");
 
             ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID");
-            if (ImprintedPlayerId > 0)
+            if (ImprintedPlayerId > 0 && statusObject!=null)
             {
                 ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
                 ImprinterName = creatureObject.GetPropertyValue<string>("ImprinterName");
@@ -241,7 +241,7 @@ namespace ASVPack.Models
                 ArkArrayStruct parentPropertyStruct = (ArkArrayStruct)parents.Value;
                 if (parentPropertyStruct != null)
                 {
-                    StructPropertyList parentProperties = parentPropertyStruct.Cast<StructPropertyList>().FirstOrDefault();
+                    StructPropertyList? parentProperties = parentPropertyStruct.Cast<StructPropertyList>().FirstOrDefault();
                     if (parentProperties != null)
                     {
                         int maleId1 = parentProperties.GetPropertyValue<int>("MaleDinoID1");
@@ -271,6 +271,7 @@ namespace ASVPack.Models
 
         public ContentTamedCreature() : base()
         {
+            TamedStats = new byte[8];
         }
     }
 }

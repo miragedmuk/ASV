@@ -302,7 +302,7 @@ namespace SavegameToolkit
         {
             SaveVersion = archive.ReadShort();
 
-            if (SaveVersion < 5 || SaveVersion > 11)
+            if (SaveVersion < 5 || SaveVersion > 12)
             {
                 throw new NotSupportedException("Found unknown Version " + SaveVersion);
             }
@@ -312,16 +312,14 @@ namespace SavegameToolkit
                 if(SaveVersion > 10 )
                 {
                     storedOffset = (int)archive.ReadLong();
-                    var v11Unknown1 = archive.ReadLong(); //length of storage? on my data with no additional hibernation it seems to match size of file when added to the storedOffset.
-                    var v11Unknown2 = archive.ReadLong(); //file size or some other pointer 
-                    var v11Unknown3 = archive.ReadLong(); //0
-                    var v11Unknown4 = archive.ReadLong(); //file size or some other pointer
-                    var v11Unknown5 = archive.ReadLong(); //0
-                    var v11Unknown6 = archive.ReadLong(); //file size or some other pointer
-                    var v11Unknown7 = archive.ReadLong(); //0
-
-
-
+                    var storedDataSize = archive.ReadLong(); 
+                    
+                    var v11Unknown1 = archive.ReadLong(); //file size or some other pointer 
+                    var v11Unknown2 = archive.ReadLong(); //0
+                    var v11Unknown3 = archive.ReadLong(); //file size or some other pointer
+                    var v11Unknown4 = archive.ReadLong(); //0
+                    var v11Unknown5 = archive.ReadLong(); //file size or some other pointer
+                    var v11Unknown6 = archive.ReadLong(); //0
 
                 }
                 else
@@ -555,14 +553,16 @@ namespace SavegameToolkit
                                     if (dataByteArray?.Count >= 34)
                                     {
                                         var cryoUnknown1 = a.ReadShort();
+                                        
                                         var cryoUnknown2 = a.ReadInt();
-
                                         cryoDataOffset = a.ReadInt();
 
                                         var cryoUnknown3 = a.ReadInt();
                                         var cryoUnknown4 = a.ReadInt();
+                                        
                                         var cryoUnknown5 = a.ReadInt();
                                         var cryoUnknown6 = a.ReadInt();
+
                                         var cryoUnknown7 = a.ReadInt();
                                         var cryoUnknown8 = a.ReadInt();
 
@@ -582,6 +582,7 @@ namespace SavegameToolkit
 
                     ArkStore storeSummary = new ArkStore(archive);
                     storeSummary.LoadProperties(archive);
+
                     var dinoComponent = storeSummary.CreatureComponent;
                     var dinoCharacterStatusComponent = storeSummary.StatusComponent;
                     var dinoInventoryComponent = storeSummary.InventoryComponent;

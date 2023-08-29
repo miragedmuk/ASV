@@ -30,11 +30,15 @@ namespace ASVPack.Models
 
         public ContentDroppedItem()
         {
-
+            ClassName = string.Empty;
+            DroppedByName= string.Empty;
+            
         }
 
         public ContentDroppedItem(GameObject itemObject)
         {
+            ClassName = string.Empty;
+
             if (itemObject.Location != null)
             {
                 X = itemObject.Location?.X;

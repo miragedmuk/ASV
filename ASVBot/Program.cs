@@ -23,7 +23,7 @@ namespace ASVBot
         public static ContentContainer arkPack = new ContentContainer();
         private static BotConfig config = new BotConfig();
         private static List<IClassMap> classMaps = new List<IClassMap>();
-        private static ContentContainerGraphics graphicsContainer = null;
+        private static DrawingContainer graphicsContainer = null;
 
         static async Task Main(string[] args)
         {
@@ -229,7 +229,7 @@ namespace ASVBot
                 Intents = DiscordIntents.AllUnprivileged
             });
 
-            graphicsContainer = new ContentContainerGraphics(arkPack, new ContentMapPack());
+            graphicsContainer = new DrawingContainer(arkPack, new ContentMapPack());
 
             var slash = discord.UseSlashCommands(new SlashCommandsConfiguration()
             {
@@ -237,7 +237,7 @@ namespace ASVBot
 
                 Services = new ServiceCollection()
                             .AddSingleton<BotConfig>(config)
-                            .AddSingleton<ContentContainerGraphics>(graphicsContainer)
+                            .AddSingleton<DrawingContainer>(graphicsContainer)
                             .AddSingleton<IContentContainer>(arkPack)         
                             .AddSingleton<IDiscordPlayerManager>(new DiscordPlayerManager())                            
                             .AddSingleton<List<IClassMap>>(classMaps)

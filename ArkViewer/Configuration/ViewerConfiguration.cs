@@ -158,6 +158,8 @@ namespace ARKViewer.Configuration
                     JObject dinoObject = new JObject();
                     dinoObject.Add(new JProperty("ClassName", dino.ClassName));
                     dinoObject.Add(new JProperty("FriendlyName", dino.FriendlyName));
+                    dinoObject.Add(new JProperty("BlueprintPath", dino.BlueprintPath));
+
                     dinoArray.Add(dinoObject);
                 }
             }
@@ -414,6 +416,8 @@ namespace ARKViewer.Configuration
                     DinoClassMap dino = new DinoClassMap();
                     dino.ClassName = dinoObject.Value<string>("ClassName");
                     dino.FriendlyName = dinoObject.Value<string>("FriendlyName");
+                    dino.BlueprintPath = dinoObject.Value<string>("BlueprintPath");
+
                     DinoMap.Add(dino);
                 }
             }

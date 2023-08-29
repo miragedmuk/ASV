@@ -49,9 +49,9 @@ namespace ASVPack.Models
             if (uploadData.HasAnyProperty("ItemRating"))
             {
                 var ratingProp = uploadData.GetTypedProperty<PropertyFloat>("ItemRating")?.Value;
-                if (!float.IsNaN(ratingProp.Value))
+                if (!float.IsNaN(ratingProp.GetValueOrDefault(0)))
                 {
-                    Rating = ratingProp.Value;
+                    Rating = ratingProp.GetValueOrDefault(0);
                 }
                 else
                 {
@@ -77,9 +77,9 @@ namespace ASVPack.Models
             if (itemObject.HasAnyProperty("ItemRating") & !ClassName.ToLower().Contains("egg"))
             {
                 var ratingProp = itemObject.GetTypedProperty<PropertyFloat>("ItemRating")?.Value;
-                if (!float.IsNaN(ratingProp.Value))
+                if (!float.IsNaN(ratingProp.GetValueOrDefault(0)))
                 {
-                    Rating = ratingProp.Value;
+                    Rating = ratingProp.GetValueOrDefault(0);
                 }
                 else
                 {

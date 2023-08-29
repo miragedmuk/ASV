@@ -405,7 +405,7 @@ namespace ARKViewer
 
                     PopulateServerFileList("/");
                 }
-                catch (Exception ex)
+                catch
                 {
                     MessageBox.Show("Unable to connect to server.\n\nPlease check entered information and try again.", "Connection Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     btnConnect.Enabled = true;

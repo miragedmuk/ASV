@@ -1264,7 +1264,7 @@ namespace ARKViewer
             cboConsoleCommandsWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsWild.FormattingEnabled = true;
-            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName>", "GMSummon \"<ClassName>\" <Level> ", "SetPlayerPos  <x> <y> <z>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
+            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName>", "GMSummon \"<ClassName>\" <Level> ", "SpawnExactDino \"<BlueprintPath>\" \"\" 0 <Level> 0 \"<hp>,<stam>,<oxy>,<food>,<weight>,<melee>,<speed>,0\" \"0,0,0,0,0,0,0,0\" \"Generated\" 0 0 \"\" \"\" \"\" 0 0 \"<c0>,<c1>,<c2>,<c3>,<c4>,<c5>\" 0 0 0 20 20", "SetPlayerPos  <x> <y> <z>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
             cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
             cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
@@ -1446,7 +1446,7 @@ namespace ARKViewer
             cboConsoleCommandsTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsTamed.FormattingEnabled = true;
-            cboConsoleCommandsTamed.Items.AddRange(new object[] { "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "GMSummon \"<ClassName>\"  <Level>", "TakeTribe <TribeID>", "SetPlayerPos  <x> <y> <z>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>", "Cryo <DinoId>" });
+            cboConsoleCommandsTamed.Items.AddRange(new object[] { "DestroyTribeIdDinos <TribeID>", resources.GetString("cboConsoleCommandsTamed.Items"), "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "GMSummon \"<ClassName>\"  <Level>", "TakeTribe <TribeID>", "SetPlayerPos  <x> <y> <z>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>", "Cryo <DinoId>" });
             cboConsoleCommandsTamed.Location = new System.Drawing.Point(303, 475);
             cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
@@ -1730,6 +1730,7 @@ namespace ARKViewer
             lblTameTotal.TabIndex = 14;
             lblTameTotal.Text = "Count: 0";
             lblTameTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTameTotal.Click += lblTameTotal_Click;
             // 
             // pnlTameStatTypes
             // 

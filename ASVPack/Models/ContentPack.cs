@@ -210,7 +210,7 @@ namespace ASVPack.Models
         public void ExportJsonWild(string exportFilename)
         {
 
-            string exportFolder = Path.GetDirectoryName(exportFilename);
+            string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
             using (FileStream fs = File.Create(exportFilename))
@@ -518,7 +518,7 @@ namespace ASVPack.Models
 
         public void ExportJsonMapStructures(string exportFilename)
         {
-            string exportFolder = Path.GetDirectoryName(exportFilename);
+            string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
 
@@ -1278,7 +1278,7 @@ namespace ASVPack.Models
 
         public void ExportJsonPlayerStructures(string exportFilename)
         {
-            string exportFolder = Path.GetDirectoryName(exportFilename);
+            string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
 
@@ -1375,7 +1375,7 @@ namespace ASVPack.Models
 
         public void ExportJsonPlayerTribeLogs(string exportFilename)
         {
-            string exportFolder = Path.GetDirectoryName(exportFilename);
+            string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
 
 
@@ -1436,6 +1436,7 @@ namespace ASVPack.Models
 
                     foreach (var playerTribe in Tribes)
                     {
+
                         jw.WriteStartObject();
 
                         jw.WritePropertyName("tribeid");
@@ -1445,9 +1446,9 @@ namespace ASVPack.Models
                         jw.WriteValue(playerTribe.TribeName);
 
                         jw.WritePropertyName("players");
-                        jw.WriteValue(playerTribe.Players.Count);
+                        jw.WriteValue(playerTribe?.Players?.Count);
 
-                        if (playerTribe.Players != null && playerTribe.Players.Count > 0)
+                        if (playerTribe!=null &&  playerTribe.Players != null && playerTribe.Players.Count > 0)
                         {
                             jw.WritePropertyName("members");
                             jw.WriteStartArray();
@@ -1479,22 +1480,23 @@ namespace ASVPack.Models
 
 
                         jw.WritePropertyName("tames");
-                        jw.WriteValue(playerTribe.Tames.LongCount(c=>c.UploadedTimeInGame ==0));
+                        jw.WriteValue(playerTribe?.Tames.LongCount(c => c.UploadedTimeInGame == 0));
 
 
                         jw.WritePropertyName("uploadedTames");
-                        jw.WriteValue(playerTribe.Tames.LongCount(c => c.UploadedTimeInGame != 0));
+                        jw.WriteValue(playerTribe?.Tames.LongCount(c => c.UploadedTimeInGame != 0));
 
                         jw.WritePropertyName("structures");
-                        jw.WriteValue(playerTribe.Structures.Count);
+                        jw.WriteValue(playerTribe?.Structures.Count);
 
                         jw.WritePropertyName("active");
-                        jw.WriteValue(playerTribe.LastActive);
+                        jw.WriteValue(playerTribe?.LastActive);
 
                         jw.WritePropertyName("dataFile");
-                        jw.WriteValue(playerTribe.TribeFileName);
+                        jw.WriteValue(playerTribe?.TribeFileName);
 
                         jw.WriteEnd();
+                        
                     }
 
                     jw.WriteEndArray();
@@ -1683,7 +1685,7 @@ namespace ASVPack.Models
         public void ExportPack(string fileName)
         {
 
-            string filePath = Path.GetDirectoryName(fileName);
+            string filePath = Path.GetDirectoryName(fileName)??"";
             if (!Directory.Exists(filePath)) Directory.CreateDirectory(filePath);
 
 
@@ -1702,9 +1704,9 @@ namespace ASVPack.Models
                     writer.Flush();
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                throw ex;
+                throw;
             }
 
         }
@@ -1943,8 +1945,8 @@ namespace ASVPack.Models
                         var loadedStructure = new ContentStructure()
                         {
                             ClassName = "ASV_DeinoNest",
-                            Latitude = (float)nest.Latitude,
-                            Longitude = (float)nest.Longitude,
+                            Latitude = (float)nest.Latitude.GetValueOrDefault(0),
+                            Longitude = (float)nest.Longitude.GetValueOrDefault(0),
                             X = nest.X,
                             Y = nest.Y,
                             Z = nest.Z,
@@ -2147,8 +2149,8 @@ namespace ASVPack.Models
                         var loadedStructure = new ContentStructure()
                         {
                             ClassName = "ASV_BeeHive",
-                            Latitude = (float)hive.Latitude,
-                            Longitude = (float)hive.Longitude,
+                            Latitude = (float)hive.Latitude.GetValueOrDefault(0),
+                            Longitude = (float)hive.Longitude.GetValueOrDefault(0),
                             X = hive.X,
                             Y = hive.Y,
                             Z = hive.Z,
@@ -2174,8 +2176,8 @@ namespace ASVPack.Models
                 //WildCreatures
                 WildCreatures = container.WildCreatures
                 .Where(w =>
-                    (w.Latitude.HasValue & !float.IsNaN(w.Latitude.Value))
-                    && (w.Longitude.HasValue & !float.IsNaN(w.Longitude.Value))
+                    (w.Latitude.HasValue & !float.IsNaN(w.Latitude.GetValueOrDefault(0)))
+                    && (w.Longitude.HasValue & !float.IsNaN(w.Longitude.GetValueOrDefault(0)))
                     && (Math.Abs((decimal)w.Latitude.GetValueOrDefault(0) - FilterLatitude) <= FilterRadius)
                     && (Math.Abs((decimal)w.Longitude.GetValueOrDefault(0) - FilterLongitude) <= FilterRadius)
                 ).ToList();

@@ -430,6 +430,9 @@
         i3gtPv2HWJuoDDCpQnn4F/xsEcKXsTJ8AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="cboConsoleCommandsTamed.Items" xml:space="preserve">
+    <value>SpawnExactDino "&lt;BlueprintPath&gt;" "" 0 &lt;BaseLevel&gt; &lt;AddedLevels&gt; "&lt;hp-w&gt;,&lt;stam-w&gt;,&lt;oxy-w&gt;,&lt;food-w&gt;,&lt;weight-w&gt;,&lt;melee-w&gt;,&lt;speed-w&gt;,0" "&lt;hp-t&gt;,&lt;stam-t&gt;,&lt;oxy-t&gt;,&lt;food-t&gt;,&lt;weight-t&gt;,&lt;melee-t&gt;,&lt;speed-t&gt;,0" "&lt;Name&gt;" 0 0 "" "" "&lt;ImprintedName&gt;" &lt;ImprintedPlayerId&gt; &lt;ImprintQuality&gt; "&lt;c0&gt;,&lt;c1&gt;,&lt;c2&gt;,&lt;c3&gt;,&lt;c4&gt;,&lt;c5&gt;" 0 0 0 20 20 | CryoMyTarget</value>
+  </data>
   <data name="btnFindStructures.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -579,7 +582,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA7TxJREFUeF7snQV4XMfVhs3MYmbLsmzLsmXLtgySBRZYtmTLMjMzJo4dJ3GY0QE3
+        vQAADr0BR/uQrQAA7TxJREFUeF7snQV4XMfVhs3MYmbLsmzLsmXLtgySBRZYtmTLMjMzJo4dJ3GY0QE3
         WGZM8S9jygxpU0ibQpqklKRt2iTN/Oc7987u3d3Z1Qp2tXC+53kfo3bvHTxz5syZASJRP+k08Tbic8T3
         iJ8R3yY+T3yCeJDYS4giTyeIdxBfJ35BPEv8m3iN+CvxE+LjxI2ESCQSieJce4jHiT8Sqpu8QHyFOE+I
         wq+zxBcITO6m+umKvxD/R+wnRCKRSBQnwiofE7hpYugJ/yN+RdxLiEKna4gfEVjVm+qhp8AYeAshEolE
