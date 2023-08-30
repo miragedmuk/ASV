@@ -39,7 +39,8 @@ namespace SavegameToolkit
                 var className = archive.ReadString(); //class name instance
                 var nameAndLevel = archive.ReadString(); //name and level
                 var colorCodeCsv = archive.ReadString(); //csv list of color #
-                var unknown2 = archive.ReadInt();//?
+                
+                var neutered = archive.ReadString(); //
                 var gender = archive.ReadString(); //gender
 
                 archive.SkipBytes(14);//?

@@ -453,6 +453,10 @@ namespace ASVPack.Models
 
                             //check for inventory
                             logWriter.Debug($"Determining if structure has inventory: {s.ClassString}");
+
+
+
+
                             ObjectReference inventoryRef = s.GetPropertyValue<ObjectReference>("MyInventoryComponent");
                             if (inventoryRef != null)
                             {
@@ -1027,6 +1031,22 @@ namespace ASVPack.Models
 
                             //inventory
                             logWriter.Debug($"Determining inventory status for: {structure.ClassName}");
+
+
+                            if (x.HasAnyProperty("SelectedResourceClass"))
+                            {
+                                //dedicated storage
+                                var itemClass = x.GetPropertyValue<ObjectReference>("SelectedResourceClass").ObjectString.Name;
+                                itemClass = itemClass.Substring(itemClass.LastIndexOf(".")+1);
+
+                                ContentItem item = new ContentItem();
+                                item.ClassName = itemClass;
+                                item.Quantity = x.GetPropertyValue<int>("ResourceCount");
+                                item.Rating = 0;
+
+                                if(item.Quantity !=0) inventoryItems.Add(item);
+                            }
+
                             if (x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null)
                             {
                                 logWriter.Debug($"Retrieving inventory for: {structure.ClassName}");
@@ -1040,18 +1060,18 @@ namespace ASVPack.Models
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
                                         Parallel.ForEach(objectReferences, objectReference =>
-{
-    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-    if (itemObject != null)
-    {
-        var item = itemObject.AsItem();
-        if (!item.IsEngram)
-        {
+                                        {
+                                            objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+                                            if (itemObject != null)
+                                            {
+                                                var item = itemObject.AsItem();
+                                                if (!item.IsEngram)
+                                                {
 
-            inventoryItems.Add(item);
-        }
-    }
-});
+                                                    inventoryItems.Add(item);
+                                                }
+                                            }
+                                        });
                                     }
 
 

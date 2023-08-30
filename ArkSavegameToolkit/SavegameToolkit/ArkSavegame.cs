@@ -294,6 +294,9 @@ namespace SavegameToolkit
             var timeTaken = TimeSpan.FromTicks(endRead - startRead);
             Console.WriteLine($"Read ended in {timeTaken.ToString()}");
 
+
+            var test = Objects.Where(x => x.ClassString.ToLower().Contains("dedicated")).ToList();
+
             OldNameList = archive.HasUnknownNames ? archive.NameTable : null;
             HasUnknownData = archive.HasUnknownData;
         }
