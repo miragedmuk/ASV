@@ -69,8 +69,6 @@ namespace SavegameToolkit
 
         public List<HibernationEntry> HibernationEntries { get; } = new List<HibernationEntry>();
 
-        public List<StoredSummaryEntry> StoredSummaryEntries { get; } = new List<StoredSummaryEntry>();
-
         public bool HasUnknownNames => OldNameList != null;
 
         public bool HasUnknownData { get; set; }
@@ -658,10 +656,6 @@ namespace SavegameToolkit
 
                         addObject(dinoComponent, true);
 
-                        int tribeId = dinoComponent.GetPropertyValue<int>("TargetingTeam");
-                        
-                        var newSummary = new StoredSummaryEntry(tribeId, dinoComponent.Location, dinoComponent.ClassString, storeSummary.Summary, storeSummary.Gender, storeSummary.Colors, storeSummary.Stats);
-                        StoredSummaryEntries.Add(newSummary);
                     }
                 }
             }
