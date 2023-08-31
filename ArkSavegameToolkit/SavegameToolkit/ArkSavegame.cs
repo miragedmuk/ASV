@@ -58,9 +58,6 @@ namespace SavegameToolkit
 
         private int hibernationV8Unknown4;
 
-        // Ark version 349.10 introduced two new unknown hibernation entries, the save version remained 9, though. Saving these is not supported.
-        private int hibernationV9_34910Unknown1;
-        private int hibernationV9_34910Unknown2;
 
         private int hibernationUnknown1;
 
@@ -334,7 +331,8 @@ namespace SavegameToolkit
                 int shouldBeZero = archive.ReadInt();
                 if (shouldBeZero != 0)
                 {
-                    throw new NotSupportedException("The stuff at this position should be zero: " + (archive.Position - 4).ToString("X4"));
+                   
+                   throw new NotSupportedException("The stuff at this position should be zero: " + (archive.Position - 4).ToString("X4"));
                 }
             }
             else
@@ -673,12 +671,6 @@ namespace SavegameToolkit
         {
             if (!options.Hibernation)
             {
-                hibernationV8Unknown1 = 0;
-                hibernationV8Unknown2 = 0;
-                hibernationV8Unknown3 = 0;
-                hibernationV8Unknown4 = 0;
-                hibernationUnknown1 = 0;
-                hibernationUnknown2 = 0;
                 hibernationClasses.Clear();
                 hibernationIndices.Clear();
                 HibernationEntries.Clear();
@@ -687,44 +679,19 @@ namespace SavegameToolkit
             }
 
             archive.Position = hibernationOffset;
-
-            if (SaveVersion > 7)
+            while(archive.Position < nameTableOffset)
             {
-                hibernationV8Unknown1 = archive.ReadInt();
-                hibernationV8Unknown2 = archive.ReadInt();
-                hibernationV8Unknown3 = archive.ReadInt();
-                hibernationV8Unknown4 = archive.ReadInt();
-            }
-
-            // in Ark version 349.10 new unknown bytes appeared, the save version remained at 9. This is a workaround to handle these values.
-            // it's assumed there are two new int32, making it a total of 6 unknown int32 along with the 4 version8 int32, the first two are -1 and 2, and all of these 6 int32 are repeated once.
-            if (SaveVersion > 8 && hibernationV8Unknown1 == -1 && hibernationV8Unknown2 == 2)
-            {
-                archive.DebugMessage("non-zero unknown V9 fields, expecting duplicated set per 349.10");
-                hibernationV9_34910Unknown1 = archive.ReadInt();
-                hibernationV9_34910Unknown2 = archive.ReadInt();
-
-
-                if (!(hibernationV8Unknown1 == archive.ReadInt()
-                      && hibernationV8Unknown2 == archive.ReadInt()
-                      && hibernationV8Unknown3 == archive.ReadInt()
-                      && hibernationV8Unknown4 == archive.ReadInt()
-                      && hibernationV9_34910Unknown1 == archive.ReadInt()
-                      && hibernationV9_34910Unknown2 == archive.ReadInt()))
+                if (archive.ReadSByte() == -52) //regardless of anything before the hibernated class count always seems to follow immediately after this byte
                 {
-                    throw new NotSupportedException("349.10 workaround for duplicate unknown hibernation bytes failed");
+                    break;
                 }
             }
 
-      
             // No hibernate section if we reached the nameTable
             if (archive.Position == nameTableOffset)
             {
                 return;
             }
-
-            hibernationUnknown1 = archive.ReadInt();
-            hibernationUnknown2 = archive.ReadInt();
 
             int hibernatedClassesCount = archive.ReadInt();
 

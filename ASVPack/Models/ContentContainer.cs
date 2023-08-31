@@ -1043,6 +1043,7 @@ namespace ASVPack.Models
                                 item.ClassName = itemClass;
                                 item.Quantity = x.GetPropertyValue<int>("ResourceCount");
                                 item.Rating = 0;
+                                item.OwnerPlayerId = x.GetPropertyValue<int>("OwningPlayerID");
 
                                 if(item.Quantity !=0) inventoryItems.Add(item);
                             }

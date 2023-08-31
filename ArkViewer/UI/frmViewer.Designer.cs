@@ -2035,7 +2035,7 @@ namespace ARKViewer
             // 
             // lvwStructureLocations_LastTime
             // 
-            lvwStructureLocations_LastTime.Text = "Tribe In Range";
+            lvwStructureLocations_LastTime.Text = "Ally In Range";
             lvwStructureLocations_LastTime.Width = 120;
             // 
             // lvwStructureLocations_DecayReset

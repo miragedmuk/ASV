@@ -36,27 +36,12 @@ namespace ASVPack.Models
             {
                 List<DateTime> possibleDates = new List<DateTime>();
 
-
+                possibleDates.Add(TribeFileDate);
                 var maxPlayer = Players.Max(p => p.LastActiveDateTime);
                 if (maxPlayer != null && maxPlayer.HasValue) possibleDates.Add(maxPlayer.Value);
-
-
-                /*var lastTameRange = Tames.Max(t => t.LastAllyInRangeTime);
-                if (lastTameRange != null && lastTameRange.HasValue) possibleDates.Add(lastTameRange.Value);
-
-                var lastStructureRange = Structures.Max(s => s.LastAllyInRangeTime);
-                if (lastStructureRange != null && lastStructureRange.HasValue) possibleDates.Add(lastStructureRange.Value);
-                */
-                if (possibleDates.Count > 0)
-                {
-                    //activity
-                    return possibleDates.Max();
-                }
-                else
-                {
-                    //non player related last activity - dino deaths, structure decay etc.
-                    return TribeFileDate;
-                }
+                    
+                return possibleDates.Max();
+                
 
 
             }

@@ -35,39 +35,46 @@ namespace SavegameToolkit
             var objectType = archive.ReadString(); //type?
             if (objectType.Equals("dino", StringComparison.InvariantCultureIgnoreCase))
             {
-                var unknown1 = archive.ReadInt(); //unknown
+                var stringPropertyCount = archive.ReadInt(); //7
                 var className = archive.ReadString(); //class name instance
                 var nameAndLevel = archive.ReadString(); //name and level
                 var colorCodeCsv = archive.ReadString(); //csv list of color #
-                
-                var neutered = archive.ReadString(); //
+                var neutered = archive.ReadString(); //NEUTERED or <empty>
                 var gender = archive.ReadString(); //gender
+                var storeUnknown1 = archive.ReadString(); 
+                var storeUnknown2 = archive.ReadString(); 
 
-                archive.SkipBytes(14);//?
+                var floatPropertyCount = archive.ReadInt(); //float count (25)
+                var hp = archive.ReadFloat(); //1
+                var stamina = archive.ReadFloat(); //2
+                var weight = archive.ReadFloat(); //3
+                var oxy = archive.ReadFloat(); //4
+                var food = archive.ReadFloat(); //5
+                var speed = archive.ReadFloat(); //6
+                var imprint = archive.ReadFloat(); //7
+                var torpor = archive.ReadFloat(); //8
 
-                var hp = archive.ReadFloat();
-                var stamina = archive.ReadFloat();
-                var weight = archive.ReadFloat();
-                var oxy = archive.ReadFloat();
-                var food = archive.ReadFloat();
-                var speed = archive.ReadFloat();
-                var imprint = archive.ReadFloat();
-                var torpor = archive.ReadFloat();
+                var melee = 1 + archive.ReadFloat(); //9
+                var storeUnknown3 = archive.ReadFloat(); //10
+                var storeUnknown4 = archive.ReadFloat(); //11
+                var storeUnknown5 = archive.ReadFloat(); //12
 
+                var hpMax = archive.ReadFloat();//13
+                var staminaMax = archive.ReadFloat(); //14
+                var weightMax = archive.ReadFloat(); //15
+                var oxyMax = archive.ReadFloat(); //16
+                var foodMax = archive.ReadFloat(); //17
+                var speedMax = archive.ReadFloat(); //18
+                var imprintMax = archive.ReadFloat(); //19
+                var torporMax = archive.ReadFloat(); //20
+                var meleeMax = 1 + archive.ReadFloat(); //21
 
-                archive.SkipBytes(16); //unknown, need to identify
+                var storeUnknown6 = archive.ReadFloat(); //22
+                var storeUnknown7 = archive.ReadFloat(); //23
+                var storeUnknown8 = archive.ReadFloat(); //24
+                var storeUnknown9 = archive.ReadFloat(); //25
 
-                var hpMax = archive.ReadFloat();
-                var staminaMax = archive.ReadFloat();
-                var weightMax = archive.ReadFloat();
-                var oxyMax = archive.ReadFloat();
-                var foodMax = archive.ReadFloat();
-                var speedMax = archive.ReadFloat();
-                var imprintMax = archive.ReadFloat();
-                var torporMax = archive.ReadFloat();
-
-                archive.SkipBytes(20);//?
-
+                
                 var colorCount = archive.ReadInt(); //color name count
                 List<string> colorNames = new List<string>();
                 while (colorCount-- > 0)
@@ -96,14 +103,16 @@ namespace SavegameToolkit
                 Stats.Add("Weight", string.Concat(weight, " / ", weightMax));
                 Stats.Add("Oxygen", string.Concat(oxy, " / ", oxyMax));
                 Stats.Add("Food", string.Concat(food, " / ", foodMax));
-                Stats.Add("Speed", string.Concat(speed, " / ", speedMax));
-                Stats.Add("Imprint", string.Concat(imprint, " / ", imprintMax));
+                Stats.Add("Speed", string.Concat(speed, "%"));
+                Stats.Add("Imprint", string.Concat((imprint * 100).ToString("f1"), "%"));
                 Stats.Add("Torpor", string.Concat(torpor, " / ", torporMax));
+                Stats.Add("Melee", string.Concat((melee * 100).ToString("f1"), "%"));
 
             }
 
-
-            archive.SkipBytes(8);//?
+            var u0 = archive.ReadLong();
+            //var u1 = archive.ReadInt();
+            //archive.SkipBytes(8);//?
 
             propertiesOffset = archive.Position;
 

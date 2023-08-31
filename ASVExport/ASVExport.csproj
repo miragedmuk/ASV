@@ -4,8 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <StartupObject>ASVExport.Program</StartupObject>
-    <AssemblyVersion>4.6.0.2</AssemblyVersion>
-    <FileVersion>4.6.0.2</FileVersion>
+    <AssemblyVersion>4.6.0.3</AssemblyVersion>
+    <FileVersion>4.6.0.3</FileVersion>
     <BaseOutputPath>c:\temp\ASV\</BaseOutputPath>
     <ApplicationIcon>asvexporticon.ico</ApplicationIcon>
   </PropertyGroup>
