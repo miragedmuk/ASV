@@ -59,28 +59,7 @@ namespace SavegameToolkit.Data {
             return extraDataFoliage;
         }
 
-        public IExtraData ReadJson(GameObject o, JToken node) {
-            int structMapCount = ((JArray)node).Count;
-
-            List<Dictionary<string, StructPropertyList>> structMapList = new List<Dictionary<string, StructPropertyList>>(structMapCount);
-
-            foreach (JToken structMapJson in node) {
-                Dictionary<string, StructPropertyList> structMap = new Dictionary<string, StructPropertyList>();
-
-                foreach (KeyValuePair<string, JToken> pair in (JObject)structMapJson) {
-                    string key = pair.Key == ExtraDataFoliage.NullPlaceholder ? null : pair.Key;
-                    structMap[key] = new StructPropertyList((JArray)pair.Value);
-                }
-
-                structMapList.Add(structMap);
-            }
-
-            ExtraDataFoliage extraDataFoliage = new ExtraDataFoliage {
-                    StructMapList = structMapList
-            };
-
-            return extraDataFoliage;
-        }
+       
     }
 
 }

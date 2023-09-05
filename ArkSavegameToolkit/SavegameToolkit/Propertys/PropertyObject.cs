@@ -25,14 +25,6 @@ namespace SavegameToolkit.Propertys {
             Value = new ObjectReference(node["value"], DataSize);
         }
 
-        protected override void writeJsonValue(JsonTextWriter generator, WritingOptions writingOptions) {
-            if (!writingOptions.Compact) {
-                generator.WritePropertyName("value");
-            }
-            Value.WriteJson(generator, writingOptions);
-        }
-
-        protected override void writeBinaryValue(ArkArchive archive) => Value.WriteBinary(archive);
 
         protected override int calculateDataSize(NameSizeCalculator nameSizer) => Value.Size(nameSizer);
 

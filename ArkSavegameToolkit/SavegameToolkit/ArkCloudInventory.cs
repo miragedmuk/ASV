@@ -60,18 +60,6 @@ namespace SavegameToolkit {
             }
         }
 
-        public void WriteBinary(ArkArchive archive, WritingOptions options) {
-            archive.WriteInt(InventoryVersion);
-            archive.WriteInt(Objects.Count);
-
-            foreach (GameObject gameObject in Objects) {
-                propertiesBlockOffset = gameObject.WriteBinary(archive, propertiesBlockOffset);
-            }
-
-            foreach (GameObject gameObject in Objects) {
-                gameObject.WriteProperties(archive, 0);
-            }
-        }
 
         public int CalculateSize() {
             int size = sizeof(int) * 2;
@@ -88,56 +76,6 @@ namespace SavegameToolkit {
 
         #endregion
 
-        #region json read/write
-
-        public void ReadJson(JToken node, ReadingOptions readingOptions) {
-            InventoryVersion = node.Value<int>("inventoryVersion");
-
-            Objects.Clear();
-            ObjectMap.Clear();
-            JToken inventoryDataToken = node["inventoryData"];
-            if (inventoryDataToken != null && inventoryDataToken.Type != JTokenType.Null) {
-                addObject(new GameObject((JObject)inventoryDataToken), readingOptions.BuildComponentTree);
-                inventoryData = Objects[0];
-            }
-
-            JToken objectsToken = node["objects"];
-            if (objectsToken != null && objectsToken.Type != JTokenType.Null) {
-                foreach (JToken objectNode in objectsToken) {
-                    addObject(new GameObject((JObject)objectNode), readingOptions.BuildComponentTree);
-                }
-            }
-        }
-
-        public void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteStartObject();
-
-            generator.WriteField("inventoryVersion", InventoryVersion);
-            generator.WritePropertyName("inventoryData");
-            if (inventoryData != null) {
-                inventoryData.WriteJson(generator, writingOptions);
-            } else {
-                generator.WriteNull();
-            }
-
-            if (Objects.Count > (inventoryData == null ? 0 : 1)) {
-                generator.WriteArrayFieldStart("objects");
-
-                foreach (GameObject gameObject in Objects) {
-                    if (gameObject == inventoryData) {
-                        continue;
-                    }
-
-                    gameObject.WriteJson(generator, writingOptions);
-                }
-
-                generator.WriteEndArray();
-            }
-
-            generator.WriteEndObject();
-        }
-
-        #endregion
     }
 
 }

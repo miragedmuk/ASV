@@ -58,13 +58,6 @@ namespace SavegameToolkit.Arrays {
             throw new UnreadablePropertyException($"Unknown Array Type {arrayType} at {archive.Position:X4}");
         }
 
-        public static IArkArray ReadJson(JArray node, ArkName arrayType, PropertyArray property) {
-            if (arrayType != null && types.TryGetValue(arrayType, out ArkArrayConstructor constructor)) {
-                return constructor.JsonConstructor(node, property);
-            }
-
-            throw new UnreadablePropertyException("Unknown Array Type " + arrayType);
-        }
     }
 
 }

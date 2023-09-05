@@ -37,18 +37,6 @@ namespace SavegameToolkit {
             }
         }
 
-        public void WriteBinary(ArkArchive archive, WritingOptions options) {
-            archive.WriteInt(Objects.Count);
-
-            foreach (GameObject gameObject in Objects) {
-                propertiesBlockOffset = gameObject.WriteBinary(archive, propertiesBlockOffset);
-            }
-
-            foreach (GameObject gameObject in Objects) {
-                gameObject.WriteProperties(archive, 0);
-            }
-        }
-
         public int CalculateSize() {
             int size = sizeof(int);
             NameSizeCalculator nameSizer = ArkArchive.GetNameSizer(false);
@@ -60,84 +48,6 @@ namespace SavegameToolkit {
             return size;
         }
 
-        public void ReadJson(JToken node, ReadingOptions options) {
-            Objects.Clear();
-            ObjectMap.Clear();
-            if (node.Type == JTokenType.Array) {
-                foreach (JToken jsonObject in node) {
-                    addObject(new GameObject((JObject)jsonObject), options.BuildComponentTree);
-                }
-            } else {
-                var objectsNode = node["objects"];
-                if (objectsNode != null && objectsNode.Type != JTokenType.Null) {
-                    foreach (JToken jsonObject in objectsNode) {
-                        addObject(new GameObject((JObject)jsonObject), options.BuildComponentTree);
-                    }
-                }
-            }
-        }
-
-        public void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteStartArray();
-
-            foreach (GameObject gameObject in Objects) {
-                gameObject.WriteJson(generator, writingOptions);
-            }
-
-            generator.WriteEndArray();
-        }
-
-        private MemoryStream toBuffer() {
-            int size = sizeof(int);
-
-            NameSizeCalculator nameSizer = ArkArchive.GetNameSizer(false);
-
-            size += Objects.Sum(o => o.Size(nameSizer));
-
-            int propertiesBlockOffset = size;
-
-            size += Objects.Sum(o => o.PropertiesSize(nameSizer));
-
-            MemoryStream buffer = new MemoryStream(new byte[size], true);
-            ArkArchive archive = new ArkArchive(buffer);
-
-            archive.WriteInt(Objects.Count);
-
-            foreach (GameObject gameObject in Objects) {
-                propertiesBlockOffset = gameObject.WriteBinary(archive, propertiesBlockOffset);
-            }
-
-            foreach (GameObject gameObject in Objects) {
-                gameObject.WriteProperties(archive, 0);
-            }
-
-            return buffer;
-
-        }
-
-        public ArkArrayUInt8 ToByteArray() {
-            MemoryStream buffer = toBuffer();
-
-            ArkArrayUInt8 result = new ArkArrayUInt8();
-
-            buffer.Position = 0;
-
-            result.AddRange(buffer.ToArray());
-
-            return result;
-        }
-
-        public ArkArrayInt8 ToSignedByteArray() {
-            MemoryStream buffer = toBuffer();
-
-            ArkArrayInt8 result = new ArkArrayInt8();
-
-            buffer.Position = 0;
-
-            result.AddRange(buffer.ToArray());
-
-            return result;
-        }
 
     }
 

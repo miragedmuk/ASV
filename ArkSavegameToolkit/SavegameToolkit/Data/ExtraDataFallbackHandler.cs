@@ -26,18 +26,7 @@ namespace SavegameToolkit.Data {
             return extraData;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="gameObject"></param>
-        /// <param name="node"></param>
-        /// <returns></returns>
-        /// <exception cref="FormatException"></exception>
-        public IExtraData ReadJson(GameObject gameObject, JToken node) {
-            return new ExtraDataBlob {
-                    Data = node.ToObject<byte[]>()
-            };
-        }
+
     }
 
 }

@@ -15,9 +15,6 @@ namespace SavegameToolkit.Arrays {
 
         int CalculateSize(NameSizeCalculator nameSizer);
 
-        void WriteJson(JsonTextWriter generator, WritingOptions writingOptions);
-
-        void WriteBinary(ArkArchive archive);
 
     }
 

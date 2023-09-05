@@ -40,11 +40,7 @@ namespace SavegameToolkit.Types {
             readBinary(archive);
         }
 
-        public ObjectReference(JToken node, int length) {
-            Length = length;
-            readJson(node);
-        }
-
+      
         public override string ToString() {
             return $"ObjectReference [ObjectType={ObjectType}, ObjectId={ObjectId}, ObjectString={ObjectString}, Length={Length}]";
         }
@@ -55,40 +51,6 @@ namespace SavegameToolkit.Types {
             }
 
             return null;
-        }
-
-        private void readJson(JToken node) {
-            switch (node.Type) {
-                case JTokenType.Integer:
-                    ObjectId = node.Value<int>();
-                    ObjectType = TypeId;
-                    break;
-                case JTokenType.String:
-                    ObjectString = ArkName.From(node.Value<string>());
-                    ObjectType = TypePath;
-                    break;
-                default:
-                    ObjectString = ArkName.From(node.Value<string>("value"));
-                    ObjectType = node.Value<bool>("short") ? TypePathNoType : TypePath;
-                    break;
-            }
-        }
-
-        public void WriteJson(JsonTextWriter writer, WritingOptions writingOptions) {
-            switch (ObjectType) {
-                case TypeId:
-                    writer.WriteValue(ObjectId);
-                    break;
-                case TypePath:
-                    writer.WriteValue(ObjectString.ToString());
-                    break;
-                case TypePathNoType:
-                    writer.WriteStartObject();
-                    writer.WriteField("value", ObjectString.ToString());
-                    writer.WriteField("short", true);
-                    writer.WriteEndObject();
-                    break;
-            }
         }
 
         public int Size(NameSizeCalculator nameSizer) {

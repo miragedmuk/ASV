@@ -23,8 +23,6 @@ namespace SavegameToolkit.Structs {
 
         public override void Init(JObject node) => throw new NotImplementedException();
 
-        public override void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) => generator.WriteValue(value);
-
         public override void WriteBinary(ArkArchive archive) => archive.WriteBytes(value);
 
         public override int Size(NameSizeCalculator nameSizer) => value.Length;

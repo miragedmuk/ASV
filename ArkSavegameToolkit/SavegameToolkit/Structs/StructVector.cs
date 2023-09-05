@@ -25,25 +25,6 @@ namespace SavegameToolkit.Structs {
             Y = node.Value<float>("y");
             Z = node.Value<float>("z");
         }
-
-        public override void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteStartObject();
-
-            if (Math.Abs(X) > 0f) {
-                generator.WriteField("x", X);
-            }
-
-            if (Math.Abs(Y) > 0f) {
-                generator.WriteField("y", Y);
-            }
-
-            if (Math.Abs(Z) > 0f) {
-                generator.WriteField("z", Z);
-            }
-
-            generator.WriteEndObject();
-        }
-
         public bool ShouldSerializeX() => Math.Abs(X) > 0f;
         public bool ShouldSerializeY() => Math.Abs(Y) > 0f;
         public bool ShouldSerializeZ() => Math.Abs(Z) > 0f;

@@ -31,14 +31,6 @@ namespace SavegameToolkit.Arrays {
             return Count;
         }
 
-        public override void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteValue(ToArray());
-        }
-
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteBytes(ToArray());
-        }
-
     }
 
 }

@@ -16,44 +16,32 @@ namespace SavegameToolkit {
     public class GameObject : IPropertyContainer, INameContainer {
         private static readonly HashSet<Guid> uuidCache = new HashSet<Guid>();
 
-        [JsonProperty(Order = 0)]
         public int Id { get; set; }
 
-        [JsonProperty(Order = 1)]
         public Guid Uuid { get; set; }
 
-        [JsonProperty("Class", Order = 2)]
         public ArkName ClassName { get; set; }
 
-        [JsonProperty("Item", Order = 3)]
         public bool IsItem { get; set; }
 
-        [JsonProperty(Order = 4)]
         public readonly List<ArkName> Names = new List<ArkName>();
 
-        [JsonProperty(Order = 5)]
         public bool FromDataFile { get; private set; }
 
-        [JsonProperty(Order = 6)]
         public int DataFileIndex { get; private set; }
 
-        [JsonProperty(Order = 7)]
         public LocationData Location { get; set; }
 
         public bool IsCryo {get; set;}
         public bool IsVivarium { get; set; }
 
-        /// <summary>
-        /// Cached propertiesSize, avoids calculating the size of properties twice
-        /// </summary>
+
         private int propertiesSize;
 
         private int propertiesOffset;
 
-        [JsonProperty(Order = 8)]
         public List<IProperty> Properties { get; } = new List<IProperty>();
 
-        [JsonProperty("Extra", Order = 9)]
         public IExtraData ExtraData { get; set; }
 
         public GameObject Parent { get; set; }
@@ -70,130 +58,11 @@ namespace SavegameToolkit {
             readBinary(archive);
         }
 
-        public GameObject(JObject node, bool loadProperties = true) : this() {
-            readJson(node, loadProperties);
-        }
-
         public string ClassString {
             get => ClassName?.ToString()??"";
             set => ClassName = ArkName.From(value);
         }
 
-        public void WriteProperties(ArkArchive archive, int propertiesBlockOffset) {
-            archive.Position = propertiesBlockOffset + propertiesOffset;
-
-            Properties?.ForEach(p => p.WriteBinary(archive));
-
-            archive.WriteName(ArkName.NameNone);
-
-            if (ExtraData != null) {
-                ExtraData.WriteBinary(archive);
-            } else {
-                throw new NotSupportedException("Cannot write binary data without known extra data");
-            }
-        }
-
-        private void readJson(JObject node, bool loadProperties) {
-            Uuid = new Guid(node.Value<string>("uuid") ?? Guid.Empty.ToString());
-            uuidCache.Add(Uuid);
-            ClassName = ArkName.From(node.Value<string>("class"));
-            IsItem = node.Value<bool>("item");
-
-            Names.Clear();
-            JArray namesArray = node.Value<JArray>("names");
-            if (namesArray != null) {
-                foreach (string nameNode in namesArray.Values<string>()) {
-                    Names.Add(ArkName.From(nameNode));
-                }
-            }
-
-            FromDataFile = node.Value<bool>("fromDataFile");
-            DataFileIndex = node.Value<int>("dataFileIndex");
-
-            Location = node.TryGetValue("location", out JToken location) ? new LocationData(location) : null;
-
-            Properties.Clear();
-            if (loadProperties) {
-                JArray properties = node.Value<JArray>("properties");
-
-                if (properties != null) {
-                    foreach (JToken propertyNode in properties) {
-                        Properties.Add(PropertyRegistry.ReadJson((JObject)propertyNode));
-                    }
-                }
-
-                JToken extra = node["extra"];
-                ExtraData = extra != null ? ExtraDataRegistry.GetExtraData(this, extra) : null;
-            } else {
-                ExtraData = null;
-            }
-        }
-
-        public void WriteJson(JsonTextWriter writer, WritingOptions writingOptions) {
-            writer.WriteStartObject();
-
-            writer.WriteField("id", Id);
-
-            if (Uuid != Guid.Empty) {
-                writer.WriteField("uuid", Uuid.ToString());
-            }
-
-            if (ClassName != null) {
-                writer.WriteField("class", ClassName.ToString());
-            }
-
-            if (IsItem) {
-                writer.WriteField("item", IsItem);
-            }
-
-            if (Names?.Any() == true) {
-                writer.WriteArrayFieldStart("names");
-
-                foreach (ArkName name in Names) {
-                    writer.WriteValue(name.ToString());
-                }
-
-                writer.WriteEndArray();
-            }
-
-            if (FromDataFile) {
-                writer.WriteField("fromDataFile", FromDataFile);
-            }
-
-            if (DataFileIndex != 0) {
-                writer.WriteField("dataFileIndex", DataFileIndex);
-            }
-
-            if (Location != null) {
-                writer.WritePropertyName("location");
-                Location.WriteJson(writer);
-            }
-
-            if (Properties?.Any() == true) {
-                if (writingOptions.Compact) {
-                    writer.WriteObjectFieldStart("properties");
-                } else {
-                    writer.WriteArrayFieldStart("properties");
-                }
-                
-                foreach (IProperty property in Properties) {
-                    property.WriteJson(writer, writingOptions);
-                }
-
-                if (writingOptions.Compact) {
-                    writer.WriteEndObject();
-                } else {
-                    writer.WriteEndArray();
-                }
-            }
-
-            if (ExtraData != null) {
-                writer.WritePropertyName("extra");
-                ExtraData.WriteJson(writer, writingOptions);
-            }
-
-            writer.WriteEndObject();
-        }
 
         // ReSharper disable UnusedMember.Global
         public bool ShouldSerializeId() => true;
@@ -322,41 +191,7 @@ namespace SavegameToolkit {
             
         }
 
-        public int WriteBinary(ArkArchive archive, int offset) {
-            if (Uuid != Guid.Empty) {
-                archive.WriteBytes(Uuid.ToBytes());
-            } else {
-                archive.WriteLong(0);
-                archive.WriteLong(0);
-            }
-
-            archive.WriteName(ClassName);
-            archive.WriteBool(IsItem);
-
-            if (Names != null) {
-                archive.WriteInt(Names.Count);
-                Names.ForEach(archive.WriteName);
-            } else {
-                archive.WriteInt(0);
-            }
-
-            archive.WriteBool(FromDataFile);
-            archive.WriteInt(DataFileIndex);
-
-            if (Location != null) {
-                archive.WriteBool(true);
-                Location.WriteBinary(archive);
-            } else {
-                archive.WriteBool(false);
-            }
-
-            propertiesOffset = offset;
-            archive.WriteInt(propertiesOffset);
-            archive.WriteInt(0);
-
-            return offset + propertiesSize;
-        }
-
+        
         public void CollectNames(NameCollector collector) {
             collector(ClassName);
 

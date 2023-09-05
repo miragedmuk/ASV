@@ -46,27 +46,6 @@ namespace SavegameToolkit.Propertys {
             }
         }
 
-        public override void Init(JObject node) {
-            base.Init(node);
-            structType = ArkName.From(node.Value<string>("structType"));
-
-            Value = node["unknown"] != null && node["unknown"].Type != JTokenType.Null ? new StructUnknown(node["unknown"]) : StructRegistry.ReadJson(node["value"], structType);
-        }
-
-        protected override void writeBinaryValue(ArkArchive archive) {
-            archive.WriteName(structType);
-            Value.WriteBinary(archive);
-        }
-
-        protected override void writeJsonValue(JsonTextWriter generator, WritingOptions writingOptions) {
-            if (!writingOptions.Compact) {
-                generator.WriteField("structType", structType.ToString());
-
-                generator.WritePropertyName(Value is StructUnknown ? "unknown" : "value");
-            }
-            Value.WriteJson(generator, writingOptions);
-        }
-
         protected override int calculateAdditionalSize(NameSizeCalculator nameSizer) => nameSizer(structType);
 
         protected override int calculateDataSize(NameSizeCalculator nameSizer) => Value.Size(nameSizer);

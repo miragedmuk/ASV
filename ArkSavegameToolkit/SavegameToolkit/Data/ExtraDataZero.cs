@@ -8,13 +8,6 @@ namespace SavegameToolkit.Data {
             return 4;
         }
 
-        public void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteNull();
-        }
-
-        public void WriteBinary(ArkArchive archive) {
-            archive.WriteInt(0);
-        }
 
     }
 

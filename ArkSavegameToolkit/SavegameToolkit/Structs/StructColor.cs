@@ -30,28 +30,6 @@ namespace SavegameToolkit.Structs {
             A = node.Value<byte>("a");
         }
 
-        public override void WriteJson(JsonTextWriter writer, WritingOptions writingOptions) {
-            writer.WriteStartObject();
-
-            if (B != 0) {
-                writer.WriteField("b", B);
-            }
-
-            if (G != 0) {
-                writer.WriteField("g", G);
-            }
-
-            if (R != 0) {
-                writer.WriteField("r", R);
-            }
-
-            if (A != 0) {
-                writer.WriteField("a", A);
-            }
-
-            writer.WriteEndObject();
-        }
-
         public bool ShouldSerializeR() => Math.Abs(R) > 0f;
         public bool ShouldSerializeG() => Math.Abs(G) > 0f;
         public bool ShouldSerializeB() => Math.Abs(B) > 0f;

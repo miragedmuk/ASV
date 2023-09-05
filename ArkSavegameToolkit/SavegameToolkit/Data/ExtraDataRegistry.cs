@@ -44,22 +44,6 @@ namespace SavegameToolkit.Data {
             return fallbackHandler.ReadBinary(gameObject, archive, length);
         }
 
-        /// <summary>
-        /// Searches <see cref="extraDataHandlers"/> in reverse Order and terminates on the first
-        /// <see cref="IExtraDataHandler"/> which can handle given <see cref="GameObject"/>
-        /// </summary>
-        /// <param name="gameObject"></param>
-        /// <param name="node"></param>
-        /// <returns></returns>
-        public static IExtraData GetExtraData(GameObject gameObject, JToken node) {
-            foreach (IExtraDataHandler handler in extraDataHandlers.Reverse()) {
-                if (handler.CanHandle(gameObject, node)) {
-                    return handler.ReadJson(gameObject, node);
-                }
-            }
-
-            return fallbackHandler.ReadJson(gameObject, node);
-        }
     }
 
 }

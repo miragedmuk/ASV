@@ -39,22 +39,6 @@ namespace SavegameToolkit.Arrays {
             }
         }
 
-        public override void Init(JArray node, PropertyArray property) {
-            int size = property.DataSize;
-
-            ArkName structType = StructRegistry.MapArrayNameToTypeName(property.Name);
-            if (structType == null) {
-                if (size * 4 + 4 == property.DataSize) {
-                    structType = color;
-                } else if (size * 12 + 4 == property.DataSize) {
-                    structType = vector;
-                } else if (size * 16 + 4 == property.DataSize) {
-                    structType = linearColor;
-                }
-            }
-
-            AddRange(node.Select(v => StructRegistry.ReadJson(v, structType)));
-        }
 
         public override ArkName Type => TYPE;
 
@@ -64,20 +48,6 @@ namespace SavegameToolkit.Arrays {
             size += this.Sum(s => s.Size(nameSizer));
 
             return size;
-        }
-
-        public override void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteStartArray();
-
-            ForEach(value => value.WriteJson(generator, writingOptions));
-
-            generator.WriteEndArray();
-        }
-
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteInt(Count);
-
-            ForEach(spl => spl.WriteBinary(archive));
         }
 
         public override void CollectNames(NameCollector collector) {

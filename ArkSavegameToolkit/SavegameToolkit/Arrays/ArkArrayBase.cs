@@ -18,12 +18,6 @@ namespace SavegameToolkit.Arrays {
 
         public abstract int CalculateSize(NameSizeCalculator nameSizer);
 
-        public virtual void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            JsonSerializer.CreateDefault().Serialize(generator, this);
-        }
-
-        public abstract void WriteBinary(ArkArchive archive);
-
         public virtual void CollectNames(NameCollector collector) { }
 
     }

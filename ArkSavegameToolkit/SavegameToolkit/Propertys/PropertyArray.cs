@@ -42,32 +42,7 @@ namespace SavegameToolkit.Propertys {
             }
         }
 
-        public override void Init(JObject node) {
-            base.Init(node);
-            ArkName arrayType = ArkName.From(node.Value<string>("arrayType"));
-
-            try {
-                node["value"].ToObject<byte[]>();
-                Value = new ArkArrayUnknown(node["value"], arrayType);
-            } catch (Exception ex) when (ex is FormatException || ex is OverflowException || ex is JsonReaderException) {
-                Value = ArkArrayRegistry.ReadJson(node.Value<JArray>("value"), arrayType, this);
-            }
-        }
-
         public IArkArray<T> GetTypedValue<T>() => Value is T ? (IArkArray<T>)Value : null;
-
-        protected override void writeBinaryValue(ArkArchive archive) {
-            archive.WriteName(Value.Type);
-            Value.WriteBinary(archive);
-        }
-
-        protected override void writeJsonValue(JsonTextWriter generator, WritingOptions writingOptions) {
-            if (!writingOptions.Compact) {
-                generator.WriteField("arrayType", Value.Type.ToString());
-                generator.WritePropertyName("value");
-            }
-            Value.WriteJson(generator, writingOptions);
-        }
 
         protected override int calculateAdditionalSize(NameSizeCalculator nameSizer) => nameSizer(Value.Type);
 

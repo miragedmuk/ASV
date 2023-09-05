@@ -146,7 +146,7 @@ namespace ASVPack.Models
 
                 logWriter.Debug($"Reading game save data: {saveFilename}");
 
-                using (Stream stream = new MemoryStream(File.ReadAllBytes(saveFilename)))
+                using (Stream stream = File.OpenRead(saveFilename))
                 {
                     using (ArkArchive archive = new ArkArchive(stream))
                     {

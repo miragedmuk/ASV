@@ -42,25 +42,6 @@ namespace SavegameToolkit.Propertys {
             Value = new ArkByteValue(node.Value<byte>("value"));
         }
 
-        protected override void writeJsonValue(JsonTextWriter generator, WritingOptions writingOptions) {
-            if (EnumType != ArkName.NameNone) {
-                if (writingOptions.Compact) {
-                    generator.WriteValue(EnumType.ToString());
-                } else {
-                    generator.WriteField("enum", EnumType.ToString());
-                }
-            } else {
-                if (!writingOptions.Compact) {
-                    generator.WritePropertyName("value");
-                }
-                Value.WriteJson(generator);
-            }
-        }
-
-        protected override void writeBinaryValue(ArkArchive archive) {
-            archive.WriteName(EnumType);
-            Value.WriteBinary(archive);
-        }
 
         protected override int calculateAdditionalSize(NameSizeCalculator nameSizer) => nameSizer(EnumType);
 

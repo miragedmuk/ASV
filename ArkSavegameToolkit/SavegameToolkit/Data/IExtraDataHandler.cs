@@ -10,7 +10,6 @@ namespace SavegameToolkit.Data {
 
         IExtraData ReadBinary(GameObject gameObject, ArkArchive archive, int length);
 
-        IExtraData ReadJson(GameObject gameObject, JToken node);
 
     }
 

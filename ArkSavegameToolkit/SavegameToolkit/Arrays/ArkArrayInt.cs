@@ -23,11 +23,6 @@ namespace SavegameToolkit.Arrays {
             return sizeof(int) + Count * sizeof(int);
         }
 
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteInt(Count);
-
-            ForEach(archive.WriteInt);
-        }
     }
 
 }

@@ -9,10 +9,6 @@ namespace SavegameToolkit.Structs {
 
         public virtual void CollectNames(NameCollector collector) { }
 
-        public abstract void WriteJson(JsonTextWriter generator, WritingOptions writingOptions);
-        //public virtual void WriteJson(JsonTextWriter generator) {
-        //    JsonSerializer.CreateDefault().Serialize(generator, this);
-        //}
 
         public abstract void WriteBinary(ArkArchive archive);
         public abstract int Size(NameSizeCalculator nameSizer);

@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 
 namespace SavegameToolkit.Types {
 
-    [JsonConverter(typeof(ToStringJsonConverter))]
     public sealed class ArkName : IComparable<ArkName>, IComparable, IEquatable<ArkName> {
 
         private readonly string content;
@@ -15,12 +14,8 @@ namespace SavegameToolkit.Types {
 
         public int Instance { get; }
 
-        //private static long serialVersionUID = 1L;
-
+        
         private static readonly Regex nameIndexPattern = new Regex("^(.*)_([0-9]+)$");
-
-        //[ThreadStatic] private static Dictionary<string, ArkName> nameCache = null;
-
 
         private static ThreadLocal<IDictionary<string, ArkName>> _nameCache = new ThreadLocal<IDictionary<string, ArkName>>(() =>
         {

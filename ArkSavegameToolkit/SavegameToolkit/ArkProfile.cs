@@ -80,21 +80,6 @@ namespace SavegameToolkit
 
         }
 
-        public void WriteBinary(ArkArchive archive, WritingOptions options)
-        {
-            archive.WriteInt(ProfileVersion);
-            archive.WriteInt(Objects.Count);
-
-            foreach (GameObject gameObject in Objects)
-            {
-                propertiesBlockOffset = gameObject.WriteBinary(archive, propertiesBlockOffset);
-            }
-
-            foreach (GameObject gameObject in Objects)
-            {
-                gameObject.WriteProperties(archive, 0);
-            }
-        }
 
         public int CalculateSize()
         {
@@ -110,62 +95,6 @@ namespace SavegameToolkit
             return size;
         }
 
-        public void ReadJson(JToken node, ReadingOptions options)
-        {
-            ProfileVersion = node.Value<int>("profileVersion");
-
-            Objects.Clear();
-            ObjectMap.Clear();
-            JObject profileNode = node.Value<JObject>("profile");
-            if (profileNode != null)
-            {
-                addObject(new GameObject(profileNode), options.BuildComponentTree);
-                profile = Objects[0];
-            }
-
-            JArray objectsNode = node.Value<JArray>("objects");
-            if (objectsNode != null)
-            {
-                foreach (JToken objectNode in objectsNode)
-                {
-                    addObject(new GameObject((JObject)objectNode), options.BuildComponentTree);
-                }
-            }
-        }
-
-        public void WriteJson(JsonTextWriter generator, WritingOptions writingOptions)
-        {
-            generator.WriteStartObject();
-
-            generator.WriteField("profileVersion", ProfileVersion);
-            generator.WritePropertyName("profile");
-            if (profile != null)
-            {
-                profile.WriteJson(generator, writingOptions);
-            }
-            else
-            {
-                generator.WriteNull();
-            }
-
-            if (Objects.Count > (profile == null ? 0 : 1))
-            {
-                generator.WriteArrayFieldStart("objects");
-                foreach (GameObject gameObject in Objects)
-                {
-                    if (gameObject == profile)
-                    {
-                        continue;
-                    }
-
-                    gameObject.WriteJson(generator, writingOptions);
-                }
-
-                generator.WriteEndArray();
-            }
-
-            generator.WriteEndObject();
-        }
     }
 
 }

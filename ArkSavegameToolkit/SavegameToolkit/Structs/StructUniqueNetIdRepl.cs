@@ -22,15 +22,6 @@ namespace SavegameToolkit.Structs {
             NetId = node.Value<string>("netId");
         }
 
-        public override void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteStartObject();
-
-            generator.WriteField("unk", Unk);
-            generator.WriteField("netId", NetId);
-
-            generator.WriteEndObject();
-        }
-
         public override void WriteBinary(ArkArchive archive) {
             archive.WriteInt(Unk);
             archive.WriteString(NetId);

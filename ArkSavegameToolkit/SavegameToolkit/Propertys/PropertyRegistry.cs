@@ -72,14 +72,6 @@ namespace SavegameToolkit.Propertys {
             return new PropertyUnknown(archive, name);
         }
 
-        public static IProperty ReadJson(JObject node) {
-            ArkName name = ArkName.From(node.Value<string>("type"));
-
-            return name != null && typeMap.TryGetValue(name, out PropertyConstructor constructor)
-                    ? constructor.JsonConstructor(node)
-                    : new PropertyUnknown(node);
-        }
-
         private class PropertyConstructor {
 
             public delegate IProperty Binary(ArkArchive archive, ArkName name);

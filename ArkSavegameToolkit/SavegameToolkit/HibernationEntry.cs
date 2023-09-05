@@ -46,10 +46,6 @@ namespace SavegameToolkit {
             readBinary(archive, options);
         }
 
-        public HibernationEntry(JToken node, ReadingOptions options) {
-            readJson(node, options);
-        }
-
         private void readBinary(ArkArchive archive, ReadingOptions options) {
             X = archive.ReadFloat();
             Y = archive.ReadFloat();
@@ -115,40 +111,6 @@ namespace SavegameToolkit {
             }
         }
 
-        public void WriteBinary(ArkArchive archive) {
-            archive.WriteFloat(X);
-            archive.WriteFloat(Y);
-            archive.WriteFloat(Z);
-            archive.WriteByte(UnkByte);
-            archive.WriteFloat(UnkFloat);
-
-            archive.WriteInt(nameTableSize);
-            ArkArchive nameArchive = archive.Slice(nameTableSize);
-            nameArchive.WriteInt(3);
-
-            nameArchive.WriteInt(nameTable.Count);
-            nameTable.ForEach(nameArchive.WriteString);
-
-            nameArchive.WriteInt(ZoneVolumes.Count);
-            ZoneVolumes.ForEach(nameArchive.WriteName);
-
-            archive.WriteInt(objectsSize);
-            ArkArchive objectArchive = archive.Slice(objectsSize);
-            objectArchive.WriteInt(Objects.Count);
-
-            int currentOffset = propertiesStart;
-            foreach (GameObject gameObject in Objects) {
-                currentOffset = gameObject.WriteBinary(objectArchive, currentOffset);
-            }
-
-            objectArchive.SetNameTable(nameTable, 0, true);
-            foreach (GameObject gameObject in Objects) {
-                gameObject.WriteProperties(objectArchive, 0);
-            }
-
-            archive.WriteInt(UnkInt1);
-            archive.WriteInt(ClassIndex);
-        }
 
         public int GetSizeAndCollectNames() {
             // x y z unkFloat, unkByte, unkInt1 classIndex nameTableSize objectsSize
@@ -179,62 +141,6 @@ namespace SavegameToolkit {
             return size + nameTableSize + objectsSize;
         }
 
-        private void readJson(JToken node, ReadingOptions options) {
-            X = node.Value<float>("x");
-            Y = node.Value<float>("y");
-            Z = node.Value<float>("z");
-            UnkByte = node.Value<byte>("unkByte");
-            UnkFloat = node.Value<float>("unkFloat");
-
-            ZoneVolumes.Clear();
-            JArray zones = node.Value<JArray>("zones");
-            if (zones != null && zones.Type != JTokenType.Null) {
-                foreach (JToken zone in zones) {
-                    ZoneVolumes.Add(ArkName.From(zone.Value<string>()));
-                }
-            }
-
-            Objects.Clear();
-            ObjectMap.Clear();
-            JArray objectsNode = node.Value<JArray>("objects");
-            if (objectsNode != null && objectsNode.Type != JTokenType.Null) {
-                foreach (var jsonNode in objectsNode) {
-                    addObject(new GameObject((JObject)jsonNode, options.HibernationObjectProperties), options.BuildComponentTree);
-                }
-            }
-
-            UnkInt1 = node.Value<int>("unkInt1");
-            ClassIndex = node.Value<int>("classIndex");
-        }
-
-        public void WriteJson(JsonTextWriter writer, WritingOptions writingOptions) {
-            //JsonSerializer.CreateDefault().Serialize(writer, this);
-            writer.WriteStartObject();
-
-            writer.WriteField("x", X);
-            writer.WriteField("y", Y);
-            writer.WriteField("z", Z);
-            writer.WriteField("unkByte", UnkByte);
-            writer.WriteField("unkFloat", UnkFloat);
-
-            writer.WriteArrayFieldStart("zones");
-            foreach (ArkName zone in ZoneVolumes) {
-                writer.WriteValue(zone.ToString());
-            }
-            writer.WriteEndArray();
-
-            writer.WriteArrayFieldStart("objects");
-            foreach (GameObject gameObject in Objects) {
-                gameObject.WriteJson(writer, writingOptions);
-            }
-            writer.WriteEndArray();
-
-            writer.WriteField("unkInt1", UnkInt1);
-            writer.WriteField("classIndex", ClassIndex);
-
-            writer.WriteEndObject();
-        }
-
         public override GameObject this[int id] => id > 0 && id <= Objects.Count ? Objects[id - 1] : null;
 
         public override GameObject this[ObjectReference reference] {
@@ -251,17 +157,6 @@ namespace SavegameToolkit {
             }
         }
 
-        //public override GameObject GetObject(ObjectReference reference) {
-        //    if (reference == null || !reference.IsId) {
-        //        return null;
-        //    }
-
-        //    if (reference.ObjectId > 0 && reference.ObjectId <= Objects.Count) {
-        //        return Objects[reference.ObjectId - 1];
-        //    }
-
-        //    return null;
-        //}
     }
 
 }

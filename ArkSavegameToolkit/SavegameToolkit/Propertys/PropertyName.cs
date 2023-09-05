@@ -25,15 +25,7 @@ namespace SavegameToolkit.Propertys {
             Value = ArkName.From(node.Value<string>("value"));
         }
 
-        protected override void writeJsonValue(JsonTextWriter writer, WritingOptions writingOptions) {
-            if (writingOptions.Compact) {
-                writer.WriteValue(Value.ToString());
-            } else {
-                writer.WriteField("value", Value.ToString());
-            }
-        }
 
-        protected override void writeBinaryValue(ArkArchive archive) => archive.WriteName(Value);
 
         protected override int calculateDataSize(NameSizeCalculator nameSizer) => nameSizer(Value);
 

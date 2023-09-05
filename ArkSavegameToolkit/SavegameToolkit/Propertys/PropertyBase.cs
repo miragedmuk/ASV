@@ -76,16 +76,6 @@ namespace SavegameToolkit.Propertys {
             return size;
         }
 
-        public void WriteBinary(ArkArchive archive) {
-            archive.WriteName(Name);
-            archive.WriteName(Type);
-            archive.WriteInt(DataSize);
-            archive.WriteInt(Index);
-
-            writeBinaryValue(archive);
-        }
-
-        protected abstract void writeBinaryValue(ArkArchive archive);
 
         /// <summary>
         /// Determines if the dataSize cannot be calculated and thus needs to be recorded.
@@ -93,38 +83,6 @@ namespace SavegameToolkit.Propertys {
         /// <code>true</code> if dataSize needs to be recorded
         /// </summary>
         protected virtual bool isDataSizeNeeded => false;
-
-        public void WriteJson(JsonTextWriter writer, WritingOptions writingOptions) {
-            if (writingOptions.Compact) {
-                writer.WritePropertyName($"{Name}{(Index != 0 ? ":" + Index : string.Empty)}");
-                writeJsonValue(writer, writingOptions);
-                return;
-            }
-
-            writer.WriteStartObject();
-
-            writer.WriteField("name", Name.ToString());
-            writer.WriteField("type", Type.ToString());
-            if (isDataSizeNeeded && DataSize != 0) {
-                writer.WriteField("size", DataSize);
-            }
-
-            if (Index != 0) {
-                writer.WriteField("index", Index);
-            }
-
-            writeJsonValue(writer, writingOptions);
-
-            writer.WriteEndObject();
-        }
-
-        protected virtual void writeJsonValue(JsonTextWriter writer, WritingOptions writingOptions) {
-            if (writingOptions.Compact) {
-                writer.WriteValue(Value);
-            } else {
-                writer.WriteField("value", Value);
-            }
-        }
 
         public virtual void CollectNames(NameCollector collector) {
             collector(Name);

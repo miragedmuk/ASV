@@ -34,22 +34,7 @@ namespace SavegameToolkit.Arrays {
             return size;
         }
 
-        public override void WriteJson(JsonTextWriter writer, WritingOptions writingOptions) {
-            //JsonSerializer.CreateDefault().Serialize(writer, this.Select(name => name.ToString()).ToArray());
-            writer.WriteStartArray();
-
-            foreach (ArkName value in this) {
-                writer.WriteValue(value.ToString());
-            }
-
-            writer.WriteEndArray();
-        }
-
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteInt(Count);
-
-            ForEach(archive.WriteName);
-        }
+        
 
         public override void CollectNames(NameCollector collector) {
             foreach (ArkName arkName in this) {

@@ -24,7 +24,6 @@ namespace SavegameToolkit.Propertys {
             Value = node.Value<sbyte>("value");
         }
 
-        protected override void writeBinaryValue(ArkArchive archive) => archive.WriteSByte(Value);
 
         protected override int calculateDataSize(NameSizeCalculator nameSizer) => sizeof(byte);
     }

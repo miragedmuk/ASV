@@ -28,24 +28,6 @@ namespace SavegameToolkit.Arrays {
             return sizeof(int) + this.Sum(abv => nameSizer(abv.NameValue));
         }
 
-        public override void WriteJson(JsonTextWriter generator, WritingOptions writingOptions) {
-            generator.WriteStartArray();
-
-            // Marker
-            generator.WriteNull();
-            foreach (ArkByteValue bv in this) {
-                generator.WriteValue(bv.NameValue.ToString());
-            }
-
-            generator.WriteEndArray();
-        }
-
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteInt(Count);
-            foreach (ArkByteValue bv in this) {
-                archive.WriteName(bv.NameValue);
-            }
-        }
 
         public override void CollectNames(NameCollector collector) {
             foreach (ArkByteValue bv in this) {

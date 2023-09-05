@@ -24,7 +24,6 @@ namespace SavegameToolkit.Propertys {
             Value = node.Value<bool>("value");
         }
 
-        protected override void writeBinaryValue(ArkArchive archive) => archive.WriteByte((byte)(Value ? 1 : 0));
 
         // Special case: value of PropertyBool is not considered "data"
         protected override int calculateAdditionalSize(NameSizeCalculator nameSizer) => 1;

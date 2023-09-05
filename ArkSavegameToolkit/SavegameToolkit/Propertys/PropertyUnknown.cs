@@ -29,7 +29,6 @@ namespace SavegameToolkit.Propertys {
 
         protected override int calculateDataSize(NameSizeCalculator nameSizer) => Value.Length;
 
-        protected override void writeBinaryValue(ArkArchive archive) => archive.WriteBytes(Value);
     }
 
 }

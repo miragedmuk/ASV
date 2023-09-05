@@ -25,10 +25,6 @@ namespace SavegameToolkit.Data {
             return instance;
         }
 
-        public IExtraData ReadJson(GameObject gameObject, JToken node) {
-            return instance;
-        }
-
     }
 
 }
