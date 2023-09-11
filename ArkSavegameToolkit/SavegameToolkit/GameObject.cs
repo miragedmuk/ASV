@@ -32,8 +32,8 @@ namespace SavegameToolkit {
 
         public LocationData Location { get; set; }
 
-        public bool IsCryo {get; set;}
-        public bool IsVivarium { get; set; }
+        public bool IsInCryo {get; set;}
+        public bool IsInVivarium { get; set; }
 
 
         private int propertiesSize;
@@ -149,7 +149,7 @@ namespace SavegameToolkit {
         }
 
         public void LoadProperties(ArkArchive archive, GameObject next, int propertiesBlockOffset) {
-            int offset = propertiesBlockOffset + propertiesOffset;
+            long offset = propertiesBlockOffset + propertiesOffset;
             long nextOffset = propertiesBlockOffset + next?.propertiesOffset ?? archive.Limit;
 
             archive.Position = offset;
@@ -167,9 +167,15 @@ namespace SavegameToolkit {
             } catch (UnreadablePropertyException upe) {
                 archive.HasUnknownNames = true;
 
+                var extraDataByteLen = nextOffset - position;
+                if(extraDataByteLen < 0)
+                {
+                    return;
+                }
+
                 archive.Position = position;
                 ExtraDataBlob blob = new ExtraDataBlob {
-                        Data = archive.ReadBytes((int)(nextOffset - position))
+                    Data = archive.ReadBytes((int)(extraDataByteLen))                
                 };
                 ExtraData = blob;
 

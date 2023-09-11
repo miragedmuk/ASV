@@ -12,7 +12,7 @@ using SavegameToolkit.Types;
 
 namespace SavegameToolkit
 {
-    public class ArkStore : GameObjectContainerMixin
+    public class ArkCryoStore : GameObjectContainerMixin
     {
         public GameObject? CreatureComponent { get; internal set; } = null;
         public GameObject? StatusComponent { get; internal set; } = null;
@@ -20,7 +20,7 @@ namespace SavegameToolkit
 
         private long propertiesOffset = 0;
 
-        public ArkStore(ArkArchive archive) 
+        public ArkCryoStore(ArkArchive archive) 
         {
             ReadBinary(archive);
         }
@@ -76,6 +76,8 @@ namespace SavegameToolkit
             if (Objects.Count > 0)
             {
                 CreatureComponent = Objects[0];
+                CreatureComponent.IsInCryo = !CreatureComponent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
+                CreatureComponent.IsInVivarium = CreatureComponent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
             }
 
             if (Objects.Count > 1)

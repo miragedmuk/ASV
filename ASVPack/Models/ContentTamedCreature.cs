@@ -102,8 +102,8 @@ namespace ASVPack.Models
             }
 
 
-            IsCryo = creatureObject.IsCryo;
-            IsVivarium = creatureObject.IsVivarium;
+            IsCryo = creatureObject.IsInCryo;
+            IsVivarium = creatureObject.IsInVivarium;
 
 
 
@@ -210,8 +210,8 @@ namespace ASVPack.Models
             }
 
 
-            IsCryo = creatureObject.IsCryo;
-            IsVivarium = creatureObject.IsVivarium;
+            IsCryo = creatureObject.IsInCryo;
+            IsVivarium = creatureObject.IsInVivarium;
 
 
 

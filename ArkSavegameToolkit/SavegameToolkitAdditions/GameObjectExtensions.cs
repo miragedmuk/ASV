@@ -24,7 +24,7 @@ namespace SavegameToolkitAdditions {
                             || gameObject.ClassString == "SRaft_BP_C"
                         )
                         && gameObject.ClassString != "Structure_LoadoutDummy_Hotbar_C"
-                        && gameObject.IsCryo == false
+                        && gameObject.IsInCryo == false
                         & !gameObject.ClassString.StartsWith("DeathItemCache_")
                    );
         }

@@ -21,7 +21,6 @@ namespace SavegameToolkit {
 
         private readonly Stream mbb;
         private readonly BinaryReader mbbReader;
-        private readonly BinaryWriter mbbWriter;
 
         public List<string> NameTable { get; private set; }
 
@@ -38,6 +37,8 @@ namespace SavegameToolkit {
         private readonly char[] smallCharBuffer = new char[bufferSize];
 
         private readonly byte[] smallByteBuffer = new byte[bufferSize];
+        
+        public short SaveVersion { get; internal set; } = 1;
 
         /// <summary>
         /// Enable or disable the current nameTable
@@ -49,7 +50,6 @@ namespace SavegameToolkit {
         public ArkArchive(Stream stream) {
             mbb = stream;
             mbbReader = new BinaryReader(mbb);
-            mbbWriter = new BinaryWriter(mbb);
             state = new ArkArchiveState();
             isSlice = false;
             totalOffset = 0;
@@ -81,6 +81,7 @@ namespace SavegameToolkit {
             mbbReader = new BinaryReader(mbb);
             state = toClone.state;
             isSlice = true;
+            SaveVersion = toClone.SaveVersion;
         }
 
         public ArkArchive Clone() => new ArkArchive(this);
@@ -265,126 +266,6 @@ namespace SavegameToolkit {
 
         #endregion
 
-        #region write data
-
-        /// <summary>
-        /// Writes the index of name in nameTable into the ArkArchive.
-        ///
-        /// Writes the nameIndex of name into the ArkArchive.
-        ///
-        /// Ensures name is in the current nameTable.
-        /// </summary>
-        /// <param name="name"></param>
-        private void writeNameIntoTable(ArkName name) {
-            if (HasInstanceInNameTable) {
-                if (!nameMap.TryGetValue(name.ToString(), out int index)) {
-                    throw new InvalidOperationException("Uncollected Name: " + name);
-                }
-
-                mbbWriter.Write(index);
-            } else {
-                if (!nameMap.TryGetValue(name.Name, out int index)) {
-                    throw new InvalidOperationException("Uncollected Name: " + name.Name);
-                }
-
-                mbbWriter.Write(index);
-                mbbWriter.Write(name.Instance);
-            }
-        }
-
-        /// <summary>
-        /// Writes string to the archive If string contains non-ascii chars a multibyte string will be written
-        /// </summary>
-        /// <param name="s"></param>
-        public void WriteString(string s) {
-            if (s == null) {
-                mbbWriter.Write(0);
-                return;
-            }
-
-            if (string.IsNullOrEmpty(s)) {
-                mbbWriter.Write(1);
-                mbbWriter.Write((byte)0);
-                return;
-            }
-
-            int length = s.Length + 1;
-
-            if (isMultibyte(s)) {
-                mbbWriter.Write(-length);
-                mbbWriter.Write(s.ToCharArray());
-                mbb.Seek(length * 2 - 2, SeekOrigin.Current);
-                mbbWriter.Write((short)0);
-            } else {
-                mbbWriter.Write(length);
-                mbbWriter.Write(Encoding.ASCII.GetBytes(s));
-                mbbWriter.Write((byte)0);
-            }
-        }
-
-        public void WriteName(ArkName name) {
-            if (HasNameTable && UseNameTable) {
-                writeNameIntoTable(name);
-            } else {
-                WriteString(name.ToString());
-            }
-        }
-
-        public void WriteLong(long value) {
-            mbbWriter.Write(value);
-        }
-
-        public void WriteInt(int value) {
-            mbbWriter.Write(value);
-        }
-
-        public void WriteShort(short value) {
-            mbbWriter.Write(value);
-        }
-
-        public void WriteByte(byte value) {
-            mbbWriter.Write(value);
-        }
-
-        public void WriteSByte(sbyte value) {
-            mbbWriter.Write(value);
-        }
-
-        public void WriteDouble(double value) {
-            mbbWriter.Write(value);
-        }
-
-        public void WriteFloat(float value) {
-            mbbWriter.Write(value);
-        }
-
-        /// <summary>
-        /// Writes a bool as an int
-        /// </summary>
-        /// <param name="value"></param>
-        public void WriteBool(bool value) {
-            mbbWriter.Write(value ? 1 : 0);
-        }
-
-        /// <summary>
-        /// Writes <code>value</code> directly to the archive.
-        /// </summary>
-        /// <param name="value"></param>
-        public void WriteBytes(byte[] value) {
-            mbbWriter.Write(value);
-        }
-
-        /// <summary>
-        /// Writes <code>value</code> directly to the archive.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="offset"></param>
-        /// <param name="length"></param>
-        public void WriteBytes(byte[] value, int offset, int length) {
-            mbbWriter.Write(value, offset, length);
-        }
-
-        #endregion
 
         /// <summary>
         /// Indicates that some data couldn't be read.
@@ -465,7 +346,6 @@ namespace SavegameToolkit {
         public void Dispose() {
             mbb?.Dispose();
             mbbReader?.Dispose();
-            mbbWriter?.Dispose();
         }
 
         #endregion

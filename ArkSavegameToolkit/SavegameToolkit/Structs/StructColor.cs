@@ -23,24 +23,11 @@ namespace SavegameToolkit.Structs {
             A = archive.ReadByte();
         }
 
-        public override void Init(JObject node) {
-            B = node.Value<byte>("b");
-            G = node.Value<byte>("g");
-            R = node.Value<byte>("r");
-            A = node.Value<byte>("a");
-        }
 
         public bool ShouldSerializeR() => Math.Abs(R) > 0f;
         public bool ShouldSerializeG() => Math.Abs(G) > 0f;
         public bool ShouldSerializeB() => Math.Abs(B) > 0f;
         public bool ShouldSerializeA() => Math.Abs(A) > 0f;
-
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteByte(B);
-            archive.WriteByte(G);
-            archive.WriteByte(R);
-            archive.WriteByte(A);
-        }
 
         public override int Size(NameSizeCalculator nameSizer) => sizeof(byte) * 4;
     }

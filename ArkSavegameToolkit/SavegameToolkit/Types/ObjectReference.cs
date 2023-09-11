@@ -92,22 +92,6 @@ namespace SavegameToolkit.Types {
             }
         }
 
-        public void WriteBinary(ArkArchive archive) {
-            if (ObjectType == TypePath || Length >= 8 && ObjectType != TypePathNoType) {
-                archive.WriteInt(ObjectType);
-            }
-
-            switch (ObjectType) {
-                case TypeId:
-                    archive.WriteInt(ObjectId);
-                    break;
-                case TypePath:
-                case TypePathNoType:
-                    archive.WriteName(ObjectString);
-                    break;
-            }
-        }
-
         public void CollectNames(NameCollector collector) {
             if (ObjectType == TypePath) {
                 collector(ObjectString);

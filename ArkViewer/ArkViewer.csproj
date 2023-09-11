@@ -4294,6 +4294,7 @@
   <ItemGroup>
     <PackageReference Include="FluentFTP" Version="47.1.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.3.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.2.3" />
     <PackageReference Include="SSH.NET" Version="2020.0.2" />

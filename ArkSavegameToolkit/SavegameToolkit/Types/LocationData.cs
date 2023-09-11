@@ -46,15 +46,6 @@ namespace SavegameToolkit.Types {
             Roll = archive.ReadFloat();
         }
 
-        public void WriteBinary(ArkArchive archive) {
-            archive.WriteFloat(X);
-            archive.WriteFloat(Y);
-            archive.WriteFloat(Z);
-            archive.WriteFloat(Pitch);
-            archive.WriteFloat(Yaw);
-            archive.WriteFloat(Roll);
-        }
-
         public void Skip(ArkArchive archive) {
             archive.SkipBytes(sizeof(float) * 6);
         }

@@ -16,18 +16,8 @@ namespace SavegameToolkit.Structs {
             Y = archive.ReadFloat();
         }
 
-        public override void Init(JObject node) {
-            X = node.Value<float>("x");
-            Y = node.Value<float>("y");
-        }
-
         public bool ShouldSerializeX() => Math.Abs(X) > 0f;
         public bool ShouldSerializeY() => Math.Abs(Y) > 0f;
-
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteFloat(X);
-            archive.WriteFloat(Y);
-        }
 
         public override int Size(NameSizeCalculator nameSizer) => sizeof(float) * 2;
     }

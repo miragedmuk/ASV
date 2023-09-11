@@ -21,9 +21,7 @@ namespace SavegameToolkit.Arrays {
             }
         }
 
-        public override void Init(JArray node, PropertyArray property) {
-            AddRange(node.Select(n => new ObjectReference(n, 8)));
-        }
+        
 
         public override ArkName Type => TYPE;
 

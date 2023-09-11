@@ -1,5 +1,8 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Reflection.Metadata;
+using System.Xml;
+using Microsoft.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SavegameToolkit.Arrays;
@@ -13,6 +16,7 @@ namespace SavegameToolkit
 
     public class ArkSavegame : GameObjectContainerMixin, IConversionSupport
     {
+        
         public short SaveVersion { get; private set; }
         public float GameTime { get; private set; }
         public int SaveCount { get; private set; }
@@ -26,7 +30,20 @@ namespace SavegameToolkit
         private int storedOffset;
         private int nameTableOffset;
         private int propertiesBlockOffset;
-
+        private int hibernationV8Unknown1;
+        private int hibernationV8Unknown2;
+        private int hibernationV8Unknown3;
+        private int hibernationV8Unknown4;
+        private int hibernationV9_34910Unknown1;
+        private int hibernationV9_34910Unknown2;
+        private int hibernationV9Check1;
+        private int hibernationV9Check2;
+        private int hibernationV9Check3;
+        private int hibernationV9Check4;
+        private int hibernationV9Check5;
+        private int hibernationV9Check6;
+        private int hibernationUnknown1;
+        private int hibernationUnknown2;
         private readonly List<string> hibernationClasses = new List<string>();
         private readonly List<int> hibernationIndices = new List<int>();
 
@@ -88,92 +105,90 @@ namespace SavegameToolkit
                     ArkArrayUInt8 creatureBytes = ((byteArraysValue?[0] as StructPropertyList)?.Properties.FirstOrDefault(p => p.NameString == "Bytes") as PropertyArray)?.Value as ArkArrayUInt8;
                     if (creatureBytes != null)
                     {
-
-
-                        var cryoStream = new System.IO.MemoryStream(creatureBytes.ToArray<byte>());
-
-                        using (ArkArchive cryoArchive = new ArkArchive(cryoStream))
+                        using (var cryoStream = new MemoryStream(creatureBytes.ToArray<byte>()))
                         {
-                            // number of serialized objects
-                            int objCount = cryoArchive.ReadInt();
-                            if (objCount != 0)
+                            using (ArkArchive cryoArchive = new ArkArchive(cryoStream))
                             {
-                                var storedGameObjects = new List<GameObject>(objCount);
-                                for (int oi = 0; oi < objCount; oi++)
+                                // number of serialized objects
+                                int objCount = cryoArchive.ReadInt();
+                                if (objCount != 0)
                                 {
-                                    storedGameObjects.Add(new GameObject(cryoArchive));
-                                }
-
-                                foreach (var ob in storedGameObjects)
-                                {
-                                    ob.LoadProperties(cryoArchive, new GameObject(), 0);
-                                }
-
-                                var creatureObject = storedGameObjects[0];
-                                var statusObject = storedGameObjects[1];
-
-                                // assume the first object is the creature object
-                                string creatureActorId = creatureObject.Names[0].ToString();
-
-                                if (storedPod.ClassString.Contains("Vivarium"))
-                                {
-                                    //vivarium
-                                    creatureObject.IsVivarium = true;
-                                }
-                                else
-                                {
-                                    creatureObject.IsCryo = true;
-                                }
-
-                                // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
-                                if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
-                                    creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
-
-
-                                //get parent of cryopod owner inventory
-                                var podParentRef = storedPod.GetPropertyValue<ObjectReference>("OwnerInventory");
-                                if (podParentRef != null)
-                                {
-                                    var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
-
-                                    //determine if we need to re-team the podded animal
-                                    if (podParent != null)
+                                    var storedGameObjects = new List<GameObject>(objCount);
+                                    for (int oi = 0; oi < objCount; oi++)
                                     {
-                                        if (podParent.ClassString.Contains("_Vivarium"))
+                                        storedGameObjects.Add(new GameObject(cryoArchive));
+                                    }
+
+                                    foreach (var ob in storedGameObjects)
+                                    {
+                                        ob.LoadProperties(cryoArchive, new GameObject(), 0);
+                                    }
+
+                                    var creatureObject = storedGameObjects[0];
+                                    var statusObject = storedGameObjects[1];
+
+                                    // assume the first object is the creature object
+                                    string creatureActorId = creatureObject.Names[0].ToString();
+
+                                    if (storedPod.ClassString.Contains("Vivarium"))
+                                    {
+                                        //vivarium
+                                        creatureObject.IsInVivarium = true;
+                                    }
+                                    else
+                                    {
+                                        creatureObject.IsInCryo = true;
+                                    }
+
+                                    // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
+                                    if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
+                                        creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
+
+
+                                    //get parent of cryopod owner inventory
+                                    var podParentRef = storedPod.GetPropertyValue<ObjectReference>("OwnerInventory");
+                                    if (podParentRef != null)
+                                    {
+                                        var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
+
+                                        //determine if we need to re-team the podded animal
+                                        if (podParent != null)
                                         {
-                                            creatureObject.IsCryo = false;
-                                            creatureObject.IsVivarium = true;
-                                        }
-
-                                        creatureObject.Location = podParent.Location;
-
-                                        int obTeam = creatureObject.GetPropertyValue<int>("TargetingTeam");
-                                        int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
-                                        if (obTeam != containerTeam)
-                                        {
-                                            var propertyIndex = creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam");
-                                            if (propertyIndex != -1) 
+                                            if (podParent.ClassString.Contains("_Vivarium"))
                                             {
-                                                creatureObject.Properties.RemoveAt(propertyIndex);
-                                            }
-                                            creatureObject.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
-
-
-                                            if (creatureObject.HasAnyProperty("TamingTeamID"))
-                                            {
-                                                creatureObject.Properties.RemoveAt(creatureObject.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
-                                                creatureObject.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
+                                                creatureObject.IsInCryo = false;
+                                                creatureObject.IsInVivarium = true;
                                             }
 
+                                            creatureObject.Location = podParent.Location;
+
+                                            int obTeam = creatureObject.GetPropertyValue<int>("TargetingTeam");
+                                            int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
+                                            if (obTeam != containerTeam)
+                                            {
+                                                var propertyIndex = creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam");
+                                                if (propertyIndex != -1)
+                                                {
+                                                    creatureObject.Properties.RemoveAt(propertyIndex);
+                                                }
+                                                creatureObject.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
+
+
+                                                if (creatureObject.HasAnyProperty("TamingTeamID"))
+                                                {
+                                                    creatureObject.Properties.RemoveAt(creatureObject.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
+                                                    creatureObject.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
+                                                }
+
+                                            }
                                         }
                                     }
+                                    cbStored.Add(new Tuple<GameObject, GameObject>(creatureObject, statusObject));
                                 }
-                                cbStored.Add(new Tuple<GameObject, GameObject>(creatureObject, statusObject));
+
                             }
-
-                        }
+                        }                         
                     }
-
                 }
             });
 
@@ -212,140 +227,146 @@ namespace SavegameToolkit
 
             if (!options.StoredCreatures) return;
 
-            var inventoryContainers = Objects.Where(x => x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null).ToList();
+            var inventoryContainers = Objects.AsParallel().Where(x => x.GetPropertyValue<ObjectReference?>("MyInventoryComponent") != null).ToList();
 
-            var validStored = Objects
+            var validStored = Objects.AsParallel()
                 .Where(o =>
-                        (o.ClassName.Name.Contains("Cryopod") || o.ClassString.Contains("SoulTrap_") || o.ClassString.Contains("Vivarium_"))
-                        && o.HasAnyProperty("CustomItemDatas")
+                        (o.ClassString.Contains("Cryopod") || o.ClassString.Contains("SoulTrap_") || o.ClassString.Contains("Vivarium_"))
+                        && o.GetTypedProperty<PropertyArray>("CustomItemDatas") !=null 
                 )
                 .ToList();
 
-            foreach (var o in validStored)
+
+
+            List<CryoStoreData> storedOffsets = new List<CryoStoreData>();
+
+            validStored.ForEach(x =>
             {
-                var customData = o.Properties.First(p => p.NameString == "CustomItemDatas") as PropertyArray;
-                var cryoDataOffset = 0;
+                if (!(x.Properties.First(p => p.NameString == "CustomItemDatas") is PropertyArray customData)) return;
 
-                if (customData != null)
+                long cryoDataOffset = 0;
+                if (
+                    archive.SaveVersion > 10
+                    && customData.Value is ArkArrayStruct redirectors
+                    && redirectors.All(x => x is StructCustomItemDataRef)
+                )
                 {
+                    // TODO: probably best to: in cryos, take first entry. in souls, take second.
+                    cryoDataOffset = ((StructCustomItemDataRef)redirectors[0]).Position;
+                }
 
-                    var dataByteArray = customData?.Value as ArkArrayUnknown;
-                    if (dataByteArray != null)
+                storedOffsets.Add(new CryoStoreData() { ParentObject = x, Offset = cryoDataOffset });
+            });
+            validStored = null;
+
+
+            var sortedOffsets = storedOffsets.OrderBy(x => x.Offset).ToList();
+
+            for(int x=0; x < sortedOffsets.Count; x++)
+            {
+                var storedObject = sortedOffsets[x];
+                long nextOffset = x < sortedOffsets.Count-1 ? sortedOffsets[x + 1].Offset: archive.Limit;
+
+                archive.Position = storedObject.Offset + storedOffset;
+                storedObject.Data = archive.ReadBytes((int)(nextOffset - storedObject.Offset));
+            }
+            storedOffsets = new List<CryoStoreData>();//clear it down, no longer needed in memory.
+
+
+            Parallel.ForEach(sortedOffsets, o =>
+            {
+                using(MemoryStream ms = new MemoryStream(o.Data))
+                {
+                    using(ArkArchive storedArchive = new ArkArchive(ms))
                     {
-                        var dataBytes = dataByteArray?.ToArray<byte>();
+                        ArkCryoStore storeSummary = new ArkCryoStore(storedArchive);
+                        storeSummary.LoadProperties(storedArchive);
 
-                        if (dataBytes != null && dataBytes.Length > 0)
+                        var dinoComponent = storeSummary.CreatureComponent;
+                        var dinoCharacterStatusComponent = storeSummary.StatusComponent;
+                        var dinoInventoryComponent = storeSummary.InventoryComponent;
+
+
+                        //re-map and add properties as appropriate
+                        if (dinoComponent != null)
                         {
-                            using (MemoryStream ms = new MemoryStream(dataBytes))
+                            dinoComponent.IsInCryo = !o.ParentObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
+                            dinoComponent.IsInVivarium = o.ParentObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
+
+                            // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
+                            if (dinoComponent.GetPropertyValue<string>("TribeName")?.Length == 0 && dinoComponent.GetPropertyValue<string>("TamerString")?.Length > 0)
+                                dinoComponent.Properties.Add(new PropertyString("TribeName", dinoComponent.GetPropertyValue<string>("TamerString")));
+
+
+                            //get parent of cryopod owner inventory
+                            var podParentRef = o.ParentObject.GetPropertyValue<ObjectReference>("OwnerInventory");
+                            if (podParentRef != null)
                             {
-                                using (ArkArchive a = new ArkArchive(ms))
+                                var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference?>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
+
+                                //determine if we need to re-team the podded animal
+                                if (podParent != null)
                                 {
-
-                                    if (dataByteArray?.Count >= 0)
+                                    if (podParent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase))
                                     {
-                                        var cryoUnknown1 = a.ReadShort();
+                                        dinoComponent.IsInCryo = false;
+                                        dinoComponent.IsInVivarium = true;
+                                    }
 
-                                        var cryoUnknown2 = a.ReadInt();
-                                        cryoDataOffset = a.ReadInt();
+                                    dinoComponent.Location = podParent.Location;
 
-                                        if (cryoDataOffset < 0)
+                                    int obTeam = dinoComponent.GetPropertyValue<int>("TargetingTeam");
+                                    int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
+                                    if (obTeam != containerTeam)
+                                    {
+                                        var propertyIndex = dinoComponent.Properties.FindIndex(i => i.NameString == "TargetingTeam");
+                                        if (propertyIndex != -1)
                                         {
-
+                                            dinoComponent.Properties.RemoveAt(propertyIndex);
                                         }
-                                    }
-                                    else
-                                    {
-                                        cryoDataOffset = 0;
+                                        dinoComponent.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
+
+
+                                        if (dinoComponent.GetPropertyValue<int?>("TamingTeamID") != null)
+                                        {
+                                            dinoComponent.Properties.RemoveAt(dinoComponent.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
+                                            dinoComponent.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
+                                        }
+
                                     }
                                 }
                             }
-                        }
-                    }
 
-
-                    var creatureDataOffset = cryoDataOffset + storedOffset;
-                    archive.Position = creatureDataOffset;
-
-                    ArkStore storeSummary = new ArkStore(archive);
-                    storeSummary.LoadProperties(archive);
-
-                    var dinoComponent = storeSummary.CreatureComponent;
-                    var dinoCharacterStatusComponent = storeSummary.StatusComponent;
-                    var dinoInventoryComponent = storeSummary.InventoryComponent;
-
-
-                    //re-map and add properties as appropriate
-                    if (dinoComponent != null)
-                    {
-                        dinoComponent.IsCryo = o.ClassString.Contains("cryo", StringComparison.InvariantCultureIgnoreCase);
-                        dinoComponent.IsVivarium = o.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
-
-                        // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
-                        if (dinoComponent.GetPropertyValue<string>("TribeName")?.Length == 0 && dinoComponent.GetPropertyValue<string>("TamerString")?.Length > 0)
-                            dinoComponent.Properties.Add(new PropertyString("TribeName", dinoComponent.GetPropertyValue<string>("TamerString")));
-
-
-                        //get parent of cryopod owner inventory
-                        var podParentRef = o.GetPropertyValue<ObjectReference>("OwnerInventory");
-                        if (podParentRef != null)
-                        {
-                            var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
-
-                            //determine if we need to re-team the podded animal
-                            if (podParent != null)
+                            if (dinoCharacterStatusComponent != null)
                             {
-                                if (podParent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase))
-                                {
-                                    dinoComponent.IsCryo = false;
-                                    dinoComponent.IsVivarium = true;
-                                }
 
-                                dinoComponent.Location = podParent.Location;
+                                addObject(dinoCharacterStatusComponent, false);
 
-                                int obTeam = dinoComponent.GetPropertyValue<int>("TargetingTeam");
-                                int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
-                                if (obTeam != containerTeam)
-                                {
-                                    var propertyIndex = dinoComponent.Properties.FindIndex(i => i.NameString == "TargetingTeam");
-                                    if (propertyIndex != -1)
-                                    {
-                                        dinoComponent.Properties.RemoveAt(propertyIndex);
-                                    }
-                                    dinoComponent.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
+                                var statusComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
+                                if (statusComponentRef != null) statusComponentRef.Value.ObjectId = dinoCharacterStatusComponent.Id;
 
-
-                                    if (dinoComponent.HasAnyProperty("TamingTeamID"))
-                                    {
-                                        dinoComponent.Properties.RemoveAt(dinoComponent.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
-                                        dinoComponent.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
-                                    }
-
-                                }
                             }
+
+                            if (dinoInventoryComponent != null)
+                            {
+
+                                addObject(dinoInventoryComponent, false);
+
+                                var inventoryComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyInventoryComponent");
+                                if (inventoryComponentRef != null) inventoryComponentRef.Value.ObjectId = dinoInventoryComponent.Id;
+                            }
+
+
+                            addObject(dinoComponent, false);
+
                         }
-
-                        if (dinoCharacterStatusComponent != null)
-                        {
-                            addObject(dinoCharacterStatusComponent, true);
-
-                            var statusComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
-                            if (statusComponentRef != null) statusComponentRef.Value.ObjectId = dinoCharacterStatusComponent.Id;
-
-                        }
-
-                        if (dinoInventoryComponent != null)
-                        {
-                            addObject(dinoInventoryComponent, true);
-
-                            var inventoryComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyInventoryComponent");
-                            if (inventoryComponentRef != null) inventoryComponentRef.Value.ObjectId = dinoInventoryComponent.Id;
-                        }
-
-                        addObject(dinoComponent, true);
-
                     }
+
                 }
             }
+            );
+
+            
         }
 
 
@@ -393,8 +414,6 @@ namespace SavegameToolkit
             Console.WriteLine($"Read ended in {timeTaken.ToString()}");
 
 
-            var test = Objects.Where(x => x.ClassString.ToLower().Contains("dedicated")).ToList();
-
             OldNameList = archive.HasUnknownNames ? archive.NameTable : null;
             HasUnknownData = archive.HasUnknownData;
         }
@@ -402,6 +421,8 @@ namespace SavegameToolkit
         private void readBinaryHeader(ArkArchive archive)
         {
             SaveVersion = archive.ReadShort();
+            archive.SaveVersion  = SaveVersion;
+
 
             if (SaveVersion < 5 || SaveVersion > 12)
             {
@@ -632,11 +653,48 @@ namespace SavegameToolkit
             }
 
             archive.Position = hibernationOffset;
-            while(archive.Position < nameTableOffset)
+
+            if (SaveVersion > 7)
             {
-                if (archive.ReadSByte() == -52) //regardless of anything before the hibernated class count always seems to follow immediately after this byte
+                hibernationV8Unknown1 = archive.ReadInt();
+                hibernationV8Unknown2 = archive.ReadInt();
+                hibernationV8Unknown3 = archive.ReadInt();
+                hibernationV8Unknown4 = archive.ReadInt();
+            }
+
+            // in Ark version 349.10 new unknown bytes appeared, the save version remained at 9. This is a workaround to handle these values.
+            // it's assumed there are two new int32, making it a total of 6 unknown int32 along with the 4 version8 int32, the first two are -1 and 2, and all of these 6 int32 are repeated once.
+            if (SaveVersion > 8 && hibernationV8Unknown1 == -1 && hibernationV8Unknown2 == 2)
+            {
+                archive.DebugMessage("non-zero unknown V9 fields, expecting duplicated set per 349.10");
+                hibernationV9_34910Unknown1 = archive.ReadInt();
+                hibernationV9_34910Unknown2 = archive.ReadInt();
+
+
+                hibernationV9Check1 = archive.ReadInt();
+                hibernationV9Check2 = archive.ReadInt();
+                hibernationV9Check3 = archive.ReadInt();
+                hibernationV9Check4 = archive.ReadInt();
+                hibernationV9Check5 = archive.ReadInt();
+                hibernationV9Check6 = archive.ReadInt();
+
+                if (!(hibernationV8Unknown1 == hibernationV9Check1
+                      && hibernationV8Unknown2 == hibernationV9Check2
+                      && hibernationV8Unknown3 == hibernationV9Check3
+                      && hibernationV8Unknown4 == hibernationV9Check4
+                      && hibernationV9_34910Unknown1 == hibernationV9Check5
+                      && hibernationV9_34910Unknown2 == hibernationV9Check6))
                 {
-                    break;
+                    if(SaveVersion > 10)
+                    {
+                        //TODO:// more data reads - is it always 112 bytes?
+                        archive.SkipBytes(112);
+
+                    }
+                    else
+                    {
+                        throw new NotSupportedException("349.10 workaround for duplicate unknown hibernation bytes failed");
+                    }
                 }
             }
 
@@ -645,6 +703,10 @@ namespace SavegameToolkit
             {
                 return;
             }
+
+
+            hibernationUnknown1 = archive.ReadInt();
+            hibernationUnknown2 = archive.ReadInt();
 
             int hibernatedClassesCount = archive.ReadInt();
 

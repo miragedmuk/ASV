@@ -20,11 +20,7 @@ namespace SavegameToolkit.Propertys {
             Value = new ObjectReference(archive, DataSize);
         }
 
-        public override void Init(JObject node) {
-            base.Init(node);
-            Value = new ObjectReference(node["value"], DataSize);
-        }
-
+ 
 
         protected override int calculateDataSize(NameSizeCalculator nameSizer) => Value.Size(nameSizer);
 

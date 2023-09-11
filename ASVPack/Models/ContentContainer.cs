@@ -68,6 +68,20 @@ namespace ASVPack.Models
 
         }
 
+
+        private Stream GetFileStream(string filename)
+        {
+            var fileInfo = new FileInfo(filename);
+            if(fileInfo.Length > int.MaxValue)
+            {
+                // >2GB limit for MemoryStream, return as FileStream instead.
+                return File.OpenRead(filename);
+            }
+
+            return new MemoryStream(File.ReadAllBytes(filename));
+            
+        }
+
         public void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder)
         {
             loadedFilename = saveFilename;
@@ -146,7 +160,9 @@ namespace ASVPack.Models
 
                 logWriter.Debug($"Reading game save data: {saveFilename}");
 
-                using (Stream stream = File.OpenRead(saveFilename))
+
+
+                using (Stream stream = GetFileStream(saveFilename))
                 {
                     using (ArkArchive archive = new ArkArchive(stream))
                     {
@@ -154,11 +170,8 @@ namespace ASVPack.Models
                         ArkSavegame arkSavegame = new ArkSavegame();
 
                         arkSavegame.ReadBinary(archive, ReadingOptions.Create()
-                                .WithThreadCount(int.MaxValue)
-                                .WithStoredCreatures(true)
                                 .WithDataFiles(true)
-                                .WithEmbeddedData(false)
-                                .WithDataFilesObjectMap(false)
+                                .WithStoredCreatures(true)
                                 .WithBuildComponentTree(true));
 
                         if (!arkSavegame.HibernationEntries.Any())
@@ -889,18 +902,18 @@ namespace ASVPack.Models
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
                                         Parallel.ForEach(objectReferences, objectReference =>
-{
-    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-    if (itemObject != null)
-    {
-        var item = itemObject.AsItem();
-        if (!item.IsEngram)
-        {
+                                        {
+                                            objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+                                            if (itemObject != null)
+                                            {
+                                                var item = itemObject.AsItem();
+                                                if (!item.IsEngram)
+                                                {
 
-            inventoryItems.Add(item);
-        }
-    }
-});
+                                                    inventoryItems.Add(item);
+                                                }
+                                            }
+                                        });
 
 
 
@@ -1168,23 +1181,23 @@ namespace ASVPack.Models
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
                                         Parallel.ForEach(objectReferences, objectReference =>
-{
-    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-    if (itemObject != null)
-    {
-        if (itemObject.GetPropertyValue<bool>("bIsInitialItem", 0, false))
-        {
+                                        {
+                                            objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+                                            if (itemObject != null)
+                                            {
+                                                if (itemObject.GetPropertyValue<bool>("bIsInitialItem", 0, false))
+                                                {
 
-            var item = itemObject.AsItem();
-            if (!item.IsEngram)
-            {
+                                                    var item = itemObject.AsItem();
+                                                    if (!item.IsEngram)
+                                                    {
 
-                inventoryItems.Add(item);
-            }
+                                                        inventoryItems.Add(item);
+                                                    }
 
-        }
-    }
-});
+                                                }
+                                            }
+                                        });
 
 
                                         PropertyArray equippedItemArray = inventoryComponent.GetTypedProperty<PropertyArray>("EquippedItems");
@@ -1192,39 +1205,35 @@ namespace ASVPack.Models
                                         {
                                             ArkArrayObjectReference equippedReferences = (ArkArrayObjectReference)equippedItemArray.Value;
                                             Parallel.ForEach(equippedReferences, objectReference =>
-                    {
-                        objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-                        if (itemObject != null)
-                        {
-                            if (!itemObject.HasAnyProperty("bIsInitialItem"))
-                            {
+                                            {
+                                                objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+                                                if (itemObject != null)
+                                                {
+                                                    if (!itemObject.HasAnyProperty("bIsInitialItem"))
+                                                    {
 
-                                var item = itemObject.AsItem();
-                                if (!item.IsEngram)
-                                {
+                                                        var item = itemObject.AsItem();
+                                                        if (!item.IsEngram)
+                                                        {
 
-                                    inventoryItems.Add(item);
-                                }
+                                                            inventoryItems.Add(item);
+                                                        }
 
-                            }
-                        }
-                    });
+                                                    }
+                                                }
+                                            });
                                         }
 
                                     }
 
                                 }
 
-
-
                                 droppedItem.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                             }
 
-
-
                             return droppedItem;
                         }).ToList()
-                                                );
+                        );
 
                         //.. bags
                         logWriter.Debug($"Identifying drop bags");
@@ -1253,23 +1262,23 @@ namespace ASVPack.Models
                                             ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
                                             Parallel.ForEach(objectReferences, objectReference =>
-{
-    objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
-    if (itemObject != null)
-    {
-        if (!itemObject.HasAnyProperty("bIsInitialItem"))
-        {
+                                            {
+                                                objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
+                                                if (itemObject != null)
+                                                {
+                                                    if (!itemObject.HasAnyProperty("bIsInitialItem"))
+                                                    {
 
-            var item = itemObject.AsItem();
-            if (!item.IsEngram)
-            {
+                                                        var item = itemObject.AsItem();
+                                                        if (!item.IsEngram)
+                                                        {
 
-                inventoryItems.Add(item);
-            }
+                                                            inventoryItems.Add(item);
+                                                        }
 
-        }
-    }
-});
+                                                    }
+                                                }
+                                            });
                                         }
 
                                     }
@@ -1354,7 +1363,7 @@ namespace ASVPack.Models
 
                         try
                         {
-                            using (Stream clusterFileStream = new FileStream(fileName, FileMode.Open))
+                            using (Stream clusterFileStream = GetAppropriateStream(fileName))
                             {
                                 using (ArkArchive clusterArchive = new ArkArchive(clusterFileStream))
                                 {
@@ -1418,7 +1427,7 @@ namespace ASVPack.Models
                                         }
 
                                         var dinoList = propList.GetTypedProperty<PropertyArray>("ArkTamedDinosData");
-                                        if (dinoList != null && dinoList.Value!=null)
+                                        if (dinoList != null && dinoList.Value != null)
                                         {
 
 
@@ -1471,7 +1480,6 @@ namespace ASVPack.Models
                                                             }
 
 
-                                                            //TODO:// add to a list so we can assign it to the correct tribe
                                                             var targetTribe = Tribes.FirstOrDefault(t => t.TribeId == tamedDino.TargetingTeam);
                                                             if (targetTribe == null)
                                                             {
@@ -1510,28 +1518,17 @@ namespace ASVPack.Models
                                                         }
 
                                                     }
-                                                    
+
 
                                                 }
-
-
-
-
 
                                             }
 
                                         }
 
                                     }
-
-
-
                                 }
-
                             }
-
-
-
                         }
                         catch
                         {
@@ -1559,6 +1556,17 @@ namespace ASVPack.Models
 
 
             logWriter.Trace("END LoadSaveGame()");
+        }
+
+        private Stream GetAppropriateStream(string filename)
+        {
+            FileInfo fileInfo = new FileInfo(filename);
+            if(fileInfo.Length > int.MaxValue)
+            {
+                return new FileStream(filename, FileMode.Open);
+            }
+
+            return new MemoryStream(File.ReadAllBytes(filename));            
         }
 
         public DateTime? GetApproxDateTimeOf(double? objectTime)

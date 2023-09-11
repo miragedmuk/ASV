@@ -17,15 +17,7 @@ namespace SavegameToolkit.Structs {
             NetId = archive.ReadString();
         }
 
-        public override void Init(JObject node) {
-            Unk = node.Value<int>("unk");
-            NetId = node.Value<string>("netId");
-        }
 
-        public override void WriteBinary(ArkArchive archive) {
-            archive.WriteInt(Unk);
-            archive.WriteString(NetId);
-        }
 
         public override int Size(NameSizeCalculator nameSizer) => sizeof(int) + ArkArchive.GetStringLength(NetId);
     }
