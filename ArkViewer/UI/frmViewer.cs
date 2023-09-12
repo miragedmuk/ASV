@@ -7661,5 +7661,9 @@ namespace ARKViewer
         {
 
         }
+
+        private void lblMapDate_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

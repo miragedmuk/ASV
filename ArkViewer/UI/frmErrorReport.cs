@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ARKViewer
@@ -10,6 +12,8 @@ namespace ARKViewer
             InitializeComponent();
 
             string saveFile = Program.LastLoadedSaveFilename;
+
+            lblLogFilePath.Text = Path.Combine(System.AppContext.BaseDirectory, @"logs\asv.log");
 
             rtbError.SelectionFont = new Font(new FontFamily("Calibri"), 10, FontStyle.Bold);
             rtbError.SelectedText = "Mode: ";
@@ -45,5 +49,24 @@ namespace ARKViewer
 
 
         }
+
+        private void lblLogFilePath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenFolder(System.AppContext.BaseDirectory);
+        }
+
+        private void OpenFolder(string folderPath)
+        {
+            if (Directory.Exists(folderPath))
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    Arguments = folderPath,
+                    FileName = "explorer.exe"
+                };
+                Process.Start(startInfo);           
+            }
+        }
+
     }
 }

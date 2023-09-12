@@ -666,6 +666,7 @@ namespace ARKViewer
             lblMapDate.TabIndex = 3;
             lblMapDate.Text = "No Map Loaded";
             lblMapDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            lblMapDate.Click += lblMapDate_Click;
             // 
             // cboWildClass
             // 
