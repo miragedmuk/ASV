@@ -25,9 +25,10 @@ namespace SavegameToolkit
         public List<EmbeddedData> EmbeddedData { get; } = new List<EmbeddedData>();
         public Dictionary<int, List<string[]>> DataFilesObjectMap { get; } = new Dictionary<int, List<string[]>>();
         public override List<GameObject> Objects { get; } = new List<GameObject>();
+        
+        public List<Tuple<long,long>> StoredDataOffsets = new List<Tuple<long,long>>();
 
         private int hibernationOffset;
-        private int storedOffset;
         private int nameTableOffset;
         private int propertiesBlockOffset;
         private int hibernationV8Unknown1;
@@ -245,6 +246,7 @@ namespace SavegameToolkit
                 if (!(x.Properties.First(p => p.NameString == "CustomItemDatas") is PropertyArray customData)) return;
 
                 long cryoDataOffset = 0;
+                int dataFile = 1;
                 if (
                     archive.SaveVersion > 10
                     && customData.Value is ArkArrayStruct redirectors
@@ -253,113 +255,130 @@ namespace SavegameToolkit
                 {
                     // TODO: probably best to: in cryos, take first entry. in souls, take second.
                     cryoDataOffset = ((StructCustomItemDataRef)redirectors[0]).Position;
+                    dataFile = ((StructCustomItemDataRef)redirectors[0]).StoreDataIndex;
                 }
 
-                storedOffsets.Add(new CryoStoreData() { ParentObject = x, Offset = cryoDataOffset });
+                storedOffsets.Add(new CryoStoreData() { ParentObject = x, Offset = cryoDataOffset, StoreDataIndex=dataFile});
             });
             validStored = null;
 
 
-            var sortedOffsets = storedOffsets.OrderBy(x => x.Offset).ToList();
+            var sortedOffsets = storedOffsets.OrderBy(x => x.StoreDataIndex).ThenBy(x=> x.Offset).ToList();
 
             for(int x=0; x < sortedOffsets.Count; x++)
             {
                 var storedObject = sortedOffsets[x];
-                long nextOffset = x < sortedOffsets.Count-1 ? sortedOffsets[x + 1].Offset: archive.Limit;
+                int storedOffsetIndex = storedObject.StoreDataIndex ;
+                var offsetData = StoredDataOffsets[storedOffsetIndex];
 
-                archive.Position = storedObject.Offset + storedOffset;
-                storedObject.Data = archive.ReadBytes((int)(nextOffset - storedObject.Offset));
+                var storedOffset = offsetData.Item1 + storedObject.Offset;
+                long nextOffset = offsetData.Item1 + offsetData.Item2;
+                if(x < sortedOffsets.Count - 1)
+                {
+                    var nextItem = sortedOffsets[x + 1];
+                    if(nextItem.StoreDataIndex == storedObject.StoreDataIndex)
+                    {
+                        nextOffset = nextItem.Offset + offsetData.Item1;
+                    }
+                }
+
+                archive.Position = storedOffset;
+                int bytesToRead = (int)(nextOffset - storedOffset);
+                storedObject.Data = archive.ReadBytes(bytesToRead);
+                
             }
             storedOffsets = new List<CryoStoreData>();//clear it down, no longer needed in memory.
 
 
             Parallel.ForEach(sortedOffsets, o =>
+            //foreach(var o in sortedOffsets)
             {
+                if (o.Data.Length == 0) return;
                 using(MemoryStream ms = new MemoryStream(o.Data))
                 {
                     using(ArkArchive storedArchive = new ArkArchive(ms))
                     {
                         ArkCryoStore storeSummary = new ArkCryoStore(storedArchive);
+                        if (!storeSummary.Objects.Any()) return;
+
                         storeSummary.LoadProperties(storedArchive);
 
                         var dinoComponent = storeSummary.CreatureComponent;
                         var dinoCharacterStatusComponent = storeSummary.StatusComponent;
                         var dinoInventoryComponent = storeSummary.InventoryComponent;
 
+                        if (dinoComponent == null) return;
 
-                        //re-map and add properties as appropriate
-                        if (dinoComponent != null)
+
+                        dinoComponent.IsInCryo = !o.ParentObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
+                        dinoComponent.IsInVivarium = o.ParentObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
+
+                        // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
+                        if (dinoComponent.GetPropertyValue<string>("TribeName")?.Length == 0 && dinoComponent.GetPropertyValue<string>("TamerString")?.Length > 0)
+                            dinoComponent.Properties.Add(new PropertyString("TribeName", dinoComponent.GetPropertyValue<string>("TamerString")));
+
+
+                        //get parent of cryopod owner inventory
+                        var podParentRef = o.ParentObject.GetPropertyValue<ObjectReference>("OwnerInventory");
+                        if (podParentRef != null)
                         {
-                            dinoComponent.IsInCryo = !o.ParentObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
-                            dinoComponent.IsInVivarium = o.ParentObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
+                            var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference?>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
 
-                            // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
-                            if (dinoComponent.GetPropertyValue<string>("TribeName")?.Length == 0 && dinoComponent.GetPropertyValue<string>("TamerString")?.Length > 0)
-                                dinoComponent.Properties.Add(new PropertyString("TribeName", dinoComponent.GetPropertyValue<string>("TamerString")));
-
-
-                            //get parent of cryopod owner inventory
-                            var podParentRef = o.ParentObject.GetPropertyValue<ObjectReference>("OwnerInventory");
-                            if (podParentRef != null)
+                            //determine if we need to re-team the podded animal
+                            if (podParent != null)
                             {
-                                var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference?>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
-
-                                //determine if we need to re-team the podded animal
-                                if (podParent != null)
+                                if (podParent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase))
                                 {
-                                    if (podParent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase))
+                                    dinoComponent.IsInCryo = false;
+                                    dinoComponent.IsInVivarium = true;
+                                }
+
+                                dinoComponent.Location = podParent.Location;
+
+                                int obTeam = dinoComponent.GetPropertyValue<int>("TargetingTeam");
+                                int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
+                                if (obTeam != containerTeam)
+                                {
+                                    var propertyIndex = dinoComponent.Properties.FindIndex(i => i.NameString == "TargetingTeam");
+                                    if (propertyIndex != -1)
                                     {
-                                        dinoComponent.IsInCryo = false;
-                                        dinoComponent.IsInVivarium = true;
+                                        dinoComponent.Properties.RemoveAt(propertyIndex);
+                                    }
+                                    dinoComponent.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
+
+
+                                    if (dinoComponent.GetPropertyValue<int?>("TamingTeamID") != null)
+                                    {
+                                        dinoComponent.Properties.RemoveAt(dinoComponent.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
+                                        dinoComponent.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
                                     }
 
-                                    dinoComponent.Location = podParent.Location;
-
-                                    int obTeam = dinoComponent.GetPropertyValue<int>("TargetingTeam");
-                                    int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
-                                    if (obTeam != containerTeam)
-                                    {
-                                        var propertyIndex = dinoComponent.Properties.FindIndex(i => i.NameString == "TargetingTeam");
-                                        if (propertyIndex != -1)
-                                        {
-                                            dinoComponent.Properties.RemoveAt(propertyIndex);
-                                        }
-                                        dinoComponent.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
-
-
-                                        if (dinoComponent.GetPropertyValue<int?>("TamingTeamID") != null)
-                                        {
-                                            dinoComponent.Properties.RemoveAt(dinoComponent.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
-                                            dinoComponent.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
-                                        }
-
-                                    }
                                 }
                             }
+                        }
 
-                            if (dinoCharacterStatusComponent != null)
-                            {
+                        if (dinoCharacterStatusComponent != null)
+                        {
 
-                                addObject(dinoCharacterStatusComponent, false);
+                            addObject(dinoCharacterStatusComponent, false);
 
-                                var statusComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
-                                if (statusComponentRef != null) statusComponentRef.Value.ObjectId = dinoCharacterStatusComponent.Id;
-
-                            }
-
-                            if (dinoInventoryComponent != null)
-                            {
-
-                                addObject(dinoInventoryComponent, false);
-
-                                var inventoryComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyInventoryComponent");
-                                if (inventoryComponentRef != null) inventoryComponentRef.Value.ObjectId = dinoInventoryComponent.Id;
-                            }
-
-
-                            addObject(dinoComponent, false);
+                            var statusComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
+                            if (statusComponentRef != null) statusComponentRef.Value.ObjectId = dinoCharacterStatusComponent.Id;
 
                         }
+
+                        if (dinoInventoryComponent != null)
+                        {
+
+                            addObject(dinoInventoryComponent, false);
+
+                            var inventoryComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyInventoryComponent");
+                            if (inventoryComponentRef != null) inventoryComponentRef.Value.ObjectId = dinoInventoryComponent.Id;
+                        }
+
+
+                        addObject(dinoComponent, false);
+
                     }
 
                 }
@@ -433,20 +452,26 @@ namespace SavegameToolkit
             {
                 if(SaveVersion > 10 )
                 {
-                    storedOffset = (int)archive.ReadLong();
-                    var storedDataSize = archive.ReadLong(); 
                     
+                    
+                    var storedOffset = archive.ReadLong();
+                    var storedDataSize = archive.ReadLong();
+                    StoredDataOffsets.Add(new Tuple<long,long>(storedOffset, storedDataSize));
+
                     var v11Unknown1 = archive.ReadLong(); //file size or some other pointer 
                     var v11Unknown2 = archive.ReadLong(); //0
+                    StoredDataOffsets.Add(new Tuple<long, long>(v11Unknown1, v11Unknown2));
+
+
                     var v11Unknown3 = archive.ReadLong(); //file size or some other pointer
                     var v11Unknown4 = archive.ReadLong(); //0
+                    StoredDataOffsets.Add(new Tuple<long, long>(v11Unknown3, v11Unknown4));
+
+
                     var v11Unknown5 = archive.ReadLong(); //file size or some other pointer
                     var v11Unknown6 = archive.ReadLong(); //0
+                    StoredDataOffsets.Add(new Tuple<long, long>(v11Unknown5, v11Unknown6));
 
-                }
-                else
-                {
-                    storedOffset = 0;
                 }
 
                 hibernationOffset = archive.ReadInt();

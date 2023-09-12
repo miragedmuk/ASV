@@ -473,8 +473,8 @@ namespace ARKViewer
             {
 
                 var selectedItem = lvwWildDetail.SelectedItems[0];
-                decimal.TryParse(selectedItem.SubItems[5].Text, out decimal selectedX);
-                decimal.TryParse(selectedItem.SubItems[4].Text, out decimal selectedY);
+                float.TryParse(selectedItem.SubItems[5].Text, out float selectedX);
+                float.TryParse(selectedItem.SubItems[4].Text, out float selectedY);
 
 
                 DrawMap(selectedX, selectedY);
@@ -686,16 +686,16 @@ namespace ARKViewer
 
         private void lvwPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            decimal selectedX = 0;
-            decimal selectedY = 0;
+            float selectedX = 0;
+            float selectedY = 0;
 
 
             if (lvwPlayers.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = lvwPlayers.SelectedItems[0];
                 ContentPlayer selectedPlayer = (ContentPlayer)selectedItem.Tag;
-                selectedX = (decimal)selectedPlayer.Longitude.GetValueOrDefault(0);
-                selectedY = (decimal)selectedPlayer.Latitude.GetValueOrDefault(0);
+                selectedX = (float)selectedPlayer.Longitude.GetValueOrDefault(0);
+                selectedY = (float)selectedPlayer.Latitude.GetValueOrDefault(0);
             }
 
             DrawMap(selectedX, selectedY);
@@ -946,7 +946,7 @@ namespace ARKViewer
                 ListViewItem selectedItem = lvwStructureLocations.SelectedItems[0];
                 ContentStructure selectedStructure = (ContentStructure)selectedItem.Tag;
 
-                DrawMap((decimal)selectedStructure.Longitude.GetValueOrDefault(0), (decimal)selectedStructure.Latitude.GetValueOrDefault(0));
+                DrawMap((float)selectedStructure.Longitude.GetValueOrDefault(0), (float)selectedStructure.Latitude.GetValueOrDefault(0));
 
                 //var inventory = cm.GetInventory(selectedStructure.InventoryId.GetValueOrDefault(0));
                 btnStructureInventory.Enabled = selectedStructure.Inventory.Items.Count > 0;
@@ -1228,7 +1228,7 @@ namespace ARKViewer
                 ContentTamedCreature selectedTame = (ContentTamedCreature)selectedItem.Tag;
                 btnDinoInventory.Enabled = selectedTame.Inventory.Items.Count > 0;
 
-                DrawMap((decimal)selectedTame.Longitude.GetValueOrDefault(0), (decimal)selectedTame.Latitude.GetValueOrDefault(0));
+                DrawMap(selectedTame.Longitude.GetValueOrDefault(0), selectedTame.Latitude.GetValueOrDefault(0));
 
             }
             this.Cursor = Cursors.Default;
@@ -1722,13 +1722,13 @@ namespace ARKViewer
             {
                 ListViewItem selectedItem = lvwDroppedItems.SelectedItems[0];
 
-                decimal selectedX = 0;
-                decimal selectedY = 0;
+                float selectedX = 0;
+                float selectedY = 0;
 
                 ContentDroppedItem droppedItem = (ContentDroppedItem)selectedItem.Tag;
 
-                selectedX = (decimal)droppedItem.Longitude.GetValueOrDefault(0);
-                selectedY = (decimal)droppedItem.Latitude.GetValueOrDefault(0);
+                selectedX = droppedItem.Longitude.GetValueOrDefault(0);
+                selectedY = droppedItem.Latitude.GetValueOrDefault(0);
 
                 btnDropInventory.Enabled = droppedItem.Inventory.Items.Count > 0;
 
@@ -3015,13 +3015,13 @@ namespace ARKViewer
             {
                 ListViewItem selectedItem = lvwItemList.SelectedItems[0];
 
-                decimal selectedX = 0;
-                decimal selectedY = 0;
+                float selectedX = 0;
+                float selectedY = 0;
 
                 ASVFoundItem foundItem = (ASVFoundItem)selectedItem.Tag;
 
-                selectedX = foundItem.Longitude;
-                selectedY = foundItem.Latitude;
+                selectedX = (float)foundItem.Longitude;
+                selectedY = (float)foundItem.Latitude;
 
                 DrawMap(selectedX, selectedY);
             }
@@ -3700,7 +3700,7 @@ namespace ARKViewer
             MapViewer.BringToFront();
         }
 
-        private void DrawMap(decimal selectedX, decimal selectedY)
+        private void DrawMap(float selectedX, float selectedY)
         {
             if (cm == null || MapViewer == null || MapViewer.IsDisposed)
             {
@@ -5886,8 +5886,8 @@ namespace ARKViewer
             lblStatus.Text = "Populating tame data.";
             lblStatus.Refresh();
 
-            decimal selectedX = 0.0m;
-            decimal selectedY = 0.0m;
+            float selectedX = 0;
+            float selectedY = 0;
 
             if (cboTameClass.SelectedItem != null)
             {
@@ -6005,8 +6005,8 @@ namespace ARKViewer
                         item.SubItems.Add(detail.Gender.ToString());
                         item.SubItems.Add(detail.BaseLevel.ToString());
                         item.SubItems.Add(detail.Level.ToString());
-                        item.SubItems.Add(((decimal)(detail.Latitude ?? 0)).ToString("0.00"));
-                        item.SubItems.Add(((decimal)(detail.Longitude ?? 0)).ToString("0.00"));
+                        item.SubItems.Add(((decimal)(detail.Latitude.GetValueOrDefault(0))).ToString("0.00"));
+                        item.SubItems.Add(((decimal)(detail.Longitude.GetValueOrDefault(0))).ToString("0.00"));
                         if (optStatsTamed.Checked)
                         {
                             item.SubItems.Add(detail.TamedStats[0].ToString());
@@ -6190,8 +6190,8 @@ namespace ARKViewer
                         {
 
                             item.Selected = true;
-                            selectedX = (decimal)detail.Longitude;
-                            selectedY = (decimal)detail.Latitude;
+                            selectedX = (float)detail.Longitude;
+                            selectedY = (float)detail.Latitude;
                         }
 
                         listItems.Add(item);
@@ -6259,8 +6259,8 @@ namespace ARKViewer
             lblStatus.Text = "Populating creature data.";
             lblStatus.Refresh();
 
-            decimal selectedX = 0.0m;
-            decimal selectedY = 0.0m;
+            float selectedX = 0;
+            float selectedY = 0;
 
             if (cboWildClass.SelectedItem != null)
             {
@@ -6398,8 +6398,8 @@ namespace ARKViewer
                     {
 
                         item.Selected = true;
-                        selectedX = (decimal)Math.Round(detail.Longitude.Value, 2);
-                        selectedY = (decimal)Math.Round(detail.Latitude.Value, 2);
+                        selectedX = (float)Math.Round(detail.Longitude.Value, 2);
+                        selectedY = (float)Math.Round(detail.Latitude.Value, 2);
                     }
 
                     if ((chkTameable.Checked && detail.IsTameable) || !chkTameable.Checked)

@@ -12,7 +12,7 @@ namespace SavegameToolkit.Structs
     {
 
         [JsonProperty(Order = 0)]
-        public short Unknown0 { get; private set; }
+        public int StoreDataIndex { get; private set; }
         [JsonProperty(Order = 1)]
         public long Position { get; private set; }
         [JsonProperty(Order = 2)]
@@ -23,7 +23,10 @@ namespace SavegameToolkit.Structs
         public override void Init(ArkArchive archive)
         {
             // The first unknown field may be two fields - perhaps format version and archive index
-            Unknown0 = archive.ReadShort();
+            //StoreDataIndex = archive.ReadShort();
+            var formatVersion = archive.ReadByte();
+            StoreDataIndex = (int)archive.ReadByte();
+
             Position = archive.ReadLong();
             ObjectRefs = new ObjectReference[archive.ReadInt()];
             for (int index = 0; index < ObjectRefs.Length; index++)

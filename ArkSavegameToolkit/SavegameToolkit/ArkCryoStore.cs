@@ -27,30 +27,26 @@ namespace SavegameToolkit
 
         public void ReadBinary(ArkArchive archive)
         {
-            var objectType = archive.ReadString(); //type?
-            if (objectType.Equals("dino", StringComparison.InvariantCultureIgnoreCase))
+            var objectType = archive.ReadString().ToLowerInvariant(); //type?
+            if (objectType != "dino" && objectType != "settings") return;
+
+            var stringPropertyCount = archive.ReadInt(); //7
+            while(stringPropertyCount-- > 0)
             {
-                var stringPropertyCount = archive.ReadInt(); //7
-                while(stringPropertyCount-- > 0)
-                {
-                    archive.SkipString();
-                }
+                archive.SkipString();
+            }
 
-                var floatPropertyCount = archive.ReadInt(); //float count (25)
-                while(floatPropertyCount-- > 0)
-                {
-                    _ = archive.ReadFloat();
-                }
-                
-                var colorCount = archive.ReadInt(); //color name count
-                
-                while (colorCount-- > 0)
-                {
-                    archive.SkipString();
-                }
-
-
-
+            var floatPropertyCount = archive.ReadInt(); //float count (25)
+            while(floatPropertyCount-- > 0)
+            {
+                _ = archive.ReadFloat();
+            }
+            
+            var colorCount = archive.ReadInt(); //color name count
+            
+            while (colorCount-- > 0)
+            {
+                archive.SkipString();
             }
 
             var u0 = archive.ReadLong();
@@ -68,7 +64,7 @@ namespace SavegameToolkit
             archive.UseNameTable = false;
 
             var objectCount = archive.ReadInt();
-            while(objectCount-- > 0)
+            while (objectCount-- > 0)
             {
                 Objects.Add(new GameObject(archive));
             }
@@ -91,6 +87,9 @@ namespace SavegameToolkit
             }
 
             archive.UseNameTable = useNameTable;
+
+
+            
 
         }
 

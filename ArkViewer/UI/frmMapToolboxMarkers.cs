@@ -160,15 +160,15 @@ namespace ARKViewer
         {
             if (lvwMapMarkers.Items.Count == 0) return;
 
-            decimal selectedX = 0;
-            decimal selectedY = 0;
+            float selectedX = 0;
+            float selectedY = 0;
             ContentMarker selectedMarker = null;
 
             if (lvwMapMarkers.SelectedItems.Count > 0)
             {
                 selectedMarker = (ContentMarker)lvwMapMarkers.SelectedItems[0].Tag;
-                selectedX = (decimal)selectedMarker.Lon;
-                selectedY = (decimal)selectedMarker.Lat;
+                selectedX = (float)selectedMarker.Lon;
+                selectedY = (float)selectedMarker.Lat;
 
             }
             MapViewer.DrawTestMap(selectedX, selectedY);
@@ -181,14 +181,14 @@ namespace ARKViewer
         {
             if (lvwMapMarkers.Items.Count == 0 || isLoading) return;
 
-            decimal selectedX = 0;
-            decimal selectedY = 0;
+            float selectedX = 0;
+            float selectedY = 0;
 
             if (lvwMapMarkers.SelectedItems.Count > 0)
             {
                 ContentMarker selectedMarker = (ContentMarker)lvwMapMarkers.SelectedItems[0].Tag;
-                selectedX = (decimal)selectedMarker.Lon;
-                selectedY = (decimal)selectedMarker.Lat;
+                selectedX = (float)selectedMarker.Lon;
+                selectedY = (float)selectedMarker.Lat;
 
             }
 

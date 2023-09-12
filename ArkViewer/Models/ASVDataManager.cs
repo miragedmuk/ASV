@@ -32,7 +32,7 @@ namespace ARKViewer.Models
         Tuple<long> cacheImageDropBags = null;
         Tuple<string, long, long> cacheImagePlayerStructures = null;
         Tuple<long, long> cacheImagePlayers = null;
-        Tuple<long, string, decimal, decimal> cacheImageItems = null;
+        Tuple<long, string, float, float> cacheImageItems = null;
 
         string lastDrawRequest = "";
         Image gameContentMap = null; //wilds/tames/tribes/players etc.
@@ -1166,7 +1166,7 @@ namespace ARKViewer.Models
 
 
 
-        public Bitmap GetMapImageItems(long tribeId, string className, decimal selectedLat, decimal selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImageItems(long tribeId, string className, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1193,7 +1193,7 @@ namespace ARKViewer.Models
             else
             {
                 lastDrawRequest = "items";
-                cacheImageItems = new Tuple<long, string, decimal, decimal>(tribeId, className, selectedLon, selectedLon);
+                cacheImageItems = new Tuple<long, string, float, float>(tribeId, className, selectedLon, selectedLon);
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
@@ -1232,7 +1232,7 @@ namespace ARKViewer.Models
         }
 
         /**** Map & Overlays ****/
-        public Bitmap GetMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1322,7 +1322,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1361,8 +1361,12 @@ namespace ARKViewer.Models
 
                 foreach (var tame in filteredTames)
                 {
-                    var markerX = (decimal)(tame.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerY = (decimal)(tame.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+
+                    var markerXFloat = (float)(Math.Round(tame.Longitude.GetValueOrDefault(0) * 1024 / 100,2));
+                    var markerYFloat = (float)(Math.Round(tame.Latitude.GetValueOrDefault(0) * 1024 / 100,2));
+
+                    if (Single.TryParse(markerXFloat.ToString(),out Single markerX) == false || Single.TryParse(markerYFloat.ToString(), out Single markerY) == false) continue; //Draw methods limited to single values
+
                     var markerSize = 10f;
 
                     Color markerColor = Color.WhiteSmoke;
@@ -1384,11 +1388,11 @@ namespace ARKViewer.Models
 
                     }
 
-                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.FillEllipse(new SolidBrush(markerColor), markerX - (markerSize / 2), markerY - (markerSize / 2), markerSize, markerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), markerX - (markerSize / 2), markerY - (markerSize / 2), markerSize, markerSize);
                 }
 
                 gameContentMap = (Image)bitmap;
@@ -1405,7 +1409,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImageDroppedItems(long droppedPlayerId, string droppedClass, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers,string selectedRealm)
+        public Bitmap GetMapImageDroppedItems(long droppedPlayerId, string droppedClass, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers,string selectedRealm)
         {
 
             Bitmap bitmap = new Bitmap(1024, 1024);
@@ -1488,7 +1492,7 @@ namespace ARKViewer.Models
 
         }
 
-        public Bitmap GetMapImageDropBags(long droppedPlayerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageDropBags(long droppedPlayerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1564,7 +1568,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1642,7 +1646,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImageTribes(long tribeId, bool showStructures, bool showPlayers, bool showTames, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageTribes(long tribeId, bool showStructures, bool showPlayers, bool showTames, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1832,7 +1836,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImagePlayers(long tribeId, long playerId, decimal? selectedLat, decimal? selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImagePlayers(long tribeId, long playerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1924,7 +1928,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImageMapStructures(List<ContentMarker> customMarkers, decimal? selectedLat, decimal? selectedLon)
+        public Bitmap GetMapImageMapStructures(List<ContentMarker> customMarkers, float selectedLat, float selectedLon)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -2320,7 +2324,7 @@ namespace ARKViewer.Models
             }
             return g;
         }
-        private Graphics AddCurrentMarker(Graphics g, decimal? lat, decimal? lon)
+        private Graphics AddCurrentMarker(Graphics g, float lat, float lon)
         {
 
             if (lon != 0 && lat != 0)

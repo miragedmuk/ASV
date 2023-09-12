@@ -477,7 +477,7 @@ namespace ARKViewer
             selectedStructure.Y = selectedStructure.Y;
             selectedStructure.Z = selectedStructure.Z;
 
-            MapViewer.DrawTestMap((decimal)selectedStructure.Longitude.GetValueOrDefault(0), (decimal)selectedStructure.Latitude.GetValueOrDefault(0));
+            MapViewer.DrawTestMap(selectedStructure.Longitude.GetValueOrDefault(0), selectedStructure.Latitude.GetValueOrDefault(0));
 
             StringBuilder inventString = new StringBuilder();
             if (selectedStructure.Inventory.Items.Count > 0)

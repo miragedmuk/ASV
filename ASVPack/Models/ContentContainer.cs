@@ -486,7 +486,7 @@ namespace ASVPack.Models
                                     {
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
-                                        Parallel.ForEach(objectReferences, objectReference =>
+                                        foreach(var objectReference in objectReferences)
                                         {
                                             objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                             if (itemObject != null)
@@ -499,7 +499,7 @@ namespace ASVPack.Models
                                                     inventoryItems.Add(item);
                                                 }
                                             }
-                                        });
+                                        };
                                     }
 
                                 }
@@ -798,8 +798,7 @@ namespace ASVPack.Models
                                             {
                                                 ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
-                                                Parallel.ForEach(objectReferences, objectReference =>
-                                                //foreach (var objectReference in objectReferences)
+                                                foreach (var objectReference in objectReferences)
                                                 {
                                                     objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                                     if (itemObject != null)
@@ -813,7 +812,7 @@ namespace ASVPack.Models
                                                         }
                                                     }
                                                 }
-                                                );
+                                                
                                             }
 
 
@@ -822,8 +821,7 @@ namespace ASVPack.Models
                                             if (equippedItemsArray != null)
                                             {
                                                 ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)equippedItemsArray.Value;
-                                                Parallel.ForEach(objectReferences, objectReference =>
-                                                //foreach (var objectReference in objectReferences)
+                                                foreach (var objectReference in objectReferences)
                                                 {
                                                     objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                                     if (itemObject != null)
@@ -836,7 +834,7 @@ namespace ASVPack.Models
                                                         }
                                                     }
                                                 }
-                                                );
+                                                
                                             }
 
                                         }
@@ -862,7 +860,6 @@ namespace ASVPack.Models
                         logWriter.Debug($"Populating tamed creature inventories");
 
                         Parallel.ForEach(allTames.SelectMany(x => x.Tames), x =>
-                        //foreach (GameObject x in allTames)
                         {
                             //find appropriate tribe to add to
                             var teamId = x.GetPropertyValue<int>("TargetingTeam");
@@ -876,8 +873,25 @@ namespace ASVPack.Models
 
                                 logWriter.Debug($"Converting to ContentTamedCreature: {x.ClassString}");
                                 ContentTamedCreature creature = x.AsTamedCreature(statusObject);
-                                creature.Latitude = (float)LoadedMap.LatShift + (creature.Y / (float)LoadedMap.LatDiv);
-                                creature.Longitude = (float)LoadedMap.LonShift + (creature.X / (float)LoadedMap.LonDiv);
+
+                                if (float.IsNaN(creature.Y.GetValueOrDefault(0)))
+                                {
+
+                                    creature.Latitude = 0;
+                                    creature.Longitude = 0;
+                                }
+                                else
+                                {
+                                    creature.Latitude = (float)LoadedMap.LatShift + (creature.Y / (float)LoadedMap.LatDiv);
+                                    creature.Longitude = (float)LoadedMap.LonShift + (creature.X / (float)LoadedMap.LonDiv);
+
+                                    if(Math.Abs(creature.Latitude.GetValueOrDefault(0)) > 250 || Math.Abs(creature.Longitude.GetValueOrDefault(0)) > 250)
+                                    {
+                                        creature.Latitude = 0;
+                                        creature.Longitude = 0;
+                                    }
+                                }
+
                                 creature.TamedAtDateTime = GetApproxDateTimeOf(creature.TamedTimeInGame);
                                 creature.LastAllyInRangeTime = GetApproxDateTimeOf(creature.LastAllyInRangeTimeInGame);
 
@@ -901,7 +915,7 @@ namespace ASVPack.Models
                                     {
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
-                                        Parallel.ForEach(objectReferences, objectReference =>
+                                        foreach(var objectReference in objectReferences)
                                         {
                                             objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                             if (itemObject != null)
@@ -913,12 +927,7 @@ namespace ASVPack.Models
                                                     inventoryItems.Add(item);
                                                 }
                                             }
-                                        });
-
-
-
-
-
+                                        }
                                     }
 
 
@@ -949,8 +958,7 @@ namespace ASVPack.Models
                                             }
                                             else
                                             {
-                                                Parallel.ForEach(equippedReferences, objectReference =>
-                                                //foreach (var objectReference in objectReferences)
+                                                foreach (var objectReference in equippedReferences)
                                                 {
                                                     objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                                     if (itemObject != null)
@@ -963,7 +971,6 @@ namespace ASVPack.Models
                                                         }
                                                     }
                                                 }
-                                                );
                                             }
                                         }
 
@@ -992,7 +999,7 @@ namespace ASVPack.Models
                         var unclaimedBabies = unclaimedTribe.Tames.Where(x => x.IsBaby).ToList();
                         if (unclaimedBabies != null && unclaimedBabies.Count > 0)
                         {
-                            foreach (var baby in unclaimedBabies)
+                            Parallel.ForEach(unclaimedBabies, baby =>
                             {
                                 if (baby.MotherId.HasValue)
                                 {
@@ -1018,13 +1025,14 @@ namespace ASVPack.Models
 
                                 }
                             }
+                            );
                         }
 
                         //structures
                         logWriter.Debug($"Populating player structure inventories");
 
-                        //Parallel.ForEach(tribeStructures.SelectMany(x => x.Structures), x =>
-                        foreach (var x in tribeStructures.SelectMany(x => x.Structures))
+                        var allTribeStructures = tribeStructures.SelectMany(x => x.Structures);
+                        Parallel.ForEach(allTribeStructures, x=> 
                         {
 
                             var teamId = x.GetPropertyValue<int>("TargetingTeam");
@@ -1116,7 +1124,7 @@ namespace ASVPack.Models
                             }
                             if (tribe!=null && !tribe.Structures.Contains(structure)) tribe.Structures.Add(structure);
 
-                        }//);
+                        });
 
 
                         if (fileTribes.Count > 0) Tribes.AddRange(fileTribes.ToList());
@@ -1143,9 +1151,6 @@ namespace ASVPack.Models
 
                                 droppedItem.Latitude = (float)LoadedMap.LatShift + (droppedItem.Y / (float)LoadedMap.LatDiv);
                                 droppedItem.Longitude = (float)LoadedMap.LonShift + (droppedItem.X / (float)LoadedMap.LonDiv);
-
-
-
 
                                 return droppedItem;
                             }).ToList()
@@ -1356,7 +1361,6 @@ namespace ASVPack.Models
                     logWriter.Info("Reading cluster data...");
                     var profileFilenames = Directory.GetFiles(clusterFolder, "*");
                     profileFilenames.AsParallel().ForAll(fileName =>
-                    //foreach (var fileName in profileFilenames)
                     {
                         long itemOwnerId = 0;
                         long.TryParse(System.IO.Path.GetFileNameWithoutExtension(fileName), out itemOwnerId);

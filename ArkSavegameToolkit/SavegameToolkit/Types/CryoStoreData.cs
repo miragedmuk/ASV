@@ -10,6 +10,7 @@ namespace SavegameToolkit.Types
     {
 
         public GameObject ParentObject { get; set; }
+        public int StoreDataIndex { get; set; } = 1;
         public long Offset { get; set; }
         public byte[] Data { get; set; }
 
