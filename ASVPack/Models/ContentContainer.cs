@@ -26,6 +26,9 @@ namespace ASVPack.Models
         private string loadedFilename = string.Empty;
         private string loadedClusterFolder = string.Empty;
 
+        public delegate void ProgressUpdateHandler(string message);
+        public event ProgressUpdateHandler OnUpdateProgress;
+
 
         ILogger logWriter = LogManager.GetCurrentClassLogger();
         private ContentMapPack mapPack = new ContentMapPack();
@@ -90,13 +93,6 @@ namespace ASVPack.Models
 
             logWriter.Trace("BEGIN LoadSaveGame()");
 
-
-
-            
-
-
-
-
             if (!File.Exists(saveFilename))
             {
                 logWriter.Error($"LoadSaveGame failed - unable to find file: {saveFilename}");
@@ -116,6 +112,7 @@ namespace ASVPack.Models
 
             long startTicks = DateTime.Now.Ticks;
 
+            OnUpdateProgress?.Invoke("Checking LocalProfile data...");
             try
             {
                 if (localProfileFilename.Length > 0 && File.Exists(localProfileFilename))
@@ -141,14 +138,7 @@ namespace ASVPack.Models
                 //ignore, not really that bothered about LocalProfile, added bonus if it is read in.
             }
 
-
-                       
-
-
-
-
-
-
+            OnUpdateProgress?.Invoke("Started to load ARK save file...");
             logWriter.Info("Reading game save data...");
             try
             {
@@ -168,6 +158,8 @@ namespace ASVPack.Models
                     {
 
                         ArkSavegame arkSavegame = new ArkSavegame();
+
+                        OnUpdateProgress?.Invoke("Loading ARK save file...");
 
                         arkSavegame.ReadBinary(archive, ReadingOptions.Create()
                                 .WithDataFiles(true)
@@ -192,6 +184,9 @@ namespace ASVPack.Models
                             objectContainer = new GameObjectContainer(combinedObjects);
                             GameSeconds = arkSavegame.GameTime;
                         }
+                        OnUpdateProgress?.Invoke("ARK save file loaded, analysing and parsing data...");
+
+
 
                         //get map name from .ark file data
                         logWriter.Debug($"Reading map name from: {saveFilename}");
@@ -223,6 +218,8 @@ namespace ASVPack.Models
                         var testGameMode = objectContainer.FirstOrDefault(x => x.ClassString == "TestGameMode_C");
                         if (testGameMode != null)
                         {
+                            OnUpdateProgress?.Invoke("Parsing missiong leaderboard data...");
+
                             //try find leaderboards
                             var leaderBoardContainer = testGameMode.GetTypedProperty<PropertyStruct>("LeaderboardContainer");
                             if (leaderBoardContainer != null)
@@ -292,6 +289,9 @@ namespace ASVPack.Models
 
                         if (filePath.Length > 0)
                         {
+
+                            OnUpdateProgress?.Invoke("Started loading .arkprofile data...");
+
                             long profileStart = DateTime.Now.Ticks;
                             logWriter.Info("Reading .arkprofile(s)");
 
@@ -361,9 +361,12 @@ namespace ASVPack.Models
                             TribeName = "[ASV Abandoned]"
                         });
 
+                        OnUpdateProgress?.Invoke(".arkprofile data loaded.");
+
                         long tribeStart = DateTime.Now.Ticks;
                         logWriter.Info("Reading .arktribe(s)");
 
+                        OnUpdateProgress?.Invoke("Started loading .arktribe data...");
                         var tribeFilenames = Directory.GetFiles(filePath, "*.arktribe");
                         tribeFilenames.AsParallel().ForAll(x =>
                         {
@@ -400,7 +403,7 @@ namespace ASVPack.Models
                         });
 
 
-
+                        OnUpdateProgress?.Invoke(".arktribe data loaded.");
 
                         long tribeEnd = DateTime.Now.Ticks;
 
@@ -431,6 +434,8 @@ namespace ASVPack.Models
 
 
                         long structureStart = DateTime.Now.Ticks;
+
+                        OnUpdateProgress?.Invoke("Identifying game map structures...");
 
                         logWriter.Info($"Identifying map structures");
                         //map structures we care about
@@ -545,6 +550,8 @@ namespace ASVPack.Models
                         long wildStart = DateTime.Now.Ticks;
 
 
+                        OnUpdateProgress?.Invoke("Identifying wild creatures...");
+
                         logWriter.Info($"Identifying wild creatures");
                         //wilds
                         WildCreatures = objectContainer.Objects.AsParallel().Where(x => x.IsWild())
@@ -610,6 +617,8 @@ namespace ASVPack.Models
 
                         var parallelContainer = objectContainer.AsParallel();
 
+                        OnUpdateProgress?.Invoke("Identifying tamed creatures...");
+
                         logWriter.Info($"Identifying tamed creatures");
                         var allTames = parallelContainer
                                         .Where(x => x.IsTamed()) //exclude rafts.. no idea why these are "creatures"
@@ -617,6 +626,7 @@ namespace ASVPack.Models
 
 
 
+                        OnUpdateProgress?.Invoke("Identifying player structures...");
                         logWriter.Debug($"Identifying player structures");
                         var allStructures = parallelContainer.Where(x => x.IsStructure()).GroupBy(x => x.Names[0]).Select(s => s.First()).ToList();
                         var playerStructures = allStructures.Where(x => x.GetPropertyValue<int>("TargetingTeam") >= 50_000).ToList();
@@ -659,6 +669,9 @@ namespace ASVPack.Models
 
                         //player and tribe data
                         long tribeLoadStart = DateTime.Now.Ticks;
+
+                        OnUpdateProgress?.Invoke("Identifying players...");
+
                         logWriter.Debug($"Identifying in-game player data");
                         var gamePlayers = parallelContainer.Where(o => o.IsPlayer() & !o.HasAnyProperty("MyDeathHarvestingComponent")).GroupBy(x => x.GetPropertyValue<long>("LinkedPlayerDataID")).Select(x => x.First()).ToList();
                         var tribesAndPlayers = gamePlayers.GroupBy(x => x.GetPropertyValue<int>("TargetingTeam")).ToList();
@@ -750,6 +763,7 @@ namespace ASVPack.Models
                             });
                         }
 
+                        OnUpdateProgress?.Invoke("Parsing player data...");
 
                         logWriter.Debug($"Populating player data");
                         //load inventories, locations etc.
@@ -859,6 +873,8 @@ namespace ASVPack.Models
 
                         logWriter.Debug($"Populating tamed creature inventories");
 
+
+                        OnUpdateProgress?.Invoke("Parsing tame data...");
                         Parallel.ForEach(allTames.SelectMany(x => x.Tames), x =>
                         {
                             //find appropriate tribe to add to
@@ -1029,6 +1045,7 @@ namespace ASVPack.Models
                         }
 
                         //structures
+                        OnUpdateProgress?.Invoke("Parsing player structure data...");
                         logWriter.Debug($"Populating player structure inventories");
 
                         var allTribeStructures = tribeStructures.SelectMany(x => x.Structures);
@@ -1352,12 +1369,12 @@ namespace ASVPack.Models
 
                 }
 
-                
 
                 //cluster data
                 if (!string.IsNullOrEmpty(clusterFolder) && Directory.Exists(clusterFolder))
                 {
 
+                    OnUpdateProgress?.Invoke("Loading cluster data...");
                     logWriter.Info("Reading cluster data...");
                     var profileFilenames = Directory.GetFiles(clusterFolder, "*");
                     profileFilenames.AsParallel().ForAll(fileName =>
@@ -1548,6 +1565,7 @@ namespace ASVPack.Models
                 isLoaded = true;                
                 long endTicks = DateTime.Now.Ticks;
                 var duration = TimeSpan.FromTicks(endTicks - startTicks);
+                OnUpdateProgress?.Invoke("Save data loaded and analysed.");
 
                 logWriter.Info($"Loaded in: {duration.ToString(@"mm\:ss")}.");
             }

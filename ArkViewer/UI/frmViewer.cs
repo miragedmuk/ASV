@@ -21,6 +21,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Timer = System.Windows.Forms.Timer;
 
@@ -163,7 +164,7 @@ namespace ARKViewer
             lblMapDate.Text = "No Map Loaded";
             lblMapTypeName.Text = "Unknown Data";
 
-            UpdateProgress("Loading content.");
+            UpdateProgress("Loading ARK save data.");
 
             long startLoadTicks = DateTime.Now.Ticks;
 
@@ -199,6 +200,9 @@ namespace ARKViewer
                 {
                     //assume .ark
                     ContentContainer container = new ContentContainer();
+                    container.OnUpdateProgress += Container_OnUpdateProgress;
+
+
 
                     string localProfileFilename = "";
                     string steamFolder = Program.GetSteamFolder();
@@ -207,11 +211,9 @@ namespace ARKViewer
                         localProfileFilename = Path.Combine(steamFolder, @"LocalProfiles\PlayerLocalData.arkprofile");
                     }
 
-
                     container.LoadSaveGame(fileName, localProfileFilename, Program.ProgramConfig.ClusterFolder ?? "");
 
-                    //terminals not already in game data
-
+                    UpdateProgress("Analyzing loaded data to populate UI.");
 
                     //glitches
                     Program.ProgramConfig.GlitchMarkers.ForEach(x =>
@@ -246,6 +248,7 @@ namespace ARKViewer
 
                     cm = new ASVDataManager(container);
 
+                    container.OnUpdateProgress -= Container_OnUpdateProgress;
 
                 }
 
@@ -382,6 +385,20 @@ namespace ARKViewer
 
             this.Cursor = Cursors.Default;
             Program.LogWriter.Trace("END LoadContent()");
+        }
+
+        private void Container_OnUpdateProgress(string message)
+        {
+            if (lblStatus.InvokeRequired)
+            {
+                Action safeWrite = delegate { Container_OnUpdateProgress($"{message}"); };
+                lblStatus.Invoke(safeWrite);
+            }
+            else
+            {
+                lblStatus.Text = message;
+                lblStatus.Refresh();
+            }
         }
 
         private void RefreshRealms()
