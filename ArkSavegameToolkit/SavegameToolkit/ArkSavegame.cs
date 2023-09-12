@@ -452,26 +452,12 @@ namespace SavegameToolkit
             {
                 if(SaveVersion > 10 )
                 {
-                    
-                    
-                    var storedOffset = archive.ReadLong();
-                    var storedDataSize = archive.ReadLong();
-                    StoredDataOffsets.Add(new Tuple<long,long>(storedOffset, storedDataSize));
-
-                    var v11Unknown1 = archive.ReadLong(); //file size or some other pointer 
-                    var v11Unknown2 = archive.ReadLong(); //0
-                    StoredDataOffsets.Add(new Tuple<long, long>(v11Unknown1, v11Unknown2));
-
-
-                    var v11Unknown3 = archive.ReadLong(); //file size or some other pointer
-                    var v11Unknown4 = archive.ReadLong(); //0
-                    StoredDataOffsets.Add(new Tuple<long, long>(v11Unknown3, v11Unknown4));
-
-
-                    var v11Unknown5 = archive.ReadLong(); //file size or some other pointer
-                    var v11Unknown6 = archive.ReadLong(); //0
-                    StoredDataOffsets.Add(new Tuple<long, long>(v11Unknown5, v11Unknown6));
-
+                    //read in stored data file offsets
+                    for(int x = 0; x < 4; x++)
+                    {
+                        var storedOffset = new Tuple<long,long>(archive.ReadLong(), archive.ReadLong());
+                        StoredDataOffsets.Add(storedOffset);
+                    }
                 }
 
                 hibernationOffset = archive.ReadInt();

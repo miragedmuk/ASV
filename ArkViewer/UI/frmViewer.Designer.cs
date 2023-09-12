@@ -2087,7 +2087,7 @@ namespace ARKViewer
             splitContainer1.Panel2.Controls.Add(cboChartType);
             splitContainer1.Panel2.Controls.Add(chartTribes);
             splitContainer1.Size = new System.Drawing.Size(1075, 438);
-            splitContainer1.SplitterDistance = 746;
+            splitContainer1.SplitterDistance = 716;
             splitContainer1.TabIndex = 24;
             // 
             // lvwTribes
@@ -2099,7 +2099,7 @@ namespace ARKViewer
             lvwTribes.Location = new System.Drawing.Point(5, 3);
             lvwTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwTribes.Name = "lvwTribes";
-            lvwTribes.Size = new System.Drawing.Size(740, 395);
+            lvwTribes.Size = new System.Drawing.Size(707, 395);
             lvwTribes.TabIndex = 0;
             lvwTribes.UseCompatibleStateImageBehavior = false;
             lvwTribes.View = System.Windows.Forms.View.Details;
@@ -2115,7 +2115,7 @@ namespace ARKViewer
             // lvwTribes_Name
             // 
             lvwTribes_Name.Text = "Name";
-            lvwTribes_Name.Width = 228;
+            lvwTribes_Name.Width = 200;
             // 
             // lvwTribes_Players
             // 
@@ -2147,7 +2147,7 @@ namespace ARKViewer
             pnlFilterTribes.Location = new System.Drawing.Point(5, 400);
             pnlFilterTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlFilterTribes.Name = "pnlFilterTribes";
-            pnlFilterTribes.Size = new System.Drawing.Size(740, 33);
+            pnlFilterTribes.Size = new System.Drawing.Size(710, 33);
             pnlFilterTribes.TabIndex = 23;
             // 
             // btnFilterTribe
@@ -2155,7 +2155,7 @@ namespace ARKViewer
             btnFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnFilterTribe.Cursor = System.Windows.Forms.Cursors.Hand;
             btnFilterTribe.Image = (System.Drawing.Image)resources.GetObject("btnFilterTribe.Image");
-            btnFilterTribe.Location = new System.Drawing.Point(704, -1);
+            btnFilterTribe.Location = new System.Drawing.Point(674, -1);
             btnFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnFilterTribe.Name = "btnFilterTribe";
             btnFilterTribe.Size = new System.Drawing.Size(35, 33);
@@ -2170,15 +2170,16 @@ namespace ARKViewer
             txtFilterTribe.Location = new System.Drawing.Point(12, 3);
             txtFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterTribe.Name = "txtFilterTribe";
-            txtFilterTribe.Size = new System.Drawing.Size(680, 23);
+            txtFilterTribe.Size = new System.Drawing.Size(650, 23);
             txtFilterTribe.TabIndex = 6;
             txtFilterTribe.KeyDown += txtFilterTribe_KeyDown;
             // 
             // btnSaveChartImage
             // 
+            btnSaveChartImage.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnSaveChartImage.Cursor = System.Windows.Forms.Cursors.Hand;
             btnSaveChartImage.Image = (System.Drawing.Image)resources.GetObject("btnSaveChartImage.Image");
-            btnSaveChartImage.Location = new System.Drawing.Point(269, 42);
+            btnSaveChartImage.Location = new System.Drawing.Point(299, 42);
             btnSaveChartImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSaveChartImage.Name = "btnSaveChartImage";
             btnSaveChartImage.Size = new System.Drawing.Size(43, 33);
@@ -2223,13 +2224,14 @@ namespace ARKViewer
             // 
             // cboChartType
             // 
+            cboChartType.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             cboChartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboChartType.FormattingEnabled = true;
             cboChartType.Items.AddRange(new object[] { "Tribes by No. Players", "Tribes by No. Tames", "Tribes by No. Structures" });
             cboChartType.Location = new System.Drawing.Point(72, 13);
             cboChartType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboChartType.Name = "cboChartType";
-            cboChartType.Size = new System.Drawing.Size(240, 23);
+            cboChartType.Size = new System.Drawing.Size(270, 23);
             cboChartType.TabIndex = 5;
             cboChartType.SelectedIndexChanged += cboChartType_SelectedIndexChanged;
             // 
@@ -2239,7 +2241,7 @@ namespace ARKViewer
             chartTribes.CausesValidation = false;
             chartTribes.Location = new System.Drawing.Point(10, 81);
             chartTribes.Name = "chartTribes";
-            chartTribes.Size = new System.Drawing.Size(302, 306);
+            chartTribes.Size = new System.Drawing.Size(332, 306);
             chartTribes.SubTitle = "";
             chartTribes.TabIndex = 0;
             chartTribes.Title = "ASV Tribes";
