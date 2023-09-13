@@ -248,11 +248,12 @@ namespace SavegameToolkit
                 .ToList();
 
 
+            //create and initialise dictionary to hold the offset data.
             Dictionary<int, List<StoredOffsetItemPointer>> storedItemsWithOffsets = new Dictionary<int, List<StoredOffsetItemPointer>>();
-            storedItemsWithOffsets.Add(0,new List<StoredOffsetItemPointer>());
-            storedItemsWithOffsets.Add(1, new List<StoredOffsetItemPointer>());
-            storedItemsWithOffsets.Add(2, new List<StoredOffsetItemPointer>());
-            storedItemsWithOffsets.Add(3, new List<StoredOffsetItemPointer>());
+            for(int i = 0; i < StoredDataOffsets.Count; i++)
+            {
+                storedItemsWithOffsets.Add(i, new List<StoredOffsetItemPointer>());
+            }
 
             validStored.ForEach(x =>
             {
@@ -274,8 +275,8 @@ namespace SavegameToolkit
                         dataFile = ((StructCustomItemDataRef)redirectors[redirectorIndex]).StoreDataIndex;
                     }
 
+                    //store to be read-in forward-only for performance.
                     storedItemsWithOffsets[dataFile].Add(new StoredOffsetItemPointer() { ParentObject = x, ObjectOffset = cryoDataOffset });
-
                 }
                 catch
                 {
@@ -286,8 +287,10 @@ namespace SavegameToolkit
             
 
             
+            // parse stored data in offset order, adding parsed objects to list
+            // to allow the slower re-parenting and addition to the Objects collection
+            // to be done after the file read.
             List<Tuple<GameObject,GameObject,GameObject,GameObject>> addedCryoObjects = new List<Tuple<GameObject,GameObject, GameObject, GameObject>>();
-
             for(int fileIndex = 0; fileIndex < 4; fileIndex++)
             {
                 if (storedItemsWithOffsets[fileIndex].Count > 0)
@@ -299,7 +302,6 @@ namespace SavegameToolkit
                         var storedObject = sortedOffsetItems[x];
                         var offsetData = StoredDataOffsets[fileIndex];
 
-
                         var storedOffset = offsetData.Item1 + storedObject.ObjectOffset;
                         long nextOffset = offsetData.Item1 + offsetData.Item2;
                         if (x < sortedOffsetItems.Count - 1)
@@ -309,30 +311,23 @@ namespace SavegameToolkit
                             nextOffset = nextItem.ObjectOffset + offsetData.Item1;
                         }
 
-
                         archive.Position = storedOffset;
                         ArkCryoStore testStore = new ArkCryoStore(archive);
                         if (testStore.Objects.Any())
                         {
                             testStore.LoadProperties(archive);
+
+                            //Store all required GameObjects to correctly read in this cryo creature
                             addedCryoObjects.Add(new Tuple<GameObject, GameObject, GameObject, GameObject>(storedObject.ParentObject, testStore.CreatureComponent, testStore.StatusComponent, testStore.InventoryComponent));
-                            
-                            /*
-                            
-                            */
-
                         }
-
-
                     }
-
                 }
             }
 
+            //limit Object filter to inventory containers only
             var inventoryContainers = Objects.AsParallel().Where(x => x.GetPropertyValue<ObjectReference?>("MyInventoryComponent") != null).ToList();
             if(addedCryoObjects.Count > 0)
             {
-                //foreach(var cryoObjects in addedCryoObjects)
                 Parallel.ForEach(addedCryoObjects, cryoObjects =>
                 {
                     var cryoObject = cryoObjects.Item1;
@@ -341,7 +336,6 @@ namespace SavegameToolkit
                     var dinoInventoryComponent = cryoObjects.Item4;
 
                     if (dinoComponent == null) return;
-
 
                     dinoComponent.IsInCryo = !cryoObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
                     dinoComponent.IsInVivarium = cryoObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
@@ -418,12 +412,7 @@ namespace SavegameToolkit
 
             }
 
-
-
-
         }
-
-
 
         #endregion
 
