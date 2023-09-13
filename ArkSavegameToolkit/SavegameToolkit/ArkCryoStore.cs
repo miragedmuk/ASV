@@ -27,23 +27,30 @@ namespace SavegameToolkit
 
         public void ReadBinary(ArkArchive archive)
         {
-            var objectType = archive.ReadString().ToLowerInvariant(); //type?
-            if (objectType != "dino" && objectType != "settings") return;
+            if (archive.ReadString().ToLowerInvariant() != "dino") return;
 
             var stringPropertyCount = archive.ReadInt(); //7
+            if(stringPropertyCount < 0) 
+                return;
+
             while(stringPropertyCount-- > 0)
             {
                 archive.SkipString();
             }
 
             var floatPropertyCount = archive.ReadInt(); //float count (25)
-            while(floatPropertyCount-- > 0)
+            if (floatPropertyCount < 0) 
+                return;
+
+            while (floatPropertyCount-- > 0)
             {
                 _ = archive.ReadFloat();
             }
             
             var colorCount = archive.ReadInt(); //color name count
-            
+            if (colorCount < 0) 
+                return;
+
             while (colorCount-- > 0)
             {
                 archive.SkipString();
@@ -102,17 +109,17 @@ namespace SavegameToolkit
 
             if(CreatureComponent!=null)
             {
-                CreatureComponent.LoadProperties(archive, new GameObject(), (int)propertiesOffset);
+                CreatureComponent.LoadProperties(archive, new GameObject(), propertiesOffset);
             }
 
             if (StatusComponent != null)
             {
-                StatusComponent.LoadProperties(archive, new GameObject(), (int)propertiesOffset);
+                StatusComponent.LoadProperties(archive, new GameObject(), propertiesOffset);
             }
 
             if (InventoryComponent!= null)
             {
-                InventoryComponent.LoadProperties(archive, new GameObject(), (int)propertiesOffset);
+                InventoryComponent.LoadProperties(archive, new GameObject(), propertiesOffset);
             }
 
             archive.Position = pos;

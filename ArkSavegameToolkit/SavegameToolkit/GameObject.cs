@@ -148,9 +148,14 @@ namespace SavegameToolkit {
             archive.HasUnknownData = true;
         }
 
-        public void LoadProperties(ArkArchive archive, GameObject next, int propertiesBlockOffset) {
+        public void LoadProperties(ArkArchive archive, GameObject next, long propertiesBlockOffset) {
             long offset = propertiesBlockOffset + propertiesOffset;
             long nextOffset = propertiesBlockOffset + next?.propertiesOffset ?? archive.Limit;
+
+            if(offset < 0)
+            {
+
+            }
 
             archive.Position = offset;
             long position = offset;
