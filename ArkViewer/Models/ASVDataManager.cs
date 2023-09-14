@@ -547,11 +547,11 @@ namespace ARKViewer.Models
                                             DisplayName = displayName,
                                             PlayerId = g.OwnerPlayerId,
                                             PlayerName = tribe.Players.FirstOrDefault(p=>p.Id == g.OwnerPlayerId)?.Name,
-                                            Latitude = (decimal)container.Latitude.GetValueOrDefault(0),
-                                            Longitude = (decimal)container.Longitude.GetValueOrDefault(0),
-                                            X = (decimal)container.X,
-                                            Y = (decimal)container.Y,
-                                            Z = (decimal)container.Z,
+                                            Latitude = container.Latitude.GetValueOrDefault(0),
+                                            Longitude = container.Longitude.GetValueOrDefault(0),
+                                            X = container.X,
+                                            Y = container.Y,
+                                            Z = container.Z,
                                             Quantity = g.Qty,
                                             IsBlueprint = g.IsBlueprint,
                                             Rating = g.Rating,
@@ -606,11 +606,11 @@ namespace ARKViewer.Models
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,
                                             DisplayName = displayName,
-                                            Latitude = (decimal)container.Latitude.GetValueOrDefault(0),
-                                            Longitude = (decimal)container.Longitude.GetValueOrDefault(0),
-                                            X = (decimal)container.X,
-                                            Y = (decimal)container.Y,
-                                            Z = (decimal)container.Z,
+                                            Latitude = container.Latitude.GetValueOrDefault(0),
+                                            Longitude = container.Longitude.GetValueOrDefault(0),
+                                            X = container.X.GetValueOrDefault(0),
+                                            Y = container.Y.GetValueOrDefault(0),
+                                            Z = container.Z.GetValueOrDefault(0),
                                             Quantity = g.Qty,
                                             IsBlueprint = g.IsBlueprint,
                                             Rating = g.Rating
@@ -668,11 +668,11 @@ namespace ARKViewer.Models
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,
                                             DisplayName = displayName,
-                                            Latitude = container.Latitude.HasValue?(decimal)container.Latitude.GetValueOrDefault(0):0,
-                                            Longitude = container.Longitude.HasValue?(decimal)container.Longitude.GetValueOrDefault(0):0,
-                                            X = container.X.HasValue?((decimal)container.X):0,
-                                            Y = container.Y.HasValue ? ((decimal)container.Y) : 0,
-                                            Z = container.Z.HasValue ? ((decimal)container.Z):0,
+                                            Latitude = container.Latitude.GetValueOrDefault(0),
+                                            Longitude = container.Longitude.GetValueOrDefault(0),
+                                            X = container.X.GetValueOrDefault(0),
+                                            Y = container.Y.GetValueOrDefault(0),
+                                            Z = container.Z.GetValueOrDefault(0),
                                             Quantity = g.Qty,
                                             IsBlueprint = g.IsBlueprint,
                                             Rating = g.Rating,
@@ -769,156 +769,13 @@ namespace ARKViewer.Models
         {
             pack.ExportJsonPlayerStructures(exportFilename);
 
-            /*
-            string exportFolder = Path.GetDirectoryName(exportFilename);
-            if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
-
-            using (FileStream fs = File.Create(exportFilename))
-            {
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    using (JsonTextWriter jw = new JsonTextWriter(sw))
-                    {
-                        jw.WriteStartArray();
-
-                        foreach (var tribe in pack.Tribes)
-                        {
-                            var playerStructures = tribe.Structures;
-                            foreach (var structure in playerStructures)
-                            {
-                                jw.WriteStartObject();
-
-                                jw.WritePropertyName("tribeid");
-                                jw.WriteValue(tribe.TribeId);
-
-
-                                jw.WritePropertyName("tribe");
-                                jw.WriteValue(tribe.TribeName);
-
-
-                                jw.WritePropertyName("struct");
-                                jw.WriteValue(structure.ClassName);
-
-                                jw.WritePropertyName("lat");
-                                jw.WriteValue(structure.Latitude.GetValueOrDefault(0));
-
-                                jw.WritePropertyName("lon");
-                                jw.WriteValue(structure.Longitude.GetValueOrDefault(0));
-
-                                jw.WritePropertyName("ccc");
-                                jw.WriteValue($"{structure.X} {structure.Y} {structure.Z}");
-
-                                if (structure.CreatedDateTime.HasValue)
-                                {
-                                    jw.WritePropertyName("created");
-                                    jw.WriteValue(structure.CreatedDateTime.Value.ToUniversalTime());
-                                }
-
-                                if (Program.ProgramConfig.ExportInventories)
-                                {
-                                    jw.WritePropertyName("inventory");
-                                    jw.WriteStartArray();
-                                    if (structure.Inventory.Items.Count > 0)
-                                    {
-                                        foreach (var invItem in structure.Inventory.Items)
-                                        {
-                                            if (!invItem.IsEngram)
-                                            {
-                                                jw.WriteStartObject();
-
-                                                jw.WritePropertyName("itemId");
-                                                jw.WriteValue(invItem.ClassName);
-
-                                                jw.WritePropertyName("qty");
-                                                jw.WriteValue(invItem.Quantity);
-
-
-                                                jw.WritePropertyName("blueprint");
-                                                jw.WriteValue(invItem.IsBlueprint);
-
-                                                var itemMap = Program.ProgramConfig.ItemMap.FirstOrDefault(m => m.ClassName == invItem.ClassName);
-                                                if (itemMap != null)
-                                                {
-                                                    jw.WritePropertyName("category");
-                                                    jw.WriteValue(itemMap.Category);
-                                                }
-
-
-                                                jw.WriteEndObject();
-                                            }
-
-                                        }
-                                    }
-
-                                    jw.WriteEndArray();
-                                }
-
-                                jw.WriteEnd();
-                            }
-                        }
-
-                        jw.WriteEndArray();
-                    }
-
-                }
-
-            }
-            */
         }
 
 
         public void ExportPlayerTribeLogs(string exportFilename)
         {
             pack.ExportJsonPlayerTribeLogs(exportFilename);
-            /*
-
-            string exportFolder = Path.GetDirectoryName(exportFilename);
-            if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
-
-            using (FileStream fs = File.Create(exportFilename))
-            {
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    using (JsonTextWriter jw = new JsonTextWriter(sw))
-                    {
-                        jw.WriteStartArray();
-
-                        foreach (var playerTribe in pack.Tribes)
-                        {
-                            jw.WriteStartObject();
-
-                            jw.WritePropertyName("tribeid");
-                            jw.WriteValue(playerTribe.TribeId);
-
-                            jw.WritePropertyName("tribe");
-                            jw.WriteValue(playerTribe.TribeName);
-
-
-                            if (playerTribe.Logs != null && playerTribe.Logs.Length > 0)
-                            {
-                                jw.WritePropertyName("logs");
-                                jw.WriteStartArray();
-                                foreach (var logEntry in playerTribe.Logs)
-                                {
-
-                                    jw.WriteValue(logEntry);
-                                }
-
-                                jw.WriteEndArray();
-                            }
-
-                            jw.WriteEnd();
-                        }
-
-                        jw.WriteEndArray();
-                    }
-
-                }
-
-            }
-            */
+            
 
         }
 
@@ -928,77 +785,6 @@ namespace ARKViewer.Models
             pack.ExportJsonPlayerTribes(exportFilename);
 
 
-            /*
-            if (File.Exists(exportFilename)) File.Delete(exportFilename);
-
-            using (StreamWriter sw = new StreamWriter(exportFilename))
-            {
-                using (JsonTextWriter jw = new JsonTextWriter(sw))
-                {
-                    jw.WriteStartArray();
-
-                    foreach (var playerTribe in pack.Tribes)
-                    {
-                        jw.WriteStartObject();
-
-                        jw.WritePropertyName("tribeid");
-                        jw.WriteValue(playerTribe.TribeId);
-
-                        jw.WritePropertyName("tribe");
-                        jw.WriteValue(playerTribe.TribeName);
-
-                        jw.WritePropertyName("players");
-                        jw.WriteValue(playerTribe.Players.Count);
-
-                        if (playerTribe.Players != null && playerTribe.Players.Count > 0)
-                        {
-                            jw.WritePropertyName("members");
-                            jw.WriteStartArray();
-                            foreach (var tribePlayer in playerTribe.Players)
-                            {
-                                jw.WriteStartObject();
-
-                                jw.WritePropertyName("ign");
-                                jw.WriteValue(tribePlayer.CharacterName);
-
-                                jw.WritePropertyName("lvl");
-                                jw.WriteValue(tribePlayer.Level.ToString());
-
-                                jw.WritePropertyName("playerid");
-                                jw.WriteValue(tribePlayer.Id.ToString());
-
-                                jw.WritePropertyName("playername");
-                                jw.WriteValue(tribePlayer.Name);
-
-                                jw.WritePropertyName("steamid");
-                                jw.WriteValue(tribePlayer.NetworkId);
-
-                                jw.WriteEndObject();
-                            }
-
-                            jw.WriteEndArray();
-                        }
-
-
-
-                        jw.WritePropertyName("tames");
-                        jw.WriteValue(playerTribe.Tames.Count);
-
-                        jw.WritePropertyName("structures");
-                        jw.WriteValue(playerTribe.Structures.Count);
-
-                        jw.WritePropertyName("active");
-                        jw.WriteValue(playerTribe.LastActive);
-
-
-                        jw.WriteEnd();
-                    }
-
-                    jw.WriteEndArray();
-                }
-
-            }
-            */
 
         }
 
@@ -1006,162 +792,6 @@ namespace ARKViewer.Models
         {
             pack.ExportJsonPlayers(exportFilename);
 
-            /*
-            string exportFolder = Path.GetDirectoryName(exportFilename);
-            if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
-            using (FileStream fs = File.Create(exportFilename))
-            {
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    using (JsonTextWriter jw = new JsonTextWriter(sw))
-                    {
-                        jw.WriteStartArray();
-
-                        foreach (var tribe in pack.Tribes)
-                        {
-                            foreach (var player in tribe.Players)
-                            {
-                                jw.WriteStartObject();
-
-                                jw.WritePropertyName("playerid");
-                                jw.WriteValue(player.Id);
-
-                                jw.WritePropertyName("steam");
-                                jw.WriteValue(player.Name);
-
-                                jw.WritePropertyName("name");
-                                jw.WriteValue(player.CharacterName);
-
-                                jw.WritePropertyName("tribeid");
-                                jw.WriteValue(tribe.TribeId);
-
-                                jw.WritePropertyName("tribe");
-                                jw.WriteValue(tribe.TribeName);
-
-                                jw.WritePropertyName("sex");
-                                jw.WriteValue(player.Gender);
-
-                                jw.WritePropertyName("lvl");
-                                jw.WriteValue(player.Level);
-
-                                jw.WritePropertyName("lat");
-                                jw.WriteValue(player.Latitude.GetValueOrDefault(0));
-
-                                jw.WritePropertyName("lon");
-                                jw.WriteValue(player.Longitude.GetValueOrDefault(0));
-
-
-
-                                //0=health
-                                //1=stamina
-                                //2=torpor
-                                //3=oxygen
-                                //4=food
-                                //5=water
-                                //6=temperature
-                                //7=weight
-                                //8=melee damage
-                                //9=movement speed
-                                //10=fortitude
-                                //11=crafting speed
-                                jw.WritePropertyName("hp");
-                                jw.WriteValue(player.Stats[0]);
-
-                                jw.WritePropertyName("stam");
-                                jw.WriteValue(player.Stats[1]);
-
-                                jw.WritePropertyName("melee");
-                                jw.WriteValue(player.Stats[8]);
-
-                                jw.WritePropertyName("weight");
-                                jw.WriteValue(player.Stats[7]);
-
-                                jw.WritePropertyName("speed");
-                                jw.WriteValue(player.Stats[9]);
-
-                                jw.WritePropertyName("food");
-                                jw.WriteValue(player.Stats[4]);
-
-                                jw.WritePropertyName("water");
-                                jw.WriteValue(player.Stats[5]);
-
-                                jw.WritePropertyName("oxy");
-                                jw.WriteValue(player.Stats[3]);
-
-                                jw.WritePropertyName("craft");
-                                jw.WriteValue(player.Stats[11]);
-
-                                jw.WritePropertyName("fort");
-                                jw.WriteValue(player.Stats[10]);
-
-                                jw.WritePropertyName("active");
-                                jw.WriteValue(player.LastActiveDateTime);
-
-                                jw.WritePropertyName("ccc");
-                                jw.WriteValue($"{player.X} {player.Y} {player.Z}");
-
-                                jw.WritePropertyName("steamid");
-                                jw.WriteValue(player.NetworkId);
-
-                                if (Program.ProgramConfig.ExportInventories)
-                                {
-                                    jw.WritePropertyName("inventory");
-                                    jw.WriteStartArray();
-
-                                    if (player.Inventory.Items.Count > 0)
-                                    {
-                                        foreach (var invItem in player.Inventory.Items)
-                                        {
-                                            if (!invItem.IsEngram && invItem.ClassName != "PrimalItem_StartingNote_C")
-                                            {
-                                                jw.WriteStartObject();
-
-                                                jw.WritePropertyName("itemId");
-                                                jw.WriteValue(invItem.ClassName);
-
-                                                jw.WritePropertyName("qty");
-                                                jw.WriteValue(invItem.Quantity);
-
-                                                jw.WritePropertyName("blueprint");
-                                                jw.WriteValue(invItem.IsBlueprint);
-
-                                                var itemMap = Program.ProgramConfig.ItemMap.FirstOrDefault(m => m.ClassName == invItem.ClassName);
-                                                if (itemMap != null)
-                                                {
-                                                    jw.WritePropertyName("category");
-                                                    jw.WriteValue(itemMap.Category);
-                                                }
-
-                                                if (invItem.UploadedTimeInGame != 0)
-                                                {
-                                                    jw.WritePropertyName("uploadedTime");
-                                                    jw.WriteValue(invItem.UploadedTime);
-                                                }
-
-                                                jw.WriteEndObject();
-                                            }
-
-                                        }
-                                    }
-
-
-
-                                    jw.WriteEndArray();
-                                }
-
-
-                                jw.WriteEnd();
-                            }
-                        }
-
-                        jw.WriteEndArray();
-                    }
-
-                }
-
-            }
-            */
         }
 
 
@@ -1203,10 +833,11 @@ namespace ARKViewer.Models
                 var filteredResults = GetItems(tribeId, className, selectedRealm);
                 foreach (var result in filteredResults)
                 {
-                    var markerX = (decimal)(result.Longitude) * 1024 / 100;
-                    var markerY = (decimal)(result.Latitude) * 1024 / 100;
+                    var markerX = (float)(result.Longitude) * 1024 / 100;
+                    var markerY = (float)(result.Latitude) * 1024 / 100;
                     var markerSize = 10f;
 
+                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
                     Color markerColor = Color.AliceBlue;
 
                     graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
@@ -1275,10 +906,11 @@ namespace ARKViewer.Models
 
                 foreach (var wild in filteredWilds)
                 {
-                    var markerX = (decimal)(wild.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerY = (decimal)(wild.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerX = (float)(wild.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerY = (float)(wild.Latitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerSize = 10f;
 
+                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                     Color markerColor = Color.WhiteSmoke;
                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1448,8 +1080,10 @@ namespace ARKViewer.Models
                     float latitude = item.Latitude.GetValueOrDefault(0);
                     float longitude = item.Longitude.GetValueOrDefault(0);
 
-                    var markerX = (decimal)(longitude) * 1024 / 100;
-                    var markerY = (decimal)(latitude) * 1024 / 100;
+                    var markerX = (float)(longitude) * 1024 / 100;
+                    var markerY = (float)(latitude) * 1024 / 100;
+
+                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                     Color markerColor = Color.WhiteSmoke;
                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1527,8 +1161,10 @@ namespace ARKViewer.Models
                     float latitude = item.Latitude.GetValueOrDefault(0);
                     float longitude = item.Longitude.GetValueOrDefault(0);
 
-                    var markerX = (decimal)(longitude) * 1024 / 100;
-                    var markerY = (decimal)(latitude) * 1024 / 100;
+                    var markerX = (float)(longitude) * 1024 / 100;
+                    var markerY = (float)(latitude) * 1024 / 100;
+
+                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                     Color markerColor = Color.WhiteSmoke;
                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1601,9 +1237,11 @@ namespace ARKViewer.Models
                 var filteredStructures = GetPlayerStructures(tribeId, playerId, className, false, selectedRealm);
                 foreach (var playerStructure in filteredStructures)
                 {
-                    var markerX = (decimal)(playerStructure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerY = (decimal)(playerStructure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerX = (float)(playerStructure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    var markerY = (float)(playerStructure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerSize = 10f;
+
+                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                     Color markerColor = Color.WhiteSmoke;
                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1687,8 +1325,10 @@ namespace ARKViewer.Models
                                 {
                                     float markerSize = 10f;
 
-                                    var markerX = (decimal)(structure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                                    var markerY = (decimal)(structure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                                    var markerX = (float)(structure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                                    var markerY = (float)(structure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+
+                                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                                     Color markerColor = Color.WhiteSmoke;
                                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1733,8 +1373,10 @@ namespace ARKViewer.Models
                                 {
                                     float markerSize = 10f;
 
-                                    var markerX = (decimal)(tame.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                                    var markerY = (decimal)(tame.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                                    var markerX = (float)(tame.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                                    var markerY = (float)(tame.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+
+                                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                                     Color markerColor = Color.WhiteSmoke;
                                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1781,8 +1423,10 @@ namespace ARKViewer.Models
                                 if (!(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0))
                                 {
 
-                                    var markerX = (decimal)(player.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                                    var markerY = (decimal)(player.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                                    var markerX = (float)(player.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                                    var markerY = (float)(player.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+
+                                    if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                                     Color markerColor = Color.WhiteSmoke;
                                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1871,8 +1515,10 @@ namespace ARKViewer.Models
                 {
                     if (!(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0))
                     {
-                        var markerX = (decimal)(player.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                        var markerY = (decimal)(player.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                        var markerX = (float)(player.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                        var markerY = (float)(player.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+
+                        if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                         Color markerColor = Color.WhiteSmoke;
                         if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
@@ -1970,8 +1616,8 @@ namespace ARKViewer.Models
 
         private Graphics AddMapStructures(Graphics g, ASVStructureOptions structureOptions)
         {
-            decimal markerX = 0;
-            decimal markerY = 0;
+            float markerX = 0;
+            float markerY = 0;
 
             Tuple<int, int, decimal, decimal, decimal, decimal> mapvals = Tuple.Create(1024, 1024, 0.0m, 0.0m, 100.0m, 100.0m);
 
@@ -1985,8 +1631,8 @@ namespace ARKViewer.Models
                     //attempt to determine colour from class name
                     Color brushColor = Color.DarkGreen;
 
-                    markerX = ((decimal)terminal.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)terminal.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)terminal.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)terminal.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
 
                     g.FillEllipse(new SolidBrush(brushColor), (float)markerX - 25f, (float)markerY - 25f, 50, 50);
@@ -2010,8 +1656,8 @@ namespace ARKViewer.Models
                     //attempt to determine colour from class name
                     Color brushColor = Color.MediumPurple;
 
-                    markerX = ((decimal)glitch.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)glitch.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)glitch.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)glitch.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     float markerSize = 25;
 
@@ -2032,8 +1678,8 @@ namespace ARKViewer.Models
 
                 foreach (var chargeNode in chargeNodeList)
                 {
-                    markerX = ((decimal)chargeNode.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)chargeNode.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)chargeNode.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)chargeNode.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
 
@@ -2058,8 +1704,8 @@ namespace ARKViewer.Models
                 var beaverDamList = pack.BeaverDams;
                 foreach (var beaverDam in beaverDamList)
                 {
-                    markerX = ((decimal)beaverDam.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)beaverDam.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)beaverDam.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)beaverDam.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
 
@@ -2081,8 +1727,8 @@ namespace ARKViewer.Models
                 var deinoNestList = pack.DeinoNests;
                 foreach (var deinoNest in deinoNestList)
                 {
-                    markerX = ((decimal)deinoNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)deinoNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)deinoNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)deinoNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
 
@@ -2107,8 +1753,8 @@ namespace ARKViewer.Models
                 var wyvernNestList = pack.WyvernNests;
                 foreach (var wyvernNest in wyvernNestList)
                 {
-                    markerX = ((decimal)wyvernNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)wyvernNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)wyvernNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)wyvernNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
 
                     g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
@@ -2137,8 +1783,8 @@ namespace ARKViewer.Models
                 foreach (var drakeNest in drakeNestList)
                 {
 
-                    markerX = ((decimal)drakeNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)drakeNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)drakeNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)drakeNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
 
                     Color markerColor = Color.White;
@@ -2165,8 +1811,8 @@ namespace ARKViewer.Models
                 foreach (var magmaNest in magmaNests)
                 {
 
-                    markerX = ((decimal)magmaNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)magmaNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)magmaNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)magmaNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     Color markerColor = Color.White;
                     g.FillEllipse(new SolidBrush(markerColor), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
@@ -2193,8 +1839,8 @@ namespace ARKViewer.Models
                 var oilVeinList = pack.OilVeins; //gd.Structures.Where(f => f.ClassName.StartsWith("OilVein_"));
                 foreach (var oilVein in oilVeinList)
                 {
-                    markerX = ((decimal)oilVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)oilVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)oilVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)oilVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
                     g.DrawEllipse(new Pen(Color.Black, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
@@ -2212,8 +1858,8 @@ namespace ARKViewer.Models
                 var waterVeinList = pack.WaterVeins; // gd.Structures.Where(f => f.ClassName.StartsWith("WaterVein_"));
                 foreach (var waterVein in waterVeinList)
                 {
-                    markerX = ((decimal)waterVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)waterVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)waterVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)waterVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
                     g.DrawEllipse(new Pen(Color.Black, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
@@ -2231,8 +1877,8 @@ namespace ARKViewer.Models
                 var gasVeinList = pack.GasVeins; // gd.Structures.Where(f => f.ClassName.StartsWith("GasVein_"));
                 foreach (var gasVein in gasVeinList)
                 {
-                    markerX = ((decimal)gasVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)gasVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)gasVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)gasVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
 
@@ -2251,8 +1897,8 @@ namespace ARKViewer.Models
                 var artifactList = pack.Artifacts; //gd.Structures.Where(f => f.ClassName.StartsWith("ArtifactCrate_"));
                 foreach (var artifact in artifactList)
                 {
-                    markerX = ((decimal)artifact.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)artifact.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)artifact.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)artifact.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.FloralWhite), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
                     g.DrawEllipse(new Pen(Color.Yellow, 1), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
@@ -2269,8 +1915,8 @@ namespace ARKViewer.Models
                 var hiveList = pack.BeeHives; 
                 foreach (var hive in hiveList)
                 {
-                    markerX = ((decimal)hive.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((decimal)hive.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerX = ((float)hive.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)hive.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
                     g.FillEllipse(new SolidBrush(Color.FloralWhite), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
                     g.DrawEllipse(new Pen(Color.Yellow, 1), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
@@ -2297,8 +1943,8 @@ namespace ARKViewer.Models
 
             foreach (var marker in markers.Where(x=>x.Displayed))
             {
-                var markerX = (decimal)(marker.Lon) * 1024 / 100;
-                var markerY = (decimal)(marker.Lat) * 1024 / 100;
+                var markerX = (float)(marker.Lon) * 1024 / 100;
+                var markerY = (float)(marker.Lat) * 1024 / 100;
 
                 Color markerBackGround = Color.FromArgb(marker.Colour);
                 g.FillEllipse(new SolidBrush(markerBackGround), (float)markerX - 17.5f, (float)markerY - 17.5f, 35, 35);
@@ -2330,8 +1976,8 @@ namespace ARKViewer.Models
             if (lon != 0 && lat != 0)
             {
 
-                var markerX = (decimal)(lon) * 1024 / 100;
-                var markerY = (decimal)(lat) * 1024 / 100;
+                var markerX = (float)(lon) * 1024 / 100;
+                var markerY = (float)(lat) * 1024 / 100;
                 Color markerColor = Color.Red;
                 float markerSize = 20;
 

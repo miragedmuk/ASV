@@ -44,6 +44,7 @@ namespace ASVPack.Models
 
         [DataMember] public bool IsMating { get; set; } = false;
         [DataMember] public bool IsWandering { get; set; } = false;
+        [DataMember] public bool IsClone { get; set; } = false;
         [DataMember] public DateTime? UploadedTime { get; set; } = null;
         public double UploadedTimeInGame { get; set; } = 0;
 
@@ -58,7 +59,7 @@ namespace ASVPack.Models
 
             IsWandering = creatureObject.GetPropertyValue<bool>("bEnableTamedWandering", 0, false);
             IsMating = creatureObject.GetPropertyValue<bool>("bEnableTamedMating", 0, false);
-
+            IsClone = creatureObject.GetPropertyValue<bool>("bIsClone", 0, false);
 
             int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam");
             int testTeam = creatureObject.GetPropertyValue<int>("TamingTeamID");
@@ -166,6 +167,7 @@ namespace ASVPack.Models
 
             IsWandering = creatureObject.GetPropertyValue<bool>("bEnableTamedWandering", 0, false);
             IsMating = creatureObject.GetPropertyValue<bool>("bEnableTamedMating", 0, false);
+            IsClone = creatureObject.GetPropertyValue<bool>("bIsCloneDino", 0, false);
 
 
             int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam");

@@ -4802,7 +4802,7 @@ namespace ARKViewer
                     if (Program.ProgramConfig.HideNoTames)
                     {
                         addItem = (
-                                    tribe.Tames != null
+                                    tribe.Tames != null && tribe.Tames.Count > 0
                                   );
                     }
 
@@ -5263,7 +5263,7 @@ namespace ARKViewer
                             newItem.SubItems.Add(playerStructure.Longitude.Value.ToString("0.00"));
                             newItem.SubItems.Add(playerStructure.DisplayName == playerStructure.ClassName ? "" : playerStructure.DisplayName);
                             newItem.SubItems.Add(playerStructure.IsLocked ? "Yes" : "No");
-
+                            newItem.SubItems.Add(playerStructure.IsSwitchedOn ? "Yes" : "No");
                             newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
                             newItem.SubItems.Add(playerStructure.HasDecayTimeReset ? "Yes" : "No");
                             newItem.SubItems.Add($"{playerStructure.X} {playerStructure.Y} {playerStructure.Z}");
@@ -5945,7 +5945,7 @@ namespace ARKViewer
                         & !(x.ClassName == "MotorRaft_BP_C" || x.ClassName == "Raft_BP_C")
                         && (chkCryo.Checked || x.IsCryo == false)
                         && (chkCryo.Checked || x.IsVivarium == false)
-                    )).Distinct().ToList();
+                    )).ToList();
 
                 if (cboTamedResource.SelectedIndex > 0)
                 {
@@ -6012,10 +6012,11 @@ namespace ARKViewer
 
                     if (addItem)
                     {
-                        ListViewItem item = new ListViewItem(creatureClassName);
+                        ListViewItem item = new ListViewItem(detail.TribeName);
                         item.Tag = detail;
                         item.UseItemStyleForSubItems = false;
 
+                        item.SubItems.Add(creatureClassName);
                         item.SubItems.Add(creatureName);
 
 
@@ -6081,7 +6082,8 @@ namespace ARKViewer
 
                         bool isStored = detail.IsCryo | detail.IsVivarium;
 
-                        item.SubItems.Add(isStored.ToString());
+                        item.SubItems.Add(isStored ? "Yes" : "No");
+                        item.SubItems.Add(detail.IsClone ? "Yes" : "No");
 
                         if (detail.IsCryo)
                         {

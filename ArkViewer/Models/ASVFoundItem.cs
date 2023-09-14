@@ -17,11 +17,11 @@ namespace ARKViewer.Models
         public string PlayerName { get; set; } = "";
         public bool IsBlueprint { get; set; } = false;
         public int Quantity { get; set; } = 0;
-        public decimal Latitude { get; set; } = 0;
-        public decimal Longitude { get; set; } = 0;
-        public decimal X { get; set; } = 0;
-        public decimal Y { get; set; } = 0;
-        public decimal Z { get; set; } = 0;
+        public float Latitude { get; set; } = 0;
+        public float Longitude { get; set; } = 0;
+        public float X { get; set; } = 0;
+        public float Y { get; set; } = 0;
+        public float Z { get; set; } = 0;
         public string Quality { get; set; } = "";
         public int? QualityColor { get; set; } = null;
         public float? Rating { get; set; } = null;

@@ -451,6 +451,8 @@ namespace ASVPack.Models
                             jw.WritePropertyName("cryo");
                             jw.WriteValue(creature.IsCryo || creature.IsVivarium);
 
+
+
                             jw.WritePropertyName("ccc");
                             jw.WriteValue($"{creature.X} {creature.Y} {creature.Z}");
 
@@ -463,6 +465,8 @@ namespace ASVPack.Models
                             jw.WritePropertyName("isNeutered");
                             jw.WriteValue(creature.IsNeutered);
 
+                            jw.WritePropertyName("isClone");
+                            jw.WriteValue(creature.IsClone);
 
                             if (creature.UploadedTimeInGame != 0)
                             {
@@ -1313,6 +1317,9 @@ namespace ASVPack.Models
 
                                 jw.WritePropertyName("locked");
                                 jw.WriteValue(structure.IsLocked);
+
+                                jw.WritePropertyName("isSwitchedOn");
+                                jw.WriteValue(structure.IsSwitchedOn);
 
                                 jw.WritePropertyName("lat");
                                 jw.WriteValue(structure.Latitude.GetValueOrDefault(0));

@@ -17,6 +17,8 @@ namespace ASVPack.Models
         [DataMember] public float? Longitude { get; set; } = 0;
         [DataMember] public string DisplayName { get; set; } = "";
         [DataMember] public bool IsLocked { get; set; } = false;
+        [DataMember] public bool IsSwitchedOn { get; set; } = false;
+
         [DataMember] public float X { get; set; } = 0;
         [DataMember] public float Y { get; set; } = 0;
         [DataMember] public float Z { get; set; } = 0;
@@ -28,7 +30,8 @@ namespace ASVPack.Models
 
         [DataMember] public bool HasDecayTimeReset { get; set; } = false;
         [DataMember] public double LastAllyInRangeTimeInGame { get; set; } = 0;
-        public DateTime? LastAllyInRangeTime { get; internal set; }
+        [DataMember] public DateTime? LastAllyInRangeTime { get; internal set; }
+
 
         public ContentStructure(GameObject structureObject)
         {
@@ -37,14 +40,15 @@ namespace ASVPack.Models
             IsLocked = structureObject.GetPropertyValue<bool>("bIsPinLocked")
                 || structureObject.GetPropertyValue<bool>("bIsLocked");
 
-     
+            IsSwitchedOn = structureObject.GetPropertyValue<bool>("bContainerActivated", 0, false);
+
             if (structureObject.Location != null)
             {
                 X = structureObject.Location.X;
                 Y = structureObject.Location.Y;
                 Z = structureObject.Location.Z;
             }
-
+            
             HasDecayTimeReset = structureObject.GetPropertyValue<bool>("bHasResetDecayTime", 0, false);
             LastAllyInRangeTimeInGame = structureObject.GetPropertyValue<double>("LastInAllyRangeTime", 0, 0);
             TargetingTeam = structureObject.GetPropertyValue<int>("TargetingTeam", 0, 0);

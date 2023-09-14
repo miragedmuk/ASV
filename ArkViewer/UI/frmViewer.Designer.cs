@@ -133,6 +133,7 @@ namespace ARKViewer
             lblTamePlayer = new System.Windows.Forms.Label();
             lblTameTribe = new System.Windows.Forms.Label();
             lvwTameDetail = new System.Windows.Forms.ListView();
+            lvwTameDetail_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Creature = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Name = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Sex = new System.Windows.Forms.ColumnHeader();
@@ -156,6 +157,7 @@ namespace ARKViewer
             lvwTameDetail_Wandering = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Neutered = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Cryo = new System.Windows.Forms.ColumnHeader();
+            lvwTameDetail_Clone = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Colour1 = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Colour2 = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Colour3 = new System.Windows.Forms.ColumnHeader();
@@ -200,6 +202,7 @@ namespace ARKViewer
             lvwStructureLocations_Lon = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Name = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Locked = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_Powered = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_LastTime = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
@@ -1515,7 +1518,7 @@ namespace ARKViewer
             // lvwTameDetail
             // 
             lvwTameDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Sex, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Mating, lvwTameDetail_Wandering, lvwTameDetail_Neutered, lvwTameDetail_Cryo, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
+            lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Tribe, lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Sex, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Mating, lvwTameDetail_Wandering, lvwTameDetail_Neutered, lvwTameDetail_Cryo, lvwTameDetail_Clone, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
             lvwTameDetail.ContextMenuStrip = mnuContext;
             lvwTameDetail.FullRowSelect = true;
             lvwTameDetail.Location = new System.Drawing.Point(13, 112);
@@ -1529,6 +1532,11 @@ namespace ARKViewer
             lvwTameDetail.ColumnClick += lvwTameDetail_ColumnClick;
             lvwTameDetail.SelectedIndexChanged += lvwTameDetail_SelectedIndexChanged;
             lvwTameDetail.MouseClick += lvwTameDetail_MouseClick;
+            // 
+            // lvwTameDetail_Tribe
+            // 
+            lvwTameDetail_Tribe.Text = "Tribe";
+            lvwTameDetail_Tribe.Width = 200;
             // 
             // lvwTameDetail_Creature
             // 
@@ -1640,6 +1648,10 @@ namespace ARKViewer
             // lvwTameDetail_Cryo
             // 
             lvwTameDetail_Cryo.Text = "Stored";
+            // 
+            // lvwTameDetail_Clone
+            // 
+            lvwTameDetail_Clone.Text = "Clone";
             // 
             // lvwTameDetail_Colour1
             // 
@@ -1990,7 +2002,7 @@ namespace ARKViewer
             // lvwStructureLocations
             // 
             lvwStructureLocations.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStructureLocations_Tribe, lvwStructureLocations_Structure, lvwStructureLocations_Lat, lvwStructureLocations_Lon, lvwStructureLocations_Name, lvwStructureLocations_Locked, lvwStructureLocations_LastTime, lvwStructureLocations_DecayReset, lvwStructureLocations_CCC });
+            lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStructureLocations_Tribe, lvwStructureLocations_Structure, lvwStructureLocations_Lat, lvwStructureLocations_Lon, lvwStructureLocations_Name, lvwStructureLocations_Locked, lvwStructureLocations_Powered, lvwStructureLocations_LastTime, lvwStructureLocations_DecayReset, lvwStructureLocations_CCC });
             lvwStructureLocations.ContextMenuStrip = mnuContext;
             lvwStructureLocations.FullRowSelect = true;
             lvwStructureLocations.Location = new System.Drawing.Point(13, 83);
@@ -2033,6 +2045,11 @@ namespace ARKViewer
             // lvwStructureLocations_Locked
             // 
             lvwStructureLocations_Locked.Text = "Locked";
+            // 
+            // lvwStructureLocations_Powered
+            // 
+            lvwStructureLocations_Powered.Text = "Power On";
+            lvwStructureLocations_Powered.Width = 70;
             // 
             // lvwStructureLocations_LastTime
             // 
@@ -4224,6 +4241,9 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Locked;
         private System.Windows.Forms.ColumnHeader lvwItemList_Player;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ColumnHeader lvwTameDetail_Tribe;
+        private System.Windows.Forms.ColumnHeader lvwTameDetail_Clone;
+        private System.Windows.Forms.ColumnHeader lvwStructureLocations_Powered;
     }
 }
 
