@@ -499,7 +499,7 @@ namespace ASVBot.Commands
                     responseLineData.Append($",{structure.Latitude.GetValueOrDefault(0).ToString("f1")}");
                     responseLineData.Append($",{structure.Longitude.GetValueOrDefault(0).ToString("f1")}");
                     responseLineData.Append($",{(structure.Inventory!=null && structure.Inventory.Items!=null && structure.Inventory.Items.Count > 0)}");
-                    responseLineData.Append($",{structure.IsLocked}");
+                    responseLineData.Append($",{structure.IsLocked.GetValueOrDefault(false)}");
 
                     responseLines.Add(responseLineData.ToString());
 

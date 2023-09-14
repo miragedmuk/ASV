@@ -1315,11 +1315,17 @@ namespace ASVPack.Models
                                 jw.WritePropertyName("name");
                                 jw.WriteValue(structure.DisplayName == structure.ClassName ? "" : structure.DisplayName);
 
-                                jw.WritePropertyName("locked");
-                                jw.WriteValue(structure.IsLocked);
+                                if (structure.IsLocked.HasValue)
+                                {
+                                    jw.WritePropertyName("locked");
+                                    jw.WriteValue(structure.IsLocked);
+                                }
 
-                                jw.WritePropertyName("isSwitchedOn");
-                                jw.WriteValue(structure.IsSwitchedOn);
+                                if (structure.IsSwitchedOn.HasValue)
+                                {
+                                    jw.WritePropertyName("isSwitchedOn");
+                                    jw.WriteValue(structure.IsSwitchedOn.Value);
+                                }
 
                                 jw.WritePropertyName("lat");
                                 jw.WriteValue(structure.Latitude.GetValueOrDefault(0));

@@ -412,7 +412,7 @@ namespace ASVBot.Commands
 
                 var tribe = tribes.First(t => t.TribeId == playerStructure.TargetingTeam);
 
-                reportLines.Add($"{tribe.TribeId},{tribe.TribeName},{structureName},{playerNamed},{playerStructure.LastAllyInRangeTime.ToString()},{playerStructure.Latitude.GetValueOrDefault(0).ToString("f1")},{playerStructure.Longitude.GetValueOrDefault(0).ToString("f1")},{hasInvent},{playerStructure.IsLocked}");
+                reportLines.Add($"{tribe.TribeId},{tribe.TribeName},{structureName},{playerNamed},{playerStructure.LastAllyInRangeTime.ToString()},{playerStructure.Latitude.GetValueOrDefault(0).ToString("f1")},{playerStructure.Longitude.GetValueOrDefault(0).ToString("f1")},{hasInvent},{playerStructure.IsLocked.GetValueOrDefault(false)}");
 
             }
 

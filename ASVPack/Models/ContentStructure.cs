@@ -1,4 +1,5 @@
 ﻿using SavegameToolkit;
+using SavegameToolkit.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,8 @@ namespace ASVPack.Models
         [DataMember] public float? Latitude { get; set; } = 0;
         [DataMember] public float? Longitude { get; set; } = 0;
         [DataMember] public string DisplayName { get; set; } = "";
-        [DataMember] public bool IsLocked { get; set; } = false;
-        [DataMember] public bool IsSwitchedOn { get; set; } = false;
+        [DataMember] public bool? IsLocked { get; set; } = null;
+        [DataMember] public bool? IsSwitchedOn { get; set; } = null;
 
         [DataMember] public float X { get; set; } = 0;
         [DataMember] public float Y { get; set; } = 0;
@@ -37,11 +38,21 @@ namespace ASVPack.Models
         {
             ClassName = structureObject.ClassString;
             DisplayName = structureObject.GetPropertyValue<string>("BoxName")??ClassName;
-            IsLocked = structureObject.GetPropertyValue<bool>("bIsPinLocked")
-                || structureObject.GetPropertyValue<bool>("bIsLocked");
 
-            IsSwitchedOn = structureObject.GetPropertyValue<bool>("bContainerActivated", 0, false);
 
+
+            if(structureObject.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null)
+            {
+                IsLocked = structureObject.GetPropertyValue<bool>("bIsPinLocked")
+                    || structureObject.GetPropertyValue<bool>("bIsLocked");
+            }
+
+            if ((structureObject.GetPropertyValue<bool>("bIsPowered", 0, false) || structureObject.GetPropertyValue<bool>("bHasFuel", 0, false)))
+            {
+                IsSwitchedOn = structureObject.GetPropertyValue<bool>("bContainerActivated", 0, false);
+            }
+            
+ 
             if (structureObject.Location != null)
             {
                 X = structureObject.Location.X;
