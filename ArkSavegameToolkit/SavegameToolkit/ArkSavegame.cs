@@ -341,8 +341,11 @@ namespace SavegameToolkit
                     dinoComponent.IsInVivarium = cryoObject.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
 
                     // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
-                    if (dinoComponent.GetPropertyValue<string>("TribeName")?.Length == 0 && dinoComponent.GetPropertyValue<string>("TamerString")?.Length > 0)
+                    if (dinoComponent.GetPropertyValue<string>("TribeName",0,"").Length == 0 && dinoComponent.GetPropertyValue<string>("TamerString",0,"").Length > 0)
+                    {
                         dinoComponent.Properties.Add(new PropertyString("TribeName", dinoComponent.GetPropertyValue<string>("TamerString")));
+                    }
+                    
 
 
                     //get parent of cryopod owner inventory
@@ -374,7 +377,7 @@ namespace SavegameToolkit
                                 dinoComponent.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
 
 
-                                if (dinoComponent.GetPropertyValue<int?>("TamingTeamID") != null)
+                                if (dinoComponent.GetPropertyValue<int>("TamingTeamID", 0, -1) > 0)
                                 {
                                     dinoComponent.Properties.RemoveAt(dinoComponent.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
                                     dinoComponent.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));

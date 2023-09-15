@@ -5963,6 +5963,7 @@ namespace ARKViewer
                         & !(x.ClassName == "MotorRaft_BP_C" || x.ClassName == "Raft_BP_C")
                         && (chkCryo.Checked || x.IsCryo == false)
                         && (chkCryo.Checked || x.IsVivarium == false)
+                        && (x.TargetingTeam == selectedTribeId || x.TargetingTeam > 0 && x.TargetingTeam < 2000000000 && selectedTribeId==0)
                     )).ToList();
 
                 if (cboTamedResource.SelectedIndex > 0)
@@ -6030,7 +6031,18 @@ namespace ARKViewer
 
                     if (addItem)
                     {
-                        ListViewItem item = new ListViewItem(detail.TribeName);
+                        string tribeName = detail.TribeName??"";
+                        if (tribeName.Length == 0)
+                        {
+                            var matchedTribe = tribes.FirstOrDefault(t => t.TribeId == detail.TargetingTeam);
+                            if (matchedTribe != null)
+                            {
+                                tribeName = matchedTribe.TribeName;
+                            }
+                        }
+
+
+                        ListViewItem item = new ListViewItem(tribeName);
                         item.Tag = detail;
                         item.UseItemStyleForSubItems = false;
 
