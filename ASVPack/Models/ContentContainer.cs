@@ -164,6 +164,8 @@ namespace ASVPack.Models
                         arkSavegame.ReadBinary(archive, ReadingOptions.Create()
                                 .WithDataFiles(true)
                                 .WithStoredCreatures(true)
+                                .WithStoredTribes(true)
+                                .WithStoredProfiles(true)
                                 .WithBuildComponentTree(true));
 
                         if (!arkSavegame.HibernationEntries.Any())

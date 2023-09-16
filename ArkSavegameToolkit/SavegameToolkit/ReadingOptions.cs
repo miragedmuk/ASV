@@ -60,8 +60,24 @@ namespace SavegameToolkit {
 
         public bool StoredCreatures { get; set; } = false;
 
+        public bool StoredTribes { get; set; } = false;
+        public bool StoredProfiles { get; set; } = false;
+
         public new static ReadingOptions Create() {
             return new ReadingOptions();
+        }
+
+
+        public ReadingOptions WithStoredTribes(bool storedTribes)
+        {
+            StoredTribes = storedTribes;
+            return this;
+        }
+
+        public ReadingOptions WithStoredProfiles(bool storedProfiles)
+        {
+            StoredProfiles = storedProfiles;
+            return this;
         }
 
         public ReadingOptions WithStoredCreatures(bool storedCreatures)

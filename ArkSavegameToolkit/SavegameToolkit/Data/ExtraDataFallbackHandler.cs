@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 
 namespace SavegameToolkit.Data {
@@ -20,6 +21,7 @@ namespace SavegameToolkit.Data {
             ExtraDataBlob extraData = new ExtraDataBlob();
 
             archive.DebugMessage($"Unknown extended data for {gameObject.ClassString} with length {length}");
+
             extraData.Data = archive.ReadBytes(length);
             archive.HasUnknownNames = true;
 

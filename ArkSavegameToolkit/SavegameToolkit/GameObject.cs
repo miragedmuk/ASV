@@ -152,11 +152,6 @@ namespace SavegameToolkit {
             long offset = propertiesBlockOffset + propertiesOffset;
             long nextOffset = propertiesBlockOffset + next?.propertiesOffset ?? archive.Limit;
 
-            if(offset < 0)
-            {
-
-            }
-
             archive.Position = offset;
             long position = offset;
 
@@ -188,6 +183,7 @@ namespace SavegameToolkit {
                 Debug.WriteLine(upe);
                 return;
             }
+
 
             long distance = nextOffset - archive.Position;
 
