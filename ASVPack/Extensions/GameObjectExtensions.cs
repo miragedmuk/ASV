@@ -49,6 +49,13 @@ namespace ASVPack.Extensions
             return new ContentPlayer(gameObject);
         }
 
+        public static ContentPlayer AsPlayer(this GameObject playerObject)
+        {
+            return new ContentPlayer(playerObject);
+        }
+
+
+
         public static ContentDroppedItem AsDroppedItem(this GameObject gameObject)
         {
             return new ContentDroppedItem(gameObject);

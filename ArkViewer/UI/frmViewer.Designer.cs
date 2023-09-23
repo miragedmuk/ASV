@@ -94,6 +94,7 @@ namespace ARKViewer
             btnViewMap = new System.Windows.Forms.Button();
             tabFeatures = new System.Windows.Forms.TabControl();
             tpgWild = new System.Windows.Forms.TabPage();
+            btnRconCommandWild = new System.Windows.Forms.Button();
             chkTameable = new System.Windows.Forms.CheckBox();
             cboWildRealm = new System.Windows.Forms.ComboBox();
             lblWildRealm = new System.Windows.Forms.Label();
@@ -117,6 +118,7 @@ namespace ARKViewer
             lblSelectedWildTotal = new System.Windows.Forms.Label();
             lblWildClass = new System.Windows.Forms.Label();
             tpgTamed = new System.Windows.Forms.TabPage();
+            btnRconCommandTamed = new System.Windows.Forms.Button();
             chkTameUploads = new System.Windows.Forms.CheckBox();
             cboTameRealm = new System.Windows.Forms.ComboBox();
             lblTameRealm = new System.Windows.Forms.Label();
@@ -181,6 +183,7 @@ namespace ARKViewer
             optStatsBase = new System.Windows.Forms.RadioButton();
             cboTameClass = new System.Windows.Forms.ComboBox();
             tpgStructures = new System.Windows.Forms.TabPage();
+            btnRconCommandStructures = new System.Windows.Forms.Button();
             cboStructureRealm = new System.Windows.Forms.ComboBox();
             lblStructureRealm = new System.Windows.Forms.Label();
             pnlFilterStructures = new System.Windows.Forms.Panel();
@@ -207,6 +210,7 @@ namespace ARKViewer
             lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
             tpgTribes = new System.Windows.Forms.TabPage();
+            btnRconCommandTribes = new System.Windows.Forms.Button();
             splitContainer1 = new System.Windows.Forms.SplitContainer();
             lvwTribes = new System.Windows.Forms.ListView();
             lvwTribes_Id = new System.Windows.Forms.ColumnHeader();
@@ -230,6 +234,7 @@ namespace ARKViewer
             lblTribeCopyCommand = new System.Windows.Forms.Label();
             cboTribeCopyCommand = new System.Windows.Forms.ComboBox();
             tpgPlayers = new System.Windows.Forms.TabPage();
+            btnRconCommandPlayers = new System.Windows.Forms.Button();
             cboPlayerRealm = new System.Windows.Forms.ComboBox();
             lblPlayerRealm = new System.Windows.Forms.Label();
             pnlFilterPlayers = new System.Windows.Forms.Panel();
@@ -721,7 +726,7 @@ namespace ARKViewer
             btnPlayerInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnPlayerInventory.Enabled = false;
             btnPlayerInventory.Image = (System.Drawing.Image)resources.GetObject("btnPlayerInventory.Image");
-            btnPlayerInventory.Location = new System.Drawing.Point(509, 463);
+            btnPlayerInventory.Location = new System.Drawing.Point(563, 463);
             btnPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnPlayerInventory.Name = "btnPlayerInventory";
             btnPlayerInventory.Size = new System.Drawing.Size(47, 46);
@@ -736,7 +741,7 @@ namespace ARKViewer
             btnPlayerTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
             btnPlayerTribeLog.Enabled = false;
             btnPlayerTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnPlayerTribeLog.Image");
-            btnPlayerTribeLog.Location = new System.Drawing.Point(458, 463);
+            btnPlayerTribeLog.Location = new System.Drawing.Point(512, 463);
             btnPlayerTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnPlayerTribeLog.Name = "btnPlayerTribeLog";
             btnPlayerTribeLog.Size = new System.Drawing.Size(47, 46);
@@ -795,7 +800,7 @@ namespace ARKViewer
             btnDinoAncestors.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDinoAncestors.Enabled = false;
             btnDinoAncestors.Image = (System.Drawing.Image)resources.GetObject("btnDinoAncestors.Image");
-            btnDinoAncestors.Location = new System.Drawing.Point(656, 465);
+            btnDinoAncestors.Location = new System.Drawing.Point(707, 465);
             btnDinoAncestors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnDinoAncestors.Name = "btnDinoAncestors";
             btnDinoAncestors.Size = new System.Drawing.Size(47, 46);
@@ -810,7 +815,7 @@ namespace ARKViewer
             btnDinoInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDinoInventory.Enabled = false;
             btnDinoInventory.Image = (System.Drawing.Image)resources.GetObject("btnDinoInventory.Image");
-            btnDinoInventory.Location = new System.Drawing.Point(707, 465);
+            btnDinoInventory.Location = new System.Drawing.Point(758, 465);
             btnDinoInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnDinoInventory.Name = "btnDinoInventory";
             btnDinoInventory.Size = new System.Drawing.Size(47, 46);
@@ -899,7 +904,7 @@ namespace ARKViewer
             btnTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
             btnTribeLog.Enabled = false;
             btnTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnTribeLog.Image");
-            btnTribeLog.Location = new System.Drawing.Point(460, 464);
+            btnTribeLog.Location = new System.Drawing.Point(516, 464);
             btnTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnTribeLog.Name = "btnTribeLog";
             btnTribeLog.Size = new System.Drawing.Size(47, 46);
@@ -914,7 +919,7 @@ namespace ARKViewer
             btnStructureInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnStructureInventory.Enabled = false;
             btnStructureInventory.Image = (System.Drawing.Image)resources.GetObject("btnStructureInventory.Image");
-            btnStructureInventory.Location = new System.Drawing.Point(453, 466);
+            btnStructureInventory.Location = new System.Drawing.Point(509, 466);
             btnStructureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnStructureInventory.Name = "btnStructureInventory";
             btnStructureInventory.Size = new System.Drawing.Size(47, 46);
@@ -929,7 +934,7 @@ namespace ARKViewer
             btnDeletePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDeletePlayer.Enabled = false;
             btnDeletePlayer.Image = (System.Drawing.Image)resources.GetObject("btnDeletePlayer.Image");
-            btnDeletePlayer.Location = new System.Drawing.Point(559, 463);
+            btnDeletePlayer.Location = new System.Drawing.Point(613, 463);
             btnDeletePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnDeletePlayer.Name = "btnDeletePlayer";
             btnDeletePlayer.Size = new System.Drawing.Size(47, 46);
@@ -991,6 +996,7 @@ namespace ARKViewer
             // 
             // tpgWild
             // 
+            tpgWild.Controls.Add(btnRconCommandWild);
             tpgWild.Controls.Add(chkTameable);
             tpgWild.Controls.Add(cboWildRealm);
             tpgWild.Controls.Add(lblWildRealm);
@@ -1023,6 +1029,22 @@ namespace ARKViewer
             tpgWild.TabIndex = 0;
             tpgWild.Text = "Wild Creatures";
             tpgWild.UseVisualStyleBackColor = true;
+            // 
+            // btnRconCommandWild
+            // 
+            btnRconCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandWild.Enabled = false;
+            btnRconCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandWild.Image");
+            btnRconCommandWild.Location = new System.Drawing.Point(463, 465);
+            btnRconCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandWild.Name = "btnRconCommandWild";
+            btnRconCommandWild.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandWild.TabIndex = 24;
+            toolTip1.SetToolTip(btnRconCommandWild, "Send command to server using RCON.");
+            btnRconCommandWild.UseVisualStyleBackColor = true;
+            btnRconCommandWild.Visible = false;
+            btnRconCommandWild.Click += btnRconCommandWild_Click;
             // 
             // chkTameable
             // 
@@ -1274,6 +1296,7 @@ namespace ARKViewer
             cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
             cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 23);
             cboConsoleCommandsWild.TabIndex = 16;
+            cboConsoleCommandsWild.SelectedIndexChanged += cboConsoleCommandsWild_SelectedIndexChanged;
             // 
             // lblSelectedWildTotal
             // 
@@ -1303,6 +1326,7 @@ namespace ARKViewer
             // 
             // tpgTamed
             // 
+            tpgTamed.Controls.Add(btnRconCommandTamed);
             tpgTamed.Controls.Add(chkTameUploads);
             tpgTamed.Controls.Add(cboTameRealm);
             tpgTamed.Controls.Add(lblTameRealm);
@@ -1331,6 +1355,22 @@ namespace ARKViewer
             tpgTamed.TabIndex = 3;
             tpgTamed.Text = "Tamed Creatures";
             tpgTamed.UseVisualStyleBackColor = true;
+            // 
+            // btnRconCommandTamed
+            // 
+            btnRconCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandTamed.Enabled = false;
+            btnRconCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTamed.Image");
+            btnRconCommandTamed.Location = new System.Drawing.Point(656, 465);
+            btnRconCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandTamed.Name = "btnRconCommandTamed";
+            btnRconCommandTamed.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandTamed.TabIndex = 26;
+            toolTip1.SetToolTip(btnRconCommandTamed, "Send command to server using RCON.");
+            btnRconCommandTamed.UseVisualStyleBackColor = true;
+            btnRconCommandTamed.Visible = false;
+            btnRconCommandTamed.Click += btnRconCommandTamed_Click;
             // 
             // chkTameUploads
             // 
@@ -1807,6 +1847,7 @@ namespace ARKViewer
             // 
             // tpgStructures
             // 
+            tpgStructures.Controls.Add(btnRconCommandStructures);
             tpgStructures.Controls.Add(cboStructureRealm);
             tpgStructures.Controls.Add(lblStructureRealm);
             tpgStructures.Controls.Add(pnlFilterStructures);
@@ -1830,6 +1871,22 @@ namespace ARKViewer
             tpgStructures.TabIndex = 2;
             tpgStructures.Text = "Player Structures";
             tpgStructures.UseVisualStyleBackColor = true;
+            // 
+            // btnRconCommandStructures
+            // 
+            btnRconCommandStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandStructures.Enabled = false;
+            btnRconCommandStructures.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandStructures.Image");
+            btnRconCommandStructures.Location = new System.Drawing.Point(456, 466);
+            btnRconCommandStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandStructures.Name = "btnRconCommandStructures";
+            btnRconCommandStructures.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandStructures.TabIndex = 25;
+            toolTip1.SetToolTip(btnRconCommandStructures, "Copy command to clipboard.");
+            btnRconCommandStructures.UseVisualStyleBackColor = true;
+            btnRconCommandStructures.Visible = false;
+            btnRconCommandStructures.Click += btnRconCommandStructures_Click;
             // 
             // cboStructureRealm
             // 
@@ -2068,6 +2125,7 @@ namespace ARKViewer
             // 
             // tpgTribes
             // 
+            tpgTribes.Controls.Add(btnRconCommandTribes);
             tpgTribes.Controls.Add(splitContainer1);
             tpgTribes.Controls.Add(chkTribeStructures);
             tpgTribes.Controls.Add(chkTribeTames);
@@ -2083,6 +2141,22 @@ namespace ARKViewer
             tpgTribes.TabIndex = 5;
             tpgTribes.Text = "Tribes";
             tpgTribes.UseVisualStyleBackColor = true;
+            // 
+            // btnRconCommandTribes
+            // 
+            btnRconCommandTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandTribes.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandTribes.Enabled = false;
+            btnRconCommandTribes.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTribes.Image");
+            btnRconCommandTribes.Location = new System.Drawing.Point(463, 464);
+            btnRconCommandTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandTribes.Name = "btnRconCommandTribes";
+            btnRconCommandTribes.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandTribes.TabIndex = 25;
+            toolTip1.SetToolTip(btnRconCommandTribes, "Send command to server using RCON.");
+            btnRconCommandTribes.UseVisualStyleBackColor = true;
+            btnRconCommandTribes.Visible = false;
+            btnRconCommandTribes.Click += btnRconCommandTribes_Click;
             // 
             // splitContainer1
             // 
@@ -2349,6 +2423,7 @@ namespace ARKViewer
             // 
             // tpgPlayers
             // 
+            tpgPlayers.Controls.Add(btnRconCommandPlayers);
             tpgPlayers.Controls.Add(cboPlayerRealm);
             tpgPlayers.Controls.Add(lblPlayerRealm);
             tpgPlayers.Controls.Add(pnlFilterPlayers);
@@ -2372,6 +2447,22 @@ namespace ARKViewer
             tpgPlayers.TabIndex = 1;
             tpgPlayers.Text = "Players";
             tpgPlayers.UseVisualStyleBackColor = true;
+            // 
+            // btnRconCommandPlayers
+            // 
+            btnRconCommandPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandPlayers.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandPlayers.Enabled = false;
+            btnRconCommandPlayers.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandPlayers.Image");
+            btnRconCommandPlayers.Location = new System.Drawing.Point(459, 463);
+            btnRconCommandPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandPlayers.Name = "btnRconCommandPlayers";
+            btnRconCommandPlayers.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandPlayers.TabIndex = 26;
+            toolTip1.SetToolTip(btnRconCommandPlayers, "Send command to server using RCON.");
+            btnRconCommandPlayers.UseVisualStyleBackColor = true;
+            btnRconCommandPlayers.Visible = false;
+            btnRconCommandPlayers.Click += btnRconCommandPlayers_Click;
             // 
             // cboPlayerRealm
             // 
@@ -2467,7 +2558,7 @@ namespace ARKViewer
             cboConsoleCommandsPlayerTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
-            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveTekengramsTo <PlayerID> tek", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "UnbanPlayer <SteamID>", "RM <FileCsvList>", "DEL <FileCsvList>", "AddChibiExpToPlayer <PlayerID> <HowMuch>" });
+            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "UnbanPlayer <SteamID>", "RM <FileCsvList>", "DEL <FileCsvList>", "AddChibiExpToPlayer <PlayerID> <HowMuch>" });
             cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
             cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
@@ -4244,6 +4335,11 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwTameDetail_Tribe;
         private System.Windows.Forms.ColumnHeader lvwTameDetail_Clone;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Powered;
+        private System.Windows.Forms.Button btnRconCommandWild;
+        private System.Windows.Forms.Button btnRconCommandTamed;
+        private System.Windows.Forms.Button btnRconCommandStructures;
+        private System.Windows.Forms.Button btnRconCommandTribes;
+        private System.Windows.Forms.Button btnRconCommandPlayers;
     }
 }
 

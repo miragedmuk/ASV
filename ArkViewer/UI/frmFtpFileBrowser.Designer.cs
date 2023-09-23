@@ -29,374 +29,531 @@ namespace ARKViewer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFtpFileBrowser));
-            this.lvwFileBrowser = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imagesFileBrowser = new System.Windows.Forms.ImageList(this.components);
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.optFtpModeSftp = new System.Windows.Forms.RadioButton();
-            this.optFtpModeFtp = new System.Windows.Forms.RadioButton();
-            this.lblMode = new System.Windows.Forms.Label();
-            this.chkPasswordVisibility = new System.Windows.Forms.CheckBox();
-            this.udFTPPort = new System.Windows.Forms.NumericUpDown();
-            this.txtFTPPassword = new System.Windows.Forms.TextBox();
-            this.txtFTPUsername = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.txtFTPAddress = new System.Windows.Forms.TextBox();
-            this.lblServerPort = new System.Windows.Forms.Label();
-            this.lblServerAddress = new System.Windows.Forms.Label();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.txtServerName = new System.Windows.Forms.TextBox();
-            this.lblServerName = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.grpFtpServer = new System.Windows.Forms.GroupBox();
-            this.lblFileBrowser = new System.Windows.Forms.Label();
-            this.lblFtpServerDetails = new System.Windows.Forms.Label();
-            this.lblHeaderFtp = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.udFTPPort)).BeginInit();
-            this.grpFtpServer.SuspendLayout();
-            this.SuspendLayout();
+            lvwFileBrowser = new System.Windows.Forms.ListView();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            imagesFileBrowser = new System.Windows.Forms.ImageList(components);
+            btnSelect = new System.Windows.Forms.Button();
+            lblStatus = new System.Windows.Forms.Label();
+            optFtpModeSftp = new System.Windows.Forms.RadioButton();
+            optFtpModeFtp = new System.Windows.Forms.RadioButton();
+            lblMode = new System.Windows.Forms.Label();
+            chkPasswordVisibility = new System.Windows.Forms.CheckBox();
+            udFTPPort = new System.Windows.Forms.NumericUpDown();
+            txtFTPPassword = new System.Windows.Forms.TextBox();
+            txtFTPUsername = new System.Windows.Forms.TextBox();
+            lblPassword = new System.Windows.Forms.Label();
+            lblUsername = new System.Windows.Forms.Label();
+            txtFTPAddress = new System.Windows.Forms.TextBox();
+            lblServerPort = new System.Windows.Forms.Label();
+            lblServerAddress = new System.Windows.Forms.Label();
+            btnConnect = new System.Windows.Forms.Button();
+            txtServerName = new System.Windows.Forms.TextBox();
+            lblServerName = new System.Windows.Forms.Label();
+            btnClose = new System.Windows.Forms.Button();
+            grpFtpServer = new System.Windows.Forms.GroupBox();
+            label1 = new System.Windows.Forms.Label();
+            lblFtpServerDetails = new System.Windows.Forms.Label();
+            lblHeaderFtp = new System.Windows.Forms.Label();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tpgFtp = new System.Windows.Forms.TabPage();
+            tpgRCON = new System.Windows.Forms.TabPage();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            btnTestRcon = new System.Windows.Forms.Button();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            txtRconServer = new System.Windows.Forms.TextBox();
+            label10 = new System.Windows.Forms.Label();
+            udRconPort = new System.Windows.Forms.NumericUpDown();
+            txtRconPassword = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)udFTPPort).BeginInit();
+            grpFtpServer.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tpgFtp.SuspendLayout();
+            tpgRCON.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udRconPort).BeginInit();
+            SuspendLayout();
             // 
             // lvwFileBrowser
             // 
-            this.lvwFileBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwFileBrowser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lvwFileBrowser.Enabled = false;
-            this.lvwFileBrowser.FullRowSelect = true;
-            this.lvwFileBrowser.HideSelection = false;
-            this.lvwFileBrowser.LargeImageList = this.imagesFileBrowser;
-            this.lvwFileBrowser.Location = new System.Drawing.Point(279, 66);
-            this.lvwFileBrowser.Name = "lvwFileBrowser";
-            this.lvwFileBrowser.Size = new System.Drawing.Size(550, 306);
-            this.lvwFileBrowser.SmallImageList = this.imagesFileBrowser;
-            this.lvwFileBrowser.TabIndex = 15;
-            this.lvwFileBrowser.UseCompatibleStateImageBehavior = false;
-            this.lvwFileBrowser.View = System.Windows.Forms.View.Details;
-            this.lvwFileBrowser.SelectedIndexChanged += new System.EventHandler(this.lvwFileBrowser_SelectedIndexChanged);
-            this.lvwFileBrowser.DoubleClick += new System.EventHandler(this.lvwFileBrowser_DoubleClick);
+            lvwFileBrowser.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwFileBrowser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lvwFileBrowser.Enabled = false;
+            lvwFileBrowser.FullRowSelect = true;
+            lvwFileBrowser.LargeImageList = imagesFileBrowser;
+            lvwFileBrowser.Location = new System.Drawing.Point(279, 66);
+            lvwFileBrowser.Name = "lvwFileBrowser";
+            lvwFileBrowser.Size = new System.Drawing.Size(502, 306);
+            lvwFileBrowser.SmallImageList = imagesFileBrowser;
+            lvwFileBrowser.TabIndex = 15;
+            lvwFileBrowser.UseCompatibleStateImageBehavior = false;
+            lvwFileBrowser.View = System.Windows.Forms.View.Details;
+            lvwFileBrowser.SelectedIndexChanged += lvwFileBrowser_SelectedIndexChanged;
+            lvwFileBrowser.DoubleClick += lvwFileBrowser_DoubleClick;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 250;
+            columnHeader1.Text = "Name";
+            columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Date Modified";
-            this.columnHeader2.Width = 175;
+            columnHeader2.Text = "Date Modified";
+            columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Type";
-            this.columnHeader3.Width = 100;
+            columnHeader3.Text = "Type";
+            columnHeader3.Width = 75;
             // 
             // imagesFileBrowser
             // 
-            this.imagesFileBrowser.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imagesFileBrowser.ImageStream")));
-            this.imagesFileBrowser.TransparentColor = System.Drawing.Color.Transparent;
-            this.imagesFileBrowser.Images.SetKeyName(0, "shell32_46.ico");
-            this.imagesFileBrowser.Images.SetKeyName(1, "shell32_235.ico");
-            this.imagesFileBrowser.Images.SetKeyName(2, "shell32_243.ico");
+            imagesFileBrowser.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            imagesFileBrowser.ImageStream = (System.Windows.Forms.ImageListStreamer)resources.GetObject("imagesFileBrowser.ImageStream");
+            imagesFileBrowser.TransparentColor = System.Drawing.Color.Transparent;
+            imagesFileBrowser.Images.SetKeyName(0, "shell32_46.ico");
+            imagesFileBrowser.Images.SetKeyName(1, "shell32_235.ico");
+            imagesFileBrowser.Images.SetKeyName(2, "shell32_243.ico");
             // 
             // btnSelect
             // 
-            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSelect.Enabled = false;
-            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Location = new System.Drawing.Point(713, 414);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(71, 23);
-            this.btnSelect.TabIndex = 1;
-            this.btnSelect.Text = "Save";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            btnSelect.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnSelect.Enabled = false;
+            btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnSelect.Location = new System.Drawing.Point(718, 493);
+            btnSelect.Name = "btnSelect";
+            btnSelect.Size = new System.Drawing.Size(71, 23);
+            btnSelect.TabIndex = 1;
+            btnSelect.Text = "Save";
+            btnSelect.UseVisualStyleBackColor = true;
+            btnSelect.Click += btnSelect_Click;
             // 
             // lblStatus
             // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.DimGray;
-            this.lblStatus.Location = new System.Drawing.Point(21, 417);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(676, 20);
-            this.lblStatus.TabIndex = 3;
+            lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStatus.ForeColor = System.Drawing.Color.DimGray;
+            lblStatus.Location = new System.Drawing.Point(21, 496);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new System.Drawing.Size(681, 20);
+            lblStatus.TabIndex = 3;
             // 
             // optFtpModeSftp
             // 
-            this.optFtpModeSftp.AutoSize = true;
-            this.optFtpModeSftp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optFtpModeSftp.Location = new System.Drawing.Point(78, 305);
-            this.optFtpModeSftp.Name = "optFtpModeSftp";
-            this.optFtpModeSftp.Size = new System.Drawing.Size(52, 17);
-            this.optFtpModeSftp.TabIndex = 13;
-            this.optFtpModeSftp.Text = "SFTP";
-            this.optFtpModeSftp.UseVisualStyleBackColor = true;
+            optFtpModeSftp.AutoSize = true;
+            optFtpModeSftp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            optFtpModeSftp.Location = new System.Drawing.Point(78, 305);
+            optFtpModeSftp.Name = "optFtpModeSftp";
+            optFtpModeSftp.Size = new System.Drawing.Size(52, 17);
+            optFtpModeSftp.TabIndex = 13;
+            optFtpModeSftp.Text = "SFTP";
+            optFtpModeSftp.UseVisualStyleBackColor = true;
             // 
             // optFtpModeFtp
             // 
-            this.optFtpModeFtp.AutoSize = true;
-            this.optFtpModeFtp.Checked = true;
-            this.optFtpModeFtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optFtpModeFtp.Location = new System.Drawing.Point(27, 305);
-            this.optFtpModeFtp.Name = "optFtpModeFtp";
-            this.optFtpModeFtp.Size = new System.Drawing.Size(45, 17);
-            this.optFtpModeFtp.TabIndex = 12;
-            this.optFtpModeFtp.TabStop = true;
-            this.optFtpModeFtp.Text = "FTP";
-            this.optFtpModeFtp.UseVisualStyleBackColor = true;
+            optFtpModeFtp.AutoSize = true;
+            optFtpModeFtp.Checked = true;
+            optFtpModeFtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            optFtpModeFtp.Location = new System.Drawing.Point(27, 305);
+            optFtpModeFtp.Name = "optFtpModeFtp";
+            optFtpModeFtp.Size = new System.Drawing.Size(45, 17);
+            optFtpModeFtp.TabIndex = 12;
+            optFtpModeFtp.TabStop = true;
+            optFtpModeFtp.Text = "FTP";
+            optFtpModeFtp.UseVisualStyleBackColor = true;
             // 
             // lblMode
             // 
-            this.lblMode.AutoSize = true;
-            this.lblMode.BackColor = System.Drawing.SystemColors.Control;
-            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.Location = new System.Drawing.Point(21, 278);
-            this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(34, 13);
-            this.lblMode.TabIndex = 11;
-            this.lblMode.Text = "Mode";
-            this.lblMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblMode.AutoSize = true;
+            lblMode.BackColor = System.Drawing.SystemColors.Control;
+            lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblMode.Location = new System.Drawing.Point(21, 278);
+            lblMode.Name = "lblMode";
+            lblMode.Size = new System.Drawing.Size(34, 13);
+            lblMode.TabIndex = 11;
+            lblMode.Text = "Mode";
+            lblMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // chkPasswordVisibility
             // 
-            this.chkPasswordVisibility.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkPasswordVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkPasswordVisibility.Image = ((System.Drawing.Image)(resources.GetObject("chkPasswordVisibility.Image")));
-            this.chkPasswordVisibility.Location = new System.Drawing.Point(238, 252);
-            this.chkPasswordVisibility.Name = "chkPasswordVisibility";
-            this.chkPasswordVisibility.Size = new System.Drawing.Size(20, 20);
-            this.chkPasswordVisibility.TabIndex = 10;
-            this.chkPasswordVisibility.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkPasswordVisibility.UseVisualStyleBackColor = false;
-            this.chkPasswordVisibility.CheckedChanged += new System.EventHandler(this.chkPasswordVisibility_CheckedChanged);
+            chkPasswordVisibility.Appearance = System.Windows.Forms.Appearance.Button;
+            chkPasswordVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkPasswordVisibility.Image = (System.Drawing.Image)resources.GetObject("chkPasswordVisibility.Image");
+            chkPasswordVisibility.Location = new System.Drawing.Point(238, 252);
+            chkPasswordVisibility.Name = "chkPasswordVisibility";
+            chkPasswordVisibility.Size = new System.Drawing.Size(20, 20);
+            chkPasswordVisibility.TabIndex = 10;
+            chkPasswordVisibility.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            chkPasswordVisibility.UseVisualStyleBackColor = false;
+            chkPasswordVisibility.CheckedChanged += chkPasswordVisibility_CheckedChanged;
             // 
             // udFTPPort
             // 
-            this.udFTPPort.Location = new System.Drawing.Point(24, 155);
-            this.udFTPPort.Maximum = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            this.udFTPPort.Name = "udFTPPort";
-            this.udFTPPort.Size = new System.Drawing.Size(60, 20);
-            this.udFTPPort.TabIndex = 5;
-            this.udFTPPort.Value = new decimal(new int[] {
-            21,
-            0,
-            0,
-            0});
+            udFTPPort.Location = new System.Drawing.Point(24, 155);
+            udFTPPort.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
+            udFTPPort.Name = "udFTPPort";
+            udFTPPort.Size = new System.Drawing.Size(60, 20);
+            udFTPPort.TabIndex = 5;
+            udFTPPort.Value = new decimal(new int[] { 21, 0, 0, 0 });
             // 
             // txtFTPPassword
             // 
-            this.txtFTPPassword.Location = new System.Drawing.Point(24, 252);
-            this.txtFTPPassword.Name = "txtFTPPassword";
-            this.txtFTPPassword.PasswordChar = '●';
-            this.txtFTPPassword.Size = new System.Drawing.Size(214, 20);
-            this.txtFTPPassword.TabIndex = 9;
+            txtFTPPassword.Location = new System.Drawing.Point(24, 252);
+            txtFTPPassword.Name = "txtFTPPassword";
+            txtFTPPassword.PasswordChar = '●';
+            txtFTPPassword.Size = new System.Drawing.Size(214, 20);
+            txtFTPPassword.TabIndex = 9;
             // 
             // txtFTPUsername
             // 
-            this.txtFTPUsername.Location = new System.Drawing.Point(24, 206);
-            this.txtFTPUsername.Name = "txtFTPUsername";
-            this.txtFTPUsername.Size = new System.Drawing.Size(214, 20);
-            this.txtFTPUsername.TabIndex = 7;
+            txtFTPUsername.Location = new System.Drawing.Point(24, 206);
+            txtFTPUsername.Name = "txtFTPUsername";
+            txtFTPUsername.Size = new System.Drawing.Size(214, 20);
+            txtFTPUsername.TabIndex = 7;
             // 
             // lblPassword
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.BackColor = System.Drawing.SystemColors.Control;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(21, 234);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
-            this.lblPassword.TabIndex = 8;
-            this.lblPassword.Text = "Password";
+            lblPassword.AutoSize = true;
+            lblPassword.BackColor = System.Drawing.SystemColors.Control;
+            lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPassword.Location = new System.Drawing.Point(21, 234);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new System.Drawing.Size(53, 13);
+            lblPassword.TabIndex = 8;
+            lblPassword.Text = "Password";
             // 
             // lblUsername
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.SystemColors.Control;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(21, 181);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
-            this.lblUsername.TabIndex = 6;
-            this.lblUsername.Text = "Username";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblUsername.AutoSize = true;
+            lblUsername.BackColor = System.Drawing.SystemColors.Control;
+            lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUsername.Location = new System.Drawing.Point(21, 181);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new System.Drawing.Size(55, 13);
+            lblUsername.TabIndex = 6;
+            lblUsername.Text = "Username";
+            lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtFTPAddress
             // 
-            this.txtFTPAddress.Location = new System.Drawing.Point(24, 111);
-            this.txtFTPAddress.Name = "txtFTPAddress";
-            this.txtFTPAddress.Size = new System.Drawing.Size(214, 20);
-            this.txtFTPAddress.TabIndex = 3;
-            this.txtFTPAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtFTPAddress_Validating);
+            txtFTPAddress.Location = new System.Drawing.Point(24, 111);
+            txtFTPAddress.Name = "txtFTPAddress";
+            txtFTPAddress.Size = new System.Drawing.Size(214, 20);
+            txtFTPAddress.TabIndex = 3;
+            txtFTPAddress.Validating += txtFTPAddress_Validating;
             // 
             // lblServerPort
             // 
-            this.lblServerPort.AutoSize = true;
-            this.lblServerPort.BackColor = System.Drawing.SystemColors.Control;
-            this.lblServerPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServerPort.Location = new System.Drawing.Point(21, 134);
-            this.lblServerPort.Name = "lblServerPort";
-            this.lblServerPort.Size = new System.Drawing.Size(26, 13);
-            this.lblServerPort.TabIndex = 4;
-            this.lblServerPort.Text = "Port";
+            lblServerPort.AutoSize = true;
+            lblServerPort.BackColor = System.Drawing.SystemColors.Control;
+            lblServerPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblServerPort.Location = new System.Drawing.Point(21, 134);
+            lblServerPort.Name = "lblServerPort";
+            lblServerPort.Size = new System.Drawing.Size(26, 13);
+            lblServerPort.TabIndex = 4;
+            lblServerPort.Text = "Port";
             // 
             // lblServerAddress
             // 
-            this.lblServerAddress.BackColor = System.Drawing.SystemColors.Control;
-            this.lblServerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServerAddress.Location = new System.Drawing.Point(21, 89);
-            this.lblServerAddress.Name = "lblServerAddress";
-            this.lblServerAddress.Size = new System.Drawing.Size(217, 19);
-            this.lblServerAddress.TabIndex = 2;
-            this.lblServerAddress.Text = "Server Address                        ";
-            this.lblServerAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblServerAddress.BackColor = System.Drawing.SystemColors.Control;
+            lblServerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblServerAddress.Location = new System.Drawing.Point(21, 89);
+            lblServerAddress.Name = "lblServerAddress";
+            lblServerAddress.Size = new System.Drawing.Size(217, 19);
+            lblServerAddress.TabIndex = 2;
+            lblServerAddress.Text = "Server Address                        ";
+            lblServerAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(27, 352);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(211, 23);
-            this.btnConnect.TabIndex = 14;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            btnConnect.Location = new System.Drawing.Point(27, 352);
+            btnConnect.Name = "btnConnect";
+            btnConnect.Size = new System.Drawing.Size(211, 23);
+            btnConnect.TabIndex = 14;
+            btnConnect.Text = "Connect";
+            btnConnect.UseVisualStyleBackColor = true;
+            btnConnect.Click += btnConnect_Click;
             // 
             // txtServerName
             // 
-            this.txtServerName.Location = new System.Drawing.Point(24, 66);
-            this.txtServerName.Name = "txtServerName";
-            this.txtServerName.Size = new System.Drawing.Size(214, 20);
-            this.txtServerName.TabIndex = 1;
+            txtServerName.Location = new System.Drawing.Point(24, 66);
+            txtServerName.Name = "txtServerName";
+            txtServerName.Size = new System.Drawing.Size(214, 20);
+            txtServerName.TabIndex = 1;
             // 
             // lblServerName
             // 
-            this.lblServerName.AutoSize = true;
-            this.lblServerName.BackColor = System.Drawing.SystemColors.Control;
-            this.lblServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServerName.Location = new System.Drawing.Point(21, 47);
-            this.lblServerName.Name = "lblServerName";
-            this.lblServerName.Size = new System.Drawing.Size(69, 13);
-            this.lblServerName.TabIndex = 0;
-            this.lblServerName.Text = "Server Name";
-            this.lblServerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblServerName.AutoSize = true;
+            lblServerName.BackColor = System.Drawing.SystemColors.Control;
+            lblServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblServerName.Location = new System.Drawing.Point(21, 47);
+            lblServerName.Name = "lblServerName";
+            lblServerName.Size = new System.Drawing.Size(69, 13);
+            lblServerName.TabIndex = 0;
+            lblServerName.Text = "Server Name";
+            lblServerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(790, 414);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(71, 23);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.Location = new System.Drawing.Point(795, 493);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new System.Drawing.Size(71, 23);
+            btnClose.TabIndex = 2;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = true;
             // 
             // grpFtpServer
             // 
-            this.grpFtpServer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpFtpServer.Controls.Add(this.lblFileBrowser);
-            this.grpFtpServer.Controls.Add(this.lblFtpServerDetails);
-            this.grpFtpServer.Controls.Add(this.lblHeaderFtp);
-            this.grpFtpServer.Controls.Add(this.txtServerName);
-            this.grpFtpServer.Controls.Add(this.lblServerName);
-            this.grpFtpServer.Controls.Add(this.lvwFileBrowser);
-            this.grpFtpServer.Controls.Add(this.btnConnect);
-            this.grpFtpServer.Controls.Add(this.lblServerAddress);
-            this.grpFtpServer.Controls.Add(this.optFtpModeSftp);
-            this.grpFtpServer.Controls.Add(this.lblServerPort);
-            this.grpFtpServer.Controls.Add(this.optFtpModeFtp);
-            this.grpFtpServer.Controls.Add(this.txtFTPAddress);
-            this.grpFtpServer.Controls.Add(this.lblMode);
-            this.grpFtpServer.Controls.Add(this.lblUsername);
-            this.grpFtpServer.Controls.Add(this.chkPasswordVisibility);
-            this.grpFtpServer.Controls.Add(this.lblPassword);
-            this.grpFtpServer.Controls.Add(this.udFTPPort);
-            this.grpFtpServer.Controls.Add(this.txtFTPUsername);
-            this.grpFtpServer.Controls.Add(this.txtFTPPassword);
-            this.grpFtpServer.Location = new System.Drawing.Point(12, 12);
-            this.grpFtpServer.Name = "grpFtpServer";
-            this.grpFtpServer.Size = new System.Drawing.Size(847, 389);
-            this.grpFtpServer.TabIndex = 0;
-            this.grpFtpServer.TabStop = false;
+            grpFtpServer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            grpFtpServer.Controls.Add(label1);
+            grpFtpServer.Controls.Add(lblFtpServerDetails);
+            grpFtpServer.Controls.Add(lblHeaderFtp);
+            grpFtpServer.Controls.Add(txtServerName);
+            grpFtpServer.Controls.Add(lblServerName);
+            grpFtpServer.Controls.Add(lvwFileBrowser);
+            grpFtpServer.Controls.Add(btnConnect);
+            grpFtpServer.Controls.Add(lblServerAddress);
+            grpFtpServer.Controls.Add(optFtpModeSftp);
+            grpFtpServer.Controls.Add(lblServerPort);
+            grpFtpServer.Controls.Add(optFtpModeFtp);
+            grpFtpServer.Controls.Add(txtFTPAddress);
+            grpFtpServer.Controls.Add(lblMode);
+            grpFtpServer.Controls.Add(lblUsername);
+            grpFtpServer.Controls.Add(chkPasswordVisibility);
+            grpFtpServer.Controls.Add(lblPassword);
+            grpFtpServer.Controls.Add(udFTPPort);
+            grpFtpServer.Controls.Add(txtFTPUsername);
+            grpFtpServer.Controls.Add(txtFTPPassword);
+            grpFtpServer.Location = new System.Drawing.Point(26, 28);
+            grpFtpServer.Name = "grpFtpServer";
+            grpFtpServer.Size = new System.Drawing.Size(802, 400);
+            grpFtpServer.TabIndex = 0;
+            grpFtpServer.TabStop = false;
             // 
-            // lblFileBrowser
+            // label1
             // 
-            this.lblFileBrowser.AutoSize = true;
-            this.lblFileBrowser.BackColor = System.Drawing.SystemColors.Control;
-            this.lblFileBrowser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFileBrowser.Location = new System.Drawing.Point(276, 47);
-            this.lblFileBrowser.Name = "lblFileBrowser";
-            this.lblFileBrowser.Size = new System.Drawing.Size(64, 13);
-            this.lblFileBrowser.TabIndex = 16;
-            this.lblFileBrowser.Text = "File Browser";
-            this.lblFileBrowser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            label1.Location = new System.Drawing.Point(276, 16);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(87, 15);
+            label1.TabIndex = 17;
+            label1.Text = "File Browser";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFtpServerDetails
             // 
-            this.lblFtpServerDetails.AutoSize = true;
-            this.lblFtpServerDetails.BackColor = System.Drawing.Color.Transparent;
-            this.lblFtpServerDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFtpServerDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblFtpServerDetails.Location = new System.Drawing.Point(10, 14);
-            this.lblFtpServerDetails.Name = "lblFtpServerDetails";
-            this.lblFtpServerDetails.Size = new System.Drawing.Size(126, 15);
-            this.lblFtpServerDetails.TabIndex = 1;
-            this.lblFtpServerDetails.Text = "FTP Server Details";
-            this.lblFtpServerDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblFtpServerDetails.AutoSize = true;
+            lblFtpServerDetails.BackColor = System.Drawing.Color.Transparent;
+            lblFtpServerDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblFtpServerDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblFtpServerDetails.Location = new System.Drawing.Point(10, 14);
+            lblFtpServerDetails.Name = "lblFtpServerDetails";
+            lblFtpServerDetails.Size = new System.Drawing.Size(126, 15);
+            lblFtpServerDetails.TabIndex = 1;
+            lblFtpServerDetails.Text = "FTP Server Details";
+            lblFtpServerDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHeaderFtp
             // 
-            this.lblHeaderFtp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHeaderFtp.BackColor = System.Drawing.Color.Aqua;
-            this.lblHeaderFtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeaderFtp.Location = new System.Drawing.Point(0, 0);
-            this.lblHeaderFtp.Name = "lblHeaderFtp";
-            this.lblHeaderFtp.Size = new System.Drawing.Size(849, 6);
-            this.lblHeaderFtp.TabIndex = 0;
-            this.lblHeaderFtp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblHeaderFtp.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblHeaderFtp.BackColor = System.Drawing.Color.Aqua;
+            lblHeaderFtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderFtp.Location = new System.Drawing.Point(0, 0);
+            lblHeaderFtp.Name = "lblHeaderFtp";
+            lblHeaderFtp.Size = new System.Drawing.Size(804, 6);
+            lblHeaderFtp.TabIndex = 0;
+            lblHeaderFtp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            tabControl1.Controls.Add(tpgFtp);
+            tabControl1.Controls.Add(tpgRCON);
+            tabControl1.Location = new System.Drawing.Point(7, 10);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(866, 477);
+            tabControl1.TabIndex = 0;
+            // 
+            // tpgFtp
+            // 
+            tpgFtp.Controls.Add(grpFtpServer);
+            tpgFtp.Location = new System.Drawing.Point(4, 22);
+            tpgFtp.Name = "tpgFtp";
+            tpgFtp.Padding = new System.Windows.Forms.Padding(3);
+            tpgFtp.Size = new System.Drawing.Size(858, 451);
+            tpgFtp.TabIndex = 0;
+            tpgFtp.Text = "FTP Server";
+            tpgFtp.UseVisualStyleBackColor = true;
+            // 
+            // tpgRCON
+            // 
+            tpgRCON.Controls.Add(groupBox1);
+            tpgRCON.Location = new System.Drawing.Point(4, 22);
+            tpgRCON.Name = "tpgRCON";
+            tpgRCON.Padding = new System.Windows.Forms.Padding(3);
+            tpgRCON.Size = new System.Drawing.Size(858, 451);
+            tpgRCON.TabIndex = 1;
+            tpgRCON.Text = "RCON";
+            tpgRCON.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            groupBox1.Controls.Add(btnTestRcon);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(txtRconServer);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(udRconPort);
+            groupBox1.Controls.Add(txtRconPassword);
+            groupBox1.Location = new System.Drawing.Point(26, 28);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(802, 406);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            // 
+            // btnTestRcon
+            // 
+            btnTestRcon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            btnTestRcon.Location = new System.Drawing.Point(298, 267);
+            btnTestRcon.Name = "btnTestRcon";
+            btnTestRcon.Size = new System.Drawing.Size(212, 23);
+            btnTestRcon.TabIndex = 8;
+            btnTestRcon.Text = "Connect";
+            btnTestRcon.UseVisualStyleBackColor = true;
+            btnTestRcon.Click += btnTestRcon_Click;
+            // 
+            // label3
+            // 
+            label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label3.AutoSize = true;
+            label3.BackColor = System.Drawing.Color.Transparent;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            label3.Location = new System.Drawing.Point(295, 66);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(171, 15);
+            label3.TabIndex = 1;
+            label3.Text = "RCON Connection Details";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            label4.BackColor = System.Drawing.Color.Aqua;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(0, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(1376, 6);
+            label4.TabIndex = 0;
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label6.BackColor = System.Drawing.SystemColors.Control;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label6.Location = new System.Drawing.Point(295, 107);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(217, 19);
+            label6.TabIndex = 2;
+            label6.Text = "IP Address                        ";
+            label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label7.AutoSize = true;
+            label7.BackColor = System.Drawing.SystemColors.Control;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label7.Location = new System.Drawing.Point(295, 152);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(26, 13);
+            label7.TabIndex = 4;
+            label7.Text = "Port";
+            // 
+            // txtRconServer
+            // 
+            txtRconServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            txtRconServer.Location = new System.Drawing.Point(298, 129);
+            txtRconServer.Name = "txtRconServer";
+            txtRconServer.Size = new System.Drawing.Size(214, 20);
+            txtRconServer.TabIndex = 3;
+            // 
+            // label10
+            // 
+            label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label10.AutoSize = true;
+            label10.BackColor = System.Drawing.SystemColors.Control;
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label10.Location = new System.Drawing.Point(295, 210);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(53, 13);
+            label10.TabIndex = 6;
+            label10.Text = "Password";
+            // 
+            // udRconPort
+            // 
+            udRconPort.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            udRconPort.Location = new System.Drawing.Point(298, 173);
+            udRconPort.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
+            udRconPort.Name = "udRconPort";
+            udRconPort.Size = new System.Drawing.Size(60, 20);
+            udRconPort.TabIndex = 5;
+            udRconPort.Value = new decimal(new int[] { 27020, 0, 0, 0 });
+            // 
+            // txtRconPassword
+            // 
+            txtRconPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            txtRconPassword.Location = new System.Drawing.Point(298, 228);
+            txtRconPassword.Name = "txtRconPassword";
+            txtRconPassword.PasswordChar = '●';
+            txtRconPassword.Size = new System.Drawing.Size(214, 20);
+            txtRconPassword.TabIndex = 7;
             // 
             // frmFtpFileBrowser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(874, 446);
-            this.Controls.Add(this.grpFtpServer);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.btnSelect);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.MinimumSize = new System.Drawing.Size(530, 485);
-            this.Name = "frmFtpFileBrowser";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FTP Server";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmFtpFileBrowser_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.udFTPPort)).EndInit();
-            this.grpFtpServer.ResumeLayout(false);
-            this.grpFtpServer.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            CancelButton = btnClose;
+            ClientSize = new System.Drawing.Size(879, 525);
+            Controls.Add(tabControl1);
+            Controls.Add(btnClose);
+            Controls.Add(lblStatus);
+            Controls.Add(btnSelect);
+            Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            MinimumSize = new System.Drawing.Size(530, 485);
+            Name = "frmFtpFileBrowser";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "FTP Server";
+            FormClosed += frmFtpFileBrowser_FormClosed;
+            ((System.ComponentModel.ISupportInitialize)udFTPPort).EndInit();
+            grpFtpServer.ResumeLayout(false);
+            grpFtpServer.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tpgFtp.ResumeLayout(false);
+            tpgRCON.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udRconPort).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -427,6 +584,19 @@ namespace ARKViewer
         private System.Windows.Forms.GroupBox grpFtpServer;
         private System.Windows.Forms.Label lblFtpServerDetails;
         private System.Windows.Forms.Label lblHeaderFtp;
-        private System.Windows.Forms.Label lblFileBrowser;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpgFtp;
+        private System.Windows.Forms.TabPage tpgRCON;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtRconServer;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown udRconPort;
+        private System.Windows.Forms.TextBox txtRconPassword;
+        private System.Windows.Forms.Button btnTestRcon;
     }
 }

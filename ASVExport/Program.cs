@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+using SavegameToolkit;
 
 namespace ASVExport
 {
@@ -101,6 +102,16 @@ namespace ASVExport
 
                         break;
 
+                    case "arktribe":
+                        Console.WriteLine($"Exporting .arktribe data from: {inputFilename}");
+                        ExportStoredTribes(inputFilename, exportFilePath);
+                        break;
+
+                    case "arkprofile":
+                        Console.WriteLine($"Exporting .arkprofile data from: {inputFilename}");
+                        ExportStoredProfiles(inputFilename, exportFilePath);
+
+                        break;
                     case "json":
                         //LogWriter.Info($"Exporting JSON for configuration: {inputFilename}");
                         Console.WriteLine($"Exporting JSON for configuration: {inputFilename}");
@@ -564,6 +575,62 @@ namespace ASVExport
             //LogWriter.Trace("END ExportCommandLine()");
         }
 
+
+        private static void ExportStoredTribes(string saveFilename, string exportFolder)
+        {
+
+            FileInfo fileInfo = new FileInfo(saveFilename);
+
+            using (Stream stream = File.OpenRead(saveFilename))
+            {
+                using (ArkArchive archive = new ArkArchive(stream))
+                {
+
+                    ArkSavegame arkSavegame = new ArkSavegame();
+
+
+                    arkSavegame.ReadBinary(archive, ReadingOptions.Create()
+                            .WithDataFiles(true)
+                            .WithGameObjects(false)
+                            .WithStoredCreatures(false)
+                            .WithStoredTribes(true)
+                            .WithStoredProfiles(false)
+                            .WithBuildComponentTree(false));
+
+
+                    arkSavegame.ExtractStoredArkTribes(archive, exportFolder);
+                }
+
+            }
+        }
+
+        private static void ExportStoredProfiles(string saveFilename, string exportFolder)
+        {
+            FileInfo fileInfo = new FileInfo(saveFilename);
+
+            using (Stream stream = File.OpenRead(saveFilename))
+            {
+                using (ArkArchive archive = new ArkArchive(stream))
+                {
+
+                    ArkSavegame arkSavegame = new ArkSavegame();
+
+
+                    arkSavegame.ReadBinary(archive, ReadingOptions.Create()
+                            .WithDataFiles(true)
+                            .WithGameObjects(false)
+                            .WithStoredCreatures(false)
+                            .WithStoredTribes(false)
+                            .WithStoredProfiles(true)
+                            .WithBuildComponentTree(false));
+
+
+                    arkSavegame.FileTime = fileInfo.LastWriteTime.ToLocalTime();
+                    arkSavegame.ExtractStoredArkProfiles(archive, exportFolder);
+                }
+
+            }
+        }
 
         
     }

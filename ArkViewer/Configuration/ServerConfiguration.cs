@@ -42,6 +42,10 @@ namespace ARKViewer.Configuration
         public List<string> RestrictedTribes = new List<string>();
         public List<int> RestrictedPlayers = new List<int>();
 
+        [DataMember(EmitDefaultValue = false, IsRequired = false)] public string RCONServerIP { get; set; } = string.Empty;
+        [DataMember(EmitDefaultValue = false, IsRequired = false)] public string RCONPassword { get; set; } = string.Empty;
+        [DataMember(EmitDefaultValue = false, IsRequired = false)] public int RCONPort { get; set; } = 27020;
+
         public override string ToString()
         {
             return Name;

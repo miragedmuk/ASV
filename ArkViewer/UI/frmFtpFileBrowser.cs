@@ -1,5 +1,7 @@
 ﻿using ARKViewer.Configuration;
 using ARKViewer.Models;
+using CoreRCON;
+using CoreRCON.Parsers.Standard;
 using FluentFTP;
 using Renci.SshNet;
 using System;
@@ -7,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 
 namespace ARKViewer
@@ -88,6 +91,9 @@ namespace ARKViewer
             optFtpModeSftp.Checked = SelectedServer.Mode == 1;
             optFtpModeFtp.Checked = SelectedServer.Mode == 0;
             chkPasswordVisibility.Visible = false;
+            txtRconServer.Text = SelectedServer.RCONServerIP ?? "";
+            txtRconPassword.Text = SelectedServer.RCONPassword ?? "";
+            udRconPort.Value = SelectedServer.RCONPort != 0 ? SelectedServer.RCONPort : 27020;
         }
 
 
@@ -142,7 +148,7 @@ namespace ARKViewer
                     {
                         FullName = f.FullName,
                         Name = f.Name,
-                        IsFolder = f.Type ==  FtpObjectType.Directory
+                        IsFolder = f.Type == FtpObjectType.Directory
                     };
 
                     ListViewItem item = lvwFileBrowser.Items.Add(f.Name);
@@ -355,10 +361,10 @@ namespace ARKViewer
                     ftpClient.Credentials.UserName = txtFTPUsername.Text;
                     ftpClient.Credentials.Password = txtFTPPassword.Text;
                     ftpClient.Port = (int)udFTPPort.Value;
-                    
-                    ftpClient.ValidateCertificate += FtpClient_ValidateCertificate1; 
 
-         
+                    ftpClient.ValidateCertificate += FtpClient_ValidateCertificate1;
+
+
                     ftpClient.Connect();
 
 
@@ -367,7 +373,7 @@ namespace ARKViewer
                     lblStatus.Refresh();
 
                     PopulateServerFileList("/");
-                  
+
 
 
                 }
@@ -391,7 +397,7 @@ namespace ARKViewer
                 try
                 {
                     sftpClient = new SftpClient(txtFTPAddress.Text, (int)udFTPPort.Value, txtFTPUsername.Text, txtFTPPassword.Text);
-                    sftpClient.OperationTimeout = new TimeSpan(0,0,0,0,Program.ProgramConfig.FtpTimeout);
+                    sftpClient.OperationTimeout = new TimeSpan(0, 0, 0, 0, Program.ProgramConfig.FtpTimeout);
                     sftpClient.Connect();
                     btnConnect.Enabled = false;
 
@@ -423,7 +429,7 @@ namespace ARKViewer
 
         private void FtpClient_ValidateCertificate1(FluentFTP.Client.BaseClient.BaseFtpClient control, FtpSslValidationEventArgs e)
         {
-            e.Accept=true;
+            e.Accept = true;
         }
 
 
@@ -454,7 +460,10 @@ namespace ARKViewer
                 Password = txtFTPPassword.Text,
                 Port = (int)udFTPPort.Value,
                 Map = mapName,
-                Mode = optFtpModeFtp.Checked ? 0 : 1
+                Mode = optFtpModeFtp.Checked ? 0 : 1,
+                RCONServerIP = txtRconServer.Text.Trim(),
+                RCONPassword = txtRconPassword.Text.Trim(),
+                RCONPort = (int)udRconPort.Value
             };
         }
 
@@ -492,6 +501,46 @@ namespace ARKViewer
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private async void btnTestRcon_Click(object sender, EventArgs e)
+        {
+            if (txtRconServer.TextLength == 0)
+            {
+                MessageBox.Show("Please enter the IP address of RCON server.", "Missing information.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtRconPassword.TextLength == 0)
+            {
+                MessageBox.Show("Please enter password for RCON server.", "Missing information.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (IPAddress.TryParse(txtRconServer.Text, out IPAddress ipAddress))
+            {
+                using (RCON client = new RCON(ipAddress, (ushort)udRconPort.Value, txtRconPassword.Text))
+                {
+                    try
+                    {
+                        await client.ConnectAsync();
+
+                        MessageBox.Show("RCON connected successfully.", "Connection established.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Unable to connect to RCON server.\n\nPlease check details and try again.", "Connection failed.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid entry for RCON server. Expected IP address.", "Incorrect information.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
         }
     }

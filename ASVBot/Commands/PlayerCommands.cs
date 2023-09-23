@@ -142,7 +142,8 @@ namespace ASVBot.Commands
 
         }
 
-        
+
+
 
         [SlashCommand("asv-wild-summary", "View summary of wild creatures available on this ARK.")]
         public async Task GetWildSummary(InteractionContext ctx)
@@ -353,6 +354,90 @@ namespace ASVBot.Commands
             fileStream.Close();
             fileStream.Dispose();
             File.Delete(tmpFilename);
+        }
+
+
+
+        [SlashCommand("asv-findmydino", "Attempt to locate a lost dino by name.")]
+        public async Task FindMyDino(InteractionContext ctx, [Option("creatureName", "Name of the creature to search for.")] string creatureName= "")
+        {
+            var discordUser = playerManager.GetPlayers().FirstOrDefault(d => d.DiscordUsername.ToLower() == ctx.Member.Username.ToLower());
+
+
+
+            await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+
+            var responseHeader = "Creature,Name,Gender,Base,Level,Lat,Lon,HP0,Stam0,Melee0,Weight0,Speed0,Food0,Oxy0,Craft0,HP1,Stam1,Melee1,Weight1,Speed1,Food1,Oxy1,Craft1,Wandering,Mating,Neutered";
+            List<string> responseLines = new List<string>();
+
+            var tribeTames = arkPack.Tribes.Where(t => t.Players.Any(p => p.Id == discordUser.ArkPlayerId)).SelectMany(s => s.Tames).Where(t => t.Name.ToLower().Contains(creatureName.ToLower())).ToList();
+            if (tribeTames != null && tribeTames.Count > 0)
+            {
+                //Creature,Name,Gender,Base,Level,Lat,Lon,
+                //HP0,Stam0,Melee0,Weight0,Speed0,Food0,Oxy0,Craft0,HP1,Stam1,Melee1,Weight1,Speed1,Food1,Oxy1,Craft1,
+                //Wandering,Mating,Neutered
+                foreach (var tame in tribeTames.OrderBy(t => t.ClassName).ThenByDescending(t => t.Level))
+                {
+                    StringBuilder responseLineData = new StringBuilder();
+
+                    var creatureTypeName = tame.ClassName;
+                    var cm = classMaps.FirstOrDefault(c => c.ClassName.ToLower() == tame.ClassName.ToLower());
+                    if (cm != null) creatureTypeName = cm.FriendlyName;
+
+                    responseLineData.Append($"{creatureTypeName}");
+                    responseLineData.Append($",{tame.Name}");
+                    responseLineData.Append($",{tame.Gender}");
+                    responseLineData.Append($",{tame.BaseLevel}");
+                    responseLineData.Append($",{tame.Level}");
+                    responseLineData.Append($",{tame.Latitude.GetValueOrDefault(0).ToString("f1")}");
+                    responseLineData.Append($",{tame.Longitude.GetValueOrDefault(0).ToString("f1")}");
+
+                    responseLineData.Append($",{tame.BaseStats[0]}");
+                    responseLineData.Append($",{tame.BaseStats[1]}");
+                    responseLineData.Append($",{tame.BaseStats[8]}");
+                    responseLineData.Append($",{tame.BaseStats[7]}");
+                    responseLineData.Append($",{tame.BaseStats[9]}");
+                    responseLineData.Append($",{tame.BaseStats[4]}");
+                    responseLineData.Append($",{tame.BaseStats[3]}");
+                    responseLineData.Append($",{tame.BaseStats[11]}");
+
+                    responseLineData.Append($",{tame.TamedStats[0]}");
+                    responseLineData.Append($",{tame.TamedStats[1]}");
+                    responseLineData.Append($",{tame.TamedStats[8]}");
+                    responseLineData.Append($",{tame.TamedStats[7]}");
+                    responseLineData.Append($",{tame.TamedStats[9]}");
+                    responseLineData.Append($",{tame.TamedStats[4]}");
+                    responseLineData.Append($",{tame.TamedStats[3]}");
+                    responseLineData.Append($",{tame.TamedStats[11]}");
+
+                    responseLineData.Append($",{tame.IsWandering}");
+                    responseLineData.Append($",{tame.IsMating}");
+                    responseLineData.Append($",{tame.IsNeutered}");
+
+                    responseLines.Add(responseLineData.ToString());
+
+                }
+
+            }
+            else
+            {
+                //no tames
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - You don't seem to have any tames on this server matching your name criteria.").AddMention(new UserMention(ctx.Member)));
+                return;
+            }
+
+            var responseString = dataFormatter.FormatResponseTable(responseHeader, responseLines);
+
+            var tmpFilename = Path.GetTempFileName();
+            File.WriteAllText(tmpFilename, responseString);
+            FileStream fileStream = new FileStream(tmpFilename, FileMode.Open, FileAccess.Read);
+
+            await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"<@{ctx.Member.Id}> - Here's the report showing your tames for the searched name.").AddFile("TameDetails.txt", fileStream).AddMention(new UserMention(ctx.Member)));
+
+            fileStream.Close();
+            fileStream.Dispose();
+            File.Delete(tmpFilename);
+
         }
 
         //asv-my-tames

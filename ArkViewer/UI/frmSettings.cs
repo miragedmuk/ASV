@@ -601,18 +601,22 @@ namespace ARKViewer
                     cboLocalARK.Items.Add(config);
                 }
 
+                int localSelectedIndex = -1;
                 if (cboLocalARK.Items.Count > 0)
                 {
-                    foreach (OfflineFileConfiguration item in cboLocalARK.Items)
+                    for(int itemIndex=0;cboLocalARK.Items.Count>itemIndex;itemIndex++)
                     {
+                        var item = cboLocalARK.Items[itemIndex] as OfflineFileConfiguration;
                         if (item.Filename == SavedConfig.SelectedFile)
                         {
-                            cboLocalARK.SelectedItem = item;
+                            localSelectedIndex = itemIndex;
                             SavedConfig.ClusterFolder = item.ClusterFolder;
+                            
                             break;
                         }
 
                     }
+                    cboLocalARK.SelectedIndex=localSelectedIndex;
                 }
 
             }
@@ -648,16 +652,21 @@ namespace ARKViewer
             if (SavedConfig.OfflineList.Count > 0)
             {
                 cboLocalARK.Items.Clear();
+                int selectedOfflineIndex = -1;
                 foreach (var kv in SavedConfig.OfflineList)
                 {
                     if (kv.Name != null)
                     {
                         int newIndex = cboLocalARK.Items.Add(kv);
-                        if (kv.Filename == SavedConfig.SelectedFile) cboLocalARK.SelectedIndex = newIndex;
+                        if (kv.Filename == SavedConfig.SelectedFile)
+                        {
+                            selectedOfflineIndex = newIndex;
+                        }
 
                     }
 
                 }
+                cboLocalARK.SelectedIndex= selectedOfflineIndex;
                 cboLocalARK.Sorted = true;
             }
 
@@ -2152,7 +2161,10 @@ namespace ARKViewer
                     {
                         Name = selectFile.OfflineName,
                         Filename = selectFile.Filename,
-                        ClusterFolder = selectFile.ClusterFolder
+                        ClusterFolder = selectFile.ClusterFolder,
+                        RCONServerIP = selectFile.RCONServer,
+                        RCONPassword = selectFile.RCONPassword,
+                        RCONPort = selectFile.RCONPort
                     };
 
                     int newIndex = cboLocalARK.Items.Add(config);
@@ -2225,7 +2237,10 @@ namespace ARKViewer
                     {
                         Filename = selectFile.Filename,
                         Name = selectFile.OfflineName,
-                        ClusterFolder = selectFile.ClusterFolder
+                        ClusterFolder = selectFile.ClusterFolder,
+                        RCONServerIP = selectFile.RCONServer,
+                        RCONPassword = selectFile.RCONPassword,
+                        RCONPort = selectFile.RCONPort
                     };
                     cboLocalARK.Items[selectedIndex] = config;
                 }

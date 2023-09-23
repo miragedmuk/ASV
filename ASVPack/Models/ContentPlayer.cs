@@ -31,6 +31,7 @@ namespace ASVPack.Models
         [DataMember] public ContentInventory Emotes { get; set; } = new ContentInventory();
         [DataMember] public ContentInventory Hairstyles { get; set; } = new ContentInventory();
         [DataMember] public ContentInventory FacialStyles { get; set; } = new ContentInventory();
+        [DataMember] public float ExperiencePoints { get; set; }
         [DataMember] public int Level { get; set; } = 0;
         [DataMember] public byte[] Stats { get; set; } = new byte[12];
         [DataMember] public double LastTimeInGame { get; set; } = 0;
@@ -53,8 +54,10 @@ namespace ASVPack.Models
 
         public ContentPlayer(GameObject playerObject)
         {
-            var playerData = (StructPropertyList)playerObject.GetTypedProperty<PropertyStruct>("MyData").Value;
 
+            if (!playerObject.HasAnyProperty("MyData")) return;
+
+            var playerData = (StructPropertyList)playerObject.GetTypedProperty<PropertyStruct>("MyData").Value;
             if (playerData == null) return;
 
             HasGameFile = true;
@@ -83,6 +86,8 @@ namespace ASVPack.Models
             if (characterStats != null)
             {
                 var playerStatus = (StructPropertyList)characterStats.Value;
+
+                ExperiencePoints = playerStatus.GetPropertyValue<float>("ExperiencePoints", 0, 0);
 
                 Level = playerStatus.GetPropertyValue<short>("CharacterStatusComponent_ExtraCharacterLevel") + 1;
                 Stats = new byte[12];
@@ -157,6 +162,8 @@ namespace ASVPack.Models
             if (characterStats != null)
             {
                 var playerStatus = (StructPropertyList)characterStats.Value;
+
+                ExperiencePoints = playerStatus.GetPropertyValue<float>("ExperiencePoints", 0, 0);
 
                 Level = playerStatus.GetPropertyValue<short>("CharacterStatusComponent_ExtraCharacterLevel") + 1;
                 Stats = new byte[12];
@@ -278,7 +285,11 @@ namespace ASVPack.Models
             LastTimeInGame = playerComponent.GetPropertyValue<double>("SavedLastTimeHadController");
             Name = playerComponent.GetPropertyValue<string>("PlatformProfileName");
             CharacterName = playerComponent.GetPropertyValue<string>("PlayerName");
-            if(statusComponent!=null) Level = getFullLevel(statusComponent);
+            if (statusComponent != null)
+            {
+                Level = getFullLevel(statusComponent);
+                ExperiencePoints = statusComponent.GetPropertyValue<float>("ExperiencePoints",0,0);
+            }
             Gender = playerComponent.ClassName.Name.ToLower().Contains("female") ? "Female" : "Male";
 
             if (playerComponent.Location != null)

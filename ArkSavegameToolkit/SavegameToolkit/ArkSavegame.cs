@@ -21,6 +21,7 @@ namespace SavegameToolkit
     {
         
         public short SaveVersion { get; private set; }
+        public DateTime FileTime { get; set; } = DateTime.Now;
         public float GameTime { get; private set; }
         public int SaveCount { get; private set; }
         public List<string> OldNameList { get; private set; }
@@ -397,6 +398,8 @@ namespace SavegameToolkit
                         var statusComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
                         if (statusComponentRef != null) statusComponentRef.Value.ObjectId = dinoCharacterStatusComponent.Id;
 
+                        dinoComponent.AddComponent(dinoCharacterStatusComponent);
+
                     }
 
                     if (dinoInventoryComponent != null)
@@ -406,6 +409,8 @@ namespace SavegameToolkit
 
                         var inventoryComponentRef = dinoComponent.GetTypedProperty<PropertyObject>("MyInventoryComponent");
                         if (inventoryComponentRef != null) inventoryComponentRef.Value.ObjectId = dinoInventoryComponent.Id;
+
+                        dinoComponent.AddComponent(dinoInventoryComponent);
                     }
 
 
@@ -418,6 +423,144 @@ namespace SavegameToolkit
             }
 
         }
+
+        #endregion
+
+        #region tribe profile extraction
+
+
+
+        private DateTime? GetApproxDateTimeOf(DateTime saveTime, double? objectTime)
+        {
+            try
+            {
+                return objectTime.HasValue
+                && GameTime  > 0 ? saveTime.AddSeconds(objectTime.Value - GameTime) : (DateTime?)null;
+            }
+            catch
+            {
+                return (DateTime?)null;
+            }
+
+        }
+
+
+
+        public void ExtractStoredArkTribes(ArkArchive archive, string exportFolder)
+        {
+            if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
+
+            if (TribeDataStore != null && TribeDataStore.IndexChunks.Count > 0)
+            {
+                for (int tribeFileIndex = 0; tribeFileIndex < TribeDataStore.IndexChunks.Count; tribeFileIndex++)
+                {
+                    long storedIndexOffset = StoredDataOffsets[tribeFileIndex].Item1 + TribeDataStore.IndexChunks[tribeFileIndex].ArchiveOffset;
+                    long storedIndexSize = TribeDataStore.IndexChunks[tribeFileIndex].Size;
+                    long storedDataOffset = StoredDataOffsets[tribeFileIndex].Item1 + TribeDataStore.DataChunks[tribeFileIndex].ArchiveOffset;
+
+
+                    archive.Position = storedIndexOffset;
+                    long indexLimit = storedIndexSize + storedIndexOffset;
+
+                    List<Tuple<long, long, long>> tribeOffsets = new List<Tuple<long, long, long>>();
+
+                    while (archive.Position < indexLimit)
+                    {
+                        long tribeId = archive.ReadLong();
+                        long tribeOffset = archive.ReadLong();
+                        long tribeSize = archive.ReadLong();
+
+                        long tribeDataOffset = storedDataOffset + tribeOffset;
+                        tribeOffsets.Add(new Tuple<long,long,long>(tribeId, tribeDataOffset,tribeSize));
+                    }
+
+                    foreach (var tribeOffset in tribeOffsets)
+                    {
+                        long tribeId = tribeOffset.Item1;
+                        if(tribeId > 0)
+                        {
+                            archive.Position = tribeOffset.Item2;
+                            byte[] tribeData = archive.ReadBytes((int)tribeOffset.Item3);
+                            File.WriteAllBytes(Path.Combine(exportFolder, string.Concat(tribeId.ToString(), ".arktribe")), tribeData);
+
+                        }
+
+
+                    }
+                }
+
+            }
+
+
+        }
+        public void ExtractStoredArkProfiles(ArkArchive archive, string exportFolder)
+        {
+            if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
+
+
+            if (PlayerDataStore != null && PlayerDataStore.IndexChunks.Count > 0)
+            {
+                for (int PlayerFileIndex = 0; PlayerFileIndex < PlayerDataStore.IndexChunks.Count; PlayerFileIndex++)
+                {
+                    long storedIndexOffset = StoredDataOffsets[PlayerFileIndex].Item1 + PlayerDataStore.IndexChunks[PlayerFileIndex].ArchiveOffset;
+                    long storedIndexSize = PlayerDataStore.IndexChunks[PlayerFileIndex].Size;
+                    long storedDataOffset = StoredDataOffsets[PlayerFileIndex].Item1 + PlayerDataStore.DataChunks[PlayerFileIndex].ArchiveOffset;
+
+
+                    archive.Position = storedIndexOffset;
+                    long indexLimit = storedIndexSize + storedIndexOffset;
+
+                    List<Tuple<long, long, long>> PlayerOffsets = new List<Tuple<long, long, long>>();
+
+                    while (archive.Position < indexLimit)
+                    {
+                        long playerFileId = archive.ReadLong();
+                        long playerOffset = archive.ReadLong();
+                        long playerSize = archive.ReadLong();
+
+                        long PlayerDataOffset = storedDataOffset + playerOffset;
+                        PlayerOffsets.Add(new Tuple<long, long, long>(playerFileId, PlayerDataOffset, playerSize));
+                    }
+
+                    foreach (var PlayerOffset in PlayerOffsets)
+                    {
+                        if (PlayerOffset.Item1 <= 0) continue;
+
+                        string playerFilename = PlayerOffset.Item1.ToString();
+                        archive.Position = PlayerOffset.Item2;
+
+                        ArkStoreProfile storedProfile = new ArkStoreProfile();
+                        storedProfile.ReadBinary(archive, new ReadingOptions());
+
+                        var playerObject = storedProfile.Profile;
+                        if(playerObject!=null)
+                        {
+                            if (!playerObject.HasAnyProperty("MyData")) continue;
+
+                            var playerData = (StructPropertyList)playerObject.GetTypedProperty<PropertyStruct>("MyData").Value;
+                            var lastLoginTime = playerData.GetPropertyValue<double>("LoginTime");
+                            DateTime lastLoginTimestamp = GetApproxDateTimeOf(FileTime, lastLoginTime) ?? DateTime.Now;
+                            var dayDifference = (int)FileTime.Subtract(lastLoginTimestamp).Days;
+
+                            if (dayDifference < 30)
+                            {
+                                archive.Position = PlayerOffset.Item2;
+                                byte[] PlayerData = archive.ReadBytes((int)PlayerOffset.Item3);
+
+                                string profileExportFilename = Path.Combine(exportFolder, string.Concat(playerFilename, ".arkprofile"));
+                                File.WriteAllBytes(profileExportFilename, PlayerData);;
+                                File.SetLastWriteTimeUtc(profileExportFilename, lastLoginTimestamp.ToUniversalTime());
+                            }
+                        }
+                        
+
+                    }
+                }
+
+            }
+
+        }
+
 
         #endregion
 
@@ -758,13 +901,21 @@ namespace SavegameToolkit
                         ArkStoreProfile storedProfile = new ArkStoreProfile();
                         storedProfile.ReadBinary(archive, options);
 
-                        Profiles.AddRange(storedProfile.Objects);
+                        if (!storedProfile.Profile.HasAnyProperty("MyData")) continue;
+
+                        var playerData = (StructPropertyList)storedProfile.Profile.GetTypedProperty<PropertyStruct>("MyData").Value;
+                        var lastLoginTime = playerData.GetPropertyValue<double>("LoginTime");
+                        DateTime lastLoginTimestamp = GetApproxDateTimeOf(FileTime, lastLoginTime) ?? DateTime.Now;
+                        var dayDifference = (int)FileTime.Subtract(lastLoginTimestamp).Days;
+                        if (dayDifference < 30)
+                        {   
+                            //only include those logged in within last 30 days of save
+                            Profiles.Add(storedProfile.Profile);
+                        }
+                        
                     }
                 }
-
             }
-
-
         }
 
         private void readBinaryHibernation(ArkArchive archive, ReadingOptions options)

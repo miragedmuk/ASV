@@ -104,7 +104,6 @@ namespace ARKViewer.Configuration
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public int HighlightColorCryopod { get; set; } = System.Drawing.Color.LightSkyBlue.ToArgb();
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public int HighlightColorUploaded { get; set; } = System.Drawing.Color.WhiteSmoke.ToArgb();
 
-
         public List<DinoClassMap> DinoMap = new List<DinoClassMap>();
         public List<ContentMarker> MapMarkerList { get; set; } = new List<ContentMarker>();
         public List<ItemClassMap> ItemMap { get; set; } = new List<ItemClassMap>();
@@ -117,8 +116,6 @@ namespace ARKViewer.Configuration
 
         public List<MissionMap> MissionMaps { get; set; } = new List<MissionMap>();
         
-
-
 
         public ViewerConfiguration()
         {
@@ -139,6 +136,12 @@ namespace ARKViewer.Configuration
 
                     server.Username = EncryptString(server.Username, Convert.FromBase64String(this.IV), this.EncryptionPassword);
                     server.Password = EncryptString(server.Password, Convert.FromBase64String(this.IV), this.EncryptionPassword);
+
+                    if (!string.IsNullOrEmpty(server.RCONPassword))
+                    {
+                        server.RCONPassword = EncryptString(server.RCONPassword, Convert.FromBase64String(this.IV), this.EncryptionPassword);
+                    }
+
                 }
             }
 
@@ -440,6 +443,8 @@ namespace ARKViewer.Configuration
                 BreedingSearchOptions = JsonConvert.DeserializeObject<List<ASVBreedingSearch>>(jsonFileContent);
             }
 
+
+
             ServerList = new List<ServerConfiguration>();
             if (File.Exists(saveFilename))
             {
@@ -482,8 +487,14 @@ namespace ARKViewer.Configuration
 
                             server.Username = DecryptString(server.Username, Convert.FromBase64String(this.IV), this.EncryptionPassword);
                             server.Password = DecryptString(server.Password, Convert.FromBase64String(this.IV), this.EncryptionPassword);
+                            if (!string.IsNullOrEmpty(server.RCONPassword))
+                            {
+                                server.RCONPassword = DecryptString(server.RCONPassword, Convert.FromBase64String(this.IV), this.EncryptionPassword);
+                            }
                         }
                     }
+
+
                 }
                 else
                 {

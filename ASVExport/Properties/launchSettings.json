@@ -2,7 +2,7 @@
   "profiles": {
     "ASVExport": {
       "commandName": "Project",
-      "commandLineArgs": "all \"c:\\temp\\ASV_Test\\TheCenter.ark\" \"c:\\temp\\\""
+      "commandLineArgs": "arkprofile \"c:\\temp\\Debug\\TheIsland.ark\" \"c:\\temp\\Debug\\Tribes\\\""
     }
   }
 }

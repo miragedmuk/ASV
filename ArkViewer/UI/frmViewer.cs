@@ -4,6 +4,7 @@ using ARKViewer.Configuration;
 using ARKViewer.Models;
 using ARKViewer.Models.NameMap;
 using ASVPack.Models;
+using CoreRCON;
 using FluentFTP;
 using Newtonsoft.Json.Linq;
 using Renci.SshNet;
@@ -16,6 +17,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Numerics;
 using System.Text;
 using System.Text.Json.Nodes;
@@ -50,13 +52,13 @@ namespace ARKViewer
         private ColumnHeader SortingColumn_LeaderboardDetail = null;
 
         private string savePath = Path.GetDirectoryName(Application.ExecutablePath);
+        private bool isRconConnected = false;
 
         Random rndChartColor = new Random();
 
         //wrapper for the information we need from ARK save data
         ASVDataManager cm = null;
-
-
+        RCON rconClient = null;
 
         private void LoadWindowSettings()
         {
@@ -107,6 +109,32 @@ namespace ARKViewer
             }
         }
 
+        private async Task<string> ExecuteRCONCommand(string command)
+        {
+            if (rconClient == null) return await Task.FromResult("RCON not configured.\n\nTo use RCON commands, please configure your RCON connection in Settings.");
+            if (!isRconConnected)
+            {
+                try
+                {
+                    await rconClient.ConnectAsync();
+                    isRconConnected = true;
+                }
+                catch
+                {
+                    isRconConnected = false;
+                    return await Task.FromResult("RCON not connected. Connection failed.");
+                }
+
+            }
+
+            command = command.Replace("admincheat ", "");
+            command = command.Replace("cheat ", "");
+
+            string rconResponse = await rconClient.SendCommandAsync(command);
+
+            return string.Concat("RCON Response: ", rconResponse);
+        }
+
         private void InitializeDefaults()
         {
             isLoading = true;
@@ -117,13 +145,91 @@ namespace ARKViewer
             Application.DoEvents();
 
 
+
+
             isLoading = false;
+        }
+
+        private void RconClient_OnDisconnected()
+        {
+            isRconConnected = false;
         }
 
         public void UpdateProgress(string newProgress)
         {
             lblStatus.Text = newProgress;
             lblStatus.Refresh();
+        }
+
+        private async void StartRCON()
+        {
+
+            btnRconCommandPlayers.Visible = Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp || Program.ProgramConfig.Mode == ViewerModes.Mode_Offline;
+            btnRconCommandStructures.Visible = Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp || Program.ProgramConfig.Mode == ViewerModes.Mode_Offline;
+            btnRconCommandTamed.Visible = Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp || Program.ProgramConfig.Mode == ViewerModes.Mode_Offline;
+            btnRconCommandTribes.Visible = Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp || Program.ProgramConfig.Mode == ViewerModes.Mode_Offline;
+            btnRconCommandWild.Visible = Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp || Program.ProgramConfig.Mode == ViewerModes.Mode_Offline;
+
+            string rconServerAddress = string.Empty;
+            string rconServerPassword = string.Empty;
+            int rconServerPort = 27020;
+
+            switch (Program.ProgramConfig.Mode)
+            {
+                case ViewerModes.Mode_Ftp:
+                    foreach (var i in Program.ProgramConfig.ServerList)
+                    {
+                        string localFilename = Path.Combine(AppContext.BaseDirectory, $@"{i.Name}\", i.Map);
+
+                        if (localFilename.ToLower() == Program.ProgramConfig.SelectedFile.ToLower())
+                        {
+                            rconServerPassword = i.RCONServerIP;
+                            rconServerPassword = i.RCONPassword;
+                            rconServerPort = i.RCONPort;
+                            break;
+                        }
+                    }
+                    break;
+                case ViewerModes.Mode_Offline:
+                    foreach (var i in Program.ProgramConfig.OfflineList)
+                    {
+                        if (i != null && i.Name != null)
+                        {
+                            if (i.Filename.ToLower() == Program.ProgramConfig.SelectedFile.ToLower())
+                            {
+                                rconServerAddress = i.RCONServerIP;
+                                rconServerPassword = i.RCONPassword;
+                                rconServerPort = i.RCONPort;
+                                break;
+
+                            }
+                        }
+                    }
+                    break;
+                default:
+
+
+                    break;
+            }
+
+
+            if (!string.IsNullOrEmpty(rconServerAddress))
+            {
+
+
+                rconClient = new RCON(IPAddress.Parse(rconServerAddress), (ushort)rconServerPort, rconServerPassword);
+                rconClient.OnDisconnected += RconClient_OnDisconnected;
+                try
+                {
+                    await rconClient.ConnectAsync();
+                    isRconConnected = true;
+                }
+                catch
+                {
+                    isRconConnected = false;
+                }
+
+            }
         }
 
         public void LoadContent(string fileName, bool doUserDownload)
@@ -329,6 +435,8 @@ namespace ARKViewer
                 var timeLoaded = TimeSpan.FromTicks(DateTime.Now.Ticks - startLoadTicks);
                 UpdateProgress($"Content pack loaded in {timeLoaded.ToString(@"mm\:ss")}.");
 
+
+
                 if (cm.ContentDate == null || cm.ContentDate.Equals(new DateTime()))
                 {
                     //no map loaded
@@ -382,6 +490,8 @@ namespace ARKViewer
             }
             cboSelectedMap.Sorted = true;
             isLoading = false;
+
+            StartRCON();
 
             this.Cursor = Cursors.Default;
             Program.LogWriter.Trace("END LoadContent()");
@@ -485,6 +595,7 @@ namespace ARKViewer
             this.Cursor = Cursors.WaitCursor;
 
             btnCopyCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0;
+            btnRconCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0;
 
             if (lvwWildDetail.SelectedItems.Count > 0)
             {
@@ -955,6 +1066,8 @@ namespace ARKViewer
         {
             if (isLoading) return;
             btnCopyCommandStructure.Enabled = lvwStructureLocations.SelectedItems.Count > 0;
+            btnRconCommandStructures.Enabled = lvwStructureLocations.SelectedItems.Count > 0;
+
             btnStructureInventory.Enabled = false;
 
 
@@ -1005,99 +1118,52 @@ namespace ARKViewer
         private void cboConsoleCommandsPlayerTribe_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnCopyCommandPlayer.Enabled = cboConsoleCommandsPlayerTribe.SelectedIndex >= 0 && lvwPlayers.SelectedItems.Count > 0;
+            btnRconCommandPlayers.Enabled = cboConsoleCommandsPlayerTribe.SelectedIndex >= 0 && lvwPlayers.SelectedItems.Count > 0;
+
         }
 
         private void btnCopyCommandPlayer_Click(object sender, EventArgs e)
         {
-            if (cboConsoleCommandsPlayerTribe.SelectedItem == null) return;
-
-            var commandText = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
-            string commandList = "";
-
-
-            if (commandText.Contains("<FileCsvList>"))
+            string commandText = GetPlayerCommandText();
+            if (commandText.Length > 0)
             {
-                string fileList = "";
-                commandList = commandText;
+                Clipboard.Clear();
+                Clipboard.SetText(commandText);
 
-                foreach (ListViewItem selectedItem in lvwTribes.SelectedItems)
-                {
-                    ContentTribe selectedTribe = (ContentTribe)selectedItem.Tag;
-                    if (fileList.Length > 0)
-                    {
-                        fileList = fileList + " ";
-                    }
-                    fileList = fileList + selectedTribe.TribeId.ToString() + ".arktribe";
-                }
+                lblStatus.Text = $"Command copied:  {commandText}";
+                lblStatus.Refresh();
 
-                commandList = commandList.Replace("<FileCsvList>", fileList);
             }
             else
             {
-
-                foreach (ListViewItem selectedItem in lvwPlayers.SelectedItems)
-                {
-                    ContentPlayer selectedPlayer = (ContentPlayer)selectedItem.Tag;
-
-                    long selectedPlayerId = selectedPlayer.Id;
-                    string selectedSteamId = selectedPlayer.NetworkId;
-
-                    var tribe = cm.GetPlayerTribe(selectedPlayer.Id);
-                    long selectedTribeId = selectedPlayer.TargetingTeam;
-
-                    commandText = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
-
-                    commandText = commandText.Replace("<PlayerID>", selectedPlayerId.ToString("f0"));
-                    commandText = commandText.Replace("<TribeID>", selectedTribeId.ToString("f0"));
-                    commandText = commandText.Replace("<SteamID>", selectedSteamId);
-                    commandText = commandText.Replace("<PlayerName>", selectedPlayer.Name);
-                    commandText = commandText.Replace("<CharacterName>", selectedPlayer.CharacterName);
-                    if (tribe != null)
-                    {
-                        commandText = commandText.Replace("<TribeName>", tribe.TribeName);
-                    }
-
-                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedPlayer.X:0.00}"));
-                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedPlayer.Y:0.00}"));
-                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedPlayer.Z + 250:0.00}"));
-
-                    switch (Program.ProgramConfig.CommandPrefix)
-                    {
-                        case 1:
-                            commandText = $"admincheat {commandText}";
-
-                            break;
-                        case 2:
-                            commandText = $"cheat {commandText}";
-                            break;
-                    }
-
-                    commandText = commandText.Trim();
-
-                    if (commandList.Length > 0)
-                    {
-                        commandList += $"|{commandText}";
-                    }
-                    else
-                    {
-                        commandList = commandText;
-                    }
-                }
-
-
-
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
             }
-
-            Clipboard.SetText(commandList);
-
-            lblStatus.Text = $"Command copied:  {commandList}";
-            lblStatus.Refresh();
         }
 
         private void btnCopyCommandStructure_Click(object sender, EventArgs e)
         {
-            if (cboConsoleCommandsStructure.SelectedItem == null) return;
-            if (lvwStructureLocations.SelectedItems.Count <= 0) return;
+            string commandText = GetStructureCommandText();
+            if (commandText.Length > 0)
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(commandText);
+
+                lblStatus.Text = $"Command copied:  {commandText}";
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
+            }
+        }
+
+        private string GetStructureCommandText()
+        {
+            if (cboConsoleCommandsStructure.SelectedItem == null) return string.Empty;
+            if (lvwStructureLocations.SelectedItems.Count <= 0) return string.Empty;
 
             ListViewItem selectedItem = lvwStructureLocations.SelectedItems[0];
 
@@ -1126,16 +1192,16 @@ namespace ARKViewer
                         break;
                 }
 
-                Clipboard.SetText(commandText);
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
-
             }
+
+            return commandText;
         }
 
         private void cboConsoleCommandsStructure_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnCopyCommandStructure.Enabled = cboConsoleCommandsStructure.SelectedIndex >= 0 && lvwStructureLocations.SelectedItems.Count > 0;
+            btnRconCommandStructures.Enabled = cboConsoleCommandsStructure.SelectedIndex >= 0 && lvwStructureLocations.SelectedItems.Count > 0;
+
         }
 
         private void cboTameTribes_SelectedIndexChanged(object sender, EventArgs e)
@@ -1235,6 +1301,7 @@ namespace ARKViewer
             this.Cursor = Cursors.WaitCursor;
 
             btnCopyCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0;
+            btnRconCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0;
             btnDinoInventory.Enabled = lvwTameDetail.SelectedItems.Count > 0;
             btnDinoAncestors.Enabled = lvwTameDetail.SelectedItems.Count > 0;
 
@@ -1407,8 +1474,115 @@ namespace ARKViewer
 
         private void btnCopyCommandWild_Click(object sender, EventArgs e)
         {
-            if (cboConsoleCommandsWild.SelectedItem == null) return;
-            if (lvwWildDetail.SelectedItems.Count <= 0) return;
+
+            string commandText = GetWildCommandText();
+            if (commandText.Length > 0)
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(commandText);
+
+                lblStatus.Text = $"Command copied:  {commandText}";
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
+            }
+        }
+
+        private string GetPlayerCommandText()
+        {
+            if (cboConsoleCommandsPlayerTribe.SelectedItem == null) return string.Empty;
+
+            var commandText = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
+            string commandList = "";
+
+
+            if (commandText.Contains("<FileCsvList>"))
+            {
+                string fileList = "";
+                commandList = commandText;
+
+                foreach (ListViewItem selectedItem in lvwTribes.SelectedItems)
+                {
+                    ContentTribe selectedTribe = (ContentTribe)selectedItem.Tag;
+                    if (fileList.Length > 0)
+                    {
+                        fileList = fileList + " ";
+                    }
+                    fileList = fileList + selectedTribe.TribeId.ToString() + ".arktribe";
+                }
+
+                commandList = commandList.Replace("<FileCsvList>", fileList);
+            }
+            else
+            {
+
+                foreach (ListViewItem selectedItem in lvwPlayers.SelectedItems)
+                {
+                    ContentPlayer selectedPlayer = (ContentPlayer)selectedItem.Tag;
+
+                    long selectedPlayerId = selectedPlayer.Id;
+                    string selectedSteamId = selectedPlayer.NetworkId;
+
+                    var tribe = cm.GetPlayerTribe(selectedPlayer.Id);
+                    long selectedTribeId = selectedPlayer.TargetingTeam;
+
+                    commandText = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
+
+                    commandText = commandText.Replace("<PlayerID>", selectedPlayerId.ToString("f0"));
+                    commandText = commandText.Replace("<TribeID>", selectedTribeId.ToString("f0"));
+                    commandText = commandText.Replace("<SteamID>", selectedSteamId);
+                    commandText = commandText.Replace("<PlayerName>", selectedPlayer.Name);
+                    commandText = commandText.Replace("<CharacterName>", selectedPlayer.CharacterName);
+                    commandText = commandText.Replace("<XP>", selectedPlayer.ExperiencePoints.ToString("f0"));
+
+                    if (tribe != null)
+                    {
+                        commandText = commandText.Replace("<TribeName>", tribe.TribeName);
+                    }
+
+                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedPlayer.X:0.00}"));
+                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedPlayer.Y:0.00}"));
+                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedPlayer.Z + 250:0.00}"));
+
+                    switch (Program.ProgramConfig.CommandPrefix)
+                    {
+                        case 1:
+                            commandText = $"admincheat {commandText}";
+
+                            break;
+                        case 2:
+                            commandText = $"cheat {commandText}";
+                            break;
+                    }
+
+                    commandText = commandText.Trim();
+
+                    if (commandList.Length > 0)
+                    {
+                        commandList += $"|{commandText}";
+                    }
+                    else
+                    {
+                        commandList = commandText;
+                    }
+                }
+
+
+
+            }
+
+            return commandText;
+
+        }
+
+        private string GetWildCommandText()
+        {
+            if (cboConsoleCommandsWild.SelectedItem == null) return string.Empty;
+            if (lvwWildDetail.SelectedItems.Count <= 0) return string.Empty;
 
             ListViewItem selectedItem = lvwWildDetail.SelectedItems[0];
             ContentWildCreature selectedCreature = (ContentWildCreature)selectedItem.Tag;
@@ -1476,19 +1650,36 @@ namespace ARKViewer
                         commandText = $"cheat {commandText}";
                         break;
                 }
+            }
 
+            return commandText;
+
+        }
+
+
+        private void btnCopyCommandTamed_Click(object sender, EventArgs e)
+        {
+            string commandText = GetTamedCommandText();
+            if (commandText.Length > 0)
+            {
+                Clipboard.Clear();
                 Clipboard.SetText(commandText);
 
                 lblStatus.Text = $"Command copied:  {commandText}";
                 lblStatus.Refresh();
 
             }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
+            }
         }
 
-        private void btnCopyCommandTamed_Click(object sender, EventArgs e)
+        private string GetTamedCommandText()
         {
-            if (cboConsoleCommandsTamed.SelectedItem == null) return;
-            if (lvwTameDetail.SelectedItems.Count <= 0) return;
+            if (cboConsoleCommandsTamed.SelectedItem == null) return string.Empty;
+            if (lvwTameDetail.SelectedItems.Count <= 0) return string.Empty;
 
             ListViewItem selectedItem = lvwTameDetail.SelectedItems[0];
 
@@ -1513,7 +1704,7 @@ namespace ARKViewer
                     {
                         lblStatus.Text = $"Command failed: No blueprint path can be found for the selected creature.";
                         lblStatus.Refresh();
-                        return;
+                        return string.Empty;
                     }
                 }
 
@@ -1568,12 +1759,9 @@ namespace ARKViewer
                         break;
                 }
 
-                Clipboard.SetText(commandText);
-
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
-
             }
+
+            return commandText;
         }
 
         private void lvwPlayers_Click(object sender, EventArgs e)
@@ -1602,6 +1790,8 @@ namespace ARKViewer
                 btnPlayerInventory.Enabled = lvwPlayers.SelectedItems.Count == 1;
                 btnPlayerTribeLog.Enabled = lvwPlayers.SelectedItems.Count == 1;
                 btnCopyCommandPlayer.Enabled = lvwPlayers.SelectedItems.Count > 0 && cboConsoleCommandsPlayerTribe.SelectedIndex >= 0;
+                btnRconCommandPlayers.Enabled = lvwPlayers.SelectedItems.Count > 0 && cboConsoleCommandsPlayerTribe.SelectedIndex >= 0;
+
                 btnDeletePlayer.Enabled = lvwPlayers.SelectedItems.Count == 1;
             }
         }
@@ -1915,8 +2105,27 @@ namespace ARKViewer
 
         private void btnTribeCopyCommand_Click(object sender, EventArgs e)
         {
-            if (cboTribeCopyCommand.SelectedItem == null) return;
-            if (lvwTribes.SelectedItems.Count == 0) return;
+            string commandText = GetTribeCommandText();
+            if (commandText.Length > 0)
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(commandText);
+
+                lblStatus.Text = $"Command copied:  {commandText}";
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
+            }
+        }
+
+        private string GetTribeCommandText()
+        {
+            if (cboTribeCopyCommand.SelectedItem == null) return string.Empty;
+            if (lvwTribes.SelectedItems.Count == 0) return string.Empty;
 
             string commandList = "";
             var commandText = cboTribeCopyCommand.SelectedItem.ToString();
@@ -1978,11 +2187,9 @@ namespace ARKViewer
 
                 }
 
-                Clipboard.SetText(commandList);
-
-                lblStatus.Text = $"Command copied:  {commandList}";
-                lblStatus.Refresh();
             }
+
+            return commandText;
         }
 
         private void lvwTribes_MouseClick(object sender, MouseEventArgs e)
@@ -4985,6 +5192,7 @@ namespace ARKViewer
             if (cboTribes.SelectedItem == null) return;
 
             btnCopyCommandPlayer.Enabled = false;
+            btnRconCommandPlayers.Enabled = false;
 
             ASVComboValue comboValue = (ASVComboValue)cboTribes.SelectedItem;
             int.TryParse(comboValue.Key, out int selectedTribeId);
@@ -5169,6 +5377,8 @@ namespace ARKViewer
 
             btnStructureInventory.Enabled = false;
             btnCopyCommandStructure.Enabled = false;
+            btnRconCommandStructures.Enabled = false;
+
             lblStatus.Text = "Updating player structure selection.";
             lblStatus.Refresh();
 
@@ -5271,17 +5481,17 @@ namespace ARKViewer
                             {
                                 newItem.SubItems.Add("");
                             }
-                            
 
-                            if(playerStructure.IsSwitchedOn.HasValue)
+
+                            if (playerStructure.IsSwitchedOn.HasValue)
                             {
                                 newItem.SubItems.Add(playerStructure.IsSwitchedOn.Value ? "Yes" : "No");
                             }
                             else
                             {
                                 newItem.SubItems.Add("");
-                            }                            
-                            
+                            }
+
                             newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
                             newItem.SubItems.Add(playerStructure.HasDecayTimeReset ? "Yes" : "No");
                             newItem.SubItems.Add($"{playerStructure.X} {playerStructure.Y} {playerStructure.Z}");
@@ -5963,8 +6173,8 @@ namespace ARKViewer
                         & !(x.ClassName == "MotorRaft_BP_C" || x.ClassName == "Raft_BP_C")
                         && (chkCryo.Checked || x.IsCryo == false)
                         && (chkCryo.Checked || x.IsVivarium == false)
-                        && (x.TargetingTeam == selectedTribeId || x.TargetingTeam > 0 && x.TargetingTeam < 2000000000 && selectedTribeId==0)
-                    )).ToList();
+                        && (x.TargetingTeam == selectedTribeId || x.TargetingTeam > 0 && x.TargetingTeam < 2000000000 && selectedTribeId == 0)
+                    )).DistinctBy(u => new { u.DinoId, u.Latitude, u.Longitude, u.Name, u.Level }).ToList();
 
                 if (cboTamedResource.SelectedIndex > 0)
                 {
@@ -6031,7 +6241,7 @@ namespace ARKViewer
 
                     if (addItem)
                     {
-                        string tribeName = detail.TribeName??"";
+                        string tribeName = detail.TribeName ?? "";
                         if (tribeName.Length == 0)
                         {
                             var matchedTribe = tribes.FirstOrDefault(t => t.TribeId == detail.TargetingTeam);
@@ -7696,6 +7906,148 @@ namespace ARKViewer
 
         private void lblMapDate_Click(object sender, EventArgs e)
         {
+        }
+
+        private void cboConsoleCommandsWild_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnRconCommandWild_Click(object sender, EventArgs e)
+        {
+            btnRconCommandWild.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            string commandText = GetWildCommandText();
+            if (commandText.Length > 0)
+            {
+                lblStatus.Text = "Attempting to send RCON command.";
+                lblStatus.Refresh();
+
+                string rconResponse = await ExecuteRCONCommand(commandText);
+
+                lblStatus.Text = rconResponse;
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected command.";
+                lblStatus.Refresh();
+
+            }
+            btnRconCommandWild.Enabled = true;
+            this.Cursor = Cursors.Default;
+        }
+
+        private async void btnRconCommandTamed_Click(object sender, EventArgs e)
+        {
+            btnRconCommandTamed.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            string commandText = GetTamedCommandText();
+            if (commandText.Length > 0)
+            {
+                lblStatus.Text = "Attempting to send RCON command.";
+                lblStatus.Refresh();
+
+                string rconResponse = await ExecuteRCONCommand(commandText);
+
+                lblStatus.Text = rconResponse;
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected command.";
+                lblStatus.Refresh();
+            }
+
+            btnRconCommandTamed.Enabled = true;
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private async void btnRconCommandStructures_Click(object sender, EventArgs e)
+        {
+            btnRconCommandStructures.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            string commandText = GetStructureCommandText();
+            if (commandText.Length > 0)
+            {
+                lblStatus.Text = "Attempting to send RCON command.";
+                lblStatus.Refresh();
+
+                string rconResponse = await ExecuteRCONCommand(commandText);
+
+                lblStatus.Text = rconResponse;
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected command.";
+                lblStatus.Refresh();
+            }
+
+            btnRconCommandStructures.Enabled = true;
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private async void btnRconCommandTribes_Click(object sender, EventArgs e)
+        {
+            btnRconCommandTribes.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            string commandText = GetTribeCommandText();
+            if (commandText.Length > 0)
+            {
+                lblStatus.Text = "Attempting to send RCON command.";
+                lblStatus.Refresh();
+
+                string rconResponse = await ExecuteRCONCommand(commandText);
+
+                lblStatus.Text = rconResponse;
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected command.";
+                lblStatus.Refresh();
+            }
+
+            btnRconCommandTribes.Enabled = true;
+            this.Cursor = Cursors.Default;
+        }
+
+        private async void btnRconCommandPlayers_Click(object sender, EventArgs e)
+        {
+            btnRconCommandPlayers.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            string commandText = GetPlayerCommandText();
+            if (commandText.Length > 0)
+            {
+                lblStatus.Text = "Attempting to send RCON command.";
+                lblStatus.Refresh();
+
+                string rconResponse = await ExecuteRCONCommand(commandText);
+
+                lblStatus.Text = rconResponse;
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected command.";
+                lblStatus.Refresh();
+            }
+
+            btnRconCommandPlayers.Enabled = true;
+            this.Cursor = Cursors.Default;
         }
     }
 }

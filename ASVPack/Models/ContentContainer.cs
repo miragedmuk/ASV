@@ -168,6 +168,8 @@ namespace ASVPack.Models
                                 .WithStoredProfiles(true)
                                 .WithBuildComponentTree(true));
 
+                        arkSavegame.FileTime = GameSaveTime;
+
                         if (!arkSavegame.HibernationEntries.Any())
                         {
                             objectContainer = arkSavegame;
@@ -346,6 +348,21 @@ namespace ASVPack.Models
                             long profileEnd = DateTime.Now.Ticks;
                         }
 
+
+                        if(arkSavegame.Profiles!=null && arkSavegame.Profiles.Count > 0) 
+                        {
+                            foreach(var arkProfile in  arkSavegame.Profiles)
+                            {
+                                ContentPlayer contentPlayer = arkProfile.AsPlayer();
+                                contentPlayer.PlayerFilename = string.Concat(contentPlayer.NetworkId??contentPlayer.Id.ToString(), ".arkprofile");
+                                if (contentPlayer.Id != 0)
+                                {
+                                    contentPlayer.LastActiveDateTime = GetApproxDateTimeOf(contentPlayer.LastTimeInGame);
+
+                                    fileProfiles.Add(contentPlayer);
+                                }
+                            }
+                        }
                         
                         ConcurrentBag<ContentTribe> fileTribes = new ConcurrentBag<ContentTribe>();
                         //add fake tribes for abandoned and unclaimed
@@ -405,10 +422,27 @@ namespace ASVPack.Models
                         });
 
 
+                        if(arkSavegame.Tribes!=null && arkSavegame.Tribes.Count > 0)
+                        {
+                            foreach(var arkTribe in arkSavegame.Tribes)
+                            {
+                                var contentTribe = arkTribe.AsTribe();
+                                if (contentTribe != null && contentTribe.TribeName != null)
+                                {
+                                    contentTribe.TribeFileName = contentTribe.TribeFileName = string.Concat(contentTribe.TribeId, ".arktribe");
+                                    contentTribe.TribeFileDate = GameSaveTime;
+                                    contentTribe.HasGameFile = true;
+                                    fileTribes.Add(contentTribe);
+
+                                }
+                            }
+                        } 
+
                         OnUpdateProgress?.Invoke(".arktribe data loaded.");
 
                         long tribeEnd = DateTime.Now.Ticks;
 
+                        OnUpdateProgress?.Invoke("Allocating players to tribes...");
 
                         logWriter.Info($"Allocating players to tribes");
 
@@ -619,7 +653,7 @@ namespace ASVPack.Models
 
                         var parallelContainer = objectContainer.AsParallel();
 
-                        OnUpdateProgress?.Invoke("Identifying tamed creatures...");
+                        OnUpdateProgress?.Invoke("Allocating tames to tribes...");
 
                         logWriter.Info($"Identifying tamed creatures");
                         var allTames = parallelContainer
@@ -628,7 +662,7 @@ namespace ASVPack.Models
 
 
 
-                        OnUpdateProgress?.Invoke("Identifying player structures...");
+                        OnUpdateProgress?.Invoke("Parsing structures and inventory containers...");
                         logWriter.Debug($"Identifying player structures");
                         var allStructures = parallelContainer.Where(x => x.IsStructure()).GroupBy(x => x.Names[0]).Select(s => s.First()).ToList();
                         var playerStructures = allStructures.Where(x => x.GetPropertyValue<int>("TargetingTeam") >= 50_000).ToList();
@@ -672,7 +706,7 @@ namespace ASVPack.Models
                         //player and tribe data
                         long tribeLoadStart = DateTime.Now.Ticks;
 
-                        OnUpdateProgress?.Invoke("Identifying players...");
+                        OnUpdateProgress?.Invoke("Identifying in-game players...");
 
                         logWriter.Debug($"Identifying in-game player data");
                         var gamePlayers = parallelContainer.Where(o => o.IsPlayer() & !o.HasAnyProperty("MyDeathHarvestingComponent")).GroupBy(x => x.GetPropertyValue<long>("LinkedPlayerDataID")).Select(x => x.First()).ToList();
