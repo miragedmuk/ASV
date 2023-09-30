@@ -199,7 +199,7 @@ namespace ASVBot
 
             }
 
-            arkPack.LoadSaveGame(config.ArkSaveFile, string.Empty, config.ArkClusterFolder);
+            arkPack.LoadSaveGame(config.ArkSaveFile, string.Empty, config.ArkClusterFolder, 30);
             System.Timers.Timer reloadTimer = new System.Timers.Timer(60 * config.AutoReloadTimeMinutes);
             reloadTimer.Elapsed += (sender,args) =>
             {

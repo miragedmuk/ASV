@@ -62,6 +62,7 @@ namespace SavegameToolkit {
 
         public bool StoredTribes { get; set; } = false;
         public bool StoredProfiles { get; set; } = false;
+        public int StoredProfileLastLoggedInDayFilter { get; set; } = 30;
 
         public new static ReadingOptions Create() {
             return new ReadingOptions();
@@ -74,9 +75,10 @@ namespace SavegameToolkit {
             return this;
         }
 
-        public ReadingOptions WithStoredProfiles(bool storedProfiles)
+        public ReadingOptions WithStoredProfiles(bool storedProfiles, int loggedInWithinDayCount)
         {
             StoredProfiles = storedProfiles;
+            StoredProfileLastLoggedInDayFilter = loggedInWithinDayCount;
             return this;
         }
 

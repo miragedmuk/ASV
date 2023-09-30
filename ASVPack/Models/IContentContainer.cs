@@ -14,7 +14,7 @@
         List<ContentWildCreature> WildCreatures { get; set; }
 
         DateTime? GetApproxDateTimeOf(double? objectTime);
-        void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder);
+        void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder, int profileDayCountLimit);
         bool Reload();
         bool IsLoaded();
         

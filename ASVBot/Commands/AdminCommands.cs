@@ -188,7 +188,7 @@ namespace ASVBot.Commands
             string responseString = string.Empty;
 
             arkPack = new ContentContainer();
-            arkPack.LoadSaveGame(arkFilename, string.Empty, clusterFolder);
+            arkPack.LoadSaveGame(arkFilename, string.Empty, clusterFolder,30);
             botConfig.ArkSaveFile = arkFilename;
             botConfig.ArkClusterFolder = clusterFolder;
             botConfig.Save();

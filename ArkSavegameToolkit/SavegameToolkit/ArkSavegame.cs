@@ -884,7 +884,7 @@ namespace SavegameToolkit
                     archive.Position = storedIndexOffset;
                     long indexLimit = storedIndexSize + storedIndexOffset;
 
-                    List<long> playerOffsets = new List<long>();
+                    Dictionary<long,long> playerOffsets = new Dictionary<long, long>();
                     while (archive.Position < indexLimit)
                     {
                         long playerId = archive.ReadLong();
@@ -892,23 +892,31 @@ namespace SavegameToolkit
                         long playerSize = archive.ReadLong();
 
                         long playerDataOffset = storedDataOffset + playerOffset;
-                        playerOffsets.Add(playerDataOffset);
+                        if (playerId != 0)
+                        {
+                            playerOffsets.Add(playerId, playerDataOffset);
+                        }
+                        
                     }
 
                     foreach (var playerOffset in playerOffsets)
                     {
-                        archive.Position = playerOffset;
+                        archive.Position = playerOffset.Value;
                         ArkStoreProfile storedProfile = new ArkStoreProfile();
                         storedProfile.ReadBinary(archive, options);
 
                         if (!storedProfile.Profile.HasAnyProperty("MyData")) continue;
 
                         var playerData = (StructPropertyList)storedProfile.Profile.GetTypedProperty<PropertyStruct>("MyData").Value;
-                        var lastLoginTime = playerData.GetPropertyValue<double>("LoginTime");
+                        var lastLoginTime = playerData.GetPropertyValue<double>("LastLoginTime");
                         DateTime lastLoginTimestamp = GetApproxDateTimeOf(FileTime, lastLoginTime) ?? DateTime.Now;
+
+
                         var dayDifference = (int)FileTime.Subtract(lastLoginTimestamp).Days;
-                        if (dayDifference < 30)
-                        {   
+                        if (dayDifference <= options.StoredProfileLastLoggedInDayFilter)
+                        {
+                            storedProfile.Profile.Properties.Add(new PropertyInt64("ProfileFilename", playerOffset.Key));
+
                             //only include those logged in within last 30 days of save
                             Profiles.Add(storedProfile.Profile);
                         }

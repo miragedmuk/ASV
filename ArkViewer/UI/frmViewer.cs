@@ -317,7 +317,7 @@ namespace ARKViewer
                         localProfileFilename = Path.Combine(steamFolder, @"LocalProfiles\PlayerLocalData.arkprofile");
                     }
 
-                    container.LoadSaveGame(fileName, localProfileFilename, Program.ProgramConfig.ClusterFolder ?? "");
+                    container.LoadSaveGame(fileName, localProfileFilename, Program.ProgramConfig.ClusterFolder ?? "", Program.ProgramConfig.ProfileDayLimit);
 
                     UpdateProgress("Analyzing loaded data to populate UI.");
 
@@ -594,8 +594,8 @@ namespace ARKViewer
         {
             this.Cursor = Cursors.WaitCursor;
 
-            btnCopyCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0;
-            btnRconCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0;
+            btnCopyCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0 || !cboConsoleCommandsWild.Text.ToLowerInvariant().Contains("<");
+            btnRconCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0 || !cboConsoleCommandsWild.Text.ToLowerInvariant().Contains("<");
 
             if (lvwWildDetail.SelectedItems.Count > 0)
             {
@@ -817,6 +817,9 @@ namespace ARKViewer
             float selectedX = 0;
             float selectedY = 0;
 
+
+            btnCopyCommandPlayer.Enabled = lvwPlayers.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
+            btnRconCommandPlayers.Enabled = lvwPlayers.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
 
             if (lvwPlayers.SelectedItems.Count > 0)
             {
@@ -1065,8 +1068,9 @@ namespace ARKViewer
         private void lvwStructureLocations_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isLoading) return;
-            btnCopyCommandStructure.Enabled = lvwStructureLocations.SelectedItems.Count > 0;
-            btnRconCommandStructures.Enabled = lvwStructureLocations.SelectedItems.Count > 0;
+            btnCopyCommandStructure.Enabled = lvwStructureLocations.SelectedItems.Count > 0 || !cboConsoleCommandsStructure.Text.Contains("<");
+            btnRconCommandStructures.Enabled = lvwStructureLocations.SelectedItems.Count > 0 || !cboConsoleCommandsStructure.Text.Contains("<");
+
 
             btnStructureInventory.Enabled = false;
 
@@ -1117,8 +1121,8 @@ namespace ARKViewer
 
         private void cboConsoleCommandsPlayerTribe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnCopyCommandPlayer.Enabled = cboConsoleCommandsPlayerTribe.SelectedIndex >= 0 && lvwPlayers.SelectedItems.Count > 0;
-            btnRconCommandPlayers.Enabled = cboConsoleCommandsPlayerTribe.SelectedIndex >= 0 && lvwPlayers.SelectedItems.Count > 0;
+            btnCopyCommandPlayer.Enabled = lvwPlayers.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
+            btnRconCommandPlayers.Enabled = lvwPlayers.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
 
         }
 
@@ -1199,8 +1203,9 @@ namespace ARKViewer
 
         private void cboConsoleCommandsStructure_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnCopyCommandStructure.Enabled = cboConsoleCommandsStructure.SelectedIndex >= 0 && lvwStructureLocations.SelectedItems.Count > 0;
-            btnRconCommandStructures.Enabled = cboConsoleCommandsStructure.SelectedIndex >= 0 && lvwStructureLocations.SelectedItems.Count > 0;
+
+            btnCopyCommandStructure.Enabled = lvwStructureLocations.SelectedItems.Count > 0 || !cboConsoleCommandsStructure.Text.Contains("<");
+            btnRconCommandStructures.Enabled = lvwStructureLocations.SelectedItems.Count > 0 || !cboConsoleCommandsStructure.Text.Contains("<");
 
         }
 
@@ -1300,8 +1305,8 @@ namespace ARKViewer
         {
             this.Cursor = Cursors.WaitCursor;
 
-            btnCopyCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0;
-            btnRconCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0;
+            btnCopyCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0 || !cboConsoleCommandsTamed.Text.Contains("<");
+            btnRconCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0 || !cboConsoleCommandsTamed.Text.Contains("<");
             btnDinoInventory.Enabled = lvwTameDetail.SelectedItems.Count > 0;
             btnDinoAncestors.Enabled = lvwTameDetail.SelectedItems.Count > 0;
 
@@ -1582,13 +1587,14 @@ namespace ARKViewer
         private string GetWildCommandText()
         {
             if (cboConsoleCommandsWild.SelectedItem == null) return string.Empty;
-            if (lvwWildDetail.SelectedItems.Count <= 0) return string.Empty;
 
-            ListViewItem selectedItem = lvwWildDetail.SelectedItems[0];
-            ContentWildCreature selectedCreature = (ContentWildCreature)selectedItem.Tag;
             var commandText = cboConsoleCommandsWild.SelectedItem.ToString();
-            if (commandText != null)
+            if (commandText != null && lvwWildDetail.SelectedItems.Count > 0)
             {
+
+                ListViewItem selectedItem = lvwWildDetail.SelectedItems[0];
+                ContentWildCreature selectedCreature = (ContentWildCreature)selectedItem.Tag;
+
 
                 commandText = commandText.Replace("<ClassName>", selectedCreature.ClassName);
                 commandText = commandText.Replace("<Level>", selectedCreature.BaseLevel.ToString("f0"));
@@ -1640,16 +1646,18 @@ namespace ARKViewer
                 commandText = commandText.Replace("<ImprintQuality>", "0");
 
 
-                switch (Program.ProgramConfig.CommandPrefix)
-                {
-                    case 1:
-                        commandText = $"admincheat {commandText}";
 
-                        break;
-                    case 2:
-                        commandText = $"cheat {commandText}";
-                        break;
-                }
+            }
+
+            switch (Program.ProgramConfig.CommandPrefix)
+            {
+                case 1:
+                    commandText = $"admincheat {commandText}";
+
+                    break;
+                case 2:
+                    commandText = $"cheat {commandText}";
+                    break;
             }
 
             return commandText;
@@ -1774,6 +1782,7 @@ namespace ARKViewer
             if (e.Button == MouseButtons.Right)
             {
                 mnuContext_PlayerId.Visible = true;
+                mnuContext_ProfileFilename.Visible = true;
                 mnuContext_SteamId.Visible = true;
                 mnuContext_TribeId.Visible = false;
                 mnuContext_Structures.Visible = true;
@@ -1801,6 +1810,7 @@ namespace ARKViewer
             if (e.Button == MouseButtons.Right)
             {
                 mnuContext_PlayerId.Visible = false;
+                mnuContext_ProfileFilename.Visible = false;
                 mnuContext_SteamId.Visible = false;
                 mnuContext_TribeId.Visible = true;
                 mnuContext_Structures.Visible = false;
@@ -1923,7 +1933,7 @@ namespace ARKViewer
 
         private void lvwDroppedItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnCopyCommandDropped.Enabled = lvwDroppedItems.SelectedItems.Count > 0;
+            btnCopyCommandDropped.Enabled = !cboCopyCommandDropped.Text.Contains("<") || lvwDroppedItems.SelectedItems.Count > 0;
 
             if (lvwDroppedItems.SelectedItems.Count > 0)
             {
@@ -1994,6 +2004,9 @@ namespace ARKViewer
 
         private void lvwTribes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnTribeCopyCommand.Enabled = lvwTribes.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
+            btnRconCommandTribes.Enabled = lvwTribes.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
+
             DrawMap(0, 0);
 
         }
@@ -2197,6 +2210,7 @@ namespace ARKViewer
             if (e.Button == MouseButtons.Right)
             {
                 mnuContext_PlayerId.Visible = false;
+                mnuContext_ProfileFilename.Visible = false;
                 mnuContext_SteamId.Visible = false;
                 mnuContext_TribeId.Visible = true;
                 mnuContext_Structures.Visible = true;
@@ -2966,6 +2980,7 @@ namespace ARKViewer
             if (e.Button == MouseButtons.Right)
             {
                 mnuContext_PlayerId.Visible = false;
+                mnuContext_ProfileFilename.Visible = false;
                 mnuContext_SteamId.Visible = false;
                 mnuContext_TribeId.Visible = false;
                 mnuContext_Structures.Visible = false;
@@ -2981,6 +2996,7 @@ namespace ARKViewer
             if (e.Button == MouseButtons.Right)
             {
                 mnuContext_PlayerId.Visible = false;
+                mnuContext_ProfileFilename.Visible = false;
                 mnuContext_SteamId.Visible = false;
                 mnuContext_TribeId.Visible = true;
                 mnuContext_Structures.Visible = true;
@@ -3233,7 +3249,7 @@ namespace ARKViewer
 
         private void lvwItemList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnItemListCommand.Enabled = lvwItemList.SelectedItems.Count == 1;
+            btnCopyItemListCommand.Enabled = !cboItemListCommand.Text.Contains("<") || lvwItemList.SelectedItems.Count > 0;
 
             if (lvwItemList.SelectedItems.Count > 0)
             {
@@ -7910,7 +7926,8 @@ namespace ARKViewer
 
         private void cboConsoleCommandsWild_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            btnRconCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0 || !cboConsoleCommandsWild.Text.ToLowerInvariant().Contains("<");
+            btnCopyCommandWild.Enabled = lvwWildDetail.SelectedItems.Count > 0 || !cboConsoleCommandsWild.Text.ToLowerInvariant().Contains("<");
         }
 
         private async void btnRconCommandWild_Click(object sender, EventArgs e)
@@ -8048,6 +8065,55 @@ namespace ARKViewer
 
             btnRconCommandPlayers.Enabled = true;
             this.Cursor = Cursors.Default;
+        }
+
+        private void cboConsoleCommandsTamed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnCopyCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0 || !cboConsoleCommandsTamed.Text.Contains("<");
+            btnRconCommandTamed.Enabled = lvwTameDetail.SelectedItems.Count > 0 || !cboConsoleCommandsTamed.Text.Contains("<");
+        }
+
+        private void cboTribeCopyCommand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnTribeCopyCommand.Enabled = lvwTribes.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
+            btnRconCommandTribes.Enabled = lvwTribes.SelectedItems.Count > 0 || !cboConsoleCommandsPlayerTribe.Text.Contains("<");
+
+        }
+
+        private void cboCopyCommandDropped_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnCopyCommandDropped.Enabled = !cboCopyCommandDropped.Text.Contains("<") || lvwDroppedItems.SelectedItems.Count > 0;
+        }
+
+        private void cboItemListCommand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnCopyItemListCommand.Enabled = !cboItemListCommand.Text.Contains("<") || lvwItemList.SelectedItems.Count > 0;
+        }
+
+        private void mnuContext_ProfileFilename_Click(object sender, EventArgs e)
+        {
+            switch (tabFeatures.SelectedTab.Name)
+            {
+                case "tpgWild":
+
+                    break;
+                case "tpgTamed":
+
+                    break;
+
+                case "tpgStructures":
+
+                    break;
+                case "tpgPlayers":
+                    if (lvwPlayers.SelectedItems.Count > 0)
+                    {
+                        ContentPlayer player = (ContentPlayer)lvwPlayers.SelectedItems[0].Tag;
+                        Clipboard.SetText(player.PlayerFilename);
+                        MessageBox.Show("Player filename copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    break;
+            }
         }
     }
 }

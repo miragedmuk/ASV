@@ -253,7 +253,7 @@ namespace ARKViewer
 
                         ContentContainer container = new ContentContainer();
 
-                        container.LoadSaveGame(inputFilename, "", clusterFolder);
+                        container.LoadSaveGame(inputFilename, "", clusterFolder,30);
                         ASVDataManager exportManger = new ASVDataManager(container);
 
                         switch (commandOptionCheck)
@@ -398,7 +398,7 @@ namespace ARKViewer
 
             LogWriter.Debug($"Loading .ark save file: {mapFilename}");
             
-            exportPack.LoadSaveGame( mapFilename, "", clusterFolder);
+            exportPack.LoadSaveGame( mapFilename, "", clusterFolder,30);
 
             LogWriter.Debug($"Creating ContentPack");
             ContentPack pack = new ContentPack(exportPack, tribeId, playerId, filterLat, filterLon, filterRad, packStructureLocations, packStructureContent, packTribesPlayers, packTamed, packWild, packPlayerStructures, packDroppedItems);
@@ -537,7 +537,7 @@ namespace ARKViewer
             ContentContainer exportContainer = new ContentContainer();
             LogWriter.Debug($"Loading .ark save file.");
             
-            exportContainer.LoadSaveGame(mapFilename, "", clusterFolder);
+            exportContainer.LoadSaveGame(mapFilename, "", clusterFolder,30);
 
             //filter a pack for export
             LogWriter.Debug($"Loading ContentPack.");

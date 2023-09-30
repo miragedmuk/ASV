@@ -131,7 +131,7 @@ namespace ASVExport
 
                         ContentContainer container = new ContentContainer();
                         
-                        container.LoadSaveGame( inputFilename, "", clusterFolder);
+                        container.LoadSaveGame( inputFilename, "", clusterFolder,90);
 
                         ContentPack exportPack = new ContentPack(container, 0, 0, 50, 50, 100, true, true, true, true, true, true, true);
 
@@ -289,7 +289,7 @@ namespace ASVExport
 
             //LogWriter.Debug($"Loading .ark save file: {mapFilename}");
             
-            exportPack.LoadSaveGame(mapFilename, "", clusterFolder);
+            exportPack.LoadSaveGame(mapFilename, "", clusterFolder,90);
 
             //LogWriter.Debug($"Creating ContentPack");
             ContentPack pack = new ContentPack(exportPack, tribeId, playerId, filterLat, filterLon, filterRad, packStructureLocations, packStructureContent, packTribesPlayers, packTamed, packWild, packPlayerStructures, packDroppedItems);
@@ -448,7 +448,7 @@ namespace ASVExport
 
             ContentMap loadedMap = new ASVPack.ContentMapPack().SupportedMaps.FirstOrDefault(m => mapFilename.ToLower().Contains(m.Filename.ToLower()));
             
-            exportContainer.LoadSaveGame( mapFilename, "", clusterFolder);
+            exportContainer.LoadSaveGame( mapFilename, "", clusterFolder,90);
 
             //load manager from filtered pack
             //LogWriter.Debug($"Creating filtered ContentPack.");
@@ -594,7 +594,7 @@ namespace ASVExport
                             .WithGameObjects(false)
                             .WithStoredCreatures(false)
                             .WithStoredTribes(true)
-                            .WithStoredProfiles(false)
+                            .WithStoredProfiles(false,90)
                             .WithBuildComponentTree(false));
 
 
@@ -621,7 +621,7 @@ namespace ASVExport
                             .WithGameObjects(false)
                             .WithStoredCreatures(false)
                             .WithStoredTribes(false)
-                            .WithStoredProfiles(true)
+                            .WithStoredProfiles(true,90)
                             .WithBuildComponentTree(false));
 
 

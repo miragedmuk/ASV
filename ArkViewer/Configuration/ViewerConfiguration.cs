@@ -104,6 +104,8 @@ namespace ARKViewer.Configuration
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public int HighlightColorCryopod { get; set; } = System.Drawing.Color.LightSkyBlue.ToArgb();
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public int HighlightColorUploaded { get; set; } = System.Drawing.Color.WhiteSmoke.ToArgb();
 
+        [DataMember(IsRequired = false, EmitDefaultValue = false)] public int ProfileDayLimit { get; set; } = 30;
+
         public List<DinoClassMap> DinoMap = new List<DinoClassMap>();
         public List<ContentMarker> MapMarkerList { get; set; } = new List<ContentMarker>();
         public List<ItemClassMap> ItemMap { get; set; } = new List<ItemClassMap>();
@@ -612,6 +614,7 @@ namespace ARKViewer.Configuration
                 this.SplitterDistance = savedState.SplitterDistance;
                 this.ServerList = savedState.ServerList;
                 this.OfflineList = savedState.OfflineList?? new List<OfflineFileConfiguration>();
+                if(savedState.ProfileDayLimit!=0) this.ProfileDayLimit = savedState.ProfileDayLimit;
 
                 savedState = null;
             }

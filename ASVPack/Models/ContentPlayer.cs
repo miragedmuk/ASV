@@ -68,7 +68,7 @@ namespace ASVPack.Models
             Name = playerData.GetPropertyValue<string>("PlayerName") ?? "Unknown";
             CharacterName = Name;
             TargetingTeam = playerData.GetPropertyValue<int>("TribeId");
-            LastTimeInGame = playerData.GetPropertyValue<double>("LoginTime");
+            LastTimeInGame = playerData.GetPropertyValue<double>("LastLoginTime");
 
             var characterConfig = playerData.GetTypedProperty<PropertyStruct>("MyPlayerCharacterConfig");
             if (characterConfig != null)
@@ -142,7 +142,7 @@ namespace ASVPack.Models
             Name = playerData.GetPropertyValue<string>("PlayerName") ?? "Unknown";
             CharacterName = Name;
             TargetingTeam = playerData.GetPropertyValue<int>("TribeId");
-            LastTimeInGame = playerData.GetPropertyValue<double>("LoginTime");
+            LastTimeInGame = playerData.GetPropertyValue<double>("LastLoginTime");
 
 
 

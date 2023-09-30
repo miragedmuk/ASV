@@ -46,6 +46,8 @@ namespace ASVPack.Models
         [DataMember] public float GameSeconds { get; set; } = 0;
 
 
+        private int profileDayLimit = 30;
+
         private bool isLoaded = false;
         public bool IsLoaded()
         {
@@ -85,10 +87,11 @@ namespace ASVPack.Models
             
         }
 
-        public void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder)
+        public void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder, int profileDayCountLimit=30)
         {
             loadedFilename = saveFilename;
             loadedClusterFolder = clusterFolder;
+            profileDayLimit = profileDayCountLimit;
             isLoaded = false;
 
             logWriter.Trace("BEGIN LoadSaveGame()");
@@ -165,7 +168,7 @@ namespace ASVPack.Models
                                 .WithDataFiles(true)
                                 .WithStoredCreatures(true)
                                 .WithStoredTribes(true)
-                                .WithStoredProfiles(true)
+                                .WithStoredProfiles(true, profileDayLimit )
                                 .WithBuildComponentTree(true));
 
                         arkSavegame.FileTime = GameSaveTime;
@@ -355,11 +358,32 @@ namespace ASVPack.Models
                             {
                                 ContentPlayer contentPlayer = arkProfile.AsPlayer();
                                 contentPlayer.PlayerFilename = string.Concat(contentPlayer.NetworkId??contentPlayer.Id.ToString(), ".arkprofile");
+
                                 if (contentPlayer.Id != 0)
                                 {
                                     contentPlayer.LastActiveDateTime = GetApproxDateTimeOf(contentPlayer.LastTimeInGame);
 
-                                    fileProfiles.Add(contentPlayer);
+                                    if(contentPlayer.LastActiveDateTime < DateTime.Now.AddMonths(-12))
+                                    {
+
+                                    }
+
+                                    contentPlayer.PlayerFilename = string.Concat(arkProfile.GetPropertyValue<Int64>("ProfileFilename", 0, 0).ToString(), ".arkprofile");
+
+                                    var matchingFileProfile = fileProfiles.FirstOrDefault(p => p.Id == contentPlayer.Id);
+                                    if (matchingFileProfile == null)
+                                    {
+                                        fileProfiles.Add(contentPlayer);
+                                    }
+                                    else
+                                    {
+                                        if (matchingFileProfile.LastTimeInGame < contentPlayer.LastTimeInGame)
+                                        {
+                                            contentPlayer = matchingFileProfile;
+                                            fileProfiles.Add(contentPlayer);
+                                        }
+                                    }
+
                                 }
                             }
                         }
@@ -1645,7 +1669,7 @@ namespace ASVPack.Models
         {
             if(loadedTimestamp < File.GetLastWriteTimeUtc(loadedFilename))
             {
-                LoadSaveGame(loadedFilename, string.Empty, loadedClusterFolder);
+                LoadSaveGame(loadedFilename, string.Empty, loadedClusterFolder, profileDayLimit);
                 return true;
             }
 
