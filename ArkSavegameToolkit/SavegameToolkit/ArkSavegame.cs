@@ -872,11 +872,22 @@ namespace SavegameToolkit
 
             Profiles.Clear();
 
+            int lastStoredIndexWithData = StoredDataOffsets.Count-1;
+            while(lastStoredIndexWithData-- >= 0)
+            {
+                if (StoredDataOffsets[lastStoredIndexWithData].Item1 != archive.Limit)
+                {
+                    break;
+                }
+            }
+            
+
             if (PlayerDataStore != null && PlayerDataStore.IndexChunks.Count > 0)
             {
                 for (int playerFileIndex = 0; playerFileIndex < PlayerDataStore.IndexChunks.Count; playerFileIndex++)
                 {
-                    long storedIndexOffset = StoredDataOffsets[playerFileIndex].Item1 + PlayerDataStore.IndexChunks[playerFileIndex].ArchiveOffset;
+
+                    long storedIndexOffset = StoredDataOffsets[lastStoredIndexWithData].Item1 + PlayerDataStore.IndexChunks[playerFileIndex].ArchiveOffset;
                     long storedIndexSize = PlayerDataStore.IndexChunks[playerFileIndex].Size;
                     long storedDataOffset = StoredDataOffsets[playerFileIndex].Item1 + PlayerDataStore.DataChunks[playerFileIndex].ArchiveOffset;
 
@@ -884,7 +895,7 @@ namespace SavegameToolkit
                     archive.Position = storedIndexOffset;
                     long indexLimit = storedIndexSize + storedIndexOffset;
 
-                    Dictionary<long,long> playerOffsets = new Dictionary<long, long>();
+                    List<Tuple<long,long>> playerOffsets = new List<Tuple<long, long>>();
                     while (archive.Position < indexLimit)
                     {
                         long playerId = archive.ReadLong();
@@ -892,16 +903,13 @@ namespace SavegameToolkit
                         long playerSize = archive.ReadLong();
 
                         long playerDataOffset = storedDataOffset + playerOffset;
-                        if (playerId != 0)
-                        {
-                            playerOffsets.Add(playerId, playerDataOffset);
-                        }
+                        playerOffsets.Add(new Tuple<long,long>(playerId, playerDataOffset));
                         
                     }
 
                     foreach (var playerOffset in playerOffsets)
                     {
-                        archive.Position = playerOffset.Value;
+                        archive.Position = playerOffset.Item2;
                         ArkStoreProfile storedProfile = new ArkStoreProfile();
                         storedProfile.ReadBinary(archive, options);
 
@@ -915,7 +923,7 @@ namespace SavegameToolkit
                         var dayDifference = (int)FileTime.Subtract(lastLoginTimestamp).Days;
                         if (dayDifference <= options.StoredProfileLastLoggedInDayFilter)
                         {
-                            storedProfile.Profile.Properties.Add(new PropertyInt64("ProfileFilename", playerOffset.Key));
+                            storedProfile.Profile.Properties.Add(new PropertyInt64("ProfileFilename", playerOffset.Item1));
 
                             //only include those logged in within last 30 days of save
                             Profiles.Add(storedProfile.Profile);

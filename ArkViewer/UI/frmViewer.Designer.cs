@@ -1298,7 +1298,7 @@ namespace ARKViewer
             cboConsoleCommandsWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsWild.FormattingEnabled = true;
-            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", "SpawnExactDino \"<BlueprintPath>\" \"\" 0 <Level> 0 \"<hp>,<stam>,<oxy>,<food>,<weight>,<melee>,<speed>,0\" \"0,0,0,0,0,0,0,0\" \"Generated\" 0 0 \"\" \"\" \"\" 0 0 \"<c0>,<c1>,<c2>,<c3>,<c4>,<c5>\" 0 0 0 20 20", "SetPlayerPos  <x> <y> <z>", "SaveWorld" });
+            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", resources.GetString("cboConsoleCommandsWild.Items"), "SetPlayerPos  <x> <y> <z>", "SaveWorld" });
             cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
             cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";

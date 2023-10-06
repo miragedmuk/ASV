@@ -363,11 +363,6 @@ namespace ASVPack.Models
                                 {
                                     contentPlayer.LastActiveDateTime = GetApproxDateTimeOf(contentPlayer.LastTimeInGame);
 
-                                    if(contentPlayer.LastActiveDateTime < DateTime.Now.AddMonths(-12))
-                                    {
-
-                                    }
-
                                     contentPlayer.PlayerFilename = string.Concat(arkProfile.GetPropertyValue<Int64>("ProfileFilename", 0, 0).ToString(), ".arkprofile");
 
                                     var matchingFileProfile = fileProfiles.FirstOrDefault(p => p.Id == contentPlayer.Id);
@@ -379,8 +374,8 @@ namespace ASVPack.Models
                                     {
                                         if (matchingFileProfile.LastTimeInGame < contentPlayer.LastTimeInGame)
                                         {
-                                            contentPlayer = matchingFileProfile;
-                                            fileProfiles.Add(contentPlayer);
+                                             matchingFileProfile = contentPlayer;
+                                            //fileProfiles.Add(contentPlayer);
                                         }
                                     }
 
@@ -455,8 +450,16 @@ namespace ASVPack.Models
                                 {
                                     contentTribe.TribeFileName = contentTribe.TribeFileName = string.Concat(contentTribe.TribeId, ".arktribe");
                                     contentTribe.TribeFileDate = GameSaveTime;
-                                    contentTribe.HasGameFile = true;
-                                    fileTribes.Add(contentTribe);
+                                    contentTribe.HasGameFile = false;
+                                    if(!fileTribes.Any(t=>t.TribeId == contentTribe.TribeId))
+                                    {
+                                        if(contentTribe.LastActive > DateTime.Now)
+                                        {
+
+                                        }
+
+                                        fileTribes.Add(contentTribe);
+                                    }                                   
 
                                 }
                             }

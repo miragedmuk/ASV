@@ -423,6 +423,9 @@
         i3gtPv2HWJuoDDCpQnn4F/xsEcKXsTJ8AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="cboConsoleCommandsWild.Items" xml:space="preserve">
+    <value>SpawnExactDino "&lt;BlueprintPath&gt;" "" 0 &lt;Level&gt; 0 "&lt;hp-w&gt;,&lt;stam-w&gt;,&lt;oxy-w&gt;,&lt;food-w&gt;,&lt;weight-w&gt;,&lt;melee-w&gt;,&lt;speed-w&gt;,0" "0,0,0,0,0,0,0,0" "Generated" 0 0 "" "" "" 0 0 "&lt;c0&gt;,&lt;c1&gt;,&lt;c2&gt;,&lt;c3&gt;,&lt;c4&gt;,&lt;c5&gt;" 0 0 0 20 20</value>
+  </data>
   <data name="btnRconCommandTamed.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

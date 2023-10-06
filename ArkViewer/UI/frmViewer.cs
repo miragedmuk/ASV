@@ -19,6 +19,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Numerics;
+using System.Security.Policy;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
@@ -1587,81 +1588,83 @@ namespace ARKViewer
         private string GetWildCommandText()
         {
             if (cboConsoleCommandsWild.SelectedItem == null) return string.Empty;
+            List<string> allCommands = new List<string>();
 
-            var commandText = cboConsoleCommandsWild.SelectedItem.ToString();
-            if (commandText != null && lvwWildDetail.SelectedItems.Count > 0)
+            var commandTemplate = cboConsoleCommandsWild.SelectedItem.ToString();
+            if (commandTemplate != null && lvwWildDetail.SelectedItems.Count > 0)
             {
 
-                ListViewItem selectedItem = lvwWildDetail.SelectedItems[0];
-                ContentWildCreature selectedCreature = (ContentWildCreature)selectedItem.Tag;
-
-
-                commandText = commandText.Replace("<ClassName>", selectedCreature.ClassName);
-                commandText = commandText.Replace("<Level>", selectedCreature.BaseLevel.ToString("f0"));
-                commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
-                commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
-                commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedCreature.Z + 250:0.00}"));
-                commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
-
-
-                if (commandText.Contains("<BlueprintPath>"))
+                foreach (ListViewItem selectedItem in lvwWildDetail.SelectedItems)
                 {
-                    var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
-                    if (dinoMap != null)
+                    ContentWildCreature selectedCreature = (ContentWildCreature)selectedItem.Tag;
+                    string commandText = commandTemplate;
+
+                    commandText = commandText.Replace("<ClassName>", selectedCreature.ClassName);
+                    commandText = commandText.Replace("<Level>", selectedCreature.BaseLevel.ToString("f0"));
+                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
+                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
+                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedCreature.Z + 250:0.00}"));
+                    commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
+
+
+                    if (commandText.Contains("<BlueprintPath>"))
                     {
-                        commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
+                        var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
+                        if (dinoMap != null)
+                        {
+                            commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
+                        }
+
+
+                    }
+                    commandText = commandText.Replace("<BaseLevel>", selectedCreature.BaseLevel.ToString());
+                    commandText = commandText = commandText.Replace("<AddedLevels>", "0");
+                    commandText = commandText.Replace("<hp-w>", selectedCreature.BaseStats[0].ToString());
+                    commandText = commandText.Replace("<stam-w>", selectedCreature.BaseStats[1].ToString());
+                    commandText = commandText.Replace("<oxy-w>", selectedCreature.BaseStats[3].ToString());
+                    commandText = commandText.Replace("<food-w>", selectedCreature.BaseStats[4].ToString());
+                    commandText = commandText.Replace("<weight-w>", selectedCreature.BaseStats[7].ToString());
+                    commandText = commandText.Replace("<melee-w>", selectedCreature.BaseStats[8].ToString());
+                    commandText = commandText.Replace("<craft-w>", selectedCreature.BaseStats[11].ToString());
+
+
+                    commandText = commandText.Replace("<hp-t>", "0");
+                    commandText = commandText.Replace("<stam-t>", "0");
+                    commandText = commandText.Replace("<oxy-t>", "0");
+                    commandText = commandText.Replace("<food-t>", "0");
+                    commandText = commandText.Replace("<weight-t>", "0");
+                    commandText = commandText.Replace("<melee-t>", "0");
+                    commandText = commandText.Replace("<craft-t>", "0");
+
+
+                    commandText = commandText.Replace("<c0>", selectedCreature.Colors[0].ToString());
+                    commandText = commandText.Replace("<c1>", selectedCreature.Colors[1].ToString());
+                    commandText = commandText.Replace("<c2>", selectedCreature.Colors[2].ToString());
+                    commandText = commandText.Replace("<c3>", selectedCreature.Colors[3].ToString());
+                    commandText = commandText.Replace("<c4>", selectedCreature.Colors[4].ToString());
+                    commandText = commandText.Replace("<c5>", selectedCreature.Colors[5].ToString());
+
+                    commandText = commandText.Replace("<ImprintedName>", "");
+                    commandText = commandText.Replace("<ImprintedPlayerId>", "0");
+                    commandText = commandText.Replace("<ImprintQuality>", "0");
+
+                    switch (Program.ProgramConfig.CommandPrefix)
+                    {
+                        case 1:
+                            commandText = $"admincheat {commandText}";
+
+                            break;
+                        case 2:
+                            commandText = $"cheat {commandText}";
+                            break;
                     }
 
+                    allCommands.Add(commandText);
 
                 }
-                commandText = commandText.Replace("<BaseLevel>", selectedCreature.BaseLevel.ToString());
-                commandText = commandText = commandText.Replace("<AddedLevels>", "0");
-                commandText = commandText.Replace("<hp-w>", selectedCreature.BaseStats[0].ToString());
-                commandText = commandText.Replace("<stam-w>", selectedCreature.BaseStats[1].ToString());
-                commandText = commandText.Replace("<oxy-w>", selectedCreature.BaseStats[3].ToString());
-                commandText = commandText.Replace("<food-w>", selectedCreature.BaseStats[4].ToString());
-                commandText = commandText.Replace("<weight-w>", selectedCreature.BaseStats[7].ToString());
-                commandText = commandText.Replace("<melee-w>", selectedCreature.BaseStats[8].ToString());
-                commandText = commandText.Replace("<craft-w>", selectedCreature.BaseStats[11].ToString());
-
-
-                commandText = commandText.Replace("<hp-t>", "0");
-                commandText = commandText.Replace("<stam-t>", "0");
-                commandText = commandText.Replace("<oxy-t>", "0");
-                commandText = commandText.Replace("<food-t>", "0");
-                commandText = commandText.Replace("<weight-t>", "0");
-                commandText = commandText.Replace("<melee-t>", "0");
-                commandText = commandText.Replace("<craft-t>", "0");
-
-
-                commandText = commandText.Replace("<c0>", selectedCreature.Colors[0].ToString());
-                commandText = commandText.Replace("<c1>", selectedCreature.Colors[1].ToString());
-                commandText = commandText.Replace("<c2>", selectedCreature.Colors[2].ToString());
-                commandText = commandText.Replace("<c3>", selectedCreature.Colors[3].ToString());
-                commandText = commandText.Replace("<c4>", selectedCreature.Colors[4].ToString());
-                commandText = commandText.Replace("<c5>", selectedCreature.Colors[5].ToString());
-
-                commandText = commandText.Replace("<ImprintedName>", "");
-                commandText = commandText.Replace("<ImprintedPlayerId>", "0");
-                commandText = commandText.Replace("<ImprintQuality>", "0");
-
-
-
             }
 
-            switch (Program.ProgramConfig.CommandPrefix)
-            {
-                case 1:
-                    commandText = $"admincheat {commandText}";
-
-                    break;
-                case 2:
-                    commandText = $"cheat {commandText}";
-                    break;
-            }
-
-            return commandText;
-
+            return string.Join('|', allCommands.ToArray());
         }
 
 
