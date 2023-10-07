@@ -4,6 +4,7 @@ using ASVPack.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -457,7 +458,7 @@ namespace ARKViewer
 
             if (!structureBag.IsEmpty) lvwStructureLocations.Items.AddRange(structureBag.ToArray());
 
-            MapViewer.DrawTestMap(0, 0);
+            MapViewer.DrawTestMap(new List<Tuple<float, float>>());
 
             lblStatus.Text = "";
             lblStatus.Refresh();
@@ -477,7 +478,16 @@ namespace ARKViewer
             selectedStructure.Y = selectedStructure.Y;
             selectedStructure.Z = selectedStructure.Z;
 
-            MapViewer.DrawTestMap(selectedStructure.Longitude.GetValueOrDefault(0), selectedStructure.Latitude.GetValueOrDefault(0));
+            List<Tuple<float, float>> selectedLocations = new List<Tuple<float, float>>();
+            foreach(ListViewItem item in lvwStructureLocations.SelectedItems)
+            {
+                ContentStructure itemStructure = (ContentStructure)item.Tag;
+                selectedLocations.Add(new Tuple<float, float>(itemStructure.Latitude.GetValueOrDefault(0), itemStructure.Longitude.GetValueOrDefault(0)));
+            }
+
+            MapViewer.DrawTestMap(selectedLocations);
+
+
 
             StringBuilder inventString = new StringBuilder();
             if (selectedStructure.Inventory.Items.Count > 0)

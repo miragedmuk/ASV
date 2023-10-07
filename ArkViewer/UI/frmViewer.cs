@@ -1167,39 +1167,45 @@ namespace ARKViewer
 
         private string GetStructureCommandText()
         {
+
             if (cboConsoleCommandsStructure.SelectedItem == null) return string.Empty;
-            if (lvwStructureLocations.SelectedItems.Count <= 0) return string.Empty;
+            List<string> allCommands = new List<string>();
 
-            ListViewItem selectedItem = lvwStructureLocations.SelectedItems[0];
-
-            var commandText = cboConsoleCommandsStructure.SelectedItem.ToString();
-            if (commandText != null)
+            var commandTemplate = cboConsoleCommandsStructure.SelectedItem.ToString();
+            if (commandTemplate != null && lvwStructureLocations.SelectedItems.Count > 0)
             {
-                ContentStructure selectedStructure = (ContentStructure)selectedItem.Tag;
-
-
-                commandText = commandText.Replace("<TribeID>", selectedStructure.TargetingTeam.ToString("f0"));
-
-                commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedStructure.X:0.00}"));
-                commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedStructure.Y:0.00}"));
-                commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedStructure.Z + 250:0.00}"));
-
-
-
-                switch (Program.ProgramConfig.CommandPrefix)
+                foreach (ListViewItem selectedItem in lvwStructureLocations.SelectedItems)
                 {
-                    case 1:
-                        commandText = $"admincheat {commandText}";
+                    ContentStructure selectedStructure = (ContentStructure)selectedItem.Tag;
 
-                        break;
-                    case 2:
-                        commandText = $"cheat {commandText}";
-                        break;
+                    string commandText = commandTemplate;
+
+                    commandText = commandText.Replace("<TribeID>", selectedStructure.TargetingTeam.ToString("f0"));
+
+                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedStructure.X:0.00}"));
+                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedStructure.Y:0.00}"));
+                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedStructure.Z + 250:0.00}"));
+
+
+
+                    switch (Program.ProgramConfig.CommandPrefix)
+                    {
+                        case 1:
+                            commandText = $"admincheat {commandText}";
+
+                            break;
+                        case 2:
+                            commandText = $"cheat {commandText}";
+                            break;
+                    }
+
+                    if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
+
                 }
-
             }
 
-            return commandText;
+
+            return string.Join('|', allCommands.ToArray());
         }
 
         private void cboConsoleCommandsStructure_SelectedIndexChanged(object sender, EventArgs e)
@@ -1500,88 +1506,89 @@ namespace ARKViewer
 
         private string GetPlayerCommandText()
         {
+
+
+
             if (cboConsoleCommandsPlayerTribe.SelectedItem == null) return string.Empty;
+            List<string> allCommands = new List<string>();
 
-            var commandText = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
-            string commandList = "";
-
-
-            if (commandText.Contains("<FileCsvList>"))
+            var commandTemplate = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
+            if (commandTemplate != null && lvwPlayers.SelectedItems.Count > 0)
             {
-                string fileList = "";
-                commandList = commandText;
-
-                foreach (ListViewItem selectedItem in lvwTribes.SelectedItems)
+                if (commandTemplate.Contains("<FileCsvList>"))
                 {
-                    ContentTribe selectedTribe = (ContentTribe)selectedItem.Tag;
-                    if (fileList.Length > 0)
+                    string fileList = "";
+                    string commandList = commandTemplate;
+
+                    foreach (ListViewItem selectedItem in lvwTribes.SelectedItems)
                     {
-                        fileList = fileList + " ";
+                        ContentTribe selectedTribe = (ContentTribe)selectedItem.Tag;
+                        if (fileList.Length > 0)
+                        {
+                            fileList = fileList + " ";
+                        }
+                        fileList = fileList + selectedTribe.TribeId.ToString() + ".arktribe";
                     }
-                    fileList = fileList + selectedTribe.TribeId.ToString() + ".arktribe";
+
+                    commandList = commandList.Replace("<FileCsvList>", fileList);
+                    allCommands.Add(commandList);
                 }
-
-                commandList = commandList.Replace("<FileCsvList>", fileList);
-            }
-            else
-            {
-
-                foreach (ListViewItem selectedItem in lvwPlayers.SelectedItems)
+                else
                 {
-                    ContentPlayer selectedPlayer = (ContentPlayer)selectedItem.Tag;
-
-                    long selectedPlayerId = selectedPlayer.Id;
-                    string selectedSteamId = selectedPlayer.NetworkId;
-
-                    var tribe = cm.GetPlayerTribe(selectedPlayer.Id);
-                    long selectedTribeId = selectedPlayer.TargetingTeam;
-
-                    commandText = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
-
-                    commandText = commandText.Replace("<PlayerID>", selectedPlayerId.ToString("f0"));
-                    commandText = commandText.Replace("<TribeID>", selectedTribeId.ToString("f0"));
-                    commandText = commandText.Replace("<SteamID>", selectedSteamId);
-                    commandText = commandText.Replace("<PlayerName>", selectedPlayer.Name);
-                    commandText = commandText.Replace("<CharacterName>", selectedPlayer.CharacterName);
-                    commandText = commandText.Replace("<XP>", selectedPlayer.ExperiencePoints.ToString("f0"));
-
-                    if (tribe != null)
+                    foreach (ListViewItem selectedItem in lvwPlayers.SelectedItems)
                     {
-                        commandText = commandText.Replace("<TribeName>", tribe.TribeName);
+                        ContentPlayer selectedPlayer = (ContentPlayer)selectedItem.Tag;
+                        string commandText = commandTemplate;
+
+                        long selectedPlayerId = selectedPlayer.Id;
+                        string selectedSteamId = selectedPlayer.NetworkId;
+
+                        var tribe = cm.GetPlayerTribe(selectedPlayer.Id);
+                        long selectedTribeId = selectedPlayer.TargetingTeam;
+
+                        commandText = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
+
+                        commandText = commandText.Replace("<PlayerID>", selectedPlayerId.ToString("f0"));
+                        commandText = commandText.Replace("<TribeID>", selectedTribeId.ToString("f0"));
+                        commandText = commandText.Replace("<SteamID>", selectedSteamId);
+                        commandText = commandText.Replace("<PlayerName>", selectedPlayer.Name);
+                        commandText = commandText.Replace("<CharacterName>", selectedPlayer.CharacterName);
+                        commandText = commandText.Replace("<XP>", selectedPlayer.ExperiencePoints.ToString("f0"));
+
+                        if (tribe != null)
+                        {
+                            commandText = commandText.Replace("<TribeName>", tribe.TribeName);
+                        }
+
+                        commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedPlayer.X:0.00}"));
+                        commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedPlayer.Y:0.00}"));
+                        commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedPlayer.Z + 250:0.00}"));
+
+                        switch (Program.ProgramConfig.CommandPrefix)
+                        {
+                            case 1:
+                                commandText = $"admincheat {commandText}";
+
+                                break;
+                            case 2:
+                                commandText = $"cheat {commandText}";
+                                break;
+                        }
+
+                        commandText = commandText.Trim();
+
+                        if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
                     }
 
-                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedPlayer.X:0.00}"));
-                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedPlayer.Y:0.00}"));
-                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedPlayer.Z + 250:0.00}"));
-
-                    switch (Program.ProgramConfig.CommandPrefix)
-                    {
-                        case 1:
-                            commandText = $"admincheat {commandText}";
-
-                            break;
-                        case 2:
-                            commandText = $"cheat {commandText}";
-                            break;
-                    }
-
-                    commandText = commandText.Trim();
-
-                    if (commandList.Length > 0)
-                    {
-                        commandList += $"|{commandText}";
-                    }
-                    else
-                    {
-                        commandList = commandText;
-                    }
                 }
 
 
 
             }
 
-            return commandText;
+
+
+            return string.Join('|', allCommands.ToArray());
 
         }
 
@@ -1626,6 +1633,7 @@ namespace ARKViewer
                     commandText = commandText.Replace("<weight-w>", selectedCreature.BaseStats[7].ToString());
                     commandText = commandText.Replace("<melee-w>", selectedCreature.BaseStats[8].ToString());
                     commandText = commandText.Replace("<craft-w>", selectedCreature.BaseStats[11].ToString());
+                    commandText = commandText.Replace("<speed-w>", selectedCreature.BaseStats[11].ToString());
 
 
                     commandText = commandText.Replace("<hp-t>", "0");
@@ -1635,7 +1643,7 @@ namespace ARKViewer
                     commandText = commandText.Replace("<weight-t>", "0");
                     commandText = commandText.Replace("<melee-t>", "0");
                     commandText = commandText.Replace("<craft-t>", "0");
-
+                    commandText = commandText.Replace("<speed-t>", "0");
 
                     commandText = commandText.Replace("<c0>", selectedCreature.Colors[0].ToString());
                     commandText = commandText.Replace("<c1>", selectedCreature.Colors[1].ToString());
@@ -1659,7 +1667,7 @@ namespace ARKViewer
                             break;
                     }
 
-                    allCommands.Add(commandText);
+                    if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
 
                 }
             }
@@ -1689,90 +1697,99 @@ namespace ARKViewer
 
         private string GetTamedCommandText()
         {
+
             if (cboConsoleCommandsTamed.SelectedItem == null) return string.Empty;
-            if (lvwTameDetail.SelectedItems.Count <= 0) return string.Empty;
+            List<string> allCommands = new List<string>();
 
-            ListViewItem selectedItem = lvwTameDetail.SelectedItems[0];
-
-            var commandText = cboConsoleCommandsTamed.SelectedItem.ToString();
-            if (commandText != null)
+            var commandTemplate = cboConsoleCommandsTamed.SelectedItem.ToString();
+            if (commandTemplate != null && lvwTameDetail.SelectedItems.Count > 0)
             {
 
-                ContentTamedCreature selectedCreature = (ContentTamedCreature)selectedItem.Tag;
-                commandText = commandText.Replace("<ClassName>", selectedCreature.ClassName);
-                commandText = commandText.Replace("<Level>", (selectedCreature.BaseLevel / 1.5).ToString("f0"));
-                commandText = commandText.Replace("<TribeID>", selectedCreature.TargetingTeam.ToString("f0"));
-                commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
-
-                if (commandText.Contains("<BlueprintPath>"))
+                foreach (ListViewItem selectedItem in lvwTameDetail.SelectedItems)
                 {
-                    var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
-                    if (dinoMap != null)
+                    string commandText = commandTemplate;
+
+                    ContentTamedCreature selectedCreature = (ContentTamedCreature)selectedItem.Tag;
+                    commandText = commandText.Replace("<ClassName>", selectedCreature.ClassName);
+                    commandText = commandText.Replace("<Level>", (selectedCreature.BaseLevel / 1.5).ToString("f0"));
+                    commandText = commandText.Replace("<TribeID>", selectedCreature.TargetingTeam.ToString("f0"));
+                    commandText = commandText.Replace("<DinoId>", selectedCreature.DinoId.ToString());
+
+                    if (commandText.Contains("<BlueprintPath>"))
                     {
-                        commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
+                        var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
+                        if (dinoMap != null)
+                        {
+                            commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
+                        }
+                        else
+                        {
+                            lblStatus.Text = $"Command failed: No blueprint path can be found for the selected creature.";
+                            lblStatus.Refresh();
+                            return string.Empty;
+                        }
                     }
-                    else
+
+                    commandText = commandText.Replace("<BaseLevel>", selectedCreature.BaseLevel.ToString());
+                    commandText = commandText.Replace("<AddedLevels>", (selectedCreature.Level - selectedCreature.BaseLevel).ToString());
+                    commandText = commandText.Replace("<hp-w>", selectedCreature.BaseStats[0].ToString());
+                    commandText = commandText.Replace("<stam-w>", selectedCreature.BaseStats[1].ToString());
+                    commandText = commandText.Replace("<oxy-w>", selectedCreature.BaseStats[3].ToString());
+                    commandText = commandText.Replace("<food-w>", selectedCreature.BaseStats[4].ToString());
+                    commandText = commandText.Replace("<weight-w>", selectedCreature.BaseStats[7].ToString());
+                    commandText = commandText.Replace("<melee-w>", selectedCreature.BaseStats[8].ToString());
+                    commandText = commandText.Replace("<craft-w>", selectedCreature.BaseStats[11].ToString());
+                    commandText = commandText.Replace("<speed-w>", selectedCreature.BaseStats[9].ToString());
+
+
+                    commandText = commandText.Replace("<hp-t>", selectedCreature.TamedStats[0].ToString());
+                    commandText = commandText.Replace("<stam-t>", selectedCreature.TamedStats[1].ToString());
+                    commandText = commandText.Replace("<oxy-t>", selectedCreature.TamedStats[3].ToString());
+                    commandText = commandText.Replace("<food-t>", selectedCreature.TamedStats[4].ToString());
+                    commandText = commandText.Replace("<weight-t>", selectedCreature.TamedStats[7].ToString());
+                    commandText = commandText.Replace("<melee-t>", selectedCreature.TamedStats[8].ToString());
+                    commandText = commandText.Replace("<craft-t>", selectedCreature.TamedStats[11].ToString());
+                    commandText = commandText.Replace("<speed-t>", selectedCreature.TamedStats[9].ToString());
+
+
+                    commandText = commandText.Replace("<c0>", selectedCreature.Colors[0].ToString());
+                    commandText = commandText.Replace("<c1>", selectedCreature.Colors[1].ToString());
+                    commandText = commandText.Replace("<c2>", selectedCreature.Colors[2].ToString());
+                    commandText = commandText.Replace("<c3>", selectedCreature.Colors[3].ToString());
+                    commandText = commandText.Replace("<c4>", selectedCreature.Colors[4].ToString());
+                    commandText = commandText.Replace("<c5>", selectedCreature.Colors[5].ToString());
+
+                    commandText = commandText.Replace("<ImprintedName>", selectedCreature.ImprinterName);
+                    commandText = commandText.Replace("<ImprintedPlayerId>", selectedCreature.ImprintedPlayerId.ToString());
+                    commandText = commandText.Replace("<ImprintQuality>", selectedCreature.ImprintQuality.ToString());
+                    commandText = commandText.Replace("<Name>", selectedCreature.Name);
+
+                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
+                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
+                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedCreature.Z + 250:0.00}"));
+
+                    switch (Program.ProgramConfig.CommandPrefix)
                     {
-                        lblStatus.Text = $"Command failed: No blueprint path can be found for the selected creature.";
-                        lblStatus.Refresh();
-                        return string.Empty;
+                        case 1:
+                            commandText = commandText.Replace("<DoTame>", "admincheat DoTame");
+                            commandText = $"admincheat {commandText}";
+
+                            break;
+                        case 2:
+                            commandText = commandText.Replace("<DoTame>", "cheat DoTame");
+                            commandText = $"cheat {commandText}";
+                            break;
                     }
+
+                    if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
+
+
                 }
 
-                commandText = commandText.Replace("<BaseLevel>", selectedCreature.BaseLevel.ToString());
-                commandText = commandText.Replace("<AddedLevels>", (selectedCreature.Level - selectedCreature.BaseLevel).ToString());
-                commandText = commandText.Replace("<hp-w>", selectedCreature.BaseStats[0].ToString());
-                commandText = commandText.Replace("<stam-w>", selectedCreature.BaseStats[1].ToString());
-                commandText = commandText.Replace("<oxy-w>", selectedCreature.BaseStats[3].ToString());
-                commandText = commandText.Replace("<food-w>", selectedCreature.BaseStats[4].ToString());
-                commandText = commandText.Replace("<weight-w>", selectedCreature.BaseStats[7].ToString());
-                commandText = commandText.Replace("<melee-w>", selectedCreature.BaseStats[8].ToString());
-                commandText = commandText.Replace("<craft-w>", selectedCreature.BaseStats[11].ToString());
-                commandText = commandText.Replace("<speed-w>", selectedCreature.BaseStats[9].ToString());
-
-
-                commandText = commandText.Replace("<hp-t>", selectedCreature.TamedStats[0].ToString());
-                commandText = commandText.Replace("<stam-t>", selectedCreature.TamedStats[1].ToString());
-                commandText = commandText.Replace("<oxy-t>", selectedCreature.TamedStats[3].ToString());
-                commandText = commandText.Replace("<food-t>", selectedCreature.TamedStats[4].ToString());
-                commandText = commandText.Replace("<weight-t>", selectedCreature.TamedStats[7].ToString());
-                commandText = commandText.Replace("<melee-t>", selectedCreature.TamedStats[8].ToString());
-                commandText = commandText.Replace("<craft-t>", selectedCreature.TamedStats[11].ToString());
-                commandText = commandText.Replace("<speed-t>", selectedCreature.TamedStats[9].ToString());
-
-
-                commandText = commandText.Replace("<c0>", selectedCreature.Colors[0].ToString());
-                commandText = commandText.Replace("<c1>", selectedCreature.Colors[1].ToString());
-                commandText = commandText.Replace("<c2>", selectedCreature.Colors[2].ToString());
-                commandText = commandText.Replace("<c3>", selectedCreature.Colors[3].ToString());
-                commandText = commandText.Replace("<c4>", selectedCreature.Colors[4].ToString());
-                commandText = commandText.Replace("<c5>", selectedCreature.Colors[5].ToString());
-
-                commandText = commandText.Replace("<ImprintedName>", selectedCreature.ImprinterName);
-                commandText = commandText.Replace("<ImprintedPlayerId>", selectedCreature.ImprintedPlayerId.ToString());
-                commandText = commandText.Replace("<ImprintQuality>", selectedCreature.ImprintQuality.ToString());
-                commandText = commandText.Replace("<Name>", selectedCreature.Name);
-
-                commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
-                commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
-                commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedCreature.Z + 250:0.00}"));
-
-                switch (Program.ProgramConfig.CommandPrefix)
-                {
-                    case 1:
-                        commandText = commandText.Replace("<DoTame>", "admincheat DoTame");
-                        commandText = $"admincheat {commandText}";
-
-                        break;
-                    case 2:
-                        commandText = commandText.Replace("<DoTame>", "cheat DoTame");
-                        commandText = $"cheat {commandText}";
-                        break;
-                }
 
             }
 
-            return commandText;
+            return string.Join('|', allCommands.ToArray());
         }
 
         private void lvwPlayers_Click(object sender, EventArgs e)
@@ -1957,36 +1974,60 @@ namespace ARKViewer
 
         }
 
-        private void btnCopyCommandDropped_Click(object sender, EventArgs e)
+        private string GetDroppedItemCommandText()
         {
-            if (cboCopyCommandDropped.SelectedItem == null) return;
 
-            var commandText = cboCopyCommandDropped.SelectedItem.ToString();
-            if (commandText != null)
+            if (cboConsoleCommandsWild.SelectedItem == null) return string.Empty;
+            List<string> allCommands = new List<string>();
+
+            var commandTemplate = cboConsoleCommandsWild.SelectedItem.ToString();
+            if (commandTemplate != null && lvwWildDetail.SelectedItems.Count > 0)
             {
 
-                ListViewItem selectedItem = lvwDroppedItems.SelectedItems[0];
-                ContentDroppedItem droppedItem = (ContentDroppedItem)selectedItem.Tag;
-                commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{droppedItem.X:0.00}"));
-                commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{droppedItem.Y:0.00}"));
-                commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{droppedItem.Z + 100:0.00}"));
-
-                switch (Program.ProgramConfig.CommandPrefix)
+                foreach (ListViewItem selectedItem in lvwWildDetail.SelectedItems)
                 {
-                    case 1:
-                        commandText = $"admincheat {commandText}";
+                    ContentDroppedItem droppedItem = (ContentDroppedItem)selectedItem.Tag;
+                    string commandText = commandTemplate;
 
-                        break;
-                    case 2:
-                        commandText = $"cheat {commandText}";
-                        break;
+                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{droppedItem.X:0.00}"));
+                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{droppedItem.Y:0.00}"));
+                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{droppedItem.Z + 100:0.00}"));
+
+                    switch (Program.ProgramConfig.CommandPrefix)
+                    {
+                        case 1:
+                            commandText = $"admincheat {commandText}";
+
+                            break;
+                        case 2:
+                            commandText = $"cheat {commandText}";
+                            break;
+                    }
+
+                    if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
+
                 }
+            }
 
+            return string.Join('|', allCommands.ToArray());
+        }
+
+        private void btnCopyCommandDropped_Click(object sender, EventArgs e)
+        {
+            string commandText = GetDroppedItemCommandText();
+            if (commandText.Length > 0)
+            {
+                Clipboard.Clear();
                 Clipboard.SetText(commandText);
 
                 lblStatus.Text = $"Command copied:  {commandText}";
                 lblStatus.Refresh();
 
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
             }
         }
 
@@ -2140,18 +2181,16 @@ namespace ARKViewer
 
         private string GetTribeCommandText()
         {
+
             if (cboTribeCopyCommand.SelectedItem == null) return string.Empty;
-            if (lvwTribes.SelectedItems.Count == 0) return string.Empty;
+            List<string> allCommands = new List<string>();
 
-            string commandList = "";
-            var commandText = cboTribeCopyCommand.SelectedItem.ToString();
-
-            if (commandText != null)
+            var commandTemplate = cboTribeCopyCommand.SelectedItem.ToString();
+            if (commandTemplate != null && lvwTribes.SelectedItems.Count > 0)
             {
-
-                if (commandText.Contains("<FileCsvList>"))
+                if (commandTemplate.Contains("<FileCsvList>"))
                 {
-                    commandList = commandText;
+                    string commandList = commandTemplate;
                     string fileList = "";
 
                     foreach (ListViewItem selectedItem in lvwTribes.SelectedItems)
@@ -2165,6 +2204,7 @@ namespace ARKViewer
                     }
 
                     commandList = commandList.Replace("<FileCsvList>", fileList);
+                    allCommands.Add(commandList);
 
                 }
                 else
@@ -2173,6 +2213,7 @@ namespace ARKViewer
                     {
                         ContentTribe selectedTribe = (ContentTribe)selectedItem.Tag;
 
+                        string commandText = commandTemplate;
                         commandText = cboTribeCopyCommand.SelectedItem.ToString();
                         commandText = commandText.Replace("<TribeID>", selectedTribe.TribeId.ToString("f0"));
                         commandText = commandText.Replace("<TribeName>", selectedTribe.TribeName);
@@ -2188,24 +2229,12 @@ namespace ARKViewer
                                 break;
                         }
 
-                        commandText = commandText.Trim();
-
-                        if (commandList.Length > 0)
-                        {
-                            commandList += $"|{commandText}";
-                        }
-                        else
-                        {
-                            commandList = commandText;
-                        }
-
+                        if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
                     }
-
                 }
-
             }
 
-            return commandText;
+            return string.Join('|', allCommands.ToArray());
         }
 
         private void lvwTribes_MouseClick(object sender, MouseEventArgs e)
@@ -3976,9 +4005,13 @@ namespace ARKViewer
                         wildProduction = selectedValue.Key;
                     }
 
-
-
-                    MapViewer.DrawMapImageWild(wildClass, wildProduction, (int)udWildMin.Value, (int)udWildMax.Value, (float)udWildLat.Value, (float)udWildLon.Value, (float)udWildRadius.Value, selectedY, selectedX, (cboWildRealm.SelectedItem as ASVComboValue).Key);
+                    List<Tuple<float, float>> selectedLocations = new List<Tuple<float, float>>();
+                    foreach (ListViewItem item in lvwWildDetail.SelectedItems)
+                    {
+                        ContentWildCreature wildCreature = (ContentWildCreature)item.Tag;
+                        selectedLocations.Add(new Tuple<float, float>(wildCreature.Latitude.GetValueOrDefault(0), wildCreature.Longitude.GetValueOrDefault(0)));
+                    }
+                    MapViewer.DrawMapImageWild(wildClass, wildProduction, (int)udWildMin.Value, (int)udWildMax.Value, (float)udWildLat.Value, (float)udWildLon.Value, (float)udWildRadius.Value, selectedLocations, (cboWildRealm.SelectedItem as ASVComboValue).Key);
 
                     break;
                 case "tpgTamed":
@@ -4011,7 +4044,16 @@ namespace ARKViewer
                         long.TryParse(selectedPlayer.Key, out playerId);
                     }
 
-                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, chkCryo.Checked, tribeId, playerId, selectedY, selectedX, (cboTameRealm.SelectedItem as ASVComboValue).Key);
+
+                    List<Tuple<float, float>> selectedTameLocations = new List<Tuple<float, float>>();
+
+                    foreach (ListViewItem item in lvwTameDetail.SelectedItems)
+                    {
+                        ContentTamedCreature selectedTame = (ContentTamedCreature)item.Tag;
+                        selectedTameLocations.Add(new Tuple<float, float>(selectedTame.Latitude.GetValueOrDefault(0), selectedTame.Longitude.GetValueOrDefault(0)));
+                    }
+
+                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, chkCryo.Checked, tribeId, playerId, selectedTameLocations, (cboTameRealm.SelectedItem as ASVComboValue).Key);
 
 
                     break;
@@ -4037,7 +4079,16 @@ namespace ARKViewer
                         long.TryParse(selectedPlayer.Key, out tribeId);
                     }
 
-                    MapViewer.DrawMapImagePlayerStructures(structureClass, structureTribe, structurePlayer, selectedY, selectedX, (cboStructureRealm.SelectedItem as ASVComboValue).Key);
+                    List<Tuple<float, float>> selectedStructLocations = new List<Tuple<float, float>>();
+
+                    foreach (ListViewItem item in lvwTameDetail.SelectedItems)
+                    {
+                        ContentStructure selectedStruct = (ContentStructure)item.Tag;
+                        selectedStructLocations.Add(new Tuple<float, float>(selectedStruct.Latitude.GetValueOrDefault(0), selectedStruct.Longitude.GetValueOrDefault(0)));
+                    }
+
+
+                    MapViewer.DrawMapImagePlayerStructures(structureClass, structureTribe, structurePlayer, selectedStructLocations, (cboStructureRealm.SelectedItem as ASVComboValue).Key);
 
                     break;
                 case "tpgPlayers":
@@ -4056,7 +4107,16 @@ namespace ARKViewer
                         long.TryParse(selectedPlayer.Key, out currentId);
                     }
 
-                    MapViewer.DrawMapImagePlayers(playerTribe, currentId, selectedY, selectedX, (cboPlayerRealm.SelectedItem as ASVComboValue).Key);
+                    List<Tuple<float, float>> selectedPlayerLocations = new List<Tuple<float, float>>();
+
+                    foreach (ListViewItem item in lvwPlayers.SelectedItems)
+                    {
+                        ContentPlayer selectedPlayerLocation = (ContentPlayer)item.Tag;
+                        selectedPlayerLocations.Add(new Tuple<float, float>(selectedPlayerLocation.Latitude.GetValueOrDefault(0), selectedPlayerLocation.Longitude.GetValueOrDefault(0)));
+                    }
+
+
+                    MapViewer.DrawMapImagePlayers(playerTribe, currentId, selectedPlayerLocations, (cboPlayerRealm.SelectedItem as ASVComboValue).Key);
 
                     break;
                 case "tpgDroppedItems":
@@ -4074,16 +4134,24 @@ namespace ARKViewer
                         droppedClass = droppedValue.Key;
                     }
 
+
+                    List<Tuple<float, float>> selectedDropLocations = new List<Tuple<float, float>>();
+
+                    foreach (ListViewItem item in lvwDroppedItems.SelectedItems)
+                    {
+                        ContentDroppedItem droppedItem = (ContentDroppedItem)item.Tag;
+                        selectedDropLocations.Add(new Tuple<float, float>(droppedItem.Latitude.GetValueOrDefault(0), droppedItem.Longitude.GetValueOrDefault(0)));
+                    }
                     if (droppedClass == "-1")
                     {
 
-                        MapViewer.DrawMapImageDropBags(droppedPlayerId, selectedY, selectedX);
+                        MapViewer.DrawMapImageDropBags(droppedPlayerId, selectedDropLocations);
                     }
                     else
                     {
                         if (droppedClass == "0") droppedClass = "";
 
-                        MapViewer.DrawMapImageDroppedItems(droppedPlayerId, droppedClass, selectedY, selectedX, (cboDroppedItemRealm.SelectedItem as ASVComboValue).Key);
+                        MapViewer.DrawMapImageDroppedItems(droppedPlayerId, droppedClass, selectedDropLocations, (cboDroppedItemRealm.SelectedItem as ASVComboValue).Key);
                     }
 
 
@@ -4097,7 +4165,8 @@ namespace ARKViewer
                         ContentTribe selectedTribe = (ContentTribe)selectedItem.Tag;
                         summaryTribeId = selectedTribe.TribeId;
                     }
-                    MapViewer.DrawMapImageTribes(summaryTribeId, chkTribeStructures.Checked, chkTribePlayers.Checked, chkTribeTames.Checked, selectedY, selectedX);
+
+                    MapViewer.DrawMapImageTribes(summaryTribeId, chkTribeStructures.Checked, chkTribePlayers.Checked, chkTribeTames.Checked, new List<Tuple<float, float>>());
 
                     break;
                 case "tpgItemList":
@@ -4116,7 +4185,18 @@ namespace ARKViewer
                         itemClass = itemValue.Key;
                     }
 
-                    MapViewer.DrawMapImageItems(itemTribeId, itemClass, selectedY, selectedX, "");
+
+
+                    //ASVFoundItem
+                    List<Tuple<float, float>> selectedFoundLocations = new List<Tuple<float, float>>();
+
+                    foreach (ListViewItem item in lvwItemList.SelectedItems)
+                    {
+                        ASVFoundItem foundItem = (ASVFoundItem)item.Tag;
+                        selectedFoundLocations.Add(new Tuple<float, float>(foundItem.Latitude, foundItem.Longitude));
+                    }
+
+                    MapViewer.DrawMapImageItems(itemTribeId, itemClass, selectedFoundLocations, "");
 
                     break;
 

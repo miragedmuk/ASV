@@ -93,7 +93,7 @@ namespace ARKViewer
 
 
 
-        public void DrawMapImageTribes(long tribeId, bool showStructures, bool showPlayers, bool showTames, float selectedLat, float selectedLon)
+        public void DrawMapImageTribes(long tribeId, bool showStructures, bool showPlayers, bool showTames, List<Tuple<float, float>> selectedLocations)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -114,9 +114,9 @@ namespace ARKViewer
             };
 
 
-            DrawMapImage(cm.GetMapImageTribes(tribeId, showStructures, showPlayers, showTames, selectedLat, selectedLon, mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImageTribes(tribeId, showStructures, showPlayers, showTames, selectedLocations, mapOptions, CustomMarkers));
         }
-        public void DrawMapImageItems(long tribeId, string className, float selectedLat, float selectedLon, string selectedRealm)
+        public void DrawMapImageItems(long tribeId, string className,  List<Tuple<float,float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
 
@@ -137,11 +137,11 @@ namespace ARKViewer
                 BeeHives = c.BeeHives
             };
 
-            DrawMapImage(cm.GetMapImageItems(tribeId, className, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
+            DrawMapImage(cm.GetMapImageItems(tribeId, className, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
 
 
-        public void DrawMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, float selectedLat, float selectedLon, string selectedRealm)
+        public void DrawMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, List<Tuple<float,float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -160,31 +160,11 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
-            DrawMapImage(cm.GetMapImageWild(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
-        }
-        public void DrawMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, float selectedLat, float selectedLon, string selectedRealm)
-        {
-            var c = Program.ProgramConfig;
-            ASVStructureOptions mapOptions = new ASVStructureOptions()
-            {
-                Terminals = c.Obelisks,
-                Glitches = c.Glitches,
-                ChargeNodes = c.ChargeNodes,
-                BeaverDams = c.BeaverDams,
-                DeinoNests = c.DeinoNests,
-                WyvernNests = c.WyvernNests,
-                DrakeNests = c.DrakeNests,
-                MagmaNests = c.MagmaNests,
-                Artifacts = c.Artifacts,
-                GasVeins = c.GasVeins,
-                OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins,
-                BeeHives = c.BeeHives
-            };
-            DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
 
+
+            DrawMapImage(cm.GetMapImageWild(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
-        public void DrawMapImageDroppedItems(long droppedPlayerId, string droppedClass, float selectedLat, float selectedLon, string selectedRealm)
+        public void DrawMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -203,10 +183,10 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
-            DrawMapImage(cm.GetMapImageDroppedItems(droppedPlayerId, droppedClass, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
+            DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
 
         }
-        public void DrawMapImageDropBags(long droppedPlayerId, float selectedLat, float selectedLon)
+        public void DrawMapImageDroppedItems(long droppedPlayerId, string droppedClass, List<Tuple<float, float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -225,31 +205,10 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
-            DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLat, selectedLon, mapOptions, CustomMarkers));
-        }
-        public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, float selectedLat, float selectedLon, string selectedRealm)
-        {
-            var c = Program.ProgramConfig;
-            ASVStructureOptions mapOptions = new ASVStructureOptions()
-            {
-                Terminals = c.Obelisks,
-                Glitches = c.Glitches,
-                ChargeNodes = c.ChargeNodes,
-                BeaverDams = c.BeaverDams,
-                DeinoNests = c.DeinoNests,
-                WyvernNests = c.WyvernNests,
-                DrakeNests = c.DrakeNests,
-                MagmaNests = c.MagmaNests,
-                Artifacts = c.Artifacts,
-                GasVeins = c.GasVeins,
-                OilVeins = c.OilVeins,
-                WaterVeins = c.WaterVeins,
-                BeeHives = c.BeeHives
-            };
-            DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLat, selectedLon,mapOptions, CustomMarkers, selectedRealm));
+            DrawMapImage(cm.GetMapImageDroppedItems(droppedPlayerId, droppedClass, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
 
         }
-        public void DrawMapImagePlayers(long tribeId, long playerId, float selectedLat, float selectedLon, string selectedRealm)
+        public void DrawMapImageDropBags(long droppedPlayerId, List<Tuple<float, float>> selectedLocations)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -268,7 +227,50 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
-            DrawMapImage(cm.GetMapImagePlayers(tribeId, playerId, selectedLat, selectedLon, mapOptions, CustomMarkers, selectedRealm));
+            DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLocations, mapOptions, CustomMarkers));
+        }
+        public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
+        {
+            var c = Program.ProgramConfig;
+            ASVStructureOptions mapOptions = new ASVStructureOptions()
+            {
+                Terminals = c.Obelisks,
+                Glitches = c.Glitches,
+                ChargeNodes = c.ChargeNodes,
+                BeaverDams = c.BeaverDams,
+                DeinoNests = c.DeinoNests,
+                WyvernNests = c.WyvernNests,
+                DrakeNests = c.DrakeNests,
+                MagmaNests = c.MagmaNests,
+                Artifacts = c.Artifacts,
+                GasVeins = c.GasVeins,
+                OilVeins = c.OilVeins,
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
+            };
+            DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
+
+        }
+        public void DrawMapImagePlayers(long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
+        {
+            var c = Program.ProgramConfig;
+            ASVStructureOptions mapOptions = new ASVStructureOptions()
+            {
+                Terminals = c.Obelisks,
+                Glitches = c.Glitches,
+                ChargeNodes = c.ChargeNodes,
+                BeaverDams = c.BeaverDams,
+                DeinoNests = c.DeinoNests,
+                WyvernNests = c.WyvernNests,
+                DrakeNests = c.DrakeNests,
+                MagmaNests = c.MagmaNests,
+                Artifacts = c.Artifacts,
+                GasVeins = c.GasVeins,
+                OilVeins = c.OilVeins,
+                WaterVeins = c.WaterVeins,
+                BeeHives = c.BeeHives
+            };
+            DrawMapImage(cm.GetMapImagePlayers(tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
 
         private void DrawMapImage(Image map)
@@ -300,7 +302,7 @@ namespace ARKViewer
             {
                 mapSettings.Owner = this;
                 mapSettings.ShowDialog();
-                DrawTestMap(0, 0);
+                DrawTestMap(new List<Tuple<float, float>>());
 
             }
         }
@@ -314,9 +316,9 @@ namespace ARKViewer
             Program.ProgramConfig.Zoom = trackZoom.Value;
         }
 
-        public void DrawTestMap(float selectedX, float selectedY)
+        public void DrawTestMap(List<Tuple<float, float>> selectedLocations)
         {
-            picMap.Image = cm.GetMapImageMapStructures(CustomMarkers, selectedY, selectedX);
+            picMap.Image = cm.GetMapImageMapStructures(CustomMarkers, selectedLocations);
         }
 
         private void trackZoom_Scroll(object sender, EventArgs e)
@@ -440,7 +442,7 @@ namespace ARKViewer
             {
                 mapSettings.Show();
                 //mapSettings.BringToFront();
-                DrawTestMap(0, 0);
+                DrawTestMap(new List<Tuple<float, float>>());
             }
         }
         private void ShowMapMarkers()
@@ -449,7 +451,7 @@ namespace ARKViewer
             {
                 mapSettings.Show();
                 //mapSettings.BringToFront();
-                DrawTestMap(0, 0);
+                DrawTestMap(new List<Tuple<float, float>>());
             }
         }
 

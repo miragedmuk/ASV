@@ -32,7 +32,7 @@ namespace ARKViewer.Models
         Tuple<long> cacheImageDropBags = null;
         Tuple<string, long, long> cacheImagePlayerStructures = null;
         Tuple<long, long> cacheImagePlayers = null;
-        Tuple<long, string, float, float> cacheImageItems = null;
+        Tuple<long, string> cacheImageItems = null;
 
         string lastDrawRequest = "";
         Image gameContentMap = null; //wilds/tames/tribes/players etc.
@@ -796,7 +796,7 @@ namespace ARKViewer.Models
 
 
 
-        public Bitmap GetMapImageItems(long tribeId, string className, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImageItems(long tribeId, string className, List<Tuple<float,float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -811,8 +811,6 @@ namespace ARKViewer.Models
                     cacheImageItems != null
                     && cacheImageItems.Item1 == tribeId
                     && cacheImageItems.Item2 == className
-                    && cacheImageItems.Item3 == selectedLat
-                    && cacheImageItems.Item4 == selectedLon
                     && lastDrawRequest == "items"
                 )
             )
@@ -823,7 +821,7 @@ namespace ARKViewer.Models
             else
             {
                 lastDrawRequest = "items";
-                cacheImageItems = new Tuple<long, string, float, float>(tribeId, className, selectedLon, selectedLon);
+                cacheImageItems = new Tuple<long, string>(tribeId, className);
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
@@ -857,13 +855,19 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
+
 
             return bitmap;
         }
 
-        /**** Map & Overlays ****/
-        public Bitmap GetMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, List<Tuple<float,float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -899,9 +903,9 @@ namespace ARKViewer.Models
                 graphics = AddMapStructures(graphics, mapOptions);
 
                 var filteredWilds = GetWildCreatures(minLevel, maxLevel, filterLat, filterLon, filterRadius, className, selectedRealm);
-                
+
                 //remove any not matching productionClass
-                if(productionClassName.Length > 0) filteredWilds.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == productionClassName));
+                if (productionClassName.Length > 0) filteredWilds.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == productionClassName));
 
 
                 foreach (var wild in filteredWilds)
@@ -947,14 +951,20 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
-            
-            
+
+            if(selectedLocations!=null && selectedLocations.Count > 0)
+            {
+                foreach(var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }          
 
             return bitmap;
         }
 
-        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+
+        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1036,12 +1046,18 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
 
             return bitmap;
         }
 
-        public Bitmap GetMapImageDroppedItems(long droppedPlayerId, string droppedClass, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers,string selectedRealm)
+        public Bitmap GetMapImageDroppedItems(long droppedPlayerId, string droppedClass, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers,string selectedRealm)
         {
 
             Bitmap bitmap = new Bitmap(1024, 1024);
@@ -1118,7 +1134,13 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
 
             return bitmap;
 
@@ -1126,7 +1148,7 @@ namespace ARKViewer.Models
 
         }
 
-        public Bitmap GetMapImageDropBags(long droppedPlayerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageDropBags(long droppedPlayerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1199,12 +1221,18 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
 
             return bitmap;
         }
 
-        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1279,12 +1307,18 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
 
             return bitmap;
         }
 
-        public Bitmap GetMapImageTribes(long tribeId, bool showStructures, bool showPlayers, bool showTames, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageTribes(long tribeId, bool showStructures, bool showPlayers, bool showTames, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1475,12 +1509,19 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
+
 
             return bitmap;
         }
 
-        public Bitmap GetMapImagePlayers(long tribeId, long playerId, float selectedLat, float selectedLon, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImagePlayers(long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1569,12 +1610,18 @@ namespace ARKViewer.Models
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
 
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
 
             return bitmap;
         }
 
-        public Bitmap GetMapImageMapStructures(List<ContentMarker> customMarkers, float selectedLat, float selectedLon)
+        public Bitmap GetMapImageMapStructures(List<ContentMarker> customMarkers, List<Tuple<float, float>> selectedLocations)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1609,7 +1656,13 @@ namespace ARKViewer.Models
             {
                 graphics = AddCustomMarkers(graphics, customMarkers);
             }
-            graphics = AddCurrentMarker(graphics, selectedLat, selectedLon);
+            if (selectedLocations != null && selectedLocations.Count > 0)
+            {
+                foreach (var selectedLocation in selectedLocations)
+                {
+                    graphics = AddCurrentMarker(graphics, selectedLocation.Item1, selectedLocation.Item2);
+                }
+            }
 
             return bitmap;
         }

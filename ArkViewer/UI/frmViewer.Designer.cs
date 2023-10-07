@@ -443,7 +443,6 @@ namespace ARKViewer
             lvwWildDetail.FullRowSelect = true;
             lvwWildDetail.Location = new System.Drawing.Point(13, 89);
             lvwWildDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwWildDetail.MultiSelect = false;
             lvwWildDetail.Name = "lvwWildDetail";
             lvwWildDetail.Size = new System.Drawing.Size(1073, 333);
             lvwWildDetail.TabIndex = 14;
@@ -1572,7 +1571,6 @@ namespace ARKViewer
             lvwTameDetail.FullRowSelect = true;
             lvwTameDetail.Location = new System.Drawing.Point(13, 112);
             lvwTameDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwTameDetail.MultiSelect = false;
             lvwTameDetail.Name = "lvwTameDetail";
             lvwTameDetail.Size = new System.Drawing.Size(1073, 312);
             lvwTameDetail.TabIndex = 7;
@@ -2073,7 +2071,6 @@ namespace ARKViewer
             lvwStructureLocations.FullRowSelect = true;
             lvwStructureLocations.Location = new System.Drawing.Point(13, 83);
             lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwStructureLocations.MultiSelect = false;
             lvwStructureLocations.Name = "lvwStructureLocations";
             lvwStructureLocations.Size = new System.Drawing.Size(1073, 348);
             lvwStructureLocations.TabIndex = 7;
@@ -2423,7 +2420,7 @@ namespace ARKViewer
             cboTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboTribeCopyCommand.FormattingEnabled = true;
-            cboTribeCopyCommand.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "TakeTribe <TribeID>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "RM <FileCsvList>", "DEL <FileCsvList>" });
+            cboTribeCopyCommand.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "SaveWorld", "TakeTribe <TribeID>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "RM <FileCsvList>", "DEL <FileCsvList>" });
             cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
             cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTribeCopyCommand.Name = "cboTribeCopyCommand";
@@ -2935,7 +2932,6 @@ namespace ARKViewer
             lvwDroppedItems.FullRowSelect = true;
             lvwDroppedItems.Location = new System.Drawing.Point(13, 60);
             lvwDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwDroppedItems.MultiSelect = false;
             lvwDroppedItems.Name = "lvwDroppedItems";
             lvwDroppedItems.Size = new System.Drawing.Size(1075, 369);
             lvwDroppedItems.TabIndex = 4;
@@ -3175,7 +3171,6 @@ namespace ARKViewer
             lvwItemList.FullRowSelect = true;
             lvwItemList.Location = new System.Drawing.Point(13, 60);
             lvwItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwItemList.MultiSelect = false;
             lvwItemList.Name = "lvwItemList";
             lvwItemList.Size = new System.Drawing.Size(1073, 369);
             lvwItemList.TabIndex = 4;

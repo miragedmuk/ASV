@@ -1,10 +1,12 @@
 ﻿using ARKViewer.Models;
 using ASVPack.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace ARKViewer
@@ -164,14 +166,21 @@ namespace ARKViewer
             float selectedY = 0;
             ContentMarker selectedMarker = null;
 
+            List<Tuple<float,float>> selectedLocations = new List<Tuple<float, float>>();
+
             if (lvwMapMarkers.SelectedItems.Count > 0)
             {
-                selectedMarker = (ContentMarker)lvwMapMarkers.SelectedItems[0].Tag;
-                selectedX = (float)selectedMarker.Lon;
-                selectedY = (float)selectedMarker.Lat;
+                foreach(ListViewItem item in  lvwMapMarkers.SelectedItems)
+                {
+                    selectedMarker = (ContentMarker)item.Tag;
+                    selectedX = (float)selectedMarker.Lon;
+                    selectedY = (float)selectedMarker.Lat;
+
+                    selectedLocations.Add(new Tuple<float, float>(selectedY, selectedX));
+                }
 
             }
-            MapViewer.DrawTestMap(selectedX, selectedY);
+            MapViewer.DrawTestMap(selectedLocations);
 
             btnEditMarker.Enabled = selectedMarker != null && selectedMarker.InGameMarker == false;
             btnRemoveMarker.Enabled = selectedMarker!=null && selectedMarker.InGameMarker == false;
@@ -181,15 +190,22 @@ namespace ARKViewer
         {
             if (lvwMapMarkers.Items.Count == 0 || isLoading) return;
 
+
+            List<Tuple<float, float>> selectedLocations = new List<Tuple<float, float>>();
+
             float selectedX = 0;
             float selectedY = 0;
 
             if (lvwMapMarkers.SelectedItems.Count > 0)
             {
-                ContentMarker selectedMarker = (ContentMarker)lvwMapMarkers.SelectedItems[0].Tag;
-                selectedX = (float)selectedMarker.Lon;
-                selectedY = (float)selectedMarker.Lat;
+                foreach(ListViewItem item in lvwMapMarkers.SelectedItems)
+                {
+                    ContentMarker selectedMarker = (ContentMarker)item.Tag;
+                    selectedX = (float)selectedMarker.Lon;
+                    selectedY = (float)selectedMarker.Lat;
 
+                    selectedLocations.Add(new Tuple<float, float>(selectedY, selectedX));
+                }
             }
 
             ContentMarker checkMarker = (ContentMarker)e.Item.Tag;
@@ -203,7 +219,7 @@ namespace ARKViewer
                 var configMarker = Program.ProgramConfig.MapMarkerList.FirstOrDefault(x => x.Map == checkMarker.Map && x.Name == checkMarker.Name);
                 mapViewMarker.Displayed = checkMarker.Displayed;
 
-                MapViewer.DrawTestMap(selectedX, selectedY);
+                MapViewer.DrawTestMap(selectedLocations);
             }
 
         }
@@ -292,7 +308,7 @@ namespace ARKViewer
 
                 MapViewer.CustomMarkers.Add(markerEditor.EditingMarker);
                 Program.ProgramConfig.MapMarkerList.Add(markerEditor.EditingMarker);
-                MapViewer.DrawTestMap(0, 0);
+                MapViewer.DrawTestMap(new List<Tuple<float, float>>());
             }
         }
 
@@ -313,7 +329,7 @@ namespace ARKViewer
                 var configMarker = Program.ProgramConfig.MapMarkerList.FirstOrDefault(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
                 if (configMarker != null) Program.ProgramConfig.MapMarkerList.Remove(configMarker);
 
-                MapViewer.DrawTestMap(0, 0);
+                MapViewer.DrawTestMap(new List<Tuple<float, float>>());
             }
         }
 
@@ -357,7 +373,7 @@ namespace ARKViewer
 
                 PopulateCategories();
 
-                MapViewer.DrawTestMap(0, 0);
+                MapViewer.DrawTestMap(new List<Tuple<float, float>>());
 
             }
         }
