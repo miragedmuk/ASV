@@ -1297,11 +1297,12 @@ namespace ARKViewer
             cboConsoleCommandsWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsWild.FormattingEnabled = true;
-            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", resources.GetString("cboConsoleCommandsWild.Items"), "SetPlayerPos  <x> <y> <z>", "SaveWorld" });
+            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsWild.Items") });
             cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
             cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
             cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsWild.Sorted = true;
             cboConsoleCommandsWild.TabIndex = 16;
             cboConsoleCommandsWild.SelectedIndexChanged += cboConsoleCommandsWild_SelectedIndexChanged;
             // 
@@ -1497,11 +1498,12 @@ namespace ARKViewer
             cboConsoleCommandsTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsTamed.FormattingEnabled = true;
-            cboConsoleCommandsTamed.Items.AddRange(new object[] { "DestroyTribeIdDinos <TribeID>", resources.GetString("cboConsoleCommandsTamed.Items"), "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "GMSummon \"<ClassName>\"  <Level>", "TakeTribe <TribeID>", "SetPlayerPos  <x> <y> <z>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>", "Cryo <DinoId>", "SaveWorld" });
+            cboConsoleCommandsTamed.Items.AddRange(new object[] { "Cryo <DinoId>", "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsTamed.Items"), "TakeTribe <TribeID>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
             cboConsoleCommandsTamed.Location = new System.Drawing.Point(303, 475);
             cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
             cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 23);
+            cboConsoleCommandsTamed.Sorted = true;
             cboConsoleCommandsTamed.TabIndex = 10;
             cboConsoleCommandsTamed.SelectedIndexChanged += cboConsoleCommandsTamed_SelectedIndexChanged;
             // 
@@ -1986,11 +1988,12 @@ namespace ARKViewer
             cboConsoleCommandsStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsStructure.FormattingEnabled = true;
-            cboConsoleCommandsStructure.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "TakeTribe <TribeID>", "SetPlayerPos  <x> <y> <z>", "SaveWorld" });
+            cboConsoleCommandsStructure.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>" });
             cboConsoleCommandsStructure.Location = new System.Drawing.Point(90, 475);
             cboConsoleCommandsStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsStructure.Name = "cboConsoleCommandsStructure";
             cboConsoleCommandsStructure.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsStructure.Sorted = true;
             cboConsoleCommandsStructure.TabIndex = 9;
             cboConsoleCommandsStructure.SelectedIndexChanged += cboConsoleCommandsStructure_SelectedIndexChanged;
             // 
@@ -2420,11 +2423,12 @@ namespace ARKViewer
             cboTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboTribeCopyCommand.FormattingEnabled = true;
-            cboTribeCopyCommand.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "SaveWorld", "TakeTribe <TribeID>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "RM <FileCsvList>", "DEL <FileCsvList>" });
+            cboTribeCopyCommand.Items.AddRange(new object[] { "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "RM <FileCsvList>", "SaveWorld", "TakeTribe <TribeID>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>" });
             cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
             cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTribeCopyCommand.Name = "cboTribeCopyCommand";
             cboTribeCopyCommand.Size = new System.Drawing.Size(305, 23);
+            cboTribeCopyCommand.Sorted = true;
             cboTribeCopyCommand.TabIndex = 2;
             cboTribeCopyCommand.SelectedIndexChanged += cboTribeCopyCommand_SelectedIndexChanged;
             // 
@@ -2565,11 +2569,12 @@ namespace ARKViewer
             cboConsoleCommandsPlayerTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
-            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "SaveWorld", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeStructureAudit <TribeID>", "TribeDinoAudit  <TribeID>", "UnbanPlayer <SteamID>", "RM <FileCsvList>", "DEL <FileCsvList>", "AddChibiExpToPlayer <PlayerID> <HowMuch>" });
+            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AddChibiExpToPlayer <PlayerID> <HowMuch>", "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "RM <FileCsvList>", "SaveWorld", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>", "UnbanPlayer <SteamID>" });
             cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
             cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
             cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsPlayerTribe.Sorted = true;
             cboConsoleCommandsPlayerTribe.TabIndex = 6;
             cboConsoleCommandsPlayerTribe.SelectedIndexChanged += cboConsoleCommandsPlayerTribe_SelectedIndexChanged;
             // 
@@ -2896,6 +2901,7 @@ namespace ARKViewer
             cboCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboCopyCommandDropped.Name = "cboCopyCommandDropped";
             cboCopyCommandDropped.Size = new System.Drawing.Size(305, 23);
+            cboCopyCommandDropped.Sorted = true;
             cboCopyCommandDropped.TabIndex = 6;
             cboCopyCommandDropped.SelectedIndexChanged += cboCopyCommandDropped_SelectedIndexChanged;
             // 
@@ -3135,6 +3141,7 @@ namespace ARKViewer
             cboItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboItemListCommand.Name = "cboItemListCommand";
             cboItemListCommand.Size = new System.Drawing.Size(305, 23);
+            cboItemListCommand.Sorted = true;
             cboItemListCommand.TabIndex = 6;
             cboItemListCommand.SelectedIndexChanged += cboItemListCommand_SelectedIndexChanged;
             // 

@@ -63,7 +63,15 @@ namespace SavegameToolkit.Arrays
 
             for (int n = 0; n < size; n++)
             {
-                Add(StructRegistry.ReadBinary(archive, structType));
+                try
+                {
+                    Add(StructRegistry.ReadBinary(archive, structType));
+                }
+                catch
+                {
+
+                }
+                 
             }
         }
 

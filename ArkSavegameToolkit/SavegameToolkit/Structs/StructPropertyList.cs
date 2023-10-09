@@ -27,7 +27,7 @@ namespace SavegameToolkit.Structs {
                 Properties.Add(property);
                 property = PropertyRegistry.ReadBinary(archive);
             }
-        }
+         }
 
 
         private List<IProperty> properties = new List<IProperty>();

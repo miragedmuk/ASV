@@ -94,8 +94,8 @@ namespace SavegameToolkit
             var inventoryContainers = Objects.Where(x => x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null).ToList();
 
             ConcurrentBag<Tuple<GameObject, GameObject>> cbStored = new ConcurrentBag<Tuple<GameObject, GameObject>>();
-            //foreach (var storedPod in validStored)
-            Parallel.ForEach(validStored, storedPod =>
+            foreach (var storedPod in validStored)
+            //Parallel.ForEach(validStored, storedPod =>
             {
                 ArkArrayStruct customItemDatas = storedPod.GetPropertyValue<IArkArray, ArkArrayStruct>("CustomItemDatas");
                 StructPropertyList customDinoData = (StructPropertyList)customItemDatas?.FirstOrDefault(cd => ((StructPropertyList)cd).GetTypedProperty<PropertyName>("CustomDataName").Value.Name == "Dino");
@@ -124,7 +124,15 @@ namespace SavegameToolkit
 
                                     foreach (var ob in storedGameObjects)
                                     {
-                                        ob.LoadProperties(cryoArchive, new GameObject(), 0);
+                                        try
+                                        {
+                                            ob.LoadProperties(cryoArchive, new GameObject(), 0);
+                                        }
+                                        catch(Exception exPropertyException)
+                                        {
+
+                                        }
+                                        
                                     }
 
                                     var creatureObject = storedGameObjects[0];
@@ -193,7 +201,8 @@ namespace SavegameToolkit
                         }                         
                     }
                 }
-            });
+            }
+            //);
 
             long propertyEnd = DateTime.Now.Ticks;
             var timeTaken3 = TimeSpan.FromTicks(propertyEnd - identifyEnd);
@@ -212,7 +221,11 @@ namespace SavegameToolkit
                     if (statusObject != null)
                     {
                         var statusComponentRef = creatureObject.GetTypedProperty<PropertyObject>("MyCharacterStatusComponent");
-                        statusComponentRef.Value.ObjectId = statusObject.Id;
+                        if(statusComponentRef != null)
+                        {
+                            statusComponentRef.Value.ObjectId = statusObject.Id;
+                        }
+                        
                     }
 
                     addObject(creatureObject, false);
@@ -318,10 +331,20 @@ namespace SavegameToolkit
                         ArkCryoStore testStore = new ArkCryoStore(archive);
                         if (testStore.Objects.Any())
                         {
-                            testStore.LoadProperties(archive);
+                            try
+                            {
+                                testStore.LoadProperties(archive);
 
-                            //Store all required GameObjects to correctly read in this cryo creature
-                            addedCryoObjects.Add(new Tuple<GameObject, GameObject, GameObject, GameObject>(storedObject.ParentObject, testStore.CreatureComponent, testStore.StatusComponent, testStore.InventoryComponent));
+                                //Store all required GameObjects to correctly read in this cryo creature
+                                addedCryoObjects.Add(new Tuple<GameObject, GameObject, GameObject, GameObject>(storedObject.ParentObject, testStore.CreatureComponent, testStore.StatusComponent, testStore.InventoryComponent));
+
+                            }
+                            catch (Exception exProperty)
+                            {
+
+                            }
+                            
+
                         }
                     }
                 }
