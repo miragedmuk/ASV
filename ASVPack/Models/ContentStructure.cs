@@ -32,13 +32,13 @@ namespace ASVPack.Models
         [DataMember] public bool HasDecayTimeReset { get; set; } = false;
         [DataMember] public double LastAllyInRangeTimeInGame { get; set; } = 0;
         [DataMember] public DateTime? LastAllyInRangeTime { get; internal set; }
+        [DataMember] public int UniquePaintingId { get; set; } = 0;
 
 
         public ContentStructure(GameObject structureObject)
         {
             ClassName = structureObject.ClassString;
             DisplayName = structureObject.GetPropertyValue<string>("BoxName")??ClassName;
-
 
 
             if(structureObject.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null)

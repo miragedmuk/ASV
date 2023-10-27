@@ -424,7 +424,7 @@ namespace ARKViewer
             groupBox1.Controls.Add(txtRconPassword);
             groupBox1.Location = new System.Drawing.Point(26, 28);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(802, 406);
+            groupBox1.Size = new System.Drawing.Size(802, 408);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 

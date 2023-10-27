@@ -83,15 +83,9 @@ namespace SavegameToolkit
                 CreatureComponent.IsInVivarium = CreatureComponent.ClassString.Contains("vivarium", StringComparison.InvariantCultureIgnoreCase);
             }
 
-            if (Objects.Count > 1)
-            {
-                StatusComponent = Objects[1];
-            }
+            StatusComponent = Objects.FirstOrDefault(o=>o.ClassString.Contains("DinoCharacterStatusComponent"));
 
-            if (Objects.Count > 2)
-            {
-                InventoryComponent = Objects[2];
-            }
+            InventoryComponent = Objects.FirstOrDefault(o => o.ClassString.Contains("DinoTamedInventoryComponent") &! o.ClassString.Contains("Retrieval")); 
 
             archive.UseNameTable = useNameTable;
 

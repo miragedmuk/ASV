@@ -8,6 +8,7 @@ using CoreRCON;
 using FluentFTP;
 using Newtonsoft.Json.Linq;
 using Renci.SshNet;
+using SkiaSharp.Views.Desktop;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace ARKViewer
         private ColumnHeader SortingColumn_Tribes = null;
         private ColumnHeader SortingColumn_Drops = null;
         private ColumnHeader SortingColumn_ItemList = null;
+        private ColumnHeader SortingColumn_Paintings = null;
 
 
         private ColumnHeader SortingColumn_UploadedChar = null;
@@ -424,6 +426,10 @@ namespace ARKViewer
 
                 RefreshLeaderboardTribes();
                 RefreshLeaderboardMissions();
+
+                RefreshPaintingTribes();
+                RefreshPaintingStructures();
+
 
                 LoadUploadedCharacters();
                 LoadUploadedItems();
@@ -4081,10 +4087,10 @@ namespace ARKViewer
 
                     List<Tuple<float, float>> selectedStructLocations = new List<Tuple<float, float>>();
 
-                    foreach (ListViewItem item in lvwTameDetail.SelectedItems)
+                    foreach (ListViewItem item in lvwStructureLocations.SelectedItems)
                     {
-                        ContentStructure selectedStruct = (ContentStructure)item.Tag;
-                        selectedStructLocations.Add(new Tuple<float, float>(selectedStruct.Latitude.GetValueOrDefault(0), selectedStruct.Longitude.GetValueOrDefault(0)));
+                        ContentStructure selectedStructure = (ContentStructure)item.Tag;
+                        selectedStructLocations.Add(new Tuple<float, float>(selectedStructure.Latitude.GetValueOrDefault(0), selectedStructure.Longitude.GetValueOrDefault(0)));
                     }
 
 
@@ -4477,6 +4483,93 @@ namespace ARKViewer
                 cboStructureStructure.SelectedIndex = 0;
             }
 
+
+        }
+
+        private void RefreshPaintingStructures()
+        {
+            if (cm == null) return;
+            if (cboPaintingTribe.SelectedItem == null) return;
+
+
+            string selectedClass = "NONE";
+            if (cboPaintingStructure.SelectedItem != null)
+            {
+                ASVComboValue selectedValue = (ASVComboValue)cboPaintingStructure.SelectedItem;
+                selectedClass = selectedValue.Key;
+            }
+
+            cboPaintingStructure.Items.Clear();
+            cboPaintingStructure.Items.Add(new ASVComboValue() { Key = "NONE", Value = "[None]" });
+            cboPaintingStructure.Items.Add(new ASVComboValue() { Key = "", Value = "[All Structures]" });
+
+            //tribe
+            ASVComboValue comboValue = (ASVComboValue)cboPaintingTribe.SelectedItem;
+            int.TryParse(comboValue.Key, out int selectedTribeId);
+
+
+            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, 0, "", false, string.Empty)
+                                                        .Where(s =>
+                                                            (Program.ProgramConfig.StructureExclusions == null
+                                                            || (Program.ProgramConfig.StructureExclusions != null & !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName)))
+                                                            && s.UniquePaintingId != 0
+                                                        ).GroupBy(g => g.ClassName)
+                                                       .Select(s => s.Key);
+
+            List<ASVComboValue> newItems = new List<ASVComboValue>();
+
+
+            if (playerStructureTypes != null && playerStructureTypes.Count() > 0)
+            {
+
+                foreach (var className in playerStructureTypes)
+                {
+                    var structureName = className;
+                    var itemMap = Program.ProgramConfig.StructureMap.Where(i => i.ClassName == className).FirstOrDefault();
+
+                    ASVComboValue classNameItem = new ASVComboValue(className, "");
+
+                    if (itemMap != null && itemMap.FriendlyName.Length > 0)
+                    {
+                        structureName = itemMap.FriendlyName;
+                        classNameItem.Value = structureName;
+
+                    }
+
+
+                    if (structureName == null || structureName.Length == 0) structureName = className;
+
+                    newItems.Add(new ASVComboValue() { Key = className, Value = structureName });
+                }
+
+
+            }
+
+
+            int selectedIndex = 1;
+            if (newItems.Count > 0)
+            {
+                cboPaintingStructure.BeginUpdate();
+                foreach (var newItem in newItems.OrderBy(o => o.Value))
+                {
+                    int newIndex = cboPaintingStructure.Items.Add(newItem);
+                    if (newItem.Key == selectedClass)
+                    {
+                        selectedIndex = newIndex;
+                    }
+                }
+                cboPaintingStructure.EndUpdate();
+
+            }
+
+            if (tabFeatures.SelectedTab.Name == "tpgPaintings")
+            {
+                cboPaintingStructure.SelectedIndex = selectedIndex;
+            }
+            else
+            {
+                cboPaintingStructure.SelectedIndex = 0;
+            }
 
         }
 
@@ -5172,16 +5265,69 @@ namespace ARKViewer
             }
             if (newItems.Count > 0)
             {
-                cboStructureStructure.BeginUpdate();
+                cboStructureTribe.BeginUpdate();
 
                 foreach (var newItem in newItems.OrderBy(o => o.Value))
                 {
                     cboStructureTribe.Items.Add(newItem);
                 }
 
-                cboStructureStructure.EndUpdate();
+                cboStructureTribe.EndUpdate();
             }
             cboStructureTribe.SelectedIndex = 0;
+        }
+
+        private void RefreshPaintingTribes()
+        {
+            if (cm == null) return;
+
+            cboPaintingTribe.Items.Clear();
+            cboPaintingTribe.Items.Add(new ASVComboValue("0", "[All Tribes]"));
+
+            List<ASVComboValue> newItems = new List<ASVComboValue>();
+
+            var allTribes = cm.GetTribes(0);
+            if (allTribes.Count() > 0)
+            {
+                foreach (var tribe in allTribes)
+                {
+                    bool addItem = true;
+                    if (Program.ProgramConfig.HideNoStructures)
+                    {
+
+                        addItem = (
+                                    (tribe.Structures != null && tribe.Structures.Count > 0)
+                                    ||
+                                    (tribe.Tames != null && tribe.Tames.LongCount(w => (w.ClassName == "MotorRaft_BP_C" || w.ClassName == "Raft_BP_C")) > 0)
+                                );
+
+                    }
+
+                    if (addItem)
+                    {
+                        if (tribe.Structures.Any(s => s.UniquePaintingId != 0))
+                        {
+                            if (tribe.TribeName == null || tribe.TribeName.Length == 0) tribe.TribeName = "[N/A]";
+                            ASVComboValue valuePair = new ASVComboValue(tribe.TribeId.ToString(), tribe.TribeName);
+                            newItems.Add(valuePair);
+
+                        }
+
+                    }
+                }
+            }
+            if (newItems.Count > 0)
+            {
+                cboPaintingTribe.BeginUpdate();
+
+                foreach (var newItem in newItems.OrderBy(o => o.Value))
+                {
+                    cboPaintingTribe.Items.Add(newItem);
+                }
+
+                cboPaintingTribe.EndUpdate();
+            }
+            cboPaintingTribe.SelectedIndex = 0;
         }
 
         private void RefreshDroppedPlayers()
@@ -8198,5 +8344,316 @@ namespace ARKViewer
                     break;
             }
         }
+
+        private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cboPaintingTribe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPaintingStructureDetails();
+            RefreshPaintingStructures();
+        }
+
+        private void LoadPaintingStructureDetails()
+        {
+            if (cm == null) return;
+            if (tabFeatures.SelectedTab.Name != "tpgPaintings") return;
+
+
+            if (cboPaintingStructure.SelectedItem == null) return;
+            if (cboPaintingTribe.SelectedItem == null) return;
+
+            this.Cursor = Cursors.WaitCursor;
+
+
+            lblStatus.Text = "Updating painting structure selection.";
+            lblStatus.Refresh();
+
+            //tribe
+            long selectedTribeId = 0;
+            ASVComboValue comboValue = (ASVComboValue)cboPaintingTribe.SelectedItem;
+            if (comboValue != null) long.TryParse(comboValue.Key, out selectedTribeId);
+
+
+            //structure
+            string selectedClass = "NONE";
+            comboValue = (ASVComboValue)cboPaintingStructure.SelectedItem;
+            if (comboValue != null) selectedClass = comboValue.Key;
+
+
+            var playerStructures = cm.GetPlayerStructures(selectedTribeId, 0, selectedClass, false, string.Empty)
+                .Where(s => (!Program.ProgramConfig.StructureExclusions.Contains(s.ClassName)) && s.UniquePaintingId != 0).ToList();
+
+            lblPaintingsCount.Text = $"Count: {playerStructures.Count()}";
+            lblPaintingsCount.Refresh();
+
+            lvwPlayerPaintings.Items.Clear();
+            lvwPlayerPaintings.Refresh();
+            lvwPlayerPaintings.BeginUpdate();
+
+            ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
+
+            string selectedRealm = string.Empty;
+
+            var tribes = cm.GetTribes(selectedTribeId);
+            foreach (var tribe in tribes)
+            {
+                var filterStructures = tribe.Structures.Where(s => (s.ClassName == selectedClass || selectedClass == "") && s.UniquePaintingId != 0);
+                Parallel.ForEach(filterStructures, playerStructure =>
+                {
+
+                    if (!(playerStructure.Latitude.GetValueOrDefault(0) == 0 && playerStructure.Longitude.GetValueOrDefault(0) == 0))
+                    {
+
+                        bool addItem = true;
+
+
+                        if (addItem)
+                        {
+                            var tribeName = tribe.TribeName;
+
+                            var itemName = playerStructure.ClassName;
+                            var itemMap = ARKViewer.Program.ProgramConfig.StructureMap.Where(i => i.ClassName == playerStructure.ClassName).FirstOrDefault();
+                            if (itemMap != null && itemMap.FriendlyName.Length > 0)
+                            {
+                                itemName = itemMap.FriendlyName;
+                            }
+
+                            ListViewItem newItem = new ListViewItem(tribeName);
+                            newItem.SubItems.Add(itemName);
+
+
+                            newItem.SubItems.Add(playerStructure.Latitude.Value.ToString("0.00"));
+                            newItem.SubItems.Add(playerStructure.Longitude.Value.ToString("0.00"));
+                            newItem.SubItems.Add(string.Concat(playerStructure.UniquePaintingId.ToString(), ".pnt"));
+                            newItem.Tag = playerStructure;
+
+                            listItems.Add(newItem);
+                        }
+
+                    }
+
+
+                });
+
+            }
+
+            lvwPlayerPaintings.Items.AddRange(listItems.ToArray());
+
+            if (SortingColumn_Paintings != null)
+            {
+                lvwPlayerPaintings.ListViewItemSorter =
+                    new ListViewComparer(SortingColumn_Paintings.Index, SortingColumn_Paintings.Text.Contains(">") ? SortOrder.Ascending : SortOrder.Descending);
+
+                // Sort.
+                lvwPlayerPaintings.Sort();
+            }
+
+            lvwPlayerPaintings.EndUpdate();
+
+            lblStatus.Text = "Painting selection updated.";
+            lblStatus.Refresh();
+
+            DrawMap(0, 0);
+
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void cboPaintingStructure_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPaintingStructureDetails();
+        }
+
+        private void lvwPlayerPaintings_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPaintingDetails();
+            btnConsoleCommandPainting.Enabled = !cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0;
+
+        }
+
+
+        private void LoadPaintingDetails()
+        {
+            if (cm == null) return;
+            if (lvwPlayerPaintings.SelectedItems.Count == 0)
+            {
+                picPainting.Image = null;
+                return;
+            }
+
+            string loadedFilePath = Path.GetDirectoryName(cm.LoadedFilename);
+            var selectedStructure = lvwPlayerPaintings.SelectedItems[0].Tag as ContentStructure;
+            var paintingFilename = string.Concat(selectedStructure.UniquePaintingId.ToString(), ".pnt");
+            var matchingFiles = Directory.EnumerateFiles(loadedFilePath, paintingFilename, SearchOption.AllDirectories);
+            if (matchingFiles.Any())
+            {
+                ContentPainting painting = new ContentPainting(matchingFiles.First());
+                picPainting.Image = new Bitmap(painting.GenerateBitmap().ToBitmap(), new Size(picPainting.Width, picPainting.Height));
+                painting = null;
+            }
+            else
+            {
+                ContentPainting painting = new ContentPainting("");
+                picPainting.Image = new Bitmap(painting.GenerateBitmap().ToBitmap(), new Size(picPainting.Width, picPainting.Height));
+                painting = null;
+
+            }
+        }
+
+        private void picPainting_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void btnDeletePaintings_Click(object sender, EventArgs e)
+        {
+            if (cm == null) return;
+
+            if(MessageBox.Show("This action will attempt to identify and .pnt files not referenced in the game save.\n\nIt will then move these files into a sub-folder named 'Removed' for you to delete yourself.", "Please Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                btnDeletePaintings.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+                lblStatus.Text = "Identifying un-used .pnt files...";
+                lblStatus.Refresh();
+
+                var allPaintingFilenames = cm.GetPlayerStructures(0, 0, "", false, string.Empty)
+                                                            .Where(s =>
+                                                                (Program.ProgramConfig.StructureExclusions == null
+                                                                || (Program.ProgramConfig.StructureExclusions != null & !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName)))
+                                                                && s.UniquePaintingId != 0
+                                                            ).GroupBy(g => g.UniquePaintingId)
+                                                           .Select(s => string.Concat(s.Key.ToString(), ".pnt"));
+
+
+
+                var paintingCacheFolder = Path.Combine(Path.GetDirectoryName(cm.LoadedFilename), @$"ServerPaintingsCache\{cm.MapName.Replace(" ", "")}\");
+                var paintingBackupFolder = Path.Combine(paintingCacheFolder, @"Removed\");
+
+                if (!Directory.Exists(paintingBackupFolder))
+                {
+                    Directory.CreateDirectory(paintingBackupFolder);
+                }
+
+                var diskPaintingFiles = Directory.EnumerateFiles(paintingCacheFolder, "*.pnt", SearchOption.AllDirectories);
+                lblStatus.Text = "Moving un-used .pnt files please wait...";
+                lblStatus.Refresh();
+
+                var unusedPaintingFiles = diskPaintingFiles.Where(d => !allPaintingFilenames.Any(p => d.EndsWith(string.Concat(@"\", p))));
+                foreach (var paintingFilename in unusedPaintingFiles)
+                {
+                    var filenameOnly = Path.GetFileName(paintingFilename);
+                    File.Move(paintingFilename, Path.Combine(paintingBackupFolder, filenameOnly));
+                }
+
+                this.Cursor = Cursors.Default;
+
+                MessageBox.Show($"{unusedPaintingFiles.Count()} .pnt files moved to Removed folder.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                lblStatus.Text = "";
+                lblStatus.Refresh();
+
+                btnDeletePaintings.Enabled = true;
+            }           
+
+        }
+
+        private void btnConsoleCommandPainting_Click(object sender, EventArgs e)
+        {
+            string commandText = GetPaintingCommandText();
+            if (commandText.Length > 0)
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(commandText);
+
+                lblStatus.Text = $"Command copied:  {commandText}";
+                lblStatus.Refresh();
+
+            }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
+            }
+        }
+
+        private void cboConsoleCommandPainting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnConsoleCommandPainting.Enabled = !cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0;
+        }
+
+        private string GetPaintingCommandText()
+        {
+
+
+            if (cboConsoleCommandPainting.SelectedItem == null) return string.Empty;
+            List<string> allCommands = new List<string>();
+
+            var commandTemplate = cboConsoleCommandPainting.SelectedItem.ToString();
+            if (commandTemplate != null && lvwPlayerPaintings.SelectedItems.Count > 0)
+            {
+                if (commandTemplate.Contains("<FileCsvList>"))
+                {
+                    string fileList = "";
+                    string commandList = commandTemplate;
+
+                    foreach (ListViewItem selectedItem in lvwPlayerPaintings.SelectedItems)
+                    {
+                        ContentStructure selectedTribe = (ContentStructure)selectedItem.Tag;
+                        if (fileList.Length > 0)
+                        {
+                            fileList = fileList + " ";
+                        }
+                        fileList = fileList + selectedTribe.TargetingTeam.ToString() + ".arktribe";
+                    }
+
+                    commandList = commandList.Replace("<FileCsvList>", fileList);
+                    allCommands.Add(commandList);
+                }
+                else
+                {
+                    foreach (ListViewItem selectedItem in lvwPlayerPaintings.SelectedItems)
+                    {
+                        ContentStructure selectedPaintingStructure = (ContentStructure)selectedItem.Tag;
+                        string commandText = commandTemplate;
+                        long selectedTribeId = selectedPaintingStructure.TargetingTeam;
+
+                        commandText = cboConsoleCommandPainting.SelectedItem.ToString();
+
+                        commandText = commandText.Replace("<TribeID>", selectedTribeId.ToString("f0"));
+
+                        commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedPaintingStructure.X:0.00}"));
+                        commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedPaintingStructure.Y:0.00}"));
+                        commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{selectedPaintingStructure.Z + 250:0.00}"));
+
+                        switch (Program.ProgramConfig.CommandPrefix)
+                        {
+                            case 1:
+                                commandText = $"admincheat {commandText}";
+
+                                break;
+                            case 2:
+                                commandText = $"cheat {commandText}";
+                                break;
+                        }
+
+                        commandText = commandText.Trim();
+
+                        if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
+                    }
+
+                }
+
+
+
+            }
+
+            return string.Join('|', allCommands.ToArray());
+
+        }
+
     }
 }

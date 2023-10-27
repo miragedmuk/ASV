@@ -93,9 +93,12 @@ namespace SavegameToolkit
             //narrow our search list down for inventory components to help improve performance
             var inventoryContainers = Objects.Where(x => x.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null).ToList();
 
-            ConcurrentBag<Tuple<GameObject, GameObject>> cbStored = new ConcurrentBag<Tuple<GameObject, GameObject>>();
-            foreach (var storedPod in validStored)
-            //Parallel.ForEach(validStored, storedPod =>
+            
+            //var deadPods = validStored.Where(s=>s.GetPropertyValue<float>("SavedDurability", 0,0) <= 0).ToList();
+
+            ConcurrentBag <Tuple<GameObject, GameObject>> cbStored = new ConcurrentBag<Tuple<GameObject, GameObject>>();
+            //foreach (var storedPod in validStored)
+            Parallel.ForEach(validStored, storedPod =>
             {
                 ArkArrayStruct customItemDatas = storedPod.GetPropertyValue<IArkArray, ArkArrayStruct>("CustomItemDatas");
                 StructPropertyList customDinoData = (StructPropertyList)customItemDatas?.FirstOrDefault(cd => ((StructPropertyList)cd).GetTypedProperty<PropertyName>("CustomDataName").Value.Name == "Dino");
@@ -128,15 +131,16 @@ namespace SavegameToolkit
                                         {
                                             ob.LoadProperties(cryoArchive, new GameObject(), 0);
                                         }
-                                        catch(Exception exPropertyException)
+                                        catch
                                         {
+                                            //ignore and continue
 
                                         }
                                         
                                     }
 
                                     var creatureObject = storedGameObjects[0];
-                                    var statusObject = storedGameObjects[1];
+                                    var statusObject = storedGameObjects.First(o=>o.ClassString.Contains("DinoCharacterStatus"));
 
                                     // assume the first object is the creature object
                                     string creatureActorId = creatureObject.Names[0].ToString();
@@ -154,6 +158,7 @@ namespace SavegameToolkit
                                     // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
                                     if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
                                         creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
+
 
 
                                     //get parent of cryopod owner inventory
@@ -202,7 +207,7 @@ namespace SavegameToolkit
                     }
                 }
             }
-            //);
+            );
 
             long propertyEnd = DateTime.Now.Ticks;
             var timeTaken3 = TimeSpan.FromTicks(propertyEnd - identifyEnd);
@@ -625,6 +630,7 @@ namespace SavegameToolkit
             {
                 extractBinaryObjectStoredCreatures(options);
             }
+
 
             long endRead = DateTime.Now.Ticks;
             var timeTaken = TimeSpan.FromTicks(endRead - startRead);

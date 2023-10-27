@@ -5,6 +5,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace ASVPack.Models
     {
 
 
+        public string LoadedFilename { get; set; } = string.Empty;
         [DataMember] public string MapFilename { get; set; } = "TheIsland.ark";
         [DataMember] public DateTime ContentDate { get; set; } = DateTime.Now;
         [DataMember] public long ExportedForTribe { get; set; } = 0;
@@ -1725,6 +1727,7 @@ namespace ASVPack.Models
         }
         private void LoadGameData(ContentContainer container)
         {
+            LoadedFilename = container.LoadedFilename;
             MapFilename = container.MapName;
             ContentDate = container.GameSaveTime;
             if (IncludeGameStructures)
@@ -2247,6 +2250,7 @@ namespace ASVPack.Models
             MapFilename = pack.MapFilename;
             ContentDate = pack.ContentDate;
             LocalProfile = pack.LocalProfile;
+            LoadedFilename = pack.LoadedFilename;
 
             if (IncludeGameStructures)
             {

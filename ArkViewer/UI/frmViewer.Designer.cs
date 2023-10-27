@@ -320,6 +320,27 @@ namespace ARKViewer
             lvwItemList_Lon = new System.Windows.Forms.ColumnHeader();
             lvwItemList_CCC = new System.Windows.Forms.ColumnHeader();
             lvwItemList_UploadTime = new System.Windows.Forms.ColumnHeader();
+            tpgPaintings = new System.Windows.Forms.TabPage();
+            splitContainer2 = new System.Windows.Forms.SplitContainer();
+            lblPaintingsCount = new System.Windows.Forms.Label();
+            panel1 = new System.Windows.Forms.Panel();
+            button1 = new System.Windows.Forms.Button();
+            textBox1 = new System.Windows.Forms.TextBox();
+            btnDeletePaintings = new System.Windows.Forms.Button();
+            lblPaintingTribe = new System.Windows.Forms.Label();
+            lvwPlayerPaintings = new System.Windows.Forms.ListView();
+            lvwPlayerPaintings_Tribe = new System.Windows.Forms.ColumnHeader();
+            lvwPlayerPaintings_Structure = new System.Windows.Forms.ColumnHeader();
+            lvwPlayerPaintings_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwPlayerPaintings_Lon = new System.Windows.Forms.ColumnHeader();
+            lvwPlayerPaintings_PaintingId = new System.Windows.Forms.ColumnHeader();
+            cboPaintingTribe = new System.Windows.Forms.ComboBox();
+            lblStructurePainting = new System.Windows.Forms.Label();
+            cboConsoleCommandPainting = new System.Windows.Forms.ComboBox();
+            cboPaintingStructure = new System.Windows.Forms.ComboBox();
+            label3 = new System.Windows.Forms.Label();
+            btnConsoleCommandPainting = new System.Windows.Forms.Button();
+            picPainting = new System.Windows.Forms.PictureBox();
             tpgLocalProfile = new System.Windows.Forms.TabPage();
             pnlUploadedStats = new System.Windows.Forms.Panel();
             lblUploadedStats = new System.Windows.Forms.Label();
@@ -429,6 +450,13 @@ namespace ARKViewer
             pnlFilterDropped.SuspendLayout();
             tpgItemList.SuspendLayout();
             pnlFilterSearch.SuspendLayout();
+            tpgPaintings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+            splitContainer2.Panel1.SuspendLayout();
+            splitContainer2.Panel2.SuspendLayout();
+            splitContainer2.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picPainting).BeginInit();
             tpgLocalProfile.SuspendLayout();
             pnlUploadedStats.SuspendLayout();
             tpgLeaderboard.SuspendLayout();
@@ -990,6 +1018,7 @@ namespace ARKViewer
             tabFeatures.Controls.Add(tpgPlayers);
             tabFeatures.Controls.Add(tpgDroppedItems);
             tabFeatures.Controls.Add(tpgItemList);
+            tabFeatures.Controls.Add(tpgPaintings);
             tabFeatures.Controls.Add(tpgLocalProfile);
             tabFeatures.Controls.Add(tpgLeaderboard);
             tabFeatures.HotTrack = true;
@@ -3244,6 +3273,247 @@ namespace ARKViewer
             lvwItemList_UploadTime.Text = "Uploaded";
             lvwItemList_UploadTime.Width = 120;
             // 
+            // tpgPaintings
+            // 
+            tpgPaintings.Controls.Add(splitContainer2);
+            tpgPaintings.Location = new System.Drawing.Point(4, 24);
+            tpgPaintings.Name = "tpgPaintings";
+            tpgPaintings.Padding = new System.Windows.Forms.Padding(3);
+            tpgPaintings.Size = new System.Drawing.Size(1104, 520);
+            tpgPaintings.TabIndex = 9;
+            tpgPaintings.Text = "Paintings";
+            tpgPaintings.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            splitContainer2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            splitContainer2.Location = new System.Drawing.Point(6, 6);
+            splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            splitContainer2.Panel1.Controls.Add(lblPaintingsCount);
+            splitContainer2.Panel1.Controls.Add(panel1);
+            splitContainer2.Panel1.Controls.Add(btnDeletePaintings);
+            splitContainer2.Panel1.Controls.Add(lblPaintingTribe);
+            splitContainer2.Panel1.Controls.Add(lvwPlayerPaintings);
+            splitContainer2.Panel1.Controls.Add(cboPaintingTribe);
+            splitContainer2.Panel1.Controls.Add(lblStructurePainting);
+            splitContainer2.Panel1.Controls.Add(cboConsoleCommandPainting);
+            splitContainer2.Panel1.Controls.Add(cboPaintingStructure);
+            splitContainer2.Panel1.Controls.Add(label3);
+            splitContainer2.Panel1.Controls.Add(btnConsoleCommandPainting);
+            splitContainer2.Panel1.Paint += splitContainer2_Panel1_Paint;
+            // 
+            // splitContainer2.Panel2
+            // 
+            splitContainer2.Panel2.BackColor = System.Drawing.Color.DimGray;
+            splitContainer2.Panel2.Controls.Add(picPainting);
+            splitContainer2.Size = new System.Drawing.Size(1092, 508);
+            splitContainer2.SplitterDistance = 700;
+            splitContainer2.TabIndex = 37;
+            // 
+            // lblPaintingsCount
+            // 
+            lblPaintingsCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblPaintingsCount.BackColor = System.Drawing.Color.AliceBlue;
+            lblPaintingsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPaintingsCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPaintingsCount.Location = new System.Drawing.Point(570, 458);
+            lblPaintingsCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPaintingsCount.Name = "lblPaintingsCount";
+            lblPaintingsCount.Size = new System.Drawing.Size(126, 35);
+            lblPaintingsCount.TabIndex = 37;
+            lblPaintingsCount.Text = "Count: 0";
+            lblPaintingsCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.PaleTurquoise;
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(textBox1);
+            panel1.Location = new System.Drawing.Point(5, 735);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1360, 33);
+            panel1.TabIndex = 23;
+            // 
+            // button1
+            // 
+            button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            button1.Image = (System.Drawing.Image)resources.GetObject("button1.Image");
+            button1.Location = new System.Drawing.Point(1832, -1);
+            button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(35, 33);
+            button1.TabIndex = 9;
+            toolTip1.SetToolTip(button1, "Find next");
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            textBox1.Location = new System.Drawing.Point(12, 3);
+            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(1808, 23);
+            textBox1.TabIndex = 6;
+            // 
+            // btnDeletePaintings
+            // 
+            btnDeletePaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDeletePaintings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnDeletePaintings.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDeletePaintings.Image = (System.Drawing.Image)resources.GetObject("btnDeletePaintings.Image");
+            btnDeletePaintings.Location = new System.Drawing.Point(459, 452);
+            btnDeletePaintings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDeletePaintings.Name = "btnDeletePaintings";
+            btnDeletePaintings.Size = new System.Drawing.Size(47, 46);
+            btnDeletePaintings.TabIndex = 36;
+            toolTip1.SetToolTip(btnDeletePaintings, "Delete unused .pnt files");
+            btnDeletePaintings.UseVisualStyleBackColor = true;
+            btnDeletePaintings.Click += btnDeletePaintings_Click;
+            // 
+            // lblPaintingTribe
+            // 
+            lblPaintingTribe.AutoSize = true;
+            lblPaintingTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPaintingTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPaintingTribe.Location = new System.Drawing.Point(18, 22);
+            lblPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPaintingTribe.Name = "lblPaintingTribe";
+            lblPaintingTribe.Size = new System.Drawing.Size(40, 13);
+            lblPaintingTribe.TabIndex = 23;
+            lblPaintingTribe.Text = "Tribe:";
+            // 
+            // lvwPlayerPaintings
+            // 
+            lvwPlayerPaintings.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lvwPlayerPaintings.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwPlayerPaintings_Tribe, lvwPlayerPaintings_Structure, lvwPlayerPaintings_Lat, lvwPlayerPaintings_Lon, lvwPlayerPaintings_PaintingId });
+            lvwPlayerPaintings.FullRowSelect = true;
+            lvwPlayerPaintings.Location = new System.Drawing.Point(10, 51);
+            lvwPlayerPaintings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwPlayerPaintings.MultiSelect = false;
+            lvwPlayerPaintings.Name = "lvwPlayerPaintings";
+            lvwPlayerPaintings.Size = new System.Drawing.Size(686, 395);
+            lvwPlayerPaintings.TabIndex = 31;
+            lvwPlayerPaintings.UseCompatibleStateImageBehavior = false;
+            lvwPlayerPaintings.View = System.Windows.Forms.View.Details;
+            lvwPlayerPaintings.SelectedIndexChanged += lvwPlayerPaintings_SelectedIndexChanged;
+            // 
+            // lvwPlayerPaintings_Tribe
+            // 
+            lvwPlayerPaintings_Tribe.Text = "Tribe";
+            lvwPlayerPaintings_Tribe.Width = 200;
+            // 
+            // lvwPlayerPaintings_Structure
+            // 
+            lvwPlayerPaintings_Structure.Text = "Structure";
+            lvwPlayerPaintings_Structure.Width = 200;
+            // 
+            // lvwPlayerPaintings_Lat
+            // 
+            lvwPlayerPaintings_Lat.Text = "Lat";
+            // 
+            // lvwPlayerPaintings_Lon
+            // 
+            lvwPlayerPaintings_Lon.Text = "Lon";
+            // 
+            // lvwPlayerPaintings_PaintingId
+            // 
+            lvwPlayerPaintings_PaintingId.Text = "Painting Id";
+            lvwPlayerPaintings_PaintingId.Width = 150;
+            // 
+            // cboPaintingTribe
+            // 
+            cboPaintingTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPaintingTribe.FormattingEnabled = true;
+            cboPaintingTribe.Location = new System.Drawing.Point(68, 17);
+            cboPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPaintingTribe.Name = "cboPaintingTribe";
+            cboPaintingTribe.Size = new System.Drawing.Size(237, 23);
+            cboPaintingTribe.TabIndex = 24;
+            cboPaintingTribe.SelectedIndexChanged += cboPaintingTribe_SelectedIndexChanged;
+            // 
+            // lblStructurePainting
+            // 
+            lblStructurePainting.AutoSize = true;
+            lblStructurePainting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructurePainting.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructurePainting.Location = new System.Drawing.Point(373, 22);
+            lblStructurePainting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructurePainting.Name = "lblStructurePainting";
+            lblStructurePainting.Size = new System.Drawing.Size(63, 13);
+            lblStructurePainting.TabIndex = 29;
+            lblStructurePainting.Text = "Structure:";
+            // 
+            // cboConsoleCommandPainting
+            // 
+            cboConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandPainting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandPainting.FormattingEnabled = true;
+            cboConsoleCommandPainting.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
+            cboConsoleCommandPainting.Location = new System.Drawing.Point(92, 461);
+            cboConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandPainting.Name = "cboConsoleCommandPainting";
+            cboConsoleCommandPainting.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandPainting.Sorted = true;
+            cboConsoleCommandPainting.TabIndex = 27;
+            cboConsoleCommandPainting.SelectedIndexChanged += cboConsoleCommandPainting_SelectedIndexChanged;
+            // 
+            // cboPaintingStructure
+            // 
+            cboPaintingStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPaintingStructure.FormattingEnabled = true;
+            cboPaintingStructure.Location = new System.Drawing.Point(454, 17);
+            cboPaintingStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPaintingStructure.Name = "cboPaintingStructure";
+            cboPaintingStructure.Size = new System.Drawing.Size(237, 23);
+            cboPaintingStructure.TabIndex = 30;
+            cboPaintingStructure.SelectedIndexChanged += cboPaintingStructure_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label3.Location = new System.Drawing.Point(12, 465);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(65, 13);
+            label3.TabIndex = 26;
+            label3.Text = "Command:";
+            // 
+            // btnConsoleCommandPainting
+            // 
+            btnConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnConsoleCommandPainting.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnConsoleCommandPainting.Enabled = false;
+            btnConsoleCommandPainting.Image = (System.Drawing.Image)resources.GetObject("btnConsoleCommandPainting.Image");
+            btnConsoleCommandPainting.Location = new System.Drawing.Point(404, 452);
+            btnConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnConsoleCommandPainting.Name = "btnConsoleCommandPainting";
+            btnConsoleCommandPainting.Size = new System.Drawing.Size(47, 46);
+            btnConsoleCommandPainting.TabIndex = 28;
+            toolTip1.SetToolTip(btnConsoleCommandPainting, "Copy command to clipboard.");
+            btnConsoleCommandPainting.UseVisualStyleBackColor = true;
+            btnConsoleCommandPainting.Click += btnConsoleCommandPainting_Click;
+            // 
+            // picPainting
+            // 
+            picPainting.Anchor = System.Windows.Forms.AnchorStyles.None;
+            picPainting.BackColor = System.Drawing.Color.WhiteSmoke;
+            picPainting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picPainting.Location = new System.Drawing.Point(19, 79);
+            picPainting.Name = "picPainting";
+            picPainting.Size = new System.Drawing.Size(350, 350);
+            picPainting.TabIndex = 1;
+            picPainting.TabStop = false;
+            picPainting.Click += picPainting_Click;
+            // 
             // tpgLocalProfile
             // 
             tpgLocalProfile.Controls.Add(pnlUploadedStats);
@@ -3872,7 +4142,7 @@ namespace ARKViewer
             lblMap.BackColor = System.Drawing.Color.Transparent;
             lblMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblMap.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblMap.Location = new System.Drawing.Point(775, 82);
+            lblMap.Location = new System.Drawing.Point(786, 59);
             lblMap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblMap.Name = "lblMap";
             lblMap.Size = new System.Drawing.Size(89, 13);
@@ -3884,7 +4154,7 @@ namespace ARKViewer
             cboSelectedMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             cboSelectedMap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboSelectedMap.FormattingEnabled = true;
-            cboSelectedMap.Location = new System.Drawing.Point(878, 77);
+            cboSelectedMap.Location = new System.Drawing.Point(878, 54);
             cboSelectedMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboSelectedMap.Name = "cboSelectedMap";
             cboSelectedMap.Size = new System.Drawing.Size(241, 23);
@@ -3975,6 +4245,15 @@ namespace ARKViewer
             tpgItemList.PerformLayout();
             pnlFilterSearch.ResumeLayout(false);
             pnlFilterSearch.PerformLayout();
+            tpgPaintings.ResumeLayout(false);
+            splitContainer2.Panel1.ResumeLayout(false);
+            splitContainer2.Panel1.PerformLayout();
+            splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
+            splitContainer2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picPainting).EndInit();
             tpgLocalProfile.ResumeLayout(false);
             tpgLocalProfile.PerformLayout();
             pnlUploadedStats.ResumeLayout(false);
@@ -4355,6 +4634,31 @@ namespace ARKViewer
         private System.Windows.Forms.Button btnRconCommandTribes;
         private System.Windows.Forms.Button btnRconCommandPlayers;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_ProfileFilename;
+        private System.Windows.Forms.TabPage tpgPaintings;
+        private System.Windows.Forms.Button btnConsoleCommandPainting;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboConsoleCommandPainting;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ListView lvwUnusedPaintings;
+        private System.Windows.Forms.Button btnCopyFilenames;
+        private System.Windows.Forms.ColumnHeader lvwUnusedPaintings_Filename;
+        private System.Windows.Forms.Button btnDeletePaintings;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblPaintingTribe;
+        private System.Windows.Forms.ListView lvwPlayerPaintings;
+        private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_Tribe;
+        private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_Structure;
+        private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_Lat;
+        private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_Lon;
+        private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_PaintingId;
+        private System.Windows.Forms.ComboBox cboPaintingTribe;
+        private System.Windows.Forms.Label lblStructurePainting;
+        private System.Windows.Forms.ComboBox cboPaintingStructure;
+        private System.Windows.Forms.Label lblPaintingsCount;
+        private System.Windows.Forms.PictureBox picPainting;
     }
 }
 

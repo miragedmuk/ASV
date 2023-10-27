@@ -34,6 +34,9 @@ namespace ARKViewer.Models
         Tuple<long, long> cacheImagePlayers = null;
         Tuple<long, string> cacheImageItems = null;
 
+        string loadedFilename = string.Empty;
+
+        public string LoadedFilename { get { return loadedFilename; } }
         string lastDrawRequest = "";
         Image gameContentMap = null; //wilds/tames/tribes/players etc.
 
@@ -133,6 +136,8 @@ namespace ARKViewer.Models
 
         public ASVDataManager(ContentContainer data)
         {
+            loadedFilename = data.LoadedFilename;
+
             pack = new ContentPack(data, 0, 0, 50, 50, 100,true,true,true,true,true,true,true);
             if(data.MapStructures.LongCount(x => x.ClassName == "ASV_Glitch") > 0)
             {

@@ -96,7 +96,8 @@ namespace ARKViewer
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
-                dialog.Filter = "ARK Save Games (*.ark)|*.ark";
+                dialog.Filter = "ARK Save Games (*.ark)|*.ark|ARK Compressed File (*.gz)|*.gz";
+
                 dialog.InitialDirectory = AppContext.BaseDirectory;
                 dialog.Title = "Select ARK Save File";
                 if (dialog.ShowDialog() == DialogResult.OK)

@@ -107,7 +107,7 @@ namespace ARKViewer
             udRconPort.Name = "udRconPort";
             udRconPort.Size = new System.Drawing.Size(83, 23);
             udRconPort.TabIndex = 14;
-            udRconPort.Value = new decimal(new int[] { 37020, 0, 0, 0 });
+            udRconPort.Value = new decimal(new int[] { 27020, 0, 0, 0 });
             // 
             // label3
             // 

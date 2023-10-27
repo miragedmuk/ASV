@@ -10,6 +10,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO.Compression;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -33,6 +34,14 @@ namespace ASVPack.Models
         ILogger logWriter = LogManager.GetCurrentClassLogger();
         private ContentMapPack mapPack = new ContentMapPack();
 
+
+        public string LoadedFilename
+        {
+            get
+            {
+                return this.loadedFilename;
+            }
+        }
         [DataMember] public ContentMap LoadedMap { get; set; } = new ContentMap();
 
         [DataMember] public string MapName { get; set; } = "";
@@ -40,6 +49,7 @@ namespace ASVPack.Models
         [DataMember] public List<ContentWildCreature> WildCreatures { get; set; } = new List<ContentWildCreature>();
         [DataMember] public List<ContentTribe> Tribes { get; set; } = new List<ContentTribe>();
         [DataMember] public List<ContentDroppedItem> DroppedItems { get; set; } = new List<ContentDroppedItem>();
+        [DataMember] public List<ContentStructure> PaintingStructures { get; set; } = new List<ContentStructure>();
         [DataMember] public ContentLocalProfile LocalProfile { get; set; } = new ContentLocalProfile();
         [DataMember] public List<ContentLeaderboard> Leaderboards { get; set; } = new List<ContentLeaderboard>();
         [DataMember] public DateTime GameSaveTime { get; set; } = new DateTime();
@@ -89,6 +99,39 @@ namespace ASVPack.Models
 
         public void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder, int profileDayCountLimit=30)
         {
+
+            if (saveFilename.ToLowerInvariant().EndsWith(".gz"))
+            {
+
+                using (FileStream fileToDecompressAsStream = File.OpenRead(saveFilename))
+                {
+                    string decompressedFileName = Path.Combine(Path.GetDirectoryName(saveFilename)??"", string.Concat(Path.GetFileNameWithoutExtension(saveFilename), @"_raw.ark"));
+                    
+                    if(File.Exists(decompressedFileName))
+                    {
+                        File.Delete(decompressedFileName);
+                    }
+
+                    using (FileStream decompressedStream = File.Create(decompressedFileName))
+                    {
+                        using (GZipStream decompressionStream = new GZipStream(fileToDecompressAsStream, CompressionMode.Decompress))
+                        {
+                            try
+                            {
+                                decompressionStream.CopyTo(decompressedStream);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                        }
+                    }
+
+                    saveFilename = decompressedFileName;
+                }
+            }
+
+
             loadedFilename = saveFilename;
             loadedClusterFolder = clusterFolder;
             profileDayLimit = profileDayCountLimit;
@@ -535,7 +578,15 @@ namespace ASVPack.Models
                             //check for inventory
                             logWriter.Debug($"Determining if structure has inventory: {s.ClassString}");
 
-
+                            var paintingRef = s.GetPropertyValue<ObjectReference?>("PaintingComponent", 0, null);
+                            if (paintingRef != null)
+                            {
+                                var paintingComp = objectContainer.Objects.FirstOrDefault(p => p.Id == paintingRef.ObjectId);
+                                if(paintingComp != null)
+                                {
+                                    structure.UniquePaintingId = paintingComp.GetPropertyValue<int>("UniquePaintingId", 0, 0);
+                                }
+                            }
 
 
                             ObjectReference inventoryRef = s.GetPropertyValue<ObjectReference>("MyInventoryComponent");
@@ -1129,6 +1180,16 @@ namespace ASVPack.Models
 
                             structure.CreatedDateTime = GetApproxDateTimeOf(structure.CreatedTimeInGame);
                             structure.LastAllyInRangeTime = GetApproxDateTimeOf(structure.LastAllyInRangeTimeInGame);
+                            
+                            var paintingRef = x.GetPropertyValue<ObjectReference?>("PaintingComponent", 0, null);
+                            if (paintingRef != null)
+                            {
+                                var paintingComp = objectContainer.Objects.FirstOrDefault(p => p.Id == paintingRef.ObjectId);
+                                if (paintingComp != null)
+                                {
+                                    structure.UniquePaintingId = paintingComp.GetPropertyValue<int>("UniquePaintingId", 0, 0);
+                                }
+                            }
 
                             //inventory
                             logWriter.Debug($"Determining inventory status for: {structure.ClassName}");

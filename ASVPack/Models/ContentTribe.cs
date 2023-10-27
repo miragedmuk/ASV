@@ -40,7 +40,7 @@ namespace ASVPack.Models
                 var maxPlayer = Players.Max(p => p.LastActiveDateTime);
                 if (maxPlayer != null && maxPlayer.HasValue) possibleDates.Add(maxPlayer.Value);
                     
-                return possibleDates.Max();
+                return possibleDates.Where(d=>d <= DateTime.Now).Max();
                 
 
 
