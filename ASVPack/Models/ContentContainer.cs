@@ -198,9 +198,9 @@ namespace ASVPack.Models
             {
                 List<ContentTribe> tribeContentList = new List<ContentTribe>();
 
-
-                GameSaveTime = new FileInfo(saveFilename).LastWriteTimeUtc.ToLocalTime();
-
+                var fileInf = new FileInfo(saveFilename);
+                GameSaveTime = fileInf.LastWriteTimeUtc.ToLocalTime();
+                fileInf = null;
 
                 logWriter.Debug($"Reading game save data: {saveFilename}");
                 var dbTestString = string.Empty;
@@ -210,7 +210,11 @@ namespace ASVPack.Models
                     byte[] dbTestBytes = new byte[15];
                     stream.Read(dbTestBytes, 0, 15);
                     dbTestString = System.Text.Encoding.UTF8.GetString(dbTestBytes);
+                    stream.Close();
+                    stream.Dispose();
                 }
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
 
                 if (dbTestString.StartsWith("sqlite", StringComparison.InvariantCultureIgnoreCase))
                 {

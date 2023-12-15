@@ -92,7 +92,12 @@ namespace AsaSavegameToolkit
                 readTribeFiles(savePath); // Search and parse and .arktribe file in the save directory
                 readProfileFiles(savePath); // Search and parse and .arkprofile file in the save directory
 
+                connection.Close();
+                connection.Dispose();
             }
+            SqliteConnection.ClearAllPools();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         private void addComponents()
