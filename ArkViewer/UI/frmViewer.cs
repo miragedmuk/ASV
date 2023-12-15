@@ -1983,14 +1983,14 @@ namespace ARKViewer
         private string GetDroppedItemCommandText()
         {
 
-            if (cboConsoleCommandsWild.SelectedItem == null) return string.Empty;
+            if (cboCopyCommandDropped.SelectedItem == null) return string.Empty;
             List<string> allCommands = new List<string>();
 
-            var commandTemplate = cboConsoleCommandsWild.SelectedItem.ToString();
-            if (commandTemplate != null && lvwWildDetail.SelectedItems.Count > 0)
+            var commandTemplate = cboCopyCommandDropped.SelectedItem.ToString();
+            if (commandTemplate != null && lvwDroppedItems.SelectedItems.Count > 0)
             {
 
-                foreach (ListViewItem selectedItem in lvwWildDetail.SelectedItems)
+                foreach (ListViewItem selectedItem in lvwDroppedItems.SelectedItems)
                 {
                     ContentDroppedItem droppedItem = (ContentDroppedItem)selectedItem.Tag;
                     string commandText = commandTemplate;
@@ -8470,7 +8470,7 @@ namespace ARKViewer
         private void lvwPlayerPaintings_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadPaintingDetails();
-            btnConsoleCommandPainting.Enabled = !cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0;
+            btnConsoleCommandPainting.Enabled =  cboConsoleCommandPainting.SelectedItem!=null && (!cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0);
 
         }
 
@@ -8530,7 +8530,20 @@ namespace ARKViewer
 
 
 
-                var paintingCacheFolder = Path.Combine(Path.GetDirectoryName(cm.LoadedFilename), @$"ServerPaintingsCache\{cm.MapName.Replace(" ", "")}\");
+                var paintingCacheFolder = Path.Combine(Path.GetDirectoryName(cm.LoadedFilename), @$"ServerPaintingsCache\{cm.MapName.Replace(" ", "")}\"); //attempt to find map specific cache sub folder
+                if (!Directory.Exists(paintingCacheFolder))
+                {
+                    var firstPntFile = Directory.EnumerateFiles(Path.GetDirectoryName(cm.LoadedFilename), "*.pnt",SearchOption.AllDirectories).FirstOrDefault(); //attempt to find first pnt file from any location under save folder
+                    if(firstPntFile != null)
+                    {
+                        paintingCacheFolder = Path.GetDirectoryName(firstPntFile); //use folder of first found .pnt file.
+                    }
+                    else
+                    {
+                        paintingCacheFolder = Path.GetDirectoryName(cm.LoadedFilename); //fallback to using the .ark save folder
+                    }                    
+                }
+
                 var paintingBackupFolder = Path.Combine(paintingCacheFolder, @"Removed\");
 
                 if (!Directory.Exists(paintingBackupFolder))
@@ -8582,7 +8595,7 @@ namespace ARKViewer
 
         private void cboConsoleCommandPainting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnConsoleCommandPainting.Enabled = !cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0;
+            btnConsoleCommandPainting.Enabled = cboConsoleCommandPainting.SelectedItem != null && (!cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0);
         }
 
         private string GetPaintingCommandText()

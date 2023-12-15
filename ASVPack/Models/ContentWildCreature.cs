@@ -1,4 +1,6 @@
-﻿using SavegameToolkit;
+﻿using AsaSavegameToolkit;
+using ASVPack.Extensions;
+using SavegameToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,7 @@ namespace ASVPack.Models
     {
         public bool IsTameable { get; set; } = true; 
 
-        public ContentWildCreature() : base()
+        public ContentWildCreature(): base()
         {
 
         }
@@ -32,5 +34,19 @@ namespace ASVPack.Models
                 if (ClassName.Contains("Mega_") || ClassName.Contains("Alpha_")) IsTameable = false;
             }
         }
+
+        public ContentWildCreature(AsaGameObject gameObject, AsaGameObject statusObject) : base(gameObject, statusObject)
+        {
+            IsTameable = !gameObject.GetPropertyValue<bool>("bForceDisablingTaming",0,false)??false;
+            if (IsTameable)
+            {
+                if (ClassName.ToLower().Contains("mega_") || ClassName.ToLower().Contains("alpha_")) IsTameable = false;
+                if (gameObject.GetPropertyValue<bool>("bIsBaby",0,false)) IsTameable = false;
+            }
+
+
+            
+        }
+
     }
 }

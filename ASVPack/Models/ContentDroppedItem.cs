@@ -1,4 +1,6 @@
-﻿using SavegameToolkit;
+﻿using AsaSavegameToolkit;
+using ASVPack.Extensions;
+using SavegameToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,5 +54,27 @@ namespace ASVPack.Models
 
         }
 
+        public ContentDroppedItem(AsaGameObject itemObject)
+        {
+            ClassName = string.Empty;
+
+            if (itemObject.Location != null)
+            {
+                X = (float)itemObject.Location?.X;
+                Y = (float)itemObject.Location?.Y;
+                Z = (float)itemObject.Location?.Z;
+            }
+
+
+            DroppedByName = itemObject.GetPropertyValue<string>("OwnerName", 0, "")??"";
+            if (string.IsNullOrEmpty(DroppedByName))
+            {
+                DroppedByName = itemObject.GetPropertyValue<string>("DroppedByName", 0, "")??"<Unknown>";
+            }
+            DroppedByTribeId = itemObject.GetPropertyValue<int>("TargetingTeam", 0, 0);
+            DroppedByPlayerId = (long)(itemObject.GetPropertyValue<ulong?>("LinkedPlayerDataID") ?? itemObject.GetPropertyValue<long>("DroppedByPlayerID", 0, 0));
+            CreatedTimeInGame = itemObject.GetPropertyValue<double>("OriginalCreationTime", 0, 0);
+
+        }
     }
 }

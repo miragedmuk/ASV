@@ -1,4 +1,7 @@
-﻿using SavegameToolkit;
+﻿using AsaSavegameToolkit;
+using AsaSavegameToolkit.Types;
+using ASVPack.Extensions;
+using SavegameToolkit;
 using SavegameToolkit.Types;
 using System;
 using System.Collections.Generic;
@@ -51,8 +54,7 @@ namespace ASVPack.Models
             {
                 IsSwitchedOn = structureObject.GetPropertyValue<bool>("bContainerActivated", 0, false);
             }
-            
- 
+             
             if (structureObject.Location != null)
             {
                 X = structureObject.Location.X;
@@ -70,6 +72,35 @@ namespace ASVPack.Models
         public ContentStructure()
         {
 
+        }
+
+        public ContentStructure(AsaGameObject structureObject)
+        {
+            ClassName = structureObject.ClassString;
+            DisplayName = structureObject.GetPropertyValue<string>("BoxName") ?? ClassName;
+
+            if (structureObject.GetPropertyValue<AsaObjectReference>("MyInventoryComponent") != null)
+            {
+                IsLocked = structureObject.GetPropertyValue<bool>("bIsPinLocked",0,false)
+                    || structureObject.GetPropertyValue<bool>("bIsLocked",0,false);
+            }
+
+            if ((structureObject.GetPropertyValue<bool>("bIsPowered", 0, false) || structureObject.GetPropertyValue<bool>("bHasFuel", 0, false)))
+            {
+                IsSwitchedOn = structureObject.GetPropertyValue<bool>("bContainerActivated", 0, false);
+            }
+
+            if (structureObject.Location != null)
+            {
+                X = (float)structureObject.Location.X;
+                Y = (float)structureObject.Location.Y;
+                Z = (float)structureObject.Location.Z;
+            }
+
+            HasDecayTimeReset = structureObject.GetPropertyValue<bool>("bHasResetDecayTime", 0, false);
+            LastAllyInRangeTimeInGame = structureObject.GetPropertyValue<double>("LastInAllyRangeTime", 0, 0);
+            TargetingTeam = structureObject.GetPropertyValue<int>("TargetingTeam", 0, 0);
+            CreatedTimeInGame = structureObject.GetPropertyValue<double>("OriginalCreationTime", 0, 0);
         }
     }
 }

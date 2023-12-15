@@ -1,4 +1,7 @@
-﻿using SavegameToolkit;
+﻿using AsaSavegameToolkit;
+using AsaSavegameToolkit.Propertys;
+using ASVPack.Extensions;
+using SavegameToolkit;
 using SavegameToolkit.Arrays;
 using SavegameToolkit.Propertys;
 using SavegameToolkit.Structs;
@@ -302,6 +305,98 @@ namespace ASVPack.Models
 
         }
 
+        public ContentPlayer(AsaObject gameObject)
+        {
+            if (!gameObject.HasAnyProperty("MyData")) return;
+
+            List<dynamic>? playerData = gameObject.GetPropertyValue<dynamic>("MyData",0,null);
+            if (playerData == null || playerData.Count == 0 ) return;
+
+            HasGameFile = true;
+            
+            var playerDataId = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "PlayerDataID")?.Value;
+            Id = (long)playerDataId;
+            AsaSavegameToolkit.Structs.AsaUniqueNetIdRepl netId = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "UniqueID")?.Value;
+            NetworkId = netId == null ? "" : netId.Value;
+            Name = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "PlayerName")?.Value??"";
+            CharacterName = Name;
+            TargetingTeam = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "TribeId")?.Value ?? 0;
+            LastTimeInGame = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "LastLoginTime")?.Value ?? 0;
+
+            List<dynamic> characterConfig = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>?)p).Name == "MyPlayerCharacterConfig")?.Value ?? null;
+            if (characterConfig != null)
+            {
+                CharacterName = characterConfig.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "PlayerCharacterName")?.Value ?? Name;
+                Gender = characterConfig.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "bIsFemale")?.Value ?? false ? "Female": "Male";
+            }
+
+            X = 0;
+            Y = 0;
+            Z = 0;
+
+            if (gameObject.Location != null)
+            {
+                X = (float)gameObject.Location.X;
+                Y = (float)gameObject.Location.Y;
+                Z = (float)gameObject.Location.Z;
+            }
+
+
+            List<dynamic> characterStats = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>?)p).Name == "MyPersistentCharacterStats")?.Value ?? null;
+            if (characterStats != null)
+            {
+                ExperiencePoints = characterStats.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CharacterStatusComponent_ExperiencePoints")?.Value ?? 0;
+                Level = (characterStats.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CharacterStatusComponent_ExtraCharacterLevel")?.Value ?? 0) + 1;
+                Stats = new byte[12];
+                for (var i = 0; i < Stats.Length; i++)
+                {
+                    var pointValue= characterStats.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CharacterStatusComponent_NumberOfLevelUpPointsApplied" && ((AsaProperty<dynamic>)p).Position == i)?.Value ?? 0;
+                    Stats[i] = (byte)pointValue;
+                }
+
+            }
+
+
+        }
+
+        public ContentPlayer(AsaObject gameObject, AsaObject statusComponentObject)
+        {
+
+
+        }
+
+        public ContentPlayer(AsaGameObject playerObject, AsaGameObject statusObject)
+        {
+            HasGameFile = false;
+            Id = (long)(playerObject.GetPropertyValue<ulong?>("PlayerDataID") ?? playerObject.GetPropertyValue<ulong>("LinkedPlayerDataID"));
+            TargetingTeam = playerObject.GetPropertyValue<int>("TargetingTeam");
+
+            Stats = new byte[12];
+            if (statusObject != null)
+                for (var i = 0; i < Stats.Length; i++)
+                {
+                    Stats[i] = (byte)statusObject.GetPropertyValue<int>("NumberOfLevelUpPointsApplied", i, 0);
+                }
+
+            LastTimeInGame = playerObject.GetPropertyValue<double>("SavedLastTimeHadController");
+            Name = playerObject.GetPropertyValue<string>("PlatformProfileName", 0, "")??"";
+            CharacterName = playerObject.GetPropertyValue<string>("PlayerName", 0, "")??"";
+            if (statusObject != null)
+            {
+                Level = getFullLevel(statusObject);
+                ExperiencePoints = statusObject.GetPropertyValue<float>("ExperiencePoints", 0, 0);
+            }
+            Gender = playerObject.ClassName.Name.ToLower().Contains("female") ? "Female" : "Male";
+
+            if (playerObject.Location != null)
+            {
+                X = (float)playerObject.Location?.X;
+                Y = (float)playerObject.Location?.Y;
+                Z = (float)playerObject.Location?.Z;
+            }
+
+        }
+
         public override bool Equals(object? obj)
         {
             if (obj is ContentPlayer) return ((ContentPlayer)obj).Id == Id;
@@ -324,5 +419,16 @@ namespace ASVPack.Models
             return baseLevel + extraLevel;
         }
 
+        private int getFullLevel(AsaGameObject statusComponent)
+        {
+            if (statusComponent == null)
+            {
+                return 1;
+            }
+
+            int baseLevel = statusComponent.GetPropertyValue<int>("BaseCharacterLevel",0,1);
+            int extraLevel = (int)statusComponent.GetPropertyValue<uint>("ExtraCharacterLevel",0,0);
+            return baseLevel + extraLevel;
+        }
     }
 }

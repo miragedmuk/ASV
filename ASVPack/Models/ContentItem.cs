@@ -1,4 +1,6 @@
-﻿using SavegameToolkit;
+﻿using AsaSavegameToolkit;
+using ASVPack.Extensions;
+using SavegameToolkit;
 using SavegameToolkit.Propertys;
 using SavegameToolkit.Structs;
 using SavegameToolkit.Types;
@@ -95,5 +97,36 @@ namespace ASVPack.Models
 
         }
 
+        public ContentItem(AsaGameObject itemObject)
+        {
+            ClassName = itemObject.ClassString;
+            CustomName = itemObject.GetPropertyValue<string>("CustomName",0,"");
+            IsBlueprint = itemObject.GetPropertyValue<bool>("bIsBlueprint",0,false);
+            IsEngram = itemObject.GetPropertyValue<bool>("bIsEngram",0,false);
+            Quantity = itemObject.GetPropertyValue<int>("ItemQuantity", 0, 1);
+            CraftedByTribe = itemObject.GetPropertyValue<string>("CrafterTribeName", 0, "");
+            CraftedByPlayer = itemObject.GetPropertyValue<string>("CrafterCharacterName", 0, "");
+            UploadedTimeInGame = 0;
+            UploadedTime = null;
+
+
+            if (itemObject.HasAnyProperty("ItemRating") & !ClassName.ToLower().Contains("egg"))
+            {
+                var ratingProp = itemObject.GetPropertyValue<float>("ItemRating");
+                if (!float.IsNaN(ratingProp))
+                {
+                    Rating = ratingProp;
+                }
+                else
+                {
+                    Rating = 0.0001f;
+                }
+
+            }
+
+
+
+
+        }
     }
 }

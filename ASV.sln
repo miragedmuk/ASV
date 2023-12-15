@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArkViewer", "ArkViewer\ArkV
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASVBot", "ASVBot\ASVBot.csproj", "{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsaSavegameToolkit", "AsaSavegameToolkit\AsaSavegameToolkit\AsaSavegameToolkit.csproj", "{38E11E0D-8DE5-4273-BFF7-06B55842846B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDD4FCA3-FA92-4782-8FF4-AF67D71A6986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E11E0D-8DE5-4273-BFF7-06B55842846B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E11E0D-8DE5-4273-BFF7-06B55842846B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E11E0D-8DE5-4273-BFF7-06B55842846B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E11E0D-8DE5-4273-BFF7-06B55842846B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

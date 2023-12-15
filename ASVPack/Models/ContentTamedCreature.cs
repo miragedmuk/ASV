@@ -1,4 +1,6 @@
-﻿using SavegameToolkit;
+﻿using AsaSavegameToolkit;
+using ASVPack.Extensions;
+using SavegameToolkit;
 using SavegameToolkit.Arrays;
 using SavegameToolkit.Propertys;
 using SavegameToolkit.Structs;
@@ -55,14 +57,14 @@ namespace ASVPack.Models
             UploadedTimeInGame = uploadTime;
 
 
-            TamedTimeInGame = creatureObject.GetPropertyValue<double>("TamedAtTime");
+            TamedTimeInGame = creatureObject.GetPropertyValue<double>("TamedAtTime", 0, 0);
 
             IsWandering = creatureObject.GetPropertyValue<bool>("bEnableTamedWandering", 0, false);
             IsMating = creatureObject.GetPropertyValue<bool>("bEnableTamedMating", 0, false);
             IsClone = creatureObject.GetPropertyValue<bool>("bIsClone", 0, false);
 
-            int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam");
-            int testTeam = creatureObject.GetPropertyValue<int>("TamingTeamID");
+            int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam", 0, 0);
+            int testTeam = creatureObject.GetPropertyValue<int>("TamingTeamID", 0, 0);
 
 
             TargetingTeam = testTarget;
@@ -94,7 +96,7 @@ namespace ASVPack.Models
             TamedOnServerName = creatureObject.GetPropertyValue<string>("TamedOnServerName");
             TamerName = creatureObject.GetPropertyValue<string>("TamerString");
 
-            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID");
+            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID", 0, 0);
             if (ImprintedPlayerId > 0 && statusObject!=null)
             {
                 ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
@@ -114,8 +116,8 @@ namespace ASVPack.Models
                 Id = -Id;
             }
 
-            RandomMutationsFemale = creatureObject.GetPropertyValue<int>("RandomMutationsFemale");
-            RandomMutationsMale = creatureObject.GetPropertyValue<int>("RandomMutationsMale");
+            RandomMutationsFemale = creatureObject.GetPropertyValue<int>("RandomMutationsFemale", 0, 0);
+            RandomMutationsMale = creatureObject.GetPropertyValue<int>("RandomMutationsMale", 0, 0);
 
             TamedStats = new byte[12];
             if (statusObject != null)
@@ -161,7 +163,7 @@ namespace ASVPack.Models
 
         public ContentTamedCreature(GameObject creatureObject, GameObject statusObject) : base(creatureObject, statusObject)
         {
-            TamedTimeInGame = creatureObject.GetPropertyValue<double>("TamedAtTime");
+            TamedTimeInGame = creatureObject.GetPropertyValue<double>("TamedAtTime", 0, 0);
             UploadedTime = null;
             UploadedTimeInGame = 0;
 
@@ -170,8 +172,8 @@ namespace ASVPack.Models
             IsClone = creatureObject.GetPropertyValue<bool>("bIsCloneDino", 0, false);
 
 
-            int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam");
-            int testTeam = creatureObject.GetPropertyValue<int>("TamingTeamID");
+            int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam", 0, 0);
+            int testTeam = creatureObject.GetPropertyValue<int>("TamingTeamID", 0, 0);
 
 
             TargetingTeam = testTarget;
@@ -203,7 +205,7 @@ namespace ASVPack.Models
             TamedOnServerName = creatureObject.GetPropertyValue<string>("TamedOnServerName");
             TamerName = creatureObject.GetPropertyValue<string>("TamerString");
 
-            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID");
+            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID", 0, 0);
             if (ImprintedPlayerId > 0 && statusObject!=null)
             {
                 ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
@@ -223,8 +225,8 @@ namespace ASVPack.Models
                 Id = -Id;
             }
 
-            RandomMutationsFemale = creatureObject.GetPropertyValue<int>("RandomMutationsFemale");
-            RandomMutationsMale = creatureObject.GetPropertyValue<int>("RandomMutationsMale");
+            RandomMutationsFemale = creatureObject.GetPropertyValue<int>("RandomMutationsFemale", 0, 0);
+            RandomMutationsMale = creatureObject.GetPropertyValue<int>("RandomMutationsMale", 0, 0);
 
             TamedStats = new byte[12];
             if (statusObject != null)
@@ -275,5 +277,115 @@ namespace ASVPack.Models
         {
             TamedStats = new byte[8];
         }
+
+        public ContentTamedCreature(AsaGameObject creatureObject, AsaGameObject statusObject) : base(creatureObject, statusObject)
+        {
+            TamedTimeInGame = creatureObject.GetPropertyValue<double>("TamedAtTime", 0, 0);
+            UploadedTime = null;
+            UploadedTimeInGame = 0;
+
+            IsWandering = creatureObject.GetPropertyValue<bool>("bEnableTamedWandering", 0, false);
+            IsMating = creatureObject.GetPropertyValue<bool>("bEnableTamedMating", 0, false);
+            IsClone = creatureObject.GetPropertyValue<bool>("bIsCloneDino", 0, false);
+
+            int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam",0,0);
+            int testTeam = creatureObject.GetPropertyValue<int?>("TamingTeamID",0,0)??0;
+
+            TargetingTeam = testTarget;
+            if (TargetingTeam == 2_000_000_000 && IsBaby)
+            {
+                //unclaimed baby, try determine parent targeting team instead
+
+            }
+
+            LastAllyInRangeTimeInGame = creatureObject.GetPropertyValue<double>("LastInAllyRangeTime", 0, 0);
+
+            TribeName = creatureObject.GetPropertyValue<string>("TribeName", 0, "")??"";
+            Name = creatureObject.GetPropertyValue<string>("TamedName", 0, "") ?? "";
+            if (statusObject == null)
+            {
+                Level = 1;
+            }
+            else
+            {
+                int baseLevel = statusObject.GetPropertyValue<int>("BaseCharacterLevel", defaultValue: 1);
+                int extraLevel = statusObject.GetPropertyValue<int>("ExtraCharacterLevel",0,0)??0;
+                Level = baseLevel + extraLevel;
+            }
+
+
+            TamedOnServerName = creatureObject.GetPropertyValue<string>("TamedOnServerName", 0, "") ?? "";
+            TamerName = creatureObject.GetPropertyValue<string>("TamerString", 0, "") ?? "";
+
+            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID", 0, 0);
+            if (ImprintedPlayerId > 0 && statusObject != null)
+            {
+                ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
+                ImprinterName = creatureObject.GetPropertyValue<string>("ImprinterName", 0, "") ?? "";
+                TamerName = "";
+            }
+
+
+            IsCryo = false;
+            IsVivarium = false;
+
+            if (IsCryo || IsVivarium)
+            {
+                //stored creatures don't have unique DinoId properties.  Negate to make them unique from non cryo tames.
+                Id = -Id;
+            }
+
+            RandomMutationsFemale = creatureObject.GetPropertyValue<int>("RandomMutationsFemale", 0, 0);
+            RandomMutationsMale = creatureObject.GetPropertyValue<int>("RandomMutationsMale", 0, 0);
+
+            TamedStats = new byte[12];
+            if (statusObject != null)
+            {
+                for (var i = 0; i < TamedStats.Length; i++) TamedStats[i] = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsAppliedTamed", i) ?? 0);
+
+            }
+
+            if(creatureObject.Location!= null) 
+            {
+                X = (float)creatureObject.Location.X;
+                Y = (float)creatureObject.Location.Y;
+                Z = (float)creatureObject.Location.Z;           
+            }
+
+
+
+            //ancestors
+            List<dynamic>? parents = creatureObject.GetPropertyValue<dynamic>("DinoAncestors", 0, null);
+            if (parents != null)
+            {
+                /*
+                ArkArrayStruct parentPropertyStruct = (ArkArrayStruct)parents.Value;
+                if (parentPropertyStruct != null)
+                {
+                    StructPropertyList? parentProperties = parentPropertyStruct.Cast<StructPropertyList>().FirstOrDefault();
+                    if (parentProperties != null)
+                    {
+                        int maleId1 = parentProperties.GetPropertyValue<int>("MaleDinoID1");
+                        int maleId2 = parentProperties.GetPropertyValue<int>("MaleDinoID2");
+
+                        long fatherId = (long)maleId1 << 32 | (maleId2 & 0xFFFFFFFFL);
+                        FatherId = fatherId;
+                        FatherName = parentProperties.GetPropertyValue<string>("MaleName");
+
+                        int femaleId1 = parentProperties.GetPropertyValue<int>("FemaleDinoID1");
+                        int femaleId2 = parentProperties.GetPropertyValue<int>("FemaleDinoID2");
+
+                        long motherId = (long)femaleId1 << 32 | (femaleId2 & 0xFFFFFFFFL);
+                        MotherId = motherId;
+                        MotherName = parentProperties.GetPropertyValue<string>("FemaleName");
+
+                    }
+
+                }
+                */
+
+            }
+        }
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using SavegameToolkit;
+﻿using AsaSavegameToolkit;
+using AsaSavegameToolkit.Propertys;
+using SavegameToolkit;
 using SavegameToolkit.Arrays;
 using SavegameToolkit.Propertys;
 using SavegameToolkit.Structs;
@@ -80,6 +82,46 @@ namespace ASVPack.Models
 
         public ContentTribe()
         {
+
+        }
+
+        public ContentTribe(AsaObject tribeObject)
+        {
+            List<dynamic> propertyList = tribeObject.Properties[0].Value;
+            if (propertyList != null)
+            {
+
+                TribeId = propertyList.FirstOrDefault(p=>((AsaProperty<dynamic>)p).Name == "TribeId")?.Value??0;
+                if (TribeId == 0) TribeId = propertyList.FirstOrDefault(p=> ((AsaProperty<dynamic>)p).Name == "TribeID")?.Value??0;
+                TribeName = propertyList.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "TribeName")?.Value??"";
+
+                Members = new Dictionary<int, string>();
+                Members = new Dictionary<int, string>();
+
+                var memberNames = propertyList.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "MembersPlayerName")?.Value;
+                var memberNumbers = propertyList.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "MembersPlayerDataID")?.Value;
+
+                if (memberNames != null && memberNumbers!=null)
+                {
+                    for(int i = 0; i < memberNames.Count; i++)  
+                    {
+                        Members.Add((int)memberNumbers[i], (string)memberNames[i]);
+                    }
+                }
+
+                var tribeLogs = propertyList.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "TribeLog")?.Value;
+                if (tribeLogs != null)
+                {
+                    List<string> logLines = new List<string>();
+                    foreach(var line in tribeLogs)
+                    {
+                        logLines.Add(line.ToString());
+                    }
+                 
+                    Logs = logLines.ToArray();
+
+                }
+            }
 
         }
 
