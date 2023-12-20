@@ -186,7 +186,7 @@ namespace ARKViewer
 
                         if (localFilename.ToLower() == Program.ProgramConfig.SelectedFile.ToLower())
                         {
-                            rconServerPassword = i.RCONServerIP;
+                            rconServerAddress = i.RCONServerIP;
                             rconServerPassword = i.RCONPassword;
                             rconServerPort = i.RCONPort;
                             break;
@@ -1178,6 +1178,11 @@ namespace ARKViewer
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboConsoleCommandsStructure.SelectedItem.ToString();
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
+
             if (commandTemplate != null && lvwStructureLocations.SelectedItems.Count > 0)
             {
                 foreach (ListViewItem selectedItem in lvwStructureLocations.SelectedItems)
@@ -1510,15 +1515,58 @@ namespace ARKViewer
             }
         }
 
+        private string GetItemSearchCommandText()
+        {
+            if (cboItemListCommand.SelectedItem == null) return string.Empty;
+            List<string> allCommands = new List<string>();
+
+            var commandTemplate = cboItemListCommand.SelectedItem.ToString();
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
+            if (commandTemplate != null && lvwItemList.SelectedItems.Count > 0)
+            {
+
+                foreach (ListViewItem selectedItem in lvwItemList.SelectedItems)
+                {
+                    ContentItem droppedItem = (ContentItem)selectedItem.Tag;
+                    string commandText = commandTemplate;
+
+                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{droppedItem.X:0.00}"));
+                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{droppedItem.Y:0.00}"));
+                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{droppedItem.Z + 100:0.00}"));
+
+                    switch (Program.ProgramConfig.CommandPrefix)
+                    {
+                        case 1:
+                            commandText = $"admincheat {commandText}";
+
+                            break;
+                        case 2:
+                            commandText = $"cheat {commandText}";
+                            break;
+                    }
+
+                    if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
+
+                }
+            }
+
+            return string.Join('|', allCommands.ToArray());
+        }
+
         private string GetPlayerCommandText()
         {
-
-
 
             if (cboConsoleCommandsPlayerTribe.SelectedItem == null) return string.Empty;
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboConsoleCommandsPlayerTribe.SelectedItem.ToString();
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
             if (commandTemplate != null && lvwPlayers.SelectedItems.Count > 0)
             {
                 if (commandTemplate.Contains("<FileCsvList>"))
@@ -1604,6 +1652,11 @@ namespace ARKViewer
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboConsoleCommandsWild.SelectedItem.ToString();
+            if(commandTemplate!=null &!commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
+
             if (commandTemplate != null && lvwWildDetail.SelectedItems.Count > 0)
             {
 
@@ -1708,6 +1761,11 @@ namespace ARKViewer
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboConsoleCommandsTamed.SelectedItem.ToString();
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
+
             if (commandTemplate != null && lvwTameDetail.SelectedItems.Count > 0)
             {
 
@@ -1987,6 +2045,10 @@ namespace ARKViewer
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboCopyCommandDropped.SelectedItem.ToString();
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
             if (commandTemplate != null && lvwDroppedItems.SelectedItems.Count > 0)
             {
 
@@ -2192,6 +2254,11 @@ namespace ARKViewer
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboTribeCopyCommand.SelectedItem.ToString();
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
+
             if (commandTemplate != null && lvwTribes.SelectedItems.Count > 0)
             {
                 if (commandTemplate.Contains("<FileCsvList>"))
@@ -3307,35 +3374,23 @@ namespace ARKViewer
 
         private void btnItemListCommand_Click(object sender, EventArgs e)
         {
-            if (cboItemListCommand.SelectedItem == null) return;
-
-            var commandText = cboItemListCommand.SelectedItem.ToString();
-            if (commandText != null)
+            string commandText = GetItemSearchCommandText();
+            if (commandText.Length > 0)
             {
-
-                ListViewItem selectedItem = lvwItemList.SelectedItems[0];
-                ASVFoundItem droppedItem = (ASVFoundItem)selectedItem.Tag;
-                commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{droppedItem.X:0.00}"));
-                commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{droppedItem.Y:0.00}"));
-                commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{droppedItem.Z + 100:0.00}"));
-
-                switch (Program.ProgramConfig.CommandPrefix)
-                {
-                    case 1:
-                        commandText = $"admincheat {commandText}";
-
-                        break;
-                    case 2:
-                        commandText = $"cheat {commandText}";
-                        break;
-                }
-
+                Clipboard.Clear();
                 Clipboard.SetText(commandText);
 
                 lblStatus.Text = $"Command copied:  {commandText}";
                 lblStatus.Refresh();
 
             }
+            else
+            {
+                lblStatus.Text = "Unable to parse selected copy command.";
+                lblStatus.Refresh();
+            }
+
+
         }
 
         private void cboSelectedMap_SelectedIndexChanged(object sender, EventArgs e)
@@ -8609,6 +8664,10 @@ namespace ARKViewer
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboConsoleCommandPainting.SelectedItem.ToString();
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
+            {
+                return commandTemplate;
+            }
             if (commandTemplate != null && lvwPlayerPaintings.SelectedItems.Count > 0)
             {
                 if (commandTemplate.Contains("<FileCsvList>"))
