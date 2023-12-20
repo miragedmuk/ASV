@@ -6506,6 +6506,7 @@ namespace ARKViewer
 
 
                         item.SubItems.Add(detail.Gender.ToString());
+                        item.SubItems.Add(detail.Maturation.ToString("f1"));
                         item.SubItems.Add(detail.BaseLevel.ToString());
                         item.SubItems.Add(detail.Level.ToString());
                         item.SubItems.Add(((decimal)(detail.Latitude.GetValueOrDefault(0))).ToString("0.00"));
@@ -6815,6 +6816,8 @@ namespace ARKViewer
 
 
                     item.SubItems.Add(detail.Gender.ToString());
+                    item.SubItems.Add(detail.Maturation.ToString("f1"));
+
                     item.SubItems.Add(detail.BaseLevel.ToString());
                     item.SubItems.Add(detail.BaseLevel.ToString());
                     item.SubItems.Add(((decimal)detail.Latitude).ToString("0.00"));
@@ -8470,7 +8473,7 @@ namespace ARKViewer
         private void lvwPlayerPaintings_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadPaintingDetails();
-            btnConsoleCommandPainting.Enabled =  cboConsoleCommandPainting.SelectedItem!=null && (!cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0);
+            btnConsoleCommandPainting.Enabled = cboConsoleCommandPainting.SelectedItem != null && (!cboConsoleCommandPainting.Text.Contains("<") || lvwPlayerPaintings.SelectedItems.Count > 0);
 
         }
 
@@ -8513,7 +8516,7 @@ namespace ARKViewer
         {
             if (cm == null) return;
 
-            if(MessageBox.Show("This action will attempt to identify and .pnt files not referenced in the game save.\n\nIt will then move these files into a sub-folder named 'Removed' for you to delete yourself.", "Please Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            if (MessageBox.Show("This action will attempt to identify and .pnt files not referenced in the game save.\n\nIt will then move these files into a sub-folder named 'Removed' for you to delete yourself.", "Please Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 btnDeletePaintings.Enabled = false;
                 this.Cursor = Cursors.WaitCursor;
@@ -8533,15 +8536,15 @@ namespace ARKViewer
                 var paintingCacheFolder = Path.Combine(Path.GetDirectoryName(cm.LoadedFilename), @$"ServerPaintingsCache\{cm.MapName.Replace(" ", "")}\"); //attempt to find map specific cache sub folder
                 if (!Directory.Exists(paintingCacheFolder))
                 {
-                    var firstPntFile = Directory.EnumerateFiles(Path.GetDirectoryName(cm.LoadedFilename), "*.pnt",SearchOption.AllDirectories).FirstOrDefault(); //attempt to find first pnt file from any location under save folder
-                    if(firstPntFile != null)
+                    var firstPntFile = Directory.EnumerateFiles(Path.GetDirectoryName(cm.LoadedFilename), "*.pnt", SearchOption.AllDirectories).FirstOrDefault(); //attempt to find first pnt file from any location under save folder
+                    if (firstPntFile != null)
                     {
                         paintingCacheFolder = Path.GetDirectoryName(firstPntFile); //use folder of first found .pnt file.
                     }
                     else
                     {
                         paintingCacheFolder = Path.GetDirectoryName(cm.LoadedFilename); //fallback to using the .ark save folder
-                    }                    
+                    }
                 }
 
                 var paintingBackupFolder = Path.Combine(paintingCacheFolder, @"Removed\");
@@ -8570,7 +8573,7 @@ namespace ARKViewer
                 lblStatus.Refresh();
 
                 btnDeletePaintings.Enabled = true;
-            }           
+            }
 
         }
 

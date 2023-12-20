@@ -39,7 +39,6 @@ namespace AsaSavegameToolkit
 
             ClassName = archive.ReadName();
 
-
             IsItem = archive.ReadBool();
 
             int nameCount = archive.ReadInt();
@@ -71,7 +70,11 @@ namespace AsaSavegameToolkit
         private void readProperties(AsaArchive archive)
         {
             long lastPropertyPosition = archive.Position;
-
+            if (archive.Position == archive.Limit)
+            { 
+                //No properties to read
+                return; 
+            }
 
             try
             {
@@ -83,6 +86,7 @@ namespace AsaSavegameToolkit
                     lastPropertyPosition = archive.Position;
                     Properties.Add(property);
                     property = AsaPropertyRegistry.ReadProperty(archive);
+
                 }
             }
             catch (Exception ex)

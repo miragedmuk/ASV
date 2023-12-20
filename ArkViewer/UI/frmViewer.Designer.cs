@@ -37,6 +37,7 @@ namespace ARKViewer
             lvwWildDetail = new System.Windows.Forms.ListView();
             lvwWildDetail_Name = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_Sex = new System.Windows.Forms.ColumnHeader();
+            colWildDetail_Mature = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_Base = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_Level = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_Lat = new System.Windows.Forms.ColumnHeader();
@@ -423,6 +424,7 @@ namespace ARKViewer
             lblMap = new System.Windows.Forms.Label();
             cboSelectedMap = new System.Windows.Forms.ComboBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
+            colTameDetail_Maturation = new System.Windows.Forms.ColumnHeader();
             mnuContext.SuspendLayout();
             tabFeatures.SuspendLayout();
             tpgWild.SuspendLayout();
@@ -466,7 +468,7 @@ namespace ARKViewer
             // lvwWildDetail
             // 
             lvwWildDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwWildDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwWildDetail_Name, lvwWildDetail_Sex, lvwWildDetail_Base, lvwWildDetail_Level, lvwWildDetail_Lat, lvwWildDetail_Lon, lvwWildDetail_HP, lvwWildDetail_Stam, lvwWildDetail_Melee, lvwWildDetail_Weight, lvwWildDetail_Speed, lvwWildDetail_Food, lvwWildDetail_Oxygen, lvwWildDetail_Craft, lvwWildDetail_Colour1, lvwWildDetail_Colour2, lvwWildDetail_Colour3, lvwWildDetail_Colour4, lvwWildDetail_Colour5, lvwWildDetail_Colour6, lvwWildDetail_Id, lvwWildDetail_Scale, lvwWildDetail_Rig1, lvwWildDetail_Rig2, lvwWildDetail_DinoId, lvwWildDetail_CCC });
+            lvwWildDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwWildDetail_Name, lvwWildDetail_Sex, colWildDetail_Mature, lvwWildDetail_Base, lvwWildDetail_Level, lvwWildDetail_Lat, lvwWildDetail_Lon, lvwWildDetail_HP, lvwWildDetail_Stam, lvwWildDetail_Melee, lvwWildDetail_Weight, lvwWildDetail_Speed, lvwWildDetail_Food, lvwWildDetail_Oxygen, lvwWildDetail_Craft, lvwWildDetail_Colour1, lvwWildDetail_Colour2, lvwWildDetail_Colour3, lvwWildDetail_Colour4, lvwWildDetail_Colour5, lvwWildDetail_Colour6, lvwWildDetail_Id, lvwWildDetail_Scale, lvwWildDetail_Rig1, lvwWildDetail_Rig2, lvwWildDetail_DinoId, lvwWildDetail_CCC });
             lvwWildDetail.ContextMenuStrip = mnuContext;
             lvwWildDetail.FullRowSelect = true;
             lvwWildDetail.Location = new System.Drawing.Point(13, 89);
@@ -489,6 +491,11 @@ namespace ARKViewer
             // 
             lvwWildDetail_Sex.Text = "Sex";
             lvwWildDetail_Sex.Width = 52;
+            // 
+            // colWildDetail_Mature
+            // 
+            colWildDetail_Mature.Text = "Mature";
+            colWildDetail_Mature.Width = 52;
             // 
             // lvwWildDetail_Base
             // 
@@ -1597,7 +1604,7 @@ namespace ARKViewer
             // lvwTameDetail
             // 
             lvwTameDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Tribe, lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Sex, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Mating, lvwTameDetail_Wandering, lvwTameDetail_Neutered, lvwTameDetail_Cryo, lvwTameDetail_Clone, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
+            lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Tribe, lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Sex, colTameDetail_Maturation, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Mating, lvwTameDetail_Wandering, lvwTameDetail_Neutered, lvwTameDetail_Cryo, lvwTameDetail_Clone, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
             lvwTameDetail.ContextMenuStrip = mnuContext;
             lvwTameDetail.FullRowSelect = true;
             lvwTameDetail.Location = new System.Drawing.Point(13, 112);
@@ -4171,6 +4178,10 @@ namespace ARKViewer
             pictureBox1.TabIndex = 27;
             pictureBox1.TabStop = false;
             // 
+            // colTameDetail_Maturation
+            // 
+            colTameDetail_Maturation.Text = "Mature";
+            // 
             // frmViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -4659,6 +4670,8 @@ namespace ARKViewer
         private System.Windows.Forms.ComboBox cboPaintingStructure;
         private System.Windows.Forms.Label lblPaintingsCount;
         private System.Windows.Forms.PictureBox picPainting;
+        private System.Windows.Forms.ColumnHeader colWildDetail_Mature;
+        private System.Windows.Forms.ColumnHeader colTameDetail_Maturation;
     }
 }
 

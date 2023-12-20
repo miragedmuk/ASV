@@ -96,7 +96,7 @@ namespace ASVPack.Models
             TamedOnServerName = creatureObject.GetPropertyValue<string>("TamedOnServerName");
             TamerName = creatureObject.GetPropertyValue<string>("TamerString");
 
-            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID", 0, 0);
+            ImprintedPlayerId = (long)creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID", 0, 0);
             if (ImprintedPlayerId > 0 && statusObject!=null)
             {
                 ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
@@ -317,13 +317,13 @@ namespace ASVPack.Models
             TamedOnServerName = creatureObject.GetPropertyValue<string>("TamedOnServerName", 0, "") ?? "";
             TamerName = creatureObject.GetPropertyValue<string>("TamerString", 0, "") ?? "";
 
-            ImprintedPlayerId = creatureObject.GetPropertyValue<long>("ImprinterPlayerDataID", 0, 0);
-            if (ImprintedPlayerId > 0 && statusObject != null)
-            {
+            ImprintedPlayerId = (long)creatureObject.GetPropertyValue<ulong>("ImprinterPlayerDataID", 0, 0);
+            //if (ImprintedPlayerId > 0 && statusObject != null)
+            //{
                 ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
                 ImprinterName = creatureObject.GetPropertyValue<string>("ImprinterName", 0, "") ?? "";
-                TamerName = "";
-            }
+                if(!string.IsNullOrEmpty(ImprinterName)) TamerName = "";
+            //}
 
 
             IsCryo = false;

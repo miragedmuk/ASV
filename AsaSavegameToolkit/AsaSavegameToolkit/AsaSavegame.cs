@@ -35,6 +35,15 @@ namespace AsaSavegameToolkit
             }
         }
 
+        public AsaLocation? GetActorLocation(Guid id)
+        {
+            if(actorLocations.ContainsKey(id))
+            {
+                return actorLocations[id];
+            }
+            return null;
+        }
+
         public AsaGameObject? GetObjectByGuid(Guid guid)
         {
             try
@@ -300,9 +309,9 @@ namespace AsaSavegameToolkit
 
 
             ConcurrentDictionary<Guid,AsaGameObject> asaGameObjectDictionary = new ConcurrentDictionary<Guid, AsaGameObject>();
-//          ConcurrentBag<AsaGameObject> asaGameObjects = new ConcurrentBag<AsaGameObject>();
 
             Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
+            //foreach(var objectData in gameData) 
             {
                 using (var ms = new MemoryStream(objectData.Value))
                 {

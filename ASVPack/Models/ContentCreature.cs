@@ -35,7 +35,7 @@ namespace ASVPack.Models
         [DataMember] public float WildScale { get; set; } = 1;
         [DataMember] public string Rig1 { get; set; } = "";
         [DataMember] public string Rig2 { get; set; } = "";
-
+        [DataMember] public float Maturation { get; set; } = 100;
 
         public override bool Equals(object? obj)
         {
@@ -92,6 +92,10 @@ namespace ASVPack.Models
 
             IsNeutered = creatureObject.GetPropertyValue<bool>("bNeutered", 0, false);
             IsBaby = creatureObject.GetPropertyValue<bool>("bIsBaby", 0, false);
+            if (IsBaby)
+            {
+                Maturation = creatureObject.GetPropertyValue<float>("BabyAge", 0, 0) * 100;
+            }
 
             BaseStats = new byte[12] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             if (statusObject != null)
@@ -245,6 +249,10 @@ namespace ASVPack.Models
 
             IsNeutered = creatureObject.GetPropertyValue<bool>("bNeutered", 0, false);
             IsBaby = creatureObject.GetPropertyValue<bool>("bIsBaby", 0, false);
+            if (IsBaby)
+            {
+                Maturation = creatureObject.GetPropertyValue<float>("BabyAge", 0, 0) * 100;
+            }
 
             BaseStats = new byte[12] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             if(statusObject != null)

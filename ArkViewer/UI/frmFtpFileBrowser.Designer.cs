@@ -89,7 +89,7 @@ namespace ARKViewer
             lvwFileBrowser.LargeImageList = imagesFileBrowser;
             lvwFileBrowser.Location = new System.Drawing.Point(279, 66);
             lvwFileBrowser.Name = "lvwFileBrowser";
-            lvwFileBrowser.Size = new System.Drawing.Size(502, 306);
+            lvwFileBrowser.Size = new System.Drawing.Size(467, 314);
             lvwFileBrowser.SmallImageList = imagesFileBrowser;
             lvwFileBrowser.TabIndex = 15;
             lvwFileBrowser.UseCompatibleStateImageBehavior = false;
@@ -127,7 +127,7 @@ namespace ARKViewer
             btnSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
             btnSelect.Enabled = false;
             btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnSelect.Location = new System.Drawing.Point(718, 493);
+            btnSelect.Location = new System.Drawing.Point(683, 501);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new System.Drawing.Size(71, 23);
             btnSelect.TabIndex = 1;
@@ -140,9 +140,9 @@ namespace ARKViewer
             lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblStatus.ForeColor = System.Drawing.Color.DimGray;
-            lblStatus.Location = new System.Drawing.Point(21, 496);
+            lblStatus.Location = new System.Drawing.Point(21, 504);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new System.Drawing.Size(681, 20);
+            lblStatus.Size = new System.Drawing.Size(646, 20);
             lblStatus.TabIndex = 3;
             // 
             // optFtpModeSftp
@@ -305,7 +305,7 @@ namespace ARKViewer
             btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnClose.Location = new System.Drawing.Point(795, 493);
+            btnClose.Location = new System.Drawing.Point(760, 501);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(71, 23);
             btnClose.TabIndex = 2;
@@ -336,7 +336,7 @@ namespace ARKViewer
             grpFtpServer.Controls.Add(txtFTPPassword);
             grpFtpServer.Location = new System.Drawing.Point(26, 28);
             grpFtpServer.Name = "grpFtpServer";
-            grpFtpServer.Size = new System.Drawing.Size(802, 400);
+            grpFtpServer.Size = new System.Drawing.Size(767, 408);
             grpFtpServer.TabIndex = 0;
             grpFtpServer.TabStop = false;
             // 
@@ -373,7 +373,7 @@ namespace ARKViewer
             lblHeaderFtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblHeaderFtp.Location = new System.Drawing.Point(0, 0);
             lblHeaderFtp.Name = "lblHeaderFtp";
-            lblHeaderFtp.Size = new System.Drawing.Size(804, 6);
+            lblHeaderFtp.Size = new System.Drawing.Size(769, 6);
             lblHeaderFtp.TabIndex = 0;
             lblHeaderFtp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -385,7 +385,7 @@ namespace ARKViewer
             tabControl1.Location = new System.Drawing.Point(7, 10);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(866, 477);
+            tabControl1.Size = new System.Drawing.Size(831, 485);
             tabControl1.TabIndex = 0;
             // 
             // tpgFtp
@@ -394,7 +394,7 @@ namespace ARKViewer
             tpgFtp.Location = new System.Drawing.Point(4, 22);
             tpgFtp.Name = "tpgFtp";
             tpgFtp.Padding = new System.Windows.Forms.Padding(3);
-            tpgFtp.Size = new System.Drawing.Size(858, 451);
+            tpgFtp.Size = new System.Drawing.Size(823, 459);
             tpgFtp.TabIndex = 0;
             tpgFtp.Text = "FTP Server";
             tpgFtp.UseVisualStyleBackColor = true;
@@ -402,10 +402,10 @@ namespace ARKViewer
             // tpgRCON
             // 
             tpgRCON.Controls.Add(groupBox1);
-            tpgRCON.Location = new System.Drawing.Point(4, 22);
+            tpgRCON.Location = new System.Drawing.Point(4, 24);
             tpgRCON.Name = "tpgRCON";
             tpgRCON.Padding = new System.Windows.Forms.Padding(3);
-            tpgRCON.Size = new System.Drawing.Size(858, 451);
+            tpgRCON.Size = new System.Drawing.Size(858, 449);
             tpgRCON.TabIndex = 1;
             tpgRCON.Text = "RCON";
             tpgRCON.UseVisualStyleBackColor = true;
@@ -532,7 +532,7 @@ namespace ARKViewer
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             CancelButton = btnClose;
-            ClientSize = new System.Drawing.Size(879, 525);
+            ClientSize = new System.Drawing.Size(844, 533);
             Controls.Add(tabControl1);
             Controls.Add(btnClose);
             Controls.Add(lblStatus);

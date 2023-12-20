@@ -1,4 +1,5 @@
 ﻿using AsaSavegameToolkit;
+using AsaSavegameToolkit.Structs;
 using AsaSavegameToolkit.Types;
 using ASVPack.Extensions;
 using ICSharpCode.SharpZipLib.Zip;
@@ -12,6 +13,7 @@ using SavegameToolkitAdditions;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO.Compression;
@@ -1786,7 +1788,6 @@ namespace ASVPack.Models
             arkSavegame.Read(saveFilename);
             OnUpdateProgress?.Invoke("ARK save file loaded. Analysing and parsing data...");
 
-
             long endTicks = DateTime.Now.Ticks;
             TimeSpan timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
             logWriter.Info($"Game data loaded in: {timeTaken.ToString(@"mm\:ss")}.");
@@ -1800,10 +1801,9 @@ namespace ASVPack.Models
 
             //read game time and file datetime
             FileInfo fileInfo = new FileInfo(saveFilename);
-            DateTime fileTimestamp =  fileInfo.CreationTimeUtc;
+            DateTime fileTimestamp =  fileInfo.LastWriteTimeUtc;
             GameSeconds = (float)arkSavegame.GameTime;
             GameSaveTime = fileTimestamp.ToUniversalTime();
-
 
             startTicks = DateTime.Now.Ticks;
 
@@ -2112,43 +2112,34 @@ namespace ASVPack.Models
             }
 
             var gamePlayers = arkSavegame.Objects.Where(o => o.IsPlayer() & !o.HasAnyProperty("MyDeathHarvestingComponent")).GroupBy(x => x.GetPropertyValue<long>("LinkedPlayerDataID")).Select(x => x.First()).ToList();
-            var tribesAndPlayers = gamePlayers.GroupBy(x => x.GetPropertyValue<int>("TargetingTeam")).ToList();
-
-            var abandonedGamePlayers = tribesAndPlayers.Where(x => !fileTribes.Any(t => t.TribeId == (long)x.Key) & !fileProfiles.Any(p => p.Id == (long)x.Key)).ToList();
-            if (abandonedGamePlayers != null && abandonedGamePlayers.Count > 0)
+            var playersWithNoProfile = gamePlayers.Where(p => !fileProfiles.Any(f => Guid.Parse(f.NetworkId) == p.Guid)).ToList();
+            foreach(var playerObject in playersWithNoProfile)
             {
-                abandonedGamePlayers.AsParallel().ForAll(abandonedTribe =>
+                AsaObjectReference? playerStatusRef = playerObject.GetPropertyValue<AsaObjectReference?>("MyCharacterStatusComponent", 0, null);
+                if (playerStatusRef != null)
                 {
-                    var abandonedPlayers = abandonedTribe.ToList();
-                    var newTribe = new ContentTribe()
+                    var playerStatusComp = arkSavegame.GetObjectByGuid(Guid.Parse(playerStatusRef.Value));
+                    var contentPlayer = playerObject.AsPlayer(playerStatusComp);
+                    if (contentPlayer != null)
                     {
-                        IsSolo = abandonedPlayers.Count == 1,
-                        HasGameFile = false,
-                        TribeId = abandonedTribe.Key,
-                        TribeName = abandonedTribe.First().GetPropertyValue<string>("TribeName") ?? "Tribe of " + abandonedTribe.First().GetPropertyValue<string>("PlayerName")
-                    };
-
-
-                    abandonedPlayers.ForEach(x => 
-                    {
-                        AsaObjectReference? playerStatusRef = x.GetPropertyValue<AsaObjectReference?>("MyCharacterStatusComponent", 0, null);
-                        if(playerStatusRef!=null)
+                        AsaLocation? playerLocation = arkSavegame.GetActorLocation(playerObject.Guid);
+                        if(playerLocation != null)
                         {
-                            var playerStatusComp = arkSavegame.GetObjectByGuid(Guid.Parse(playerStatusRef.Value));
-                            var contentPlayer = x.AsPlayer(playerStatusComp);    
-                            newTribe.Players.Add(contentPlayer);
+                            contentPlayer.Latitude = (float)((float)LoadedMap.LatShift + (playerLocation.Y / (float)LoadedMap.LatDiv));
+                            contentPlayer.Longitude = (float)((float)LoadedMap.LonShift + (playerLocation.X / (float)LoadedMap.LonDiv));
                         }
 
-                        
-                    });
-                    
-                    
 
-                    fileTribes.Add(newTribe);
+                        ContentTribe? playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == contentPlayer.TargetingTeam);
+                        if (playerTribe != null)
+                        {
+                            playerTribe.Players.Add(contentPlayer);
+                        }
+
+                        fileProfiles.Add(contentPlayer);
+                    }
                 }
-                );
             }
-
 
             //attempt to get missing tribe data from structures
             var missingStructureTribes = tribeStructures.AsParallel()
@@ -2503,20 +2494,18 @@ namespace ASVPack.Models
 
 
                 if (x.HasAnyProperty("SelectedResourceClass"))
+                
                 {
-                    //dedicated storage
-                    /*
-                    var itemClass = x.GetPropertyValue<ObjectReference>("SelectedResourceClass").ObjectString.Name;
-                    itemClass = itemClass.Substring(itemClass.LastIndexOf(".") + 1);
+                    AsaObjectReference itemReference = x.GetPropertyValue<AsaObjectReference>("SelectedResourceClass", 0, null);
+                    var itemClass = itemReference.Value;
 
                     ContentItem item = new ContentItem();
                     item.ClassName = itemClass;
-                    item.Quantity = x.GetPropertyValue<int>("ResourceCount");
+                    item.Quantity = x.GetPropertyValue<int>("ResourceCount",0,0);
                     item.Rating = 0;
-                    item.OwnerPlayerId = x.GetPropertyValue<int>("OwningPlayerID");
+                    item.OwnerPlayerId = x.GetPropertyValue<int?>("OwningPlayerID",0,null)?? x.GetPropertyValue<int?>("OriginalPlacerPlayerID", 0, null)??0;
 
                     if (item.Quantity != 0) inventoryItems.Add(item);
-                    */
                 }
 
                 if (x.GetPropertyValue<AsaObjectReference>("MyInventoryComponent") != null)
@@ -2525,7 +2514,6 @@ namespace ASVPack.Models
                     Guid inventoryId = Guid.Parse(inventoryRefId);
                     AsaGameObject? inventoryComponent = arkSavegame.GetObjectByGuid(inventoryId);
 
-                    ConcurrentBag<ContentItem> structureInventoryItems = new ConcurrentBag<ContentItem>();
                     if (inventoryComponent != null)
                     {
                         List<dynamic>? inventoryItemsArray = inventoryComponent.GetPropertyValue<dynamic>("InventoryItems", 0, null);
@@ -2542,7 +2530,7 @@ namespace ASVPack.Models
                                     if (!item.IsEngram)
                                     {
 
-                                        structureInventoryItems.Add(item);
+                                        inventoryItems.Add(item);
 
                                     }
                                 }
@@ -2551,8 +2539,8 @@ namespace ASVPack.Models
                         }
                     }
 
-                    structure.Inventory = new ContentInventory() { Items = structureInventoryItems.ToList() };
-                    structureInventoryItems.Clear();
+                    structure.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
+                    inventoryItems.Clear();
 
                 }
 
@@ -2616,7 +2604,7 @@ namespace ASVPack.Models
                 droppedItem.ClassName = x.ClassString;
                 droppedItem.IsDeathCache = true;
                 droppedItem.DroppedByTribeId = x.GetPropertyValue<int>("TargetingTeam", 0, 0);
-                droppedItem.DroppedByPlayerId = x.GetPropertyValue<long>("LinkedPlayerDataID", 0, 0);
+                droppedItem.DroppedByPlayerId = (long)x.GetPropertyValue<ulong>("LinkedPlayerDataID", 0, 0);
                 droppedItem.DroppedByName = x.GetPropertyValue<string>("PlayerName", 0, "")??"<Unknown>";
                 droppedItem.Latitude = (float)LoadedMap.LatShift + (droppedItem.Y / (float)LoadedMap.LatDiv);
                 droppedItem.Longitude = (float)LoadedMap.LonShift + (droppedItem.X / (float)LoadedMap.LonDiv);
@@ -2761,7 +2749,6 @@ namespace ASVPack.Models
             allTames.Clear();
             playerStructures.Clear();
             tribeStructures.Clear();
-            tribesAndPlayers.Clear();
             tribesWithPlayers.Clear();
             fileTribes?.Clear();
             fileProfiles.Clear();

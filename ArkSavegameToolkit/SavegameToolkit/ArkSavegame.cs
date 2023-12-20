@@ -139,67 +139,81 @@ namespace SavegameToolkit
                                         
                                     }
 
-                                    var creatureObject = storedGameObjects[0];
-                                    var statusObject = storedGameObjects.First(o=>o.ClassString.Contains("DinoCharacterStatus"));
-
-                                    // assume the first object is the creature object
-                                    string creatureActorId = creatureObject.Names[0].ToString();
-
-                                    if (storedPod.ClassString.Contains("Vivarium"))
+                                    if(storedGameObjects!=null && storedGameObjects.Count > 0) 
                                     {
-                                        //vivarium
-                                        creatureObject.IsInVivarium = true;
-                                    }
-                                    else
-                                    {
-                                        creatureObject.IsInCryo = true;
-                                    }
-
-                                    // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
-                                    if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
-                                        creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
-
-
-
-                                    //get parent of cryopod owner inventory
-                                    var podParentRef = storedPod.GetPropertyValue<ObjectReference>("OwnerInventory");
-                                    if (podParentRef != null)
-                                    {
-                                        var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
-
-                                        //determine if we need to re-team the podded animal
-                                        if (podParent != null)
+                                        var creatureObject = storedGameObjects[0];
+                                        GameObject statusObject = storedGameObjects.FirstOrDefault(o => o.ClassString.Contains("DinoCharacterStatus"));
+                                        if (statusObject == null)
                                         {
-                                            if (podParent.ClassString.Contains("_Vivarium"))
+                                            statusObject = storedGameObjects.FirstOrDefault(o => o.ClassString.Contains("status"));
+                                        }
+
+                                        if(statusObject!= null)
+                                        {
+
+                                            // assume the first object is the creature object
+                                            string creatureActorId = creatureObject.Names[0].ToString();
+
+                                            if (storedPod.ClassString.Contains("Vivarium"))
                                             {
-                                                creatureObject.IsInCryo = false;
+                                                //vivarium
                                                 creatureObject.IsInVivarium = true;
                                             }
-
-                                            creatureObject.Location = podParent.Location;
-
-                                            int obTeam = creatureObject.GetPropertyValue<int>("TargetingTeam");
-                                            int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
-                                            if (obTeam != containerTeam)
+                                            else
                                             {
-                                                var propertyIndex = creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam");
-                                                if (propertyIndex != -1)
-                                                {
-                                                    creatureObject.Properties.RemoveAt(propertyIndex);
-                                                }
-                                                creatureObject.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
-
-
-                                                if (creatureObject.HasAnyProperty("TamingTeamID"))
-                                                {
-                                                    creatureObject.Properties.RemoveAt(creatureObject.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
-                                                    creatureObject.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
-                                                }
-
+                                                creatureObject.IsInCryo = true;
                                             }
+
+                                            // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
+                                            if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
+                                                creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
+
+
+
+                                            //get parent of cryopod owner inventory
+                                            var podParentRef = storedPod.GetPropertyValue<ObjectReference>("OwnerInventory");
+                                            if (podParentRef != null)
+                                            {
+                                                var podParent = inventoryContainers.FirstOrDefault(o => o.GetPropertyValue<ObjectReference>("MyInventoryComponent")?.ObjectId == podParentRef.ObjectId);
+
+                                                //determine if we need to re-team the podded animal
+                                                if (podParent != null)
+                                                {
+                                                    if (podParent.ClassString.Contains("_Vivarium"))
+                                                    {
+                                                        creatureObject.IsInCryo = false;
+                                                        creatureObject.IsInVivarium = true;
+                                                    }
+
+                                                    creatureObject.Location = podParent.Location;
+
+                                                    int obTeam = creatureObject.GetPropertyValue<int>("TargetingTeam");
+                                                    int containerTeam = podParent.GetPropertyValue<int>("TargetingTeam");
+                                                    if (obTeam != containerTeam)
+                                                    {
+                                                        var propertyIndex = creatureObject.Properties.FindIndex(i => i.NameString == "TargetingTeam");
+                                                        if (propertyIndex != -1)
+                                                        {
+                                                            creatureObject.Properties.RemoveAt(propertyIndex);
+                                                        }
+                                                        creatureObject.Properties.Add(new PropertyInt("TargetingTeam", containerTeam));
+
+
+                                                        if (creatureObject.HasAnyProperty("TamingTeamID"))
+                                                        {
+                                                            creatureObject.Properties.RemoveAt(creatureObject.Properties.FindIndex(i => i.NameString == "TamingTeamID"));
+                                                            creatureObject.Properties.Add(new PropertyInt("TamingTeamID", containerTeam));
+                                                        }
+
+                                                    }
+                                                }
+                                            }
+                                            cbStored.Add(new Tuple<GameObject, GameObject>(creatureObject, statusObject));
+
                                         }
                                     }
-                                    cbStored.Add(new Tuple<GameObject, GameObject>(creatureObject, statusObject));
+
+                                    
                                 }
 
                             }
