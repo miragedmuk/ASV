@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <StartupObject>ASVExport.Program</StartupObject>
-    <AssemblyVersion>5.0.0.0</AssemblyVersion>
-    <FileVersion>5.0.0.0</FileVersion>
+    <AssemblyVersion>5.0.0.5</AssemblyVersion>
+    <FileVersion>5.0.0.5</FileVersion>
     <BaseOutputPath>c:\temp\ASV\</BaseOutputPath>
     <ApplicationIcon>asvexporticon.ico</ApplicationIcon>
   </PropertyGroup>

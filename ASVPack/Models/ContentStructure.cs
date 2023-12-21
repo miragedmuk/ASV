@@ -30,7 +30,7 @@ namespace ASVPack.Models
         [DataMember] public long TargetingTeam { get; set; } = 0;
 
         [DataMember] public double CreatedTimeInGame { get; set; } = 0;
-        public DateTime? CreatedDateTime { get; internal set; }
+        [DataMember] public DateTime? CreatedDateTime { get; internal set; }
 
         [DataMember] public bool HasDecayTimeReset { get; set; } = false;
         [DataMember] public double LastAllyInRangeTimeInGame { get; set; } = 0;

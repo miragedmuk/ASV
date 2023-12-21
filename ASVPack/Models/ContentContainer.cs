@@ -1421,10 +1421,15 @@ namespace ASVPack.Models
                         structure.Latitude = (float)LoadedMap.LatShift + (structure.Y / (float)LoadedMap.LatDiv);
                         structure.Longitude = (float)LoadedMap.LonShift + (structure.X / (float)LoadedMap.LonDiv);
 
-
-                        structure.CreatedDateTime = GetApproxDateTimeOf(structure.CreatedTimeInGame);
-                        structure.LastAllyInRangeTime = GetApproxDateTimeOf(structure.LastAllyInRangeTimeInGame);
-
+                        if (structure.CreatedTimeInGame > 0)
+                        {
+                            structure.CreatedDateTime = GetApproxDateTimeOf(structure.CreatedTimeInGame);
+                        }
+                        if (structure.LastAllyInRangeTimeInGame > 0)
+                        {
+                            structure.LastAllyInRangeTime = GetApproxDateTimeOf(structure.LastAllyInRangeTimeInGame);
+                        }
+                        
                         var paintingRef = x.GetPropertyValue<ObjectReference?>("PaintingComponent", 0, null);
                         if (paintingRef != null)
                         {
@@ -1926,7 +1931,7 @@ namespace ASVPack.Models
 
                             ConcurrentBag<ContentItem> inventoryItems = new ConcurrentBag<ContentItem>();
 
-                            AsaGameObject paintingComponent = null;
+                            AsaGameObject? paintingComponent = null;
                             AsaObjectReference? paintingRef = s.GetPropertyValue<AsaObjectReference?>("PaintingComponent", 0, null);
                             if (paintingRef != null)
                             {
@@ -2475,19 +2480,22 @@ namespace ASVPack.Models
                 structure.Longitude = (float)LoadedMap.LonShift + (structure.X / (float)LoadedMap.LonDiv);
 
 
-                structure.CreatedDateTime = GetApproxDateTimeOf(structure.CreatedTimeInGame);
-                structure.LastAllyInRangeTime = GetApproxDateTimeOf(structure.LastAllyInRangeTimeInGame);
 
-                var paintingRef = x.GetPropertyValue<ObjectReference?>("PaintingComponent", 0, null);
+                structure.CreatedDateTime = GetApproxDateTimeOf(structure.CreatedTimeInGame);
+                if (structure.LastAllyInRangeTimeInGame != 0)
+                {
+                    structure.LastAllyInRangeTime = GetApproxDateTimeOf(structure.LastAllyInRangeTimeInGame);
+                }
+
+
+                AsaGameObject? paintingComponent = null;
+                AsaObjectReference? paintingRef = x.GetPropertyValue<AsaObjectReference?>("PaintingComponent", 0, null);
                 if (paintingRef != null)
                 {
-
-                    AsaObjectReference? paintingComp = null; // objectContainer.Objects.FirstOrDefault(p => p.Id == paintingRef.ObjectId);
-                    if (paintingComp != null)
-                    {
-                        //structure.UniquePaintingId = paintingComp.GetPropertyValue<int>("UniquePaintingId", 0, 0);
-                    }
+                    paintingComponent = arkSavegame.Objects.First(o => o.Guid.ToString() == paintingRef.Value);
+                    structure.UniquePaintingId = paintingComponent.GetPropertyValue<int>("UniquePaintingId", 0, 0);
                 }
+
 
                 //inventory
                 logWriter.Debug($"Determining inventory status for: {structure.ClassName}");
@@ -2769,7 +2777,7 @@ namespace ASVPack.Models
         {
             try
             {
-                return objectTime.HasValue
+                return objectTime.HasValue && objectTime.Value!=0
                 && GameSeconds > 0 ? GameSaveTime.AddSeconds(objectTime.Value - GameSeconds) : (DateTime?)null;
             }
             catch

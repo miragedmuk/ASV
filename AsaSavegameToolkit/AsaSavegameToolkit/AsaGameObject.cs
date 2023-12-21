@@ -30,7 +30,7 @@ namespace AsaSavegameToolkit
         public List<AsaProperty<dynamic>> Properties { get; private set; } = new List<AsaProperty<dynamic>>();
         public readonly Dictionary<AsaName, AsaGameObject> Components = new Dictionary<AsaName, AsaGameObject>();
         public IEnumerable<AsaName> ParentNames => Names.Skip(1).ToList();
-
+        public int DataFileIndex { get; private set; } = 0;
 
 
         public AsaGameObject(Guid objectId, AsaArchive archive)
@@ -48,12 +48,7 @@ namespace AsaSavegameToolkit
                 Names.Add(archive.ReadName());
             }
 
-            var shouldBeZero = archive.ReadInt();
-            if (shouldBeZero != 0)
-            {
-                return;
-            }
-
+            DataFileIndex = archive.ReadInt();
             archive.SkipBytes(1);
 
             //readproperties

@@ -54,27 +54,96 @@ namespace ARKViewer
             lblMapTypeName = new System.Windows.Forms.Label();
             lblVersion = new System.Windows.Forms.Label();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
+            btnConsoleCommandPainting = new System.Windows.Forms.Button();
+            btnDeletePaintings = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
+            chkItemSearchBlueprints = new System.Windows.Forms.CheckBox();
+            btnFindSearched = new System.Windows.Forms.Button();
+            chkItemSearchUploads = new System.Windows.Forms.CheckBox();
+            btnCopyCommandDropped = new System.Windows.Forms.Button();
+            btnDropInventory = new System.Windows.Forms.Button();
+            chkDroppedBlueprints = new System.Windows.Forms.CheckBox();
+            btnFindDropped = new System.Windows.Forms.Button();
+            btnPlayerInventory = new System.Windows.Forms.Button();
+            btnPlayerTribeLog = new System.Windows.Forms.Button();
+            btnCopyCommandPlayer = new System.Windows.Forms.Button();
+            btnDeletePlayer = new System.Windows.Forms.Button();
+            btnFilterPlayer = new System.Windows.Forms.Button();
+            btnRconCommandPlayers = new System.Windows.Forms.Button();
+            btnTribeLog = new System.Windows.Forms.Button();
+            btnTribeCopyCommand = new System.Windows.Forms.Button();
+            chkTribePlayers = new System.Windows.Forms.CheckBox();
+            chkTribeTames = new System.Windows.Forms.CheckBox();
+            chkTribeStructures = new System.Windows.Forms.CheckBox();
+            btnSaveChartImage = new System.Windows.Forms.Button();
+            btnFilterTribe = new System.Windows.Forms.Button();
+            btnRconCommandTribes = new System.Windows.Forms.Button();
+            btnStructureExclusionFilter = new System.Windows.Forms.Button();
+            btnCopyCommandStructure = new System.Windows.Forms.Button();
+            btnStructureInventory = new System.Windows.Forms.Button();
+            btnFindStructures = new System.Windows.Forms.Button();
+            btnRconCommandStructures = new System.Windows.Forms.Button();
+            btnDinoInventory = new System.Windows.Forms.Button();
+            btnDinoAncestors = new System.Windows.Forms.Button();
+            btnCopyCommandTamed = new System.Windows.Forms.Button();
+            chkCryo = new System.Windows.Forms.CheckBox();
+            btnFindTamed = new System.Windows.Forms.Button();
+            chkTameUploads = new System.Windows.Forms.CheckBox();
+            btnRconCommandTamed = new System.Windows.Forms.Button();
+            btnCopyCommandWild = new System.Windows.Forms.Button();
+            btnFindWild = new System.Windows.Forms.Button();
+            btnRconCommandWild = new System.Windows.Forms.Button();
             lblMap = new System.Windows.Forms.Label();
             cboSelectedMap = new System.Windows.Forms.ComboBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             linkLabel1 = new System.Windows.Forms.LinkLabel();
             tpgLeaderboard = new System.Windows.Forms.TabPage();
-            lblLeaderboardTribe = new System.Windows.Forms.Label();
-            cboLeaderboardTribe = new System.Windows.Forms.ComboBox();
-            lblLeaderboardMission = new System.Windows.Forms.Label();
-            cboLeaderboardMission = new System.Windows.Forms.ComboBox();
+            cboLeaderboardPlayer = new System.Windows.Forms.ComboBox();
+            lblMissionPlayer = new System.Windows.Forms.Label();
+            lvwLeaderboardSummary = new System.Windows.Forms.ListView();
+            columnHeader32 = new System.Windows.Forms.ColumnHeader();
+            columnHeader35 = new System.Windows.Forms.ColumnHeader();
+            columnHeader36 = new System.Windows.Forms.ColumnHeader();
             lvwLeaderboard = new System.Windows.Forms.ListView();
             lvwLeaderboard_Mission = new System.Windows.Forms.ColumnHeader();
             lvwLeaderboard_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwLeaderboard_Player = new System.Windows.Forms.ColumnHeader();
             lvwLeaderboard_Score = new System.Windows.Forms.ColumnHeader();
-            lvwLeaderboardSummary = new System.Windows.Forms.ListView();
-            columnHeader32 = new System.Windows.Forms.ColumnHeader();
-            columnHeader35 = new System.Windows.Forms.ColumnHeader();
-            columnHeader36 = new System.Windows.Forms.ColumnHeader();
-            lblMissionPlayer = new System.Windows.Forms.Label();
-            cboLeaderboardPlayer = new System.Windows.Forms.ComboBox();
+            cboLeaderboardMission = new System.Windows.Forms.ComboBox();
+            lblLeaderboardMission = new System.Windows.Forms.Label();
+            cboLeaderboardTribe = new System.Windows.Forms.ComboBox();
+            lblLeaderboardTribe = new System.Windows.Forms.Label();
             tpgLocalProfile = new System.Windows.Forms.TabPage();
+            pnlUploadedStats = new System.Windows.Forms.Panel();
+            lblUploadedStats = new System.Windows.Forms.Label();
+            optUploadedStatsTamed = new System.Windows.Forms.RadioButton();
+            optUploadedStatsBase = new System.Windows.Forms.RadioButton();
+            lblUploadedCountItems = new System.Windows.Forms.Label();
+            lblUploadedCountTames = new System.Windows.Forms.Label();
+            lblUploadedCountCharacters = new System.Windows.Forms.Label();
+            lblUploadedItems = new System.Windows.Forms.Label();
+            lvwUploadedItems = new System.Windows.Forms.ListView();
+            columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            columnHeader9 = new System.Windows.Forms.ColumnHeader();
+            columnHeader18 = new System.Windows.Forms.ColumnHeader();
+            columnHeader19 = new System.Windows.Forms.ColumnHeader();
+            columnHeader22 = new System.Windows.Forms.ColumnHeader();
+            lblUploadedTames = new System.Windows.Forms.Label();
+            lblUploadedCharacters = new System.Windows.Forms.Label();
+            lvwUploadedCharacters = new System.Windows.Forms.ListView();
+            columnHeader37 = new System.Windows.Forms.ColumnHeader();
+            columnHeader39 = new System.Windows.Forms.ColumnHeader();
+            columnHeader40 = new System.Windows.Forms.ColumnHeader();
+            columnHeader43 = new System.Windows.Forms.ColumnHeader();
+            columnHeader44 = new System.Windows.Forms.ColumnHeader();
+            columnHeader45 = new System.Windows.Forms.ColumnHeader();
+            columnHeader46 = new System.Windows.Forms.ColumnHeader();
+            columnHeader47 = new System.Windows.Forms.ColumnHeader();
+            columnHeader48 = new System.Windows.Forms.ColumnHeader();
+            columnHeader49 = new System.Windows.Forms.ColumnHeader();
+            columnHeader50 = new System.Windows.Forms.ColumnHeader();
+            columnHeader51 = new System.Windows.Forms.ColumnHeader();
+            columnHeader52 = new System.Windows.Forms.ColumnHeader();
             lvwUploadedTames = new System.Windows.Forms.ListView();
             columnHeader1 = new System.Windows.Forms.ColumnHeader();
             columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -101,58 +170,35 @@ namespace ARKViewer
             columnHeader30 = new System.Windows.Forms.ColumnHeader();
             columnHeader33 = new System.Windows.Forms.ColumnHeader();
             columnHeader34 = new System.Windows.Forms.ColumnHeader();
-            lvwUploadedCharacters = new System.Windows.Forms.ListView();
-            columnHeader37 = new System.Windows.Forms.ColumnHeader();
-            columnHeader39 = new System.Windows.Forms.ColumnHeader();
-            columnHeader40 = new System.Windows.Forms.ColumnHeader();
-            columnHeader43 = new System.Windows.Forms.ColumnHeader();
-            columnHeader44 = new System.Windows.Forms.ColumnHeader();
-            columnHeader45 = new System.Windows.Forms.ColumnHeader();
-            columnHeader46 = new System.Windows.Forms.ColumnHeader();
-            columnHeader47 = new System.Windows.Forms.ColumnHeader();
-            columnHeader48 = new System.Windows.Forms.ColumnHeader();
-            columnHeader49 = new System.Windows.Forms.ColumnHeader();
-            columnHeader50 = new System.Windows.Forms.ColumnHeader();
-            columnHeader51 = new System.Windows.Forms.ColumnHeader();
-            columnHeader52 = new System.Windows.Forms.ColumnHeader();
-            lblUploadedCharacters = new System.Windows.Forms.Label();
-            lblUploadedTames = new System.Windows.Forms.Label();
-            lvwUploadedItems = new System.Windows.Forms.ListView();
-            columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            columnHeader9 = new System.Windows.Forms.ColumnHeader();
-            columnHeader18 = new System.Windows.Forms.ColumnHeader();
-            columnHeader19 = new System.Windows.Forms.ColumnHeader();
-            columnHeader22 = new System.Windows.Forms.ColumnHeader();
-            lblUploadedItems = new System.Windows.Forms.Label();
-            lblUploadedCountCharacters = new System.Windows.Forms.Label();
-            lblUploadedCountTames = new System.Windows.Forms.Label();
-            lblUploadedCountItems = new System.Windows.Forms.Label();
-            pnlUploadedStats = new System.Windows.Forms.Panel();
-            optUploadedStatsBase = new System.Windows.Forms.RadioButton();
-            optUploadedStatsTamed = new System.Windows.Forms.RadioButton();
-            lblUploadedStats = new System.Windows.Forms.Label();
             tpgPaintings = new System.Windows.Forms.TabPage();
             splitContainer2 = new System.Windows.Forms.SplitContainer();
-            picPainting = new System.Windows.Forms.PictureBox();
-            btnConsoleCommandPainting = new System.Windows.Forms.Button();
-            lblCopyCommandPaintings = new System.Windows.Forms.Label();
-            cboPaintingStructure = new System.Windows.Forms.ComboBox();
-            cboConsoleCommandPainting = new System.Windows.Forms.ComboBox();
-            lblStructurePainting = new System.Windows.Forms.Label();
-            cboPaintingTribe = new System.Windows.Forms.ComboBox();
+            lblPaintingsCount = new System.Windows.Forms.Label();
+            panel1 = new System.Windows.Forms.Panel();
+            textBox1 = new System.Windows.Forms.TextBox();
+            lblPaintingTribe = new System.Windows.Forms.Label();
             lvwPlayerPaintings = new System.Windows.Forms.ListView();
             lvwPlayerPaintings_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwPlayerPaintings_Structure = new System.Windows.Forms.ColumnHeader();
             lvwPlayerPaintings_Lat = new System.Windows.Forms.ColumnHeader();
             lvwPlayerPaintings_Lon = new System.Windows.Forms.ColumnHeader();
             lvwPlayerPaintings_PaintingId = new System.Windows.Forms.ColumnHeader();
-            lblPaintingTribe = new System.Windows.Forms.Label();
-            btnDeletePaintings = new System.Windows.Forms.Button();
-            panel1 = new System.Windows.Forms.Panel();
-            textBox1 = new System.Windows.Forms.TextBox();
-            button1 = new System.Windows.Forms.Button();
-            lblPaintingsCount = new System.Windows.Forms.Label();
+            cboPaintingTribe = new System.Windows.Forms.ComboBox();
+            lblStructurePainting = new System.Windows.Forms.Label();
+            cboConsoleCommandPainting = new System.Windows.Forms.ComboBox();
+            cboPaintingStructure = new System.Windows.Forms.ComboBox();
+            lblCopyCommandPaintings = new System.Windows.Forms.Label();
+            picPainting = new System.Windows.Forms.PictureBox();
             tpgItemList = new System.Windows.Forms.TabPage();
+            pnlFilterSearch = new System.Windows.Forms.Panel();
+            txtFilterSearch = new System.Windows.Forms.TextBox();
+            cboItemListItem = new System.Windows.Forms.ComboBox();
+            lblItemListTribe = new System.Windows.Forms.Label();
+            cboItemListTribe = new System.Windows.Forms.ComboBox();
+            btnCopyItemListCommand = new System.Windows.Forms.Button();
+            lblItemListCommand = new System.Windows.Forms.Label();
+            cboItemListCommand = new System.Windows.Forms.ComboBox();
+            lblItemListCount = new System.Windows.Forms.Label();
+            lblItemListItem = new System.Windows.Forms.Label();
             lvwItemList = new System.Windows.Forms.ListView();
             lvwItemList_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwItemList_Container = new System.Windows.Forms.ColumnHeader();
@@ -166,20 +212,18 @@ namespace ARKViewer
             lvwItemList_Lon = new System.Windows.Forms.ColumnHeader();
             lvwItemList_CCC = new System.Windows.Forms.ColumnHeader();
             lvwItemList_UploadTime = new System.Windows.Forms.ColumnHeader();
-            lblItemListItem = new System.Windows.Forms.Label();
-            lblItemListCount = new System.Windows.Forms.Label();
-            cboItemListCommand = new System.Windows.Forms.ComboBox();
-            lblItemListCommand = new System.Windows.Forms.Label();
-            btnCopyItemListCommand = new System.Windows.Forms.Button();
-            cboItemListTribe = new System.Windows.Forms.ComboBox();
-            lblItemListTribe = new System.Windows.Forms.Label();
-            cboItemListItem = new System.Windows.Forms.ComboBox();
-            chkItemSearchBlueprints = new System.Windows.Forms.CheckBox();
-            pnlFilterSearch = new System.Windows.Forms.Panel();
-            txtFilterSearch = new System.Windows.Forms.TextBox();
-            btnFindSearched = new System.Windows.Forms.Button();
-            chkItemSearchUploads = new System.Windows.Forms.CheckBox();
             tpgDroppedItems = new System.Windows.Forms.TabPage();
+            cboDroppedItemRealm = new System.Windows.Forms.ComboBox();
+            lblDroppedItemRealm = new System.Windows.Forms.Label();
+            pnlFilterDropped = new System.Windows.Forms.Panel();
+            txtFilterDropped = new System.Windows.Forms.TextBox();
+            cboDroppedItem = new System.Windows.Forms.ComboBox();
+            lblDroppedPlayer = new System.Windows.Forms.Label();
+            cboDroppedPlayer = new System.Windows.Forms.ComboBox();
+            lblCopyCommandDropped = new System.Windows.Forms.Label();
+            cboCopyCommandDropped = new System.Windows.Forms.ComboBox();
+            lblCountDropped = new System.Windows.Forms.Label();
+            lblDroppedItem = new System.Windows.Forms.Label();
             lvwDroppedItems = new System.Windows.Forms.ListView();
             lvwDroppedItems_Item = new System.Windows.Forms.ColumnHeader();
             lvwDroppedItems_Bp = new System.Windows.Forms.ColumnHeader();
@@ -189,22 +233,18 @@ namespace ARKViewer
             lvwDroppedItems_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwDroppedItems_Player = new System.Windows.Forms.ColumnHeader();
             lvwDroppedItems_CCC = new System.Windows.Forms.ColumnHeader();
-            lblDroppedItem = new System.Windows.Forms.Label();
-            lblCountDropped = new System.Windows.Forms.Label();
-            cboCopyCommandDropped = new System.Windows.Forms.ComboBox();
-            lblCopyCommandDropped = new System.Windows.Forms.Label();
-            btnCopyCommandDropped = new System.Windows.Forms.Button();
-            cboDroppedPlayer = new System.Windows.Forms.ComboBox();
-            lblDroppedPlayer = new System.Windows.Forms.Label();
-            cboDroppedItem = new System.Windows.Forms.ComboBox();
-            btnDropInventory = new System.Windows.Forms.Button();
-            chkDroppedBlueprints = new System.Windows.Forms.CheckBox();
-            pnlFilterDropped = new System.Windows.Forms.Panel();
-            txtFilterDropped = new System.Windows.Forms.TextBox();
-            btnFindDropped = new System.Windows.Forms.Button();
-            lblDroppedItemRealm = new System.Windows.Forms.Label();
-            cboDroppedItemRealm = new System.Windows.Forms.ComboBox();
             tpgPlayers = new System.Windows.Forms.TabPage();
+            cboPlayerRealm = new System.Windows.Forms.ComboBox();
+            lblPlayerRealm = new System.Windows.Forms.Label();
+            pnlFilterPlayers = new System.Windows.Forms.Panel();
+            txtFilterPlayer = new System.Windows.Forms.TextBox();
+            lblPlayerTotal = new System.Windows.Forms.Label();
+            lblCommandPlayer = new System.Windows.Forms.Label();
+            cboConsoleCommandsPlayerTribe = new System.Windows.Forms.ComboBox();
+            lblPlayersPlayer = new System.Windows.Forms.Label();
+            lblPlayersTribe = new System.Windows.Forms.Label();
+            cboTribes = new System.Windows.Forms.ComboBox();
+            cboPlayers = new System.Windows.Forms.ComboBox();
             lvwPlayers = new System.Windows.Forms.ListView();
             lvwPlayers_PlayerId = new System.Windows.Forms.ColumnHeader();
             lvwPlayers_Name = new System.Windows.Forms.ColumnHeader();
@@ -227,40 +267,8 @@ namespace ARKViewer
             lvwPlayers_SteamName = new System.Windows.Forms.ColumnHeader();
             lvwPlayers_SteamId = new System.Windows.Forms.ColumnHeader();
             lvwPlayers_CCC = new System.Windows.Forms.ColumnHeader();
-            cboPlayers = new System.Windows.Forms.ComboBox();
-            cboTribes = new System.Windows.Forms.ComboBox();
-            lblPlayersTribe = new System.Windows.Forms.Label();
-            lblPlayersPlayer = new System.Windows.Forms.Label();
-            btnPlayerInventory = new System.Windows.Forms.Button();
-            btnPlayerTribeLog = new System.Windows.Forms.Button();
-            cboConsoleCommandsPlayerTribe = new System.Windows.Forms.ComboBox();
-            lblCommandPlayer = new System.Windows.Forms.Label();
-            btnCopyCommandPlayer = new System.Windows.Forms.Button();
-            lblPlayerTotal = new System.Windows.Forms.Label();
-            btnDeletePlayer = new System.Windows.Forms.Button();
-            pnlFilterPlayers = new System.Windows.Forms.Panel();
-            txtFilterPlayer = new System.Windows.Forms.TextBox();
-            btnFilterPlayer = new System.Windows.Forms.Button();
-            lblPlayerRealm = new System.Windows.Forms.Label();
-            cboPlayerRealm = new System.Windows.Forms.ComboBox();
-            btnRconCommandPlayers = new System.Windows.Forms.Button();
             tpgTribes = new System.Windows.Forms.TabPage();
-            btnTribeLog = new System.Windows.Forms.Button();
-            cboTribeCopyCommand = new System.Windows.Forms.ComboBox();
-            lblTribeCopyCommand = new System.Windows.Forms.Label();
-            btnTribeCopyCommand = new System.Windows.Forms.Button();
-            chkTribePlayers = new System.Windows.Forms.CheckBox();
-            chkTribeTames = new System.Windows.Forms.CheckBox();
-            chkTribeStructures = new System.Windows.Forms.CheckBox();
             splitContainer1 = new System.Windows.Forms.SplitContainer();
-            cboChartType = new System.Windows.Forms.ComboBox();
-            lblChart = new System.Windows.Forms.Label();
-            udChartTop = new System.Windows.Forms.NumericUpDown();
-            lblChartTop = new System.Windows.Forms.Label();
-            btnSaveChartImage = new System.Windows.Forms.Button();
-            pnlFilterTribes = new System.Windows.Forms.Panel();
-            txtFilterTribe = new System.Windows.Forms.TextBox();
-            btnFilterTribe = new System.Windows.Forms.Button();
             lvwTribes = new System.Windows.Forms.ListView();
             lvwTribes_Id = new System.Windows.Forms.ColumnHeader();
             lvwTribes_Name = new System.Windows.Forms.ColumnHeader();
@@ -268,8 +276,28 @@ namespace ARKViewer
             lvwTribes_Tames = new System.Windows.Forms.ColumnHeader();
             lvwTribes_Structures = new System.Windows.Forms.ColumnHeader();
             lvwTribes_Active = new System.Windows.Forms.ColumnHeader();
-            btnRconCommandTribes = new System.Windows.Forms.Button();
+            pnlFilterTribes = new System.Windows.Forms.Panel();
+            txtFilterTribe = new System.Windows.Forms.TextBox();
+            lblChartTop = new System.Windows.Forms.Label();
+            udChartTop = new System.Windows.Forms.NumericUpDown();
+            lblChart = new System.Windows.Forms.Label();
+            cboChartType = new System.Windows.Forms.ComboBox();
+            lblTribeCopyCommand = new System.Windows.Forms.Label();
+            cboTribeCopyCommand = new System.Windows.Forms.ComboBox();
             tpgStructures = new System.Windows.Forms.TabPage();
+            cboStructureRealm = new System.Windows.Forms.ComboBox();
+            lblStructureRealm = new System.Windows.Forms.Label();
+            pnlFilterStructures = new System.Windows.Forms.Panel();
+            txtFilterStructures = new System.Windows.Forms.TextBox();
+            lblStructureTotal = new System.Windows.Forms.Label();
+            lblCommandStructure = new System.Windows.Forms.Label();
+            cboConsoleCommandsStructure = new System.Windows.Forms.ComboBox();
+            lblStructureStructure = new System.Windows.Forms.Label();
+            cboStructureStructure = new System.Windows.Forms.ComboBox();
+            lblStructurePlayer = new System.Windows.Forms.Label();
+            lblStructureTribe = new System.Windows.Forms.Label();
+            cboStructureTribe = new System.Windows.Forms.ComboBox();
+            cboStructurePlayer = new System.Windows.Forms.ComboBox();
             lvwStructureLocations = new System.Windows.Forms.ListView();
             lvwStructureLocations_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Structure = new System.Windows.Forms.ColumnHeader();
@@ -281,31 +309,20 @@ namespace ARKViewer
             lvwStructureLocations_LastTime = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
-            cboStructurePlayer = new System.Windows.Forms.ComboBox();
-            cboStructureTribe = new System.Windows.Forms.ComboBox();
-            lblStructureTribe = new System.Windows.Forms.Label();
-            lblStructurePlayer = new System.Windows.Forms.Label();
-            cboStructureStructure = new System.Windows.Forms.ComboBox();
-            lblStructureStructure = new System.Windows.Forms.Label();
-            btnStructureExclusionFilter = new System.Windows.Forms.Button();
-            cboConsoleCommandsStructure = new System.Windows.Forms.ComboBox();
-            lblCommandStructure = new System.Windows.Forms.Label();
-            btnCopyCommandStructure = new System.Windows.Forms.Button();
-            lblStructureTotal = new System.Windows.Forms.Label();
-            btnStructureInventory = new System.Windows.Forms.Button();
-            pnlFilterStructures = new System.Windows.Forms.Panel();
-            txtFilterStructures = new System.Windows.Forms.TextBox();
-            btnFindStructures = new System.Windows.Forms.Button();
-            lblStructureRealm = new System.Windows.Forms.Label();
-            cboStructureRealm = new System.Windows.Forms.ComboBox();
-            btnRconCommandStructures = new System.Windows.Forms.Button();
             tpgTamed = new System.Windows.Forms.TabPage();
-            cboTameClass = new System.Windows.Forms.ComboBox();
-            pnlTameStatTypes = new System.Windows.Forms.Panel();
-            optStatsBase = new System.Windows.Forms.RadioButton();
-            optStatsTamed = new System.Windows.Forms.RadioButton();
-            lblStats = new System.Windows.Forms.Label();
-            lblTameTotal = new System.Windows.Forms.Label();
+            cboTameRealm = new System.Windows.Forms.ComboBox();
+            lblTameRealm = new System.Windows.Forms.Label();
+            pnlFilterTamed = new System.Windows.Forms.Panel();
+            txtFilterTamed = new System.Windows.Forms.TextBox();
+            cboTamedResource = new System.Windows.Forms.ComboBox();
+            lblTameResource = new System.Windows.Forms.Label();
+            lblTamedCommand = new System.Windows.Forms.Label();
+            cboConsoleCommandsTamed = new System.Windows.Forms.ComboBox();
+            cboTameTribes = new System.Windows.Forms.ComboBox();
+            cboTamePlayers = new System.Windows.Forms.ComboBox();
+            lblTameCreature = new System.Windows.Forms.Label();
+            lblTamePlayer = new System.Windows.Forms.Label();
+            lblTameTribe = new System.Windows.Forms.Label();
             lvwTameDetail = new System.Windows.Forms.ListView();
             lvwTameDetail_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_Creature = new System.Windows.Forms.ColumnHeader();
@@ -349,29 +366,34 @@ namespace ARKViewer
             lvwTameDetail_UploadTime = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_DinoId = new System.Windows.Forms.ColumnHeader();
             lvwTameDetail_CCC = new System.Windows.Forms.ColumnHeader();
-            btnDinoInventory = new System.Windows.Forms.Button();
-            btnDinoAncestors = new System.Windows.Forms.Button();
-            lblTameTribe = new System.Windows.Forms.Label();
-            lblTamePlayer = new System.Windows.Forms.Label();
-            lblTameCreature = new System.Windows.Forms.Label();
-            cboTamePlayers = new System.Windows.Forms.ComboBox();
-            cboTameTribes = new System.Windows.Forms.ComboBox();
-            cboConsoleCommandsTamed = new System.Windows.Forms.ComboBox();
-            lblTamedCommand = new System.Windows.Forms.Label();
-            btnCopyCommandTamed = new System.Windows.Forms.Button();
-            chkCryo = new System.Windows.Forms.CheckBox();
-            lblTameResource = new System.Windows.Forms.Label();
-            cboTamedResource = new System.Windows.Forms.ComboBox();
-            pnlFilterTamed = new System.Windows.Forms.Panel();
-            txtFilterTamed = new System.Windows.Forms.TextBox();
-            btnFindTamed = new System.Windows.Forms.Button();
-            lblTameRealm = new System.Windows.Forms.Label();
-            cboTameRealm = new System.Windows.Forms.ComboBox();
-            chkTameUploads = new System.Windows.Forms.CheckBox();
-            btnRconCommandTamed = new System.Windows.Forms.Button();
+            lblTameTotal = new System.Windows.Forms.Label();
+            pnlTameStatTypes = new System.Windows.Forms.Panel();
+            lblStats = new System.Windows.Forms.Label();
+            optStatsTamed = new System.Windows.Forms.RadioButton();
+            optStatsBase = new System.Windows.Forms.RadioButton();
+            cboTameClass = new System.Windows.Forms.ComboBox();
             tpgWild = new System.Windows.Forms.TabPage();
-            cboWildClass = new System.Windows.Forms.ComboBox();
-            lblWildTotal = new System.Windows.Forms.Label();
+            chkTameable = new System.Windows.Forms.CheckBox();
+            cboWildRealm = new System.Windows.Forms.ComboBox();
+            lblWildRealm = new System.Windows.Forms.Label();
+            pnlFilterWilds = new System.Windows.Forms.Panel();
+            txtFilterWild = new System.Windows.Forms.TextBox();
+            cboWildResource = new System.Windows.Forms.ComboBox();
+            lblResource = new System.Windows.Forms.Label();
+            lblWildRadius = new System.Windows.Forms.Label();
+            udWildRadius = new System.Windows.Forms.NumericUpDown();
+            lblWildLon = new System.Windows.Forms.Label();
+            udWildLon = new System.Windows.Forms.NumericUpDown();
+            lblWildLat = new System.Windows.Forms.Label();
+            udWildLat = new System.Windows.Forms.NumericUpDown();
+            lblWildMin = new System.Windows.Forms.Label();
+            lblWildMax = new System.Windows.Forms.Label();
+            udWildMin = new System.Windows.Forms.NumericUpDown();
+            udWildMax = new System.Windows.Forms.NumericUpDown();
+            lblWildCommand = new System.Windows.Forms.Label();
+            cboConsoleCommandsWild = new System.Windows.Forms.ComboBox();
+            lblSelectedWildTotal = new System.Windows.Forms.Label();
+            lblWildClass = new System.Windows.Forms.Label();
             lvwWildDetail = new System.Windows.Forms.ListView();
             lvwWildDetail_Name = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_Sex = new System.Windows.Forms.ColumnHeader();
@@ -400,31 +422,10 @@ namespace ARKViewer
             lvwWildDetail_Rig2 = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_DinoId = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_CCC = new System.Windows.Forms.ColumnHeader();
-            lblWildClass = new System.Windows.Forms.Label();
-            lblSelectedWildTotal = new System.Windows.Forms.Label();
-            cboConsoleCommandsWild = new System.Windows.Forms.ComboBox();
-            lblWildCommand = new System.Windows.Forms.Label();
-            btnCopyCommandWild = new System.Windows.Forms.Button();
-            udWildMax = new System.Windows.Forms.NumericUpDown();
-            udWildMin = new System.Windows.Forms.NumericUpDown();
-            lblWildMax = new System.Windows.Forms.Label();
-            lblWildMin = new System.Windows.Forms.Label();
-            udWildLat = new System.Windows.Forms.NumericUpDown();
-            lblWildLat = new System.Windows.Forms.Label();
-            udWildLon = new System.Windows.Forms.NumericUpDown();
-            lblWildLon = new System.Windows.Forms.Label();
-            udWildRadius = new System.Windows.Forms.NumericUpDown();
-            lblWildRadius = new System.Windows.Forms.Label();
-            lblResource = new System.Windows.Forms.Label();
-            cboWildResource = new System.Windows.Forms.ComboBox();
-            pnlFilterWilds = new System.Windows.Forms.Panel();
-            txtFilterWild = new System.Windows.Forms.TextBox();
-            btnFindWild = new System.Windows.Forms.Button();
-            lblWildRealm = new System.Windows.Forms.Label();
-            cboWildRealm = new System.Windows.Forms.ComboBox();
-            chkTameable = new System.Windows.Forms.CheckBox();
-            btnRconCommandWild = new System.Windows.Forms.Button();
+            lblWildTotal = new System.Windows.Forms.Label();
+            cboWildClass = new System.Windows.Forms.ComboBox();
             tabFeatures = new System.Windows.Forms.TabControl();
+            chartTribes = new ArkViewer.ChartControl();
             mnuContext.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tpgLeaderboard.SuspendLayout();
@@ -435,8 +436,8 @@ namespace ARKViewer
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picPainting).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picPainting).BeginInit();
             tpgItemList.SuspendLayout();
             pnlFilterSearch.SuspendLayout();
             tpgDroppedItems.SuspendLayout();
@@ -448,20 +449,20 @@ namespace ARKViewer
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)udChartTop).BeginInit();
             pnlFilterTribes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udChartTop).BeginInit();
             tpgStructures.SuspendLayout();
             pnlFilterStructures.SuspendLayout();
             tpgTamed.SuspendLayout();
-            pnlTameStatTypes.SuspendLayout();
             pnlFilterTamed.SuspendLayout();
+            pnlTameStatTypes.SuspendLayout();
             tpgWild.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)udWildMax).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)udWildMin).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)udWildLat).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)udWildLon).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)udWildRadius).BeginInit();
             pnlFilterWilds.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udWildRadius).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMax).BeginInit();
             tabFeatures.SuspendLayout();
             SuspendLayout();
             // 
@@ -666,6 +667,598 @@ namespace ARKViewer
             lblVersion.TabIndex = 1;
             lblVersion.Text = "v0.0";
             // 
+            // btnConsoleCommandPainting
+            // 
+            btnConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnConsoleCommandPainting.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnConsoleCommandPainting.Enabled = false;
+            btnConsoleCommandPainting.Image = (System.Drawing.Image)resources.GetObject("btnConsoleCommandPainting.Image");
+            btnConsoleCommandPainting.Location = new System.Drawing.Point(404, 452);
+            btnConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnConsoleCommandPainting.Name = "btnConsoleCommandPainting";
+            btnConsoleCommandPainting.Size = new System.Drawing.Size(47, 46);
+            btnConsoleCommandPainting.TabIndex = 28;
+            toolTip1.SetToolTip(btnConsoleCommandPainting, "Copy command to clipboard.");
+            btnConsoleCommandPainting.UseVisualStyleBackColor = true;
+            btnConsoleCommandPainting.Click += btnConsoleCommandPainting_Click;
+            // 
+            // btnDeletePaintings
+            // 
+            btnDeletePaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDeletePaintings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            btnDeletePaintings.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDeletePaintings.Image = (System.Drawing.Image)resources.GetObject("btnDeletePaintings.Image");
+            btnDeletePaintings.Location = new System.Drawing.Point(459, 452);
+            btnDeletePaintings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDeletePaintings.Name = "btnDeletePaintings";
+            btnDeletePaintings.Size = new System.Drawing.Size(47, 46);
+            btnDeletePaintings.TabIndex = 36;
+            toolTip1.SetToolTip(btnDeletePaintings, "Delete unused .pnt files");
+            btnDeletePaintings.UseVisualStyleBackColor = true;
+            btnDeletePaintings.Click += btnDeletePaintings_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            button1.Image = (System.Drawing.Image)resources.GetObject("button1.Image");
+            button1.Location = new System.Drawing.Point(1832, -1);
+            button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(35, 33);
+            button1.TabIndex = 9;
+            toolTip1.SetToolTip(button1, "Find next");
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // chkItemSearchBlueprints
+            // 
+            chkItemSearchBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkItemSearchBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkItemSearchBlueprints.Location = new System.Drawing.Point(662, 7);
+            chkItemSearchBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkItemSearchBlueprints.Name = "chkItemSearchBlueprints";
+            chkItemSearchBlueprints.Size = new System.Drawing.Size(122, 47);
+            chkItemSearchBlueprints.TabIndex = 11;
+            chkItemSearchBlueprints.Text = "Include blueprints";
+            toolTip1.SetToolTip(chkItemSearchBlueprints, "Show / hide blueprints.");
+            chkItemSearchBlueprints.UseVisualStyleBackColor = true;
+            chkItemSearchBlueprints.CheckedChanged += chkItemSearchBlueprints_CheckedChanged;
+            // 
+            // btnFindSearched
+            // 
+            btnFindSearched.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindSearched.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindSearched.Image = (System.Drawing.Image)resources.GetObject("btnFindSearched.Image");
+            btnFindSearched.Location = new System.Drawing.Point(1037, -1);
+            btnFindSearched.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindSearched.Name = "btnFindSearched";
+            btnFindSearched.Size = new System.Drawing.Size(35, 33);
+            btnFindSearched.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindSearched, "Find next");
+            btnFindSearched.UseVisualStyleBackColor = true;
+            btnFindSearched.Click += btnFindSearched_Click;
+            // 
+            // chkItemSearchUploads
+            // 
+            chkItemSearchUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkItemSearchUploads.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkItemSearchUploads.Location = new System.Drawing.Point(792, 7);
+            chkItemSearchUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkItemSearchUploads.Name = "chkItemSearchUploads";
+            chkItemSearchUploads.Size = new System.Drawing.Size(122, 47);
+            chkItemSearchUploads.TabIndex = 23;
+            chkItemSearchUploads.Text = "Include uploads";
+            toolTip1.SetToolTip(chkItemSearchUploads, "Show / hide blueprints.");
+            chkItemSearchUploads.UseVisualStyleBackColor = true;
+            chkItemSearchUploads.CheckedChanged += chkItemSearchUploads_CheckedChanged;
+            // 
+            // btnCopyCommandDropped
+            // 
+            btnCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandDropped.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandDropped.Enabled = false;
+            btnCopyCommandDropped.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandDropped.Image");
+            btnCopyCommandDropped.Location = new System.Drawing.Point(408, 466);
+            btnCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandDropped.Name = "btnCopyCommandDropped";
+            btnCopyCommandDropped.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandDropped.TabIndex = 7;
+            toolTip1.SetToolTip(btnCopyCommandDropped, "Copy command to clipboard.");
+            btnCopyCommandDropped.UseVisualStyleBackColor = true;
+            btnCopyCommandDropped.Click += btnCopyCommandDropped_Click;
+            // 
+            // btnDropInventory
+            // 
+            btnDropInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDropInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDropInventory.Enabled = false;
+            btnDropInventory.Image = (System.Drawing.Image)resources.GetObject("btnDropInventory.Image");
+            btnDropInventory.Location = new System.Drawing.Point(460, 466);
+            btnDropInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDropInventory.Name = "btnDropInventory";
+            btnDropInventory.Size = new System.Drawing.Size(47, 46);
+            btnDropInventory.TabIndex = 8;
+            toolTip1.SetToolTip(btnDropInventory, "View inventory.");
+            btnDropInventory.UseVisualStyleBackColor = true;
+            btnDropInventory.Click += btnDropInventory_Click;
+            // 
+            // chkDroppedBlueprints
+            // 
+            chkDroppedBlueprints.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            chkDroppedBlueprints.Appearance = System.Windows.Forms.Appearance.Button;
+            chkDroppedBlueprints.BackgroundImage = (System.Drawing.Image)resources.GetObject("chkDroppedBlueprints.BackgroundImage");
+            chkDroppedBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkDroppedBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkDroppedBlueprints.Location = new System.Drawing.Point(1042, 6);
+            chkDroppedBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkDroppedBlueprints.Name = "chkDroppedBlueprints";
+            chkDroppedBlueprints.Size = new System.Drawing.Size(47, 46);
+            chkDroppedBlueprints.TabIndex = 10;
+            toolTip1.SetToolTip(chkDroppedBlueprints, "Show / hide blueprints.");
+            chkDroppedBlueprints.UseVisualStyleBackColor = true;
+            chkDroppedBlueprints.CheckedChanged += chkDroppedBlueprints_CheckedChanged;
+            // 
+            // btnFindDropped
+            // 
+            btnFindDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindDropped.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindDropped.Image = (System.Drawing.Image)resources.GetObject("btnFindDropped.Image");
+            btnFindDropped.Location = new System.Drawing.Point(1040, -1);
+            btnFindDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindDropped.Name = "btnFindDropped";
+            btnFindDropped.Size = new System.Drawing.Size(35, 33);
+            btnFindDropped.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindDropped, "Find next");
+            btnFindDropped.UseVisualStyleBackColor = true;
+            btnFindDropped.Click += btnFindDropped_Click;
+            // 
+            // btnPlayerInventory
+            // 
+            btnPlayerInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnPlayerInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnPlayerInventory.Enabled = false;
+            btnPlayerInventory.Image = (System.Drawing.Image)resources.GetObject("btnPlayerInventory.Image");
+            btnPlayerInventory.Location = new System.Drawing.Point(563, 463);
+            btnPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnPlayerInventory.Name = "btnPlayerInventory";
+            btnPlayerInventory.Size = new System.Drawing.Size(47, 46);
+            btnPlayerInventory.TabIndex = 9;
+            toolTip1.SetToolTip(btnPlayerInventory, "Show player explorer.");
+            btnPlayerInventory.UseVisualStyleBackColor = true;
+            btnPlayerInventory.Click += btnPlayerInventory_Click;
+            // 
+            // btnPlayerTribeLog
+            // 
+            btnPlayerTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnPlayerTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnPlayerTribeLog.Enabled = false;
+            btnPlayerTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnPlayerTribeLog.Image");
+            btnPlayerTribeLog.Location = new System.Drawing.Point(512, 463);
+            btnPlayerTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnPlayerTribeLog.Name = "btnPlayerTribeLog";
+            btnPlayerTribeLog.Size = new System.Drawing.Size(47, 46);
+            btnPlayerTribeLog.TabIndex = 8;
+            toolTip1.SetToolTip(btnPlayerTribeLog, "View tribe log.");
+            btnPlayerTribeLog.UseVisualStyleBackColor = true;
+            btnPlayerTribeLog.Click += btnPlayerTribeLog_Click;
+            // 
+            // btnCopyCommandPlayer
+            // 
+            btnCopyCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandPlayer.Enabled = false;
+            btnCopyCommandPlayer.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandPlayer.Image");
+            btnCopyCommandPlayer.Location = new System.Drawing.Point(408, 463);
+            btnCopyCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandPlayer.Name = "btnCopyCommandPlayer";
+            btnCopyCommandPlayer.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandPlayer.TabIndex = 7;
+            toolTip1.SetToolTip(btnCopyCommandPlayer, "Copy command to clipboard.");
+            btnCopyCommandPlayer.UseVisualStyleBackColor = true;
+            btnCopyCommandPlayer.Click += btnCopyCommandPlayer_Click;
+            // 
+            // btnDeletePlayer
+            // 
+            btnDeletePlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDeletePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDeletePlayer.Enabled = false;
+            btnDeletePlayer.Image = (System.Drawing.Image)resources.GetObject("btnDeletePlayer.Image");
+            btnDeletePlayer.Location = new System.Drawing.Point(613, 463);
+            btnDeletePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDeletePlayer.Name = "btnDeletePlayer";
+            btnDeletePlayer.Size = new System.Drawing.Size(47, 46);
+            btnDeletePlayer.TabIndex = 10;
+            toolTip1.SetToolTip(btnDeletePlayer, "Remove player.");
+            btnDeletePlayer.UseVisualStyleBackColor = true;
+            btnDeletePlayer.Click += btnDeletePlayer_Click;
+            // 
+            // btnFilterPlayer
+            // 
+            btnFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFilterPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFilterPlayer.Image = (System.Drawing.Image)resources.GetObject("btnFilterPlayer.Image");
+            btnFilterPlayer.Location = new System.Drawing.Point(1036, -1);
+            btnFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFilterPlayer.Name = "btnFilterPlayer";
+            btnFilterPlayer.Size = new System.Drawing.Size(35, 33);
+            btnFilterPlayer.TabIndex = 9;
+            toolTip1.SetToolTip(btnFilterPlayer, "Find next");
+            btnFilterPlayer.UseVisualStyleBackColor = true;
+            btnFilterPlayer.Click += btnFilterPlayer_Click;
+            // 
+            // btnRconCommandPlayers
+            // 
+            btnRconCommandPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandPlayers.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandPlayers.Enabled = false;
+            btnRconCommandPlayers.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandPlayers.Image");
+            btnRconCommandPlayers.Location = new System.Drawing.Point(459, 463);
+            btnRconCommandPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandPlayers.Name = "btnRconCommandPlayers";
+            btnRconCommandPlayers.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandPlayers.TabIndex = 26;
+            toolTip1.SetToolTip(btnRconCommandPlayers, "Send command to server using RCON.");
+            btnRconCommandPlayers.UseVisualStyleBackColor = true;
+            btnRconCommandPlayers.Visible = false;
+            btnRconCommandPlayers.Click += btnRconCommandPlayers_Click;
+            // 
+            // btnTribeLog
+            // 
+            btnTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnTribeLog.Enabled = false;
+            btnTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnTribeLog.Image");
+            btnTribeLog.Location = new System.Drawing.Point(516, 464);
+            btnTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnTribeLog.Name = "btnTribeLog";
+            btnTribeLog.Size = new System.Drawing.Size(47, 46);
+            btnTribeLog.TabIndex = 4;
+            toolTip1.SetToolTip(btnTribeLog, "View tribe log.");
+            btnTribeLog.UseVisualStyleBackColor = true;
+            btnTribeLog.Click += btnTribeLog_Click;
+            // 
+            // btnTribeCopyCommand
+            // 
+            btnTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnTribeCopyCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnTribeCopyCommand.Enabled = false;
+            btnTribeCopyCommand.Image = (System.Drawing.Image)resources.GetObject("btnTribeCopyCommand.Image");
+            btnTribeCopyCommand.Location = new System.Drawing.Point(408, 464);
+            btnTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnTribeCopyCommand.Name = "btnTribeCopyCommand";
+            btnTribeCopyCommand.Size = new System.Drawing.Size(47, 46);
+            btnTribeCopyCommand.TabIndex = 3;
+            toolTip1.SetToolTip(btnTribeCopyCommand, "Copy command to clipboard.");
+            btnTribeCopyCommand.UseVisualStyleBackColor = true;
+            btnTribeCopyCommand.Click += btnTribeCopyCommand_Click;
+            // 
+            // chkTribePlayers
+            // 
+            chkTribePlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkTribePlayers.BackColor = System.Drawing.Color.CornflowerBlue;
+            chkTribePlayers.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            chkTribePlayers.Checked = true;
+            chkTribePlayers.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkTribePlayers.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTribePlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkTribePlayers.ForeColor = System.Drawing.Color.LightCyan;
+            chkTribePlayers.Location = new System.Drawing.Point(676, 467);
+            chkTribePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTribePlayers.Name = "chkTribePlayers";
+            chkTribePlayers.Size = new System.Drawing.Size(133, 40);
+            chkTribePlayers.TabIndex = 5;
+            chkTribePlayers.Text = "Player Markers";
+            chkTribePlayers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(chkTribePlayers, "Show player markers.");
+            chkTribePlayers.UseVisualStyleBackColor = false;
+            chkTribePlayers.CheckedChanged += chkTribePlayers_CheckedChanged;
+            // 
+            // chkTribeTames
+            // 
+            chkTribeTames.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkTribeTames.BackColor = System.Drawing.Color.Gold;
+            chkTribeTames.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            chkTribeTames.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTribeTames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkTribeTames.ForeColor = System.Drawing.Color.Chocolate;
+            chkTribeTames.Location = new System.Drawing.Point(816, 467);
+            chkTribeTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTribeTames.Name = "chkTribeTames";
+            chkTribeTames.Size = new System.Drawing.Size(122, 40);
+            chkTribeTames.TabIndex = 6;
+            chkTribeTames.Text = "Tame Markers";
+            chkTribeTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(chkTribeTames, "Show tame markers.");
+            chkTribeTames.UseVisualStyleBackColor = false;
+            chkTribeTames.CheckedChanged += chkTribeTames_CheckedChanged;
+            // 
+            // chkTribeStructures
+            // 
+            chkTribeStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkTribeStructures.BackColor = System.Drawing.Color.PaleGreen;
+            chkTribeStructures.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            chkTribeStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTribeStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkTribeStructures.ForeColor = System.Drawing.Color.ForestGreen;
+            chkTribeStructures.Location = new System.Drawing.Point(945, 467);
+            chkTribeStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTribeStructures.Name = "chkTribeStructures";
+            chkTribeStructures.Size = new System.Drawing.Size(141, 40);
+            chkTribeStructures.TabIndex = 7;
+            chkTribeStructures.Text = "Structure Markers";
+            chkTribeStructures.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(chkTribeStructures, "Show structure markers.");
+            chkTribeStructures.UseVisualStyleBackColor = false;
+            chkTribeStructures.CheckedChanged += chkTribeStructures_CheckedChanged;
+            // 
+            // btnSaveChartImage
+            // 
+            btnSaveChartImage.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSaveChartImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnSaveChartImage.Image = (System.Drawing.Image)resources.GetObject("btnSaveChartImage.Image");
+            btnSaveChartImage.Location = new System.Drawing.Point(299, 42);
+            btnSaveChartImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnSaveChartImage.Name = "btnSaveChartImage";
+            btnSaveChartImage.Size = new System.Drawing.Size(43, 33);
+            btnSaveChartImage.TabIndex = 52;
+            btnSaveChartImage.TabStop = false;
+            toolTip1.SetToolTip(btnSaveChartImage, "Save chart image.");
+            btnSaveChartImage.UseVisualStyleBackColor = true;
+            btnSaveChartImage.Click += btnSaveChart_Click;
+            // 
+            // btnFilterTribe
+            // 
+            btnFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFilterTribe.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFilterTribe.Image = (System.Drawing.Image)resources.GetObject("btnFilterTribe.Image");
+            btnFilterTribe.Location = new System.Drawing.Point(674, -1);
+            btnFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFilterTribe.Name = "btnFilterTribe";
+            btnFilterTribe.Size = new System.Drawing.Size(35, 33);
+            btnFilterTribe.TabIndex = 9;
+            toolTip1.SetToolTip(btnFilterTribe, "Find next");
+            btnFilterTribe.UseVisualStyleBackColor = true;
+            btnFilterTribe.Click += btnFilterTribe_Click;
+            // 
+            // btnRconCommandTribes
+            // 
+            btnRconCommandTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandTribes.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandTribes.Enabled = false;
+            btnRconCommandTribes.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTribes.Image");
+            btnRconCommandTribes.Location = new System.Drawing.Point(463, 464);
+            btnRconCommandTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandTribes.Name = "btnRconCommandTribes";
+            btnRconCommandTribes.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandTribes.TabIndex = 25;
+            toolTip1.SetToolTip(btnRconCommandTribes, "Send command to server using RCON.");
+            btnRconCommandTribes.UseVisualStyleBackColor = true;
+            btnRconCommandTribes.Visible = false;
+            btnRconCommandTribes.Click += btnRconCommandTribes_Click;
+            // 
+            // btnStructureExclusionFilter
+            // 
+            btnStructureExclusionFilter.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnStructureExclusionFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnStructureExclusionFilter.Image = (System.Drawing.Image)resources.GetObject("btnStructureExclusionFilter.Image");
+            btnStructureExclusionFilter.Location = new System.Drawing.Point(1040, 8);
+            btnStructureExclusionFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnStructureExclusionFilter.Name = "btnStructureExclusionFilter";
+            btnStructureExclusionFilter.Size = new System.Drawing.Size(47, 46);
+            btnStructureExclusionFilter.TabIndex = 6;
+            toolTip1.SetToolTip(btnStructureExclusionFilter, "Structure exclusion list");
+            btnStructureExclusionFilter.UseVisualStyleBackColor = true;
+            btnStructureExclusionFilter.Click += btnStructureExclusionFilter_Click;
+            // 
+            // btnCopyCommandStructure
+            // 
+            btnCopyCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandStructure.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandStructure.Enabled = false;
+            btnCopyCommandStructure.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandStructure.Image");
+            btnCopyCommandStructure.Location = new System.Drawing.Point(402, 466);
+            btnCopyCommandStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandStructure.Name = "btnCopyCommandStructure";
+            btnCopyCommandStructure.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandStructure.TabIndex = 10;
+            toolTip1.SetToolTip(btnCopyCommandStructure, "Copy command to clipboard.");
+            btnCopyCommandStructure.UseVisualStyleBackColor = true;
+            btnCopyCommandStructure.Click += btnCopyCommandStructure_Click;
+            // 
+            // btnStructureInventory
+            // 
+            btnStructureInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnStructureInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnStructureInventory.Enabled = false;
+            btnStructureInventory.Image = (System.Drawing.Image)resources.GetObject("btnStructureInventory.Image");
+            btnStructureInventory.Location = new System.Drawing.Point(509, 466);
+            btnStructureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnStructureInventory.Name = "btnStructureInventory";
+            btnStructureInventory.Size = new System.Drawing.Size(47, 46);
+            btnStructureInventory.TabIndex = 11;
+            toolTip1.SetToolTip(btnStructureInventory, "View inventory.");
+            btnStructureInventory.UseVisualStyleBackColor = true;
+            btnStructureInventory.Click += btnStructureInventory_Click;
+            // 
+            // btnFindStructures
+            // 
+            btnFindStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindStructures.Image = (System.Drawing.Image)resources.GetObject("btnFindStructures.Image");
+            btnFindStructures.Location = new System.Drawing.Point(1037, -1);
+            btnFindStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindStructures.Name = "btnFindStructures";
+            btnFindStructures.Size = new System.Drawing.Size(35, 33);
+            btnFindStructures.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindStructures, "Find next");
+            btnFindStructures.UseVisualStyleBackColor = true;
+            btnFindStructures.Click += btnFindStructures_Click;
+            // 
+            // btnRconCommandStructures
+            // 
+            btnRconCommandStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandStructures.Enabled = false;
+            btnRconCommandStructures.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandStructures.Image");
+            btnRconCommandStructures.Location = new System.Drawing.Point(456, 466);
+            btnRconCommandStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandStructures.Name = "btnRconCommandStructures";
+            btnRconCommandStructures.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandStructures.TabIndex = 25;
+            toolTip1.SetToolTip(btnRconCommandStructures, "Copy command to clipboard.");
+            btnRconCommandStructures.UseVisualStyleBackColor = true;
+            btnRconCommandStructures.Visible = false;
+            btnRconCommandStructures.Click += btnRconCommandStructures_Click;
+            // 
+            // btnDinoInventory
+            // 
+            btnDinoInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDinoInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDinoInventory.Enabled = false;
+            btnDinoInventory.Image = (System.Drawing.Image)resources.GetObject("btnDinoInventory.Image");
+            btnDinoInventory.Location = new System.Drawing.Point(758, 465);
+            btnDinoInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDinoInventory.Name = "btnDinoInventory";
+            btnDinoInventory.Size = new System.Drawing.Size(47, 46);
+            btnDinoInventory.TabIndex = 13;
+            toolTip1.SetToolTip(btnDinoInventory, "View inventory.");
+            btnDinoInventory.UseVisualStyleBackColor = true;
+            btnDinoInventory.Click += btnDinoInventory_Click;
+            // 
+            // btnDinoAncestors
+            // 
+            btnDinoAncestors.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDinoAncestors.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDinoAncestors.Enabled = false;
+            btnDinoAncestors.Image = (System.Drawing.Image)resources.GetObject("btnDinoAncestors.Image");
+            btnDinoAncestors.Location = new System.Drawing.Point(707, 465);
+            btnDinoAncestors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnDinoAncestors.Name = "btnDinoAncestors";
+            btnDinoAncestors.Size = new System.Drawing.Size(47, 46);
+            btnDinoAncestors.TabIndex = 12;
+            toolTip1.SetToolTip(btnDinoAncestors, "View breeding lines.");
+            btnDinoAncestors.UseVisualStyleBackColor = true;
+            btnDinoAncestors.Click += btnDinoAncestors_Click;
+            // 
+            // btnCopyCommandTamed
+            // 
+            btnCopyCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandTamed.Enabled = false;
+            btnCopyCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandTamed.Image");
+            btnCopyCommandTamed.Location = new System.Drawing.Point(604, 465);
+            btnCopyCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandTamed.Name = "btnCopyCommandTamed";
+            btnCopyCommandTamed.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandTamed.TabIndex = 11;
+            toolTip1.SetToolTip(btnCopyCommandTamed, "Copy command to clipboard.");
+            btnCopyCommandTamed.UseVisualStyleBackColor = true;
+            btnCopyCommandTamed.Click += btnCopyCommandTamed_Click;
+            // 
+            // chkCryo
+            // 
+            chkCryo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkCryo.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkCryo.Location = new System.Drawing.Point(89, 79);
+            chkCryo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkCryo.Name = "chkCryo";
+            chkCryo.Size = new System.Drawing.Size(105, 27);
+            chkCryo.TabIndex = 6;
+            chkCryo.Text = "Include Stored";
+            toolTip1.SetToolTip(chkCryo, "Show / hide stored tames.");
+            chkCryo.UseVisualStyleBackColor = true;
+            chkCryo.CheckedChanged += chkCryo_CheckedChanged;
+            // 
+            // btnFindTamed
+            // 
+            btnFindTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindTamed.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindTamed.Image = (System.Drawing.Image)resources.GetObject("btnFindTamed.Image");
+            btnFindTamed.Location = new System.Drawing.Point(1037, -1);
+            btnFindTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindTamed.Name = "btnFindTamed";
+            btnFindTamed.Size = new System.Drawing.Size(35, 33);
+            btnFindTamed.TabIndex = 9;
+            toolTip1.SetToolTip(btnFindTamed, "Find next");
+            btnFindTamed.UseVisualStyleBackColor = true;
+            btnFindTamed.Click += btnFindTamed_Click;
+            // 
+            // chkTameUploads
+            // 
+            chkTameUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkTameUploads.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTameUploads.Location = new System.Drawing.Point(199, 77);
+            chkTameUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTameUploads.Name = "chkTameUploads";
+            chkTameUploads.Size = new System.Drawing.Size(121, 31);
+            chkTameUploads.TabIndex = 25;
+            chkTameUploads.Text = "Include Uploads";
+            chkTameUploads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(chkTameUploads, "Show / hide uploaded tames");
+            chkTameUploads.UseVisualStyleBackColor = true;
+            chkTameUploads.CheckedChanged += chkTameUploads_CheckedChanged;
+            // 
+            // btnRconCommandTamed
+            // 
+            btnRconCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandTamed.Enabled = false;
+            btnRconCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTamed.Image");
+            btnRconCommandTamed.Location = new System.Drawing.Point(656, 465);
+            btnRconCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandTamed.Name = "btnRconCommandTamed";
+            btnRconCommandTamed.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandTamed.TabIndex = 26;
+            toolTip1.SetToolTip(btnRconCommandTamed, "Send command to server using RCON.");
+            btnRconCommandTamed.UseVisualStyleBackColor = true;
+            btnRconCommandTamed.Visible = false;
+            btnRconCommandTamed.Click += btnRconCommandTamed_Click;
+            // 
+            // btnCopyCommandWild
+            // 
+            btnCopyCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyCommandWild.Enabled = false;
+            btnCopyCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandWild.Image");
+            btnCopyCommandWild.Location = new System.Drawing.Point(408, 465);
+            btnCopyCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommandWild.Name = "btnCopyCommandWild";
+            btnCopyCommandWild.Size = new System.Drawing.Size(47, 46);
+            btnCopyCommandWild.TabIndex = 17;
+            toolTip1.SetToolTip(btnCopyCommandWild, "Copy command to clipboard.");
+            btnCopyCommandWild.UseVisualStyleBackColor = true;
+            btnCopyCommandWild.Click += btnCopyCommandWild_Click;
+            // 
+            // btnFindWild
+            // 
+            btnFindWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindWild.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindWild.Image = (System.Drawing.Image)resources.GetObject("btnFindWild.Image");
+            btnFindWild.Location = new System.Drawing.Point(1037, -1);
+            btnFindWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnFindWild.Name = "btnFindWild";
+            btnFindWild.Size = new System.Drawing.Size(35, 33);
+            btnFindWild.TabIndex = 8;
+            toolTip1.SetToolTip(btnFindWild, "Find next");
+            btnFindWild.UseVisualStyleBackColor = true;
+            btnFindWild.Click += btnFindWild_Click;
+            // 
+            // btnRconCommandWild
+            // 
+            btnRconCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRconCommandWild.Enabled = false;
+            btnRconCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandWild.Image");
+            btnRconCommandWild.Location = new System.Drawing.Point(463, 465);
+            btnRconCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRconCommandWild.Name = "btnRconCommandWild";
+            btnRconCommandWild.Size = new System.Drawing.Size(47, 46);
+            btnRconCommandWild.TabIndex = 24;
+            toolTip1.SetToolTip(btnRconCommandWild, "Send command to server using RCON.");
+            btnRconCommandWild.UseVisualStyleBackColor = true;
+            btnRconCommandWild.Visible = false;
+            btnRconCommandWild.Click += btnRconCommandWild_Click;
+            // 
             // lblMap
             // 
             lblMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
@@ -728,51 +1321,59 @@ namespace ARKViewer
             tpgLeaderboard.Text = "Leaderboard";
             tpgLeaderboard.UseVisualStyleBackColor = true;
             // 
-            // lblLeaderboardTribe
+            // cboLeaderboardPlayer
             // 
-            lblLeaderboardTribe.AutoSize = true;
-            lblLeaderboardTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblLeaderboardTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblLeaderboardTribe.Location = new System.Drawing.Point(13, 36);
-            lblLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblLeaderboardTribe.Name = "lblLeaderboardTribe";
-            lblLeaderboardTribe.Size = new System.Drawing.Size(40, 13);
-            lblLeaderboardTribe.TabIndex = 4;
-            lblLeaderboardTribe.Text = "Tribe:";
+            cboLeaderboardPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardPlayer.FormattingEnabled = true;
+            cboLeaderboardPlayer.Location = new System.Drawing.Point(469, 243);
+            cboLeaderboardPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboLeaderboardPlayer.Name = "cboLeaderboardPlayer";
+            cboLeaderboardPlayer.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardPlayer.TabIndex = 18;
+            cboLeaderboardPlayer.SelectedIndexChanged += cboLeaderboardPlayer_SelectedIndexChanged;
             // 
-            // cboLeaderboardTribe
+            // lblMissionPlayer
             // 
-            cboLeaderboardTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboLeaderboardTribe.FormattingEnabled = true;
-            cboLeaderboardTribe.Location = new System.Drawing.Point(80, 31);
-            cboLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboLeaderboardTribe.Name = "cboLeaderboardTribe";
-            cboLeaderboardTribe.Size = new System.Drawing.Size(279, 23);
-            cboLeaderboardTribe.TabIndex = 5;
-            cboLeaderboardTribe.SelectedIndexChanged += cboLeaderboardTribe_SelectedIndexChanged;
+            lblMissionPlayer.AutoSize = true;
+            lblMissionPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMissionPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblMissionPlayer.Location = new System.Drawing.Point(401, 248);
+            lblMissionPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMissionPlayer.Name = "lblMissionPlayer";
+            lblMissionPlayer.Size = new System.Drawing.Size(46, 13);
+            lblMissionPlayer.TabIndex = 17;
+            lblMissionPlayer.Text = "Player:";
             // 
-            // lblLeaderboardMission
+            // lvwLeaderboardSummary
             // 
-            lblLeaderboardMission.AutoSize = true;
-            lblLeaderboardMission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblLeaderboardMission.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblLeaderboardMission.Location = new System.Drawing.Point(13, 248);
-            lblLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblLeaderboardMission.Name = "lblLeaderboardMission";
-            lblLeaderboardMission.Size = new System.Drawing.Size(53, 13);
-            lblLeaderboardMission.TabIndex = 8;
-            lblLeaderboardMission.Text = "Mission:";
+            lvwLeaderboardSummary.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwLeaderboardSummary.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader32, columnHeader35, columnHeader36 });
+            lvwLeaderboardSummary.ContextMenuStrip = mnuContext;
+            lvwLeaderboardSummary.FullRowSelect = true;
+            lvwLeaderboardSummary.Location = new System.Drawing.Point(14, 67);
+            lvwLeaderboardSummary.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwLeaderboardSummary.MultiSelect = false;
+            lvwLeaderboardSummary.Name = "lvwLeaderboardSummary";
+            lvwLeaderboardSummary.Size = new System.Drawing.Size(1073, 164);
+            lvwLeaderboardSummary.TabIndex = 16;
+            lvwLeaderboardSummary.UseCompatibleStateImageBehavior = false;
+            lvwLeaderboardSummary.View = System.Windows.Forms.View.Details;
+            lvwLeaderboardSummary.ColumnClick += lvwLeaderboardSummary_ColumnClick;
             // 
-            // cboLeaderboardMission
+            // columnHeader32
             // 
-            cboLeaderboardMission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboLeaderboardMission.FormattingEnabled = true;
-            cboLeaderboardMission.Location = new System.Drawing.Point(80, 243);
-            cboLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboLeaderboardMission.Name = "cboLeaderboardMission";
-            cboLeaderboardMission.Size = new System.Drawing.Size(279, 23);
-            cboLeaderboardMission.TabIndex = 9;
-            cboLeaderboardMission.SelectedIndexChanged += cboLeaderboardMission_SelectedIndexChanged;
+            columnHeader32.Text = "Tribe";
+            columnHeader32.Width = 170;
+            // 
+            // columnHeader35
+            // 
+            columnHeader35.Text = "Player";
+            columnHeader35.Width = 179;
+            // 
+            // columnHeader36
+            // 
+            columnHeader36.Text = "Mission Count";
+            columnHeader36.Width = 113;
             // 
             // lvwLeaderboard
             // 
@@ -811,59 +1412,51 @@ namespace ARKViewer
             lvwLeaderboard_Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             lvwLeaderboard_Score.Width = 77;
             // 
-            // lvwLeaderboardSummary
+            // cboLeaderboardMission
             // 
-            lvwLeaderboardSummary.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwLeaderboardSummary.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader32, columnHeader35, columnHeader36 });
-            lvwLeaderboardSummary.ContextMenuStrip = mnuContext;
-            lvwLeaderboardSummary.FullRowSelect = true;
-            lvwLeaderboardSummary.Location = new System.Drawing.Point(14, 67);
-            lvwLeaderboardSummary.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwLeaderboardSummary.MultiSelect = false;
-            lvwLeaderboardSummary.Name = "lvwLeaderboardSummary";
-            lvwLeaderboardSummary.Size = new System.Drawing.Size(1073, 164);
-            lvwLeaderboardSummary.TabIndex = 16;
-            lvwLeaderboardSummary.UseCompatibleStateImageBehavior = false;
-            lvwLeaderboardSummary.View = System.Windows.Forms.View.Details;
-            lvwLeaderboardSummary.ColumnClick += lvwLeaderboardSummary_ColumnClick;
+            cboLeaderboardMission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardMission.FormattingEnabled = true;
+            cboLeaderboardMission.Location = new System.Drawing.Point(80, 243);
+            cboLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboLeaderboardMission.Name = "cboLeaderboardMission";
+            cboLeaderboardMission.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardMission.TabIndex = 9;
+            cboLeaderboardMission.SelectedIndexChanged += cboLeaderboardMission_SelectedIndexChanged;
             // 
-            // columnHeader32
+            // lblLeaderboardMission
             // 
-            columnHeader32.Text = "Tribe";
-            columnHeader32.Width = 170;
+            lblLeaderboardMission.AutoSize = true;
+            lblLeaderboardMission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblLeaderboardMission.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblLeaderboardMission.Location = new System.Drawing.Point(13, 248);
+            lblLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLeaderboardMission.Name = "lblLeaderboardMission";
+            lblLeaderboardMission.Size = new System.Drawing.Size(53, 13);
+            lblLeaderboardMission.TabIndex = 8;
+            lblLeaderboardMission.Text = "Mission:";
             // 
-            // columnHeader35
+            // cboLeaderboardTribe
             // 
-            columnHeader35.Text = "Player";
-            columnHeader35.Width = 179;
+            cboLeaderboardTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardTribe.FormattingEnabled = true;
+            cboLeaderboardTribe.Location = new System.Drawing.Point(80, 31);
+            cboLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboLeaderboardTribe.Name = "cboLeaderboardTribe";
+            cboLeaderboardTribe.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardTribe.TabIndex = 5;
+            cboLeaderboardTribe.SelectedIndexChanged += cboLeaderboardTribe_SelectedIndexChanged;
             // 
-            // columnHeader36
+            // lblLeaderboardTribe
             // 
-            columnHeader36.Text = "Mission Count";
-            columnHeader36.Width = 113;
-            // 
-            // lblMissionPlayer
-            // 
-            lblMissionPlayer.AutoSize = true;
-            lblMissionPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblMissionPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblMissionPlayer.Location = new System.Drawing.Point(401, 248);
-            lblMissionPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblMissionPlayer.Name = "lblMissionPlayer";
-            lblMissionPlayer.Size = new System.Drawing.Size(46, 13);
-            lblMissionPlayer.TabIndex = 17;
-            lblMissionPlayer.Text = "Player:";
-            // 
-            // cboLeaderboardPlayer
-            // 
-            cboLeaderboardPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboLeaderboardPlayer.FormattingEnabled = true;
-            cboLeaderboardPlayer.Location = new System.Drawing.Point(469, 243);
-            cboLeaderboardPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboLeaderboardPlayer.Name = "cboLeaderboardPlayer";
-            cboLeaderboardPlayer.Size = new System.Drawing.Size(279, 23);
-            cboLeaderboardPlayer.TabIndex = 18;
-            cboLeaderboardPlayer.SelectedIndexChanged += cboLeaderboardPlayer_SelectedIndexChanged;
+            lblLeaderboardTribe.AutoSize = true;
+            lblLeaderboardTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblLeaderboardTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblLeaderboardTribe.Location = new System.Drawing.Point(13, 36);
+            lblLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLeaderboardTribe.Name = "lblLeaderboardTribe";
+            lblLeaderboardTribe.Size = new System.Drawing.Size(40, 13);
+            lblLeaderboardTribe.TabIndex = 4;
+            lblLeaderboardTribe.Text = "Tribe:";
             // 
             // tpgLocalProfile
             // 
@@ -885,6 +1478,246 @@ namespace ARKViewer
             tpgLocalProfile.TabIndex = 7;
             tpgLocalProfile.Text = "Local Profile";
             tpgLocalProfile.UseVisualStyleBackColor = true;
+            // 
+            // pnlUploadedStats
+            // 
+            pnlUploadedStats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlUploadedStats.Controls.Add(lblUploadedStats);
+            pnlUploadedStats.Controls.Add(optUploadedStatsTamed);
+            pnlUploadedStats.Controls.Add(optUploadedStatsBase);
+            pnlUploadedStats.Location = new System.Drawing.Point(15, 316);
+            pnlUploadedStats.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlUploadedStats.Name = "pnlUploadedStats";
+            pnlUploadedStats.Size = new System.Drawing.Size(204, 39);
+            pnlUploadedStats.TabIndex = 17;
+            // 
+            // lblUploadedStats
+            // 
+            lblUploadedStats.AutoSize = true;
+            lblUploadedStats.Location = new System.Drawing.Point(2, 12);
+            lblUploadedStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedStats.Name = "lblUploadedStats";
+            lblUploadedStats.Size = new System.Drawing.Size(35, 15);
+            lblUploadedStats.TabIndex = 0;
+            lblUploadedStats.Text = "Stats:";
+            // 
+            // optUploadedStatsTamed
+            // 
+            optUploadedStatsTamed.AutoSize = true;
+            optUploadedStatsTamed.Location = new System.Drawing.Point(113, 9);
+            optUploadedStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optUploadedStatsTamed.Name = "optUploadedStatsTamed";
+            optUploadedStatsTamed.Size = new System.Drawing.Size(60, 19);
+            optUploadedStatsTamed.TabIndex = 2;
+            optUploadedStatsTamed.Text = "Tamed";
+            optUploadedStatsTamed.UseVisualStyleBackColor = true;
+            // 
+            // optUploadedStatsBase
+            // 
+            optUploadedStatsBase.AutoSize = true;
+            optUploadedStatsBase.Checked = true;
+            optUploadedStatsBase.Location = new System.Drawing.Point(49, 9);
+            optUploadedStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optUploadedStatsBase.Name = "optUploadedStatsBase";
+            optUploadedStatsBase.Size = new System.Drawing.Size(49, 19);
+            optUploadedStatsBase.TabIndex = 1;
+            optUploadedStatsBase.TabStop = true;
+            optUploadedStatsBase.Text = "Base";
+            optUploadedStatsBase.UseVisualStyleBackColor = true;
+            optUploadedStatsBase.CheckedChanged += optUploadedStatsBase_CheckedChanged;
+            // 
+            // lblUploadedCountItems
+            // 
+            lblUploadedCountItems.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblUploadedCountItems.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountItems.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountItems.Location = new System.Drawing.Point(961, 486);
+            lblUploadedCountItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCountItems.Name = "lblUploadedCountItems";
+            lblUploadedCountItems.Size = new System.Drawing.Size(126, 24);
+            lblUploadedCountItems.TabIndex = 16;
+            lblUploadedCountItems.Text = "Count: 0";
+            lblUploadedCountItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUploadedCountTames
+            // 
+            lblUploadedCountTames.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblUploadedCountTames.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountTames.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountTames.Location = new System.Drawing.Point(961, 313);
+            lblUploadedCountTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCountTames.Name = "lblUploadedCountTames";
+            lblUploadedCountTames.Size = new System.Drawing.Size(126, 24);
+            lblUploadedCountTames.TabIndex = 15;
+            lblUploadedCountTames.Text = "Count: 0";
+            lblUploadedCountTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUploadedCountCharacters
+            // 
+            lblUploadedCountCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblUploadedCountCharacters.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountCharacters.Location = new System.Drawing.Point(961, 145);
+            lblUploadedCountCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCountCharacters.Name = "lblUploadedCountCharacters";
+            lblUploadedCountCharacters.Size = new System.Drawing.Size(126, 24);
+            lblUploadedCountCharacters.TabIndex = 14;
+            lblUploadedCountCharacters.Text = "Count: 0";
+            lblUploadedCountCharacters.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUploadedItems
+            // 
+            lblUploadedItems.AutoSize = true;
+            lblUploadedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedItems.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedItems.Location = new System.Drawing.Point(12, 359);
+            lblUploadedItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedItems.Name = "lblUploadedItems";
+            lblUploadedItems.Size = new System.Drawing.Size(78, 13);
+            lblUploadedItems.TabIndex = 13;
+            lblUploadedItems.Text = "Stored Items";
+            // 
+            // lvwUploadedItems
+            // 
+            lvwUploadedItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader8, columnHeader9, columnHeader18, columnHeader19, columnHeader22 });
+            lvwUploadedItems.FullRowSelect = true;
+            lvwUploadedItems.Location = new System.Drawing.Point(15, 377);
+            lvwUploadedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwUploadedItems.MultiSelect = false;
+            lvwUploadedItems.Name = "lvwUploadedItems";
+            lvwUploadedItems.Size = new System.Drawing.Size(1073, 104);
+            lvwUploadedItems.TabIndex = 12;
+            lvwUploadedItems.UseCompatibleStateImageBehavior = false;
+            lvwUploadedItems.View = System.Windows.Forms.View.Details;
+            lvwUploadedItems.ColumnClick += lvwUploadedItems_ColumnClick;
+            // 
+            // columnHeader8
+            // 
+            columnHeader8.Text = "Item";
+            columnHeader8.Width = 175;
+            // 
+            // columnHeader9
+            // 
+            columnHeader9.Text = "Quality";
+            columnHeader9.Width = 80;
+            // 
+            // columnHeader18
+            // 
+            columnHeader18.Text = "Rating";
+            // 
+            // columnHeader19
+            // 
+            columnHeader19.Text = "BP";
+            columnHeader19.Width = 40;
+            // 
+            // columnHeader22
+            // 
+            columnHeader22.Text = "Qty";
+            // 
+            // lblUploadedTames
+            // 
+            lblUploadedTames.AutoSize = true;
+            lblUploadedTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedTames.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedTames.Location = new System.Drawing.Point(12, 153);
+            lblUploadedTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedTames.Name = "lblUploadedTames";
+            lblUploadedTames.Size = new System.Drawing.Size(102, 13);
+            lblUploadedTames.TabIndex = 11;
+            lblUploadedTames.Text = "Uploaded Tames";
+            // 
+            // lblUploadedCharacters
+            // 
+            lblUploadedCharacters.AutoSize = true;
+            lblUploadedCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCharacters.Location = new System.Drawing.Point(12, 18);
+            lblUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblUploadedCharacters.Name = "lblUploadedCharacters";
+            lblUploadedCharacters.Size = new System.Drawing.Size(126, 13);
+            lblUploadedCharacters.TabIndex = 10;
+            lblUploadedCharacters.Text = "Uploaded Characters";
+            // 
+            // lvwUploadedCharacters
+            // 
+            lvwUploadedCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedCharacters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader37, columnHeader39, columnHeader40, columnHeader43, columnHeader44, columnHeader45, columnHeader46, columnHeader47, columnHeader48, columnHeader49, columnHeader50, columnHeader51, columnHeader52 });
+            lvwUploadedCharacters.ContextMenuStrip = mnuContext;
+            lvwUploadedCharacters.FullRowSelect = true;
+            lvwUploadedCharacters.Location = new System.Drawing.Point(15, 42);
+            lvwUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwUploadedCharacters.Name = "lvwUploadedCharacters";
+            lvwUploadedCharacters.Size = new System.Drawing.Size(1072, 100);
+            lvwUploadedCharacters.TabIndex = 9;
+            lvwUploadedCharacters.UseCompatibleStateImageBehavior = false;
+            lvwUploadedCharacters.View = System.Windows.Forms.View.Details;
+            lvwUploadedCharacters.ColumnClick += lvwUploadedCharacters_ColumnClick;
+            // 
+            // columnHeader37
+            // 
+            columnHeader37.Text = "Name";
+            columnHeader37.Width = 90;
+            // 
+            // columnHeader39
+            // 
+            columnHeader39.Text = "Sex";
+            columnHeader39.Width = 55;
+            // 
+            // columnHeader40
+            // 
+            columnHeader40.Text = "Lvl";
+            columnHeader40.Width = 35;
+            // 
+            // columnHeader43
+            // 
+            columnHeader43.Text = "HP";
+            columnHeader43.Width = 45;
+            // 
+            // columnHeader44
+            // 
+            columnHeader44.Text = "Stam";
+            columnHeader44.Width = 45;
+            // 
+            // columnHeader45
+            // 
+            columnHeader45.Text = "Melee";
+            columnHeader45.Width = 48;
+            // 
+            // columnHeader46
+            // 
+            columnHeader46.Text = "Weight";
+            columnHeader46.Width = 55;
+            // 
+            // columnHeader47
+            // 
+            columnHeader47.Text = "Speed";
+            columnHeader47.Width = 50;
+            // 
+            // columnHeader48
+            // 
+            columnHeader48.Text = "Food";
+            columnHeader48.Width = 47;
+            // 
+            // columnHeader49
+            // 
+            columnHeader49.Text = "Water";
+            // 
+            // columnHeader50
+            // 
+            columnHeader50.Text = "Oxygen";
+            columnHeader50.Width = 53;
+            // 
+            // columnHeader51
+            // 
+            columnHeader51.Text = "Crafting";
+            // 
+            // columnHeader52
+            // 
+            columnHeader52.Text = "Fortitude";
             // 
             // lvwUploadedTames
             // 
@@ -1023,246 +1856,6 @@ namespace ARKViewer
             columnHeader34.Text = "Rig2";
             columnHeader34.Width = 100;
             // 
-            // lvwUploadedCharacters
-            // 
-            lvwUploadedCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwUploadedCharacters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader37, columnHeader39, columnHeader40, columnHeader43, columnHeader44, columnHeader45, columnHeader46, columnHeader47, columnHeader48, columnHeader49, columnHeader50, columnHeader51, columnHeader52 });
-            lvwUploadedCharacters.ContextMenuStrip = mnuContext;
-            lvwUploadedCharacters.FullRowSelect = true;
-            lvwUploadedCharacters.Location = new System.Drawing.Point(15, 42);
-            lvwUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwUploadedCharacters.Name = "lvwUploadedCharacters";
-            lvwUploadedCharacters.Size = new System.Drawing.Size(1072, 100);
-            lvwUploadedCharacters.TabIndex = 9;
-            lvwUploadedCharacters.UseCompatibleStateImageBehavior = false;
-            lvwUploadedCharacters.View = System.Windows.Forms.View.Details;
-            lvwUploadedCharacters.ColumnClick += lvwUploadedCharacters_ColumnClick;
-            // 
-            // columnHeader37
-            // 
-            columnHeader37.Text = "Name";
-            columnHeader37.Width = 90;
-            // 
-            // columnHeader39
-            // 
-            columnHeader39.Text = "Sex";
-            columnHeader39.Width = 55;
-            // 
-            // columnHeader40
-            // 
-            columnHeader40.Text = "Lvl";
-            columnHeader40.Width = 35;
-            // 
-            // columnHeader43
-            // 
-            columnHeader43.Text = "HP";
-            columnHeader43.Width = 45;
-            // 
-            // columnHeader44
-            // 
-            columnHeader44.Text = "Stam";
-            columnHeader44.Width = 45;
-            // 
-            // columnHeader45
-            // 
-            columnHeader45.Text = "Melee";
-            columnHeader45.Width = 48;
-            // 
-            // columnHeader46
-            // 
-            columnHeader46.Text = "Weight";
-            columnHeader46.Width = 55;
-            // 
-            // columnHeader47
-            // 
-            columnHeader47.Text = "Speed";
-            columnHeader47.Width = 50;
-            // 
-            // columnHeader48
-            // 
-            columnHeader48.Text = "Food";
-            columnHeader48.Width = 47;
-            // 
-            // columnHeader49
-            // 
-            columnHeader49.Text = "Water";
-            // 
-            // columnHeader50
-            // 
-            columnHeader50.Text = "Oxygen";
-            columnHeader50.Width = 53;
-            // 
-            // columnHeader51
-            // 
-            columnHeader51.Text = "Crafting";
-            // 
-            // columnHeader52
-            // 
-            columnHeader52.Text = "Fortitude";
-            // 
-            // lblUploadedCharacters
-            // 
-            lblUploadedCharacters.AutoSize = true;
-            lblUploadedCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblUploadedCharacters.Location = new System.Drawing.Point(12, 18);
-            lblUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblUploadedCharacters.Name = "lblUploadedCharacters";
-            lblUploadedCharacters.Size = new System.Drawing.Size(126, 13);
-            lblUploadedCharacters.TabIndex = 10;
-            lblUploadedCharacters.Text = "Uploaded Characters";
-            // 
-            // lblUploadedTames
-            // 
-            lblUploadedTames.AutoSize = true;
-            lblUploadedTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblUploadedTames.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblUploadedTames.Location = new System.Drawing.Point(12, 153);
-            lblUploadedTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblUploadedTames.Name = "lblUploadedTames";
-            lblUploadedTames.Size = new System.Drawing.Size(102, 13);
-            lblUploadedTames.TabIndex = 11;
-            lblUploadedTames.Text = "Uploaded Tames";
-            // 
-            // lvwUploadedItems
-            // 
-            lvwUploadedItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwUploadedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader8, columnHeader9, columnHeader18, columnHeader19, columnHeader22 });
-            lvwUploadedItems.FullRowSelect = true;
-            lvwUploadedItems.Location = new System.Drawing.Point(15, 377);
-            lvwUploadedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            lvwUploadedItems.MultiSelect = false;
-            lvwUploadedItems.Name = "lvwUploadedItems";
-            lvwUploadedItems.Size = new System.Drawing.Size(1073, 104);
-            lvwUploadedItems.TabIndex = 12;
-            lvwUploadedItems.UseCompatibleStateImageBehavior = false;
-            lvwUploadedItems.View = System.Windows.Forms.View.Details;
-            lvwUploadedItems.ColumnClick += lvwUploadedItems_ColumnClick;
-            // 
-            // columnHeader8
-            // 
-            columnHeader8.Text = "Item";
-            columnHeader8.Width = 175;
-            // 
-            // columnHeader9
-            // 
-            columnHeader9.Text = "Quality";
-            columnHeader9.Width = 80;
-            // 
-            // columnHeader18
-            // 
-            columnHeader18.Text = "Rating";
-            // 
-            // columnHeader19
-            // 
-            columnHeader19.Text = "BP";
-            columnHeader19.Width = 40;
-            // 
-            // columnHeader22
-            // 
-            columnHeader22.Text = "Qty";
-            // 
-            // lblUploadedItems
-            // 
-            lblUploadedItems.AutoSize = true;
-            lblUploadedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblUploadedItems.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblUploadedItems.Location = new System.Drawing.Point(12, 359);
-            lblUploadedItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblUploadedItems.Name = "lblUploadedItems";
-            lblUploadedItems.Size = new System.Drawing.Size(78, 13);
-            lblUploadedItems.TabIndex = 13;
-            lblUploadedItems.Text = "Stored Items";
-            // 
-            // lblUploadedCountCharacters
-            // 
-            lblUploadedCountCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblUploadedCountCharacters.BackColor = System.Drawing.Color.AliceBlue;
-            lblUploadedCountCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCountCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblUploadedCountCharacters.Location = new System.Drawing.Point(961, 145);
-            lblUploadedCountCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblUploadedCountCharacters.Name = "lblUploadedCountCharacters";
-            lblUploadedCountCharacters.Size = new System.Drawing.Size(126, 24);
-            lblUploadedCountCharacters.TabIndex = 14;
-            lblUploadedCountCharacters.Text = "Count: 0";
-            lblUploadedCountCharacters.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUploadedCountTames
-            // 
-            lblUploadedCountTames.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblUploadedCountTames.BackColor = System.Drawing.Color.AliceBlue;
-            lblUploadedCountTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCountTames.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblUploadedCountTames.Location = new System.Drawing.Point(961, 313);
-            lblUploadedCountTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblUploadedCountTames.Name = "lblUploadedCountTames";
-            lblUploadedCountTames.Size = new System.Drawing.Size(126, 24);
-            lblUploadedCountTames.TabIndex = 15;
-            lblUploadedCountTames.Text = "Count: 0";
-            lblUploadedCountTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUploadedCountItems
-            // 
-            lblUploadedCountItems.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblUploadedCountItems.BackColor = System.Drawing.Color.AliceBlue;
-            lblUploadedCountItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCountItems.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblUploadedCountItems.Location = new System.Drawing.Point(961, 486);
-            lblUploadedCountItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblUploadedCountItems.Name = "lblUploadedCountItems";
-            lblUploadedCountItems.Size = new System.Drawing.Size(126, 24);
-            lblUploadedCountItems.TabIndex = 16;
-            lblUploadedCountItems.Text = "Count: 0";
-            lblUploadedCountItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlUploadedStats
-            // 
-            pnlUploadedStats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlUploadedStats.Controls.Add(lblUploadedStats);
-            pnlUploadedStats.Controls.Add(optUploadedStatsTamed);
-            pnlUploadedStats.Controls.Add(optUploadedStatsBase);
-            pnlUploadedStats.Location = new System.Drawing.Point(15, 316);
-            pnlUploadedStats.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlUploadedStats.Name = "pnlUploadedStats";
-            pnlUploadedStats.Size = new System.Drawing.Size(204, 39);
-            pnlUploadedStats.TabIndex = 17;
-            // 
-            // optUploadedStatsBase
-            // 
-            optUploadedStatsBase.AutoSize = true;
-            optUploadedStatsBase.Checked = true;
-            optUploadedStatsBase.Location = new System.Drawing.Point(49, 9);
-            optUploadedStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            optUploadedStatsBase.Name = "optUploadedStatsBase";
-            optUploadedStatsBase.Size = new System.Drawing.Size(49, 19);
-            optUploadedStatsBase.TabIndex = 1;
-            optUploadedStatsBase.TabStop = true;
-            optUploadedStatsBase.Text = "Base";
-            optUploadedStatsBase.UseVisualStyleBackColor = true;
-            optUploadedStatsBase.CheckedChanged += optUploadedStatsBase_CheckedChanged;
-            // 
-            // optUploadedStatsTamed
-            // 
-            optUploadedStatsTamed.AutoSize = true;
-            optUploadedStatsTamed.Location = new System.Drawing.Point(113, 9);
-            optUploadedStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            optUploadedStatsTamed.Name = "optUploadedStatsTamed";
-            optUploadedStatsTamed.Size = new System.Drawing.Size(60, 19);
-            optUploadedStatsTamed.TabIndex = 2;
-            optUploadedStatsTamed.Text = "Tamed";
-            optUploadedStatsTamed.UseVisualStyleBackColor = true;
-            // 
-            // lblUploadedStats
-            // 
-            lblUploadedStats.AutoSize = true;
-            lblUploadedStats.Location = new System.Drawing.Point(2, 12);
-            lblUploadedStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblUploadedStats.Name = "lblUploadedStats";
-            lblUploadedStats.Size = new System.Drawing.Size(35, 15);
-            lblUploadedStats.TabIndex = 0;
-            lblUploadedStats.Text = "Stats:";
-            // 
             // tpgPaintings
             // 
             tpgPaintings.Controls.Add(splitContainer2);
@@ -1303,92 +1896,53 @@ namespace ARKViewer
             splitContainer2.SplitterDistance = 700;
             splitContainer2.TabIndex = 37;
             // 
-            // picPainting
+            // lblPaintingsCount
             // 
-            picPainting.Anchor = System.Windows.Forms.AnchorStyles.None;
-            picPainting.BackColor = System.Drawing.Color.WhiteSmoke;
-            picPainting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            picPainting.Location = new System.Drawing.Point(19, 79);
-            picPainting.Name = "picPainting";
-            picPainting.Size = new System.Drawing.Size(350, 350);
-            picPainting.TabIndex = 1;
-            picPainting.TabStop = false;
-            picPainting.Click += picPainting_Click;
+            lblPaintingsCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblPaintingsCount.BackColor = System.Drawing.Color.AliceBlue;
+            lblPaintingsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPaintingsCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPaintingsCount.Location = new System.Drawing.Point(570, 458);
+            lblPaintingsCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPaintingsCount.Name = "lblPaintingsCount";
+            lblPaintingsCount.Size = new System.Drawing.Size(126, 35);
+            lblPaintingsCount.TabIndex = 37;
+            lblPaintingsCount.Text = "Count: 0";
+            lblPaintingsCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnConsoleCommandPainting
+            // panel1
             // 
-            btnConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnConsoleCommandPainting.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnConsoleCommandPainting.Enabled = false;
-            btnConsoleCommandPainting.Image = (System.Drawing.Image)resources.GetObject("btnConsoleCommandPainting.Image");
-            btnConsoleCommandPainting.Location = new System.Drawing.Point(404, 452);
-            btnConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnConsoleCommandPainting.Name = "btnConsoleCommandPainting";
-            btnConsoleCommandPainting.Size = new System.Drawing.Size(47, 46);
-            btnConsoleCommandPainting.TabIndex = 28;
-            toolTip1.SetToolTip(btnConsoleCommandPainting, "Copy command to clipboard.");
-            btnConsoleCommandPainting.UseVisualStyleBackColor = true;
-            btnConsoleCommandPainting.Click += btnConsoleCommandPainting_Click;
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.PaleTurquoise;
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(textBox1);
+            panel1.Location = new System.Drawing.Point(5, 735);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1360, 33);
+            panel1.TabIndex = 23;
             // 
-            // lblCopyCommandPaintings
+            // textBox1
             // 
-            lblCopyCommandPaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblCopyCommandPaintings.AutoSize = true;
-            lblCopyCommandPaintings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblCopyCommandPaintings.Location = new System.Drawing.Point(12, 465);
-            lblCopyCommandPaintings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblCopyCommandPaintings.Name = "lblCopyCommandPaintings";
-            lblCopyCommandPaintings.Size = new System.Drawing.Size(65, 13);
-            lblCopyCommandPaintings.TabIndex = 26;
-            lblCopyCommandPaintings.Text = "Command:";
+            textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            textBox1.Location = new System.Drawing.Point(12, 3);
+            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(1808, 23);
+            textBox1.TabIndex = 6;
             // 
-            // cboPaintingStructure
+            // lblPaintingTribe
             // 
-            cboPaintingStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboPaintingStructure.FormattingEnabled = true;
-            cboPaintingStructure.Location = new System.Drawing.Point(454, 17);
-            cboPaintingStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboPaintingStructure.Name = "cboPaintingStructure";
-            cboPaintingStructure.Size = new System.Drawing.Size(237, 23);
-            cboPaintingStructure.TabIndex = 30;
-            cboPaintingStructure.SelectedIndexChanged += cboPaintingStructure_SelectedIndexChanged;
-            // 
-            // cboConsoleCommandPainting
-            // 
-            cboConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboConsoleCommandPainting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboConsoleCommandPainting.FormattingEnabled = true;
-            cboConsoleCommandPainting.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
-            cboConsoleCommandPainting.Location = new System.Drawing.Point(92, 461);
-            cboConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboConsoleCommandPainting.Name = "cboConsoleCommandPainting";
-            cboConsoleCommandPainting.Size = new System.Drawing.Size(305, 23);
-            cboConsoleCommandPainting.Sorted = true;
-            cboConsoleCommandPainting.TabIndex = 27;
-            cboConsoleCommandPainting.SelectedIndexChanged += cboConsoleCommandPainting_SelectedIndexChanged;
-            // 
-            // lblStructurePainting
-            // 
-            lblStructurePainting.AutoSize = true;
-            lblStructurePainting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructurePainting.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblStructurePainting.Location = new System.Drawing.Point(373, 22);
-            lblStructurePainting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblStructurePainting.Name = "lblStructurePainting";
-            lblStructurePainting.Size = new System.Drawing.Size(63, 13);
-            lblStructurePainting.TabIndex = 29;
-            lblStructurePainting.Text = "Structure:";
-            // 
-            // cboPaintingTribe
-            // 
-            cboPaintingTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboPaintingTribe.FormattingEnabled = true;
-            cboPaintingTribe.Location = new System.Drawing.Point(68, 17);
-            cboPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboPaintingTribe.Name = "cboPaintingTribe";
-            cboPaintingTribe.Size = new System.Drawing.Size(237, 23);
-            cboPaintingTribe.TabIndex = 24;
-            cboPaintingTribe.SelectedIndexChanged += cboPaintingTribe_SelectedIndexChanged;
+            lblPaintingTribe.AutoSize = true;
+            lblPaintingTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPaintingTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPaintingTribe.Location = new System.Drawing.Point(18, 22);
+            lblPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPaintingTribe.Name = "lblPaintingTribe";
+            lblPaintingTribe.Size = new System.Drawing.Size(40, 13);
+            lblPaintingTribe.TabIndex = 23;
+            lblPaintingTribe.Text = "Tribe:";
             // 
             // lvwPlayerPaintings
             // 
@@ -1428,81 +1982,77 @@ namespace ARKViewer
             lvwPlayerPaintings_PaintingId.Text = "Painting Id";
             lvwPlayerPaintings_PaintingId.Width = 150;
             // 
-            // lblPaintingTribe
+            // cboPaintingTribe
             // 
-            lblPaintingTribe.AutoSize = true;
-            lblPaintingTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPaintingTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblPaintingTribe.Location = new System.Drawing.Point(18, 22);
-            lblPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblPaintingTribe.Name = "lblPaintingTribe";
-            lblPaintingTribe.Size = new System.Drawing.Size(40, 13);
-            lblPaintingTribe.TabIndex = 23;
-            lblPaintingTribe.Text = "Tribe:";
+            cboPaintingTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPaintingTribe.FormattingEnabled = true;
+            cboPaintingTribe.Location = new System.Drawing.Point(68, 17);
+            cboPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPaintingTribe.Name = "cboPaintingTribe";
+            cboPaintingTribe.Size = new System.Drawing.Size(237, 23);
+            cboPaintingTribe.TabIndex = 24;
+            cboPaintingTribe.SelectedIndexChanged += cboPaintingTribe_SelectedIndexChanged;
             // 
-            // btnDeletePaintings
+            // lblStructurePainting
             // 
-            btnDeletePaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnDeletePaintings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            btnDeletePaintings.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnDeletePaintings.Image = (System.Drawing.Image)resources.GetObject("btnDeletePaintings.Image");
-            btnDeletePaintings.Location = new System.Drawing.Point(459, 452);
-            btnDeletePaintings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnDeletePaintings.Name = "btnDeletePaintings";
-            btnDeletePaintings.Size = new System.Drawing.Size(47, 46);
-            btnDeletePaintings.TabIndex = 36;
-            toolTip1.SetToolTip(btnDeletePaintings, "Delete unused .pnt files");
-            btnDeletePaintings.UseVisualStyleBackColor = true;
-            btnDeletePaintings.Click += btnDeletePaintings_Click;
+            lblStructurePainting.AutoSize = true;
+            lblStructurePainting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructurePainting.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructurePainting.Location = new System.Drawing.Point(373, 22);
+            lblStructurePainting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructurePainting.Name = "lblStructurePainting";
+            lblStructurePainting.Size = new System.Drawing.Size(63, 13);
+            lblStructurePainting.TabIndex = 29;
+            lblStructurePainting.Text = "Structure:";
             // 
-            // panel1
+            // cboConsoleCommandPainting
             // 
-            panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            panel1.BackColor = System.Drawing.Color.PaleTurquoise;
-            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBox1);
-            panel1.Location = new System.Drawing.Point(5, 735);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1360, 33);
-            panel1.TabIndex = 23;
+            cboConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandPainting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandPainting.FormattingEnabled = true;
+            cboConsoleCommandPainting.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
+            cboConsoleCommandPainting.Location = new System.Drawing.Point(92, 461);
+            cboConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandPainting.Name = "cboConsoleCommandPainting";
+            cboConsoleCommandPainting.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandPainting.Sorted = true;
+            cboConsoleCommandPainting.TabIndex = 27;
+            cboConsoleCommandPainting.SelectedIndexChanged += cboConsoleCommandPainting_SelectedIndexChanged;
             // 
-            // textBox1
+            // cboPaintingStructure
             // 
-            textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            textBox1.Location = new System.Drawing.Point(12, 3);
-            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(1808, 23);
-            textBox1.TabIndex = 6;
+            cboPaintingStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPaintingStructure.FormattingEnabled = true;
+            cboPaintingStructure.Location = new System.Drawing.Point(454, 17);
+            cboPaintingStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPaintingStructure.Name = "cboPaintingStructure";
+            cboPaintingStructure.Size = new System.Drawing.Size(237, 23);
+            cboPaintingStructure.TabIndex = 30;
+            cboPaintingStructure.SelectedIndexChanged += cboPaintingStructure_SelectedIndexChanged;
             // 
-            // button1
+            // lblCopyCommandPaintings
             // 
-            button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            button1.Image = (System.Drawing.Image)resources.GetObject("button1.Image");
-            button1.Location = new System.Drawing.Point(1832, -1);
-            button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(35, 33);
-            button1.TabIndex = 9;
-            toolTip1.SetToolTip(button1, "Find next");
-            button1.UseVisualStyleBackColor = true;
+            lblCopyCommandPaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblCopyCommandPaintings.AutoSize = true;
+            lblCopyCommandPaintings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCopyCommandPaintings.Location = new System.Drawing.Point(12, 465);
+            lblCopyCommandPaintings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCopyCommandPaintings.Name = "lblCopyCommandPaintings";
+            lblCopyCommandPaintings.Size = new System.Drawing.Size(65, 13);
+            lblCopyCommandPaintings.TabIndex = 26;
+            lblCopyCommandPaintings.Text = "Command:";
             // 
-            // lblPaintingsCount
+            // picPainting
             // 
-            lblPaintingsCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblPaintingsCount.BackColor = System.Drawing.Color.AliceBlue;
-            lblPaintingsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblPaintingsCount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblPaintingsCount.Location = new System.Drawing.Point(570, 458);
-            lblPaintingsCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblPaintingsCount.Name = "lblPaintingsCount";
-            lblPaintingsCount.Size = new System.Drawing.Size(126, 35);
-            lblPaintingsCount.TabIndex = 37;
-            lblPaintingsCount.Text = "Count: 0";
-            lblPaintingsCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            picPainting.Anchor = System.Windows.Forms.AnchorStyles.None;
+            picPainting.BackColor = System.Drawing.Color.WhiteSmoke;
+            picPainting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picPainting.Location = new System.Drawing.Point(19, 79);
+            picPainting.Name = "picPainting";
+            picPainting.Size = new System.Drawing.Size(350, 350);
+            picPainting.TabIndex = 1;
+            picPainting.TabStop = false;
+            picPainting.Click += picPainting_Click;
             // 
             // tpgItemList
             // 
@@ -1525,6 +2075,130 @@ namespace ARKViewer
             tpgItemList.TabIndex = 6;
             tpgItemList.Text = "Item Search";
             tpgItemList.UseVisualStyleBackColor = true;
+            // 
+            // pnlFilterSearch
+            // 
+            pnlFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterSearch.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterSearch.Controls.Add(btnFindSearched);
+            pnlFilterSearch.Controls.Add(txtFilterSearch);
+            pnlFilterSearch.Location = new System.Drawing.Point(13, 428);
+            pnlFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterSearch.Name = "pnlFilterSearch";
+            pnlFilterSearch.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterSearch.TabIndex = 22;
+            // 
+            // txtFilterSearch
+            // 
+            txtFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterSearch.Location = new System.Drawing.Point(12, 3);
+            txtFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterSearch.Name = "txtFilterSearch";
+            txtFilterSearch.Size = new System.Drawing.Size(1013, 23);
+            txtFilterSearch.TabIndex = 6;
+            txtFilterSearch.KeyDown += txtFilterSearch_KeyDown;
+            // 
+            // cboItemListItem
+            // 
+            cboItemListItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListItem.FormattingEnabled = true;
+            cboItemListItem.Location = new System.Drawing.Point(390, 17);
+            cboItemListItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboItemListItem.Name = "cboItemListItem";
+            cboItemListItem.Size = new System.Drawing.Size(251, 23);
+            cboItemListItem.TabIndex = 3;
+            cboItemListItem.SelectedIndexChanged += cboItemListItem_SelectedIndexChanged;
+            // 
+            // lblItemListTribe
+            // 
+            lblItemListTribe.AutoSize = true;
+            lblItemListTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListTribe.Location = new System.Drawing.Point(20, 21);
+            lblItemListTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListTribe.Name = "lblItemListTribe";
+            lblItemListTribe.Size = new System.Drawing.Size(40, 13);
+            lblItemListTribe.TabIndex = 0;
+            lblItemListTribe.Text = "Tribe:";
+            // 
+            // cboItemListTribe
+            // 
+            cboItemListTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListTribe.FormattingEnabled = true;
+            cboItemListTribe.Location = new System.Drawing.Point(80, 18);
+            cboItemListTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboItemListTribe.Name = "cboItemListTribe";
+            cboItemListTribe.Size = new System.Drawing.Size(254, 23);
+            cboItemListTribe.TabIndex = 1;
+            cboItemListTribe.SelectedIndexChanged += cboItemListTribe_SelectedIndexChanged;
+            // 
+            // btnCopyItemListCommand
+            // 
+            btnCopyItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyItemListCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnCopyItemListCommand.Enabled = false;
+            btnCopyItemListCommand.Image = (System.Drawing.Image)resources.GetObject("btnCopyItemListCommand.Image");
+            btnCopyItemListCommand.Location = new System.Drawing.Point(408, 466);
+            btnCopyItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyItemListCommand.Name = "btnCopyItemListCommand";
+            btnCopyItemListCommand.Size = new System.Drawing.Size(47, 46);
+            btnCopyItemListCommand.TabIndex = 7;
+            btnCopyItemListCommand.UseVisualStyleBackColor = true;
+            btnCopyItemListCommand.Click += btnItemListCommand_Click;
+            // 
+            // lblItemListCommand
+            // 
+            lblItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblItemListCommand.AutoSize = true;
+            lblItemListCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListCommand.Location = new System.Drawing.Point(16, 481);
+            lblItemListCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListCommand.Name = "lblItemListCommand";
+            lblItemListCommand.Size = new System.Drawing.Size(65, 13);
+            lblItemListCommand.TabIndex = 5;
+            lblItemListCommand.Text = "Command:";
+            // 
+            // cboItemListCommand
+            // 
+            cboItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboItemListCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListCommand.FormattingEnabled = true;
+            cboItemListCommand.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
+            cboItemListCommand.Location = new System.Drawing.Point(96, 478);
+            cboItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboItemListCommand.Name = "cboItemListCommand";
+            cboItemListCommand.Size = new System.Drawing.Size(305, 23);
+            cboItemListCommand.Sorted = true;
+            cboItemListCommand.TabIndex = 6;
+            cboItemListCommand.SelectedIndexChanged += cboItemListCommand_SelectedIndexChanged;
+            // 
+            // lblItemListCount
+            // 
+            lblItemListCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblItemListCount.BackColor = System.Drawing.Color.AliceBlue;
+            lblItemListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblItemListCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListCount.Location = new System.Drawing.Point(943, 472);
+            lblItemListCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListCount.Name = "lblItemListCount";
+            lblItemListCount.Size = new System.Drawing.Size(144, 35);
+            lblItemListCount.TabIndex = 8;
+            lblItemListCount.Text = "Count: 0";
+            lblItemListCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblItemListItem
+            // 
+            lblItemListItem.AutoSize = true;
+            lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListItem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListItem.Location = new System.Drawing.Point(342, 22);
+            lblItemListItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblItemListItem.Name = "lblItemListItem";
+            lblItemListItem.Size = new System.Drawing.Size(35, 13);
+            lblItemListItem.TabIndex = 2;
+            lblItemListItem.Text = "Item:";
             // 
             // lvwItemList
             // 
@@ -1599,172 +2273,6 @@ namespace ARKViewer
             lvwItemList_UploadTime.Text = "Uploaded";
             lvwItemList_UploadTime.Width = 120;
             // 
-            // lblItemListItem
-            // 
-            lblItemListItem.AutoSize = true;
-            lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblItemListItem.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblItemListItem.Location = new System.Drawing.Point(342, 22);
-            lblItemListItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblItemListItem.Name = "lblItemListItem";
-            lblItemListItem.Size = new System.Drawing.Size(35, 13);
-            lblItemListItem.TabIndex = 2;
-            lblItemListItem.Text = "Item:";
-            // 
-            // lblItemListCount
-            // 
-            lblItemListCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblItemListCount.BackColor = System.Drawing.Color.AliceBlue;
-            lblItemListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblItemListCount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblItemListCount.Location = new System.Drawing.Point(943, 472);
-            lblItemListCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblItemListCount.Name = "lblItemListCount";
-            lblItemListCount.Size = new System.Drawing.Size(144, 35);
-            lblItemListCount.TabIndex = 8;
-            lblItemListCount.Text = "Count: 0";
-            lblItemListCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cboItemListCommand
-            // 
-            cboItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboItemListCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboItemListCommand.FormattingEnabled = true;
-            cboItemListCommand.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
-            cboItemListCommand.Location = new System.Drawing.Point(96, 478);
-            cboItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboItemListCommand.Name = "cboItemListCommand";
-            cboItemListCommand.Size = new System.Drawing.Size(305, 23);
-            cboItemListCommand.Sorted = true;
-            cboItemListCommand.TabIndex = 6;
-            cboItemListCommand.SelectedIndexChanged += cboItemListCommand_SelectedIndexChanged;
-            // 
-            // lblItemListCommand
-            // 
-            lblItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblItemListCommand.AutoSize = true;
-            lblItemListCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblItemListCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblItemListCommand.Location = new System.Drawing.Point(16, 481);
-            lblItemListCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblItemListCommand.Name = "lblItemListCommand";
-            lblItemListCommand.Size = new System.Drawing.Size(65, 13);
-            lblItemListCommand.TabIndex = 5;
-            lblItemListCommand.Text = "Command:";
-            // 
-            // btnCopyItemListCommand
-            // 
-            btnCopyItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnCopyItemListCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnCopyItemListCommand.Enabled = false;
-            btnCopyItemListCommand.Image = (System.Drawing.Image)resources.GetObject("btnCopyItemListCommand.Image");
-            btnCopyItemListCommand.Location = new System.Drawing.Point(408, 466);
-            btnCopyItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnCopyItemListCommand.Name = "btnCopyItemListCommand";
-            btnCopyItemListCommand.Size = new System.Drawing.Size(47, 46);
-            btnCopyItemListCommand.TabIndex = 7;
-            btnCopyItemListCommand.UseVisualStyleBackColor = true;
-            btnCopyItemListCommand.Click += btnItemListCommand_Click;
-            // 
-            // cboItemListTribe
-            // 
-            cboItemListTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboItemListTribe.FormattingEnabled = true;
-            cboItemListTribe.Location = new System.Drawing.Point(80, 18);
-            cboItemListTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboItemListTribe.Name = "cboItemListTribe";
-            cboItemListTribe.Size = new System.Drawing.Size(254, 23);
-            cboItemListTribe.TabIndex = 1;
-            cboItemListTribe.SelectedIndexChanged += cboItemListTribe_SelectedIndexChanged;
-            // 
-            // lblItemListTribe
-            // 
-            lblItemListTribe.AutoSize = true;
-            lblItemListTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblItemListTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblItemListTribe.Location = new System.Drawing.Point(20, 21);
-            lblItemListTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblItemListTribe.Name = "lblItemListTribe";
-            lblItemListTribe.Size = new System.Drawing.Size(40, 13);
-            lblItemListTribe.TabIndex = 0;
-            lblItemListTribe.Text = "Tribe:";
-            // 
-            // cboItemListItem
-            // 
-            cboItemListItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboItemListItem.FormattingEnabled = true;
-            cboItemListItem.Location = new System.Drawing.Point(390, 17);
-            cboItemListItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboItemListItem.Name = "cboItemListItem";
-            cboItemListItem.Size = new System.Drawing.Size(251, 23);
-            cboItemListItem.TabIndex = 3;
-            cboItemListItem.SelectedIndexChanged += cboItemListItem_SelectedIndexChanged;
-            // 
-            // chkItemSearchBlueprints
-            // 
-            chkItemSearchBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            chkItemSearchBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkItemSearchBlueprints.Location = new System.Drawing.Point(662, 7);
-            chkItemSearchBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkItemSearchBlueprints.Name = "chkItemSearchBlueprints";
-            chkItemSearchBlueprints.Size = new System.Drawing.Size(122, 47);
-            chkItemSearchBlueprints.TabIndex = 11;
-            chkItemSearchBlueprints.Text = "Include blueprints";
-            toolTip1.SetToolTip(chkItemSearchBlueprints, "Show / hide blueprints.");
-            chkItemSearchBlueprints.UseVisualStyleBackColor = true;
-            chkItemSearchBlueprints.CheckedChanged += chkItemSearchBlueprints_CheckedChanged;
-            // 
-            // pnlFilterSearch
-            // 
-            pnlFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterSearch.BackColor = System.Drawing.Color.PaleTurquoise;
-            pnlFilterSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlFilterSearch.Controls.Add(btnFindSearched);
-            pnlFilterSearch.Controls.Add(txtFilterSearch);
-            pnlFilterSearch.Location = new System.Drawing.Point(13, 428);
-            pnlFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlFilterSearch.Name = "pnlFilterSearch";
-            pnlFilterSearch.Size = new System.Drawing.Size(1073, 33);
-            pnlFilterSearch.TabIndex = 22;
-            // 
-            // txtFilterSearch
-            // 
-            txtFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterSearch.Location = new System.Drawing.Point(12, 3);
-            txtFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            txtFilterSearch.Name = "txtFilterSearch";
-            txtFilterSearch.Size = new System.Drawing.Size(1013, 23);
-            txtFilterSearch.TabIndex = 6;
-            txtFilterSearch.KeyDown += txtFilterSearch_KeyDown;
-            // 
-            // btnFindSearched
-            // 
-            btnFindSearched.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnFindSearched.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnFindSearched.Image = (System.Drawing.Image)resources.GetObject("btnFindSearched.Image");
-            btnFindSearched.Location = new System.Drawing.Point(1037, -1);
-            btnFindSearched.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnFindSearched.Name = "btnFindSearched";
-            btnFindSearched.Size = new System.Drawing.Size(35, 33);
-            btnFindSearched.TabIndex = 9;
-            toolTip1.SetToolTip(btnFindSearched, "Find next");
-            btnFindSearched.UseVisualStyleBackColor = true;
-            btnFindSearched.Click += btnFindSearched_Click;
-            // 
-            // chkItemSearchUploads
-            // 
-            chkItemSearchUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            chkItemSearchUploads.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkItemSearchUploads.Location = new System.Drawing.Point(792, 7);
-            chkItemSearchUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkItemSearchUploads.Name = "chkItemSearchUploads";
-            chkItemSearchUploads.Size = new System.Drawing.Size(122, 47);
-            chkItemSearchUploads.TabIndex = 23;
-            chkItemSearchUploads.Text = "Include uploads";
-            toolTip1.SetToolTip(chkItemSearchUploads, "Show / hide blueprints.");
-            chkItemSearchUploads.UseVisualStyleBackColor = true;
-            chkItemSearchUploads.CheckedChanged += chkItemSearchUploads_CheckedChanged;
-            // 
             // tpgDroppedItems
             // 
             tpgDroppedItems.Controls.Add(cboDroppedItemRealm);
@@ -1788,6 +2296,139 @@ namespace ARKViewer
             tpgDroppedItems.TabIndex = 4;
             tpgDroppedItems.Text = "Dropped Items";
             tpgDroppedItems.UseVisualStyleBackColor = true;
+            // 
+            // cboDroppedItemRealm
+            // 
+            cboDroppedItemRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedItemRealm.FormattingEnabled = true;
+            cboDroppedItemRealm.Location = new System.Drawing.Point(736, 17);
+            cboDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDroppedItemRealm.Name = "cboDroppedItemRealm";
+            cboDroppedItemRealm.Size = new System.Drawing.Size(222, 23);
+            cboDroppedItemRealm.TabIndex = 24;
+            cboDroppedItemRealm.SelectedIndexChanged += cboDroppedItemRealm_SelectedIndexChanged;
+            // 
+            // lblDroppedItemRealm
+            // 
+            lblDroppedItemRealm.AutoSize = true;
+            lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedItemRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedItemRealm.Location = new System.Drawing.Point(662, 22);
+            lblDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDroppedItemRealm.Name = "lblDroppedItemRealm";
+            lblDroppedItemRealm.Size = new System.Drawing.Size(46, 13);
+            lblDroppedItemRealm.TabIndex = 23;
+            lblDroppedItemRealm.Text = "Realm:";
+            // 
+            // pnlFilterDropped
+            // 
+            pnlFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterDropped.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterDropped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterDropped.Controls.Add(btnFindDropped);
+            pnlFilterDropped.Controls.Add(txtFilterDropped);
+            pnlFilterDropped.Location = new System.Drawing.Point(13, 428);
+            pnlFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterDropped.Name = "pnlFilterDropped";
+            pnlFilterDropped.Size = new System.Drawing.Size(1075, 33);
+            pnlFilterDropped.TabIndex = 22;
+            // 
+            // txtFilterDropped
+            // 
+            txtFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterDropped.Location = new System.Drawing.Point(12, 3);
+            txtFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterDropped.Name = "txtFilterDropped";
+            txtFilterDropped.Size = new System.Drawing.Size(1015, 23);
+            txtFilterDropped.TabIndex = 6;
+            txtFilterDropped.KeyDown += txtFilterDropped_KeyDown;
+            // 
+            // cboDroppedItem
+            // 
+            cboDroppedItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedItem.FormattingEnabled = true;
+            cboDroppedItem.Location = new System.Drawing.Point(390, 17);
+            cboDroppedItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDroppedItem.Name = "cboDroppedItem";
+            cboDroppedItem.Size = new System.Drawing.Size(248, 23);
+            cboDroppedItem.TabIndex = 3;
+            cboDroppedItem.SelectedIndexChanged += cboDroppedItem_SelectedIndexChanged;
+            // 
+            // lblDroppedPlayer
+            // 
+            lblDroppedPlayer.AutoSize = true;
+            lblDroppedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedPlayer.Location = new System.Drawing.Point(20, 21);
+            lblDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDroppedPlayer.Name = "lblDroppedPlayer";
+            lblDroppedPlayer.Size = new System.Drawing.Size(46, 13);
+            lblDroppedPlayer.TabIndex = 0;
+            lblDroppedPlayer.Text = "Player:";
+            // 
+            // cboDroppedPlayer
+            // 
+            cboDroppedPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedPlayer.FormattingEnabled = true;
+            cboDroppedPlayer.Location = new System.Drawing.Point(80, 18);
+            cboDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDroppedPlayer.Name = "cboDroppedPlayer";
+            cboDroppedPlayer.Size = new System.Drawing.Size(254, 23);
+            cboDroppedPlayer.TabIndex = 1;
+            cboDroppedPlayer.SelectedIndexChanged += cboDroppedPlayer_SelectedIndexChanged;
+            // 
+            // lblCopyCommandDropped
+            // 
+            lblCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblCopyCommandDropped.AutoSize = true;
+            lblCopyCommandDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCopyCommandDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCopyCommandDropped.Location = new System.Drawing.Point(16, 481);
+            lblCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCopyCommandDropped.Name = "lblCopyCommandDropped";
+            lblCopyCommandDropped.Size = new System.Drawing.Size(65, 13);
+            lblCopyCommandDropped.TabIndex = 5;
+            lblCopyCommandDropped.Text = "Command:";
+            // 
+            // cboCopyCommandDropped
+            // 
+            cboCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboCopyCommandDropped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboCopyCommandDropped.FormattingEnabled = true;
+            cboCopyCommandDropped.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
+            cboCopyCommandDropped.Location = new System.Drawing.Point(96, 478);
+            cboCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboCopyCommandDropped.Name = "cboCopyCommandDropped";
+            cboCopyCommandDropped.Size = new System.Drawing.Size(305, 23);
+            cboCopyCommandDropped.Sorted = true;
+            cboCopyCommandDropped.TabIndex = 6;
+            cboCopyCommandDropped.SelectedIndexChanged += cboCopyCommandDropped_SelectedIndexChanged;
+            // 
+            // lblCountDropped
+            // 
+            lblCountDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblCountDropped.BackColor = System.Drawing.Color.AliceBlue;
+            lblCountDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblCountDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCountDropped.Location = new System.Drawing.Point(945, 472);
+            lblCountDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCountDropped.Name = "lblCountDropped";
+            lblCountDropped.Size = new System.Drawing.Size(144, 35);
+            lblCountDropped.TabIndex = 9;
+            lblCountDropped.Text = "Count: 0";
+            lblCountDropped.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDroppedItem
+            // 
+            lblDroppedItem.AutoSize = true;
+            lblDroppedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedItem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedItem.Location = new System.Drawing.Point(342, 22);
+            lblDroppedItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDroppedItem.Name = "lblDroppedItem";
+            lblDroppedItem.Size = new System.Drawing.Size(35, 13);
+            lblDroppedItem.TabIndex = 2;
+            lblDroppedItem.Text = "Item:";
             // 
             // lvwDroppedItems
             // 
@@ -1841,199 +2482,6 @@ namespace ARKViewer
             lvwDroppedItems_CCC.Text = "CCC";
             lvwDroppedItems_CCC.Width = 0;
             // 
-            // lblDroppedItem
-            // 
-            lblDroppedItem.AutoSize = true;
-            lblDroppedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblDroppedItem.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblDroppedItem.Location = new System.Drawing.Point(342, 22);
-            lblDroppedItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblDroppedItem.Name = "lblDroppedItem";
-            lblDroppedItem.Size = new System.Drawing.Size(35, 13);
-            lblDroppedItem.TabIndex = 2;
-            lblDroppedItem.Text = "Item:";
-            // 
-            // lblCountDropped
-            // 
-            lblCountDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblCountDropped.BackColor = System.Drawing.Color.AliceBlue;
-            lblCountDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblCountDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblCountDropped.Location = new System.Drawing.Point(945, 472);
-            lblCountDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblCountDropped.Name = "lblCountDropped";
-            lblCountDropped.Size = new System.Drawing.Size(144, 35);
-            lblCountDropped.TabIndex = 9;
-            lblCountDropped.Text = "Count: 0";
-            lblCountDropped.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cboCopyCommandDropped
-            // 
-            cboCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboCopyCommandDropped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboCopyCommandDropped.FormattingEnabled = true;
-            cboCopyCommandDropped.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
-            cboCopyCommandDropped.Location = new System.Drawing.Point(96, 478);
-            cboCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboCopyCommandDropped.Name = "cboCopyCommandDropped";
-            cboCopyCommandDropped.Size = new System.Drawing.Size(305, 23);
-            cboCopyCommandDropped.Sorted = true;
-            cboCopyCommandDropped.TabIndex = 6;
-            cboCopyCommandDropped.SelectedIndexChanged += cboCopyCommandDropped_SelectedIndexChanged;
-            // 
-            // lblCopyCommandDropped
-            // 
-            lblCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblCopyCommandDropped.AutoSize = true;
-            lblCopyCommandDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblCopyCommandDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblCopyCommandDropped.Location = new System.Drawing.Point(16, 481);
-            lblCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblCopyCommandDropped.Name = "lblCopyCommandDropped";
-            lblCopyCommandDropped.Size = new System.Drawing.Size(65, 13);
-            lblCopyCommandDropped.TabIndex = 5;
-            lblCopyCommandDropped.Text = "Command:";
-            // 
-            // btnCopyCommandDropped
-            // 
-            btnCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnCopyCommandDropped.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnCopyCommandDropped.Enabled = false;
-            btnCopyCommandDropped.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandDropped.Image");
-            btnCopyCommandDropped.Location = new System.Drawing.Point(408, 466);
-            btnCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnCopyCommandDropped.Name = "btnCopyCommandDropped";
-            btnCopyCommandDropped.Size = new System.Drawing.Size(47, 46);
-            btnCopyCommandDropped.TabIndex = 7;
-            toolTip1.SetToolTip(btnCopyCommandDropped, "Copy command to clipboard.");
-            btnCopyCommandDropped.UseVisualStyleBackColor = true;
-            btnCopyCommandDropped.Click += btnCopyCommandDropped_Click;
-            // 
-            // cboDroppedPlayer
-            // 
-            cboDroppedPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboDroppedPlayer.FormattingEnabled = true;
-            cboDroppedPlayer.Location = new System.Drawing.Point(80, 18);
-            cboDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboDroppedPlayer.Name = "cboDroppedPlayer";
-            cboDroppedPlayer.Size = new System.Drawing.Size(254, 23);
-            cboDroppedPlayer.TabIndex = 1;
-            cboDroppedPlayer.SelectedIndexChanged += cboDroppedPlayer_SelectedIndexChanged;
-            // 
-            // lblDroppedPlayer
-            // 
-            lblDroppedPlayer.AutoSize = true;
-            lblDroppedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblDroppedPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblDroppedPlayer.Location = new System.Drawing.Point(20, 21);
-            lblDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblDroppedPlayer.Name = "lblDroppedPlayer";
-            lblDroppedPlayer.Size = new System.Drawing.Size(46, 13);
-            lblDroppedPlayer.TabIndex = 0;
-            lblDroppedPlayer.Text = "Player:";
-            // 
-            // cboDroppedItem
-            // 
-            cboDroppedItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboDroppedItem.FormattingEnabled = true;
-            cboDroppedItem.Location = new System.Drawing.Point(390, 17);
-            cboDroppedItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboDroppedItem.Name = "cboDroppedItem";
-            cboDroppedItem.Size = new System.Drawing.Size(248, 23);
-            cboDroppedItem.TabIndex = 3;
-            cboDroppedItem.SelectedIndexChanged += cboDroppedItem_SelectedIndexChanged;
-            // 
-            // btnDropInventory
-            // 
-            btnDropInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnDropInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnDropInventory.Enabled = false;
-            btnDropInventory.Image = (System.Drawing.Image)resources.GetObject("btnDropInventory.Image");
-            btnDropInventory.Location = new System.Drawing.Point(460, 466);
-            btnDropInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnDropInventory.Name = "btnDropInventory";
-            btnDropInventory.Size = new System.Drawing.Size(47, 46);
-            btnDropInventory.TabIndex = 8;
-            toolTip1.SetToolTip(btnDropInventory, "View inventory.");
-            btnDropInventory.UseVisualStyleBackColor = true;
-            btnDropInventory.Click += btnDropInventory_Click;
-            // 
-            // chkDroppedBlueprints
-            // 
-            chkDroppedBlueprints.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            chkDroppedBlueprints.Appearance = System.Windows.Forms.Appearance.Button;
-            chkDroppedBlueprints.BackgroundImage = (System.Drawing.Image)resources.GetObject("chkDroppedBlueprints.BackgroundImage");
-            chkDroppedBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            chkDroppedBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkDroppedBlueprints.Location = new System.Drawing.Point(1042, 6);
-            chkDroppedBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkDroppedBlueprints.Name = "chkDroppedBlueprints";
-            chkDroppedBlueprints.Size = new System.Drawing.Size(47, 46);
-            chkDroppedBlueprints.TabIndex = 10;
-            toolTip1.SetToolTip(chkDroppedBlueprints, "Show / hide blueprints.");
-            chkDroppedBlueprints.UseVisualStyleBackColor = true;
-            chkDroppedBlueprints.CheckedChanged += chkDroppedBlueprints_CheckedChanged;
-            // 
-            // pnlFilterDropped
-            // 
-            pnlFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterDropped.BackColor = System.Drawing.Color.PaleTurquoise;
-            pnlFilterDropped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlFilterDropped.Controls.Add(btnFindDropped);
-            pnlFilterDropped.Controls.Add(txtFilterDropped);
-            pnlFilterDropped.Location = new System.Drawing.Point(13, 428);
-            pnlFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlFilterDropped.Name = "pnlFilterDropped";
-            pnlFilterDropped.Size = new System.Drawing.Size(1075, 33);
-            pnlFilterDropped.TabIndex = 22;
-            // 
-            // txtFilterDropped
-            // 
-            txtFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterDropped.Location = new System.Drawing.Point(12, 3);
-            txtFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            txtFilterDropped.Name = "txtFilterDropped";
-            txtFilterDropped.Size = new System.Drawing.Size(1015, 23);
-            txtFilterDropped.TabIndex = 6;
-            txtFilterDropped.KeyDown += txtFilterDropped_KeyDown;
-            // 
-            // btnFindDropped
-            // 
-            btnFindDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnFindDropped.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnFindDropped.Image = (System.Drawing.Image)resources.GetObject("btnFindDropped.Image");
-            btnFindDropped.Location = new System.Drawing.Point(1040, -1);
-            btnFindDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnFindDropped.Name = "btnFindDropped";
-            btnFindDropped.Size = new System.Drawing.Size(35, 33);
-            btnFindDropped.TabIndex = 9;
-            toolTip1.SetToolTip(btnFindDropped, "Find next");
-            btnFindDropped.UseVisualStyleBackColor = true;
-            btnFindDropped.Click += btnFindDropped_Click;
-            // 
-            // lblDroppedItemRealm
-            // 
-            lblDroppedItemRealm.AutoSize = true;
-            lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblDroppedItemRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblDroppedItemRealm.Location = new System.Drawing.Point(662, 22);
-            lblDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblDroppedItemRealm.Name = "lblDroppedItemRealm";
-            lblDroppedItemRealm.Size = new System.Drawing.Size(46, 13);
-            lblDroppedItemRealm.TabIndex = 23;
-            lblDroppedItemRealm.Text = "Realm:";
-            // 
-            // cboDroppedItemRealm
-            // 
-            cboDroppedItemRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboDroppedItemRealm.FormattingEnabled = true;
-            cboDroppedItemRealm.Location = new System.Drawing.Point(736, 17);
-            cboDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboDroppedItemRealm.Name = "cboDroppedItemRealm";
-            cboDroppedItemRealm.Size = new System.Drawing.Size(222, 23);
-            cboDroppedItemRealm.TabIndex = 24;
-            cboDroppedItemRealm.SelectedIndexChanged += cboDroppedItemRealm_SelectedIndexChanged;
-            // 
             // tpgPlayers
             // 
             tpgPlayers.Controls.Add(btnRconCommandPlayers);
@@ -2060,6 +2508,141 @@ namespace ARKViewer
             tpgPlayers.TabIndex = 1;
             tpgPlayers.Text = "Players";
             tpgPlayers.UseVisualStyleBackColor = true;
+            // 
+            // cboPlayerRealm
+            // 
+            cboPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboPlayerRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPlayerRealm.FormattingEnabled = true;
+            cboPlayerRealm.Location = new System.Drawing.Point(865, 17);
+            cboPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPlayerRealm.Name = "cboPlayerRealm";
+            cboPlayerRealm.Size = new System.Drawing.Size(222, 23);
+            cboPlayerRealm.TabIndex = 25;
+            cboPlayerRealm.SelectedIndexChanged += cboPlayerRealm_SelectedIndexChanged;
+            // 
+            // lblPlayerRealm
+            // 
+            lblPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblPlayerRealm.AutoSize = true;
+            lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayerRealm.Location = new System.Drawing.Point(791, 22);
+            lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerRealm.Name = "lblPlayerRealm";
+            lblPlayerRealm.Size = new System.Drawing.Size(46, 13);
+            lblPlayerRealm.TabIndex = 24;
+            lblPlayerRealm.Text = "Realm:";
+            // 
+            // pnlFilterPlayers
+            // 
+            pnlFilterPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterPlayers.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterPlayers.Controls.Add(btnFilterPlayer);
+            pnlFilterPlayers.Controls.Add(txtFilterPlayer);
+            pnlFilterPlayers.Location = new System.Drawing.Point(14, 420);
+            pnlFilterPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterPlayers.Name = "pnlFilterPlayers";
+            pnlFilterPlayers.Size = new System.Drawing.Size(1072, 33);
+            pnlFilterPlayers.TabIndex = 23;
+            // 
+            // txtFilterPlayer
+            // 
+            txtFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterPlayer.Location = new System.Drawing.Point(12, 3);
+            txtFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterPlayer.Name = "txtFilterPlayer";
+            txtFilterPlayer.Size = new System.Drawing.Size(1012, 23);
+            txtFilterPlayer.TabIndex = 6;
+            txtFilterPlayer.KeyDown += txtFilterPlayer_KeyDown;
+            // 
+            // lblPlayerTotal
+            // 
+            lblPlayerTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblPlayerTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblPlayerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPlayerTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayerTotal.Location = new System.Drawing.Point(943, 468);
+            lblPlayerTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerTotal.Name = "lblPlayerTotal";
+            lblPlayerTotal.Size = new System.Drawing.Size(144, 35);
+            lblPlayerTotal.TabIndex = 11;
+            lblPlayerTotal.Text = "Total: 0";
+            lblPlayerTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCommandPlayer
+            // 
+            lblCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblCommandPlayer.AutoSize = true;
+            lblCommandPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCommandPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCommandPlayer.Location = new System.Drawing.Point(16, 475);
+            lblCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCommandPlayer.Name = "lblCommandPlayer";
+            lblCommandPlayer.Size = new System.Drawing.Size(65, 13);
+            lblCommandPlayer.TabIndex = 5;
+            lblCommandPlayer.Text = "Command:";
+            // 
+            // cboConsoleCommandsPlayerTribe
+            // 
+            cboConsoleCommandsPlayerTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
+            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AddChibiExpToPlayer <PlayerID> <HowMuch>", "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "RM <FileCsvList>", "SaveWorld", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>", "UnbanPlayer <SteamID>" });
+            cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
+            cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
+            cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsPlayerTribe.Sorted = true;
+            cboConsoleCommandsPlayerTribe.TabIndex = 6;
+            cboConsoleCommandsPlayerTribe.SelectedIndexChanged += cboConsoleCommandsPlayerTribe_SelectedIndexChanged;
+            // 
+            // lblPlayersPlayer
+            // 
+            lblPlayersPlayer.AutoSize = true;
+            lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayersPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayersPlayer.Location = new System.Drawing.Point(405, 21);
+            lblPlayersPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayersPlayer.Name = "lblPlayersPlayer";
+            lblPlayersPlayer.Size = new System.Drawing.Size(46, 13);
+            lblPlayersPlayer.TabIndex = 2;
+            lblPlayersPlayer.Text = "Player:";
+            // 
+            // lblPlayersTribe
+            // 
+            lblPlayersTribe.AutoSize = true;
+            lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayersTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayersTribe.Location = new System.Drawing.Point(16, 21);
+            lblPlayersTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayersTribe.Name = "lblPlayersTribe";
+            lblPlayersTribe.Size = new System.Drawing.Size(40, 13);
+            lblPlayersTribe.TabIndex = 0;
+            lblPlayersTribe.Text = "Tribe:";
+            // 
+            // cboTribes
+            // 
+            cboTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTribes.FormattingEnabled = true;
+            cboTribes.Location = new System.Drawing.Point(70, 17);
+            cboTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTribes.Name = "cboTribes";
+            cboTribes.Size = new System.Drawing.Size(313, 23);
+            cboTribes.TabIndex = 1;
+            cboTribes.SelectedIndexChanged += cboTribes_SelectedIndexChanged;
+            // 
+            // cboPlayers
+            // 
+            cboPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPlayers.FormattingEnabled = true;
+            cboPlayers.Location = new System.Drawing.Point(465, 17);
+            cboPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPlayers.Name = "cboPlayers";
+            cboPlayers.Size = new System.Drawing.Size(232, 23);
+            cboPlayers.TabIndex = 3;
+            cboPlayers.SelectedIndexChanged += cboPlayers_SelectedIndexChanged;
             // 
             // lvwPlayers
             // 
@@ -2181,231 +2764,6 @@ namespace ARKViewer
             lvwPlayers_CCC.Text = "CCC";
             lvwPlayers_CCC.Width = 0;
             // 
-            // cboPlayers
-            // 
-            cboPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboPlayers.FormattingEnabled = true;
-            cboPlayers.Location = new System.Drawing.Point(465, 17);
-            cboPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboPlayers.Name = "cboPlayers";
-            cboPlayers.Size = new System.Drawing.Size(232, 23);
-            cboPlayers.TabIndex = 3;
-            cboPlayers.SelectedIndexChanged += cboPlayers_SelectedIndexChanged;
-            // 
-            // cboTribes
-            // 
-            cboTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTribes.FormattingEnabled = true;
-            cboTribes.Location = new System.Drawing.Point(70, 17);
-            cboTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTribes.Name = "cboTribes";
-            cboTribes.Size = new System.Drawing.Size(313, 23);
-            cboTribes.TabIndex = 1;
-            cboTribes.SelectedIndexChanged += cboTribes_SelectedIndexChanged;
-            // 
-            // lblPlayersTribe
-            // 
-            lblPlayersTribe.AutoSize = true;
-            lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPlayersTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblPlayersTribe.Location = new System.Drawing.Point(16, 21);
-            lblPlayersTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblPlayersTribe.Name = "lblPlayersTribe";
-            lblPlayersTribe.Size = new System.Drawing.Size(40, 13);
-            lblPlayersTribe.TabIndex = 0;
-            lblPlayersTribe.Text = "Tribe:";
-            // 
-            // lblPlayersPlayer
-            // 
-            lblPlayersPlayer.AutoSize = true;
-            lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPlayersPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblPlayersPlayer.Location = new System.Drawing.Point(405, 21);
-            lblPlayersPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblPlayersPlayer.Name = "lblPlayersPlayer";
-            lblPlayersPlayer.Size = new System.Drawing.Size(46, 13);
-            lblPlayersPlayer.TabIndex = 2;
-            lblPlayersPlayer.Text = "Player:";
-            // 
-            // btnPlayerInventory
-            // 
-            btnPlayerInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnPlayerInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnPlayerInventory.Enabled = false;
-            btnPlayerInventory.Image = (System.Drawing.Image)resources.GetObject("btnPlayerInventory.Image");
-            btnPlayerInventory.Location = new System.Drawing.Point(563, 463);
-            btnPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnPlayerInventory.Name = "btnPlayerInventory";
-            btnPlayerInventory.Size = new System.Drawing.Size(47, 46);
-            btnPlayerInventory.TabIndex = 9;
-            toolTip1.SetToolTip(btnPlayerInventory, "Show player explorer.");
-            btnPlayerInventory.UseVisualStyleBackColor = true;
-            btnPlayerInventory.Click += btnPlayerInventory_Click;
-            // 
-            // btnPlayerTribeLog
-            // 
-            btnPlayerTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnPlayerTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnPlayerTribeLog.Enabled = false;
-            btnPlayerTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnPlayerTribeLog.Image");
-            btnPlayerTribeLog.Location = new System.Drawing.Point(512, 463);
-            btnPlayerTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnPlayerTribeLog.Name = "btnPlayerTribeLog";
-            btnPlayerTribeLog.Size = new System.Drawing.Size(47, 46);
-            btnPlayerTribeLog.TabIndex = 8;
-            toolTip1.SetToolTip(btnPlayerTribeLog, "View tribe log.");
-            btnPlayerTribeLog.UseVisualStyleBackColor = true;
-            btnPlayerTribeLog.Click += btnPlayerTribeLog_Click;
-            // 
-            // cboConsoleCommandsPlayerTribe
-            // 
-            cboConsoleCommandsPlayerTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
-            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AddChibiExpToPlayer <PlayerID> <HowMuch>", "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "RM <FileCsvList>", "SaveWorld", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>", "UnbanPlayer <SteamID>" });
-            cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
-            cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
-            cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 23);
-            cboConsoleCommandsPlayerTribe.Sorted = true;
-            cboConsoleCommandsPlayerTribe.TabIndex = 6;
-            cboConsoleCommandsPlayerTribe.SelectedIndexChanged += cboConsoleCommandsPlayerTribe_SelectedIndexChanged;
-            // 
-            // lblCommandPlayer
-            // 
-            lblCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblCommandPlayer.AutoSize = true;
-            lblCommandPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblCommandPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblCommandPlayer.Location = new System.Drawing.Point(16, 475);
-            lblCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblCommandPlayer.Name = "lblCommandPlayer";
-            lblCommandPlayer.Size = new System.Drawing.Size(65, 13);
-            lblCommandPlayer.TabIndex = 5;
-            lblCommandPlayer.Text = "Command:";
-            // 
-            // btnCopyCommandPlayer
-            // 
-            btnCopyCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnCopyCommandPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnCopyCommandPlayer.Enabled = false;
-            btnCopyCommandPlayer.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandPlayer.Image");
-            btnCopyCommandPlayer.Location = new System.Drawing.Point(408, 463);
-            btnCopyCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnCopyCommandPlayer.Name = "btnCopyCommandPlayer";
-            btnCopyCommandPlayer.Size = new System.Drawing.Size(47, 46);
-            btnCopyCommandPlayer.TabIndex = 7;
-            toolTip1.SetToolTip(btnCopyCommandPlayer, "Copy command to clipboard.");
-            btnCopyCommandPlayer.UseVisualStyleBackColor = true;
-            btnCopyCommandPlayer.Click += btnCopyCommandPlayer_Click;
-            // 
-            // lblPlayerTotal
-            // 
-            lblPlayerTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerTotal.BackColor = System.Drawing.Color.AliceBlue;
-            lblPlayerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblPlayerTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblPlayerTotal.Location = new System.Drawing.Point(943, 468);
-            lblPlayerTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblPlayerTotal.Name = "lblPlayerTotal";
-            lblPlayerTotal.Size = new System.Drawing.Size(144, 35);
-            lblPlayerTotal.TabIndex = 11;
-            lblPlayerTotal.Text = "Total: 0";
-            lblPlayerTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnDeletePlayer
-            // 
-            btnDeletePlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnDeletePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnDeletePlayer.Enabled = false;
-            btnDeletePlayer.Image = (System.Drawing.Image)resources.GetObject("btnDeletePlayer.Image");
-            btnDeletePlayer.Location = new System.Drawing.Point(613, 463);
-            btnDeletePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnDeletePlayer.Name = "btnDeletePlayer";
-            btnDeletePlayer.Size = new System.Drawing.Size(47, 46);
-            btnDeletePlayer.TabIndex = 10;
-            toolTip1.SetToolTip(btnDeletePlayer, "Remove player.");
-            btnDeletePlayer.UseVisualStyleBackColor = true;
-            btnDeletePlayer.Click += btnDeletePlayer_Click;
-            // 
-            // pnlFilterPlayers
-            // 
-            pnlFilterPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterPlayers.BackColor = System.Drawing.Color.PaleTurquoise;
-            pnlFilterPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlFilterPlayers.Controls.Add(btnFilterPlayer);
-            pnlFilterPlayers.Controls.Add(txtFilterPlayer);
-            pnlFilterPlayers.Location = new System.Drawing.Point(14, 420);
-            pnlFilterPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlFilterPlayers.Name = "pnlFilterPlayers";
-            pnlFilterPlayers.Size = new System.Drawing.Size(1072, 33);
-            pnlFilterPlayers.TabIndex = 23;
-            // 
-            // txtFilterPlayer
-            // 
-            txtFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterPlayer.Location = new System.Drawing.Point(12, 3);
-            txtFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            txtFilterPlayer.Name = "txtFilterPlayer";
-            txtFilterPlayer.Size = new System.Drawing.Size(1012, 23);
-            txtFilterPlayer.TabIndex = 6;
-            txtFilterPlayer.KeyDown += txtFilterPlayer_KeyDown;
-            // 
-            // btnFilterPlayer
-            // 
-            btnFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnFilterPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnFilterPlayer.Image = (System.Drawing.Image)resources.GetObject("btnFilterPlayer.Image");
-            btnFilterPlayer.Location = new System.Drawing.Point(1036, -1);
-            btnFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnFilterPlayer.Name = "btnFilterPlayer";
-            btnFilterPlayer.Size = new System.Drawing.Size(35, 33);
-            btnFilterPlayer.TabIndex = 9;
-            toolTip1.SetToolTip(btnFilterPlayer, "Find next");
-            btnFilterPlayer.UseVisualStyleBackColor = true;
-            btnFilterPlayer.Click += btnFilterPlayer_Click;
-            // 
-            // lblPlayerRealm
-            // 
-            lblPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerRealm.AutoSize = true;
-            lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPlayerRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblPlayerRealm.Location = new System.Drawing.Point(791, 22);
-            lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblPlayerRealm.Name = "lblPlayerRealm";
-            lblPlayerRealm.Size = new System.Drawing.Size(46, 13);
-            lblPlayerRealm.TabIndex = 24;
-            lblPlayerRealm.Text = "Realm:";
-            // 
-            // cboPlayerRealm
-            // 
-            cboPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cboPlayerRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboPlayerRealm.FormattingEnabled = true;
-            cboPlayerRealm.Location = new System.Drawing.Point(865, 17);
-            cboPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboPlayerRealm.Name = "cboPlayerRealm";
-            cboPlayerRealm.Size = new System.Drawing.Size(222, 23);
-            cboPlayerRealm.TabIndex = 25;
-            cboPlayerRealm.SelectedIndexChanged += cboPlayerRealm_SelectedIndexChanged;
-            // 
-            // btnRconCommandPlayers
-            // 
-            btnRconCommandPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnRconCommandPlayers.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnRconCommandPlayers.Enabled = false;
-            btnRconCommandPlayers.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandPlayers.Image");
-            btnRconCommandPlayers.Location = new System.Drawing.Point(459, 463);
-            btnRconCommandPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnRconCommandPlayers.Name = "btnRconCommandPlayers";
-            btnRconCommandPlayers.Size = new System.Drawing.Size(47, 46);
-            btnRconCommandPlayers.TabIndex = 26;
-            toolTip1.SetToolTip(btnRconCommandPlayers, "Send command to server using RCON.");
-            btnRconCommandPlayers.UseVisualStyleBackColor = true;
-            btnRconCommandPlayers.Visible = false;
-            btnRconCommandPlayers.Click += btnRconCommandPlayers_Click;
-            // 
             // tpgTribes
             // 
             tpgTribes.Controls.Add(btnRconCommandTribes);
@@ -2425,122 +2783,6 @@ namespace ARKViewer
             tpgTribes.Text = "Tribes";
             tpgTribes.UseVisualStyleBackColor = true;
             // 
-            // btnTribeLog
-            // 
-            btnTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnTribeLog.Enabled = false;
-            btnTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnTribeLog.Image");
-            btnTribeLog.Location = new System.Drawing.Point(516, 464);
-            btnTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnTribeLog.Name = "btnTribeLog";
-            btnTribeLog.Size = new System.Drawing.Size(47, 46);
-            btnTribeLog.TabIndex = 4;
-            toolTip1.SetToolTip(btnTribeLog, "View tribe log.");
-            btnTribeLog.UseVisualStyleBackColor = true;
-            btnTribeLog.Click += btnTribeLog_Click;
-            // 
-            // cboTribeCopyCommand
-            // 
-            cboTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTribeCopyCommand.FormattingEnabled = true;
-            cboTribeCopyCommand.Items.AddRange(new object[] { "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "RM <FileCsvList>", "SaveWorld", "TakeTribe <TribeID>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>" });
-            cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
-            cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTribeCopyCommand.Name = "cboTribeCopyCommand";
-            cboTribeCopyCommand.Size = new System.Drawing.Size(305, 23);
-            cboTribeCopyCommand.Sorted = true;
-            cboTribeCopyCommand.TabIndex = 2;
-            cboTribeCopyCommand.SelectedIndexChanged += cboTribeCopyCommand_SelectedIndexChanged;
-            // 
-            // lblTribeCopyCommand
-            // 
-            lblTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblTribeCopyCommand.AutoSize = true;
-            lblTribeCopyCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTribeCopyCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTribeCopyCommand.Location = new System.Drawing.Point(16, 478);
-            lblTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTribeCopyCommand.Name = "lblTribeCopyCommand";
-            lblTribeCopyCommand.Size = new System.Drawing.Size(65, 13);
-            lblTribeCopyCommand.TabIndex = 1;
-            lblTribeCopyCommand.Text = "Command:";
-            // 
-            // btnTribeCopyCommand
-            // 
-            btnTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnTribeCopyCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnTribeCopyCommand.Enabled = false;
-            btnTribeCopyCommand.Image = (System.Drawing.Image)resources.GetObject("btnTribeCopyCommand.Image");
-            btnTribeCopyCommand.Location = new System.Drawing.Point(408, 464);
-            btnTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnTribeCopyCommand.Name = "btnTribeCopyCommand";
-            btnTribeCopyCommand.Size = new System.Drawing.Size(47, 46);
-            btnTribeCopyCommand.TabIndex = 3;
-            toolTip1.SetToolTip(btnTribeCopyCommand, "Copy command to clipboard.");
-            btnTribeCopyCommand.UseVisualStyleBackColor = true;
-            btnTribeCopyCommand.Click += btnTribeCopyCommand_Click;
-            // 
-            // chkTribePlayers
-            // 
-            chkTribePlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            chkTribePlayers.BackColor = System.Drawing.Color.CornflowerBlue;
-            chkTribePlayers.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            chkTribePlayers.Checked = true;
-            chkTribePlayers.CheckState = System.Windows.Forms.CheckState.Checked;
-            chkTribePlayers.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkTribePlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            chkTribePlayers.ForeColor = System.Drawing.Color.LightCyan;
-            chkTribePlayers.Location = new System.Drawing.Point(676, 467);
-            chkTribePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkTribePlayers.Name = "chkTribePlayers";
-            chkTribePlayers.Size = new System.Drawing.Size(133, 40);
-            chkTribePlayers.TabIndex = 5;
-            chkTribePlayers.Text = "Player Markers";
-            chkTribePlayers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            toolTip1.SetToolTip(chkTribePlayers, "Show player markers.");
-            chkTribePlayers.UseVisualStyleBackColor = false;
-            chkTribePlayers.CheckedChanged += chkTribePlayers_CheckedChanged;
-            // 
-            // chkTribeTames
-            // 
-            chkTribeTames.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            chkTribeTames.BackColor = System.Drawing.Color.Gold;
-            chkTribeTames.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            chkTribeTames.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkTribeTames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            chkTribeTames.ForeColor = System.Drawing.Color.Chocolate;
-            chkTribeTames.Location = new System.Drawing.Point(816, 467);
-            chkTribeTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkTribeTames.Name = "chkTribeTames";
-            chkTribeTames.Size = new System.Drawing.Size(122, 40);
-            chkTribeTames.TabIndex = 6;
-            chkTribeTames.Text = "Tame Markers";
-            chkTribeTames.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            toolTip1.SetToolTip(chkTribeTames, "Show tame markers.");
-            chkTribeTames.UseVisualStyleBackColor = false;
-            chkTribeTames.CheckedChanged += chkTribeTames_CheckedChanged;
-            // 
-            // chkTribeStructures
-            // 
-            chkTribeStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            chkTribeStructures.BackColor = System.Drawing.Color.PaleGreen;
-            chkTribeStructures.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            chkTribeStructures.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkTribeStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            chkTribeStructures.ForeColor = System.Drawing.Color.ForestGreen;
-            chkTribeStructures.Location = new System.Drawing.Point(945, 467);
-            chkTribeStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkTribeStructures.Name = "chkTribeStructures";
-            chkTribeStructures.Size = new System.Drawing.Size(141, 40);
-            chkTribeStructures.TabIndex = 7;
-            chkTribeStructures.Text = "Structure Markers";
-            chkTribeStructures.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            toolTip1.SetToolTip(chkTribeStructures, "Show structure markers.");
-            chkTribeStructures.UseVisualStyleBackColor = false;
-            chkTribeStructures.CheckedChanged += chkTribeStructures_CheckedChanged;
-            // 
             // splitContainer1
             // 
             splitContainer1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
@@ -2554,6 +2796,7 @@ namespace ARKViewer
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(chartTribes);
             splitContainer1.Panel2.Controls.Add(btnSaveChartImage);
             splitContainer1.Panel2.Controls.Add(lblChartTop);
             splitContainer1.Panel2.Controls.Add(udChartTop);
@@ -2562,104 +2805,6 @@ namespace ARKViewer
             splitContainer1.Size = new System.Drawing.Size(1075, 438);
             splitContainer1.SplitterDistance = 716;
             splitContainer1.TabIndex = 24;
-            // 
-            // cboChartType
-            // 
-            cboChartType.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            cboChartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboChartType.FormattingEnabled = true;
-            cboChartType.Items.AddRange(new object[] { "Tribes by No. Players", "Tribes by No. Tames", "Tribes by No. Structures" });
-            cboChartType.Location = new System.Drawing.Point(72, 13);
-            cboChartType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboChartType.Name = "cboChartType";
-            cboChartType.Size = new System.Drawing.Size(270, 23);
-            cboChartType.TabIndex = 5;
-            cboChartType.SelectedIndexChanged += cboChartType_SelectedIndexChanged;
-            // 
-            // lblChart
-            // 
-            lblChart.AutoSize = true;
-            lblChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblChart.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblChart.Location = new System.Drawing.Point(12, 17);
-            lblChart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblChart.Name = "lblChart";
-            lblChart.Size = new System.Drawing.Size(41, 13);
-            lblChart.TabIndex = 4;
-            lblChart.Text = "Chart:";
-            // 
-            // udChartTop
-            // 
-            udChartTop.Location = new System.Drawing.Point(72, 43);
-            udChartTop.Name = "udChartTop";
-            udChartTop.Size = new System.Drawing.Size(63, 23);
-            udChartTop.TabIndex = 6;
-            udChartTop.Value = new decimal(new int[] { 10, 0, 0, 0 });
-            udChartTop.ValueChanged += udChartTop_ValueChanged;
-            // 
-            // lblChartTop
-            // 
-            lblChartTop.AutoSize = true;
-            lblChartTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblChartTop.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblChartTop.Location = new System.Drawing.Point(12, 46);
-            lblChartTop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblChartTop.Name = "lblChartTop";
-            lblChartTop.Size = new System.Drawing.Size(33, 13);
-            lblChartTop.TabIndex = 7;
-            lblChartTop.Text = "Top:";
-            // 
-            // btnSaveChartImage
-            // 
-            btnSaveChartImage.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnSaveChartImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnSaveChartImage.Image = (System.Drawing.Image)resources.GetObject("btnSaveChartImage.Image");
-            btnSaveChartImage.Location = new System.Drawing.Point(299, 42);
-            btnSaveChartImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnSaveChartImage.Name = "btnSaveChartImage";
-            btnSaveChartImage.Size = new System.Drawing.Size(43, 33);
-            btnSaveChartImage.TabIndex = 52;
-            btnSaveChartImage.TabStop = false;
-            toolTip1.SetToolTip(btnSaveChartImage, "Save chart image.");
-            btnSaveChartImage.UseVisualStyleBackColor = true;
-            btnSaveChartImage.Click += btnSaveChart_Click;
-            // 
-            // pnlFilterTribes
-            // 
-            pnlFilterTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterTribes.BackColor = System.Drawing.Color.PaleTurquoise;
-            pnlFilterTribes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlFilterTribes.Controls.Add(btnFilterTribe);
-            pnlFilterTribes.Controls.Add(txtFilterTribe);
-            pnlFilterTribes.Location = new System.Drawing.Point(5, 400);
-            pnlFilterTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlFilterTribes.Name = "pnlFilterTribes";
-            pnlFilterTribes.Size = new System.Drawing.Size(710, 33);
-            pnlFilterTribes.TabIndex = 23;
-            // 
-            // txtFilterTribe
-            // 
-            txtFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterTribe.Location = new System.Drawing.Point(12, 3);
-            txtFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            txtFilterTribe.Name = "txtFilterTribe";
-            txtFilterTribe.Size = new System.Drawing.Size(650, 23);
-            txtFilterTribe.TabIndex = 6;
-            txtFilterTribe.KeyDown += txtFilterTribe_KeyDown;
-            // 
-            // btnFilterTribe
-            // 
-            btnFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnFilterTribe.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnFilterTribe.Image = (System.Drawing.Image)resources.GetObject("btnFilterTribe.Image");
-            btnFilterTribe.Location = new System.Drawing.Point(674, -1);
-            btnFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnFilterTribe.Name = "btnFilterTribe";
-            btnFilterTribe.Size = new System.Drawing.Size(35, 33);
-            btnFilterTribe.TabIndex = 9;
-            toolTip1.SetToolTip(btnFilterTribe, "Find next");
-            btnFilterTribe.UseVisualStyleBackColor = true;
-            btnFilterTribe.Click += btnFilterTribe_Click;
             // 
             // lvwTribes
             // 
@@ -2708,21 +2853,101 @@ namespace ARKViewer
             lvwTribes_Active.Text = "Last Active";
             lvwTribes_Active.Width = 127;
             // 
-            // btnRconCommandTribes
+            // pnlFilterTribes
             // 
-            btnRconCommandTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnRconCommandTribes.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnRconCommandTribes.Enabled = false;
-            btnRconCommandTribes.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTribes.Image");
-            btnRconCommandTribes.Location = new System.Drawing.Point(463, 464);
-            btnRconCommandTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnRconCommandTribes.Name = "btnRconCommandTribes";
-            btnRconCommandTribes.Size = new System.Drawing.Size(47, 46);
-            btnRconCommandTribes.TabIndex = 25;
-            toolTip1.SetToolTip(btnRconCommandTribes, "Send command to server using RCON.");
-            btnRconCommandTribes.UseVisualStyleBackColor = true;
-            btnRconCommandTribes.Visible = false;
-            btnRconCommandTribes.Click += btnRconCommandTribes_Click;
+            pnlFilterTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterTribes.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterTribes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterTribes.Controls.Add(btnFilterTribe);
+            pnlFilterTribes.Controls.Add(txtFilterTribe);
+            pnlFilterTribes.Location = new System.Drawing.Point(5, 400);
+            pnlFilterTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterTribes.Name = "pnlFilterTribes";
+            pnlFilterTribes.Size = new System.Drawing.Size(710, 33);
+            pnlFilterTribes.TabIndex = 23;
+            // 
+            // txtFilterTribe
+            // 
+            txtFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterTribe.Location = new System.Drawing.Point(12, 3);
+            txtFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterTribe.Name = "txtFilterTribe";
+            txtFilterTribe.Size = new System.Drawing.Size(650, 23);
+            txtFilterTribe.TabIndex = 6;
+            txtFilterTribe.KeyDown += txtFilterTribe_KeyDown;
+            // 
+            // lblChartTop
+            // 
+            lblChartTop.AutoSize = true;
+            lblChartTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblChartTop.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblChartTop.Location = new System.Drawing.Point(12, 46);
+            lblChartTop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblChartTop.Name = "lblChartTop";
+            lblChartTop.Size = new System.Drawing.Size(33, 13);
+            lblChartTop.TabIndex = 7;
+            lblChartTop.Text = "Top:";
+            // 
+            // udChartTop
+            // 
+            udChartTop.Location = new System.Drawing.Point(72, 43);
+            udChartTop.Name = "udChartTop";
+            udChartTop.Size = new System.Drawing.Size(63, 23);
+            udChartTop.TabIndex = 6;
+            udChartTop.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            udChartTop.ValueChanged += udChartTop_ValueChanged;
+            // 
+            // lblChart
+            // 
+            lblChart.AutoSize = true;
+            lblChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblChart.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblChart.Location = new System.Drawing.Point(12, 17);
+            lblChart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblChart.Name = "lblChart";
+            lblChart.Size = new System.Drawing.Size(41, 13);
+            lblChart.TabIndex = 4;
+            lblChart.Text = "Chart:";
+            // 
+            // cboChartType
+            // 
+            cboChartType.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            cboChartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboChartType.FormattingEnabled = true;
+            cboChartType.Items.AddRange(new object[] { "Tribes by No. Players", "Tribes by No. Tames", "Tribes by No. Structures" });
+            cboChartType.Location = new System.Drawing.Point(72, 13);
+            cboChartType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboChartType.Name = "cboChartType";
+            cboChartType.Size = new System.Drawing.Size(270, 23);
+            cboChartType.TabIndex = 5;
+            cboChartType.SelectedIndexChanged += cboChartType_SelectedIndexChanged;
+            // 
+            // lblTribeCopyCommand
+            // 
+            lblTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblTribeCopyCommand.AutoSize = true;
+            lblTribeCopyCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTribeCopyCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTribeCopyCommand.Location = new System.Drawing.Point(16, 478);
+            lblTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTribeCopyCommand.Name = "lblTribeCopyCommand";
+            lblTribeCopyCommand.Size = new System.Drawing.Size(65, 13);
+            lblTribeCopyCommand.TabIndex = 1;
+            lblTribeCopyCommand.Text = "Command:";
+            // 
+            // cboTribeCopyCommand
+            // 
+            cboTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTribeCopyCommand.FormattingEnabled = true;
+            cboTribeCopyCommand.Items.AddRange(new object[] { "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "RM <FileCsvList>", "SaveWorld", "TakeTribe <TribeID>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>" });
+            cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
+            cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTribeCopyCommand.Name = "cboTribeCopyCommand";
+            cboTribeCopyCommand.Size = new System.Drawing.Size(305, 23);
+            cboTribeCopyCommand.Sorted = true;
+            cboTribeCopyCommand.TabIndex = 2;
+            cboTribeCopyCommand.SelectedIndexChanged += cboTribeCopyCommand_SelectedIndexChanged;
             // 
             // tpgStructures
             // 
@@ -2750,6 +2975,161 @@ namespace ARKViewer
             tpgStructures.TabIndex = 2;
             tpgStructures.Text = "Player Structures";
             tpgStructures.UseVisualStyleBackColor = true;
+            // 
+            // cboStructureRealm
+            // 
+            cboStructureRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureRealm.FormattingEnabled = true;
+            cboStructureRealm.Location = new System.Drawing.Point(438, 49);
+            cboStructureRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructureRealm.Name = "cboStructureRealm";
+            cboStructureRealm.Size = new System.Drawing.Size(224, 23);
+            cboStructureRealm.TabIndex = 24;
+            cboStructureRealm.SelectedIndexChanged += cboStructureRealm_SelectedIndexChanged;
+            // 
+            // lblStructureRealm
+            // 
+            lblStructureRealm.AutoSize = true;
+            lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureRealm.Location = new System.Drawing.Point(364, 54);
+            lblStructureRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureRealm.Name = "lblStructureRealm";
+            lblStructureRealm.Size = new System.Drawing.Size(46, 13);
+            lblStructureRealm.TabIndex = 23;
+            lblStructureRealm.Text = "Realm:";
+            // 
+            // pnlFilterStructures
+            // 
+            pnlFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterStructures.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterStructures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterStructures.Controls.Add(btnFindStructures);
+            pnlFilterStructures.Controls.Add(txtFilterStructures);
+            pnlFilterStructures.Location = new System.Drawing.Point(13, 430);
+            pnlFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterStructures.Name = "pnlFilterStructures";
+            pnlFilterStructures.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterStructures.TabIndex = 22;
+            // 
+            // txtFilterStructures
+            // 
+            txtFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterStructures.Location = new System.Drawing.Point(12, 3);
+            txtFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterStructures.Name = "txtFilterStructures";
+            txtFilterStructures.Size = new System.Drawing.Size(1013, 23);
+            txtFilterStructures.TabIndex = 6;
+            txtFilterStructures.KeyDown += txtFilterStructures_KeyDown;
+            // 
+            // lblStructureTotal
+            // 
+            lblStructureTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblStructureTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblStructureTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblStructureTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureTotal.Location = new System.Drawing.Point(943, 474);
+            lblStructureTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureTotal.Name = "lblStructureTotal";
+            lblStructureTotal.Size = new System.Drawing.Size(144, 35);
+            lblStructureTotal.TabIndex = 12;
+            lblStructureTotal.Text = "Total: 0";
+            lblStructureTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCommandStructure
+            // 
+            lblCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblCommandStructure.AutoSize = true;
+            lblCommandStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCommandStructure.Location = new System.Drawing.Point(10, 479);
+            lblCommandStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCommandStructure.Name = "lblCommandStructure";
+            lblCommandStructure.Size = new System.Drawing.Size(65, 13);
+            lblCommandStructure.TabIndex = 8;
+            lblCommandStructure.Text = "Command:";
+            // 
+            // cboConsoleCommandsStructure
+            // 
+            cboConsoleCommandsStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsStructure.FormattingEnabled = true;
+            cboConsoleCommandsStructure.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>" });
+            cboConsoleCommandsStructure.Location = new System.Drawing.Point(90, 475);
+            cboConsoleCommandsStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsStructure.Name = "cboConsoleCommandsStructure";
+            cboConsoleCommandsStructure.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsStructure.Sorted = true;
+            cboConsoleCommandsStructure.TabIndex = 9;
+            cboConsoleCommandsStructure.SelectedIndexChanged += cboConsoleCommandsStructure_SelectedIndexChanged;
+            // 
+            // lblStructureStructure
+            // 
+            lblStructureStructure.AutoSize = true;
+            lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureStructure.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureStructure.Location = new System.Drawing.Point(18, 54);
+            lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureStructure.Name = "lblStructureStructure";
+            lblStructureStructure.Size = new System.Drawing.Size(63, 13);
+            lblStructureStructure.TabIndex = 4;
+            lblStructureStructure.Text = "Structure:";
+            // 
+            // cboStructureStructure
+            // 
+            cboStructureStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureStructure.FormattingEnabled = true;
+            cboStructureStructure.Location = new System.Drawing.Point(99, 50);
+            cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructureStructure.Name = "cboStructureStructure";
+            cboStructureStructure.Size = new System.Drawing.Size(237, 23);
+            cboStructureStructure.TabIndex = 5;
+            cboStructureStructure.SelectedIndexChanged += cboStructureStructure_SelectedIndexChanged;
+            // 
+            // lblStructurePlayer
+            // 
+            lblStructurePlayer.AutoSize = true;
+            lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructurePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructurePlayer.Location = new System.Drawing.Point(364, 21);
+            lblStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructurePlayer.Name = "lblStructurePlayer";
+            lblStructurePlayer.Size = new System.Drawing.Size(46, 13);
+            lblStructurePlayer.TabIndex = 2;
+            lblStructurePlayer.Text = "Player:";
+            // 
+            // lblStructureTribe
+            // 
+            lblStructureTribe.AutoSize = true;
+            lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureTribe.Location = new System.Drawing.Point(49, 21);
+            lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureTribe.Name = "lblStructureTribe";
+            lblStructureTribe.Size = new System.Drawing.Size(40, 13);
+            lblStructureTribe.TabIndex = 0;
+            lblStructureTribe.Text = "Tribe:";
+            // 
+            // cboStructureTribe
+            // 
+            cboStructureTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureTribe.FormattingEnabled = true;
+            cboStructureTribe.Location = new System.Drawing.Point(99, 18);
+            cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructureTribe.Name = "cboStructureTribe";
+            cboStructureTribe.Size = new System.Drawing.Size(237, 23);
+            cboStructureTribe.TabIndex = 1;
+            cboStructureTribe.SelectedIndexChanged += cboStructureTribe_SelectedIndexChanged;
+            // 
+            // cboStructurePlayer
+            // 
+            cboStructurePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructurePlayer.FormattingEnabled = true;
+            cboStructurePlayer.Location = new System.Drawing.Point(438, 18);
+            cboStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboStructurePlayer.Name = "cboStructurePlayer";
+            cboStructurePlayer.Size = new System.Drawing.Size(224, 23);
+            cboStructurePlayer.TabIndex = 3;
+            cboStructurePlayer.SelectedIndexChanged += cboStructurePlayer_SelectedIndexChanged;
             // 
             // lvwStructureLocations
             // 
@@ -2817,235 +3197,6 @@ namespace ARKViewer
             lvwStructureLocations_CCC.Text = "CCC";
             lvwStructureLocations_CCC.Width = 0;
             // 
-            // cboStructurePlayer
-            // 
-            cboStructurePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboStructurePlayer.FormattingEnabled = true;
-            cboStructurePlayer.Location = new System.Drawing.Point(438, 18);
-            cboStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboStructurePlayer.Name = "cboStructurePlayer";
-            cboStructurePlayer.Size = new System.Drawing.Size(224, 23);
-            cboStructurePlayer.TabIndex = 3;
-            cboStructurePlayer.SelectedIndexChanged += cboStructurePlayer_SelectedIndexChanged;
-            // 
-            // cboStructureTribe
-            // 
-            cboStructureTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboStructureTribe.FormattingEnabled = true;
-            cboStructureTribe.Location = new System.Drawing.Point(99, 18);
-            cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboStructureTribe.Name = "cboStructureTribe";
-            cboStructureTribe.Size = new System.Drawing.Size(237, 23);
-            cboStructureTribe.TabIndex = 1;
-            cboStructureTribe.SelectedIndexChanged += cboStructureTribe_SelectedIndexChanged;
-            // 
-            // lblStructureTribe
-            // 
-            lblStructureTribe.AutoSize = true;
-            lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructureTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblStructureTribe.Location = new System.Drawing.Point(49, 21);
-            lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblStructureTribe.Name = "lblStructureTribe";
-            lblStructureTribe.Size = new System.Drawing.Size(40, 13);
-            lblStructureTribe.TabIndex = 0;
-            lblStructureTribe.Text = "Tribe:";
-            // 
-            // lblStructurePlayer
-            // 
-            lblStructurePlayer.AutoSize = true;
-            lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructurePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblStructurePlayer.Location = new System.Drawing.Point(364, 21);
-            lblStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblStructurePlayer.Name = "lblStructurePlayer";
-            lblStructurePlayer.Size = new System.Drawing.Size(46, 13);
-            lblStructurePlayer.TabIndex = 2;
-            lblStructurePlayer.Text = "Player:";
-            // 
-            // cboStructureStructure
-            // 
-            cboStructureStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboStructureStructure.FormattingEnabled = true;
-            cboStructureStructure.Location = new System.Drawing.Point(99, 50);
-            cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboStructureStructure.Name = "cboStructureStructure";
-            cboStructureStructure.Size = new System.Drawing.Size(237, 23);
-            cboStructureStructure.TabIndex = 5;
-            cboStructureStructure.SelectedIndexChanged += cboStructureStructure_SelectedIndexChanged;
-            // 
-            // lblStructureStructure
-            // 
-            lblStructureStructure.AutoSize = true;
-            lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructureStructure.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblStructureStructure.Location = new System.Drawing.Point(18, 54);
-            lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblStructureStructure.Name = "lblStructureStructure";
-            lblStructureStructure.Size = new System.Drawing.Size(63, 13);
-            lblStructureStructure.TabIndex = 4;
-            lblStructureStructure.Text = "Structure:";
-            // 
-            // btnStructureExclusionFilter
-            // 
-            btnStructureExclusionFilter.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnStructureExclusionFilter.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnStructureExclusionFilter.Image = (System.Drawing.Image)resources.GetObject("btnStructureExclusionFilter.Image");
-            btnStructureExclusionFilter.Location = new System.Drawing.Point(1040, 8);
-            btnStructureExclusionFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnStructureExclusionFilter.Name = "btnStructureExclusionFilter";
-            btnStructureExclusionFilter.Size = new System.Drawing.Size(47, 46);
-            btnStructureExclusionFilter.TabIndex = 6;
-            toolTip1.SetToolTip(btnStructureExclusionFilter, "Structure exclusion list");
-            btnStructureExclusionFilter.UseVisualStyleBackColor = true;
-            btnStructureExclusionFilter.Click += btnStructureExclusionFilter_Click;
-            // 
-            // cboConsoleCommandsStructure
-            // 
-            cboConsoleCommandsStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboConsoleCommandsStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboConsoleCommandsStructure.FormattingEnabled = true;
-            cboConsoleCommandsStructure.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>" });
-            cboConsoleCommandsStructure.Location = new System.Drawing.Point(90, 475);
-            cboConsoleCommandsStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboConsoleCommandsStructure.Name = "cboConsoleCommandsStructure";
-            cboConsoleCommandsStructure.Size = new System.Drawing.Size(305, 23);
-            cboConsoleCommandsStructure.Sorted = true;
-            cboConsoleCommandsStructure.TabIndex = 9;
-            cboConsoleCommandsStructure.SelectedIndexChanged += cboConsoleCommandsStructure_SelectedIndexChanged;
-            // 
-            // lblCommandStructure
-            // 
-            lblCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblCommandStructure.AutoSize = true;
-            lblCommandStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblCommandStructure.Location = new System.Drawing.Point(10, 479);
-            lblCommandStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblCommandStructure.Name = "lblCommandStructure";
-            lblCommandStructure.Size = new System.Drawing.Size(65, 13);
-            lblCommandStructure.TabIndex = 8;
-            lblCommandStructure.Text = "Command:";
-            // 
-            // btnCopyCommandStructure
-            // 
-            btnCopyCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnCopyCommandStructure.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnCopyCommandStructure.Enabled = false;
-            btnCopyCommandStructure.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandStructure.Image");
-            btnCopyCommandStructure.Location = new System.Drawing.Point(402, 466);
-            btnCopyCommandStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnCopyCommandStructure.Name = "btnCopyCommandStructure";
-            btnCopyCommandStructure.Size = new System.Drawing.Size(47, 46);
-            btnCopyCommandStructure.TabIndex = 10;
-            toolTip1.SetToolTip(btnCopyCommandStructure, "Copy command to clipboard.");
-            btnCopyCommandStructure.UseVisualStyleBackColor = true;
-            btnCopyCommandStructure.Click += btnCopyCommandStructure_Click;
-            // 
-            // lblStructureTotal
-            // 
-            lblStructureTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblStructureTotal.BackColor = System.Drawing.Color.AliceBlue;
-            lblStructureTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblStructureTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblStructureTotal.Location = new System.Drawing.Point(943, 474);
-            lblStructureTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblStructureTotal.Name = "lblStructureTotal";
-            lblStructureTotal.Size = new System.Drawing.Size(144, 35);
-            lblStructureTotal.TabIndex = 12;
-            lblStructureTotal.Text = "Total: 0";
-            lblStructureTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnStructureInventory
-            // 
-            btnStructureInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnStructureInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnStructureInventory.Enabled = false;
-            btnStructureInventory.Image = (System.Drawing.Image)resources.GetObject("btnStructureInventory.Image");
-            btnStructureInventory.Location = new System.Drawing.Point(509, 466);
-            btnStructureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnStructureInventory.Name = "btnStructureInventory";
-            btnStructureInventory.Size = new System.Drawing.Size(47, 46);
-            btnStructureInventory.TabIndex = 11;
-            toolTip1.SetToolTip(btnStructureInventory, "View inventory.");
-            btnStructureInventory.UseVisualStyleBackColor = true;
-            btnStructureInventory.Click += btnStructureInventory_Click;
-            // 
-            // pnlFilterStructures
-            // 
-            pnlFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterStructures.BackColor = System.Drawing.Color.PaleTurquoise;
-            pnlFilterStructures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlFilterStructures.Controls.Add(btnFindStructures);
-            pnlFilterStructures.Controls.Add(txtFilterStructures);
-            pnlFilterStructures.Location = new System.Drawing.Point(13, 430);
-            pnlFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlFilterStructures.Name = "pnlFilterStructures";
-            pnlFilterStructures.Size = new System.Drawing.Size(1073, 33);
-            pnlFilterStructures.TabIndex = 22;
-            // 
-            // txtFilterStructures
-            // 
-            txtFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterStructures.Location = new System.Drawing.Point(12, 3);
-            txtFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            txtFilterStructures.Name = "txtFilterStructures";
-            txtFilterStructures.Size = new System.Drawing.Size(1013, 23);
-            txtFilterStructures.TabIndex = 6;
-            txtFilterStructures.KeyDown += txtFilterStructures_KeyDown;
-            // 
-            // btnFindStructures
-            // 
-            btnFindStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnFindStructures.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnFindStructures.Image = (System.Drawing.Image)resources.GetObject("btnFindStructures.Image");
-            btnFindStructures.Location = new System.Drawing.Point(1037, -1);
-            btnFindStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnFindStructures.Name = "btnFindStructures";
-            btnFindStructures.Size = new System.Drawing.Size(35, 33);
-            btnFindStructures.TabIndex = 9;
-            toolTip1.SetToolTip(btnFindStructures, "Find next");
-            btnFindStructures.UseVisualStyleBackColor = true;
-            btnFindStructures.Click += btnFindStructures_Click;
-            // 
-            // lblStructureRealm
-            // 
-            lblStructureRealm.AutoSize = true;
-            lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructureRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblStructureRealm.Location = new System.Drawing.Point(364, 54);
-            lblStructureRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblStructureRealm.Name = "lblStructureRealm";
-            lblStructureRealm.Size = new System.Drawing.Size(46, 13);
-            lblStructureRealm.TabIndex = 23;
-            lblStructureRealm.Text = "Realm:";
-            // 
-            // cboStructureRealm
-            // 
-            cboStructureRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboStructureRealm.FormattingEnabled = true;
-            cboStructureRealm.Location = new System.Drawing.Point(438, 49);
-            cboStructureRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboStructureRealm.Name = "cboStructureRealm";
-            cboStructureRealm.Size = new System.Drawing.Size(224, 23);
-            cboStructureRealm.TabIndex = 24;
-            cboStructureRealm.SelectedIndexChanged += cboStructureRealm_SelectedIndexChanged;
-            // 
-            // btnRconCommandStructures
-            // 
-            btnRconCommandStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnRconCommandStructures.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnRconCommandStructures.Enabled = false;
-            btnRconCommandStructures.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandStructures.Image");
-            btnRconCommandStructures.Location = new System.Drawing.Point(456, 466);
-            btnRconCommandStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnRconCommandStructures.Name = "btnRconCommandStructures";
-            btnRconCommandStructures.Size = new System.Drawing.Size(47, 46);
-            btnRconCommandStructures.TabIndex = 25;
-            toolTip1.SetToolTip(btnRconCommandStructures, "Copy command to clipboard.");
-            btnRconCommandStructures.UseVisualStyleBackColor = true;
-            btnRconCommandStructures.Visible = false;
-            btnRconCommandStructures.Click += btnRconCommandStructures_Click;
-            // 
             // tpgTamed
             // 
             tpgTamed.Controls.Add(btnRconCommandTamed);
@@ -3078,80 +3229,161 @@ namespace ARKViewer
             tpgTamed.Text = "Tamed Creatures";
             tpgTamed.UseVisualStyleBackColor = true;
             // 
-            // cboTameClass
+            // cboTameRealm
             // 
-            cboTameClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTameClass.FormattingEnabled = true;
-            cboTameClass.Location = new System.Drawing.Point(89, 53);
-            cboTameClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTameClass.Name = "cboTameClass";
-            cboTameClass.Size = new System.Drawing.Size(231, 23);
-            cboTameClass.TabIndex = 5;
-            cboTameClass.SelectedIndexChanged += cboTameClass_SelectedIndexChanged;
+            cboTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboTameRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameRealm.FormattingEnabled = true;
+            cboTameRealm.Location = new System.Drawing.Point(865, 23);
+            cboTameRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTameRealm.Name = "cboTameRealm";
+            cboTameRealm.Size = new System.Drawing.Size(222, 23);
+            cboTameRealm.TabIndex = 24;
+            cboTameRealm.SelectedIndexChanged += cboTameRealm_SelectedIndexChanged;
             // 
-            // pnlTameStatTypes
+            // lblTameRealm
             // 
-            pnlTameStatTypes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            pnlTameStatTypes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlTameStatTypes.Controls.Add(lblStats);
-            pnlTameStatTypes.Controls.Add(optStatsTamed);
-            pnlTameStatTypes.Controls.Add(optStatsBase);
-            pnlTameStatTypes.Location = new System.Drawing.Point(13, 466);
-            pnlTameStatTypes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlTameStatTypes.Name = "pnlTameStatTypes";
-            pnlTameStatTypes.Size = new System.Drawing.Size(204, 39);
-            pnlTameStatTypes.TabIndex = 8;
+            lblTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblTameRealm.AutoSize = true;
+            lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameRealm.Location = new System.Drawing.Point(791, 28);
+            lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameRealm.Name = "lblTameRealm";
+            lblTameRealm.Size = new System.Drawing.Size(46, 13);
+            lblTameRealm.TabIndex = 23;
+            lblTameRealm.Text = "Realm:";
             // 
-            // optStatsBase
+            // pnlFilterTamed
             // 
-            optStatsBase.AutoSize = true;
-            optStatsBase.Checked = true;
-            optStatsBase.Location = new System.Drawing.Point(49, 9);
-            optStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            optStatsBase.Name = "optStatsBase";
-            optStatsBase.Size = new System.Drawing.Size(49, 19);
-            optStatsBase.TabIndex = 1;
-            optStatsBase.TabStop = true;
-            optStatsBase.Text = "Base";
-            optStatsBase.UseVisualStyleBackColor = true;
-            optStatsBase.CheckedChanged += optStatsBase_CheckedChanged;
+            pnlFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterTamed.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterTamed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterTamed.Controls.Add(btnFindTamed);
+            pnlFilterTamed.Controls.Add(txtFilterTamed);
+            pnlFilterTamed.Location = new System.Drawing.Point(13, 423);
+            pnlFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterTamed.Name = "pnlFilterTamed";
+            pnlFilterTamed.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterTamed.TabIndex = 21;
             // 
-            // optStatsTamed
+            // txtFilterTamed
             // 
-            optStatsTamed.AutoSize = true;
-            optStatsTamed.Location = new System.Drawing.Point(113, 9);
-            optStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            optStatsTamed.Name = "optStatsTamed";
-            optStatsTamed.Size = new System.Drawing.Size(60, 19);
-            optStatsTamed.TabIndex = 2;
-            optStatsTamed.Text = "Tamed";
-            optStatsTamed.UseVisualStyleBackColor = true;
-            optStatsTamed.CheckedChanged += optStatsTamed_CheckedChanged;
+            txtFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterTamed.Location = new System.Drawing.Point(12, 3);
+            txtFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterTamed.Name = "txtFilterTamed";
+            txtFilterTamed.Size = new System.Drawing.Size(1013, 23);
+            txtFilterTamed.TabIndex = 6;
+            txtFilterTamed.KeyDown += txtFilterTamed_KeyDown;
             // 
-            // lblStats
+            // cboTamedResource
             // 
-            lblStats.AutoSize = true;
-            lblStats.Location = new System.Drawing.Point(2, 12);
-            lblStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblStats.Name = "lblStats";
-            lblStats.Size = new System.Drawing.Size(35, 15);
-            lblStats.TabIndex = 0;
-            lblStats.Text = "Stats:";
+            cboTamedResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTamedResource.FormattingEnabled = true;
+            cboTamedResource.Location = new System.Drawing.Point(420, 53);
+            cboTamedResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTamedResource.Name = "cboTamedResource";
+            cboTamedResource.Size = new System.Drawing.Size(231, 23);
+            cboTamedResource.TabIndex = 16;
+            cboTamedResource.SelectedIndexChanged += cboTamedResource_SelectedIndexChanged;
             // 
-            // lblTameTotal
+            // lblTameResource
             // 
-            lblTameTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblTameTotal.BackColor = System.Drawing.Color.AliceBlue;
-            lblTameTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblTameTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTameTotal.Location = new System.Drawing.Point(943, 471);
-            lblTameTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTameTotal.Name = "lblTameTotal";
-            lblTameTotal.Size = new System.Drawing.Size(144, 35);
-            lblTameTotal.TabIndex = 14;
-            lblTameTotal.Text = "Count: 0";
-            lblTameTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            lblTameTotal.Click += lblTameTotal_Click;
+            lblTameResource.AutoSize = true;
+            lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameResource.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameResource.Location = new System.Drawing.Point(340, 59);
+            lblTameResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameResource.Name = "lblTameResource";
+            lblTameResource.Size = new System.Drawing.Size(65, 13);
+            lblTameResource.TabIndex = 15;
+            lblTameResource.Text = "Resource:";
+            // 
+            // lblTamedCommand
+            // 
+            lblTamedCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblTamedCommand.AutoSize = true;
+            lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTamedCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTamedCommand.Location = new System.Drawing.Point(224, 479);
+            lblTamedCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTamedCommand.Name = "lblTamedCommand";
+            lblTamedCommand.Size = new System.Drawing.Size(65, 13);
+            lblTamedCommand.TabIndex = 9;
+            lblTamedCommand.Text = "Command:";
+            // 
+            // cboConsoleCommandsTamed
+            // 
+            cboConsoleCommandsTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsTamed.FormattingEnabled = true;
+            cboConsoleCommandsTamed.Items.AddRange(new object[] { "Cryo <DinoId>", "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsTamed.Items"), "TakeTribe <TribeID>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
+            cboConsoleCommandsTamed.Location = new System.Drawing.Point(303, 475);
+            cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
+            cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 23);
+            cboConsoleCommandsTamed.Sorted = true;
+            cboConsoleCommandsTamed.TabIndex = 10;
+            cboConsoleCommandsTamed.SelectedIndexChanged += cboConsoleCommandsTamed_SelectedIndexChanged;
+            // 
+            // cboTameTribes
+            // 
+            cboTameTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameTribes.FormattingEnabled = true;
+            cboTameTribes.Location = new System.Drawing.Point(89, 18);
+            cboTameTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTameTribes.Name = "cboTameTribes";
+            cboTameTribes.Size = new System.Drawing.Size(231, 23);
+            cboTameTribes.TabIndex = 1;
+            cboTameTribes.SelectedIndexChanged += cboTameTribes_SelectedIndexChanged;
+            // 
+            // cboTamePlayers
+            // 
+            cboTamePlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTamePlayers.FormattingEnabled = true;
+            cboTamePlayers.Location = new System.Drawing.Point(420, 21);
+            cboTamePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTamePlayers.Name = "cboTamePlayers";
+            cboTamePlayers.Size = new System.Drawing.Size(231, 23);
+            cboTamePlayers.TabIndex = 3;
+            cboTamePlayers.SelectedIndexChanged += cboTamePlayers_SelectedIndexChanged;
+            // 
+            // lblTameCreature
+            // 
+            lblTameCreature.AutoSize = true;
+            lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameCreature.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameCreature.Location = new System.Drawing.Point(22, 59);
+            lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameCreature.Name = "lblTameCreature";
+            lblTameCreature.Size = new System.Drawing.Size(59, 13);
+            lblTameCreature.TabIndex = 4;
+            lblTameCreature.Text = "Creature:";
+            // 
+            // lblTamePlayer
+            // 
+            lblTamePlayer.AutoSize = true;
+            lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTamePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTamePlayer.Location = new System.Drawing.Point(352, 23);
+            lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTamePlayer.Name = "lblTamePlayer";
+            lblTamePlayer.Size = new System.Drawing.Size(46, 13);
+            lblTamePlayer.TabIndex = 2;
+            lblTamePlayer.Text = "Player:";
+            // 
+            // lblTameTribe
+            // 
+            lblTameTribe.AutoSize = true;
+            lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameTribe.Location = new System.Drawing.Point(21, 21);
+            lblTameTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameTribe.Name = "lblTameTribe";
+            lblTameTribe.Size = new System.Drawing.Size(40, 13);
+            lblTameTribe.TabIndex = 0;
+            lblTameTribe.Text = "Tribe:";
             // 
             // lvwTameDetail
             // 
@@ -3371,265 +3603,80 @@ namespace ARKViewer
             lvwTameDetail_CCC.Text = "CCC";
             lvwTameDetail_CCC.Width = 0;
             // 
-            // btnDinoInventory
+            // lblTameTotal
             // 
-            btnDinoInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnDinoInventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnDinoInventory.Enabled = false;
-            btnDinoInventory.Image = (System.Drawing.Image)resources.GetObject("btnDinoInventory.Image");
-            btnDinoInventory.Location = new System.Drawing.Point(758, 465);
-            btnDinoInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnDinoInventory.Name = "btnDinoInventory";
-            btnDinoInventory.Size = new System.Drawing.Size(47, 46);
-            btnDinoInventory.TabIndex = 13;
-            toolTip1.SetToolTip(btnDinoInventory, "View inventory.");
-            btnDinoInventory.UseVisualStyleBackColor = true;
-            btnDinoInventory.Click += btnDinoInventory_Click;
+            lblTameTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblTameTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblTameTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblTameTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameTotal.Location = new System.Drawing.Point(943, 471);
+            lblTameTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTameTotal.Name = "lblTameTotal";
+            lblTameTotal.Size = new System.Drawing.Size(144, 35);
+            lblTameTotal.TabIndex = 14;
+            lblTameTotal.Text = "Count: 0";
+            lblTameTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTameTotal.Click += lblTameTotal_Click;
             // 
-            // btnDinoAncestors
+            // pnlTameStatTypes
             // 
-            btnDinoAncestors.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnDinoAncestors.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnDinoAncestors.Enabled = false;
-            btnDinoAncestors.Image = (System.Drawing.Image)resources.GetObject("btnDinoAncestors.Image");
-            btnDinoAncestors.Location = new System.Drawing.Point(707, 465);
-            btnDinoAncestors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnDinoAncestors.Name = "btnDinoAncestors";
-            btnDinoAncestors.Size = new System.Drawing.Size(47, 46);
-            btnDinoAncestors.TabIndex = 12;
-            toolTip1.SetToolTip(btnDinoAncestors, "View breeding lines.");
-            btnDinoAncestors.UseVisualStyleBackColor = true;
-            btnDinoAncestors.Click += btnDinoAncestors_Click;
+            pnlTameStatTypes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            pnlTameStatTypes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlTameStatTypes.Controls.Add(lblStats);
+            pnlTameStatTypes.Controls.Add(optStatsTamed);
+            pnlTameStatTypes.Controls.Add(optStatsBase);
+            pnlTameStatTypes.Location = new System.Drawing.Point(13, 466);
+            pnlTameStatTypes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlTameStatTypes.Name = "pnlTameStatTypes";
+            pnlTameStatTypes.Size = new System.Drawing.Size(204, 39);
+            pnlTameStatTypes.TabIndex = 8;
             // 
-            // lblTameTribe
+            // lblStats
             // 
-            lblTameTribe.AutoSize = true;
-            lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTameTribe.Location = new System.Drawing.Point(21, 21);
-            lblTameTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTameTribe.Name = "lblTameTribe";
-            lblTameTribe.Size = new System.Drawing.Size(40, 13);
-            lblTameTribe.TabIndex = 0;
-            lblTameTribe.Text = "Tribe:";
+            lblStats.AutoSize = true;
+            lblStats.Location = new System.Drawing.Point(2, 12);
+            lblStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStats.Name = "lblStats";
+            lblStats.Size = new System.Drawing.Size(35, 15);
+            lblStats.TabIndex = 0;
+            lblStats.Text = "Stats:";
             // 
-            // lblTamePlayer
+            // optStatsTamed
             // 
-            lblTamePlayer.AutoSize = true;
-            lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTamePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTamePlayer.Location = new System.Drawing.Point(352, 23);
-            lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTamePlayer.Name = "lblTamePlayer";
-            lblTamePlayer.Size = new System.Drawing.Size(46, 13);
-            lblTamePlayer.TabIndex = 2;
-            lblTamePlayer.Text = "Player:";
+            optStatsTamed.AutoSize = true;
+            optStatsTamed.Location = new System.Drawing.Point(113, 9);
+            optStatsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optStatsTamed.Name = "optStatsTamed";
+            optStatsTamed.Size = new System.Drawing.Size(60, 19);
+            optStatsTamed.TabIndex = 2;
+            optStatsTamed.Text = "Tamed";
+            optStatsTamed.UseVisualStyleBackColor = true;
+            optStatsTamed.CheckedChanged += optStatsTamed_CheckedChanged;
             // 
-            // lblTameCreature
+            // optStatsBase
             // 
-            lblTameCreature.AutoSize = true;
-            lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameCreature.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTameCreature.Location = new System.Drawing.Point(22, 59);
-            lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTameCreature.Name = "lblTameCreature";
-            lblTameCreature.Size = new System.Drawing.Size(59, 13);
-            lblTameCreature.TabIndex = 4;
-            lblTameCreature.Text = "Creature:";
+            optStatsBase.AutoSize = true;
+            optStatsBase.Checked = true;
+            optStatsBase.Location = new System.Drawing.Point(49, 9);
+            optStatsBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optStatsBase.Name = "optStatsBase";
+            optStatsBase.Size = new System.Drawing.Size(49, 19);
+            optStatsBase.TabIndex = 1;
+            optStatsBase.TabStop = true;
+            optStatsBase.Text = "Base";
+            optStatsBase.UseVisualStyleBackColor = true;
+            optStatsBase.CheckedChanged += optStatsBase_CheckedChanged;
             // 
-            // cboTamePlayers
+            // cboTameClass
             // 
-            cboTamePlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTamePlayers.FormattingEnabled = true;
-            cboTamePlayers.Location = new System.Drawing.Point(420, 21);
-            cboTamePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTamePlayers.Name = "cboTamePlayers";
-            cboTamePlayers.Size = new System.Drawing.Size(231, 23);
-            cboTamePlayers.TabIndex = 3;
-            cboTamePlayers.SelectedIndexChanged += cboTamePlayers_SelectedIndexChanged;
-            // 
-            // cboTameTribes
-            // 
-            cboTameTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTameTribes.FormattingEnabled = true;
-            cboTameTribes.Location = new System.Drawing.Point(89, 18);
-            cboTameTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTameTribes.Name = "cboTameTribes";
-            cboTameTribes.Size = new System.Drawing.Size(231, 23);
-            cboTameTribes.TabIndex = 1;
-            cboTameTribes.SelectedIndexChanged += cboTameTribes_SelectedIndexChanged;
-            // 
-            // cboConsoleCommandsTamed
-            // 
-            cboConsoleCommandsTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboConsoleCommandsTamed.FormattingEnabled = true;
-            cboConsoleCommandsTamed.Items.AddRange(new object[] { "Cryo <DinoId>", "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsTamed.Items"), "TakeTribe <TribeID>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
-            cboConsoleCommandsTamed.Location = new System.Drawing.Point(303, 475);
-            cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
-            cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 23);
-            cboConsoleCommandsTamed.Sorted = true;
-            cboConsoleCommandsTamed.TabIndex = 10;
-            cboConsoleCommandsTamed.SelectedIndexChanged += cboConsoleCommandsTamed_SelectedIndexChanged;
-            // 
-            // lblTamedCommand
-            // 
-            lblTamedCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblTamedCommand.AutoSize = true;
-            lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTamedCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTamedCommand.Location = new System.Drawing.Point(224, 479);
-            lblTamedCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTamedCommand.Name = "lblTamedCommand";
-            lblTamedCommand.Size = new System.Drawing.Size(65, 13);
-            lblTamedCommand.TabIndex = 9;
-            lblTamedCommand.Text = "Command:";
-            // 
-            // btnCopyCommandTamed
-            // 
-            btnCopyCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnCopyCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnCopyCommandTamed.Enabled = false;
-            btnCopyCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandTamed.Image");
-            btnCopyCommandTamed.Location = new System.Drawing.Point(604, 465);
-            btnCopyCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnCopyCommandTamed.Name = "btnCopyCommandTamed";
-            btnCopyCommandTamed.Size = new System.Drawing.Size(47, 46);
-            btnCopyCommandTamed.TabIndex = 11;
-            toolTip1.SetToolTip(btnCopyCommandTamed, "Copy command to clipboard.");
-            btnCopyCommandTamed.UseVisualStyleBackColor = true;
-            btnCopyCommandTamed.Click += btnCopyCommandTamed_Click;
-            // 
-            // chkCryo
-            // 
-            chkCryo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            chkCryo.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkCryo.Location = new System.Drawing.Point(89, 79);
-            chkCryo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkCryo.Name = "chkCryo";
-            chkCryo.Size = new System.Drawing.Size(105, 27);
-            chkCryo.TabIndex = 6;
-            chkCryo.Text = "Include Stored";
-            toolTip1.SetToolTip(chkCryo, "Show / hide stored tames.");
-            chkCryo.UseVisualStyleBackColor = true;
-            chkCryo.CheckedChanged += chkCryo_CheckedChanged;
-            // 
-            // lblTameResource
-            // 
-            lblTameResource.AutoSize = true;
-            lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameResource.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTameResource.Location = new System.Drawing.Point(340, 59);
-            lblTameResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTameResource.Name = "lblTameResource";
-            lblTameResource.Size = new System.Drawing.Size(65, 13);
-            lblTameResource.TabIndex = 15;
-            lblTameResource.Text = "Resource:";
-            // 
-            // cboTamedResource
-            // 
-            cboTamedResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTamedResource.FormattingEnabled = true;
-            cboTamedResource.Location = new System.Drawing.Point(420, 53);
-            cboTamedResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTamedResource.Name = "cboTamedResource";
-            cboTamedResource.Size = new System.Drawing.Size(231, 23);
-            cboTamedResource.TabIndex = 16;
-            cboTamedResource.SelectedIndexChanged += cboTamedResource_SelectedIndexChanged;
-            // 
-            // pnlFilterTamed
-            // 
-            pnlFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterTamed.BackColor = System.Drawing.Color.PaleTurquoise;
-            pnlFilterTamed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlFilterTamed.Controls.Add(btnFindTamed);
-            pnlFilterTamed.Controls.Add(txtFilterTamed);
-            pnlFilterTamed.Location = new System.Drawing.Point(13, 423);
-            pnlFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlFilterTamed.Name = "pnlFilterTamed";
-            pnlFilterTamed.Size = new System.Drawing.Size(1073, 33);
-            pnlFilterTamed.TabIndex = 21;
-            // 
-            // txtFilterTamed
-            // 
-            txtFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterTamed.Location = new System.Drawing.Point(12, 3);
-            txtFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            txtFilterTamed.Name = "txtFilterTamed";
-            txtFilterTamed.Size = new System.Drawing.Size(1013, 23);
-            txtFilterTamed.TabIndex = 6;
-            txtFilterTamed.KeyDown += txtFilterTamed_KeyDown;
-            // 
-            // btnFindTamed
-            // 
-            btnFindTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnFindTamed.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnFindTamed.Image = (System.Drawing.Image)resources.GetObject("btnFindTamed.Image");
-            btnFindTamed.Location = new System.Drawing.Point(1037, -1);
-            btnFindTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnFindTamed.Name = "btnFindTamed";
-            btnFindTamed.Size = new System.Drawing.Size(35, 33);
-            btnFindTamed.TabIndex = 9;
-            toolTip1.SetToolTip(btnFindTamed, "Find next");
-            btnFindTamed.UseVisualStyleBackColor = true;
-            btnFindTamed.Click += btnFindTamed_Click;
-            // 
-            // lblTameRealm
-            // 
-            lblTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblTameRealm.AutoSize = true;
-            lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTameRealm.Location = new System.Drawing.Point(791, 28);
-            lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblTameRealm.Name = "lblTameRealm";
-            lblTameRealm.Size = new System.Drawing.Size(46, 13);
-            lblTameRealm.TabIndex = 23;
-            lblTameRealm.Text = "Realm:";
-            // 
-            // cboTameRealm
-            // 
-            cboTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cboTameRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTameRealm.FormattingEnabled = true;
-            cboTameRealm.Location = new System.Drawing.Point(865, 23);
-            cboTameRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTameRealm.Name = "cboTameRealm";
-            cboTameRealm.Size = new System.Drawing.Size(222, 23);
-            cboTameRealm.TabIndex = 24;
-            cboTameRealm.SelectedIndexChanged += cboTameRealm_SelectedIndexChanged;
-            // 
-            // chkTameUploads
-            // 
-            chkTameUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            chkTameUploads.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkTameUploads.Location = new System.Drawing.Point(199, 77);
-            chkTameUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            chkTameUploads.Name = "chkTameUploads";
-            chkTameUploads.Size = new System.Drawing.Size(121, 31);
-            chkTameUploads.TabIndex = 25;
-            chkTameUploads.Text = "Include Uploads";
-            chkTameUploads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            toolTip1.SetToolTip(chkTameUploads, "Show / hide uploaded tames");
-            chkTameUploads.UseVisualStyleBackColor = true;
-            chkTameUploads.CheckedChanged += chkTameUploads_CheckedChanged;
-            // 
-            // btnRconCommandTamed
-            // 
-            btnRconCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnRconCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnRconCommandTamed.Enabled = false;
-            btnRconCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTamed.Image");
-            btnRconCommandTamed.Location = new System.Drawing.Point(656, 465);
-            btnRconCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnRconCommandTamed.Name = "btnRconCommandTamed";
-            btnRconCommandTamed.Size = new System.Drawing.Size(47, 46);
-            btnRconCommandTamed.TabIndex = 26;
-            toolTip1.SetToolTip(btnRconCommandTamed, "Send command to server using RCON.");
-            btnRconCommandTamed.UseVisualStyleBackColor = true;
-            btnRconCommandTamed.Visible = false;
-            btnRconCommandTamed.Click += btnRconCommandTamed_Click;
+            cboTameClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameClass.FormattingEnabled = true;
+            cboTameClass.Location = new System.Drawing.Point(89, 53);
+            cboTameClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboTameClass.Name = "cboTameClass";
+            cboTameClass.Size = new System.Drawing.Size(231, 23);
+            cboTameClass.TabIndex = 5;
+            cboTameClass.SelectedIndexChanged += cboTameClass_SelectedIndexChanged;
             // 
             // tpgWild
             // 
@@ -3667,33 +3714,270 @@ namespace ARKViewer
             tpgWild.Text = "Wild Creatures";
             tpgWild.UseVisualStyleBackColor = true;
             // 
-            // cboWildClass
+            // chkTameable
             // 
-            cboWildClass.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            cboWildClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            cboWildClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboWildClass.FormattingEnabled = true;
-            cboWildClass.Location = new System.Drawing.Point(88, 57);
-            cboWildClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboWildClass.Name = "cboWildClass";
-            cboWildClass.Size = new System.Drawing.Size(540, 24);
-            cboWildClass.TabIndex = 13;
-            cboWildClass.DrawItem += cboSelected_DrawItem;
-            cboWildClass.SelectedIndexChanged += CboWildClass_SelectedIndexChanged;
+            chkTameable.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            chkTameable.AutoSize = true;
+            chkTameable.Checked = true;
+            chkTameable.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkTameable.Location = new System.Drawing.Point(648, 59);
+            chkTameable.Name = "chkTameable";
+            chkTameable.Size = new System.Drawing.Size(76, 19);
+            chkTameable.TabIndex = 23;
+            chkTameable.Text = "Tameable";
+            chkTameable.UseVisualStyleBackColor = true;
+            chkTameable.CheckedChanged += chkTameable_CheckedChanged;
             // 
-            // lblWildTotal
+            // cboWildRealm
             // 
-            lblWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblWildTotal.BackColor = System.Drawing.Color.AliceBlue;
-            lblWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildTotal.Location = new System.Drawing.Point(936, 471);
-            lblWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildTotal.Name = "lblWildTotal";
-            lblWildTotal.Size = new System.Drawing.Size(152, 35);
-            lblWildTotal.TabIndex = 19;
-            lblWildTotal.Text = "Total: 0";
-            lblWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            cboWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboWildRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildRealm.FormattingEnabled = true;
+            cboWildRealm.Location = new System.Drawing.Point(862, 15);
+            cboWildRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWildRealm.Name = "cboWildRealm";
+            cboWildRealm.Size = new System.Drawing.Size(222, 23);
+            cboWildRealm.TabIndex = 22;
+            cboWildRealm.SelectedIndexChanged += cboWildRealm_SelectedIndexChanged;
+            // 
+            // lblWildRealm
+            // 
+            lblWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblWildRealm.AutoSize = true;
+            lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildRealm.Location = new System.Drawing.Point(788, 20);
+            lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildRealm.Name = "lblWildRealm";
+            lblWildRealm.Size = new System.Drawing.Size(46, 13);
+            lblWildRealm.TabIndex = 21;
+            lblWildRealm.Text = "Realm:";
+            // 
+            // pnlFilterWilds
+            // 
+            pnlFilterWilds.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlFilterWilds.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterWilds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlFilterWilds.Controls.Add(btnFindWild);
+            pnlFilterWilds.Controls.Add(txtFilterWild);
+            pnlFilterWilds.Location = new System.Drawing.Point(13, 421);
+            pnlFilterWilds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlFilterWilds.Name = "pnlFilterWilds";
+            pnlFilterWilds.Size = new System.Drawing.Size(1073, 33);
+            pnlFilterWilds.TabIndex = 20;
+            // 
+            // txtFilterWild
+            // 
+            txtFilterWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilterWild.Location = new System.Drawing.Point(12, 3);
+            txtFilterWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilterWild.Name = "txtFilterWild";
+            txtFilterWild.Size = new System.Drawing.Size(1013, 23);
+            txtFilterWild.TabIndex = 6;
+            txtFilterWild.KeyDown += txtFilterWild_KeyDown;
+            // 
+            // cboWildResource
+            // 
+            cboWildResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboWildResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildResource.FormattingEnabled = true;
+            cboWildResource.Location = new System.Drawing.Point(863, 55);
+            cboWildResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWildResource.Name = "cboWildResource";
+            cboWildResource.Size = new System.Drawing.Size(222, 23);
+            cboWildResource.TabIndex = 11;
+            cboWildResource.SelectedIndexChanged += cboWildResource_SelectedIndexChanged;
+            // 
+            // lblResource
+            // 
+            lblResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblResource.AutoSize = true;
+            lblResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblResource.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblResource.Location = new System.Drawing.Point(786, 60);
+            lblResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblResource.Name = "lblResource";
+            lblResource.Size = new System.Drawing.Size(65, 13);
+            lblResource.TabIndex = 10;
+            lblResource.Text = "Resource:";
+            // 
+            // lblWildRadius
+            // 
+            lblWildRadius.AutoSize = true;
+            lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildRadius.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildRadius.Location = new System.Drawing.Point(490, 20);
+            lblWildRadius.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildRadius.Name = "lblWildRadius";
+            lblWildRadius.Size = new System.Drawing.Size(50, 13);
+            lblWildRadius.TabIndex = 8;
+            lblWildRadius.Text = "Radius:";
+            // 
+            // udWildRadius
+            // 
+            udWildRadius.DecimalPlaces = 2;
+            udWildRadius.Location = new System.Drawing.Point(553, 16);
+            udWildRadius.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildRadius.Name = "udWildRadius";
+            udWildRadius.Size = new System.Drawing.Size(75, 23);
+            udWildRadius.TabIndex = 9;
+            udWildRadius.Value = new decimal(new int[] { 10000, 0, 0, 131072 });
+            udWildRadius.ValueChanged += udWildRadius_ValueChanged;
+            udWildRadius.Enter += udWildRadius_Enter;
+            udWildRadius.MouseClick += udWildRadius_MouseClick;
+            // 
+            // lblWildLon
+            // 
+            lblWildLon.AutoSize = true;
+            lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildLon.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildLon.Location = new System.Drawing.Point(371, 20);
+            lblWildLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildLon.Name = "lblWildLon";
+            lblWildLon.Size = new System.Drawing.Size(32, 13);
+            lblWildLon.TabIndex = 6;
+            lblWildLon.Text = "Lon:";
+            // 
+            // udWildLon
+            // 
+            udWildLon.DecimalPlaces = 2;
+            udWildLon.Location = new System.Drawing.Point(413, 16);
+            udWildLon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildLon.Name = "udWildLon";
+            udWildLon.Size = new System.Drawing.Size(75, 23);
+            udWildLon.TabIndex = 7;
+            udWildLon.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
+            udWildLon.ValueChanged += udWildLon_ValueChanged;
+            udWildLon.Enter += udWildLon_Enter;
+            udWildLon.MouseClick += udWildLon_MouseClick;
+            // 
+            // lblWildLat
+            // 
+            lblWildLat.AutoSize = true;
+            lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildLat.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildLat.Location = new System.Drawing.Point(251, 20);
+            lblWildLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildLat.Name = "lblWildLat";
+            lblWildLat.Size = new System.Drawing.Size(29, 13);
+            lblWildLat.TabIndex = 4;
+            lblWildLat.Text = "Lat:";
+            // 
+            // udWildLat
+            // 
+            udWildLat.DecimalPlaces = 2;
+            udWildLat.Location = new System.Drawing.Point(293, 16);
+            udWildLat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildLat.Name = "udWildLat";
+            udWildLat.Size = new System.Drawing.Size(75, 23);
+            udWildLat.TabIndex = 5;
+            udWildLat.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
+            udWildLat.ValueChanged += udWildLat_ValueChanged;
+            udWildLat.Enter += udWildLat_Enter;
+            udWildLat.MouseClick += udWildLat_MouseClick;
+            // 
+            // lblWildMin
+            // 
+            lblWildMin.AutoSize = true;
+            lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildMin.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildMin.Location = new System.Drawing.Point(49, 20);
+            lblWildMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildMin.Name = "lblWildMin";
+            lblWildMin.Size = new System.Drawing.Size(31, 13);
+            lblWildMin.TabIndex = 0;
+            lblWildMin.Text = "Min:";
+            // 
+            // lblWildMax
+            // 
+            lblWildMax.AutoSize = true;
+            lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildMax.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildMax.Location = new System.Drawing.Point(145, 20);
+            lblWildMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildMax.Name = "lblWildMax";
+            lblWildMax.Size = new System.Drawing.Size(34, 13);
+            lblWildMax.TabIndex = 2;
+            lblWildMax.Text = "Max:";
+            // 
+            // udWildMin
+            // 
+            udWildMin.Location = new System.Drawing.Point(88, 16);
+            udWildMin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildMin.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            udWildMin.Name = "udWildMin";
+            udWildMin.Size = new System.Drawing.Size(44, 23);
+            udWildMin.TabIndex = 1;
+            udWildMin.ValueChanged += udWildMin_ValueChanged;
+            udWildMin.Enter += udWildMin_Enter;
+            udWildMin.MouseClick += udWildMin_MouseClick;
+            // 
+            // udWildMax
+            // 
+            udWildMax.Location = new System.Drawing.Point(191, 16);
+            udWildMax.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            udWildMax.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            udWildMax.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            udWildMax.Name = "udWildMax";
+            udWildMax.Size = new System.Drawing.Size(56, 23);
+            udWildMax.TabIndex = 3;
+            udWildMax.Value = new decimal(new int[] { 190, 0, 0, 0 });
+            udWildMax.ValueChanged += udWildMax_ValueChanged;
+            udWildMax.Enter += udWildMax_Enter;
+            udWildMax.MouseClick += udWildMax_MouseClick;
+            // 
+            // lblWildCommand
+            // 
+            lblWildCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblWildCommand.AutoSize = true;
+            lblWildCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildCommand.Location = new System.Drawing.Point(16, 479);
+            lblWildCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildCommand.Name = "lblWildCommand";
+            lblWildCommand.Size = new System.Drawing.Size(65, 13);
+            lblWildCommand.TabIndex = 15;
+            lblWildCommand.Text = "Command:";
+            // 
+            // cboConsoleCommandsWild
+            // 
+            cboConsoleCommandsWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsWild.FormattingEnabled = true;
+            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsWild.Items") });
+            cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
+            cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
+            cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsWild.Sorted = true;
+            cboConsoleCommandsWild.TabIndex = 16;
+            cboConsoleCommandsWild.SelectedIndexChanged += cboConsoleCommandsWild_SelectedIndexChanged;
+            // 
+            // lblSelectedWildTotal
+            // 
+            lblSelectedWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblSelectedWildTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblSelectedWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblSelectedWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblSelectedWildTotal.Location = new System.Drawing.Point(788, 471);
+            lblSelectedWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSelectedWildTotal.Name = "lblSelectedWildTotal";
+            lblSelectedWildTotal.Size = new System.Drawing.Size(144, 35);
+            lblSelectedWildTotal.TabIndex = 18;
+            lblSelectedWildTotal.Text = "Count: 0";
+            lblSelectedWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblWildClass
+            // 
+            lblWildClass.AutoSize = true;
+            lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildClass.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildClass.Location = new System.Drawing.Point(16, 61);
+            lblWildClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildClass.Name = "lblWildClass";
+            lblWildClass.Size = new System.Drawing.Size(59, 13);
+            lblWildClass.TabIndex = 12;
+            lblWildClass.Text = "Creature:";
             // 
             // lvwWildDetail
             // 
@@ -3846,315 +4130,33 @@ namespace ARKViewer
             lvwWildDetail_CCC.Text = "CCC";
             lvwWildDetail_CCC.Width = 0;
             // 
-            // lblWildClass
+            // lblWildTotal
             // 
-            lblWildClass.AutoSize = true;
-            lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildClass.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildClass.Location = new System.Drawing.Point(16, 61);
-            lblWildClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildClass.Name = "lblWildClass";
-            lblWildClass.Size = new System.Drawing.Size(59, 13);
-            lblWildClass.TabIndex = 12;
-            lblWildClass.Text = "Creature:";
+            lblWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            lblWildTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildTotal.Location = new System.Drawing.Point(936, 471);
+            lblWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWildTotal.Name = "lblWildTotal";
+            lblWildTotal.Size = new System.Drawing.Size(152, 35);
+            lblWildTotal.TabIndex = 19;
+            lblWildTotal.Text = "Total: 0";
+            lblWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblSelectedWildTotal
+            // cboWildClass
             // 
-            lblSelectedWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblSelectedWildTotal.BackColor = System.Drawing.Color.AliceBlue;
-            lblSelectedWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblSelectedWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblSelectedWildTotal.Location = new System.Drawing.Point(788, 471);
-            lblSelectedWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblSelectedWildTotal.Name = "lblSelectedWildTotal";
-            lblSelectedWildTotal.Size = new System.Drawing.Size(144, 35);
-            lblSelectedWildTotal.TabIndex = 18;
-            lblSelectedWildTotal.Text = "Count: 0";
-            lblSelectedWildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cboConsoleCommandsWild
-            // 
-            cboConsoleCommandsWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboConsoleCommandsWild.FormattingEnabled = true;
-            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsWild.Items") });
-            cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
-            cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
-            cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 23);
-            cboConsoleCommandsWild.Sorted = true;
-            cboConsoleCommandsWild.TabIndex = 16;
-            cboConsoleCommandsWild.SelectedIndexChanged += cboConsoleCommandsWild_SelectedIndexChanged;
-            // 
-            // lblWildCommand
-            // 
-            lblWildCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblWildCommand.AutoSize = true;
-            lblWildCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildCommand.Location = new System.Drawing.Point(16, 479);
-            lblWildCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildCommand.Name = "lblWildCommand";
-            lblWildCommand.Size = new System.Drawing.Size(65, 13);
-            lblWildCommand.TabIndex = 15;
-            lblWildCommand.Text = "Command:";
-            // 
-            // btnCopyCommandWild
-            // 
-            btnCopyCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnCopyCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnCopyCommandWild.Enabled = false;
-            btnCopyCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandWild.Image");
-            btnCopyCommandWild.Location = new System.Drawing.Point(408, 465);
-            btnCopyCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnCopyCommandWild.Name = "btnCopyCommandWild";
-            btnCopyCommandWild.Size = new System.Drawing.Size(47, 46);
-            btnCopyCommandWild.TabIndex = 17;
-            toolTip1.SetToolTip(btnCopyCommandWild, "Copy command to clipboard.");
-            btnCopyCommandWild.UseVisualStyleBackColor = true;
-            btnCopyCommandWild.Click += btnCopyCommandWild_Click;
-            // 
-            // udWildMax
-            // 
-            udWildMax.Location = new System.Drawing.Point(191, 16);
-            udWildMax.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            udWildMax.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
-            udWildMax.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            udWildMax.Name = "udWildMax";
-            udWildMax.Size = new System.Drawing.Size(56, 23);
-            udWildMax.TabIndex = 3;
-            udWildMax.Value = new decimal(new int[] { 190, 0, 0, 0 });
-            udWildMax.ValueChanged += udWildMax_ValueChanged;
-            udWildMax.Enter += udWildMax_Enter;
-            udWildMax.MouseClick += udWildMax_MouseClick;
-            // 
-            // udWildMin
-            // 
-            udWildMin.Location = new System.Drawing.Point(88, 16);
-            udWildMin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            udWildMin.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
-            udWildMin.Name = "udWildMin";
-            udWildMin.Size = new System.Drawing.Size(44, 23);
-            udWildMin.TabIndex = 1;
-            udWildMin.ValueChanged += udWildMin_ValueChanged;
-            udWildMin.Enter += udWildMin_Enter;
-            udWildMin.MouseClick += udWildMin_MouseClick;
-            // 
-            // lblWildMax
-            // 
-            lblWildMax.AutoSize = true;
-            lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildMax.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildMax.Location = new System.Drawing.Point(145, 20);
-            lblWildMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildMax.Name = "lblWildMax";
-            lblWildMax.Size = new System.Drawing.Size(34, 13);
-            lblWildMax.TabIndex = 2;
-            lblWildMax.Text = "Max:";
-            // 
-            // lblWildMin
-            // 
-            lblWildMin.AutoSize = true;
-            lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildMin.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildMin.Location = new System.Drawing.Point(49, 20);
-            lblWildMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildMin.Name = "lblWildMin";
-            lblWildMin.Size = new System.Drawing.Size(31, 13);
-            lblWildMin.TabIndex = 0;
-            lblWildMin.Text = "Min:";
-            // 
-            // udWildLat
-            // 
-            udWildLat.DecimalPlaces = 2;
-            udWildLat.Location = new System.Drawing.Point(293, 16);
-            udWildLat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            udWildLat.Name = "udWildLat";
-            udWildLat.Size = new System.Drawing.Size(75, 23);
-            udWildLat.TabIndex = 5;
-            udWildLat.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
-            udWildLat.ValueChanged += udWildLat_ValueChanged;
-            udWildLat.Enter += udWildLat_Enter;
-            udWildLat.MouseClick += udWildLat_MouseClick;
-            // 
-            // lblWildLat
-            // 
-            lblWildLat.AutoSize = true;
-            lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildLat.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildLat.Location = new System.Drawing.Point(251, 20);
-            lblWildLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildLat.Name = "lblWildLat";
-            lblWildLat.Size = new System.Drawing.Size(29, 13);
-            lblWildLat.TabIndex = 4;
-            lblWildLat.Text = "Lat:";
-            // 
-            // udWildLon
-            // 
-            udWildLon.DecimalPlaces = 2;
-            udWildLon.Location = new System.Drawing.Point(413, 16);
-            udWildLon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            udWildLon.Name = "udWildLon";
-            udWildLon.Size = new System.Drawing.Size(75, 23);
-            udWildLon.TabIndex = 7;
-            udWildLon.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
-            udWildLon.ValueChanged += udWildLon_ValueChanged;
-            udWildLon.Enter += udWildLon_Enter;
-            udWildLon.MouseClick += udWildLon_MouseClick;
-            // 
-            // lblWildLon
-            // 
-            lblWildLon.AutoSize = true;
-            lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildLon.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildLon.Location = new System.Drawing.Point(371, 20);
-            lblWildLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildLon.Name = "lblWildLon";
-            lblWildLon.Size = new System.Drawing.Size(32, 13);
-            lblWildLon.TabIndex = 6;
-            lblWildLon.Text = "Lon:";
-            // 
-            // udWildRadius
-            // 
-            udWildRadius.DecimalPlaces = 2;
-            udWildRadius.Location = new System.Drawing.Point(553, 16);
-            udWildRadius.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            udWildRadius.Name = "udWildRadius";
-            udWildRadius.Size = new System.Drawing.Size(75, 23);
-            udWildRadius.TabIndex = 9;
-            udWildRadius.Value = new decimal(new int[] { 10000, 0, 0, 131072 });
-            udWildRadius.ValueChanged += udWildRadius_ValueChanged;
-            udWildRadius.Enter += udWildRadius_Enter;
-            udWildRadius.MouseClick += udWildRadius_MouseClick;
-            // 
-            // lblWildRadius
-            // 
-            lblWildRadius.AutoSize = true;
-            lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildRadius.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildRadius.Location = new System.Drawing.Point(490, 20);
-            lblWildRadius.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildRadius.Name = "lblWildRadius";
-            lblWildRadius.Size = new System.Drawing.Size(50, 13);
-            lblWildRadius.TabIndex = 8;
-            lblWildRadius.Text = "Radius:";
-            // 
-            // lblResource
-            // 
-            lblResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblResource.AutoSize = true;
-            lblResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblResource.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblResource.Location = new System.Drawing.Point(786, 60);
-            lblResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblResource.Name = "lblResource";
-            lblResource.Size = new System.Drawing.Size(65, 13);
-            lblResource.TabIndex = 10;
-            lblResource.Text = "Resource:";
-            // 
-            // cboWildResource
-            // 
-            cboWildResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cboWildResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboWildResource.FormattingEnabled = true;
-            cboWildResource.Location = new System.Drawing.Point(863, 55);
-            cboWildResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboWildResource.Name = "cboWildResource";
-            cboWildResource.Size = new System.Drawing.Size(222, 23);
-            cboWildResource.TabIndex = 11;
-            cboWildResource.SelectedIndexChanged += cboWildResource_SelectedIndexChanged;
-            // 
-            // pnlFilterWilds
-            // 
-            pnlFilterWilds.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterWilds.BackColor = System.Drawing.Color.PaleTurquoise;
-            pnlFilterWilds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pnlFilterWilds.Controls.Add(btnFindWild);
-            pnlFilterWilds.Controls.Add(txtFilterWild);
-            pnlFilterWilds.Location = new System.Drawing.Point(13, 421);
-            pnlFilterWilds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            pnlFilterWilds.Name = "pnlFilterWilds";
-            pnlFilterWilds.Size = new System.Drawing.Size(1073, 33);
-            pnlFilterWilds.TabIndex = 20;
-            // 
-            // txtFilterWild
-            // 
-            txtFilterWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterWild.Location = new System.Drawing.Point(12, 3);
-            txtFilterWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            txtFilterWild.Name = "txtFilterWild";
-            txtFilterWild.Size = new System.Drawing.Size(1013, 23);
-            txtFilterWild.TabIndex = 6;
-            txtFilterWild.KeyDown += txtFilterWild_KeyDown;
-            // 
-            // btnFindWild
-            // 
-            btnFindWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnFindWild.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnFindWild.Image = (System.Drawing.Image)resources.GetObject("btnFindWild.Image");
-            btnFindWild.Location = new System.Drawing.Point(1037, -1);
-            btnFindWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnFindWild.Name = "btnFindWild";
-            btnFindWild.Size = new System.Drawing.Size(35, 33);
-            btnFindWild.TabIndex = 8;
-            toolTip1.SetToolTip(btnFindWild, "Find next");
-            btnFindWild.UseVisualStyleBackColor = true;
-            btnFindWild.Click += btnFindWild_Click;
-            // 
-            // lblWildRealm
-            // 
-            lblWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblWildRealm.AutoSize = true;
-            lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblWildRealm.Location = new System.Drawing.Point(788, 20);
-            lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lblWildRealm.Name = "lblWildRealm";
-            lblWildRealm.Size = new System.Drawing.Size(46, 13);
-            lblWildRealm.TabIndex = 21;
-            lblWildRealm.Text = "Realm:";
-            // 
-            // cboWildRealm
-            // 
-            cboWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cboWildRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboWildRealm.FormattingEnabled = true;
-            cboWildRealm.Location = new System.Drawing.Point(862, 15);
-            cboWildRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboWildRealm.Name = "cboWildRealm";
-            cboWildRealm.Size = new System.Drawing.Size(222, 23);
-            cboWildRealm.TabIndex = 22;
-            cboWildRealm.SelectedIndexChanged += cboWildRealm_SelectedIndexChanged;
-            // 
-            // chkTameable
-            // 
-            chkTameable.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            chkTameable.AutoSize = true;
-            chkTameable.Checked = true;
-            chkTameable.CheckState = System.Windows.Forms.CheckState.Checked;
-            chkTameable.Location = new System.Drawing.Point(648, 59);
-            chkTameable.Name = "chkTameable";
-            chkTameable.Size = new System.Drawing.Size(76, 19);
-            chkTameable.TabIndex = 23;
-            chkTameable.Text = "Tameable";
-            chkTameable.UseVisualStyleBackColor = true;
-            chkTameable.CheckedChanged += chkTameable_CheckedChanged;
-            // 
-            // btnRconCommandWild
-            // 
-            btnRconCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnRconCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnRconCommandWild.Enabled = false;
-            btnRconCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandWild.Image");
-            btnRconCommandWild.Location = new System.Drawing.Point(463, 465);
-            btnRconCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            btnRconCommandWild.Name = "btnRconCommandWild";
-            btnRconCommandWild.Size = new System.Drawing.Size(47, 46);
-            btnRconCommandWild.TabIndex = 24;
-            toolTip1.SetToolTip(btnRconCommandWild, "Send command to server using RCON.");
-            btnRconCommandWild.UseVisualStyleBackColor = true;
-            btnRconCommandWild.Visible = false;
-            btnRconCommandWild.Click += btnRconCommandWild_Click;
+            cboWildClass.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            cboWildClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboWildClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildClass.FormattingEnabled = true;
+            cboWildClass.Location = new System.Drawing.Point(88, 57);
+            cboWildClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWildClass.Name = "cboWildClass";
+            cboWildClass.Size = new System.Drawing.Size(540, 24);
+            cboWildClass.TabIndex = 13;
+            cboWildClass.DrawItem += cboSelected_DrawItem;
+            cboWildClass.SelectedIndexChanged += CboWildClass_SelectedIndexChanged;
             // 
             // tabFeatures
             // 
@@ -4177,6 +4179,17 @@ namespace ARKViewer
             tabFeatures.Size = new System.Drawing.Size(1112, 548);
             tabFeatures.TabIndex = 0;
             tabFeatures.SelectedIndexChanged += tabFeatures_SelectedIndexChanged;
+            // 
+            // chartTribes
+            // 
+            chartTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            chartTribes.CausesValidation = false;
+            chartTribes.Location = new System.Drawing.Point(12, 81);
+            chartTribes.Name = "chartTribes";
+            chartTribes.Size = new System.Drawing.Size(330, 346);
+            chartTribes.SubTitle = "";
+            chartTribes.TabIndex = 53;
+            chartTribes.Title = "Title";
             // 
             // frmViewer
             // 
@@ -4224,9 +4237,9 @@ namespace ARKViewer
             splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picPainting).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picPainting).EndInit();
             tpgItemList.ResumeLayout(false);
             tpgItemList.PerformLayout();
             pnlFilterSearch.ResumeLayout(false);
@@ -4246,28 +4259,28 @@ namespace ARKViewer
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)udChartTop).EndInit();
             pnlFilterTribes.ResumeLayout(false);
             pnlFilterTribes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udChartTop).EndInit();
             tpgStructures.ResumeLayout(false);
             tpgStructures.PerformLayout();
             pnlFilterStructures.ResumeLayout(false);
             pnlFilterStructures.PerformLayout();
             tpgTamed.ResumeLayout(false);
             tpgTamed.PerformLayout();
-            pnlTameStatTypes.ResumeLayout(false);
-            pnlTameStatTypes.PerformLayout();
             pnlFilterTamed.ResumeLayout(false);
             pnlFilterTamed.PerformLayout();
+            pnlTameStatTypes.ResumeLayout(false);
+            pnlTameStatTypes.PerformLayout();
             tpgWild.ResumeLayout(false);
             tpgWild.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)udWildMax).EndInit();
-            ((System.ComponentModel.ISupportInitialize)udWildMin).EndInit();
-            ((System.ComponentModel.ISupportInitialize)udWildLat).EndInit();
-            ((System.ComponentModel.ISupportInitialize)udWildLon).EndInit();
-            ((System.ComponentModel.ISupportInitialize)udWildRadius).EndInit();
             pnlFilterWilds.ResumeLayout(false);
             pnlFilterWilds.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udWildRadius).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildLat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udWildMax).EndInit();
             tabFeatures.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -4295,7 +4308,6 @@ namespace ARKViewer
         private System.Windows.Forms.ToolStripMenuItem mnuContext_Tames;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_Players;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_DinoId;
-        private ArkViewer.ChartControl chartTribes;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_ProfileFilename;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -4670,6 +4682,7 @@ namespace ARKViewer
         private System.Windows.Forms.Label lblWildTotal;
         private System.Windows.Forms.ComboBox cboWildClass;
         private System.Windows.Forms.TabControl tabFeatures;
+        private ArkViewer.ChartControl chartTribes;
     }
 }
 

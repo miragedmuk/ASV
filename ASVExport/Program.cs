@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using SavegameToolkit;
+using System.Runtime.CompilerServices;
 
 namespace ASVExport
 {
