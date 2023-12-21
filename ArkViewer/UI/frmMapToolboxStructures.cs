@@ -819,7 +819,7 @@ namespace ARKViewer
 
                                 csvBuilder.Append("\n");
                             }
-                            File.WriteAllText(saveDialog.FileName, csvBuilder.ToString());
+                            File.WriteAllText(saveDialog.FileName, csvBuilder.ToString(), Encoding.UTF8);
 
                             MessageBox.Show("Export complete.", "Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }

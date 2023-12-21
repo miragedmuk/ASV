@@ -98,7 +98,7 @@ namespace ASVPack.Models
             }
 
             HasDecayTimeReset = structureObject.GetPropertyValue<bool>("bHasResetDecayTime", 0, false);
-            LastAllyInRangeTimeInGame = structureObject.GetPropertyValue<double>("LastInAllyRangeTime", 0, 0);
+            LastAllyInRangeTimeInGame = structureObject.GetPropertyValue<double>("LastInAllyRangeTimeSerialized", 0, 0);
             TargetingTeam = structureObject.GetPropertyValue<int>("TargetingTeam", 0, 0);
             CreatedTimeInGame = structureObject.GetPropertyValue<double>("OriginalCreationTime", 0, 0);
         }

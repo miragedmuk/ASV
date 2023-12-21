@@ -1530,12 +1530,12 @@ namespace ARKViewer
 
                 foreach (ListViewItem selectedItem in lvwItemList.SelectedItems)
                 {
-                    ContentItem droppedItem = (ContentItem)selectedItem.Tag;
+                    ASVFoundItem foundItem = (ASVFoundItem)selectedItem.Tag;
                     string commandText = commandTemplate;
 
-                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{droppedItem.X:0.00}"));
-                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{droppedItem.Y:0.00}"));
-                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{droppedItem.Z + 100:0.00}"));
+                    commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{foundItem.X:0.00}"));
+                    commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{foundItem.Y:0.00}"));
+                    commandText = commandText.Replace("<z>", System.FormattableString.Invariant($"{foundItem.Z + 100:0.00}"));
 
                     switch (Program.ProgramConfig.CommandPrefix)
                     {
@@ -1652,7 +1652,7 @@ namespace ARKViewer
             List<string> allCommands = new List<string>();
 
             var commandTemplate = cboConsoleCommandsWild.SelectedItem.ToString();
-            if(commandTemplate!=null &!commandTemplate.Contains("<"))
+            if (commandTemplate != null & !commandTemplate.Contains("<"))
             {
                 return commandTemplate;
             }

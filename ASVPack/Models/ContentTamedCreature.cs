@@ -298,7 +298,7 @@ namespace ASVPack.Models
 
             }
 
-            LastAllyInRangeTimeInGame = creatureObject.GetPropertyValue<double>("LastInAllyRangeTime", 0, 0);
+            LastAllyInRangeTimeInGame = creatureObject.GetPropertyValue<double>("LastInAllyRangeSerialized", 0, 0);
 
             TribeName = creatureObject.GetPropertyValue<string>("TribeName", 0, "")??"";
             Name = creatureObject.GetPropertyValue<string>("TamedName", 0, "") ?? "";
