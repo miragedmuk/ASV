@@ -1810,33 +1810,7 @@ namespace ASVPack.Models
             GameSeconds = (float)arkSavegame.GameTime;
             GameSaveTime = fileTimestamp.ToUniversalTime();
 
-            startTicks = DateTime.Now.Ticks;
 
-            //parse profiles
-            OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Profiles...");
-            ConcurrentBag<ContentPlayer> fileProfiles = new ConcurrentBag<ContentPlayer>();
-            Parallel.ForEach(arkSavegame.Profiles, profile =>
-            //foreach(var profile in arkSavegame.Profiles) 
-            {
-                //parse into ContentPlayer and add to list
-                var playerProfile = profile?.Profile;
-                var contentPlayer = playerProfile?.AsPlayer()??null;
-                if (contentPlayer != null)
-                {
-                    if (playerProfile?.Location != null)
-                    {
-                        float latitude = (float)LoadedMap.LatShift + ((float)playerProfile?.Location.Y / (float)LoadedMap.LatDiv);
-                        float longitude = (float)LoadedMap.LonShift + ((float)playerProfile?.Location.X / (float)LoadedMap.LonDiv);
-                        contentPlayer.Latitude = latitude;
-                        contentPlayer.Longitude = longitude;
-                    }
-                    fileProfiles.Add(contentPlayer);
-                }
-            }
-            );
-            endTicks = DateTime.Now.Ticks;
-            timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
-            logWriter.Info($"Profile data loaded in: {timeTaken.ToString(@"mm\:ss")}.");
 
             //parse tribes
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Tribes...");
@@ -1862,11 +1836,40 @@ namespace ASVPack.Models
 
 
             startTicks = DateTime.Now.Ticks;
+
+            //parse profiles
+            OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Profiles...");
+            ConcurrentBag<ContentPlayer> fileProfiles = new ConcurrentBag<ContentPlayer>();
+            Parallel.ForEach(arkSavegame.Profiles, profile =>
+            //foreach(var profile in arkSavegame.Profiles) 
+            {
+                //parse into ContentPlayer and add to list
+                var playerProfile = profile?.Profile;
+                var contentPlayer = playerProfile?.AsPlayer() ?? null;
+
+                if (contentPlayer != null)
+                {
+                    if (playerProfile?.Location != null)
+                    {
+                        float latitude = (float)LoadedMap.LatShift + ((float)playerProfile?.Location.Y / (float)LoadedMap.LatDiv);
+                        float longitude = (float)LoadedMap.LonShift + ((float)playerProfile?.Location.X / (float)LoadedMap.LonDiv);
+                        contentPlayer.Latitude = latitude;
+                        contentPlayer.Longitude = longitude;
+                    }
+                    fileProfiles.Add(contentPlayer);
+                }
+            }
+            );
+            endTicks = DateTime.Now.Ticks;
+            timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
+            logWriter.Info($"Profile data loaded in: {timeTaken.ToString(@"mm\:ss")}.");
+
+            startTicks = DateTime.Now.Ticks;
             OnUpdateProgress?.Invoke("ARK save file loaded. Allocating Tribe Players...");
             //allocate players to tribes
             foreach (var p in fileProfiles)
             {
-                var playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.TargetingTeam);
+                var playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.TargetingTeam || t.Members.Any(x=> x.Key == p.Id));
                 var soloTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.Id);
 
                 if (playerTribe == null && soloTribe==null)
