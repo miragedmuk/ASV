@@ -1797,6 +1797,8 @@ namespace ASVPack.Models
             TimeSpan timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
             logWriter.Info($"Game data loaded in: {timeTaken.ToString(@"mm\:ss")}.");
 
+            var pods = arkSavegame.Objects.Where(o => o.ClassString == "PrimalItem_WeaponEmptyCryopod_C").ToList();
+
 
             //determine map
             MapName = arkSavegame.DataFiles[0];
@@ -2119,35 +2121,7 @@ namespace ASVPack.Models
                     );
             }
 
-            var gamePlayers = arkSavegame.Objects.Where(o => o.IsPlayer() & !o.HasAnyProperty("MyDeathHarvestingComponent")).GroupBy(x => x.GetPropertyValue<long>("LinkedPlayerDataID")).Select(x => x.First()).ToList();
-            var playersWithNoProfile = gamePlayers.Where(p => !fileProfiles.Any(f => Guid.Parse(f.NetworkId) == p.Guid)).ToList();
-            foreach(var playerObject in playersWithNoProfile)
-            {
-                AsaObjectReference? playerStatusRef = playerObject.GetPropertyValue<AsaObjectReference?>("MyCharacterStatusComponent", 0, null);
-                if (playerStatusRef != null)
-                {
-                    var playerStatusComp = arkSavegame.GetObjectByGuid(Guid.Parse(playerStatusRef.Value));
-                    var contentPlayer = playerObject.AsPlayer(playerStatusComp);
-                    if (contentPlayer != null)
-                    {
-                        AsaLocation? playerLocation = arkSavegame.GetActorLocation(playerObject.Guid);
-                        if(playerLocation != null)
-                        {
-                            contentPlayer.Latitude = (float)((float)LoadedMap.LatShift + (playerLocation.Y / (float)LoadedMap.LatDiv));
-                            contentPlayer.Longitude = (float)((float)LoadedMap.LonShift + (playerLocation.X / (float)LoadedMap.LonDiv));
-                        }
-
-
-                        ContentTribe? playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == contentPlayer.TargetingTeam);
-                        if (playerTribe != null)
-                        {
-                            playerTribe.Players.Add(contentPlayer);
-                        }
-
-                        fileProfiles.Add(contentPlayer);
-                    }
-                }
-            }
+           
 
             //attempt to get missing tribe data from structures
             var missingStructureTribes = tribeStructures.AsParallel()
@@ -2191,7 +2165,35 @@ namespace ASVPack.Models
             }
 
 
+            var gamePlayers = arkSavegame.Objects.Where(o => o.IsPlayer() & !o.HasAnyProperty("MyDeathHarvestingComponent")).GroupBy(x => x.GetPropertyValue<long>("LinkedPlayerDataID")).Select(x => x.First()).ToList();
+            var playersWithNoProfile = gamePlayers.Where(p => !fileProfiles.Any(f => f.Id == (long)(p.Properties.FirstOrDefault(pp => pp.Name == "LinkedPlayerDataID")?.Value ?? 0))).ToList();
+            foreach (var playerObject in playersWithNoProfile)
+            {
+                AsaObjectReference? playerStatusRef = playerObject.GetPropertyValue<AsaObjectReference?>("MyCharacterStatusComponent", 0, null);
+                if (playerStatusRef != null)
+                {
+                    var playerStatusComp = arkSavegame.GetObjectByGuid(Guid.Parse(playerStatusRef.Value));
+                    var contentPlayer = playerObject.AsPlayer(playerStatusComp);
+                    if (contentPlayer != null)
+                    {
+                        AsaLocation? playerLocation = arkSavegame.GetActorLocation(playerObject.Guid);
+                        if (playerLocation != null)
+                        {
+                            contentPlayer.Latitude = (float)((float)LoadedMap.LatShift + (playerLocation.Y / (float)LoadedMap.LatDiv));
+                            contentPlayer.Longitude = (float)((float)LoadedMap.LonShift + (playerLocation.X / (float)LoadedMap.LonDiv));
+                        }
 
+
+                        ContentTribe? playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == contentPlayer.TargetingTeam);
+                        if (playerTribe != null)
+                        {
+                            playerTribe.Players.Add(contentPlayer);
+                        }
+
+                        fileProfiles.Add(contentPlayer);
+                    }
+                }
+            }
 
             startTicks = DateTime.Now.Ticks;
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing player data...");

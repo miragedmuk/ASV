@@ -88,7 +88,8 @@ namespace AsaSavegameToolkit
 
                 case "MapProperty":
 
-                    returnProperty = ReadMapProperty(archive);
+                    var mapValue = ReadMapPropertyValue(archive);
+                    returnProperty = new AsaProperty<dynamic>(keyName.Name, valueTypeName.Name, position, 0, mapValue);
                     return returnProperty;
                     
                 case "ByteProperty":
@@ -113,27 +114,45 @@ namespace AsaSavegameToolkit
 
 
 
-        private static AsaProperty<dynamic>? ReadMapProperty(AsaArchive archive)
+        private static List<AsaProperty<dynamic>>? ReadMapPropertyValue(AsaArchive archive)
         {
             var keyType = archive.ReadName();
             var valueType = archive.ReadName();
-            var skipCount = archive.ReadInt();//0
-            var mapUnknown = archive.ReadInt();//256?
+            var byteUnknown = archive.ReadByte();
+            var skipCount = archive.ReadInt();
+            var mapCount = archive.ReadInt();
 
-            switch (valueType.Name)
+            List<AsaProperty<dynamic>> mapValues = new List<AsaProperty<dynamic>>();
+            try
             {
-                case "StructProperty":
-                    return ReadStructMap(archive,keyType,valueType);
-                default:
-                    return null;
+                for(int i = 0; i < mapCount; i++)
+                {
+                    switch (valueType.Name)
+                    {
+                        case "StructProperty":
+                            var mapValue = ReadStructMap(archive, keyType, valueType);
+                            mapValues.Add(mapValue);
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+
             }
+            catch 
+            { 
+            
+            }
+
+            return mapValues;
+
         }
 
         private static AsaProperty<dynamic>? ReadStructMap(AsaArchive archive, AsaName keyType, AsaName valueType)
         {
             List<AsaProperty<dynamic>> propertyValues = new List<AsaProperty<dynamic>>();
 
-            archive.SkipBytes(1);
             var keyName = ReadPropertyValue(keyType, archive);
 
             while (true)
@@ -237,36 +256,6 @@ namespace AsaSavegameToolkit
             }
 
             return new AsaPropertyArray(name.Name, (dynamic)structArray);
-        }
-
-        private static dynamic? ReadMapPropertyValue(AsaArchive archive, AsaName keyType, AsaName valueType)
-        {
-
-            var shouldBeZero = archive.ReadInt();
-            archive.SkipBytes(1);
-            var mapCount = archive.ReadInt();
-
-            var propertyKey = ReadPropertyValue(keyType, archive);
-            var propertySubName = ReadPropertyValue(keyType, archive);
-            var propertyType  = ReadPropertyValue(keyType, archive);
-            var propertyCount = archive.ReadInt();
-            var shouldBeZero2 = archive.ReadInt();
-
-            var setType = archive.ReadName();
-            var k = archive.ReadBool();
-            archive.SkipBytes(7);
-
-            var l = archive.ReadName();
-
-            //archive.SkipBytes(7);
-
-            archive.SkipBytes(1);
-            var mapKeyName = archive.ReadName();
-
-
-
-            return null;
-
         }
 
         private static dynamic ReadPropertyValue(AsaName valueTypeName, AsaArchive archive)

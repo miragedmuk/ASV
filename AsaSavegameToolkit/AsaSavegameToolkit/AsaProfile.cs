@@ -27,6 +27,10 @@ namespace AsaSavegameToolkit
                 {
                     var profileVersion = archive.ReadInt();
                     var profilesCount = archive.ReadInt();
+                    if (profilesCount == 0)
+                    {
+                        return;
+                    }
 
                     Objects.Clear();
 

@@ -1,11 +1,13 @@
 ﻿using AsaSavegameToolkit;
 using AsaSavegameToolkit.Propertys;
+using AsaSavegameToolkit.Structs;
 using ASVPack.Extensions;
 using SavegameToolkit;
 using SavegameToolkit.Arrays;
 using SavegameToolkit.Propertys;
 using SavegameToolkit.Structs;
 using SavegameToolkit.Types;
+using SavegameToolkitAdditions.IndexMappings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -370,7 +372,7 @@ namespace ASVPack.Models
             HasGameFile = false;
             Id = (long)(playerObject.GetPropertyValue<ulong?>("PlayerDataID") ?? playerObject.GetPropertyValue<ulong>("LinkedPlayerDataID"));
             TargetingTeam = playerObject.GetPropertyValue<int>("TargetingTeam");
-
+            NetworkId = playerObject.GetPropertyValue<AsaUniqueNetIdRepl?>("PlatformProfileID", 0, null)?.Value ?? "";
             Stats = new byte[12];
             if (statusObject != null)
                 for (var i = 0; i < Stats.Length; i++)

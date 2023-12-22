@@ -23,7 +23,7 @@ namespace AsaSavegameToolkit.Types
 
         public AsaObjectReference(AsaArchive archive, bool useNameTable)
         {
-            if (useNameTable)
+            if (useNameTable && archive.NameTable.Count>0)
             {
                 bool isName = archive.ReadShort() == 1;
                 if (isName)

@@ -3705,14 +3705,13 @@ namespace ARKViewer
                     Program.LogWriter.Info($"Removing local files for a clean download.");
                     //clean download
                     // ... arkprofile(s)
-                    var profileFiles = Directory.GetFiles(downloadPath, "*.arkprofile");
+                    var profileFiles = Directory.EnumerateFiles(downloadPath, "*.arkprofile");
                     foreach (var profileFilename in profileFiles)
                     {
                         try
                         {
                             Program.LogWriter.Debug($"Removing local file for a clean download: {profileFilename}");
-
-                            File.Delete(profileFilename);
+                            if(File.Exists(profileFilename)) File.Delete(profileFilename);
                         }
                         finally
                         {
@@ -3721,14 +3720,14 @@ namespace ARKViewer
                     }
 
                     // ... arktribe(s)
-                    var tribeFiles = Directory.GetFiles(downloadPath, "*.arktribe");
+                    var tribeFiles = Directory.EnumerateFiles(downloadPath, "*.arktribe");
                     foreach (var tribeFilename in tribeFiles)
                     {
                         try
                         {
                             Program.LogWriter.Debug($"Removing local file for a clean download: {tribeFilename}");
 
-                            File.Delete(tribeFilename);
+                            if(File.Exists(tribeFilename)) File.Delete(tribeFilename);
                         }
                         finally
                         {

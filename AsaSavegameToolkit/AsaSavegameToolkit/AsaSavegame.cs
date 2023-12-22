@@ -1,10 +1,14 @@
 ﻿using AsaSavegameToolkit.Extensions;
+using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
+using AsaSavegameToolkit.Types;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -132,13 +136,14 @@ namespace AsaSavegameToolkit
             ConcurrentBag<AsaProfile> profileFileBag = new ConcurrentBag<AsaProfile>();
 
             var profileFiles = Directory.EnumerateFiles(savePath, "*.arkprofile");
-            Parallel.ForEach(profileFiles, o =>
+            //Parallel.ForEach(profileFiles, o =>
+            foreach(var o in profileFiles)
             {
                 var profileData = new AsaProfile();
                 profileData.Read(o);
                 profileFileBag.Add(profileData);
             }
-            );
+            //);
 
             profileData = profileFileBag.ToList();
         }
@@ -162,8 +167,55 @@ namespace AsaSavegameToolkit
 
         private void parseStoredCreatures()
         {
+            /*
+            var l = Objects.Where(o => o.Properties.Any(p => (p.Value).ToString() == "BigBoy")).ToList();
+
+            //PrimalItem_WeaponEmptyCryopod_C
+            var pods = Objects.Where(o => o.ClassString.Contains("Cryopod") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas")).ToList();
+            foreach(var pod in pods)
+            {
+                
+
+                var customData = pod.Properties.FirstOrDefault(p => p.Name == "CustomItemDatas")?.Value[0] as List<dynamic>;
+                AsaProperty<dynamic> customBytes = customData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CustomDataBytes");
+                List<dynamic>? customProperties = customBytes?.Value;
+                AsaProperty<dynamic> customContainer = customProperties[0];
+
+                int i = 0;
+                foreach(List<dynamic> byteList in customContainer.Value)
+                {
+                    List<dynamic> byteObjectData = (byteList.First() as AsaProperty<dynamic>).Value;
+
+                    if(byteObjectData.Count > 0)
+                    {
+                        byte[] dataBytes = new byte[byteObjectData.Count];
+                        for (int x = 0; x < byteObjectData.Count; x++)
+                        {
+                            dataBytes[x] = byteObjectData[x];
+                        }
+
+                        AsaName? nameValue = null;
+
+                        File.WriteAllBytes($@"C:\temp\cryo{i}.bin", dataBytes);
+                        i++;
+
+                        using (var cryoStream = new MemoryStream(dataBytes))
+                        {
+                            using (AsaArchive archive = new AsaArchive(cryoStream))
+                            {
+                                archive.NameTable = nameTable;
+                                
+                                
+                            }
+                        }
+
+                    }
 
 
+                }
+
+            }
+            */
 
         }
 
@@ -310,8 +362,8 @@ namespace AsaSavegameToolkit
 
             ConcurrentDictionary<Guid,AsaGameObject> asaGameObjectDictionary = new ConcurrentDictionary<Guid, AsaGameObject>();
 
-            Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
-            //foreach(var objectData in gameData) 
+            //Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
+            foreach(var objectData in gameData) 
             {
                 using (var ms = new MemoryStream(objectData.Value))
                 {
@@ -330,7 +382,7 @@ namespace AsaSavegameToolkit
                     }
                 }
             }
-            );
+            //);
 
 
             if (asaGameObjectDictionary.Count > 0)
