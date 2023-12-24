@@ -1,16 +1,10 @@
 ﻿using AsaSavegameToolkit.Extensions;
 using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
-using AsaSavegameToolkit.Types;
+using Ionic.Zlib;
 using Microsoft.Data.Sqlite;
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AsaSavegameToolkit
 {
@@ -167,7 +161,6 @@ namespace AsaSavegameToolkit
 
         private void parseStoredCreatures()
         {
-            /*
             var l = Objects.Where(o => o.Properties.Any(p => (p.Value).ToString() == "BigBoy")).ToList();
 
             //PrimalItem_WeaponEmptyCryopod_C
@@ -181,9 +174,12 @@ namespace AsaSavegameToolkit
                 List<dynamic>? customProperties = customBytes?.Value;
                 AsaProperty<dynamic> customContainer = customProperties[0];
 
-                int i = 0;
-                foreach(List<dynamic> byteList in customContainer.Value)
+                var byteListContainer = customContainer.Value;
+                
+                //foreach(List<dynamic> byteList in customContainer.Value)
+                for (int i = 0; i < byteListContainer.Count; i++)
                 {
+                    List<dynamic> byteList = byteListContainer[i];
                     List<dynamic> byteObjectData = (byteList.First() as AsaProperty<dynamic>).Value;
 
                     if(byteObjectData.Count > 0)
@@ -194,20 +190,95 @@ namespace AsaSavegameToolkit
                             dataBytes[x] = byteObjectData[x];
                         }
 
-                        AsaName? nameValue = null;
 
-                        File.WriteAllBytes($@"C:\temp\cryo{i}.bin", dataBytes);
-                        i++;
-
-                        using (var cryoStream = new MemoryStream(dataBytes))
+                        if (i == 0)
                         {
-                            using (AsaArchive archive = new AsaArchive(cryoStream))
+                            
+                            var objectDataBytes = new byte[dataBytes.Length - 12];
+
+                            var unknown1 = BitConverter.ToInt16(dataBytes, 0);
+                            var unknown2 = BitConverter.ToInt16(dataBytes, 4); //uncompressed data size                           
+                            var unknown3 = BitConverter.ToInt16(dataBytes, 8);
+
+                            for (int y = 12; y < dataBytes.Length; y++)
                             {
-                                archive.NameTable = nameTable;
-                                
-                                
+                                objectDataBytes[y-12] = dataBytes[y];
+                            }
+
+                            var dc = ZlibCodecDecompress(objectDataBytes);
+
+                            using(MemoryStream ms = new MemoryStream(dc))
+                            {
+                                using(AsaArchive archive = new AsaArchive(ms))
+                                {
+                                    var objectCount = archive.ReadByte();
+                                    archive.SkipBytes(1);
+                                    var objectId = GuidExtensions.ToGuid(archive.ReadBytes(16));
+
+                                    int charCount = (int)archive.ReadByte();
+                                    archive.SkipBytes(1);
+                                    var objectClassName = UTF8Encoding.UTF8.GetString(archive.ReadBytes(charCount - 1));
+
+                                    archive.SkipBytes(1);
+                                    int nameCount = (int)archive.ReadByte();
+                                    List<string> objectNames = new List<string>();
+                                    for (int nameIndex = 0; nameIndex < nameCount; nameIndex++)
+                                    {
+                                        archive.SkipBytes(1);
+                                        int nameCharCount = (int)archive.ReadByte();
+                                        archive.SkipBytes(1);
+                                        objectNames.Add(UTF8Encoding.UTF8.GetString(archive.ReadBytes(nameCharCount - 1)));
+                                    }
+
+                                    archive.SkipBytes(1);
+                                    var unknownCount = (int)archive.ReadByte();
+                                    archive.SkipBytes(1);
+                                    archive.SkipBytes(20); //unknown values?
+
+                                    //StatusComponent
+                                    var classId = GuidExtensions.ToGuid(archive.ReadBytes(16)); //possibly, based on the first object starting with GUID
+                                    archive.SkipBytes(1);
+                                    charCount = (int)archive.ReadByte();
+                                    archive.SkipBytes(1);
+                                    var statusClassName = UTF8Encoding.UTF8.GetString(archive.ReadBytes(charCount - 1));
+
+                                    archive.SkipBytes(1);
+                                    nameCount = (int)archive.ReadByte();
+                                    List<string> statusNames = new List<string>();
+                                    for (int nameIndex = 0; nameIndex < nameCount; nameIndex++)
+                                    {
+                                        archive.SkipBytes(1);
+                                        int nameCharCount = (int)archive.ReadByte();
+                                        archive.SkipBytes(1);
+                                        statusNames.Add(UTF8Encoding.UTF8.GetString(archive.ReadBytes(nameCharCount - 1)));
+                                    }
+
+                                    //.. then what look like property values, not sure on format / order of them yet.
+                                    // .. then at the end appears to be property names. These follow the same: Byte Count, Skip Byte, String pattern.
+
+                                }
+
+
+
+                            }
+
+                        }
+                        else
+                        {
+                            using (var cryoStream = new MemoryStream(dataBytes))
+                            {
+                                using (AsaArchive archive = new AsaArchive(cryoStream))
+                                {
+                                    archive.NameTable = nameTable;
+
+
+                                }
                             }
                         }
+
+
+
+
 
                     }
 
@@ -215,9 +286,15 @@ namespace AsaSavegameToolkit
                 }
 
             }
-            */
-
         }
+
+        private string ReadCryoString(AsaArchive archive)
+        {
+            int length = archive.ReadByte();
+            archive.SkipBytes(1);
+            return UTF8Encoding.UTF8.GetString(archive.ReadBytes(length - 1));
+        }
+
 
         private void readActorLocations(SqliteConnection connection)
         {
@@ -414,7 +491,52 @@ namespace AsaSavegameToolkit
                 }
                 return stream.ToArray();
             }
+        
         }
+
+        private byte[] ZlibCodecDecompress(byte[] compressed)
+        {
+            int outputSize = 2048;
+            byte[] output = new Byte[outputSize];
+
+            // If you have a ZLIB stream, set this to true.  If you have
+            // a bare DEFLATE stream, set this to false.
+            bool expectRfc1950Header = true;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                ZlibCodec compressor = new ZlibCodec();
+                compressor.InitializeInflate(expectRfc1950Header);
+
+                compressor.InputBuffer = compressed;
+                compressor.AvailableBytesIn = compressed.Length;
+                compressor.NextIn = 0;
+                compressor.OutputBuffer = output;
+
+                foreach (var f in new FlushType[] { FlushType.None, FlushType.Finish })
+                {
+                    int bytesToWrite = 0;
+                    do
+                    {
+                        compressor.AvailableBytesOut = outputSize;
+                        compressor.NextOut = 0;
+                        compressor.Inflate(f);
+
+                        bytesToWrite = outputSize - compressor.AvailableBytesOut;
+                        if (bytesToWrite > 0)
+                            ms.Write(output, 0, bytesToWrite);
+                    }
+                    while ((f == FlushType.None && (compressor.AvailableBytesIn != 0 || compressor.AvailableBytesOut == 0)) ||
+                           (f == FlushType.Finish && bytesToWrite != 0));
+                }
+
+                compressor.EndInflate();
+
+                return ms.ToArray();
+            }
+        }
+
+
 
     }
 }

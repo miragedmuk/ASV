@@ -173,6 +173,15 @@ namespace AsaSavegameToolkit
             return val != 0;
         }
 
+
+        public string ReadStringStored()
+        {
+            int length = ReadByte();
+            SkipBytes(1);
+            return UTF8Encoding.UTF8.GetString(ReadBytes(length - 1));
+           
+        }
+
         #endregion read data
 
 
