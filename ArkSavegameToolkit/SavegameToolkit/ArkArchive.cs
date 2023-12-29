@@ -203,25 +203,35 @@ namespace SavegameToolkit {
         }
 
         private ArkName readNameFromTable() {
-            int id = mbbReader.ReadInt32();
-            int internalId = id - nameOffset;
+            try 
+            {
+                int id = mbbReader.ReadInt32();
+                int internalId = id - nameOffset;
 
-   
 
-            if (internalId < 0 || internalId >= NameTable.Count) {
-                DebugMessage($"Found invalid nametable index {id} ({internalId})", -4);
-                return null;
+
+                if (internalId < 0 || internalId >= NameTable.Count)
+                {
+                    DebugMessage($"Found invalid nametable index {id} ({internalId})", -4);
+                    return null;
+                }
+
+                string name = NameTable[internalId];
+                if (HasInstanceInNameTable)
+                {
+                    return ArkName.From(name);
+                }
+
+                int instance = mbbReader.ReadInt32();
+
+                // Get or create ArkName
+                return ArkName.From(name, instance);
             }
-
-            string name = NameTable[internalId];
-            if (HasInstanceInNameTable) {
-                return ArkName.From(name);
+            catch
+            {
+                return ArkName.NameNone;
             }
-
-            int instance = mbbReader.ReadInt32();
-
-            // Get or create ArkName
-            return ArkName.From(name, instance);
+            
         }
 
         public float ReadFloat() {

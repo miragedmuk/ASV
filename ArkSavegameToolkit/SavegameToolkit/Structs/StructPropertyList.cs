@@ -25,7 +25,16 @@ namespace SavegameToolkit.Structs {
 
             while (property != null) {
                 Properties.Add(property);
-                property = PropertyRegistry.ReadBinary(archive);
+                try
+                {
+                    property = PropertyRegistry.ReadBinary(archive);
+                }
+                catch
+                {
+                    //unreadable property
+                    property = null;
+                }
+                
             }
          }
 
