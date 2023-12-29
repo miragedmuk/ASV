@@ -6,6 +6,7 @@ using Ionic.Zlib;
 using Microsoft.Data.Sqlite;
 using System.Collections.Concurrent;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
@@ -89,16 +90,7 @@ namespace AsaSavegameToolkit
                 readGameData(connection);
                 readActorLocations(connection);
 
-                parseGameObjects();
-                gameData.Clear(); //no longer needed, parsed into Objects as list of AsaGameObject
-                //addComponents();
 
-                parseStoredCreatures(); //held in CustomItemData as byte array for mod version of cryopods
-                                        //need to parse into AsaGameObjects and add to Objects list and review when
-                                        //official introduces them to see if implemented the same/similar way.
-
-                readTribeFiles(savePath); // Search and parse and .arktribe file in the save directory
-                readProfileFiles(savePath); // Search and parse and .arkprofile file in the save directory
 
                 connection.Close();
                 connection.Dispose();
@@ -106,6 +98,20 @@ namespace AsaSavegameToolkit
             SqliteConnection.ClearAllPools();
             GC.Collect();
             GC.WaitForPendingFinalizers();
+
+            parseGameObjects();
+            gameData.Clear(); //no longer needed, parsed into Objects as list of AsaGameObject
+
+            //addComponents();
+
+            parseStoredCreatures(); //held in CustomItemData as byte array for mod version of cryopods
+                                    //need to parse into AsaGameObjects and add to Objects list and review when
+                                    //official introduces them to see if implemented the same/similar way.
+
+            readTribeFiles(savePath); // Search and parse and .arktribe file in the save directory
+            readProfileFiles(savePath); // Search and parse and .arkprofile file in the save directory
+
+
         }
 
         private void addComponents()
@@ -229,17 +235,22 @@ namespace AsaSavegameToolkit
                             {
                                 using (AsaArchive archive = new AsaArchive(cryoStream))
                                 {
-                                    
-                                    var archiveVersion = archive.ReadInt();
-
-                                    List<AsaProperty<dynamic>> properties = new List<AsaProperty<dynamic>>();   
-                                    var archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
-                                    while(archiveProperty != null)
+                                    try
                                     {
-                                        properties.Add(archiveProperty);
-                                        archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
-                                    }
+                                        var archiveVersion = archive.ReadInt();
 
+                                        List<AsaProperty<dynamic>> properties = new List<AsaProperty<dynamic>>();
+                                        var archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
+                                        while (archiveProperty != null)
+                                        {
+                                            properties.Add(archiveProperty);
+                                            archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        //unreadable property list
+                                    }                                
                                 }
                             }
                         }

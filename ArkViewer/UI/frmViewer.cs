@@ -1316,7 +1316,10 @@ namespace ARKViewer
 
         private void optStatsBase_CheckedChanged(object sender, EventArgs e)
         {
-            LoadTameDetail();
+            if (optStatsBase.Checked)
+            {
+                LoadTameDetail();
+            }
         }
 
         private void lvwTameDetail_SelectedIndexChanged(object sender, EventArgs e)
@@ -6565,7 +6568,20 @@ namespace ARKViewer
                         item.SubItems.Add(detail.Level.ToString());
                         item.SubItems.Add(((decimal)(detail.Latitude.GetValueOrDefault(0))).ToString("0.00"));
                         item.SubItems.Add(((decimal)(detail.Longitude.GetValueOrDefault(0))).ToString("0.00"));
-                        if (optStatsTamed.Checked)
+
+                        if (optStatsMutated.Checked)
+                        {
+                            item.SubItems.Add(detail.TamedMutations[0].ToString());
+                            item.SubItems.Add(detail.TamedMutations[1].ToString());
+                            item.SubItems.Add(detail.TamedMutations[8].ToString());
+                            item.SubItems.Add(detail.TamedMutations[7].ToString());
+                            item.SubItems.Add(detail.TamedMutations[9].ToString());
+                            item.SubItems.Add(detail.TamedMutations[4].ToString());
+                            item.SubItems.Add(detail.TamedMutations[3].ToString());
+                            item.SubItems.Add(detail.TamedMutations[11].ToString());
+
+                        }
+                        else if (optStatsTamed.Checked)
                         {
                             item.SubItems.Add(detail.TamedStats[0].ToString());
                             item.SubItems.Add(detail.TamedStats[1].ToString());
@@ -6577,7 +6593,7 @@ namespace ARKViewer
                             item.SubItems.Add(detail.TamedStats[11].ToString());
 
                         }
-                        else
+                        else if(optStatsBase.Checked)
                         {
                             item.SubItems.Add(detail.BaseStats[0].ToString());
                             item.SubItems.Add(detail.BaseStats[1].ToString());
@@ -7602,7 +7618,10 @@ namespace ARKViewer
 
         private void optStatsTamed_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (optStatsTamed.Checked)
+            {
+                LoadTameDetail();
+            }
         }
 
         private void optUploadedStatsBase_CheckedChanged(object sender, EventArgs e)
@@ -8729,5 +8748,12 @@ namespace ARKViewer
 
         }
 
+        private void optStatsMutated_CheckedChanged(object sender, EventArgs e)
+        {
+            if (optStatsMutated.Checked)
+            {
+                LoadTameDetail();
+            }
+        }
     }
 }

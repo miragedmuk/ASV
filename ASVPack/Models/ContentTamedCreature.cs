@@ -35,6 +35,8 @@ namespace ASVPack.Models
         [DataMember] public int RandomMutationsMale { get; set; } = 0;
         [DataMember] public string TamedOnServerName { get; set; } = "";
         [DataMember] public byte[] TamedStats { get; set; }
+        [DataMember] public byte[] TamedMutations { get; set; }
+
         [DataMember] public long TargetingTeam { get; set; } = int.MinValue;
         [DataMember] public string TribeName { get; set; } = "";
         [DataMember] public string TamerName { get; set; } = "";
@@ -344,13 +346,27 @@ namespace ASVPack.Models
             {
                 for (var i = 0; i < TamedStats.Length; i++)
                 { 
-                    var tamedBase = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsAppliedTamed", i) ?? 0);
+                    var tamedBase = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsAppliedTamed", i,0) ?? 0);
+            
                     TamedStats[i] = tamedBase;
                 }
 
             }
 
-            if(creatureObject.Location!= null) 
+            TamedMutations = new byte[12];
+            if (statusObject != null)
+            {
+                for (var i = 0; i < TamedMutations.Length; i++)
+                {
+                    var mutationsApplied = (byte)(statusObject.GetPropertyValue<uint>("NumberOfMutationsAppliedTamed", i,0) ?? 0);
+
+                    TamedMutations[i] = mutationsApplied;
+                }
+            }
+
+
+
+            if (creatureObject.Location!= null) 
             {
                 X = (float)creatureObject.Location.X;
                 Y = (float)creatureObject.Location.Y;

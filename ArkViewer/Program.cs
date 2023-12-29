@@ -90,6 +90,7 @@ namespace ARKViewer
         static void Main()
         {
 
+            Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 

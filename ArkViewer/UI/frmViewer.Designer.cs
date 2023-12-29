@@ -307,6 +307,7 @@ namespace ARKViewer
             lvwStructureLocations_Name = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Locked = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Powered = new System.Windows.Forms.ColumnHeader();
+            lvwStructureLocations_Created = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_LastTime = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
@@ -369,6 +370,7 @@ namespace ARKViewer
             lvwTameDetail_CCC = new System.Windows.Forms.ColumnHeader();
             lblTameTotal = new System.Windows.Forms.Label();
             pnlTameStatTypes = new System.Windows.Forms.Panel();
+            optStatsMutated = new System.Windows.Forms.RadioButton();
             lblStats = new System.Windows.Forms.Label();
             optStatsTamed = new System.Windows.Forms.RadioButton();
             optStatsBase = new System.Windows.Forms.RadioButton();
@@ -426,7 +428,6 @@ namespace ARKViewer
             lblWildTotal = new System.Windows.Forms.Label();
             cboWildClass = new System.Windows.Forms.ComboBox();
             tabFeatures = new System.Windows.Forms.TabControl();
-            lvwStructureLocations_Created = new System.Windows.Forms.ColumnHeader();
             mnuContext.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tpgLeaderboard.SuspendLayout();
@@ -1117,7 +1118,7 @@ namespace ARKViewer
             btnDinoInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDinoInventory.Enabled = false;
             btnDinoInventory.Image = (System.Drawing.Image)resources.GetObject("btnDinoInventory.Image");
-            btnDinoInventory.Location = new System.Drawing.Point(758, 465);
+            btnDinoInventory.Location = new System.Drawing.Point(861, 465);
             btnDinoInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnDinoInventory.Name = "btnDinoInventory";
             btnDinoInventory.Size = new System.Drawing.Size(47, 46);
@@ -1132,7 +1133,7 @@ namespace ARKViewer
             btnDinoAncestors.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDinoAncestors.Enabled = false;
             btnDinoAncestors.Image = (System.Drawing.Image)resources.GetObject("btnDinoAncestors.Image");
-            btnDinoAncestors.Location = new System.Drawing.Point(707, 465);
+            btnDinoAncestors.Location = new System.Drawing.Point(810, 465);
             btnDinoAncestors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnDinoAncestors.Name = "btnDinoAncestors";
             btnDinoAncestors.Size = new System.Drawing.Size(47, 46);
@@ -1147,7 +1148,7 @@ namespace ARKViewer
             btnCopyCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCopyCommandTamed.Enabled = false;
             btnCopyCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandTamed.Image");
-            btnCopyCommandTamed.Location = new System.Drawing.Point(604, 465);
+            btnCopyCommandTamed.Location = new System.Drawing.Point(707, 465);
             btnCopyCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnCopyCommandTamed.Name = "btnCopyCommandTamed";
             btnCopyCommandTamed.Size = new System.Drawing.Size(47, 46);
@@ -1205,7 +1206,7 @@ namespace ARKViewer
             btnRconCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRconCommandTamed.Enabled = false;
             btnRconCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTamed.Image");
-            btnRconCommandTamed.Location = new System.Drawing.Point(656, 465);
+            btnRconCommandTamed.Location = new System.Drawing.Point(759, 465);
             btnRconCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRconCommandTamed.Name = "btnRconCommandTamed";
             btnRconCommandTamed.Size = new System.Drawing.Size(47, 46);
@@ -3194,6 +3195,11 @@ namespace ARKViewer
             lvwStructureLocations_Powered.Text = "Power On";
             lvwStructureLocations_Powered.Width = 70;
             // 
+            // lvwStructureLocations_Created
+            // 
+            lvwStructureLocations_Created.Text = "Created";
+            lvwStructureLocations_Created.Width = 120;
+            // 
             // lvwStructureLocations_LastTime
             // 
             lvwStructureLocations_LastTime.Text = "Ally In Range";
@@ -3318,7 +3324,7 @@ namespace ARKViewer
             lblTamedCommand.AutoSize = true;
             lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblTamedCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblTamedCommand.Location = new System.Drawing.Point(224, 479);
+            lblTamedCommand.Location = new System.Drawing.Point(327, 479);
             lblTamedCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTamedCommand.Name = "lblTamedCommand";
             lblTamedCommand.Size = new System.Drawing.Size(65, 13);
@@ -3331,7 +3337,7 @@ namespace ARKViewer
             cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommandsTamed.FormattingEnabled = true;
             cboConsoleCommandsTamed.Items.AddRange(new object[] { "Cryo <DinoId>", "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsTamed.Items"), "TakeTribe <TribeID>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
-            cboConsoleCommandsTamed.Location = new System.Drawing.Point(303, 475);
+            cboConsoleCommandsTamed.Location = new System.Drawing.Point(406, 475);
             cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
             cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 23);
@@ -3634,14 +3640,27 @@ namespace ARKViewer
             // 
             pnlTameStatTypes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             pnlTameStatTypes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlTameStatTypes.Controls.Add(optStatsMutated);
             pnlTameStatTypes.Controls.Add(lblStats);
             pnlTameStatTypes.Controls.Add(optStatsTamed);
             pnlTameStatTypes.Controls.Add(optStatsBase);
             pnlTameStatTypes.Location = new System.Drawing.Point(13, 466);
             pnlTameStatTypes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlTameStatTypes.Name = "pnlTameStatTypes";
-            pnlTameStatTypes.Size = new System.Drawing.Size(204, 39);
+            pnlTameStatTypes.Size = new System.Drawing.Size(285, 39);
             pnlTameStatTypes.TabIndex = 8;
+            // 
+            // optStatsMutated
+            // 
+            optStatsMutated.AutoSize = true;
+            optStatsMutated.Location = new System.Drawing.Point(185, 10);
+            optStatsMutated.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optStatsMutated.Name = "optStatsMutated";
+            optStatsMutated.Size = new System.Drawing.Size(79, 19);
+            optStatsMutated.TabIndex = 3;
+            optStatsMutated.Text = "Mutations";
+            optStatsMutated.UseVisualStyleBackColor = true;
+            optStatsMutated.CheckedChanged += optStatsMutated_CheckedChanged;
             // 
             // lblStats
             // 
@@ -4192,11 +4211,6 @@ namespace ARKViewer
             tabFeatures.TabIndex = 0;
             tabFeatures.SelectedIndexChanged += tabFeatures_SelectedIndexChanged;
             // 
-            // lvwStructureLocations_Created
-            // 
-            lvwStructureLocations_Created.Text = "Created";
-            lvwStructureLocations_Created.Width = 120;
-            // 
             // frmViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -4690,6 +4704,7 @@ namespace ARKViewer
         private System.Windows.Forms.TabControl tabFeatures;
         private ArkViewer.ChartControl chartTribes;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Created;
+        private System.Windows.Forms.RadioButton optStatsMutated;
     }
 }
 

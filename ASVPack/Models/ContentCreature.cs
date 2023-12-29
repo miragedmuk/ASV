@@ -103,9 +103,8 @@ namespace ASVPack.Models
                 for (var i = 0; i < BaseStats.Length; i++)
                 {
                     var pointsApplied = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsApplied", i) ?? 0);
-                    var mutationsApplied = (byte)(statusObject.GetPropertyValue<uint>("NumberOfMutationsAppliedTamed", i) ?? 0);
 
-                    BaseStats[i] = (byte)(pointsApplied+mutationsApplied);
+                    BaseStats[i] = (byte)(pointsApplied);
                 }
             }
 
