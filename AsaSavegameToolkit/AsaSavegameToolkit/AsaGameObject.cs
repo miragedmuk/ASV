@@ -1,9 +1,11 @@
-﻿using AsaSavegameToolkit.Propertys;
+﻿using AsaSavegameToolkit.Extensions;
+using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
 using AsaSavegameToolkit.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +15,7 @@ namespace AsaSavegameToolkit
     {
 
 
-        public Guid Guid { get; private set; } = Guid.Empty;
+        public Guid Guid { get; set; } = Guid.Empty;
         public string Blueprint { get; private set; } = string.Empty;
         public AsaName ClassName { get; private set; } = AsaName.NameNone;
         public string ClassString
@@ -31,7 +33,37 @@ namespace AsaSavegameToolkit
         public readonly Dictionary<AsaName, AsaGameObject> Components = new Dictionary<AsaName, AsaGameObject>();
         public IEnumerable<AsaName> ParentNames => Names.Skip(1).ToList();
         public int DataFileIndex { get; private set; } = 0;
+        public long PropertyOffset { get;private set; } = 0;
 
+        public AsaGameObject(AsaArchive archive)
+        {
+            Guid = GuidExtensions.ToGuid(archive.ReadBytes(16));
+
+            var bluePrintPath = archive.ReadString();
+
+            ClassName = AsaName.From(bluePrintPath.Substring(bluePrintPath.LastIndexOf(".")+1));
+
+            var shouldBeZero = archive.ReadInt();
+
+            int nameCount = archive.ReadInt();
+            Names.Clear();
+            while (nameCount-- > 0)
+            {
+                Names.Add(AsaName.From(archive.ReadString()));
+            }
+            bool fromDataFile = archive.ReadBool();
+            DataFileIndex = archive.ReadInt();
+            
+            var hasLocation = archive.ReadBool();
+            if (hasLocation)
+            {
+                AsaRotator rotator = new AsaRotator(archive);
+            }
+            PropertyOffset = archive.ReadInt();
+            var anotherZero = archive.ReadInt();
+
+            //readProperties(archive);           
+        }
 
         public AsaGameObject(Guid objectId, AsaArchive archive)
         {
@@ -51,10 +83,10 @@ namespace AsaSavegameToolkit
             DataFileIndex = archive.ReadInt();
             archive.SkipBytes(1);
 
+            PropertyOffset = archive.Position;
+
             //readproperties
-            readProperties(archive);
-
-
+            ReadProperties(archive);
         }
 
         public void AddComponent(AsaGameObject component)
@@ -62,8 +94,10 @@ namespace AsaSavegameToolkit
             Components.Add(component.Names[0], component);
         }
 
-        private void readProperties(AsaArchive archive)
+        public void ReadProperties(AsaArchive archive)
         {
+            archive.Position = PropertyOffset;
+
             long lastPropertyPosition = archive.Position;
             if (archive.Position == archive.Limit)
             { 
@@ -88,6 +122,7 @@ namespace AsaSavegameToolkit
             {
 
             }
+
 
 
         }

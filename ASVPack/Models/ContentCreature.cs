@@ -100,7 +100,13 @@ namespace ASVPack.Models
             BaseStats = new byte[12] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             if (statusObject != null)
             {
-                for (var i = 0; i < BaseStats.Length; i++) BaseStats[i] = (byte)statusObject.GetPropertyValue<int>("NumberOfLevelUpPointsApplied", i,0);
+                for (var i = 0; i < BaseStats.Length; i++)
+                {
+                    var pointsApplied = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsApplied", i) ?? 0);
+                    var mutationsApplied = (byte)(statusObject.GetPropertyValue<uint>("NumberOfMutationsAppliedTamed", i) ?? 0);
+
+                    BaseStats[i] = (byte)(pointsApplied+mutationsApplied);
+                }
             }
 
             Colors = new byte[6] { 0, 0, 0, 0, 0, 0 };

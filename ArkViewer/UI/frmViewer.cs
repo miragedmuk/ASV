@@ -3711,7 +3711,7 @@ namespace ARKViewer
                         try
                         {
                             Program.LogWriter.Debug($"Removing local file for a clean download: {profileFilename}");
-                            if(File.Exists(profileFilename)) File.Delete(profileFilename);
+                            if (File.Exists(profileFilename)) File.Delete(profileFilename);
                         }
                         finally
                         {
@@ -3727,7 +3727,7 @@ namespace ARKViewer
                         {
                             Program.LogWriter.Debug($"Removing local file for a clean download: {tribeFilename}");
 
-                            if(File.Exists(tribeFilename)) File.Delete(tribeFilename);
+                            if (File.Exists(tribeFilename)) File.Delete(tribeFilename);
                         }
                         finally
                         {
@@ -5790,7 +5790,7 @@ namespace ARKViewer
                             {
                                 newItem.SubItems.Add("");
                             }
-
+                            newItem.SubItems.Add(playerStructure.CreatedDateTime?.ToString("dd MMM yyyy HH:mm"));
                             newItem.SubItems.Add(playerStructure.LastAllyInRangeTime?.ToString("dd MMM yyyy HH:mm"));
                             newItem.SubItems.Add(playerStructure.HasDecayTimeReset ? "Yes" : "No");
                             newItem.SubItems.Add($"{playerStructure.X} {playerStructure.Y} {playerStructure.Z}");

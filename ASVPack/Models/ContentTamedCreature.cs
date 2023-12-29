@@ -287,6 +287,7 @@ namespace ASVPack.Models
             IsWandering = creatureObject.GetPropertyValue<bool>("bEnableTamedWandering", 0, false);
             IsMating = creatureObject.GetPropertyValue<bool>("bEnableTamedMating", 0, false);
             IsClone = creatureObject.GetPropertyValue<bool>("bIsCloneDino", 0, false);
+            IsCryo = creatureObject.GetPropertyValue<bool>("IsInCryo", 0, false);
 
             int testTarget = creatureObject.GetPropertyValue<int>("TargetingTeam",0,0);
             int testTeam = creatureObject.GetPropertyValue<int?>("TamingTeamID",0,0)??0;
@@ -326,7 +327,7 @@ namespace ASVPack.Models
             //}
 
 
-            IsCryo = false;
+            //IsCryo = false;
             IsVivarium = false;
 
             if (IsCryo || IsVivarium)
@@ -341,7 +342,11 @@ namespace ASVPack.Models
             TamedStats = new byte[12];
             if (statusObject != null)
             {
-                for (var i = 0; i < TamedStats.Length; i++) TamedStats[i] = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsAppliedTamed", i) ?? 0);
+                for (var i = 0; i < TamedStats.Length; i++)
+                { 
+                    var tamedBase = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsAppliedTamed", i) ?? 0);
+                    TamedStats[i] = tamedBase;
+                }
 
             }
 

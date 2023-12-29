@@ -1,9 +1,12 @@
 ﻿using AsaSavegameToolkit.Extensions;
 using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
+using AsaSavegameToolkit.Types;
 using Ionic.Zlib;
 using Microsoft.Data.Sqlite;
 using System.Collections.Concurrent;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace AsaSavegameToolkit
@@ -44,14 +47,12 @@ namespace AsaSavegameToolkit
 
         public AsaGameObject? GetObjectByGuid(Guid guid)
         {
-            try
+            if (gameObects.ContainsKey(guid))
             {
                 return gameObects[guid];
             }
-            catch
-            {
-                return null;
-            }
+
+            return null;
             
         }
 
@@ -161,28 +162,23 @@ namespace AsaSavegameToolkit
 
         private void parseStoredCreatures()
         {
-            var l = Objects.Where(o => o.Properties.Any(p => (p.Value).ToString() == "BigBoy")).ToList();
-
-            //PrimalItem_WeaponEmptyCryopod_C
-            var pods = Objects.Where(o => o.ClassString.Contains("Cryopod") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas")).ToList();
-            foreach(var pod in pods)
+            ConcurrentBag<AsaGameObject> objectBag = new ConcurrentBag<AsaGameObject>();
+            var pods = Objects.AsParallel().Where(o => o.ClassString.Contains("Cryopod") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas"));
+            pods.ForAll(pod =>
             {
-                
-
                 var customData = pod.Properties.FirstOrDefault(p => p.Name == "CustomItemDatas")?.Value[0] as List<dynamic>;
                 AsaProperty<dynamic> customBytes = customData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CustomDataBytes");
                 List<dynamic>? customProperties = customBytes?.Value;
                 AsaProperty<dynamic> customContainer = customProperties[0];
 
                 var byteListContainer = customContainer.Value;
-                
-                //foreach(List<dynamic> byteList in customContainer.Value)
+
                 for (int i = 0; i < byteListContainer.Count; i++)
                 {
                     List<dynamic> byteList = byteListContainer[i];
                     List<dynamic> byteObjectData = (byteList.First() as AsaProperty<dynamic>).Value;
 
-                    if(byteObjectData.Count > 0)
+                    if (byteObjectData.Count > 0)
                     {
                         byte[] dataBytes = new byte[byteObjectData.Count];
                         for (int x = 0; x < byteObjectData.Count; x++)
@@ -193,99 +189,96 @@ namespace AsaSavegameToolkit
 
                         if (i == 0)
                         {
-                            
-                            var objectDataBytes = new byte[dataBytes.Length - 12];
-
-                            var unknown1 = BitConverter.ToInt16(dataBytes, 0);
-                            var unknown2 = BitConverter.ToInt16(dataBytes, 4); //uncompressed data size                           
-                            var unknown3 = BitConverter.ToInt16(dataBytes, 8);
-
-                            for (int y = 12; y < dataBytes.Length; y++)
+                            var dataStore = new AsaDataStore(dataBytes);
+                            foreach (var o in dataStore.Objects)
                             {
-                                objectDataBytes[y-12] = dataBytes[y];
-                            }
-
-                            var dc = ZlibCodecDecompress(objectDataBytes);
-
-                            using(MemoryStream ms = new MemoryStream(dc))
-                            {
-                                using(AsaArchive archive = new AsaArchive(ms))
+                                if (actorLocations.ContainsKey(o.Key))
                                 {
-                                    var objectCount = archive.ReadByte();
-                                    archive.SkipBytes(1);
-                                    var objectId = GuidExtensions.ToGuid(archive.ReadBytes(16));
-
-                                    int charCount = (int)archive.ReadByte();
-                                    archive.SkipBytes(1);
-                                    var objectClassName = UTF8Encoding.UTF8.GetString(archive.ReadBytes(charCount - 1));
-
-                                    archive.SkipBytes(1);
-                                    int nameCount = (int)archive.ReadByte();
-                                    List<string> objectNames = new List<string>();
-                                    for (int nameIndex = 0; nameIndex < nameCount; nameIndex++)
+                                    o.Value.Location = actorLocations[o.Key];
+                                }
+                                else if (actorLocations.ContainsKey(pod.Guid))
+                                {
+                                    o.Value.Location = actorLocations[pod.Guid];
+                                }
+                                else
+                                {
+                                    var podContainerRef = pod.Properties.FirstOrDefault(p => p.Name == "OwnerInventory");
+                                    if (podContainerRef != null)
                                     {
-                                        archive.SkipBytes(1);
-                                        int nameCharCount = (int)archive.ReadByte();
-                                        archive.SkipBytes(1);
-                                        objectNames.Add(UTF8Encoding.UTF8.GetString(archive.ReadBytes(nameCharCount - 1)));
+                                        AsaObjectReference containerId = podContainerRef.Value;
+                                        var podContainerInventory = GetObjectByGuid(Guid.Parse(containerId.Value));
+                                        if (podContainerInventory != null)
+                                        {
+                                            var podContainer = Objects.FirstOrDefault(o => o.Names[0] == podContainerInventory.Names[1]);
+                                            if (podContainer != null)
+                                            {
+                                                o.Value.Location = podContainer.Location;
+                                            }
+
+                                        }
                                     }
-
-                                    archive.SkipBytes(1);
-                                    var unknownCount = (int)archive.ReadByte();
-                                    archive.SkipBytes(1);
-                                    archive.SkipBytes(20); //unknown values?
-
-                                    //StatusComponent
-                                    var classId = GuidExtensions.ToGuid(archive.ReadBytes(16)); //possibly, based on the first object starting with GUID
-                                    archive.SkipBytes(1);
-                                    charCount = (int)archive.ReadByte();
-                                    archive.SkipBytes(1);
-                                    var statusClassName = UTF8Encoding.UTF8.GetString(archive.ReadBytes(charCount - 1));
-
-                                    archive.SkipBytes(1);
-                                    nameCount = (int)archive.ReadByte();
-                                    List<string> statusNames = new List<string>();
-                                    for (int nameIndex = 0; nameIndex < nameCount; nameIndex++)
-                                    {
-                                        archive.SkipBytes(1);
-                                        int nameCharCount = (int)archive.ReadByte();
-                                        archive.SkipBytes(1);
-                                        statusNames.Add(UTF8Encoding.UTF8.GetString(archive.ReadBytes(nameCharCount - 1)));
-                                    }
-
-                                    //.. then what look like property values, not sure on format / order of them yet.
-                                    // .. then at the end appears to be property names. These follow the same: Byte Count, Skip Byte, String pattern.
-
                                 }
 
-
-
+                                objectBag.Add(o.Value);
                             }
-
                         }
                         else
                         {
+                            //TODO:// read in and wrap saddle and skin/costume in an inventory container type object.  
                             using (var cryoStream = new MemoryStream(dataBytes))
                             {
                                 using (AsaArchive archive = new AsaArchive(cryoStream))
                                 {
-                                    archive.NameTable = nameTable;
+                                    
+                                    var archiveVersion = archive.ReadInt();
 
+                                    List<AsaProperty<dynamic>> properties = new List<AsaProperty<dynamic>>();   
+                                    var archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
+                                    while(archiveProperty != null)
+                                    {
+                                        properties.Add(archiveProperty);
+                                        archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
+                                    }
 
                                 }
                             }
                         }
 
-
-
-
-
                     }
+                }
+            }
+            );
 
+            if(objectBag.Count > 0)
+            {
+                objectBag.ToList().ForEach(o =>
+                {
+                    gameObects.Add(o.Guid,o);
+                });
+            }
+            objectBag.Clear();
+        }
+
+        private byte[] AddPadding(byte[] data)
+        {
+            byte[] result;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                foreach (byte b in data)
+                {
+
+                    
+                    
+                    ms.WriteByte(b);
 
                 }
 
+                result = new byte[ms.Length];
+                Array.Copy(ms.GetBuffer(), result, ms.Length);
             }
+
+            return result;
         }
 
         private string ReadCryoString(AsaArchive archive)

@@ -29,7 +29,7 @@ namespace AsaSavegameToolkit.Propertys
         public T Value => value;
         public override string ToString()
         {
-            return string.Concat("Type: ", type, ", Name: ", name);
+            return string.Concat("Type: ", type, ", Name: ", name, ", Value: ", value.ToString());
         }
     }
 }

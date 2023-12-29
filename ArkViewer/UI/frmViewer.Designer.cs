@@ -278,6 +278,7 @@ namespace ARKViewer
             lvwTribes_Active = new System.Windows.Forms.ColumnHeader();
             pnlFilterTribes = new System.Windows.Forms.Panel();
             txtFilterTribe = new System.Windows.Forms.TextBox();
+            chartTribes = new ArkViewer.ChartControl();
             lblChartTop = new System.Windows.Forms.Label();
             udChartTop = new System.Windows.Forms.NumericUpDown();
             lblChart = new System.Windows.Forms.Label();
@@ -425,7 +426,7 @@ namespace ARKViewer
             lblWildTotal = new System.Windows.Forms.Label();
             cboWildClass = new System.Windows.Forms.ComboBox();
             tabFeatures = new System.Windows.Forms.TabControl();
-            chartTribes = new ArkViewer.ChartControl();
+            lvwStructureLocations_Created = new System.Windows.Forms.ColumnHeader();
             mnuContext.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tpgLeaderboard.SuspendLayout();
@@ -2876,6 +2877,17 @@ namespace ARKViewer
             txtFilterTribe.TabIndex = 6;
             txtFilterTribe.KeyDown += txtFilterTribe_KeyDown;
             // 
+            // chartTribes
+            // 
+            chartTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            chartTribes.CausesValidation = false;
+            chartTribes.Location = new System.Drawing.Point(12, 81);
+            chartTribes.Name = "chartTribes";
+            chartTribes.Size = new System.Drawing.Size(330, 346);
+            chartTribes.SubTitle = "";
+            chartTribes.TabIndex = 53;
+            chartTribes.Title = "Title";
+            // 
             // lblChartTop
             // 
             lblChartTop.AutoSize = true;
@@ -3134,7 +3146,7 @@ namespace ARKViewer
             // lvwStructureLocations
             // 
             lvwStructureLocations.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStructureLocations_Tribe, lvwStructureLocations_Structure, lvwStructureLocations_Lat, lvwStructureLocations_Lon, lvwStructureLocations_Name, lvwStructureLocations_Locked, lvwStructureLocations_Powered, lvwStructureLocations_LastTime, lvwStructureLocations_DecayReset, lvwStructureLocations_CCC });
+            lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStructureLocations_Tribe, lvwStructureLocations_Structure, lvwStructureLocations_Lat, lvwStructureLocations_Lon, lvwStructureLocations_Name, lvwStructureLocations_Locked, lvwStructureLocations_Powered, lvwStructureLocations_Created, lvwStructureLocations_LastTime, lvwStructureLocations_DecayReset, lvwStructureLocations_CCC });
             lvwStructureLocations.ContextMenuStrip = mnuContext;
             lvwStructureLocations.FullRowSelect = true;
             lvwStructureLocations.Location = new System.Drawing.Point(13, 83);
@@ -4180,16 +4192,10 @@ namespace ARKViewer
             tabFeatures.TabIndex = 0;
             tabFeatures.SelectedIndexChanged += tabFeatures_SelectedIndexChanged;
             // 
-            // chartTribes
+            // lvwStructureLocations_Created
             // 
-            chartTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            chartTribes.CausesValidation = false;
-            chartTribes.Location = new System.Drawing.Point(12, 81);
-            chartTribes.Name = "chartTribes";
-            chartTribes.Size = new System.Drawing.Size(330, 346);
-            chartTribes.SubTitle = "";
-            chartTribes.TabIndex = 53;
-            chartTribes.Title = "Title";
+            lvwStructureLocations_Created.Text = "Created";
+            lvwStructureLocations_Created.Width = 120;
             // 
             // frmViewer
             // 
@@ -4683,6 +4689,7 @@ namespace ARKViewer
         private System.Windows.Forms.ComboBox cboWildClass;
         private System.Windows.Forms.TabControl tabFeatures;
         private ArkViewer.ChartControl chartTribes;
+        private System.Windows.Forms.ColumnHeader lvwStructureLocations_Created;
     }
 }
 

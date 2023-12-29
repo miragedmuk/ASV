@@ -962,7 +962,7 @@ namespace ASVPack.Models
                         }).Where(x => x !=null).Distinct().ToList();
 
 
-
+                    
                     long wildEnd = DateTime.Now.Ticks;
                     var wildTime = TimeSpan.FromTicks(wildEnd - wildStart);
                     logWriter.Info($"Wilds loaded in: {wildTime.ToString(@"mm\:ss")}.");
@@ -1813,7 +1813,7 @@ namespace ASVPack.Models
             GameSaveTime = fileTimestamp.ToUniversalTime();
 
 
-
+            
             //parse tribes
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Tribes...");
             ConcurrentBag<ContentTribe> fileTribes = new ConcurrentBag<ContentTribe>();
@@ -2065,6 +2065,7 @@ namespace ASVPack.Models
                 WildCreatures.AddRange(wildBag);
             }
             wildBag.Clear();//no longer needed
+
             
             endTicks = DateTime.Now.Ticks;
             timeTaken = TimeSpan.FromTicks(endTicks - startTicks);

@@ -95,13 +95,13 @@ namespace ASVPack.Extensions
 
         public static bool IsWild(this AsaGameObject gameObject)
         {
-            var targetingTeam = gameObject.GetPropertyValue<int>("TargetingTeam");
+            var targetingTeam = gameObject.GetPropertyValue<int>("TargetingTeam",0,0);
             return (targetingTeam < PLAYER_START && gameObject.IsCreature());
         }
 
         public static bool IsTamed(this AsaGameObject gameObject)
         {
-            var targetingTeam = gameObject.GetPropertyValue<int>("TargetingTeam");
+            var targetingTeam = gameObject.GetPropertyValue<int>("TargetingTeam",0,0);
             return (targetingTeam >= PLAYER_START && gameObject.IsCreature());
         }
 
