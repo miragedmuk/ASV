@@ -87,8 +87,15 @@ namespace AsaSavegameToolkit
                     return returnProperty;
 
                 case "MapProperty":
+                    dynamic? mapValue = null;
+                    try
+                    {
+                        mapValue = ReadMapPropertyValue(archive);
+                    }
+                    catch
+                    {
 
-                    var mapValue = ReadMapPropertyValue(archive);
+                    }
                     returnProperty = new AsaProperty<dynamic>(keyName.Name, valueTypeName.Name, position, 0, mapValue);
                     return returnProperty;
                     
@@ -157,14 +164,40 @@ namespace AsaSavegameToolkit
 
             while (true)
             {
-                var valueName = archive.ReadName();
-                if (valueName == null || valueName.Equals(AsaName.NameNone))
+                string valueKeyName = string.Empty;
+
+                if (keyType.Name == "NameProperty")
                 {
-                    break; //end of set
+                    var valueName = archive.ReadName();
+                    if (valueName == null || valueName.Equals(AsaName.NameNone))
+                    {
+                        break; //end of set
+                    }
+                    valueKeyName = valueName.Name;
                 }
+                else
+                {
+                    //TODO:// unknown atm
+                    break;
+                }
+
                 var mapType = archive.ReadName(); //SetProperty
-                var mapValue = ReadSetProperty(archive);
-                propertyValues.Add(new AsaProperty<dynamic>(valueName.Name, mapType.Name, 0, 0, mapValue));
+                switch (mapType.Name)
+                {
+                    case "SetProperty":
+                        var mapValue = ReadSetProperty(archive);
+                        propertyValues.Add(new AsaProperty<dynamic>(valueKeyName, mapType.Name, 0, 0, mapValue));
+
+                        break;
+                    case "NameProperty":
+
+                        break;
+                    default:
+
+                        break;
+                }
+
+
 
             }
 

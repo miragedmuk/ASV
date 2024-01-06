@@ -214,7 +214,7 @@ namespace ASVPack.Models
 
             string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
+            if (File.Exists(exportFilename)) File.Delete(exportFilename);
             using (FileStream fs = File.Create(exportFilename))
             {
                 using (StreamWriter sw = new StreamWriter(fs))
@@ -317,7 +317,7 @@ namespace ASVPack.Models
 
             string exportFolder = Path.GetDirectoryName(exportFilename) ?? "";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
+            if (File.Exists(exportFilename)) File.Delete(exportFilename);
 
             using (FileStream fs = File.Create(exportFilename))
             {
@@ -526,7 +526,7 @@ namespace ASVPack.Models
         {
             string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
+            if (File.Exists(exportFilename)) File.Delete(exportFilename);
 
             using (FileStream fs = File.Create(exportFilename))
             {
@@ -1286,7 +1286,7 @@ namespace ASVPack.Models
         {
             string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
+            if (File.Exists(exportFilename)) File.Delete(exportFilename);
 
             using (FileStream fs = File.Create(exportFilename))
             {
@@ -1392,7 +1392,7 @@ namespace ASVPack.Models
         {
             string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
+            if (File.Exists(exportFilename)) File.Delete(exportFilename);
 
             using (FileStream fs = File.Create(exportFilename))
             {
@@ -1441,6 +1441,8 @@ namespace ASVPack.Models
 
         public void ExportJsonPlayerTribes(string exportFilename)
         {
+            string filePath = Path.GetDirectoryName(exportFilename) ?? "";
+            if (!Directory.Exists(filePath)) Directory.CreateDirectory(filePath);
             if (File.Exists(exportFilename)) File.Delete(exportFilename);
 
             using (StreamWriter sw = new StreamWriter(exportFilename))
@@ -1525,7 +1527,7 @@ namespace ASVPack.Models
         {
             string exportFolder = Path.GetDirectoryName(exportFilename)??"";
             if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
-
+            if (File.Exists(exportFilename)) File.Delete(exportFilename);
             using (FileStream fs = File.Create(exportFilename))
             {
                 using (StreamWriter sw = new StreamWriter(fs))
@@ -1702,7 +1704,7 @@ namespace ASVPack.Models
 
             string filePath = Path.GetDirectoryName(fileName)??"";
             if (!Directory.Exists(filePath)) Directory.CreateDirectory(filePath);
-
+            if (File.Exists(fileName)) File.Delete(fileName);
 
             try
             {

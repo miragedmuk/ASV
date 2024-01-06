@@ -7,7 +7,9 @@ using Microsoft.Data.Sqlite;
 using System.Collections.Concurrent;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Diagnostics;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace AsaSavegameToolkit
@@ -48,12 +50,14 @@ namespace AsaSavegameToolkit
 
         public AsaGameObject? GetObjectByGuid(Guid guid)
         {
-            if (gameObects.ContainsKey(guid))
+            try
             {
                 return gameObects[guid];
             }
-
-            return null;
+            catch
+            {
+                return null;
+            }           
             
         }
 
@@ -77,6 +81,9 @@ namespace AsaSavegameToolkit
 
         public void Read(string filename)
         {
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
+
             saveFilename = filename;
             string savePath = Path.GetDirectoryName(saveFilename) ?? AppContext.BaseDirectory;
 
@@ -99,8 +106,14 @@ namespace AsaSavegameToolkit
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
+            endTicks = DateTime.Now.Ticks;
+            //time to read data from db.
+
             parseGameObjects();
             gameData.Clear(); //no longer needed, parsed into Objects as list of AsaGameObject
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
 
             //addComponents();
 
@@ -108,53 +121,75 @@ namespace AsaSavegameToolkit
                                     //need to parse into AsaGameObjects and add to Objects list and review when
                                     //official introduces them to see if implemented the same/similar way.
 
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
             readTribeFiles(savePath); // Search and parse and .arktribe file in the save directory
             readProfileFiles(savePath); // Search and parse and .arkprofile file in the save directory
 
-
+            endTicks = DateTime.Now.Ticks;
+            //total time load save data
         }
 
         private void addComponents()
         {
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
+
             var withParentNames = Objects.Where(o=>o.ParentNames.Any()).ToList();
-            foreach (var childObject in withParentNames)
+            Parallel.ForEach(withParentNames, childObject =>
             {
-                Parallel.ForEach(childObject.ParentNames, parentName =>
-                //foreach(var parentName in childObject.ParentNames)
+                //Parallel.ForEach(childObject.ParentNames, parentName =>
+                foreach (var parentName in childObject.ParentNames)
                 {
-                    var parentObject = Objects.FirstOrDefault(o => o.Names[0] ==  parentName);
+                    var parentObject = Objects.FirstOrDefault(o => o.Names[0] == parentName);
                     if (parentObject != null)
                     {
                         parentObject.AddComponent(childObject);
                     }
                 }
-                );
+                //);
             }
+            );
+
+            endTicks = DateTime.Now.Ticks;
+            //time to add components
+
         }
 
         private void readProfileFiles(string savePath)
         {
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
+
             ConcurrentBag<AsaProfile> profileFileBag = new ConcurrentBag<AsaProfile>();
 
-            var profileFiles = Directory.EnumerateFiles(savePath, "*.arkprofile");
-            //Parallel.ForEach(profileFiles, o =>
-            foreach(var o in profileFiles)
+            IEnumerable<string> profileFiles = Directory.EnumerateFiles(savePath, "*.arkprofile");
+            Parallel.ForEach(profileFiles ,o =>
+            //foreach(var o in profileFiles)
             {
                 var profileData = new AsaProfile();
                 profileData.Read(o);
                 profileFileBag.Add(profileData);
             }
-            //);
+            );
 
             profileData = profileFileBag.ToList();
+
+            endTicks = DateTime.Now.Ticks;
+            //time to read profile data
+
         }
 
         private void readTribeFiles(string savePath)
         {
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
+
             ConcurrentBag<AsaTribe> tribeFileBag = new ConcurrentBag<AsaTribe>();
 
             var tribeFiles = Directory.EnumerateFiles(savePath, "*.arktribe");
-            Parallel.ForEach(tribeFiles, o =>
+            Parallel.ForEach(tribeFiles,o =>
             //foreach(var o in tribeFiles) 
             {
                 var tribeData = new AsaTribe();
@@ -164,13 +199,20 @@ namespace AsaSavegameToolkit
             );
 
             tribeData = tribeFileBag.ToList();
+
+            endTicks = DateTime.Now.Ticks;
+            //time to read tribe file data
         }
 
         private void parseStoredCreatures()
         {
-            ConcurrentBag<AsaGameObject> objectBag = new ConcurrentBag<AsaGameObject>();
-            var pods = Objects.AsParallel().Where(o => o.ClassString.Contains("Cryopod") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas"));
-            pods.ForAll(pod =>
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
+
+            ConcurrentDictionary<Guid,AsaGameObject> objectBag = new ConcurrentDictionary<Guid, AsaGameObject>();
+            var pods = Objects.Where(o => o.ClassString.Contains("Cryopod") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas"));
+            Parallel.ForEach(pods, pod =>
+            //foreach(var pod in pods)
             {
                 var customData = pod.Properties.FirstOrDefault(p => p.Name == "CustomItemDatas")?.Value[0] as List<dynamic>;
                 AsaProperty<dynamic> customBytes = customData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CustomDataBytes");
@@ -196,6 +238,38 @@ namespace AsaSavegameToolkit
                         if (i == 0)
                         {
                             var dataStore = new AsaDataStore(dataBytes);
+                            
+                            if(dataStore.Objects.Count > 0)
+                            {
+                                AsaGameObject? statusComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("statuscomponent")).Value;
+                                AsaGameObject? creatureComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("character")).Value;
+
+                                if(creatureComponent!= null)
+                                {
+                                    if (objectBag.ContainsKey(creatureComponent.Guid))
+                                    {
+                                        creatureComponent.Guid = Guid.NewGuid();
+                                    }
+                                }
+
+                                if (statusComponent != null)
+                                {
+                                    if (objectBag.ContainsKey(statusComponent.Guid))
+                                    {
+                                        //already added, give it a new guid
+                                        statusComponent.Guid = Guid.NewGuid();
+
+                                        //then assign this to the creature
+                                        if (creatureComponent != null)
+                                        {
+                                            creatureComponent.Properties.RemoveAll(p => p.Name == "MyCharacterStatusComponent");
+                                            creatureComponent.Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(statusComponent.Guid)));
+                                        }
+                                    }
+
+                                }
+                            }
+
                             foreach (var o in dataStore.Objects)
                             {
                                 if (actorLocations.ContainsKey(o.Key))
@@ -225,12 +299,13 @@ namespace AsaSavegameToolkit
                                     }
                                 }
 
-                                objectBag.Add(o.Value);
+                                objectBag.TryAdd(o.Value.Guid, o.Value);
                             }
                         }
                         else
                         {
                             //TODO:// read in and wrap saddle and skin/costume in an inventory container type object.  
+                            /*
                             using (var cryoStream = new MemoryStream(dataBytes))
                             {
                                 using (AsaArchive archive = new AsaArchive(cryoStream))
@@ -253,6 +328,7 @@ namespace AsaSavegameToolkit
                                     }                                
                                 }
                             }
+                            */
                         }
 
                     }
@@ -262,12 +338,15 @@ namespace AsaSavegameToolkit
 
             if(objectBag.Count > 0)
             {
-                objectBag.ToList().ForEach(o =>
-                {
-                    gameObects.Add(o.Guid,o);
-                });
+                objectBag.ToList().ForEach(p=>gameObects.Add(p.Key,p.Value));
+
             }
             objectBag.Clear();
+
+            endTicks = DateTime.Now.Ticks;
+            //time to parse stored creatures
+            var timeTaken = TimeSpan.FromTicks(endTicks-startTicks);
+            Debug.Print($"parseStoredCreatures took {TimeSpan.FromTicks(endTicks - startTicks).ToString(@"mm\:ss")}");
         }
 
         private byte[] AddPadding(byte[] data)
@@ -292,16 +371,11 @@ namespace AsaSavegameToolkit
             return result;
         }
 
-        private string ReadCryoString(AsaArchive archive)
-        {
-            int length = archive.ReadByte();
-            archive.SkipBytes(1);
-            return UTF8Encoding.UTF8.GetString(archive.ReadBytes(length - 1));
-        }
-
-
         private void readActorLocations(SqliteConnection connection)
         {
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
+
             using (SqliteCommand commandLocations = new SqliteCommand("SELECT value from custom WHERE key = 'ActorTransforms'"))
             {
                 commandLocations.Connection = connection;
@@ -339,10 +413,15 @@ namespace AsaSavegameToolkit
                     }
                 }
             }
+
+            endTicks = DateTime.Now.Ticks;
+            //time to read actor location data
         }
 
         private void readBaseData(SqliteConnection connection)
         {
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
 
             using (SqliteCommand commandHeader = new SqliteCommand("SELECT value from custom WHERE key = 'SaveHeader'"))
             {
@@ -366,6 +445,9 @@ namespace AsaSavegameToolkit
                     }
                 }
             }
+
+            endTicks = DateTime.Now.Ticks;
+            //time to read header information
         }
         private void readHeader(AsaArchive archive)
         {
@@ -418,6 +500,9 @@ namespace AsaSavegameToolkit
 
         private void readGameData(SqliteConnection connection)
         {
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
+
             using (SqliteCommand commandData = new SqliteCommand("SELECT key, value FROM game"))
             {
                 commandData.Connection = connection;
@@ -433,6 +518,9 @@ namespace AsaSavegameToolkit
                     }
                 }
             }
+
+            endTicks = DateTime.Now.Ticks;
+            //time to read game data
         }
 
         private void parseGameObjects()
@@ -440,11 +528,14 @@ namespace AsaSavegameToolkit
             if (gameData.Count == 0) return;
             gameObects.Clear();
 
+            long startTicks = DateTime.Now.Ticks;
+            long endTicks = DateTime.Now.Ticks;
 
             ConcurrentDictionary<Guid,AsaGameObject> asaGameObjectDictionary = new ConcurrentDictionary<Guid, AsaGameObject>();
 
-            //Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
-            foreach(var objectData in gameData) 
+            Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
+            //foreach(var objectData in gameData) 
+            //gameData.AsParallel().ForAll(objectData =>
             {
                 using (var ms = new MemoryStream(objectData.Value))
                 {
@@ -458,25 +549,29 @@ namespace AsaSavegameToolkit
                             gameObject.Location = actorLocations[objectData.Key];
                         }
 
-                        asaGameObjectDictionary.TryAdd(objectData.Key,gameObject);
+                        if (asaGameObjectDictionary.ContainsKey(gameObject.Guid))
+                        {
+                            gameObject.Guid = Guid.NewGuid();
+                        }
 
+                        asaGameObjectDictionary.TryAdd(gameObject.Guid, gameObject);
                     }
                 }
             }
-            //);
-
+            );
 
             if (asaGameObjectDictionary.Count > 0)
             {
 
-                var newDictionary = asaGameObjectDictionary.ToDictionary(kvp => kvp.Key,
-                                                          kvp => kvp.Value,
-                                                          asaGameObjectDictionary.Comparer);
-
-                gameObects = newDictionary;
+                
+                gameObects = asaGameObjectDictionary.ToDictionary(kvp => kvp.Key,
+                                                          kvp => kvp.Value); 
             }
             asaGameObjectDictionary.Clear();
 
+            endTicks = DateTime.Now.Ticks;
+            Debug.Print($"parseGameObjects took {TimeSpan.FromTicks(endTicks - startTicks).ToString(@"mm\:ss")}");
+            //time to parse game objects
         }
 
 
@@ -539,8 +634,5 @@ namespace AsaSavegameToolkit
                 return ms.ToArray();
             }
         }
-
-
-
     }
 }

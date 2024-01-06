@@ -115,13 +115,23 @@ namespace AsaSavegameToolkit
             {
                 name = NameTable[id];
             }
-            else if (ConstantNameTable.ContainsKey(id))
-            {
-                name = ConstantNameTable[id];
-            }
             else
             {
-                name = string.Concat("Unknown_",id);
+                if (ConstantNameTable.Count > 0)
+                {
+                    if (ConstantNameTable.ContainsKey(id))
+                    {
+                        name = ConstantNameTable[id];
+                    }
+                    else
+                    {
+                        name = string.Concat("Unknown_", id);
+                    }                    
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             if (HasInstanceInNameTable)

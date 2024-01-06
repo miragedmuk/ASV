@@ -5505,6 +5505,7 @@ namespace ARKViewer
             List<ASVComboValue> newItems = new List<ASVComboValue>();
 
             var tribes = cm.GetTribes(selectedTribeId);
+
             foreach (var tribe in tribes)
             {
                 foreach (var player in tribe.Players)

@@ -322,7 +322,7 @@ namespace ASVPack.Models
             NetworkId = netId == null ? "" : netId.Value;
             Name = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "PlayerName")?.Value??"";
             CharacterName = Name;
-            TargetingTeam = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "TribeId")?.Value ?? 0;
+            TargetingTeam = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "TribeID")?.Value ?? 0;
             LastTimeInGame = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "LastLoginTime")?.Value ?? 0;
 
             List<dynamic> characterConfig = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>?)p).Name == "MyPlayerCharacterConfig")?.Value ?? null;
