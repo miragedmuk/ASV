@@ -401,6 +401,32 @@ namespace ASVPack.Models
                             jw.WritePropertyName("craft-w");
                             jw.WriteValue(creature.BaseStats[11]);
 
+
+                            jw.WritePropertyName("hp-m");
+                            jw.WriteValue(creature.TamedMutations[0]);
+
+                            jw.WritePropertyName("stam-m");
+                            jw.WriteValue(creature.TamedMutations[1]);
+
+                            jw.WritePropertyName("melee-m");
+                            jw.WriteValue(creature.TamedMutations[8]);
+
+                            jw.WritePropertyName("weight-m");
+                            jw.WriteValue(creature.TamedMutations[7]);
+
+                            jw.WritePropertyName("speed-m");
+                            jw.WriteValue(creature.TamedMutations[9]);
+
+                            jw.WritePropertyName("food-m");
+                            jw.WriteValue(creature.TamedMutations[4]);
+
+                            jw.WritePropertyName("oxy-m");
+                            jw.WriteValue(creature.TamedMutations[3]);
+
+                            jw.WritePropertyName("craft-m");
+                            jw.WriteValue(creature.TamedMutations[11]);
+
+
                             jw.WritePropertyName("hp-t");
                             jw.WriteValue(creature.TamedStats[0]);
 
@@ -1327,6 +1353,41 @@ namespace ASVPack.Models
                                 {
                                     jw.WritePropertyName("isSwitchedOn");
                                     jw.WriteValue(structure.IsSwitchedOn.Value);
+                                }
+
+                                if (structure.Inclusions!=null && structure.Inclusions.Count > 0)
+                                {
+                                    jw.WritePropertyName("includeList");
+                                    jw.WriteStartArray();
+                                    foreach(var dinoClass in structure.Inclusions)
+                                    {
+                                        jw.WriteStartObject();
+
+                                        jw.WritePropertyName("className");
+                                        jw.WriteValue(dinoClass);
+
+                                        jw.WriteEndObject();
+
+                                    }
+                                    jw.WriteEndArray();
+
+                                }
+                                if (structure.Exclusions != null && structure.Exclusions.Count > 0)
+                                {
+                                    jw.WritePropertyName("excludeList");
+                                    jw.WriteStartArray();
+                                    foreach (var dinoClass in structure.Exclusions)
+                                    {
+                                        jw.WriteStartObject();
+
+                                        jw.WritePropertyName("className");
+                                        jw.WriteValue(dinoClass);
+
+                                        jw.WriteEndObject();
+
+                                    }
+                                    jw.WriteEndArray();
+
                                 }
 
                                 jw.WritePropertyName("lat");

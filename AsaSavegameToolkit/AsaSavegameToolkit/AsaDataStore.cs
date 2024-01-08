@@ -109,6 +109,9 @@ namespace AsaSavegameToolkit
                     for (int x = 0; x < objectCount; x++)
                     {
                         AsaGameObject gameObject = new AsaGameObject(archive);
+
+  
+
                         gameObjects.Add(gameObject);
                     }
 
@@ -129,18 +132,18 @@ namespace AsaSavegameToolkit
             }
             rawBytes = new byte[0];
 
-            //ensure status has a different/unique id to the dino
-            for (int i = 1; i < gameObjects.Count; i++)
+            
+            foreach(var gameObject in gameObjects)
             {
-                if (gameObjects[0].Guid.Equals(gameObjects[i].Guid))
-                {
-                    gameObjects[i].Guid = Guid.NewGuid();
-                }
+                gameObject.Guid = Guid.NewGuid();                  
             }
 
             //add reference to new statuscomponent id
-            gameObjects[0].Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(gameObjects[1].Guid)));
+            var statusObject = gameObjects.FirstOrDefault(o => o.ClassString.Contains("CharacterStatusComponent"));
+            gameObjects[0].Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(statusObject.Guid)));
             gameObjects[0].Properties.Add(new Propertys.AsaProperty<dynamic>("IsInCryo", "BoolProperty", 0, 0, true));
+
+
             foreach (var gameObject in gameObjects)
             {
                 Objects.Add(gameObject.Guid, gameObject);

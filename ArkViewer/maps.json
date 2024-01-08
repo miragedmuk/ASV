@@ -343,7 +343,7 @@
     {
       "MapName": "Svartalfheim (Ascended)",
       "Filename": "Svartalfheim_WP.ark",
-      "ImageFile": "map_svartalfheim.png",
+      "ImageFile": "map_svartalfheim_wp.png",
       "LatShift": 50.0,
       "LatDiv": 8000.0,
       "LonShift": 50.0,

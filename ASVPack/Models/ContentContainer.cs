@@ -1154,6 +1154,8 @@ namespace ASVPack.Models
                                 logWriter.Debug($"Retrieving player inventory: {player.Id} - {player.CharacterName}");
                                 if (arkPlayer.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null)
                                 {
+                                   
+
                                     int inventoryRefId = arkPlayer.GetPropertyValue<ObjectReference>("MyInventoryComponent").ObjectId;
                                     objectContainer.TryGetValue(inventoryRefId, out GameObject inventoryComponent);
                                     ConcurrentBag<ContentItem> inventoryItems = new ConcurrentBag<ContentItem>();
@@ -1205,8 +1207,6 @@ namespace ASVPack.Models
                                         }
 
                                     }
-
-
 
                                     player.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
 
@@ -1794,6 +1794,7 @@ namespace ASVPack.Models
             arkSavegame.Read(saveFilename);
             OnUpdateProgress?.Invoke("ARK save file loaded. Analysing and parsing data...");
 
+        
             long endTicks = DateTime.Now.Ticks;
             TimeSpan timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
             logWriter.Info($"Game data loaded in: {timeTaken.ToString(@"mm\:ss")}.");
@@ -2232,6 +2233,7 @@ namespace ASVPack.Models
                         player.Gender = arkPlayer.ClassName.Name.Contains("Female") ? "Female" : "Male";
                         player.Level = contentPlayer.Level;
                         player.Stats = contentPlayer.Stats;
+
 
                         if (arkPlayer.GetPropertyValue<AsaObjectReference>("MyInventoryComponent") != null)
                         {

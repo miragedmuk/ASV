@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -210,136 +211,128 @@ namespace AsaSavegameToolkit
             long endTicks = DateTime.Now.Ticks;
 
             ConcurrentDictionary<Guid,AsaGameObject> objectBag = new ConcurrentDictionary<Guid, AsaGameObject>();
-            var pods = Objects.Where(o => o.ClassString.Contains("Cryopod") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas"));
+            var pods = Objects.Where(o => o.ClassString.Contains("Cryo") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas")).ToList();
             Parallel.ForEach(pods, pod =>
             //foreach(var pod in pods)
             {
-                var customData = pod.Properties.FirstOrDefault(p => p.Name == "CustomItemDatas")?.Value[0] as List<dynamic>;
-                AsaProperty<dynamic> customBytes = customData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CustomDataBytes");
-                List<dynamic>? customProperties = customBytes?.Value;
-                AsaProperty<dynamic> customContainer = customProperties[0];
+                var customDataList = pod.Properties.FirstOrDefault(p => p.Name == "CustomItemDatas")?.Value as List<dynamic>;
 
-                var byteListContainer = customContainer.Value;
-
-                for (int i = 0; i < byteListContainer.Count; i++)
+                if (customDataList != null)
                 {
-                    List<dynamic> byteList = byteListContainer[i];
-                    List<dynamic> byteObjectData = (byteList.First() as AsaProperty<dynamic>).Value;
-
-                    if (byteObjectData.Count > 0)
+                    foreach(List<dynamic> customData in customDataList)
                     {
-                        byte[] dataBytes = new byte[byteObjectData.Count];
-                        for (int x = 0; x < byteObjectData.Count; x++)
+                        AsaProperty<dynamic> customBytes = customData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CustomDataBytes");
+                        List<dynamic>? customProperties = customBytes?.Value;
+                        AsaProperty<dynamic> customContainer = customProperties[0];
+
+                        var byteListContainer = customContainer.Value;
+
+                        for (int i = 0; i < byteListContainer.Count; i++)
                         {
-                            dataBytes[x] = byteObjectData[x];
-                        }
+                            List<dynamic> byteList = byteListContainer[i];
+                            List<dynamic> byteObjectData = (byteList.First() as AsaProperty<dynamic>).Value;
 
-
-                        if (i == 0)
-                        {
-                            var dataStore = new AsaDataStore(dataBytes);
-                            
-                            if(dataStore.Objects.Count > 0)
+                            if (byteObjectData.Count > 0)
                             {
-                                AsaGameObject? statusComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("statuscomponent")).Value;
-                                AsaGameObject? creatureComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("character")).Value;
-
-                                if(creatureComponent!= null)
+                                byte[] dataBytes = new byte[byteObjectData.Count];
+                                for (int x = 0; x < byteObjectData.Count; x++)
                                 {
-                                    if (objectBag.ContainsKey(creatureComponent.Guid))
-                                    {
-                                        creatureComponent.Guid = Guid.NewGuid();
-                                    }
+                                    dataBytes[x] = byteObjectData[x];
                                 }
 
-                                if (statusComponent != null)
+                                try
                                 {
-                                    if (objectBag.ContainsKey(statusComponent.Guid))
+                                    if(i == 0)
                                     {
-                                        //already added, give it a new guid
-                                        statusComponent.Guid = Guid.NewGuid();
+                                        var dataStore = new AsaDataStore(dataBytes);
 
-                                        //then assign this to the creature
-                                        if (creatureComponent != null)
+                                        if (dataStore.Objects.Count > 0)
                                         {
-                                            creatureComponent.Properties.RemoveAll(p => p.Name == "MyCharacterStatusComponent");
-                                            creatureComponent.Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(statusComponent.Guid)));
-                                        }
-                                    }
+                                            AsaGameObject? statusComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("statuscomponent")).Value;
+                                            AsaGameObject? creatureComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("character")).Value;
 
-                                }
-                            }
 
-                            foreach (var o in dataStore.Objects)
-                            {
-                                if (actorLocations.ContainsKey(o.Key))
-                                {
-                                    o.Value.Location = actorLocations[o.Key];
-                                }
-                                else if (actorLocations.ContainsKey(pod.Guid))
-                                {
-                                    o.Value.Location = actorLocations[pod.Guid];
-                                }
-                                else
-                                {
-                                    var podContainerRef = pod.Properties.FirstOrDefault(p => p.Name == "OwnerInventory");
-                                    if (podContainerRef != null)
-                                    {
-                                        AsaObjectReference containerId = podContainerRef.Value;
-                                        var podContainerInventory = GetObjectByGuid(Guid.Parse(containerId.Value));
-                                        if (podContainerInventory != null)
-                                        {
-                                            var podContainer = Objects.FirstOrDefault(o => o.Names[0] == podContainerInventory.Names[1]);
-                                            if (podContainer != null)
+                                            if (creatureComponent != null)
                                             {
-                                                o.Value.Location = podContainer.Location;
+                                                if (objectBag.ContainsKey(creatureComponent.Guid))
+                                                {
+                                                    creatureComponent.Guid = Guid.NewGuid();
+                                                }
                                             }
 
+                                            if (statusComponent != null)
+                                            {
+                                                if (objectBag.ContainsKey(statusComponent.Guid))
+                                                {
+                                                    //already added, give it a new guid
+                                                    statusComponent.Guid = Guid.NewGuid();
+
+                                                    //then assign this to the creature
+                                                    if (creatureComponent != null)
+                                                    {
+                                                        creatureComponent.Properties.RemoveAll(p => p.Name == "MyCharacterStatusComponent");
+                                                        creatureComponent.Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(statusComponent.Guid)));
+                                                    }
+                                                }
+
+                                            }
                                         }
-                                    }
-                                }
 
-                                objectBag.TryAdd(o.Value.Guid, o.Value);
-                            }
-                        }
-                        else
-                        {
-                            //TODO:// read in and wrap saddle and skin/costume in an inventory container type object.  
-                            /*
-                            using (var cryoStream = new MemoryStream(dataBytes))
-                            {
-                                using (AsaArchive archive = new AsaArchive(cryoStream))
-                                {
-                                    try
-                                    {
-                                        var archiveVersion = archive.ReadInt();
-
-                                        List<AsaProperty<dynamic>> properties = new List<AsaProperty<dynamic>>();
-                                        var archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
-                                        while (archiveProperty != null)
+                                        foreach (var o in dataStore.Objects)
                                         {
-                                            properties.Add(archiveProperty);
-                                            archiveProperty = AsaPropertyRegistry.ReadProperty(archive);
+
+                                            if (actorLocations.ContainsKey(o.Key))
+                                            {
+                                                o.Value.Location = actorLocations[o.Key];
+                                            }
+                                            else if (actorLocations.ContainsKey(pod.Guid))
+                                            {
+                                                o.Value.Location = actorLocations[pod.Guid];
+                                            }
+                                            else
+                                            {
+                                                var podContainerRef = pod.Properties.FirstOrDefault(p => p.Name == "OwnerInventory");
+                                                if (podContainerRef != null)
+                                                {
+                                                    AsaObjectReference containerId = podContainerRef.Value;
+                                                    var podContainerInventory = GetObjectByGuid(Guid.Parse(containerId.Value));
+                                                    if (podContainerInventory != null)
+                                                    {
+                                                        var podContainer = Objects.FirstOrDefault(o => o.Names[0] == podContainerInventory.Names[1]);
+                                                        if (podContainer != null)
+                                                        {
+                                                            o.Value.Location = podContainer.Location;
+                                                        }
+
+                                                    }
+                                                }
+                                            }
+
+                                            objectBag.TryAdd(o.Value.Guid, o.Value);
                                         }
+
                                     }
-                                    catch
-                                    {
-                                        //unreadable property list
-                                    }                                
+                                    
+                                }
+                                catch
+                                {
+
                                 }
                             }
-                            */
-                        }
 
+                        }
                     }
+
                 }
+
+
+                
             }
             );
 
             if(objectBag.Count > 0)
             {
                 objectBag.ToList().ForEach(p=>gameObects.Add(p.Key,p.Value));
-
             }
             objectBag.Clear();
 

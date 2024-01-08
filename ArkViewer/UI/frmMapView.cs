@@ -114,6 +114,11 @@ namespace ARKViewer
             };
 
 
+
+            var zoomPercent = ((double)trackZoom.Value / 100.0);
+            var markerSize = 10 * (1-zoomPercent);
+            cm.MarkerSize = (float)markerSize;
+
             DrawMapImage(cm.GetMapImageTribes(tribeId, showStructures, showPlayers, showTames, selectedLocations, mapOptions, CustomMarkers));
         }
         public void DrawMapImageItems(long tribeId, string className,  List<Tuple<float,float>> selectedLocations, string selectedRealm)
@@ -136,6 +141,10 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
+
+            var zoomPercent = ((double)trackZoom.Value / 100.0);
+            var markerSize = 10 * zoomPercent;
+            cm.MarkerSize = (float)markerSize;
 
             DrawMapImage(cm.GetMapImageItems(tribeId, className, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
@@ -183,6 +192,8 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
+
+
             DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
 
         }
@@ -205,6 +216,8 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
+
+
             DrawMapImage(cm.GetMapImageDroppedItems(droppedPlayerId, droppedClass, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
 
         }
@@ -227,6 +240,7 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
+
             DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLocations, mapOptions, CustomMarkers));
         }
         public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
@@ -248,6 +262,8 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
+
+
             DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
 
         }
@@ -270,6 +286,8 @@ namespace ARKViewer
                 WaterVeins = c.WaterVeins,
                 BeeHives = c.BeeHives
             };
+
+
             DrawMapImage(cm.GetMapImagePlayers(tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
 
@@ -313,6 +331,9 @@ namespace ARKViewer
             picMap.Width = (int)newSize;
             picMap.Height = (int)newSize;
 
+
+            
+ 
             Program.ProgramConfig.Zoom = trackZoom.Value;
         }
 

@@ -42,7 +42,9 @@ namespace ARKViewer.Models
 
         ContentPack pack = null;
         public ContentMap LoadedMap { get; internal set; } = null;
-        
+
+
+        public float MarkerSize { get; set; } = 10;
 
         public DateTime? ContentDate
         {
@@ -838,16 +840,15 @@ namespace ARKViewer.Models
                 {
                     var markerX = (float)(result.Longitude) * 1024 / 100;
                     var markerY = (float)(result.Latitude) * 1024 / 100;
-                    var markerSize = 10f;
-
+                    
                     if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
                     Color markerColor = Color.AliceBlue;
 
-                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
                 }
 
                 gameContentMap = (Image)bitmap;
@@ -913,12 +914,13 @@ namespace ARKViewer.Models
                 if (productionClassName.Length > 0) filteredWilds.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == productionClassName));
 
 
+                int imageSize = 1024;
+
                 foreach (var wild in filteredWilds)
                 {
-                    var markerX = (float)(wild.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerY = (float)(wild.Latitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerSize = 10f;
-
+                    var markerX = (float)(wild.Longitude.GetValueOrDefault(0)) * imageSize / 100;
+                    var markerY = (float)(wild.Latitude.GetValueOrDefault(0)) * imageSize / 100;
+                    
                     if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                     Color markerColor = Color.WhiteSmoke;
@@ -940,11 +942,11 @@ namespace ARKViewer.Models
 
                     }
 
-                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
                 }
 
                 gameContentMap = (Image)bitmap;
@@ -1014,8 +1016,7 @@ namespace ARKViewer.Models
 
                     if (Single.TryParse(markerXFloat.ToString(),out Single markerX) == false || Single.TryParse(markerYFloat.ToString(), out Single markerY) == false) continue; //Draw methods limited to single values
 
-                    var markerSize = 10f;
-
+                    
                     Color markerColor = Color.WhiteSmoke;
                     if (LoadedMap.Regions != null && LoadedMap.Regions.Count > 0)
                     {
@@ -1035,11 +1036,11 @@ namespace ARKViewer.Models
 
                     }
 
-                    graphics.FillEllipse(new SolidBrush(markerColor), markerX - (markerSize / 2), markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.FillEllipse(new SolidBrush(markerColor), markerX - (MarkerSize / 2), markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), markerX - (markerSize / 2), markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), markerX - (MarkerSize / 2), markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
                 }
 
                 gameContentMap = (Image)bitmap;
@@ -1094,7 +1095,7 @@ namespace ARKViewer.Models
                 graphics = AddMapStructures(graphics, mapOptions);
 
                 var filteredDrops = GetDroppedItems(droppedPlayerId, droppedClass, selectedRealm);
-                float markerSize = 10f;
+                
                 foreach (var item in filteredDrops)
                 {
 
@@ -1124,11 +1125,11 @@ namespace ARKViewer.Models
                         }
 
                     }
-                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
                 }
 
                 gameContentMap = (Image)bitmap;
@@ -1181,7 +1182,7 @@ namespace ARKViewer.Models
 
 
                 var filteredDrops = GetDeathCacheBags(droppedPlayerId);
-                float markerSize = 10f;
+                
                 foreach (var item in filteredDrops)
                 {
 
@@ -1211,11 +1212,11 @@ namespace ARKViewer.Models
                         }
 
                     }
-                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
                 }
 
                 gameContentMap = (Image)bitmap;
@@ -1272,8 +1273,7 @@ namespace ARKViewer.Models
                 {
                     var markerX = (float)(playerStructure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerY = (float)(playerStructure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
-                    var markerSize = 10f;
-
+                    
                     if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                     Color markerColor = Color.WhiteSmoke;
@@ -1294,11 +1294,11 @@ namespace ARKViewer.Models
                         }
 
                     }
-                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                     Color borderColour = Color.Blue;
                     int borderSize = 1;
-                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                 }
 
@@ -1362,7 +1362,6 @@ namespace ARKViewer.Models
                             {
                                 if (!(structure.Latitude.GetValueOrDefault(0) == 0 && structure.Longitude.GetValueOrDefault(0) == 0))
                                 {
-                                    float markerSize = 10f;
 
                                     var markerX = (float)(structure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                                     var markerY = (float)(structure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
@@ -1387,11 +1386,11 @@ namespace ARKViewer.Models
                                         }
 
                                     }
-                                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                                    graphics.FillEllipse(new SolidBrush(markerColor), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                                     Color borderColour = Color.Green;
                                     int borderSize = 1;
-                                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
                                 }
 
 
@@ -1410,7 +1409,6 @@ namespace ARKViewer.Models
                             {
                                 if (!(tame.Latitude.GetValueOrDefault(0) == 0 && tame.Longitude.GetValueOrDefault(0) == 0))
                                 {
-                                    float markerSize = 10f;
 
                                     var markerX = (float)(tame.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                                     var markerY = (float)(tame.Latitude.GetValueOrDefault(0)) * 1024 / 100;
@@ -1436,11 +1434,11 @@ namespace ARKViewer.Models
 
                                     }
 
-                                    graphics.FillEllipse(new SolidBrush(Color.AliceBlue), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                                    graphics.FillEllipse(new SolidBrush(Color.AliceBlue), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
 
                                     Color borderColour = Color.Gold;
                                     int borderSize = 1;
-                                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
+                                    graphics.DrawEllipse(new Pen(borderColour, borderSize), (float)markerX - (MarkerSize / 2), (float)markerY - (MarkerSize / 2), MarkerSize, MarkerSize);
                                 }
 
 
@@ -2037,7 +2035,7 @@ namespace ARKViewer.Models
                 var markerX = (float)(lon) * 1024 / 100;
                 var markerY = (float)(lat) * 1024 / 100;
                 Color markerColor = Color.Red;
-                float markerSize = 20;
+                float markerSize = (float)(MarkerSize * 1.2);
 
                 g.FillEllipse(new SolidBrush(markerColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 

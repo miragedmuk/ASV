@@ -1,4 +1,5 @@
 ﻿using AsaSavegameToolkit;
+using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Types;
 using ASVPack.Extensions;
 using SavegameToolkit;
@@ -37,11 +38,14 @@ namespace ASVPack.Models
         [DataMember] public DateTime? LastAllyInRangeTime { get; internal set; }
         [DataMember] public int UniquePaintingId { get; set; } = 0;
 
+        [DataMember] public List<string>? Inclusions { get; set; } = null;
+        [DataMember] public List<string>? Exclusions{ get; set; } = null;
 
         public ContentStructure(GameObject structureObject)
         {
             ClassName = structureObject.ClassString;
             DisplayName = structureObject.GetPropertyValue<string>("BoxName")??ClassName;
+
 
 
             if(structureObject.GetPropertyValue<ObjectReference>("MyInventoryComponent") != null)
@@ -79,6 +83,8 @@ namespace ASVPack.Models
             ClassName = structureObject.ClassString;
             DisplayName = structureObject.GetPropertyValue<string>("BoxName") ?? ClassName;
 
+
+
             if (structureObject.GetPropertyValue<AsaObjectReference>("MyInventoryComponent") != null)
             {
                 IsLocked = structureObject.GetPropertyValue<bool>("bIsPinLocked",0,false)
@@ -88,6 +94,42 @@ namespace ASVPack.Models
             if ((structureObject.GetPropertyValue<bool>("bIsPowered", 0, false) || structureObject.GetPropertyValue<bool>("bHasFuel", 0, false)))
             {
                 IsSwitchedOn = structureObject.GetPropertyValue<bool>("bContainerActivated", 0, false);
+            }
+
+            if (structureObject.HasAnyProperty("DinoFeedingListType"))
+            {
+                Inclusions = new List<string>();
+                Exclusions = new List<string>();
+
+                int listType = structureObject.GetPropertyValue<int>("DinoFeedingListType", 0, 0);
+                List<dynamic>? feedingList = structureObject.GetPropertyValue<dynamic>("FeedingDinoList", 0, null);
+
+                switch (listType)
+                {
+                    case 1:
+                        //inclusion
+                        if(feedingList!=null && feedingList.Count > 0)
+                        {
+                            foreach(AsaObjectReference includedRef in feedingList)
+                            {
+                                Inclusions.Add(includedRef.Value);
+                            }
+                        }
+                        break;
+                    case 2:
+                        //exclusion
+                        if (feedingList != null && feedingList.Count > 0)
+                        {
+                            foreach (AsaObjectReference includedRef in feedingList)
+                            {
+                                Exclusions.Add(includedRef.Value);
+                            }
+                        }
+
+                        break;
+                }
+                
+
             }
 
             if (structureObject.Location != null)
