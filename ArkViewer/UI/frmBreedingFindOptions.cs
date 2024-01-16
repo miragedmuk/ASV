@@ -14,6 +14,25 @@ namespace ARKViewer
         public ASVBreedingSearch SearchOptions { get; internal set; } = new ASVBreedingSearch();
         public ContentTamedCreature SelectedTame { get; internal set; } = null;
 
+
+        private void ownerDrawCombo_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            System.Windows.Forms.ComboBox comboBox = sender as System.Windows.Forms.ComboBox;
+
+            e.DrawBackground();
+
+            Rectangle r1 = e.Bounds;
+            r1.Width = r1.Width;
+
+            using (SolidBrush sb = new SolidBrush(comboBox.ForeColor))
+            {
+                string drawText = comboBox.Items[e.Index].ToString();
+                e.Graphics.DrawString(drawText, e.Font, sb, r1);
+            }
+        }
+
         private void LoadWindowSettings()
         {
             var savedWindow = ARKViewer.Program.ProgramConfig.Windows.FirstOrDefault(w => w.Name == this.Name);

@@ -67,10 +67,10 @@ namespace ARKViewer
             lblColourId.BackColor = System.Drawing.SystemColors.Control;
             lblColourId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             lblColourId.ForeColor = System.Drawing.Color.DimGray;
-            lblColourId.Location = new System.Drawing.Point(27, 50);
+            lblColourId.Location = new System.Drawing.Point(28, 50);
             lblColourId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblColourId.Name = "lblColourId";
-            lblColourId.Size = new System.Drawing.Size(324, 27);
+            lblColourId.Size = new System.Drawing.Size(341, 27);
             lblColourId.TabIndex = 0;
             lblColourId.Text = "Id";
             lblColourId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,28 +78,34 @@ namespace ARKViewer
             // btnCcancel
             // 
             btnCcancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnCcancel.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCcancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCcancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnCcancel.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnCcancel.Location = new System.Drawing.Point(327, 294);
             btnCcancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnCcancel.Name = "btnCcancel";
             btnCcancel.Size = new System.Drawing.Size(88, 27);
             btnCcancel.TabIndex = 2;
             btnCcancel.Text = "Close";
-            btnCcancel.UseVisualStyleBackColor = true;
+            btnCcancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
             btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnSave.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnSave.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnSave.Location = new System.Drawing.Point(230, 294);
             btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new System.Drawing.Size(88, 27);
             btnSave.TabIndex = 1;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // udId
@@ -108,7 +114,7 @@ namespace ARKViewer
             udId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udId.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
             udId.Name = "udId";
-            udId.Size = new System.Drawing.Size(338, 23);
+            udId.Size = new System.Drawing.Size(341, 23);
             udId.TabIndex = 1;
             udId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             udId.ValueChanged += udId_ValueChanged;
@@ -132,14 +138,14 @@ namespace ARKViewer
             pnlColour.Location = new System.Drawing.Point(28, 205);
             pnlColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlColour.Name = "pnlColour";
-            pnlColour.Size = new System.Drawing.Size(338, 29);
+            pnlColour.Size = new System.Drawing.Size(341, 29);
             pnlColour.TabIndex = 7;
             pnlColour.Click += pnlColour_Click;
             pnlColour.Paint += pnlColour_Paint;
             // 
             // udR
             // 
-            udR.Location = new System.Drawing.Point(31, 140);
+            udR.Location = new System.Drawing.Point(31, 143);
             udR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udR.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             udR.Name = "udR";
@@ -150,7 +156,7 @@ namespace ARKViewer
             // 
             // udG
             // 
-            udG.Location = new System.Drawing.Point(145, 140);
+            udG.Location = new System.Drawing.Point(145, 143);
             udG.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udG.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             udG.Name = "udG";
@@ -161,7 +167,7 @@ namespace ARKViewer
             // 
             // udB
             // 
-            udB.Location = new System.Drawing.Point(259, 140);
+            udB.Location = new System.Drawing.Point(259, 143);
             udB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udB.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             udB.Name = "udB";
@@ -173,6 +179,7 @@ namespace ARKViewer
             // grpWrapper
             // 
             grpWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            grpWrapper.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpWrapper.Controls.Add(lblColourDetails);
             grpWrapper.Controls.Add(udB);
             grpWrapper.Controls.Add(lblHeaderWrapper);
@@ -207,12 +214,12 @@ namespace ARKViewer
             // lblHeaderWrapper
             // 
             lblHeaderWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblHeaderWrapper.BackColor = System.Drawing.Color.Aqua;
+            lblHeaderWrapper.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblHeaderWrapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblHeaderWrapper.Location = new System.Drawing.Point(0, 0);
+            lblHeaderWrapper.Location = new System.Drawing.Point(0, 1);
             lblHeaderWrapper.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderWrapper.Name = "lblHeaderWrapper";
-            lblHeaderWrapper.Size = new System.Drawing.Size(400, 7);
+            lblHeaderWrapper.Size = new System.Drawing.Size(400, 8);
             lblHeaderWrapper.TabIndex = 0;
             lblHeaderWrapper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -221,11 +228,13 @@ namespace ARKViewer
             AcceptButton = btnSave;
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             CancelButton = btnCcancel;
             ClientSize = new System.Drawing.Size(429, 335);
             Controls.Add(grpWrapper);
             Controls.Add(btnCcancel);
             Controls.Add(btnSave);
+            ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             MaximizeBox = false;

@@ -28,185 +28,195 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlCreatureInventory = new System.Windows.Forms.Panel();
-            this.chkApplyFilter = new System.Windows.Forms.CheckBox();
-            this.lblFilter = new System.Windows.Forms.Label();
-            this.txtFilter = new System.Windows.Forms.TextBox();
-            this.lvwInventory = new System.Windows.Forms.ListView();
-            this.lvwInventory_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwInventory_Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwInventory_Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwInventory_Quality = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblWindowTitle = new System.Windows.Forms.Label();
-            this.picWindowIcon = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblStructureName = new System.Windows.Forms.Label();
-            this.lvwInventory_Rating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pnlCreatureInventory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWindowIcon)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStructureInventoryViewer));
+            pnlCreatureInventory = new System.Windows.Forms.Panel();
+            chkApplyFilter = new System.Windows.Forms.CheckBox();
+            lblFilter = new System.Windows.Forms.Label();
+            txtFilter = new System.Windows.Forms.TextBox();
+            lvwInventory = new System.Windows.Forms.ListView();
+            lvwInventory_Item = new System.Windows.Forms.ColumnHeader();
+            lvwInventory_Category = new System.Windows.Forms.ColumnHeader();
+            lvwInventory_Quality = new System.Windows.Forms.ColumnHeader();
+            lvwInventory_Rating = new System.Windows.Forms.ColumnHeader();
+            lvwInventory_Qty = new System.Windows.Forms.ColumnHeader();
+            lblWindowTitle = new System.Windows.Forms.Label();
+            picWindowIcon = new System.Windows.Forms.PictureBox();
+            btnClose = new System.Windows.Forms.Button();
+            lblStructureName = new System.Windows.Forms.Label();
+            pnlCreatureInventory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picWindowIcon).BeginInit();
+            SuspendLayout();
             // 
             // pnlCreatureInventory
             // 
-            this.pnlCreatureInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlCreatureInventory.BackColor = System.Drawing.Color.PowderBlue;
-            this.pnlCreatureInventory.Controls.Add(this.chkApplyFilter);
-            this.pnlCreatureInventory.Controls.Add(this.lblFilter);
-            this.pnlCreatureInventory.Controls.Add(this.txtFilter);
-            this.pnlCreatureInventory.Controls.Add(this.lvwInventory);
-            this.pnlCreatureInventory.Location = new System.Drawing.Point(11, 56);
-            this.pnlCreatureInventory.Name = "pnlCreatureInventory";
-            this.pnlCreatureInventory.Size = new System.Drawing.Size(610, 374);
-            this.pnlCreatureInventory.TabIndex = 2;
+            pnlCreatureInventory.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlCreatureInventory.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            pnlCreatureInventory.Controls.Add(chkApplyFilter);
+            pnlCreatureInventory.Controls.Add(lblFilter);
+            pnlCreatureInventory.Controls.Add(txtFilter);
+            pnlCreatureInventory.Controls.Add(lvwInventory);
+            pnlCreatureInventory.Location = new System.Drawing.Point(13, 65);
+            pnlCreatureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlCreatureInventory.Name = "pnlCreatureInventory";
+            pnlCreatureInventory.Size = new System.Drawing.Size(712, 432);
+            pnlCreatureInventory.TabIndex = 2;
             // 
             // chkApplyFilter
             // 
-            this.chkApplyFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkApplyFilter.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkApplyFilter.Image = global::ARKViewer.Properties.Resources.button_filter;
-            this.chkApplyFilter.Location = new System.Drawing.Point(562, 333);
-            this.chkApplyFilter.Name = "chkApplyFilter";
-            this.chkApplyFilter.Size = new System.Drawing.Size(35, 35);
-            this.chkApplyFilter.TabIndex = 3;
-            this.chkApplyFilter.UseVisualStyleBackColor = true;
-            this.chkApplyFilter.CheckedChanged += new System.EventHandler(this.chkApplyFilter_CheckedChanged);
+            chkApplyFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkApplyFilter.Appearance = System.Windows.Forms.Appearance.Button;
+            chkApplyFilter.Image = (System.Drawing.Image)resources.GetObject("chkApplyFilter.Image");
+            chkApplyFilter.Location = new System.Drawing.Point(656, 384);
+            chkApplyFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkApplyFilter.Name = "chkApplyFilter";
+            chkApplyFilter.Size = new System.Drawing.Size(41, 40);
+            chkApplyFilter.TabIndex = 3;
+            chkApplyFilter.UseVisualStyleBackColor = true;
+            chkApplyFilter.CheckedChanged += chkApplyFilter_CheckedChanged;
             // 
             // lblFilter
             // 
-            this.lblFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblFilter.AutoSize = true;
-            this.lblFilter.Location = new System.Drawing.Point(8, 345);
-            this.lblFilter.Name = "lblFilter";
-            this.lblFilter.Size = new System.Drawing.Size(29, 13);
-            this.lblFilter.TabIndex = 1;
-            this.lblFilter.Text = "Filter";
+            lblFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblFilter.AutoSize = true;
+            lblFilter.Location = new System.Drawing.Point(9, 398);
+            lblFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblFilter.Name = "lblFilter";
+            lblFilter.Size = new System.Drawing.Size(33, 15);
+            lblFilter.TabIndex = 1;
+            lblFilter.Text = "Filter";
             // 
             // txtFilter
             // 
-            this.txtFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilter.Location = new System.Drawing.Point(43, 342);
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(513, 20);
-            this.txtFilter.TabIndex = 2;
+            txtFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilter.Location = new System.Drawing.Point(50, 395);
+            txtFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new System.Drawing.Size(598, 20);
+            txtFilter.TabIndex = 2;
             // 
             // lvwInventory
             // 
-            this.lvwInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwInventory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwInventory_Item,
-            this.lvwInventory_Category,
-            this.lvwInventory_Quality,
-            this.lvwInventory_Rating,
-            this.lvwInventory_Qty});
-            this.lvwInventory.FullRowSelect = true;
-            this.lvwInventory.HideSelection = false;
-            this.lvwInventory.Location = new System.Drawing.Point(11, 13);
-            this.lvwInventory.Name = "lvwInventory";
-            this.lvwInventory.Size = new System.Drawing.Size(586, 316);
-            this.lvwInventory.TabIndex = 0;
-            this.lvwInventory.UseCompatibleStateImageBehavior = false;
-            this.lvwInventory.View = System.Windows.Forms.View.Details;
-            this.lvwInventory.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwInventory_ColumnClick);
+            lvwInventory.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwInventory.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwInventory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwInventory_Item, lvwInventory_Category, lvwInventory_Quality, lvwInventory_Rating, lvwInventory_Qty });
+            lvwInventory.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lvwInventory.FullRowSelect = true;
+            lvwInventory.Location = new System.Drawing.Point(13, 15);
+            lvwInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwInventory.Name = "lvwInventory";
+            lvwInventory.Size = new System.Drawing.Size(683, 364);
+            lvwInventory.TabIndex = 0;
+            lvwInventory.UseCompatibleStateImageBehavior = false;
+            lvwInventory.View = System.Windows.Forms.View.Details;
+            lvwInventory.ColumnClick += lvwInventory_ColumnClick;
             // 
             // lvwInventory_Item
             // 
-            this.lvwInventory_Item.Text = "Item";
-            this.lvwInventory_Item.Width = 169;
+            lvwInventory_Item.Text = "Item";
+            lvwInventory_Item.Width = 169;
             // 
             // lvwInventory_Category
             // 
-            this.lvwInventory_Category.Text = "Category";
-            this.lvwInventory_Category.Width = 160;
-            // 
-            // lvwInventory_Qty
-            // 
-            this.lvwInventory_Qty.Text = "Qty";
-            this.lvwInventory_Qty.Width = 50;
+            lvwInventory_Category.Text = "Category";
+            lvwInventory_Category.Width = 160;
             // 
             // lvwInventory_Quality
             // 
-            this.lvwInventory_Quality.Text = "Quality";
-            this.lvwInventory_Quality.Width = 80;
-            // 
-            // lblWindowTitle
-            // 
-            this.lblWindowTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindowTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWindowTitle.Location = new System.Drawing.Point(404, 13);
-            this.lblWindowTitle.Name = "lblWindowTitle";
-            this.lblWindowTitle.Size = new System.Drawing.Size(178, 31);
-            this.lblWindowTitle.TabIndex = 1;
-            this.lblWindowTitle.Text = "Inventory View";
-            this.lblWindowTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // picWindowIcon
-            // 
-            this.picWindowIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picWindowIcon.Image = global::ARKViewer.Properties.Resources.button_file;
-            this.picWindowIcon.Location = new System.Drawing.Point(588, 10);
-            this.picWindowIcon.Name = "picWindowIcon";
-            this.picWindowIcon.Size = new System.Drawing.Size(35, 40);
-            this.picWindowIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picWindowIcon.TabIndex = 17;
-            this.picWindowIcon.TabStop = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnClose.Location = new System.Drawing.Point(546, 436);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // lblStructureName
-            // 
-            this.lblStructureName.AutoSize = true;
-            this.lblStructureName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStructureName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblStructureName.Location = new System.Drawing.Point(12, 16);
-            this.lblStructureName.Name = "lblStructureName";
-            this.lblStructureName.Size = new System.Drawing.Size(175, 25);
-            this.lblStructureName.TabIndex = 0;
-            this.lblStructureName.Text = "Structure Name";
-            this.lblStructureName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lvwInventory_Quality.Text = "Quality";
+            lvwInventory_Quality.Width = 80;
             // 
             // lvwInventory_Rating
             // 
-            this.lvwInventory_Rating.Text = "Rating";
+            lvwInventory_Rating.Text = "Rating";
+            // 
+            // lvwInventory_Qty
+            // 
+            lvwInventory_Qty.Text = "Qty";
+            lvwInventory_Qty.Width = 50;
+            // 
+            // lblWindowTitle
+            // 
+            lblWindowTitle.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWindowTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lblWindowTitle.Location = new System.Drawing.Point(471, 15);
+            lblWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWindowTitle.Name = "lblWindowTitle";
+            lblWindowTitle.Size = new System.Drawing.Size(208, 36);
+            lblWindowTitle.TabIndex = 1;
+            lblWindowTitle.Text = "Inventory View";
+            lblWindowTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // picWindowIcon
+            // 
+            picWindowIcon.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            picWindowIcon.Image = (System.Drawing.Image)resources.GetObject("picWindowIcon.Image");
+            picWindowIcon.Location = new System.Drawing.Point(686, 12);
+            picWindowIcon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picWindowIcon.Name = "picWindowIcon";
+            picWindowIcon.Size = new System.Drawing.Size(41, 46);
+            picWindowIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picWindowIcon.TabIndex = 17;
+            picWindowIcon.TabStop = false;
+            // 
+            // btnClose
+            // 
+            btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnClose.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.ForeColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            btnClose.Location = new System.Drawing.Point(637, 503);
+            btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new System.Drawing.Size(88, 27);
+            btnClose.TabIndex = 3;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
+            // lblStructureName
+            // 
+            lblStructureName.AutoSize = true;
+            lblStructureName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lblStructureName.Location = new System.Drawing.Point(14, 18);
+            lblStructureName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStructureName.Name = "lblStructureName";
+            lblStructureName.Size = new System.Drawing.Size(175, 25);
+            lblStructureName.TabIndex = 0;
+            lblStructureName.Text = "Structure Name";
+            lblStructureName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmStructureInventoryViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(634, 468);
-            this.Controls.Add(this.pnlCreatureInventory);
-            this.Controls.Add(this.lblWindowTitle);
-            this.Controls.Add(this.picWindowIcon);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblStructureName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.MinimumSize = new System.Drawing.Size(650, 300);
-            this.Name = "frmStructureInventoryViewer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Structure Inventory";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStructureInventoryViewer_FormClosed);
-            this.pnlCreatureInventory.ResumeLayout(false);
-            this.pnlCreatureInventory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picWindowIcon)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
+            CancelButton = btnClose;
+            ClientSize = new System.Drawing.Size(740, 540);
+            Controls.Add(pnlCreatureInventory);
+            Controls.Add(lblWindowTitle);
+            Controls.Add(picWindowIcon);
+            Controls.Add(btnClose);
+            Controls.Add(lblStructureName);
+            ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(756, 340);
+            Name = "frmStructureInventoryViewer";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Structure Inventory";
+            FormClosed += frmStructureInventoryViewer_FormClosed;
+            pnlCreatureInventory.ResumeLayout(false);
+            pnlCreatureInventory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picWindowIcon).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

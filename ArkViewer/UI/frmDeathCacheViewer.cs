@@ -144,7 +144,7 @@ namespace ARKViewer
                                 backColor = itemQuality.QualityColor;
                                 foreColor = Program.IdealTextColor(backColor);
                             }
-                            
+
 
                             ListViewItem newItem = new ListViewItem(itemName);
                             newItem.BackColor = backColor;

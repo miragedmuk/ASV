@@ -31,6 +31,23 @@ namespace ARKViewer
         }
 
 
+        private void ownerDrawCombo_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            System.Windows.Forms.ComboBox comboBox = sender as System.Windows.Forms.ComboBox;
+
+            e.DrawBackground();
+
+            Rectangle r1 = e.Bounds;
+            r1.Width = r1.Width;
+
+            using (SolidBrush sb = new SolidBrush(comboBox.ForeColor))
+            {
+                string drawText = comboBox.Items[e.Index].ToString();
+                e.Graphics.DrawString(drawText, e.Font, sb, r1);
+            }
+        }
         private void LoadWindowSettings()
         {
             var savedWindow = ARKViewer.Program.ProgramConfig.Windows.FirstOrDefault(w => w.Name == this.Name);
@@ -99,11 +116,11 @@ namespace ARKViewer
             cboCategory.Items.Clear();
             cboCategory.Items.Add(new ASVComboValue("", "[All]"));
             var groupedMarkers = MapViewer.CustomMarkers.GroupBy(x => x.Category).ToList().Select(x => x.Key).ToList();
-            if(groupedMarkers!=null && groupedMarkers.Count > 0)
+            if (groupedMarkers != null && groupedMarkers.Count > 0)
             {
-                groupedMarkers.OrderBy(x=>x).ToList().ForEach(x =>
+                groupedMarkers.OrderBy(x => x).ToList().ForEach(x =>
                 {
-                    if(x.Length > 0) cboCategory.Items.Add(new ASVComboValue(x,x));
+                    if (x.Length > 0) cboCategory.Items.Add(new ASVComboValue(x, x));
                 });
             }
             cboCategory.SelectedIndex = 0;
@@ -117,7 +134,7 @@ namespace ARKViewer
             isLoading = true;
             string selectedCategory = "";
             if (cboCategory.SelectedItem != null) selectedCategory = ((ASVComboValue)cboCategory.SelectedItem).Key;
-            
+
             lvwMapMarkers.SmallImageList = Program.MarkerImageList;
             lvwMapMarkers.LargeImageList = Program.MarkerImageList;
             lvwMapMarkers.Items.Clear();
@@ -126,12 +143,12 @@ namespace ARKViewer
 
             List<ListViewItem> newItems = new List<ListViewItem>();
 
-            foreach (var marker in MapViewer.CustomMarkers.OrderBy(o=>o.Name))
+            foreach (var marker in MapViewer.CustomMarkers.OrderBy(o => o.Name))
             {
-                if (txtMarkerFilter.TextLength == 0 ||  marker.Name.ToLower().Contains(txtMarkerFilter.Text.ToLower()))
+                if (txtMarkerFilter.TextLength == 0 || marker.Name.ToLower().Contains(txtMarkerFilter.Text.ToLower()))
                 {
 
-                    if(selectedCategory == "" || marker.Category == selectedCategory)
+                    if (selectedCategory == "" || marker.Category == selectedCategory)
                     {
                         ListViewItem newItem = new ListViewItem(marker.Name);
                         newItem.ImageIndex = Program.GetMarkerImageIndex(marker.Image) - 1;
@@ -146,7 +163,7 @@ namespace ARKViewer
 
                         newItems.Add(newItem);
                     }
-                    
+
                 }
             }
 
@@ -166,11 +183,11 @@ namespace ARKViewer
             float selectedY = 0;
             ContentMarker selectedMarker = null;
 
-            List<Tuple<float,float>> selectedLocations = new List<Tuple<float, float>>();
+            List<Tuple<float, float>> selectedLocations = new List<Tuple<float, float>>();
 
             if (lvwMapMarkers.SelectedItems.Count > 0)
             {
-                foreach(ListViewItem item in  lvwMapMarkers.SelectedItems)
+                foreach (ListViewItem item in lvwMapMarkers.SelectedItems)
                 {
                     selectedMarker = (ContentMarker)item.Tag;
                     selectedX = (float)selectedMarker.Lon;
@@ -183,7 +200,7 @@ namespace ARKViewer
             MapViewer.DrawTestMap(selectedLocations);
 
             btnEditMarker.Enabled = selectedMarker != null && selectedMarker.InGameMarker == false;
-            btnRemoveMarker.Enabled = selectedMarker!=null && selectedMarker.InGameMarker == false;
+            btnRemoveMarker.Enabled = selectedMarker != null && selectedMarker.InGameMarker == false;
         }
 
         private void lvwMapMarkers_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -198,7 +215,7 @@ namespace ARKViewer
 
             if (lvwMapMarkers.SelectedItems.Count > 0)
             {
-                foreach(ListViewItem item in lvwMapMarkers.SelectedItems)
+                foreach (ListViewItem item in lvwMapMarkers.SelectedItems)
                 {
                     ContentMarker selectedMarker = (ContentMarker)item.Tag;
                     selectedX = (float)selectedMarker.Lon;
@@ -325,7 +342,7 @@ namespace ARKViewer
 
                 var mapViewMarker = MapViewer.CustomMarkers.FirstOrDefault(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
                 if (mapViewMarker != null) MapViewer.CustomMarkers.Remove(mapViewMarker);
-                
+
                 var configMarker = Program.ProgramConfig.MapMarkerList.FirstOrDefault(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
                 if (configMarker != null) Program.ProgramConfig.MapMarkerList.Remove(configMarker);
 

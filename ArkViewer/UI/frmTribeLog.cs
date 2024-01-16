@@ -274,7 +274,7 @@ namespace ARKViewer
                 Color standardColor = (Color)selectedItem.SubItems[1].Tag;
                 Color overrideColor = selectedItem.SubItems[1].ForeColor;
                 colourEditor = new frmTribeLogColourMap(lvwLog.BackColor, lvwLog.ForeColor, standardColor, overrideColor);
-                
+
             }
             else
             {

@@ -94,11 +94,11 @@ namespace ARKViewer
             btnFindWild = new System.Windows.Forms.Button();
             btnRconCommandWild = new System.Windows.Forms.Button();
             lblMap = new System.Windows.Forms.Label();
-            cboSelectedMap = new System.Windows.Forms.ComboBox();
+            cboSelectedMap = new ArkViewer.UI.BorderlessComboBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             linkLabel1 = new System.Windows.Forms.LinkLabel();
             tpgLeaderboard = new System.Windows.Forms.TabPage();
-            cboLeaderboardPlayer = new System.Windows.Forms.ComboBox();
+            cboLeaderboardPlayer = new ArkViewer.UI.BorderlessComboBox();
             lblMissionPlayer = new System.Windows.Forms.Label();
             lvwLeaderboardSummary = new System.Windows.Forms.ListView();
             columnHeader32 = new System.Windows.Forms.ColumnHeader();
@@ -109,9 +109,9 @@ namespace ARKViewer
             lvwLeaderboard_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwLeaderboard_Player = new System.Windows.Forms.ColumnHeader();
             lvwLeaderboard_Score = new System.Windows.Forms.ColumnHeader();
-            cboLeaderboardMission = new System.Windows.Forms.ComboBox();
+            cboLeaderboardMission = new ArkViewer.UI.BorderlessComboBox();
             lblLeaderboardMission = new System.Windows.Forms.Label();
-            cboLeaderboardTribe = new System.Windows.Forms.ComboBox();
+            cboLeaderboardTribe = new ArkViewer.UI.BorderlessComboBox();
             lblLeaderboardTribe = new System.Windows.Forms.Label();
             tpgLocalProfile = new System.Windows.Forms.TabPage();
             pnlUploadedStats = new System.Windows.Forms.Panel();
@@ -182,21 +182,21 @@ namespace ARKViewer
             lvwPlayerPaintings_Lat = new System.Windows.Forms.ColumnHeader();
             lvwPlayerPaintings_Lon = new System.Windows.Forms.ColumnHeader();
             lvwPlayerPaintings_PaintingId = new System.Windows.Forms.ColumnHeader();
-            cboPaintingTribe = new System.Windows.Forms.ComboBox();
+            cboPaintingTribe = new ArkViewer.UI.BorderlessComboBox();
             lblStructurePainting = new System.Windows.Forms.Label();
-            cboConsoleCommandPainting = new System.Windows.Forms.ComboBox();
-            cboPaintingStructure = new System.Windows.Forms.ComboBox();
+            cboConsoleCommandPainting = new ArkViewer.UI.BorderlessComboBox();
+            cboPaintingStructure = new ArkViewer.UI.BorderlessComboBox();
             lblCopyCommandPaintings = new System.Windows.Forms.Label();
             picPainting = new System.Windows.Forms.PictureBox();
             tpgItemList = new System.Windows.Forms.TabPage();
             pnlFilterSearch = new System.Windows.Forms.Panel();
             txtFilterSearch = new System.Windows.Forms.TextBox();
-            cboItemListItem = new System.Windows.Forms.ComboBox();
+            cboItemListItem = new ArkViewer.UI.BorderlessComboBox();
             lblItemListTribe = new System.Windows.Forms.Label();
-            cboItemListTribe = new System.Windows.Forms.ComboBox();
+            cboItemListTribe = new ArkViewer.UI.BorderlessComboBox();
             btnCopyItemListCommand = new System.Windows.Forms.Button();
             lblItemListCommand = new System.Windows.Forms.Label();
-            cboItemListCommand = new System.Windows.Forms.ComboBox();
+            cboItemListCommand = new ArkViewer.UI.BorderlessComboBox();
             lblItemListCount = new System.Windows.Forms.Label();
             lblItemListItem = new System.Windows.Forms.Label();
             lvwItemList = new System.Windows.Forms.ListView();
@@ -213,15 +213,15 @@ namespace ARKViewer
             lvwItemList_CCC = new System.Windows.Forms.ColumnHeader();
             lvwItemList_UploadTime = new System.Windows.Forms.ColumnHeader();
             tpgDroppedItems = new System.Windows.Forms.TabPage();
-            cboDroppedItemRealm = new System.Windows.Forms.ComboBox();
+            cboDroppedItemRealm = new ArkViewer.UI.BorderlessComboBox();
             lblDroppedItemRealm = new System.Windows.Forms.Label();
             pnlFilterDropped = new System.Windows.Forms.Panel();
             txtFilterDropped = new System.Windows.Forms.TextBox();
-            cboDroppedItem = new System.Windows.Forms.ComboBox();
+            cboDroppedItem = new ArkViewer.UI.BorderlessComboBox();
             lblDroppedPlayer = new System.Windows.Forms.Label();
-            cboDroppedPlayer = new System.Windows.Forms.ComboBox();
+            cboDroppedPlayer = new ArkViewer.UI.BorderlessComboBox();
             lblCopyCommandDropped = new System.Windows.Forms.Label();
-            cboCopyCommandDropped = new System.Windows.Forms.ComboBox();
+            cboCopyCommandDropped = new ArkViewer.UI.BorderlessComboBox();
             lblCountDropped = new System.Windows.Forms.Label();
             lblDroppedItem = new System.Windows.Forms.Label();
             lvwDroppedItems = new System.Windows.Forms.ListView();
@@ -234,17 +234,17 @@ namespace ARKViewer
             lvwDroppedItems_Player = new System.Windows.Forms.ColumnHeader();
             lvwDroppedItems_CCC = new System.Windows.Forms.ColumnHeader();
             tpgPlayers = new System.Windows.Forms.TabPage();
-            cboPlayerRealm = new System.Windows.Forms.ComboBox();
+            cboPlayerRealm = new ArkViewer.UI.BorderlessComboBox();
             lblPlayerRealm = new System.Windows.Forms.Label();
             pnlFilterPlayers = new System.Windows.Forms.Panel();
             txtFilterPlayer = new System.Windows.Forms.TextBox();
             lblPlayerTotal = new System.Windows.Forms.Label();
             lblCommandPlayer = new System.Windows.Forms.Label();
-            cboConsoleCommandsPlayerTribe = new System.Windows.Forms.ComboBox();
+            cboConsoleCommandsPlayerTribe = new ArkViewer.UI.BorderlessComboBox();
             lblPlayersPlayer = new System.Windows.Forms.Label();
             lblPlayersTribe = new System.Windows.Forms.Label();
-            cboTribes = new System.Windows.Forms.ComboBox();
-            cboPlayers = new System.Windows.Forms.ComboBox();
+            cboTribes = new ArkViewer.UI.BorderlessComboBox();
+            cboPlayers = new ArkViewer.UI.BorderlessComboBox();
             lvwPlayers = new System.Windows.Forms.ListView();
             lvwPlayers_PlayerId = new System.Windows.Forms.ColumnHeader();
             lvwPlayers_Name = new System.Windows.Forms.ColumnHeader();
@@ -282,23 +282,23 @@ namespace ARKViewer
             lblChartTop = new System.Windows.Forms.Label();
             udChartTop = new System.Windows.Forms.NumericUpDown();
             lblChart = new System.Windows.Forms.Label();
-            cboChartType = new System.Windows.Forms.ComboBox();
+            cboChartType = new ArkViewer.UI.BorderlessComboBox();
             lblTribeCopyCommand = new System.Windows.Forms.Label();
-            cboTribeCopyCommand = new System.Windows.Forms.ComboBox();
+            cboTribeCopyCommand = new ArkViewer.UI.BorderlessComboBox();
             tpgStructures = new System.Windows.Forms.TabPage();
-            cboStructureRealm = new System.Windows.Forms.ComboBox();
+            cboStructureRealm = new ArkViewer.UI.BorderlessComboBox();
             lblStructureRealm = new System.Windows.Forms.Label();
             pnlFilterStructures = new System.Windows.Forms.Panel();
             txtFilterStructures = new System.Windows.Forms.TextBox();
             lblStructureTotal = new System.Windows.Forms.Label();
             lblCommandStructure = new System.Windows.Forms.Label();
-            cboConsoleCommandsStructure = new System.Windows.Forms.ComboBox();
+            cboConsoleCommandsStructure = new ArkViewer.UI.BorderlessComboBox();
             lblStructureStructure = new System.Windows.Forms.Label();
-            cboStructureStructure = new System.Windows.Forms.ComboBox();
+            cboStructureStructure = new ArkViewer.UI.BorderlessComboBox();
             lblStructurePlayer = new System.Windows.Forms.Label();
             lblStructureTribe = new System.Windows.Forms.Label();
-            cboStructureTribe = new System.Windows.Forms.ComboBox();
-            cboStructurePlayer = new System.Windows.Forms.ComboBox();
+            cboStructureTribe = new ArkViewer.UI.BorderlessComboBox();
+            cboStructurePlayer = new ArkViewer.UI.BorderlessComboBox();
             lvwStructureLocations = new System.Windows.Forms.ListView();
             lvwStructureLocations_Tribe = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_Structure = new System.Windows.Forms.ColumnHeader();
@@ -312,16 +312,16 @@ namespace ARKViewer
             lvwStructureLocations_DecayReset = new System.Windows.Forms.ColumnHeader();
             lvwStructureLocations_CCC = new System.Windows.Forms.ColumnHeader();
             tpgTamed = new System.Windows.Forms.TabPage();
-            cboTameRealm = new System.Windows.Forms.ComboBox();
+            cboTameRealm = new ArkViewer.UI.BorderlessComboBox();
             lblTameRealm = new System.Windows.Forms.Label();
             pnlFilterTamed = new System.Windows.Forms.Panel();
             txtFilterTamed = new System.Windows.Forms.TextBox();
-            cboTamedResource = new System.Windows.Forms.ComboBox();
+            cboTamedResource = new ArkViewer.UI.BorderlessComboBox();
             lblTameResource = new System.Windows.Forms.Label();
             lblTamedCommand = new System.Windows.Forms.Label();
-            cboConsoleCommandsTamed = new System.Windows.Forms.ComboBox();
-            cboTameTribes = new System.Windows.Forms.ComboBox();
-            cboTamePlayers = new System.Windows.Forms.ComboBox();
+            cboConsoleCommandsTamed = new ArkViewer.UI.BorderlessComboBox();
+            cboTameTribes = new ArkViewer.UI.BorderlessComboBox();
+            cboTamePlayers = new ArkViewer.UI.BorderlessComboBox();
             lblTameCreature = new System.Windows.Forms.Label();
             lblTamePlayer = new System.Windows.Forms.Label();
             lblTameTribe = new System.Windows.Forms.Label();
@@ -374,14 +374,14 @@ namespace ARKViewer
             lblStats = new System.Windows.Forms.Label();
             optStatsTamed = new System.Windows.Forms.RadioButton();
             optStatsBase = new System.Windows.Forms.RadioButton();
-            cboTameClass = new System.Windows.Forms.ComboBox();
+            cboTameClass = new ArkViewer.UI.BorderlessComboBox();
             tpgWild = new System.Windows.Forms.TabPage();
             chkTameable = new System.Windows.Forms.CheckBox();
-            cboWildRealm = new System.Windows.Forms.ComboBox();
+            cboWildRealm = new ArkViewer.UI.BorderlessComboBox();
             lblWildRealm = new System.Windows.Forms.Label();
             pnlFilterWilds = new System.Windows.Forms.Panel();
             txtFilterWild = new System.Windows.Forms.TextBox();
-            cboWildResource = new System.Windows.Forms.ComboBox();
+            cboWildResource = new ArkViewer.UI.BorderlessComboBox();
             lblResource = new System.Windows.Forms.Label();
             lblWildRadius = new System.Windows.Forms.Label();
             udWildRadius = new System.Windows.Forms.NumericUpDown();
@@ -394,7 +394,7 @@ namespace ARKViewer
             udWildMin = new System.Windows.Forms.NumericUpDown();
             udWildMax = new System.Windows.Forms.NumericUpDown();
             lblWildCommand = new System.Windows.Forms.Label();
-            cboConsoleCommandsWild = new System.Windows.Forms.ComboBox();
+            cboConsoleCommandsWild = new ArkViewer.UI.BorderlessComboBox();
             lblSelectedWildTotal = new System.Windows.Forms.Label();
             lblWildClass = new System.Windows.Forms.Label();
             lvwWildDetail = new System.Windows.Forms.ListView();
@@ -426,7 +426,7 @@ namespace ARKViewer
             lvwWildDetail_DinoId = new System.Windows.Forms.ColumnHeader();
             lvwWildDetail_CCC = new System.Windows.Forms.ColumnHeader();
             lblWildTotal = new System.Windows.Forms.Label();
-            cboWildClass = new System.Windows.Forms.ComboBox();
+            cboWildClass = new ArkViewer.UI.BorderlessComboBox();
             tabFeatures = new System.Windows.Forms.TabControl();
             mnuContext.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -546,8 +546,8 @@ namespace ARKViewer
             lblMapDate.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblMapDate.BackColor = System.Drawing.Color.Transparent;
             lblMapDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblMapDate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblMapDate.Location = new System.Drawing.Point(737, 6);
+            lblMapDate.ForeColor = System.Drawing.Color.FromArgb(150, 150, 150);
+            lblMapDate.Location = new System.Drawing.Point(737, 1);
             lblMapDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblMapDate.Name = "lblMapDate";
             lblMapDate.Size = new System.Drawing.Size(383, 21);
@@ -559,7 +559,9 @@ namespace ARKViewer
             // btnRefresh
             // 
             btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnRefresh.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRefresh.Image = (System.Drawing.Image)resources.GetObject("btnRefresh.Image");
             btnRefresh.Location = new System.Drawing.Point(931, 635);
             btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -568,13 +570,15 @@ namespace ARKViewer
             btnRefresh.TabIndex = 2;
             btnRefresh.TabStop = false;
             toolTip1.SetToolTip(btnRefresh, "Refresh loaded map.");
-            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.UseVisualStyleBackColor = false;
             btnRefresh.Click += btnRefresh_Click;
             // 
             // btnSettings
             // 
             btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnSettings.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSettings.Image = (System.Drawing.Image)resources.GetObject("btnSettings.Image");
             btnSettings.Location = new System.Drawing.Point(1062, 635);
             btnSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -583,13 +587,15 @@ namespace ARKViewer
             btnSettings.TabIndex = 4;
             btnSettings.TabStop = false;
             toolTip1.SetToolTip(btnSettings, "Show available settings.");
-            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.UseVisualStyleBackColor = false;
             btnSettings.Click += btnSettings_Click;
             // 
             // btnViewMap
             // 
             btnViewMap.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnViewMap.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnViewMap.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnViewMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnViewMap.Image = (System.Drawing.Image)resources.GetObject("btnViewMap.Image");
             btnViewMap.Location = new System.Drawing.Point(996, 635);
             btnViewMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -598,7 +604,7 @@ namespace ARKViewer
             btnViewMap.TabIndex = 3;
             btnViewMap.TabStop = false;
             toolTip1.SetToolTip(btnViewMap, "Show map image view.");
-            btnViewMap.UseVisualStyleBackColor = true;
+            btnViewMap.UseVisualStyleBackColor = false;
             btnViewMap.Click += btnViewMap_Click;
             // 
             // lblStatus
@@ -607,7 +613,7 @@ namespace ARKViewer
             lblStatus.AutoEllipsis = true;
             lblStatus.BackColor = System.Drawing.Color.Transparent;
             lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStatus.ForeColor = System.Drawing.Color.CadetBlue;
+            lblStatus.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStatus.Location = new System.Drawing.Point(19, 635);
             lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStatus.Name = "lblStatus";
@@ -621,7 +627,7 @@ namespace ARKViewer
             lblTitle.AutoSize = true;
             lblTitle.BackColor = System.Drawing.Color.Transparent;
             lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblTitle.Location = new System.Drawing.Point(96, 7);
             lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
@@ -634,7 +640,7 @@ namespace ARKViewer
             lblSubTitle.AutoSize = true;
             lblSubTitle.BackColor = System.Drawing.Color.Transparent;
             lblSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblSubTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblSubTitle.ForeColor = System.Drawing.Color.FromArgb(175, 175, 175);
             lblSubTitle.Location = new System.Drawing.Point(100, 39);
             lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblSubTitle.Name = "lblSubTitle";
@@ -647,8 +653,8 @@ namespace ARKViewer
             lblMapTypeName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblMapTypeName.BackColor = System.Drawing.Color.Transparent;
             lblMapTypeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblMapTypeName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblMapTypeName.Location = new System.Drawing.Point(532, 30);
+            lblMapTypeName.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblMapTypeName.Location = new System.Drawing.Point(532, 21);
             lblMapTypeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblMapTypeName.Name = "lblMapTypeName";
             lblMapTypeName.Size = new System.Drawing.Size(588, 21);
@@ -661,7 +667,7 @@ namespace ARKViewer
             lblVersion.AutoSize = true;
             lblVersion.BackColor = System.Drawing.Color.Transparent;
             lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblVersion.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblVersion.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblVersion.Location = new System.Drawing.Point(102, 58);
             lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblVersion.Name = "lblVersion";
@@ -672,8 +678,10 @@ namespace ARKViewer
             // btnConsoleCommandPainting
             // 
             btnConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnConsoleCommandPainting.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnConsoleCommandPainting.Cursor = System.Windows.Forms.Cursors.Hand;
             btnConsoleCommandPainting.Enabled = false;
+            btnConsoleCommandPainting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnConsoleCommandPainting.Image = (System.Drawing.Image)resources.GetObject("btnConsoleCommandPainting.Image");
             btnConsoleCommandPainting.Location = new System.Drawing.Point(404, 452);
             btnConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -681,14 +689,16 @@ namespace ARKViewer
             btnConsoleCommandPainting.Size = new System.Drawing.Size(47, 46);
             btnConsoleCommandPainting.TabIndex = 28;
             toolTip1.SetToolTip(btnConsoleCommandPainting, "Copy command to clipboard.");
-            btnConsoleCommandPainting.UseVisualStyleBackColor = true;
+            btnConsoleCommandPainting.UseVisualStyleBackColor = false;
             btnConsoleCommandPainting.Click += btnConsoleCommandPainting_Click;
             // 
             // btnDeletePaintings
             // 
             btnDeletePaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDeletePaintings.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnDeletePaintings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             btnDeletePaintings.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnDeletePaintings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnDeletePaintings.Image = (System.Drawing.Image)resources.GetObject("btnDeletePaintings.Image");
             btnDeletePaintings.Location = new System.Drawing.Point(459, 452);
             btnDeletePaintings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -696,7 +706,7 @@ namespace ARKViewer
             btnDeletePaintings.Size = new System.Drawing.Size(47, 46);
             btnDeletePaintings.TabIndex = 36;
             toolTip1.SetToolTip(btnDeletePaintings, "Delete unused .pnt files");
-            btnDeletePaintings.UseVisualStyleBackColor = true;
+            btnDeletePaintings.UseVisualStyleBackColor = false;
             btnDeletePaintings.Click += btnDeletePaintings_Click;
             // 
             // button1
@@ -704,7 +714,7 @@ namespace ARKViewer
             button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             button1.Cursor = System.Windows.Forms.Cursors.Hand;
             button1.Image = (System.Drawing.Image)resources.GetObject("button1.Image");
-            button1.Location = new System.Drawing.Point(1832, -1);
+            button1.Location = new System.Drawing.Point(1841, -1);
             button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(35, 33);
@@ -729,7 +739,9 @@ namespace ARKViewer
             // btnFindSearched
             // 
             btnFindSearched.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindSearched.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             btnFindSearched.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindSearched.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnFindSearched.Image = (System.Drawing.Image)resources.GetObject("btnFindSearched.Image");
             btnFindSearched.Location = new System.Drawing.Point(1037, -1);
             btnFindSearched.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -737,7 +749,7 @@ namespace ARKViewer
             btnFindSearched.Size = new System.Drawing.Size(35, 33);
             btnFindSearched.TabIndex = 9;
             toolTip1.SetToolTip(btnFindSearched, "Find next");
-            btnFindSearched.UseVisualStyleBackColor = true;
+            btnFindSearched.UseVisualStyleBackColor = false;
             btnFindSearched.Click += btnFindSearched_Click;
             // 
             // chkItemSearchUploads
@@ -757,8 +769,10 @@ namespace ARKViewer
             // btnCopyCommandDropped
             // 
             btnCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandDropped.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCopyCommandDropped.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCopyCommandDropped.Enabled = false;
+            btnCopyCommandDropped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCopyCommandDropped.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandDropped.Image");
             btnCopyCommandDropped.Location = new System.Drawing.Point(408, 466);
             btnCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -766,14 +780,16 @@ namespace ARKViewer
             btnCopyCommandDropped.Size = new System.Drawing.Size(47, 46);
             btnCopyCommandDropped.TabIndex = 7;
             toolTip1.SetToolTip(btnCopyCommandDropped, "Copy command to clipboard.");
-            btnCopyCommandDropped.UseVisualStyleBackColor = true;
+            btnCopyCommandDropped.UseVisualStyleBackColor = false;
             btnCopyCommandDropped.Click += btnCopyCommandDropped_Click;
             // 
             // btnDropInventory
             // 
             btnDropInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDropInventory.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnDropInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDropInventory.Enabled = false;
+            btnDropInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnDropInventory.Image = (System.Drawing.Image)resources.GetObject("btnDropInventory.Image");
             btnDropInventory.Location = new System.Drawing.Point(460, 466);
             btnDropInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -781,29 +797,33 @@ namespace ARKViewer
             btnDropInventory.Size = new System.Drawing.Size(47, 46);
             btnDropInventory.TabIndex = 8;
             toolTip1.SetToolTip(btnDropInventory, "View inventory.");
-            btnDropInventory.UseVisualStyleBackColor = true;
+            btnDropInventory.UseVisualStyleBackColor = false;
             btnDropInventory.Click += btnDropInventory_Click;
             // 
             // chkDroppedBlueprints
             // 
             chkDroppedBlueprints.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             chkDroppedBlueprints.Appearance = System.Windows.Forms.Appearance.Button;
+            chkDroppedBlueprints.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             chkDroppedBlueprints.BackgroundImage = (System.Drawing.Image)resources.GetObject("chkDroppedBlueprints.BackgroundImage");
             chkDroppedBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             chkDroppedBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkDroppedBlueprints.Location = new System.Drawing.Point(1042, 6);
+            chkDroppedBlueprints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkDroppedBlueprints.Location = new System.Drawing.Point(1053, 12);
             chkDroppedBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkDroppedBlueprints.Name = "chkDroppedBlueprints";
-            chkDroppedBlueprints.Size = new System.Drawing.Size(47, 46);
+            chkDroppedBlueprints.Size = new System.Drawing.Size(35, 33);
             chkDroppedBlueprints.TabIndex = 10;
             toolTip1.SetToolTip(chkDroppedBlueprints, "Show / hide blueprints.");
-            chkDroppedBlueprints.UseVisualStyleBackColor = true;
+            chkDroppedBlueprints.UseVisualStyleBackColor = false;
             chkDroppedBlueprints.CheckedChanged += chkDroppedBlueprints_CheckedChanged;
             // 
             // btnFindDropped
             // 
             btnFindDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindDropped.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             btnFindDropped.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindDropped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnFindDropped.Image = (System.Drawing.Image)resources.GetObject("btnFindDropped.Image");
             btnFindDropped.Location = new System.Drawing.Point(1040, -1);
             btnFindDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -811,14 +831,16 @@ namespace ARKViewer
             btnFindDropped.Size = new System.Drawing.Size(35, 33);
             btnFindDropped.TabIndex = 9;
             toolTip1.SetToolTip(btnFindDropped, "Find next");
-            btnFindDropped.UseVisualStyleBackColor = true;
+            btnFindDropped.UseVisualStyleBackColor = false;
             btnFindDropped.Click += btnFindDropped_Click;
             // 
             // btnPlayerInventory
             // 
             btnPlayerInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnPlayerInventory.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnPlayerInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnPlayerInventory.Enabled = false;
+            btnPlayerInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnPlayerInventory.Image = (System.Drawing.Image)resources.GetObject("btnPlayerInventory.Image");
             btnPlayerInventory.Location = new System.Drawing.Point(563, 463);
             btnPlayerInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -826,14 +848,16 @@ namespace ARKViewer
             btnPlayerInventory.Size = new System.Drawing.Size(47, 46);
             btnPlayerInventory.TabIndex = 9;
             toolTip1.SetToolTip(btnPlayerInventory, "Show player explorer.");
-            btnPlayerInventory.UseVisualStyleBackColor = true;
+            btnPlayerInventory.UseVisualStyleBackColor = false;
             btnPlayerInventory.Click += btnPlayerInventory_Click;
             // 
             // btnPlayerTribeLog
             // 
             btnPlayerTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnPlayerTribeLog.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnPlayerTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
             btnPlayerTribeLog.Enabled = false;
+            btnPlayerTribeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnPlayerTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnPlayerTribeLog.Image");
             btnPlayerTribeLog.Location = new System.Drawing.Point(512, 463);
             btnPlayerTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -841,14 +865,16 @@ namespace ARKViewer
             btnPlayerTribeLog.Size = new System.Drawing.Size(47, 46);
             btnPlayerTribeLog.TabIndex = 8;
             toolTip1.SetToolTip(btnPlayerTribeLog, "View tribe log.");
-            btnPlayerTribeLog.UseVisualStyleBackColor = true;
+            btnPlayerTribeLog.UseVisualStyleBackColor = false;
             btnPlayerTribeLog.Click += btnPlayerTribeLog_Click;
             // 
             // btnCopyCommandPlayer
             // 
             btnCopyCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandPlayer.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCopyCommandPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCopyCommandPlayer.Enabled = false;
+            btnCopyCommandPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCopyCommandPlayer.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandPlayer.Image");
             btnCopyCommandPlayer.Location = new System.Drawing.Point(408, 463);
             btnCopyCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -856,14 +882,16 @@ namespace ARKViewer
             btnCopyCommandPlayer.Size = new System.Drawing.Size(47, 46);
             btnCopyCommandPlayer.TabIndex = 7;
             toolTip1.SetToolTip(btnCopyCommandPlayer, "Copy command to clipboard.");
-            btnCopyCommandPlayer.UseVisualStyleBackColor = true;
+            btnCopyCommandPlayer.UseVisualStyleBackColor = false;
             btnCopyCommandPlayer.Click += btnCopyCommandPlayer_Click;
             // 
             // btnDeletePlayer
             // 
             btnDeletePlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDeletePlayer.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnDeletePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDeletePlayer.Enabled = false;
+            btnDeletePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnDeletePlayer.Image = (System.Drawing.Image)resources.GetObject("btnDeletePlayer.Image");
             btnDeletePlayer.Location = new System.Drawing.Point(613, 463);
             btnDeletePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -871,13 +899,15 @@ namespace ARKViewer
             btnDeletePlayer.Size = new System.Drawing.Size(47, 46);
             btnDeletePlayer.TabIndex = 10;
             toolTip1.SetToolTip(btnDeletePlayer, "Remove player.");
-            btnDeletePlayer.UseVisualStyleBackColor = true;
+            btnDeletePlayer.UseVisualStyleBackColor = false;
             btnDeletePlayer.Click += btnDeletePlayer_Click;
             // 
             // btnFilterPlayer
             // 
             btnFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFilterPlayer.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             btnFilterPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFilterPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnFilterPlayer.Image = (System.Drawing.Image)resources.GetObject("btnFilterPlayer.Image");
             btnFilterPlayer.Location = new System.Drawing.Point(1036, -1);
             btnFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -885,14 +915,16 @@ namespace ARKViewer
             btnFilterPlayer.Size = new System.Drawing.Size(35, 33);
             btnFilterPlayer.TabIndex = 9;
             toolTip1.SetToolTip(btnFilterPlayer, "Find next");
-            btnFilterPlayer.UseVisualStyleBackColor = true;
+            btnFilterPlayer.UseVisualStyleBackColor = false;
             btnFilterPlayer.Click += btnFilterPlayer_Click;
             // 
             // btnRconCommandPlayers
             // 
             btnRconCommandPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandPlayers.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRconCommandPlayers.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRconCommandPlayers.Enabled = false;
+            btnRconCommandPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRconCommandPlayers.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandPlayers.Image");
             btnRconCommandPlayers.Location = new System.Drawing.Point(459, 463);
             btnRconCommandPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -900,15 +932,17 @@ namespace ARKViewer
             btnRconCommandPlayers.Size = new System.Drawing.Size(47, 46);
             btnRconCommandPlayers.TabIndex = 26;
             toolTip1.SetToolTip(btnRconCommandPlayers, "Send command to server using RCON.");
-            btnRconCommandPlayers.UseVisualStyleBackColor = true;
+            btnRconCommandPlayers.UseVisualStyleBackColor = false;
             btnRconCommandPlayers.Visible = false;
             btnRconCommandPlayers.Click += btnRconCommandPlayers_Click;
             // 
             // btnTribeLog
             // 
             btnTribeLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnTribeLog.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnTribeLog.Cursor = System.Windows.Forms.Cursors.Hand;
             btnTribeLog.Enabled = false;
+            btnTribeLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTribeLog.Image = (System.Drawing.Image)resources.GetObject("btnTribeLog.Image");
             btnTribeLog.Location = new System.Drawing.Point(516, 464);
             btnTribeLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -916,14 +950,16 @@ namespace ARKViewer
             btnTribeLog.Size = new System.Drawing.Size(47, 46);
             btnTribeLog.TabIndex = 4;
             toolTip1.SetToolTip(btnTribeLog, "View tribe log.");
-            btnTribeLog.UseVisualStyleBackColor = true;
+            btnTribeLog.UseVisualStyleBackColor = false;
             btnTribeLog.Click += btnTribeLog_Click;
             // 
             // btnTribeCopyCommand
             // 
             btnTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnTribeCopyCommand.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnTribeCopyCommand.Cursor = System.Windows.Forms.Cursors.Hand;
             btnTribeCopyCommand.Enabled = false;
+            btnTribeCopyCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTribeCopyCommand.Image = (System.Drawing.Image)resources.GetObject("btnTribeCopyCommand.Image");
             btnTribeCopyCommand.Location = new System.Drawing.Point(408, 464);
             btnTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -931,7 +967,7 @@ namespace ARKViewer
             btnTribeCopyCommand.Size = new System.Drawing.Size(47, 46);
             btnTribeCopyCommand.TabIndex = 3;
             toolTip1.SetToolTip(btnTribeCopyCommand, "Copy command to clipboard.");
-            btnTribeCopyCommand.UseVisualStyleBackColor = true;
+            btnTribeCopyCommand.UseVisualStyleBackColor = false;
             btnTribeCopyCommand.Click += btnTribeCopyCommand_Click;
             // 
             // chkTribePlayers
@@ -996,22 +1032,26 @@ namespace ARKViewer
             // btnSaveChartImage
             // 
             btnSaveChartImage.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSaveChartImage.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnSaveChartImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnSaveChartImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSaveChartImage.Image = (System.Drawing.Image)resources.GetObject("btnSaveChartImage.Image");
-            btnSaveChartImage.Location = new System.Drawing.Point(299, 42);
+            btnSaveChartImage.Location = new System.Drawing.Point(304, 40);
             btnSaveChartImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSaveChartImage.Name = "btnSaveChartImage";
-            btnSaveChartImage.Size = new System.Drawing.Size(43, 33);
+            btnSaveChartImage.Size = new System.Drawing.Size(38, 35);
             btnSaveChartImage.TabIndex = 52;
             btnSaveChartImage.TabStop = false;
             toolTip1.SetToolTip(btnSaveChartImage, "Save chart image.");
-            btnSaveChartImage.UseVisualStyleBackColor = true;
+            btnSaveChartImage.UseVisualStyleBackColor = false;
             btnSaveChartImage.Click += btnSaveChart_Click;
             // 
             // btnFilterTribe
             // 
             btnFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFilterTribe.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             btnFilterTribe.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFilterTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnFilterTribe.Image = (System.Drawing.Image)resources.GetObject("btnFilterTribe.Image");
             btnFilterTribe.Location = new System.Drawing.Point(674, -1);
             btnFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1019,14 +1059,16 @@ namespace ARKViewer
             btnFilterTribe.Size = new System.Drawing.Size(35, 33);
             btnFilterTribe.TabIndex = 9;
             toolTip1.SetToolTip(btnFilterTribe, "Find next");
-            btnFilterTribe.UseVisualStyleBackColor = true;
+            btnFilterTribe.UseVisualStyleBackColor = false;
             btnFilterTribe.Click += btnFilterTribe_Click;
             // 
             // btnRconCommandTribes
             // 
             btnRconCommandTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandTribes.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRconCommandTribes.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRconCommandTribes.Enabled = false;
+            btnRconCommandTribes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRconCommandTribes.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTribes.Image");
             btnRconCommandTribes.Location = new System.Drawing.Point(463, 464);
             btnRconCommandTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1034,7 +1076,7 @@ namespace ARKViewer
             btnRconCommandTribes.Size = new System.Drawing.Size(47, 46);
             btnRconCommandTribes.TabIndex = 25;
             toolTip1.SetToolTip(btnRconCommandTribes, "Send command to server using RCON.");
-            btnRconCommandTribes.UseVisualStyleBackColor = true;
+            btnRconCommandTribes.UseVisualStyleBackColor = false;
             btnRconCommandTribes.Visible = false;
             btnRconCommandTribes.Click += btnRconCommandTribes_Click;
             // 
@@ -1055,8 +1097,10 @@ namespace ARKViewer
             // btnCopyCommandStructure
             // 
             btnCopyCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandStructure.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCopyCommandStructure.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCopyCommandStructure.Enabled = false;
+            btnCopyCommandStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCopyCommandStructure.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandStructure.Image");
             btnCopyCommandStructure.Location = new System.Drawing.Point(402, 466);
             btnCopyCommandStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1064,14 +1108,16 @@ namespace ARKViewer
             btnCopyCommandStructure.Size = new System.Drawing.Size(47, 46);
             btnCopyCommandStructure.TabIndex = 10;
             toolTip1.SetToolTip(btnCopyCommandStructure, "Copy command to clipboard.");
-            btnCopyCommandStructure.UseVisualStyleBackColor = true;
+            btnCopyCommandStructure.UseVisualStyleBackColor = false;
             btnCopyCommandStructure.Click += btnCopyCommandStructure_Click;
             // 
             // btnStructureInventory
             // 
             btnStructureInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnStructureInventory.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnStructureInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnStructureInventory.Enabled = false;
+            btnStructureInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnStructureInventory.Image = (System.Drawing.Image)resources.GetObject("btnStructureInventory.Image");
             btnStructureInventory.Location = new System.Drawing.Point(509, 466);
             btnStructureInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1079,13 +1125,15 @@ namespace ARKViewer
             btnStructureInventory.Size = new System.Drawing.Size(47, 46);
             btnStructureInventory.TabIndex = 11;
             toolTip1.SetToolTip(btnStructureInventory, "View inventory.");
-            btnStructureInventory.UseVisualStyleBackColor = true;
+            btnStructureInventory.UseVisualStyleBackColor = false;
             btnStructureInventory.Click += btnStructureInventory_Click;
             // 
             // btnFindStructures
             // 
             btnFindStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindStructures.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             btnFindStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnFindStructures.Image = (System.Drawing.Image)resources.GetObject("btnFindStructures.Image");
             btnFindStructures.Location = new System.Drawing.Point(1037, -1);
             btnFindStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1093,14 +1141,16 @@ namespace ARKViewer
             btnFindStructures.Size = new System.Drawing.Size(35, 33);
             btnFindStructures.TabIndex = 9;
             toolTip1.SetToolTip(btnFindStructures, "Find next");
-            btnFindStructures.UseVisualStyleBackColor = true;
+            btnFindStructures.UseVisualStyleBackColor = false;
             btnFindStructures.Click += btnFindStructures_Click;
             // 
             // btnRconCommandStructures
             // 
             btnRconCommandStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandStructures.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRconCommandStructures.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRconCommandStructures.Enabled = false;
+            btnRconCommandStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRconCommandStructures.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandStructures.Image");
             btnRconCommandStructures.Location = new System.Drawing.Point(456, 466);
             btnRconCommandStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1108,15 +1158,17 @@ namespace ARKViewer
             btnRconCommandStructures.Size = new System.Drawing.Size(47, 46);
             btnRconCommandStructures.TabIndex = 25;
             toolTip1.SetToolTip(btnRconCommandStructures, "Copy command to clipboard.");
-            btnRconCommandStructures.UseVisualStyleBackColor = true;
+            btnRconCommandStructures.UseVisualStyleBackColor = false;
             btnRconCommandStructures.Visible = false;
             btnRconCommandStructures.Click += btnRconCommandStructures_Click;
             // 
             // btnDinoInventory
             // 
             btnDinoInventory.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDinoInventory.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnDinoInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDinoInventory.Enabled = false;
+            btnDinoInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnDinoInventory.Image = (System.Drawing.Image)resources.GetObject("btnDinoInventory.Image");
             btnDinoInventory.Location = new System.Drawing.Point(861, 465);
             btnDinoInventory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1124,14 +1176,16 @@ namespace ARKViewer
             btnDinoInventory.Size = new System.Drawing.Size(47, 46);
             btnDinoInventory.TabIndex = 13;
             toolTip1.SetToolTip(btnDinoInventory, "View inventory.");
-            btnDinoInventory.UseVisualStyleBackColor = true;
+            btnDinoInventory.UseVisualStyleBackColor = false;
             btnDinoInventory.Click += btnDinoInventory_Click;
             // 
             // btnDinoAncestors
             // 
             btnDinoAncestors.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnDinoAncestors.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnDinoAncestors.Cursor = System.Windows.Forms.Cursors.Hand;
             btnDinoAncestors.Enabled = false;
+            btnDinoAncestors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnDinoAncestors.Image = (System.Drawing.Image)resources.GetObject("btnDinoAncestors.Image");
             btnDinoAncestors.Location = new System.Drawing.Point(810, 465);
             btnDinoAncestors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1139,14 +1193,16 @@ namespace ARKViewer
             btnDinoAncestors.Size = new System.Drawing.Size(47, 46);
             btnDinoAncestors.TabIndex = 12;
             toolTip1.SetToolTip(btnDinoAncestors, "View breeding lines.");
-            btnDinoAncestors.UseVisualStyleBackColor = true;
+            btnDinoAncestors.UseVisualStyleBackColor = false;
             btnDinoAncestors.Click += btnDinoAncestors_Click;
             // 
             // btnCopyCommandTamed
             // 
             btnCopyCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandTamed.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCopyCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCopyCommandTamed.Enabled = false;
+            btnCopyCommandTamed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCopyCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandTamed.Image");
             btnCopyCommandTamed.Location = new System.Drawing.Point(707, 465);
             btnCopyCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1154,7 +1210,7 @@ namespace ARKViewer
             btnCopyCommandTamed.Size = new System.Drawing.Size(47, 46);
             btnCopyCommandTamed.TabIndex = 11;
             toolTip1.SetToolTip(btnCopyCommandTamed, "Copy command to clipboard.");
-            btnCopyCommandTamed.UseVisualStyleBackColor = true;
+            btnCopyCommandTamed.UseVisualStyleBackColor = false;
             btnCopyCommandTamed.Click += btnCopyCommandTamed_Click;
             // 
             // chkCryo
@@ -1174,7 +1230,9 @@ namespace ARKViewer
             // btnFindTamed
             // 
             btnFindTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindTamed.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             btnFindTamed.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindTamed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnFindTamed.Image = (System.Drawing.Image)resources.GetObject("btnFindTamed.Image");
             btnFindTamed.Location = new System.Drawing.Point(1037, -1);
             btnFindTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1182,7 +1240,7 @@ namespace ARKViewer
             btnFindTamed.Size = new System.Drawing.Size(35, 33);
             btnFindTamed.TabIndex = 9;
             toolTip1.SetToolTip(btnFindTamed, "Find next");
-            btnFindTamed.UseVisualStyleBackColor = true;
+            btnFindTamed.UseVisualStyleBackColor = false;
             btnFindTamed.Click += btnFindTamed_Click;
             // 
             // chkTameUploads
@@ -1203,8 +1261,10 @@ namespace ARKViewer
             // btnRconCommandTamed
             // 
             btnRconCommandTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandTamed.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRconCommandTamed.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRconCommandTamed.Enabled = false;
+            btnRconCommandTamed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRconCommandTamed.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandTamed.Image");
             btnRconCommandTamed.Location = new System.Drawing.Point(759, 465);
             btnRconCommandTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1212,15 +1272,17 @@ namespace ARKViewer
             btnRconCommandTamed.Size = new System.Drawing.Size(47, 46);
             btnRconCommandTamed.TabIndex = 26;
             toolTip1.SetToolTip(btnRconCommandTamed, "Send command to server using RCON.");
-            btnRconCommandTamed.UseVisualStyleBackColor = true;
+            btnRconCommandTamed.UseVisualStyleBackColor = false;
             btnRconCommandTamed.Visible = false;
             btnRconCommandTamed.Click += btnRconCommandTamed_Click;
             // 
             // btnCopyCommandWild
             // 
             btnCopyCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyCommandWild.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCopyCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCopyCommandWild.Enabled = false;
+            btnCopyCommandWild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCopyCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommandWild.Image");
             btnCopyCommandWild.Location = new System.Drawing.Point(408, 465);
             btnCopyCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1228,13 +1290,15 @@ namespace ARKViewer
             btnCopyCommandWild.Size = new System.Drawing.Size(47, 46);
             btnCopyCommandWild.TabIndex = 17;
             toolTip1.SetToolTip(btnCopyCommandWild, "Copy command to clipboard.");
-            btnCopyCommandWild.UseVisualStyleBackColor = true;
+            btnCopyCommandWild.UseVisualStyleBackColor = false;
             btnCopyCommandWild.Click += btnCopyCommandWild_Click;
             // 
             // btnFindWild
             // 
             btnFindWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnFindWild.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             btnFindWild.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnFindWild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnFindWild.Image = (System.Drawing.Image)resources.GetObject("btnFindWild.Image");
             btnFindWild.Location = new System.Drawing.Point(1037, -1);
             btnFindWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1242,14 +1306,16 @@ namespace ARKViewer
             btnFindWild.Size = new System.Drawing.Size(35, 33);
             btnFindWild.TabIndex = 8;
             toolTip1.SetToolTip(btnFindWild, "Find next");
-            btnFindWild.UseVisualStyleBackColor = true;
+            btnFindWild.UseVisualStyleBackColor = false;
             btnFindWild.Click += btnFindWild_Click;
             // 
             // btnRconCommandWild
             // 
             btnRconCommandWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRconCommandWild.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRconCommandWild.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRconCommandWild.Enabled = false;
+            btnRconCommandWild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRconCommandWild.Image = (System.Drawing.Image)resources.GetObject("btnRconCommandWild.Image");
             btnRconCommandWild.Location = new System.Drawing.Point(463, 465);
             btnRconCommandWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1257,7 +1323,7 @@ namespace ARKViewer
             btnRconCommandWild.Size = new System.Drawing.Size(47, 46);
             btnRconCommandWild.TabIndex = 24;
             toolTip1.SetToolTip(btnRconCommandWild, "Send command to server using RCON.");
-            btnRconCommandWild.UseVisualStyleBackColor = true;
+            btnRconCommandWild.UseVisualStyleBackColor = false;
             btnRconCommandWild.Visible = false;
             btnRconCommandWild.Click += btnRconCommandWild_Click;
             // 
@@ -1267,8 +1333,8 @@ namespace ARKViewer
             lblMap.AutoSize = true;
             lblMap.BackColor = System.Drawing.Color.Transparent;
             lblMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblMap.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblMap.Location = new System.Drawing.Point(786, 59);
+            lblMap.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblMap.Location = new System.Drawing.Point(786, 82);
             lblMap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblMap.Name = "lblMap";
             lblMap.Size = new System.Drawing.Size(89, 13);
@@ -1278,13 +1344,23 @@ namespace ARKViewer
             // cboSelectedMap
             // 
             cboSelectedMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboSelectedMap.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            cboSelectedMap.BorderColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            cboSelectedMap.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboSelectedMap.DropDownHeight = 100;
             cboSelectedMap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboSelectedMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboSelectedMap.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cboSelectedMap.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboSelectedMap.FormattingEnabled = true;
-            cboSelectedMap.Location = new System.Drawing.Point(878, 54);
+            cboSelectedMap.IntegralHeight = false;
+            cboSelectedMap.ItemHeight = 14;
+            cboSelectedMap.Location = new System.Drawing.Point(882, 78);
             cboSelectedMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboSelectedMap.Name = "cboSelectedMap";
-            cboSelectedMap.Size = new System.Drawing.Size(241, 23);
+            cboSelectedMap.Size = new System.Drawing.Size(241, 20);
             cboSelectedMap.TabIndex = 26;
+            cboSelectedMap.TabStop = false;
             cboSelectedMap.SelectedIndexChanged += cboSelectedMap_SelectedIndexChanged;
             // 
             // pictureBox1
@@ -1307,6 +1383,7 @@ namespace ARKViewer
             // 
             // tpgLeaderboard
             // 
+            tpgLeaderboard.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgLeaderboard.Controls.Add(cboLeaderboardPlayer);
             tpgLeaderboard.Controls.Add(lblMissionPlayer);
             tpgLeaderboard.Controls.Add(lvwLeaderboardSummary);
@@ -1321,16 +1398,20 @@ namespace ARKViewer
             tpgLeaderboard.Size = new System.Drawing.Size(1104, 520);
             tpgLeaderboard.TabIndex = 8;
             tpgLeaderboard.Text = "Leaderboard";
-            tpgLeaderboard.UseVisualStyleBackColor = true;
             // 
             // cboLeaderboardPlayer
             // 
+            cboLeaderboardPlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboLeaderboardPlayer.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboLeaderboardPlayer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboLeaderboardPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboLeaderboardPlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboLeaderboardPlayer.FormattingEnabled = true;
             cboLeaderboardPlayer.Location = new System.Drawing.Point(469, 243);
             cboLeaderboardPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboLeaderboardPlayer.Name = "cboLeaderboardPlayer";
-            cboLeaderboardPlayer.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardPlayer.Size = new System.Drawing.Size(279, 24);
             cboLeaderboardPlayer.TabIndex = 18;
             cboLeaderboardPlayer.SelectedIndexChanged += cboLeaderboardPlayer_SelectedIndexChanged;
             // 
@@ -1338,7 +1419,7 @@ namespace ARKViewer
             // 
             lblMissionPlayer.AutoSize = true;
             lblMissionPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblMissionPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblMissionPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblMissionPlayer.Location = new System.Drawing.Point(401, 248);
             lblMissionPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblMissionPlayer.Name = "lblMissionPlayer";
@@ -1349,8 +1430,11 @@ namespace ARKViewer
             // lvwLeaderboardSummary
             // 
             lvwLeaderboardSummary.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwLeaderboardSummary.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwLeaderboardSummary.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwLeaderboardSummary.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader32, columnHeader35, columnHeader36 });
             lvwLeaderboardSummary.ContextMenuStrip = mnuContext;
+            lvwLeaderboardSummary.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwLeaderboardSummary.FullRowSelect = true;
             lvwLeaderboardSummary.Location = new System.Drawing.Point(14, 67);
             lvwLeaderboardSummary.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1380,8 +1464,11 @@ namespace ARKViewer
             // lvwLeaderboard
             // 
             lvwLeaderboard.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwLeaderboard.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwLeaderboard.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwLeaderboard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwLeaderboard_Mission, lvwLeaderboard_Tribe, lvwLeaderboard_Player, lvwLeaderboard_Score });
             lvwLeaderboard.ContextMenuStrip = mnuContext;
+            lvwLeaderboard.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwLeaderboard.FullRowSelect = true;
             lvwLeaderboard.Location = new System.Drawing.Point(14, 276);
             lvwLeaderboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1416,12 +1503,17 @@ namespace ARKViewer
             // 
             // cboLeaderboardMission
             // 
+            cboLeaderboardMission.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboLeaderboardMission.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboLeaderboardMission.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboLeaderboardMission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardMission.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboLeaderboardMission.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboLeaderboardMission.FormattingEnabled = true;
             cboLeaderboardMission.Location = new System.Drawing.Point(80, 243);
             cboLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboLeaderboardMission.Name = "cboLeaderboardMission";
-            cboLeaderboardMission.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardMission.Size = new System.Drawing.Size(279, 24);
             cboLeaderboardMission.TabIndex = 9;
             cboLeaderboardMission.SelectedIndexChanged += cboLeaderboardMission_SelectedIndexChanged;
             // 
@@ -1429,7 +1521,7 @@ namespace ARKViewer
             // 
             lblLeaderboardMission.AutoSize = true;
             lblLeaderboardMission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblLeaderboardMission.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblLeaderboardMission.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblLeaderboardMission.Location = new System.Drawing.Point(13, 248);
             lblLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblLeaderboardMission.Name = "lblLeaderboardMission";
@@ -1439,12 +1531,17 @@ namespace ARKViewer
             // 
             // cboLeaderboardTribe
             // 
+            cboLeaderboardTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboLeaderboardTribe.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboLeaderboardTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboLeaderboardTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboLeaderboardTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboLeaderboardTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboLeaderboardTribe.FormattingEnabled = true;
             cboLeaderboardTribe.Location = new System.Drawing.Point(80, 31);
             cboLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboLeaderboardTribe.Name = "cboLeaderboardTribe";
-            cboLeaderboardTribe.Size = new System.Drawing.Size(279, 23);
+            cboLeaderboardTribe.Size = new System.Drawing.Size(279, 24);
             cboLeaderboardTribe.TabIndex = 5;
             cboLeaderboardTribe.SelectedIndexChanged += cboLeaderboardTribe_SelectedIndexChanged;
             // 
@@ -1452,7 +1549,7 @@ namespace ARKViewer
             // 
             lblLeaderboardTribe.AutoSize = true;
             lblLeaderboardTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblLeaderboardTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblLeaderboardTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblLeaderboardTribe.Location = new System.Drawing.Point(13, 36);
             lblLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblLeaderboardTribe.Name = "lblLeaderboardTribe";
@@ -1462,6 +1559,7 @@ namespace ARKViewer
             // 
             // tpgLocalProfile
             // 
+            tpgLocalProfile.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgLocalProfile.Controls.Add(pnlUploadedStats);
             tpgLocalProfile.Controls.Add(lblUploadedCountItems);
             tpgLocalProfile.Controls.Add(lblUploadedCountTames);
@@ -1472,14 +1570,13 @@ namespace ARKViewer
             tpgLocalProfile.Controls.Add(lblUploadedCharacters);
             tpgLocalProfile.Controls.Add(lvwUploadedCharacters);
             tpgLocalProfile.Controls.Add(lvwUploadedTames);
-            tpgLocalProfile.ForeColor = System.Drawing.SystemColors.ControlText;
+            tpgLocalProfile.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgLocalProfile.Location = new System.Drawing.Point(4, 24);
             tpgLocalProfile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgLocalProfile.Name = "tpgLocalProfile";
             tpgLocalProfile.Size = new System.Drawing.Size(1104, 520);
             tpgLocalProfile.TabIndex = 7;
             tpgLocalProfile.Text = "Local Profile";
-            tpgLocalProfile.UseVisualStyleBackColor = true;
             // 
             // pnlUploadedStats
             // 
@@ -1531,9 +1628,9 @@ namespace ARKViewer
             // lblUploadedCountItems
             // 
             lblUploadedCountItems.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblUploadedCountItems.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountItems.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblUploadedCountItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCountItems.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountItems.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCountItems.Location = new System.Drawing.Point(961, 486);
             lblUploadedCountItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblUploadedCountItems.Name = "lblUploadedCountItems";
@@ -1545,9 +1642,9 @@ namespace ARKViewer
             // lblUploadedCountTames
             // 
             lblUploadedCountTames.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblUploadedCountTames.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountTames.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblUploadedCountTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCountTames.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountTames.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCountTames.Location = new System.Drawing.Point(961, 313);
             lblUploadedCountTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblUploadedCountTames.Name = "lblUploadedCountTames";
@@ -1559,9 +1656,9 @@ namespace ARKViewer
             // lblUploadedCountCharacters
             // 
             lblUploadedCountCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblUploadedCountCharacters.BackColor = System.Drawing.Color.AliceBlue;
+            lblUploadedCountCharacters.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblUploadedCountCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCountCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCountCharacters.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCountCharacters.Location = new System.Drawing.Point(961, 145);
             lblUploadedCountCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblUploadedCountCharacters.Name = "lblUploadedCountCharacters";
@@ -1574,7 +1671,7 @@ namespace ARKViewer
             // 
             lblUploadedItems.AutoSize = true;
             lblUploadedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblUploadedItems.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedItems.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedItems.Location = new System.Drawing.Point(12, 359);
             lblUploadedItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblUploadedItems.Name = "lblUploadedItems";
@@ -1585,7 +1682,10 @@ namespace ARKViewer
             // lvwUploadedItems
             // 
             lvwUploadedItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedItems.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwUploadedItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwUploadedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader8, columnHeader9, columnHeader18, columnHeader19, columnHeader22 });
+            lvwUploadedItems.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwUploadedItems.FullRowSelect = true;
             lvwUploadedItems.Location = new System.Drawing.Point(15, 377);
             lvwUploadedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1624,7 +1724,7 @@ namespace ARKViewer
             // 
             lblUploadedTames.AutoSize = true;
             lblUploadedTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblUploadedTames.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedTames.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedTames.Location = new System.Drawing.Point(12, 153);
             lblUploadedTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblUploadedTames.Name = "lblUploadedTames";
@@ -1636,7 +1736,7 @@ namespace ARKViewer
             // 
             lblUploadedCharacters.AutoSize = true;
             lblUploadedCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblUploadedCharacters.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblUploadedCharacters.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCharacters.Location = new System.Drawing.Point(12, 18);
             lblUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblUploadedCharacters.Name = "lblUploadedCharacters";
@@ -1647,8 +1747,11 @@ namespace ARKViewer
             // lvwUploadedCharacters
             // 
             lvwUploadedCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedCharacters.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwUploadedCharacters.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwUploadedCharacters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader37, columnHeader39, columnHeader40, columnHeader43, columnHeader44, columnHeader45, columnHeader46, columnHeader47, columnHeader48, columnHeader49, columnHeader50, columnHeader51, columnHeader52 });
             lvwUploadedCharacters.ContextMenuStrip = mnuContext;
+            lvwUploadedCharacters.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwUploadedCharacters.FullRowSelect = true;
             lvwUploadedCharacters.Location = new System.Drawing.Point(15, 42);
             lvwUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1724,8 +1827,11 @@ namespace ARKViewer
             // lvwUploadedTames
             // 
             lvwUploadedTames.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwUploadedTames.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwUploadedTames.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwUploadedTames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader5, columnHeader6, columnHeader7, columnHeader10, columnHeader11, columnHeader12, columnHeader13, columnHeader14, columnHeader15, columnHeader16, columnHeader17, columnHeader20, columnHeader21, columnHeader23, columnHeader24, columnHeader25, columnHeader26, columnHeader27, columnHeader28, columnHeader29, columnHeader30, columnHeader33, columnHeader34 });
             lvwUploadedTames.ContextMenuStrip = mnuContext;
+            lvwUploadedTames.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwUploadedTames.FullRowSelect = true;
             lvwUploadedTames.Location = new System.Drawing.Point(15, 175);
             lvwUploadedTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1877,6 +1983,7 @@ namespace ARKViewer
             // 
             // splitContainer2.Panel1
             // 
+            splitContainer2.Panel1.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             splitContainer2.Panel1.Controls.Add(lblPaintingsCount);
             splitContainer2.Panel1.Controls.Add(panel1);
             splitContainer2.Panel1.Controls.Add(btnDeletePaintings);
@@ -1888,23 +1995,23 @@ namespace ARKViewer
             splitContainer2.Panel1.Controls.Add(cboPaintingStructure);
             splitContainer2.Panel1.Controls.Add(lblCopyCommandPaintings);
             splitContainer2.Panel1.Controls.Add(btnConsoleCommandPainting);
+            splitContainer2.Panel1.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             splitContainer2.Panel1.Paint += splitContainer2_Panel1_Paint;
             // 
             // splitContainer2.Panel2
             // 
-            splitContainer2.Panel2.BackColor = System.Drawing.Color.DimGray;
+            splitContainer2.Panel2.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
             splitContainer2.Panel2.Controls.Add(picPainting);
             splitContainer2.Size = new System.Drawing.Size(1092, 508);
-            splitContainer2.SplitterDistance = 700;
+            splitContainer2.SplitterDistance = 709;
             splitContainer2.TabIndex = 37;
             // 
             // lblPaintingsCount
             // 
             lblPaintingsCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblPaintingsCount.BackColor = System.Drawing.Color.AliceBlue;
+            lblPaintingsCount.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblPaintingsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblPaintingsCount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblPaintingsCount.Location = new System.Drawing.Point(570, 458);
+            lblPaintingsCount.Location = new System.Drawing.Point(568, 458);
             lblPaintingsCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPaintingsCount.Name = "lblPaintingsCount";
             lblPaintingsCount.Size = new System.Drawing.Size(126, 35);
@@ -1922,7 +2029,7 @@ namespace ARKViewer
             panel1.Location = new System.Drawing.Point(5, 735);
             panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1360, 33);
+            panel1.Size = new System.Drawing.Size(1369, 33);
             panel1.TabIndex = 23;
             // 
             // textBox1
@@ -1931,14 +2038,14 @@ namespace ARKViewer
             textBox1.Location = new System.Drawing.Point(12, 3);
             textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(1808, 23);
+            textBox1.Size = new System.Drawing.Size(1817, 23);
             textBox1.TabIndex = 6;
             // 
             // lblPaintingTribe
             // 
             lblPaintingTribe.AutoSize = true;
             lblPaintingTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPaintingTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPaintingTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPaintingTribe.Location = new System.Drawing.Point(18, 22);
             lblPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPaintingTribe.Name = "lblPaintingTribe";
@@ -1949,7 +2056,10 @@ namespace ARKViewer
             // lvwPlayerPaintings
             // 
             lvwPlayerPaintings.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lvwPlayerPaintings.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwPlayerPaintings.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwPlayerPaintings.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwPlayerPaintings_Tribe, lvwPlayerPaintings_Structure, lvwPlayerPaintings_Lat, lvwPlayerPaintings_Lon, lvwPlayerPaintings_PaintingId });
+            lvwPlayerPaintings.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwPlayerPaintings.FullRowSelect = true;
             lvwPlayerPaintings.Location = new System.Drawing.Point(10, 51);
             lvwPlayerPaintings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1986,12 +2096,17 @@ namespace ARKViewer
             // 
             // cboPaintingTribe
             // 
+            cboPaintingTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPaintingTribe.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPaintingTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboPaintingTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPaintingTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboPaintingTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboPaintingTribe.FormattingEnabled = true;
             cboPaintingTribe.Location = new System.Drawing.Point(68, 17);
             cboPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboPaintingTribe.Name = "cboPaintingTribe";
-            cboPaintingTribe.Size = new System.Drawing.Size(237, 23);
+            cboPaintingTribe.Size = new System.Drawing.Size(237, 24);
             cboPaintingTribe.TabIndex = 24;
             cboPaintingTribe.SelectedIndexChanged += cboPaintingTribe_SelectedIndexChanged;
             // 
@@ -1999,7 +2114,7 @@ namespace ARKViewer
             // 
             lblStructurePainting.AutoSize = true;
             lblStructurePainting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructurePainting.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructurePainting.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructurePainting.Location = new System.Drawing.Point(373, 22);
             lblStructurePainting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructurePainting.Name = "lblStructurePainting";
@@ -2010,25 +2125,35 @@ namespace ARKViewer
             // cboConsoleCommandPainting
             // 
             cboConsoleCommandPainting.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandPainting.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandPainting.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandPainting.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboConsoleCommandPainting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandPainting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandPainting.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommandPainting.FormattingEnabled = true;
             cboConsoleCommandPainting.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
             cboConsoleCommandPainting.Location = new System.Drawing.Point(92, 461);
             cboConsoleCommandPainting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandPainting.Name = "cboConsoleCommandPainting";
-            cboConsoleCommandPainting.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandPainting.Size = new System.Drawing.Size(305, 24);
             cboConsoleCommandPainting.Sorted = true;
             cboConsoleCommandPainting.TabIndex = 27;
             cboConsoleCommandPainting.SelectedIndexChanged += cboConsoleCommandPainting_SelectedIndexChanged;
             // 
             // cboPaintingStructure
             // 
+            cboPaintingStructure.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPaintingStructure.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPaintingStructure.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboPaintingStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPaintingStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboPaintingStructure.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboPaintingStructure.FormattingEnabled = true;
             cboPaintingStructure.Location = new System.Drawing.Point(454, 17);
             cboPaintingStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboPaintingStructure.Name = "cboPaintingStructure";
-            cboPaintingStructure.Size = new System.Drawing.Size(237, 23);
+            cboPaintingStructure.Size = new System.Drawing.Size(237, 24);
             cboPaintingStructure.TabIndex = 30;
             cboPaintingStructure.SelectedIndexChanged += cboPaintingStructure_SelectedIndexChanged;
             // 
@@ -2037,6 +2162,7 @@ namespace ARKViewer
             lblCopyCommandPaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblCopyCommandPaintings.AutoSize = true;
             lblCopyCommandPaintings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCopyCommandPaintings.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCopyCommandPaintings.Location = new System.Drawing.Point(12, 465);
             lblCopyCommandPaintings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCopyCommandPaintings.Name = "lblCopyCommandPaintings";
@@ -2047,9 +2173,9 @@ namespace ARKViewer
             // picPainting
             // 
             picPainting.Anchor = System.Windows.Forms.AnchorStyles.None;
-            picPainting.BackColor = System.Drawing.Color.WhiteSmoke;
+            picPainting.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             picPainting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            picPainting.Location = new System.Drawing.Point(19, 79);
+            picPainting.Location = new System.Drawing.Point(14, 79);
             picPainting.Name = "picPainting";
             picPainting.Size = new System.Drawing.Size(350, 350);
             picPainting.TabIndex = 1;
@@ -2058,6 +2184,7 @@ namespace ARKViewer
             // 
             // tpgItemList
             // 
+            tpgItemList.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgItemList.Controls.Add(chkItemSearchUploads);
             tpgItemList.Controls.Add(pnlFilterSearch);
             tpgItemList.Controls.Add(chkItemSearchBlueprints);
@@ -2070,18 +2197,18 @@ namespace ARKViewer
             tpgItemList.Controls.Add(lblItemListCount);
             tpgItemList.Controls.Add(lblItemListItem);
             tpgItemList.Controls.Add(lvwItemList);
+            tpgItemList.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgItemList.Location = new System.Drawing.Point(4, 24);
             tpgItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgItemList.Name = "tpgItemList";
             tpgItemList.Size = new System.Drawing.Size(1104, 520);
             tpgItemList.TabIndex = 6;
             tpgItemList.Text = "Item Search";
-            tpgItemList.UseVisualStyleBackColor = true;
             // 
             // pnlFilterSearch
             // 
             pnlFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterSearch.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterSearch.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             pnlFilterSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pnlFilterSearch.Controls.Add(btnFindSearched);
             pnlFilterSearch.Controls.Add(txtFilterSearch);
@@ -2094,21 +2221,30 @@ namespace ARKViewer
             // txtFilterSearch
             // 
             txtFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterSearch.Location = new System.Drawing.Point(12, 3);
+            txtFilterSearch.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilterSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilterSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterSearch.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilterSearch.Location = new System.Drawing.Point(12, 5);
             txtFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterSearch.Name = "txtFilterSearch";
-            txtFilterSearch.Size = new System.Drawing.Size(1013, 23);
+            txtFilterSearch.Size = new System.Drawing.Size(1013, 20);
             txtFilterSearch.TabIndex = 6;
             txtFilterSearch.KeyDown += txtFilterSearch_KeyDown;
             // 
             // cboItemListItem
             // 
+            cboItemListItem.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListItem.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListItem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboItemListItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboItemListItem.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboItemListItem.FormattingEnabled = true;
             cboItemListItem.Location = new System.Drawing.Point(390, 17);
             cboItemListItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboItemListItem.Name = "cboItemListItem";
-            cboItemListItem.Size = new System.Drawing.Size(251, 23);
+            cboItemListItem.Size = new System.Drawing.Size(251, 24);
             cboItemListItem.TabIndex = 3;
             cboItemListItem.SelectedIndexChanged += cboItemListItem_SelectedIndexChanged;
             // 
@@ -2116,7 +2252,7 @@ namespace ARKViewer
             // 
             lblItemListTribe.AutoSize = true;
             lblItemListTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblItemListTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListTribe.Location = new System.Drawing.Point(20, 21);
             lblItemListTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblItemListTribe.Name = "lblItemListTribe";
@@ -2126,27 +2262,34 @@ namespace ARKViewer
             // 
             // cboItemListTribe
             // 
+            cboItemListTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListTribe.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboItemListTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboItemListTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboItemListTribe.FormattingEnabled = true;
             cboItemListTribe.Location = new System.Drawing.Point(80, 18);
             cboItemListTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboItemListTribe.Name = "cboItemListTribe";
-            cboItemListTribe.Size = new System.Drawing.Size(254, 23);
+            cboItemListTribe.Size = new System.Drawing.Size(254, 24);
             cboItemListTribe.TabIndex = 1;
             cboItemListTribe.SelectedIndexChanged += cboItemListTribe_SelectedIndexChanged;
             // 
             // btnCopyItemListCommand
             // 
             btnCopyItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCopyItemListCommand.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCopyItemListCommand.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCopyItemListCommand.Enabled = false;
+            btnCopyItemListCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCopyItemListCommand.Image = (System.Drawing.Image)resources.GetObject("btnCopyItemListCommand.Image");
             btnCopyItemListCommand.Location = new System.Drawing.Point(408, 466);
             btnCopyItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnCopyItemListCommand.Name = "btnCopyItemListCommand";
             btnCopyItemListCommand.Size = new System.Drawing.Size(47, 46);
             btnCopyItemListCommand.TabIndex = 7;
-            btnCopyItemListCommand.UseVisualStyleBackColor = true;
+            btnCopyItemListCommand.UseVisualStyleBackColor = false;
             btnCopyItemListCommand.Click += btnItemListCommand_Click;
             // 
             // lblItemListCommand
@@ -2154,7 +2297,7 @@ namespace ARKViewer
             lblItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblItemListCommand.AutoSize = true;
             lblItemListCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblItemListCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListCommand.Location = new System.Drawing.Point(16, 481);
             lblItemListCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblItemListCommand.Name = "lblItemListCommand";
@@ -2165,13 +2308,18 @@ namespace ARKViewer
             // cboItemListCommand
             // 
             cboItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboItemListCommand.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListCommand.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListCommand.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboItemListCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboItemListCommand.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboItemListCommand.FormattingEnabled = true;
             cboItemListCommand.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
             cboItemListCommand.Location = new System.Drawing.Point(96, 478);
             cboItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboItemListCommand.Name = "cboItemListCommand";
-            cboItemListCommand.Size = new System.Drawing.Size(305, 23);
+            cboItemListCommand.Size = new System.Drawing.Size(305, 24);
             cboItemListCommand.Sorted = true;
             cboItemListCommand.TabIndex = 6;
             cboItemListCommand.SelectedIndexChanged += cboItemListCommand_SelectedIndexChanged;
@@ -2179,9 +2327,9 @@ namespace ARKViewer
             // lblItemListCount
             // 
             lblItemListCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblItemListCount.BackColor = System.Drawing.Color.AliceBlue;
+            lblItemListCount.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblItemListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblItemListCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListCount.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListCount.Location = new System.Drawing.Point(943, 472);
             lblItemListCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblItemListCount.Name = "lblItemListCount";
@@ -2194,7 +2342,7 @@ namespace ARKViewer
             // 
             lblItemListItem.AutoSize = true;
             lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblItemListItem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblItemListItem.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListItem.Location = new System.Drawing.Point(342, 22);
             lblItemListItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblItemListItem.Name = "lblItemListItem";
@@ -2205,7 +2353,10 @@ namespace ARKViewer
             // lvwItemList
             // 
             lvwItemList.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwItemList.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwItemList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwItemList_Tribe, lvwItemList_Container, lvwItemList_Player, lvwItemList_Item, lvwItemList_Quality, lvwItemList_Rating, lvwItemList_BP, lvwItemList_Quantity, lvwItemList_Lat, lvwItemList_Lon, lvwItemList_CCC, lvwItemList_UploadTime });
+            lvwItemList.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwItemList.FullRowSelect = true;
             lvwItemList.Location = new System.Drawing.Point(13, 60);
             lvwItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2277,6 +2428,7 @@ namespace ARKViewer
             // 
             // tpgDroppedItems
             // 
+            tpgDroppedItems.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgDroppedItems.Controls.Add(cboDroppedItemRealm);
             tpgDroppedItems.Controls.Add(lblDroppedItemRealm);
             tpgDroppedItems.Controls.Add(pnlFilterDropped);
@@ -2291,22 +2443,27 @@ namespace ARKViewer
             tpgDroppedItems.Controls.Add(lblCountDropped);
             tpgDroppedItems.Controls.Add(lblDroppedItem);
             tpgDroppedItems.Controls.Add(lvwDroppedItems);
+            tpgDroppedItems.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgDroppedItems.Location = new System.Drawing.Point(4, 24);
             tpgDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgDroppedItems.Name = "tpgDroppedItems";
             tpgDroppedItems.Size = new System.Drawing.Size(1104, 520);
             tpgDroppedItems.TabIndex = 4;
             tpgDroppedItems.Text = "Dropped Items";
-            tpgDroppedItems.UseVisualStyleBackColor = true;
             // 
             // cboDroppedItemRealm
             // 
+            cboDroppedItemRealm.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboDroppedItemRealm.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboDroppedItemRealm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboDroppedItemRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedItemRealm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboDroppedItemRealm.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboDroppedItemRealm.FormattingEnabled = true;
             cboDroppedItemRealm.Location = new System.Drawing.Point(736, 17);
             cboDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboDroppedItemRealm.Name = "cboDroppedItemRealm";
-            cboDroppedItemRealm.Size = new System.Drawing.Size(222, 23);
+            cboDroppedItemRealm.Size = new System.Drawing.Size(222, 24);
             cboDroppedItemRealm.TabIndex = 24;
             cboDroppedItemRealm.SelectedIndexChanged += cboDroppedItemRealm_SelectedIndexChanged;
             // 
@@ -2314,7 +2471,7 @@ namespace ARKViewer
             // 
             lblDroppedItemRealm.AutoSize = true;
             lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblDroppedItemRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedItemRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblDroppedItemRealm.Location = new System.Drawing.Point(662, 22);
             lblDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblDroppedItemRealm.Name = "lblDroppedItemRealm";
@@ -2325,7 +2482,7 @@ namespace ARKViewer
             // pnlFilterDropped
             // 
             pnlFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterDropped.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterDropped.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             pnlFilterDropped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pnlFilterDropped.Controls.Add(btnFindDropped);
             pnlFilterDropped.Controls.Add(txtFilterDropped);
@@ -2338,21 +2495,30 @@ namespace ARKViewer
             // txtFilterDropped
             // 
             txtFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterDropped.Location = new System.Drawing.Point(12, 3);
+            txtFilterDropped.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilterDropped.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilterDropped.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterDropped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilterDropped.Location = new System.Drawing.Point(12, 5);
             txtFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterDropped.Name = "txtFilterDropped";
-            txtFilterDropped.Size = new System.Drawing.Size(1015, 23);
+            txtFilterDropped.Size = new System.Drawing.Size(1015, 20);
             txtFilterDropped.TabIndex = 6;
             txtFilterDropped.KeyDown += txtFilterDropped_KeyDown;
             // 
             // cboDroppedItem
             // 
+            cboDroppedItem.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboDroppedItem.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboDroppedItem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboDroppedItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboDroppedItem.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboDroppedItem.FormattingEnabled = true;
             cboDroppedItem.Location = new System.Drawing.Point(390, 17);
             cboDroppedItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboDroppedItem.Name = "cboDroppedItem";
-            cboDroppedItem.Size = new System.Drawing.Size(248, 23);
+            cboDroppedItem.Size = new System.Drawing.Size(248, 24);
             cboDroppedItem.TabIndex = 3;
             cboDroppedItem.SelectedIndexChanged += cboDroppedItem_SelectedIndexChanged;
             // 
@@ -2360,7 +2526,7 @@ namespace ARKViewer
             // 
             lblDroppedPlayer.AutoSize = true;
             lblDroppedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblDroppedPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblDroppedPlayer.Location = new System.Drawing.Point(20, 21);
             lblDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblDroppedPlayer.Name = "lblDroppedPlayer";
@@ -2370,12 +2536,17 @@ namespace ARKViewer
             // 
             // cboDroppedPlayer
             // 
+            cboDroppedPlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboDroppedPlayer.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboDroppedPlayer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboDroppedPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboDroppedPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboDroppedPlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboDroppedPlayer.FormattingEnabled = true;
             cboDroppedPlayer.Location = new System.Drawing.Point(80, 18);
             cboDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboDroppedPlayer.Name = "cboDroppedPlayer";
-            cboDroppedPlayer.Size = new System.Drawing.Size(254, 23);
+            cboDroppedPlayer.Size = new System.Drawing.Size(254, 24);
             cboDroppedPlayer.TabIndex = 1;
             cboDroppedPlayer.SelectedIndexChanged += cboDroppedPlayer_SelectedIndexChanged;
             // 
@@ -2384,7 +2555,7 @@ namespace ARKViewer
             lblCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblCopyCommandDropped.AutoSize = true;
             lblCopyCommandDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblCopyCommandDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCopyCommandDropped.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCopyCommandDropped.Location = new System.Drawing.Point(16, 481);
             lblCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCopyCommandDropped.Name = "lblCopyCommandDropped";
@@ -2395,13 +2566,18 @@ namespace ARKViewer
             // cboCopyCommandDropped
             // 
             cboCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboCopyCommandDropped.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboCopyCommandDropped.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboCopyCommandDropped.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboCopyCommandDropped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboCopyCommandDropped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboCopyCommandDropped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboCopyCommandDropped.FormattingEnabled = true;
             cboCopyCommandDropped.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
             cboCopyCommandDropped.Location = new System.Drawing.Point(96, 478);
             cboCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboCopyCommandDropped.Name = "cboCopyCommandDropped";
-            cboCopyCommandDropped.Size = new System.Drawing.Size(305, 23);
+            cboCopyCommandDropped.Size = new System.Drawing.Size(305, 24);
             cboCopyCommandDropped.Sorted = true;
             cboCopyCommandDropped.TabIndex = 6;
             cboCopyCommandDropped.SelectedIndexChanged += cboCopyCommandDropped_SelectedIndexChanged;
@@ -2409,9 +2585,9 @@ namespace ARKViewer
             // lblCountDropped
             // 
             lblCountDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblCountDropped.BackColor = System.Drawing.Color.AliceBlue;
+            lblCountDropped.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblCountDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblCountDropped.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCountDropped.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCountDropped.Location = new System.Drawing.Point(945, 472);
             lblCountDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCountDropped.Name = "lblCountDropped";
@@ -2424,7 +2600,7 @@ namespace ARKViewer
             // 
             lblDroppedItem.AutoSize = true;
             lblDroppedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblDroppedItem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblDroppedItem.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblDroppedItem.Location = new System.Drawing.Point(342, 22);
             lblDroppedItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblDroppedItem.Name = "lblDroppedItem";
@@ -2435,7 +2611,10 @@ namespace ARKViewer
             // lvwDroppedItems
             // 
             lvwDroppedItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwDroppedItems.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwDroppedItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwDroppedItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwDroppedItems_Item, lvwDroppedItems_Bp, lvwDroppedItems_DroppedBy, lvwDroppedItems_Lat, lvwDroppedItems_Lon, lvwDroppedItems_Tribe, lvwDroppedItems_Player, lvwDroppedItems_CCC });
+            lvwDroppedItems.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwDroppedItems.FullRowSelect = true;
             lvwDroppedItems.Location = new System.Drawing.Point(13, 60);
             lvwDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2486,6 +2665,7 @@ namespace ARKViewer
             // 
             // tpgPlayers
             // 
+            tpgPlayers.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgPlayers.Controls.Add(btnRconCommandPlayers);
             tpgPlayers.Controls.Add(cboPlayerRealm);
             tpgPlayers.Controls.Add(lblPlayerRealm);
@@ -2502,6 +2682,7 @@ namespace ARKViewer
             tpgPlayers.Controls.Add(cboTribes);
             tpgPlayers.Controls.Add(cboPlayers);
             tpgPlayers.Controls.Add(lvwPlayers);
+            tpgPlayers.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgPlayers.Location = new System.Drawing.Point(4, 24);
             tpgPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgPlayers.Name = "tpgPlayers";
@@ -2509,17 +2690,21 @@ namespace ARKViewer
             tpgPlayers.Size = new System.Drawing.Size(1104, 520);
             tpgPlayers.TabIndex = 1;
             tpgPlayers.Text = "Players";
-            tpgPlayers.UseVisualStyleBackColor = true;
             // 
             // cboPlayerRealm
             // 
             cboPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboPlayerRealm.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPlayerRealm.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPlayerRealm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboPlayerRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPlayerRealm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboPlayerRealm.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboPlayerRealm.FormattingEnabled = true;
             cboPlayerRealm.Location = new System.Drawing.Point(865, 17);
             cboPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboPlayerRealm.Name = "cboPlayerRealm";
-            cboPlayerRealm.Size = new System.Drawing.Size(222, 23);
+            cboPlayerRealm.Size = new System.Drawing.Size(222, 24);
             cboPlayerRealm.TabIndex = 25;
             cboPlayerRealm.SelectedIndexChanged += cboPlayerRealm_SelectedIndexChanged;
             // 
@@ -2528,7 +2713,7 @@ namespace ARKViewer
             lblPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblPlayerRealm.AutoSize = true;
             lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPlayerRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayerRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayerRealm.Location = new System.Drawing.Point(791, 22);
             lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayerRealm.Name = "lblPlayerRealm";
@@ -2539,7 +2724,7 @@ namespace ARKViewer
             // pnlFilterPlayers
             // 
             pnlFilterPlayers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterPlayers.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterPlayers.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             pnlFilterPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pnlFilterPlayers.Controls.Add(btnFilterPlayer);
             pnlFilterPlayers.Controls.Add(txtFilterPlayer);
@@ -2552,19 +2737,23 @@ namespace ARKViewer
             // txtFilterPlayer
             // 
             txtFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterPlayer.Location = new System.Drawing.Point(12, 3);
+            txtFilterPlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilterPlayer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilterPlayer.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterPlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilterPlayer.Location = new System.Drawing.Point(12, 5);
             txtFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterPlayer.Name = "txtFilterPlayer";
-            txtFilterPlayer.Size = new System.Drawing.Size(1012, 23);
+            txtFilterPlayer.Size = new System.Drawing.Size(1012, 20);
             txtFilterPlayer.TabIndex = 6;
             txtFilterPlayer.KeyDown += txtFilterPlayer_KeyDown;
             // 
             // lblPlayerTotal
             // 
             lblPlayerTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblPlayerTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblPlayerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblPlayerTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayerTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayerTotal.Location = new System.Drawing.Point(943, 468);
             lblPlayerTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayerTotal.Name = "lblPlayerTotal";
@@ -2578,7 +2767,7 @@ namespace ARKViewer
             lblCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblCommandPlayer.AutoSize = true;
             lblCommandPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblCommandPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblCommandPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCommandPlayer.Location = new System.Drawing.Point(16, 475);
             lblCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCommandPlayer.Name = "lblCommandPlayer";
@@ -2589,13 +2778,18 @@ namespace ARKViewer
             // cboConsoleCommandsPlayerTribe
             // 
             cboConsoleCommandsPlayerTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsPlayerTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsPlayerTribe.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsPlayerTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsPlayerTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandsPlayerTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
             cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AddChibiExpToPlayer <PlayerID> <HowMuch>", "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "RM <FileCsvList>", "SaveWorld", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>", "UnbanPlayer <SteamID>" });
             cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
             cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
-            cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 24);
             cboConsoleCommandsPlayerTribe.Sorted = true;
             cboConsoleCommandsPlayerTribe.TabIndex = 6;
             cboConsoleCommandsPlayerTribe.SelectedIndexChanged += cboConsoleCommandsPlayerTribe_SelectedIndexChanged;
@@ -2604,7 +2798,7 @@ namespace ARKViewer
             // 
             lblPlayersPlayer.AutoSize = true;
             lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPlayersPlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayersPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayersPlayer.Location = new System.Drawing.Point(405, 21);
             lblPlayersPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayersPlayer.Name = "lblPlayersPlayer";
@@ -2616,7 +2810,7 @@ namespace ARKViewer
             // 
             lblPlayersTribe.AutoSize = true;
             lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblPlayersTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblPlayersTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayersTribe.Location = new System.Drawing.Point(16, 21);
             lblPlayersTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayersTribe.Name = "lblPlayersTribe";
@@ -2626,31 +2820,44 @@ namespace ARKViewer
             // 
             // cboTribes
             // 
+            cboTribes.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTribes.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTribes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTribes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboTribes.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTribes.FormattingEnabled = true;
             cboTribes.Location = new System.Drawing.Point(70, 17);
             cboTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTribes.Name = "cboTribes";
-            cboTribes.Size = new System.Drawing.Size(313, 23);
+            cboTribes.Size = new System.Drawing.Size(313, 24);
             cboTribes.TabIndex = 1;
             cboTribes.SelectedIndexChanged += cboTribes_SelectedIndexChanged;
             // 
             // cboPlayers
             // 
+            cboPlayers.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPlayers.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboPlayers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboPlayers.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboPlayers.FormattingEnabled = true;
             cboPlayers.Location = new System.Drawing.Point(465, 17);
             cboPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboPlayers.Name = "cboPlayers";
-            cboPlayers.Size = new System.Drawing.Size(232, 23);
+            cboPlayers.Size = new System.Drawing.Size(232, 24);
             cboPlayers.TabIndex = 3;
             cboPlayers.SelectedIndexChanged += cboPlayers_SelectedIndexChanged;
             // 
             // lvwPlayers
             // 
             lvwPlayers.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwPlayers.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwPlayers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwPlayers_PlayerId, lvwPlayers_Name, lvwPlayers_Tribe, lvwPlayers_Sex, lvwPlayers_Level, lvwPlayers_Lat, lvwPlayers_Lon, lvwPlayers_Hp, lvwPlayers_Stam, lvwPlayers_Melee, lvwPlayers_Weight, lvwPlayers_Speed, lvwPlayers_Food, lvwPlayers_Water, lvwPlayers_Oxygen, lvwPlayers_Crafting, lvwPlayers_Fortitude, lvwPlayers_LastOnline, lvwPlayers_SteamName, lvwPlayers_SteamId, lvwPlayers_CCC });
             lvwPlayers.ContextMenuStrip = mnuContext;
+            lvwPlayers.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwPlayers.FullRowSelect = true;
             lvwPlayers.Location = new System.Drawing.Point(14, 60);
             lvwPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2768,6 +2975,7 @@ namespace ARKViewer
             // 
             // tpgTribes
             // 
+            tpgTribes.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgTribes.Controls.Add(btnRconCommandTribes);
             tpgTribes.Controls.Add(splitContainer1);
             tpgTribes.Controls.Add(chkTribeStructures);
@@ -2777,13 +2985,13 @@ namespace ARKViewer
             tpgTribes.Controls.Add(lblTribeCopyCommand);
             tpgTribes.Controls.Add(cboTribeCopyCommand);
             tpgTribes.Controls.Add(btnTribeLog);
+            tpgTribes.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgTribes.Location = new System.Drawing.Point(4, 24);
             tpgTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgTribes.Name = "tpgTribes";
             tpgTribes.Size = new System.Drawing.Size(1104, 520);
             tpgTribes.TabIndex = 5;
             tpgTribes.Text = "Tribes";
-            tpgTribes.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -2798,6 +3006,7 @@ namespace ARKViewer
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             splitContainer1.Panel2.Controls.Add(chartTribes);
             splitContainer1.Panel2.Controls.Add(btnSaveChartImage);
             splitContainer1.Panel2.Controls.Add(lblChartTop);
@@ -2811,8 +3020,11 @@ namespace ARKViewer
             // lvwTribes
             // 
             lvwTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwTribes.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwTribes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwTribes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTribes_Id, lvwTribes_Name, lvwTribes_Players, lvwTribes_Tames, lvwTribes_Structures, lvwTribes_Active });
             lvwTribes.ContextMenuStrip = mnuContext;
+            lvwTribes.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwTribes.FullRowSelect = true;
             lvwTribes.Location = new System.Drawing.Point(5, 3);
             lvwTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2858,7 +3070,7 @@ namespace ARKViewer
             // pnlFilterTribes
             // 
             pnlFilterTribes.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterTribes.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterTribes.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             pnlFilterTribes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pnlFilterTribes.Controls.Add(btnFilterTribe);
             pnlFilterTribes.Controls.Add(txtFilterTribe);
@@ -2871,10 +3083,14 @@ namespace ARKViewer
             // txtFilterTribe
             // 
             txtFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterTribe.Location = new System.Drawing.Point(12, 3);
+            txtFilterTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilterTribe.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilterTribe.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilterTribe.Location = new System.Drawing.Point(12, 5);
             txtFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterTribe.Name = "txtFilterTribe";
-            txtFilterTribe.Size = new System.Drawing.Size(650, 23);
+            txtFilterTribe.Size = new System.Drawing.Size(650, 20);
             txtFilterTribe.TabIndex = 6;
             txtFilterTribe.KeyDown += txtFilterTribe_KeyDown;
             // 
@@ -2893,7 +3109,7 @@ namespace ARKViewer
             // 
             lblChartTop.AutoSize = true;
             lblChartTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblChartTop.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblChartTop.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblChartTop.Location = new System.Drawing.Point(12, 46);
             lblChartTop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblChartTop.Name = "lblChartTop";
@@ -2903,6 +3119,8 @@ namespace ARKViewer
             // 
             // udChartTop
             // 
+            udChartTop.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            udChartTop.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             udChartTop.Location = new System.Drawing.Point(72, 43);
             udChartTop.Name = "udChartTop";
             udChartTop.Size = new System.Drawing.Size(63, 23);
@@ -2914,7 +3132,7 @@ namespace ARKViewer
             // 
             lblChart.AutoSize = true;
             lblChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblChart.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblChart.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblChart.Location = new System.Drawing.Point(12, 17);
             lblChart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblChart.Name = "lblChart";
@@ -2925,13 +3143,18 @@ namespace ARKViewer
             // cboChartType
             // 
             cboChartType.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            cboChartType.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            cboChartType.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboChartType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboChartType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboChartType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboChartType.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboChartType.FormattingEnabled = true;
             cboChartType.Items.AddRange(new object[] { "Tribes by No. Players", "Tribes by No. Tames", "Tribes by No. Structures" });
             cboChartType.Location = new System.Drawing.Point(72, 13);
             cboChartType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboChartType.Name = "cboChartType";
-            cboChartType.Size = new System.Drawing.Size(270, 23);
+            cboChartType.Size = new System.Drawing.Size(270, 24);
             cboChartType.TabIndex = 5;
             cboChartType.SelectedIndexChanged += cboChartType_SelectedIndexChanged;
             // 
@@ -2940,7 +3163,7 @@ namespace ARKViewer
             lblTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblTribeCopyCommand.AutoSize = true;
             lblTribeCopyCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTribeCopyCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTribeCopyCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTribeCopyCommand.Location = new System.Drawing.Point(16, 478);
             lblTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTribeCopyCommand.Name = "lblTribeCopyCommand";
@@ -2951,19 +3174,25 @@ namespace ARKViewer
             // cboTribeCopyCommand
             // 
             cboTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboTribeCopyCommand.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTribeCopyCommand.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTribeCopyCommand.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTribeCopyCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboTribeCopyCommand.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTribeCopyCommand.FormattingEnabled = true;
             cboTribeCopyCommand.Items.AddRange(new object[] { "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "RM <FileCsvList>", "SaveWorld", "TakeTribe <TribeID>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>" });
             cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
             cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTribeCopyCommand.Name = "cboTribeCopyCommand";
-            cboTribeCopyCommand.Size = new System.Drawing.Size(305, 23);
+            cboTribeCopyCommand.Size = new System.Drawing.Size(305, 24);
             cboTribeCopyCommand.Sorted = true;
             cboTribeCopyCommand.TabIndex = 2;
             cboTribeCopyCommand.SelectedIndexChanged += cboTribeCopyCommand_SelectedIndexChanged;
             // 
             // tpgStructures
             // 
+            tpgStructures.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgStructures.Controls.Add(btnRconCommandStructures);
             tpgStructures.Controls.Add(cboStructureRealm);
             tpgStructures.Controls.Add(lblStructureRealm);
@@ -2981,22 +3210,27 @@ namespace ARKViewer
             tpgStructures.Controls.Add(cboStructureTribe);
             tpgStructures.Controls.Add(cboStructurePlayer);
             tpgStructures.Controls.Add(lvwStructureLocations);
+            tpgStructures.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgStructures.Location = new System.Drawing.Point(4, 24);
             tpgStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgStructures.Name = "tpgStructures";
             tpgStructures.Size = new System.Drawing.Size(1104, 520);
             tpgStructures.TabIndex = 2;
             tpgStructures.Text = "Player Structures";
-            tpgStructures.UseVisualStyleBackColor = true;
             // 
             // cboStructureRealm
             // 
+            cboStructureRealm.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructureRealm.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructureRealm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructureRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureRealm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboStructureRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboStructureRealm.FormattingEnabled = true;
             cboStructureRealm.Location = new System.Drawing.Point(438, 49);
             cboStructureRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboStructureRealm.Name = "cboStructureRealm";
-            cboStructureRealm.Size = new System.Drawing.Size(224, 23);
+            cboStructureRealm.Size = new System.Drawing.Size(224, 24);
             cboStructureRealm.TabIndex = 24;
             cboStructureRealm.SelectedIndexChanged += cboStructureRealm_SelectedIndexChanged;
             // 
@@ -3004,7 +3238,7 @@ namespace ARKViewer
             // 
             lblStructureRealm.AutoSize = true;
             lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructureRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureRealm.Location = new System.Drawing.Point(364, 54);
             lblStructureRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureRealm.Name = "lblStructureRealm";
@@ -3015,7 +3249,7 @@ namespace ARKViewer
             // pnlFilterStructures
             // 
             pnlFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterStructures.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterStructures.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             pnlFilterStructures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pnlFilterStructures.Controls.Add(btnFindStructures);
             pnlFilterStructures.Controls.Add(txtFilterStructures);
@@ -3028,19 +3262,23 @@ namespace ARKViewer
             // txtFilterStructures
             // 
             txtFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterStructures.Location = new System.Drawing.Point(12, 3);
+            txtFilterStructures.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilterStructures.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilterStructures.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterStructures.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilterStructures.Location = new System.Drawing.Point(12, 5);
             txtFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterStructures.Name = "txtFilterStructures";
-            txtFilterStructures.Size = new System.Drawing.Size(1013, 23);
+            txtFilterStructures.Size = new System.Drawing.Size(1013, 20);
             txtFilterStructures.TabIndex = 6;
             txtFilterStructures.KeyDown += txtFilterStructures_KeyDown;
             // 
             // lblStructureTotal
             // 
             lblStructureTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblStructureTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblStructureTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblStructureTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblStructureTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureTotal.Location = new System.Drawing.Point(943, 474);
             lblStructureTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureTotal.Name = "lblStructureTotal";
@@ -3064,13 +3302,18 @@ namespace ARKViewer
             // cboConsoleCommandsStructure
             // 
             cboConsoleCommandsStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsStructure.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsStructure.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsStructure.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboConsoleCommandsStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandsStructure.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommandsStructure.FormattingEnabled = true;
             cboConsoleCommandsStructure.Items.AddRange(new object[] { "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>" });
             cboConsoleCommandsStructure.Location = new System.Drawing.Point(90, 475);
             cboConsoleCommandsStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsStructure.Name = "cboConsoleCommandsStructure";
-            cboConsoleCommandsStructure.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsStructure.Size = new System.Drawing.Size(305, 24);
             cboConsoleCommandsStructure.Sorted = true;
             cboConsoleCommandsStructure.TabIndex = 9;
             cboConsoleCommandsStructure.SelectedIndexChanged += cboConsoleCommandsStructure_SelectedIndexChanged;
@@ -3079,7 +3322,7 @@ namespace ARKViewer
             // 
             lblStructureStructure.AutoSize = true;
             lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructureStructure.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureStructure.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureStructure.Location = new System.Drawing.Point(18, 54);
             lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureStructure.Name = "lblStructureStructure";
@@ -3089,12 +3332,17 @@ namespace ARKViewer
             // 
             // cboStructureStructure
             // 
+            cboStructureStructure.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructureStructure.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructureStructure.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructureStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboStructureStructure.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboStructureStructure.FormattingEnabled = true;
             cboStructureStructure.Location = new System.Drawing.Point(99, 50);
             cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboStructureStructure.Name = "cboStructureStructure";
-            cboStructureStructure.Size = new System.Drawing.Size(237, 23);
+            cboStructureStructure.Size = new System.Drawing.Size(237, 24);
             cboStructureStructure.TabIndex = 5;
             cboStructureStructure.SelectedIndexChanged += cboStructureStructure_SelectedIndexChanged;
             // 
@@ -3102,7 +3350,7 @@ namespace ARKViewer
             // 
             lblStructurePlayer.AutoSize = true;
             lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructurePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructurePlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructurePlayer.Location = new System.Drawing.Point(364, 21);
             lblStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructurePlayer.Name = "lblStructurePlayer";
@@ -3114,7 +3362,7 @@ namespace ARKViewer
             // 
             lblStructureTribe.AutoSize = true;
             lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblStructureTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblStructureTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureTribe.Location = new System.Drawing.Point(49, 21);
             lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureTribe.Name = "lblStructureTribe";
@@ -3124,31 +3372,44 @@ namespace ARKViewer
             // 
             // cboStructureTribe
             // 
+            cboStructureTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructureTribe.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructureTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructureTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructureTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboStructureTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboStructureTribe.FormattingEnabled = true;
             cboStructureTribe.Location = new System.Drawing.Point(99, 18);
             cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboStructureTribe.Name = "cboStructureTribe";
-            cboStructureTribe.Size = new System.Drawing.Size(237, 23);
+            cboStructureTribe.Size = new System.Drawing.Size(237, 24);
             cboStructureTribe.TabIndex = 1;
             cboStructureTribe.SelectedIndexChanged += cboStructureTribe_SelectedIndexChanged;
             // 
             // cboStructurePlayer
             // 
+            cboStructurePlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructurePlayer.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStructurePlayer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructurePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStructurePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboStructurePlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboStructurePlayer.FormattingEnabled = true;
             cboStructurePlayer.Location = new System.Drawing.Point(438, 18);
             cboStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboStructurePlayer.Name = "cboStructurePlayer";
-            cboStructurePlayer.Size = new System.Drawing.Size(224, 23);
+            cboStructurePlayer.Size = new System.Drawing.Size(224, 24);
             cboStructurePlayer.TabIndex = 3;
             cboStructurePlayer.SelectedIndexChanged += cboStructurePlayer_SelectedIndexChanged;
             // 
             // lvwStructureLocations
             // 
             lvwStructureLocations.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwStructureLocations.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwStructureLocations.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStructureLocations_Tribe, lvwStructureLocations_Structure, lvwStructureLocations_Lat, lvwStructureLocations_Lon, lvwStructureLocations_Name, lvwStructureLocations_Locked, lvwStructureLocations_Powered, lvwStructureLocations_Created, lvwStructureLocations_LastTime, lvwStructureLocations_DecayReset, lvwStructureLocations_CCC });
             lvwStructureLocations.ContextMenuStrip = mnuContext;
+            lvwStructureLocations.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwStructureLocations.FullRowSelect = true;
             lvwStructureLocations.Location = new System.Drawing.Point(13, 83);
             lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3217,6 +3478,7 @@ namespace ARKViewer
             // 
             // tpgTamed
             // 
+            tpgTamed.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgTamed.Controls.Add(btnRconCommandTamed);
             tpgTamed.Controls.Add(chkTameUploads);
             tpgTamed.Controls.Add(cboTameRealm);
@@ -3239,23 +3501,28 @@ namespace ARKViewer
             tpgTamed.Controls.Add(lblTameTotal);
             tpgTamed.Controls.Add(pnlTameStatTypes);
             tpgTamed.Controls.Add(cboTameClass);
+            tpgTamed.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgTamed.Location = new System.Drawing.Point(4, 24);
             tpgTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgTamed.Name = "tpgTamed";
             tpgTamed.Size = new System.Drawing.Size(1104, 520);
             tpgTamed.TabIndex = 3;
             tpgTamed.Text = "Tamed Creatures";
-            tpgTamed.UseVisualStyleBackColor = true;
             // 
             // cboTameRealm
             // 
             cboTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboTameRealm.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTameRealm.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTameRealm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboTameRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameRealm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboTameRealm.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTameRealm.FormattingEnabled = true;
             cboTameRealm.Location = new System.Drawing.Point(865, 23);
             cboTameRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTameRealm.Name = "cboTameRealm";
-            cboTameRealm.Size = new System.Drawing.Size(222, 23);
+            cboTameRealm.Size = new System.Drawing.Size(222, 24);
             cboTameRealm.TabIndex = 24;
             cboTameRealm.SelectedIndexChanged += cboTameRealm_SelectedIndexChanged;
             // 
@@ -3264,7 +3531,7 @@ namespace ARKViewer
             lblTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblTameRealm.AutoSize = true;
             lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameRealm.Location = new System.Drawing.Point(791, 28);
             lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameRealm.Name = "lblTameRealm";
@@ -3275,7 +3542,7 @@ namespace ARKViewer
             // pnlFilterTamed
             // 
             pnlFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterTamed.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterTamed.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             pnlFilterTamed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pnlFilterTamed.Controls.Add(btnFindTamed);
             pnlFilterTamed.Controls.Add(txtFilterTamed);
@@ -3288,21 +3555,30 @@ namespace ARKViewer
             // txtFilterTamed
             // 
             txtFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterTamed.Location = new System.Drawing.Point(12, 3);
+            txtFilterTamed.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilterTamed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilterTamed.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterTamed.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilterTamed.Location = new System.Drawing.Point(12, 5);
             txtFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterTamed.Name = "txtFilterTamed";
-            txtFilterTamed.Size = new System.Drawing.Size(1013, 23);
+            txtFilterTamed.Size = new System.Drawing.Size(1013, 20);
             txtFilterTamed.TabIndex = 6;
             txtFilterTamed.KeyDown += txtFilterTamed_KeyDown;
             // 
             // cboTamedResource
             // 
+            cboTamedResource.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTamedResource.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTamedResource.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboTamedResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTamedResource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboTamedResource.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTamedResource.FormattingEnabled = true;
             cboTamedResource.Location = new System.Drawing.Point(420, 53);
             cboTamedResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTamedResource.Name = "cboTamedResource";
-            cboTamedResource.Size = new System.Drawing.Size(231, 23);
+            cboTamedResource.Size = new System.Drawing.Size(231, 24);
             cboTamedResource.TabIndex = 16;
             cboTamedResource.SelectedIndexChanged += cboTamedResource_SelectedIndexChanged;
             // 
@@ -3310,7 +3586,7 @@ namespace ARKViewer
             // 
             lblTameResource.AutoSize = true;
             lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameResource.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameResource.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameResource.Location = new System.Drawing.Point(340, 59);
             lblTameResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameResource.Name = "lblTameResource";
@@ -3323,7 +3599,7 @@ namespace ARKViewer
             lblTamedCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblTamedCommand.AutoSize = true;
             lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTamedCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTamedCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTamedCommand.Location = new System.Drawing.Point(327, 479);
             lblTamedCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTamedCommand.Name = "lblTamedCommand";
@@ -3334,36 +3610,51 @@ namespace ARKViewer
             // cboConsoleCommandsTamed
             // 
             cboConsoleCommandsTamed.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsTamed.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsTamed.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsTamed.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboConsoleCommandsTamed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsTamed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandsTamed.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommandsTamed.FormattingEnabled = true;
             cboConsoleCommandsTamed.Items.AddRange(new object[] { "Cryo <DinoId>", "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsTamed.Items"), "TakeTribe <TribeID>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
             cboConsoleCommandsTamed.Location = new System.Drawing.Point(406, 475);
             cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
-            cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 23);
+            cboConsoleCommandsTamed.Size = new System.Drawing.Size(289, 24);
             cboConsoleCommandsTamed.Sorted = true;
             cboConsoleCommandsTamed.TabIndex = 10;
             cboConsoleCommandsTamed.SelectedIndexChanged += cboConsoleCommandsTamed_SelectedIndexChanged;
             // 
             // cboTameTribes
             // 
+            cboTameTribes.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTameTribes.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTameTribes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboTameTribes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameTribes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboTameTribes.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTameTribes.FormattingEnabled = true;
             cboTameTribes.Location = new System.Drawing.Point(89, 18);
             cboTameTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTameTribes.Name = "cboTameTribes";
-            cboTameTribes.Size = new System.Drawing.Size(231, 23);
+            cboTameTribes.Size = new System.Drawing.Size(231, 24);
             cboTameTribes.TabIndex = 1;
             cboTameTribes.SelectedIndexChanged += cboTameTribes_SelectedIndexChanged;
             // 
             // cboTamePlayers
             // 
+            cboTamePlayers.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTamePlayers.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTamePlayers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboTamePlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTamePlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboTamePlayers.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTamePlayers.FormattingEnabled = true;
             cboTamePlayers.Location = new System.Drawing.Point(420, 21);
             cboTamePlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTamePlayers.Name = "cboTamePlayers";
-            cboTamePlayers.Size = new System.Drawing.Size(231, 23);
+            cboTamePlayers.Size = new System.Drawing.Size(231, 24);
             cboTamePlayers.TabIndex = 3;
             cboTamePlayers.SelectedIndexChanged += cboTamePlayers_SelectedIndexChanged;
             // 
@@ -3371,7 +3662,7 @@ namespace ARKViewer
             // 
             lblTameCreature.AutoSize = true;
             lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameCreature.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameCreature.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameCreature.Location = new System.Drawing.Point(22, 59);
             lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameCreature.Name = "lblTameCreature";
@@ -3383,7 +3674,7 @@ namespace ARKViewer
             // 
             lblTamePlayer.AutoSize = true;
             lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTamePlayer.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTamePlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTamePlayer.Location = new System.Drawing.Point(352, 23);
             lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTamePlayer.Name = "lblTamePlayer";
@@ -3395,7 +3686,7 @@ namespace ARKViewer
             // 
             lblTameTribe.AutoSize = true;
             lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblTameTribe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameTribe.Location = new System.Drawing.Point(21, 21);
             lblTameTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameTribe.Name = "lblTameTribe";
@@ -3406,8 +3697,11 @@ namespace ARKViewer
             // lvwTameDetail
             // 
             lvwTameDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwTameDetail.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwTameDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwTameDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwTameDetail_Tribe, lvwTameDetail_Creature, lvwTameDetail_Name, lvwTameDetail_Sex, colTameDetail_Maturation, lvwTameDetail_Base, lvwTameDetail_Level, lvwTameDetail_Lat, lvwTameDetail_Lon, lvwTameDetail_HP, lvwTameDetail_Stam, lvwTameDetail_Melee, lvwTameDetail_Weight, lvwTameDetail_Speed, lvwTameDetail_Food, lvwTameDetail_Oxygen, lvwTameDetail_Craft, lvwTameDetail_Server, lvwTameDetail_Tamer, lvwTameDetail_Imprinter, lvwTameDetail_Imprint, lvwTameDetail_Mating, lvwTameDetail_Wandering, lvwTameDetail_Neutered, lvwTameDetail_Cryo, lvwTameDetail_Clone, lvwTameDetail_Colour1, lvwTameDetail_Colour2, lvwTameDetail_Colour3, lvwTameDetail_Colour4, lvwTameDetail_Colour5, lvwTameDetail_Colour6, lvwTameDetail_MutationsFemale, lvwTameDetail_MutationsMale, lvwTameDetail_Id, lvwTameDetail_Scale, lvwTameDetail_Rig1, lvwTameDetail_Rig2, lvwTameDetail_TribeInRange, lvwTameDetail_UploadTime, lvwTameDetail_DinoId, lvwTameDetail_CCC });
             lvwTameDetail.ContextMenuStrip = mnuContext;
+            lvwTameDetail.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwTameDetail.FullRowSelect = true;
             lvwTameDetail.Location = new System.Drawing.Point(13, 112);
             lvwTameDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3624,9 +3918,9 @@ namespace ARKViewer
             // lblTameTotal
             // 
             lblTameTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblTameTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblTameTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblTameTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblTameTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblTameTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameTotal.Location = new System.Drawing.Point(943, 471);
             lblTameTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameTotal.Name = "lblTameTotal";
@@ -3700,17 +3994,23 @@ namespace ARKViewer
             // 
             // cboTameClass
             // 
+            cboTameClass.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTameClass.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboTameClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboTameClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboTameClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboTameClass.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTameClass.FormattingEnabled = true;
             cboTameClass.Location = new System.Drawing.Point(89, 53);
             cboTameClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTameClass.Name = "cboTameClass";
-            cboTameClass.Size = new System.Drawing.Size(231, 23);
+            cboTameClass.Size = new System.Drawing.Size(231, 24);
             cboTameClass.TabIndex = 5;
             cboTameClass.SelectedIndexChanged += cboTameClass_SelectedIndexChanged;
             // 
             // tpgWild
             // 
+            tpgWild.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgWild.Controls.Add(btnRconCommandWild);
             tpgWild.Controls.Add(chkTameable);
             tpgWild.Controls.Add(cboWildRealm);
@@ -3736,6 +4036,7 @@ namespace ARKViewer
             tpgWild.Controls.Add(lvwWildDetail);
             tpgWild.Controls.Add(lblWildTotal);
             tpgWild.Controls.Add(cboWildClass);
+            tpgWild.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgWild.Location = new System.Drawing.Point(4, 24);
             tpgWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgWild.Name = "tpgWild";
@@ -3743,7 +4044,6 @@ namespace ARKViewer
             tpgWild.Size = new System.Drawing.Size(1104, 520);
             tpgWild.TabIndex = 0;
             tpgWild.Text = "Wild Creatures";
-            tpgWild.UseVisualStyleBackColor = true;
             // 
             // chkTameable
             // 
@@ -3751,6 +4051,7 @@ namespace ARKViewer
             chkTameable.AutoSize = true;
             chkTameable.Checked = true;
             chkTameable.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkTameable.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             chkTameable.Location = new System.Drawing.Point(648, 59);
             chkTameable.Name = "chkTameable";
             chkTameable.Size = new System.Drawing.Size(76, 19);
@@ -3762,12 +4063,17 @@ namespace ARKViewer
             // cboWildRealm
             // 
             cboWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboWildRealm.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboWildRealm.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboWildRealm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboWildRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildRealm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboWildRealm.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboWildRealm.FormattingEnabled = true;
-            cboWildRealm.Location = new System.Drawing.Point(862, 15);
+            cboWildRealm.Location = new System.Drawing.Point(864, 15);
             cboWildRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboWildRealm.Name = "cboWildRealm";
-            cboWildRealm.Size = new System.Drawing.Size(222, 23);
+            cboWildRealm.Size = new System.Drawing.Size(222, 24);
             cboWildRealm.TabIndex = 22;
             cboWildRealm.SelectedIndexChanged += cboWildRealm_SelectedIndexChanged;
             // 
@@ -3776,7 +4082,7 @@ namespace ARKViewer
             lblWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblWildRealm.AutoSize = true;
             lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildRealm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildRealm.Location = new System.Drawing.Point(788, 20);
             lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildRealm.Name = "lblWildRealm";
@@ -3787,7 +4093,7 @@ namespace ARKViewer
             // pnlFilterWilds
             // 
             pnlFilterWilds.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            pnlFilterWilds.BackColor = System.Drawing.Color.PaleTurquoise;
+            pnlFilterWilds.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             pnlFilterWilds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pnlFilterWilds.Controls.Add(btnFindWild);
             pnlFilterWilds.Controls.Add(txtFilterWild);
@@ -3800,22 +4106,31 @@ namespace ARKViewer
             // txtFilterWild
             // 
             txtFilterWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilterWild.Location = new System.Drawing.Point(12, 3);
+            txtFilterWild.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilterWild.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilterWild.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterWild.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilterWild.Location = new System.Drawing.Point(12, 5);
             txtFilterWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterWild.Name = "txtFilterWild";
-            txtFilterWild.Size = new System.Drawing.Size(1013, 23);
+            txtFilterWild.Size = new System.Drawing.Size(1013, 20);
             txtFilterWild.TabIndex = 6;
             txtFilterWild.KeyDown += txtFilterWild_KeyDown;
             // 
             // cboWildResource
             // 
             cboWildResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            cboWildResource.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboWildResource.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboWildResource.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboWildResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildResource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboWildResource.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboWildResource.FormattingEnabled = true;
-            cboWildResource.Location = new System.Drawing.Point(863, 55);
+            cboWildResource.Location = new System.Drawing.Point(864, 55);
             cboWildResource.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboWildResource.Name = "cboWildResource";
-            cboWildResource.Size = new System.Drawing.Size(222, 23);
+            cboWildResource.Size = new System.Drawing.Size(222, 24);
             cboWildResource.TabIndex = 11;
             cboWildResource.SelectedIndexChanged += cboWildResource_SelectedIndexChanged;
             // 
@@ -3824,8 +4139,8 @@ namespace ARKViewer
             lblResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblResource.AutoSize = true;
             lblResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblResource.ForeColor = System.Drawing.Color.DarkSlateGray;
-            lblResource.Location = new System.Drawing.Point(786, 60);
+            lblResource.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblResource.Location = new System.Drawing.Point(788, 60);
             lblResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblResource.Name = "lblResource";
             lblResource.Size = new System.Drawing.Size(65, 13);
@@ -3836,7 +4151,7 @@ namespace ARKViewer
             // 
             lblWildRadius.AutoSize = true;
             lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildRadius.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildRadius.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildRadius.Location = new System.Drawing.Point(490, 20);
             lblWildRadius.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildRadius.Name = "lblWildRadius";
@@ -3846,11 +4161,14 @@ namespace ARKViewer
             // 
             // udWildRadius
             // 
+            udWildRadius.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            udWildRadius.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udWildRadius.DecimalPlaces = 2;
-            udWildRadius.Location = new System.Drawing.Point(553, 16);
+            udWildRadius.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            udWildRadius.Location = new System.Drawing.Point(553, 19);
             udWildRadius.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udWildRadius.Name = "udWildRadius";
-            udWildRadius.Size = new System.Drawing.Size(75, 23);
+            udWildRadius.Size = new System.Drawing.Size(75, 19);
             udWildRadius.TabIndex = 9;
             udWildRadius.Value = new decimal(new int[] { 10000, 0, 0, 131072 });
             udWildRadius.ValueChanged += udWildRadius_ValueChanged;
@@ -3861,7 +4179,7 @@ namespace ARKViewer
             // 
             lblWildLon.AutoSize = true;
             lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildLon.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildLon.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildLon.Location = new System.Drawing.Point(371, 20);
             lblWildLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildLon.Name = "lblWildLon";
@@ -3871,11 +4189,14 @@ namespace ARKViewer
             // 
             // udWildLon
             // 
+            udWildLon.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            udWildLon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udWildLon.DecimalPlaces = 2;
-            udWildLon.Location = new System.Drawing.Point(413, 16);
+            udWildLon.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            udWildLon.Location = new System.Drawing.Point(413, 19);
             udWildLon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udWildLon.Name = "udWildLon";
-            udWildLon.Size = new System.Drawing.Size(75, 23);
+            udWildLon.Size = new System.Drawing.Size(75, 19);
             udWildLon.TabIndex = 7;
             udWildLon.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
             udWildLon.ValueChanged += udWildLon_ValueChanged;
@@ -3886,7 +4207,7 @@ namespace ARKViewer
             // 
             lblWildLat.AutoSize = true;
             lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildLat.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildLat.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildLat.Location = new System.Drawing.Point(251, 20);
             lblWildLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildLat.Name = "lblWildLat";
@@ -3896,11 +4217,14 @@ namespace ARKViewer
             // 
             // udWildLat
             // 
+            udWildLat.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            udWildLat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udWildLat.DecimalPlaces = 2;
-            udWildLat.Location = new System.Drawing.Point(293, 16);
+            udWildLat.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            udWildLat.Location = new System.Drawing.Point(293, 19);
             udWildLat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udWildLat.Name = "udWildLat";
-            udWildLat.Size = new System.Drawing.Size(75, 23);
+            udWildLat.Size = new System.Drawing.Size(75, 19);
             udWildLat.TabIndex = 5;
             udWildLat.Value = new decimal(new int[] { 5000, 0, 0, 131072 });
             udWildLat.ValueChanged += udWildLat_ValueChanged;
@@ -3911,7 +4235,7 @@ namespace ARKViewer
             // 
             lblWildMin.AutoSize = true;
             lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildMin.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildMin.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildMin.Location = new System.Drawing.Point(49, 20);
             lblWildMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildMin.Name = "lblWildMin";
@@ -3923,7 +4247,7 @@ namespace ARKViewer
             // 
             lblWildMax.AutoSize = true;
             lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildMax.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildMax.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildMax.Location = new System.Drawing.Point(145, 20);
             lblWildMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildMax.Name = "lblWildMax";
@@ -3933,11 +4257,14 @@ namespace ARKViewer
             // 
             // udWildMin
             // 
-            udWildMin.Location = new System.Drawing.Point(88, 16);
+            udWildMin.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            udWildMin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            udWildMin.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            udWildMin.Location = new System.Drawing.Point(88, 19);
             udWildMin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udWildMin.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             udWildMin.Name = "udWildMin";
-            udWildMin.Size = new System.Drawing.Size(44, 23);
+            udWildMin.Size = new System.Drawing.Size(44, 19);
             udWildMin.TabIndex = 1;
             udWildMin.ValueChanged += udWildMin_ValueChanged;
             udWildMin.Enter += udWildMin_Enter;
@@ -3945,12 +4272,15 @@ namespace ARKViewer
             // 
             // udWildMax
             // 
-            udWildMax.Location = new System.Drawing.Point(191, 16);
+            udWildMax.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            udWildMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            udWildMax.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            udWildMax.Location = new System.Drawing.Point(191, 19);
             udWildMax.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udWildMax.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             udWildMax.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             udWildMax.Name = "udWildMax";
-            udWildMax.Size = new System.Drawing.Size(56, 23);
+            udWildMax.Size = new System.Drawing.Size(56, 19);
             udWildMax.TabIndex = 3;
             udWildMax.Value = new decimal(new int[] { 190, 0, 0, 0 });
             udWildMax.ValueChanged += udWildMax_ValueChanged;
@@ -3962,7 +4292,7 @@ namespace ARKViewer
             lblWildCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblWildCommand.AutoSize = true;
             lblWildCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildCommand.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildCommand.Location = new System.Drawing.Point(16, 479);
             lblWildCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildCommand.Name = "lblWildCommand";
@@ -3973,13 +4303,18 @@ namespace ARKViewer
             // cboConsoleCommandsWild
             // 
             cboConsoleCommandsWild.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsWild.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsWild.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsWild.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboConsoleCommandsWild.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsWild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandsWild.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommandsWild.FormattingEnabled = true;
             cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsWild.Items") });
             cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 475);
             cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
-            cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 23);
+            cboConsoleCommandsWild.Size = new System.Drawing.Size(305, 24);
             cboConsoleCommandsWild.Sorted = true;
             cboConsoleCommandsWild.TabIndex = 16;
             cboConsoleCommandsWild.SelectedIndexChanged += cboConsoleCommandsWild_SelectedIndexChanged;
@@ -3987,9 +4322,9 @@ namespace ARKViewer
             // lblSelectedWildTotal
             // 
             lblSelectedWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblSelectedWildTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblSelectedWildTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblSelectedWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblSelectedWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblSelectedWildTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblSelectedWildTotal.Location = new System.Drawing.Point(788, 471);
             lblSelectedWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblSelectedWildTotal.Name = "lblSelectedWildTotal";
@@ -4002,7 +4337,7 @@ namespace ARKViewer
             // 
             lblWildClass.AutoSize = true;
             lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblWildClass.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildClass.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildClass.Location = new System.Drawing.Point(16, 61);
             lblWildClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildClass.Name = "lblWildClass";
@@ -4013,8 +4348,11 @@ namespace ARKViewer
             // lvwWildDetail
             // 
             lvwWildDetail.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwWildDetail.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwWildDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwWildDetail.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwWildDetail_Name, lvwWildDetail_Sex, colWildDetail_Mature, lvwWildDetail_Base, lvwWildDetail_Level, lvwWildDetail_Lat, lvwWildDetail_Lon, lvwWildDetail_HP, lvwWildDetail_Stam, lvwWildDetail_Melee, lvwWildDetail_Weight, lvwWildDetail_Speed, lvwWildDetail_Food, lvwWildDetail_Oxygen, lvwWildDetail_Craft, lvwWildDetail_Colour1, lvwWildDetail_Colour2, lvwWildDetail_Colour3, lvwWildDetail_Colour4, lvwWildDetail_Colour5, lvwWildDetail_Colour6, lvwWildDetail_Id, lvwWildDetail_Scale, lvwWildDetail_Rig1, lvwWildDetail_Rig2, lvwWildDetail_DinoId, lvwWildDetail_CCC });
             lvwWildDetail.ContextMenuStrip = mnuContext;
+            lvwWildDetail.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwWildDetail.FullRowSelect = true;
             lvwWildDetail.Location = new System.Drawing.Point(13, 89);
             lvwWildDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -4164,9 +4502,9 @@ namespace ARKViewer
             // lblWildTotal
             // 
             lblWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lblWildTotal.BackColor = System.Drawing.Color.AliceBlue;
+            lblWildTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             lblWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblWildTotal.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblWildTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildTotal.Location = new System.Drawing.Point(936, 471);
             lblWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildTotal.Name = "lblWildTotal";
@@ -4178,11 +4516,16 @@ namespace ARKViewer
             // cboWildClass
             // 
             cboWildClass.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            cboWildClass.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboWildClass.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
             cboWildClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboWildClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboWildClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboWildClass.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboWildClass.FormattingEnabled = true;
             cboWildClass.Location = new System.Drawing.Point(88, 57);
             cboWildClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWildClass.MaxDropDownItems = 20;
             cboWildClass.Name = "cboWildClass";
             cboWildClass.Size = new System.Drawing.Size(540, 24);
             cboWildClass.TabIndex = 13;
@@ -4213,9 +4556,9 @@ namespace ARKViewer
             // 
             // frmViewer
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.LightBlue;
+            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             ClientSize = new System.Drawing.Size(1136, 705);
             Controls.Add(linkLabel1);
@@ -4232,6 +4575,7 @@ namespace ARKViewer
             Controls.Add(btnSettings);
             Controls.Add(lblStatus);
             Controls.Add(tabFeatures);
+            ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             MinimumSize = new System.Drawing.Size(1152, 744);
@@ -4323,7 +4667,7 @@ namespace ARKViewer
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lblMap;
-        private System.Windows.Forms.ComboBox cboSelectedMap;
+        private ArkViewer.UI.BorderlessComboBox cboSelectedMap;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_Structures;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_Tames;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_Players;
@@ -4336,7 +4680,7 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwUnusedPaintings_Filename;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TabPage tpgLeaderboard;
-        private System.Windows.Forms.ComboBox cboLeaderboardPlayer;
+        private ArkViewer.UI.BorderlessComboBox cboLeaderboardPlayer;
         private System.Windows.Forms.Label lblMissionPlayer;
         private System.Windows.Forms.ListView lvwLeaderboardSummary;
         private System.Windows.Forms.ColumnHeader columnHeader32;
@@ -4347,9 +4691,9 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwLeaderboard_Tribe;
         private System.Windows.Forms.ColumnHeader lvwLeaderboard_Player;
         private System.Windows.Forms.ColumnHeader lvwLeaderboard_Score;
-        private System.Windows.Forms.ComboBox cboLeaderboardMission;
+        private ArkViewer.UI.BorderlessComboBox cboLeaderboardMission;
         private System.Windows.Forms.Label lblLeaderboardMission;
-        private System.Windows.Forms.ComboBox cboLeaderboardTribe;
+        private ArkViewer.UI.BorderlessComboBox cboLeaderboardTribe;
         private System.Windows.Forms.Label lblLeaderboardTribe;
         private System.Windows.Forms.TabPage tpgLocalProfile;
         private System.Windows.Forms.Panel pnlUploadedStats;
@@ -4422,10 +4766,10 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_Lat;
         private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_Lon;
         private System.Windows.Forms.ColumnHeader lvwPlayerPaintings_PaintingId;
-        private System.Windows.Forms.ComboBox cboPaintingTribe;
+        private ArkViewer.UI.BorderlessComboBox cboPaintingTribe;
         private System.Windows.Forms.Label lblStructurePainting;
-        private System.Windows.Forms.ComboBox cboConsoleCommandPainting;
-        private System.Windows.Forms.ComboBox cboPaintingStructure;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandPainting;
+        private ArkViewer.UI.BorderlessComboBox cboPaintingStructure;
         private System.Windows.Forms.Label lblCopyCommandPaintings;
         private System.Windows.Forms.Button btnConsoleCommandPainting;
         private System.Windows.Forms.PictureBox picPainting;
@@ -4435,12 +4779,12 @@ namespace ARKViewer
         private System.Windows.Forms.Button btnFindSearched;
         private System.Windows.Forms.TextBox txtFilterSearch;
         private System.Windows.Forms.CheckBox chkItemSearchBlueprints;
-        private System.Windows.Forms.ComboBox cboItemListItem;
+        private ArkViewer.UI.BorderlessComboBox cboItemListItem;
         private System.Windows.Forms.Label lblItemListTribe;
-        private System.Windows.Forms.ComboBox cboItemListTribe;
+        private ArkViewer.UI.BorderlessComboBox cboItemListTribe;
         private System.Windows.Forms.Button btnCopyItemListCommand;
         private System.Windows.Forms.Label lblItemListCommand;
-        private System.Windows.Forms.ComboBox cboItemListCommand;
+        private ArkViewer.UI.BorderlessComboBox cboItemListCommand;
         private System.Windows.Forms.Label lblItemListCount;
         private System.Windows.Forms.Label lblItemListItem;
         private System.Windows.Forms.ListView lvwItemList;
@@ -4457,19 +4801,19 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwItemList_CCC;
         private System.Windows.Forms.ColumnHeader lvwItemList_UploadTime;
         private System.Windows.Forms.TabPage tpgDroppedItems;
-        private System.Windows.Forms.ComboBox cboDroppedItemRealm;
+        private ArkViewer.UI.BorderlessComboBox cboDroppedItemRealm;
         private System.Windows.Forms.Label lblDroppedItemRealm;
         private System.Windows.Forms.Panel pnlFilterDropped;
         private System.Windows.Forms.Button btnFindDropped;
         private System.Windows.Forms.TextBox txtFilterDropped;
         private System.Windows.Forms.CheckBox chkDroppedBlueprints;
         private System.Windows.Forms.Button btnDropInventory;
-        private System.Windows.Forms.ComboBox cboDroppedItem;
+        private ArkViewer.UI.BorderlessComboBox cboDroppedItem;
         private System.Windows.Forms.Label lblDroppedPlayer;
-        private System.Windows.Forms.ComboBox cboDroppedPlayer;
+        private ArkViewer.UI.BorderlessComboBox cboDroppedPlayer;
         private System.Windows.Forms.Button btnCopyCommandDropped;
         private System.Windows.Forms.Label lblCopyCommandDropped;
-        private System.Windows.Forms.ComboBox cboCopyCommandDropped;
+        private ArkViewer.UI.BorderlessComboBox cboCopyCommandDropped;
         private System.Windows.Forms.Label lblCountDropped;
         private System.Windows.Forms.Label lblDroppedItem;
         private System.Windows.Forms.ListView lvwDroppedItems;
@@ -4483,7 +4827,7 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwDroppedItems_CCC;
         private System.Windows.Forms.TabPage tpgPlayers;
         private System.Windows.Forms.Button btnRconCommandPlayers;
-        private System.Windows.Forms.ComboBox cboPlayerRealm;
+        private ArkViewer.UI.BorderlessComboBox cboPlayerRealm;
         private System.Windows.Forms.Label lblPlayerRealm;
         private System.Windows.Forms.Panel pnlFilterPlayers;
         private System.Windows.Forms.Button btnFilterPlayer;
@@ -4492,13 +4836,13 @@ namespace ARKViewer
         private System.Windows.Forms.Label lblPlayerTotal;
         private System.Windows.Forms.Button btnCopyCommandPlayer;
         private System.Windows.Forms.Label lblCommandPlayer;
-        private System.Windows.Forms.ComboBox cboConsoleCommandsPlayerTribe;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsPlayerTribe;
         private System.Windows.Forms.Button btnPlayerTribeLog;
         private System.Windows.Forms.Button btnPlayerInventory;
         private System.Windows.Forms.Label lblPlayersPlayer;
         private System.Windows.Forms.Label lblPlayersTribe;
-        private System.Windows.Forms.ComboBox cboTribes;
-        private System.Windows.Forms.ComboBox cboPlayers;
+        private ArkViewer.UI.BorderlessComboBox cboTribes;
+        private ArkViewer.UI.BorderlessComboBox cboPlayers;
         private System.Windows.Forms.ListView lvwPlayers;
         private System.Windows.Forms.ColumnHeader lvwPlayers_PlayerId;
         private System.Windows.Forms.ColumnHeader lvwPlayers_Name;
@@ -4538,17 +4882,17 @@ namespace ARKViewer
         private System.Windows.Forms.Label lblChartTop;
         private System.Windows.Forms.NumericUpDown udChartTop;
         private System.Windows.Forms.Label lblChart;
-        private System.Windows.Forms.ComboBox cboChartType;
+        private ArkViewer.UI.BorderlessComboBox cboChartType;
         private System.Windows.Forms.CheckBox chkTribeStructures;
         private System.Windows.Forms.CheckBox chkTribeTames;
         private System.Windows.Forms.CheckBox chkTribePlayers;
         private System.Windows.Forms.Button btnTribeCopyCommand;
         private System.Windows.Forms.Label lblTribeCopyCommand;
-        private System.Windows.Forms.ComboBox cboTribeCopyCommand;
+        private ArkViewer.UI.BorderlessComboBox cboTribeCopyCommand;
         private System.Windows.Forms.Button btnTribeLog;
         private System.Windows.Forms.TabPage tpgStructures;
         private System.Windows.Forms.Button btnRconCommandStructures;
-        private System.Windows.Forms.ComboBox cboStructureRealm;
+        private ArkViewer.UI.BorderlessComboBox cboStructureRealm;
         private System.Windows.Forms.Label lblStructureRealm;
         private System.Windows.Forms.Panel pnlFilterStructures;
         private System.Windows.Forms.Button btnFindStructures;
@@ -4557,14 +4901,14 @@ namespace ARKViewer
         private System.Windows.Forms.Label lblStructureTotal;
         private System.Windows.Forms.Button btnCopyCommandStructure;
         private System.Windows.Forms.Label lblCommandStructure;
-        private System.Windows.Forms.ComboBox cboConsoleCommandsStructure;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsStructure;
         private System.Windows.Forms.Button btnStructureExclusionFilter;
         private System.Windows.Forms.Label lblStructureStructure;
-        private System.Windows.Forms.ComboBox cboStructureStructure;
+        private ArkViewer.UI.BorderlessComboBox cboStructureStructure;
         private System.Windows.Forms.Label lblStructurePlayer;
         private System.Windows.Forms.Label lblStructureTribe;
-        private System.Windows.Forms.ComboBox cboStructureTribe;
-        private System.Windows.Forms.ComboBox cboStructurePlayer;
+        private ArkViewer.UI.BorderlessComboBox cboStructureTribe;
+        private ArkViewer.UI.BorderlessComboBox cboStructurePlayer;
         private System.Windows.Forms.ListView lvwStructureLocations;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Tribe;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Structure;
@@ -4579,19 +4923,19 @@ namespace ARKViewer
         private System.Windows.Forms.TabPage tpgTamed;
         private System.Windows.Forms.Button btnRconCommandTamed;
         private System.Windows.Forms.CheckBox chkTameUploads;
-        private System.Windows.Forms.ComboBox cboTameRealm;
+        private ArkViewer.UI.BorderlessComboBox cboTameRealm;
         private System.Windows.Forms.Label lblTameRealm;
         private System.Windows.Forms.Panel pnlFilterTamed;
         private System.Windows.Forms.Button btnFindTamed;
         private System.Windows.Forms.TextBox txtFilterTamed;
-        private System.Windows.Forms.ComboBox cboTamedResource;
+        private ArkViewer.UI.BorderlessComboBox cboTamedResource;
         private System.Windows.Forms.Label lblTameResource;
         private System.Windows.Forms.CheckBox chkCryo;
         private System.Windows.Forms.Button btnCopyCommandTamed;
         private System.Windows.Forms.Label lblTamedCommand;
-        private System.Windows.Forms.ComboBox cboConsoleCommandsTamed;
-        private System.Windows.Forms.ComboBox cboTameTribes;
-        private System.Windows.Forms.ComboBox cboTamePlayers;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsTamed;
+        private ArkViewer.UI.BorderlessComboBox cboTameTribes;
+        private ArkViewer.UI.BorderlessComboBox cboTamePlayers;
         private System.Windows.Forms.Label lblTameCreature;
         private System.Windows.Forms.Label lblTamePlayer;
         private System.Windows.Forms.Label lblTameTribe;
@@ -4645,16 +4989,16 @@ namespace ARKViewer
         private System.Windows.Forms.Label lblStats;
         private System.Windows.Forms.RadioButton optStatsTamed;
         private System.Windows.Forms.RadioButton optStatsBase;
-        private System.Windows.Forms.ComboBox cboTameClass;
+        private ArkViewer.UI.BorderlessComboBox cboTameClass;
         private System.Windows.Forms.TabPage tpgWild;
         private System.Windows.Forms.Button btnRconCommandWild;
         private System.Windows.Forms.CheckBox chkTameable;
-        private System.Windows.Forms.ComboBox cboWildRealm;
+        private ArkViewer.UI.BorderlessComboBox cboWildRealm;
         private System.Windows.Forms.Label lblWildRealm;
         private System.Windows.Forms.Panel pnlFilterWilds;
         private System.Windows.Forms.Button btnFindWild;
         private System.Windows.Forms.TextBox txtFilterWild;
-        private System.Windows.Forms.ComboBox cboWildResource;
+        private ArkViewer.UI.BorderlessComboBox cboWildResource;
         private System.Windows.Forms.Label lblResource;
         private System.Windows.Forms.Label lblWildRadius;
         private System.Windows.Forms.NumericUpDown udWildRadius;
@@ -4668,7 +5012,7 @@ namespace ARKViewer
         private System.Windows.Forms.NumericUpDown udWildMax;
         private System.Windows.Forms.Button btnCopyCommandWild;
         private System.Windows.Forms.Label lblWildCommand;
-        private System.Windows.Forms.ComboBox cboConsoleCommandsWild;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsWild;
         private System.Windows.Forms.Label lblSelectedWildTotal;
         private System.Windows.Forms.Label lblWildClass;
         private System.Windows.Forms.ListView lvwWildDetail;
@@ -4700,7 +5044,7 @@ namespace ARKViewer
         private System.Windows.Forms.ColumnHeader lvwWildDetail_DinoId;
         private System.Windows.Forms.ColumnHeader lvwWildDetail_CCC;
         private System.Windows.Forms.Label lblWildTotal;
-        private System.Windows.Forms.ComboBox cboWildClass;
+        private ArkViewer.UI.BorderlessComboBox cboWildClass;
         private System.Windows.Forms.TabControl tabFeatures;
         private ArkViewer.ChartControl chartTribes;
         private System.Windows.Forms.ColumnHeader lvwStructureLocations_Created;

@@ -29,183 +29,194 @@ namespace ARKViewer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMapView));
-            this.pnlZoom = new System.Windows.Forms.Panel();
-            this.trackZoom = new System.Windows.Forms.TrackBar();
-            this.pnlMap = new System.Windows.Forms.Panel();
-            this.picMap = new System.Windows.Forms.PictureBox();
-            this.btnMapMarkers = new System.Windows.Forms.Button();
-            this.btnMapStructures = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.picIcon = new System.Windows.Forms.PictureBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.pnlZoom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackZoom)).BeginInit();
-            this.pnlMap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picMap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
-            this.SuspendLayout();
+            pnlZoom = new System.Windows.Forms.Panel();
+            trackZoom = new System.Windows.Forms.TrackBar();
+            pnlMap = new System.Windows.Forms.Panel();
+            picMap = new System.Windows.Forms.PictureBox();
+            btnMapMarkers = new System.Windows.Forms.Button();
+            btnMapStructures = new System.Windows.Forms.Button();
+            lblTitle = new System.Windows.Forms.Label();
+            picIcon = new System.Windows.Forms.PictureBox();
+            btnSave = new System.Windows.Forms.Button();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            toolTip2 = new System.Windows.Forms.ToolTip(components);
+            pnlZoom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)trackZoom).BeginInit();
+            pnlMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picMap).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picIcon).BeginInit();
+            SuspendLayout();
             // 
             // pnlZoom
             // 
-            this.pnlZoom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlZoom.BackColor = System.Drawing.Color.MintCream;
-            this.pnlZoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlZoom.Controls.Add(this.trackZoom);
-            this.pnlZoom.Location = new System.Drawing.Point(4, 562);
-            this.pnlZoom.Name = "pnlZoom";
-            this.pnlZoom.Size = new System.Drawing.Size(551, 26);
-            this.pnlZoom.TabIndex = 46;
+            pnlZoom.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlZoom.BackColor = System.Drawing.Color.FromArgb(40, 40, 40);
+            pnlZoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlZoom.Controls.Add(trackZoom);
+            pnlZoom.Location = new System.Drawing.Point(5, 648);
+            pnlZoom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlZoom.Name = "pnlZoom";
+            pnlZoom.Size = new System.Drawing.Size(642, 30);
+            pnlZoom.TabIndex = 46;
             // 
             // trackZoom
             // 
-            this.trackZoom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackZoom.AutoSize = false;
-            this.trackZoom.LargeChange = 10;
-            this.trackZoom.Location = new System.Drawing.Point(10, 1);
-            this.trackZoom.Maximum = 200;
-            this.trackZoom.Minimum = 1;
-            this.trackZoom.Name = "trackZoom";
-            this.trackZoom.Size = new System.Drawing.Size(536, 23);
-            this.trackZoom.TabIndex = 3;
-            this.trackZoom.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackZoom.Value = 5;
-            this.trackZoom.Scroll += new System.EventHandler(this.trackZoom_Scroll);
-            this.trackZoom.ValueChanged += new System.EventHandler(this.trackZoom_ValueChanged);
+            trackZoom.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            trackZoom.AutoSize = false;
+            trackZoom.LargeChange = 10;
+            trackZoom.Location = new System.Drawing.Point(12, 1);
+            trackZoom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            trackZoom.Maximum = 200;
+            trackZoom.Minimum = 1;
+            trackZoom.Name = "trackZoom";
+            trackZoom.Size = new System.Drawing.Size(625, 27);
+            trackZoom.TabIndex = 3;
+            trackZoom.TickStyle = System.Windows.Forms.TickStyle.None;
+            trackZoom.Value = 5;
+            trackZoom.Scroll += trackZoom_Scroll;
+            trackZoom.ValueChanged += trackZoom_ValueChanged;
             // 
             // pnlMap
             // 
-            this.pnlMap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlMap.AutoScroll = true;
-            this.pnlMap.BackColor = System.Drawing.Color.MintCream;
-            this.pnlMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMap.Controls.Add(this.picMap);
-            this.pnlMap.Location = new System.Drawing.Point(4, 64);
-            this.pnlMap.Name = "pnlMap";
-            this.pnlMap.Size = new System.Drawing.Size(551, 495);
-            this.pnlMap.TabIndex = 42;
+            pnlMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlMap.AutoScroll = true;
+            pnlMap.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            pnlMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlMap.Controls.Add(picMap);
+            pnlMap.Location = new System.Drawing.Point(5, 74);
+            pnlMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlMap.Name = "pnlMap";
+            pnlMap.Size = new System.Drawing.Size(642, 571);
+            pnlMap.TabIndex = 42;
             // 
             // picMap
             // 
-            this.picMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picMap.Location = new System.Drawing.Point(2, 2);
-            this.picMap.Margin = new System.Windows.Forms.Padding(0);
-            this.picMap.Name = "picMap";
-            this.picMap.Size = new System.Drawing.Size(256, 256);
-            this.picMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picMap.TabIndex = 1;
-            this.picMap.TabStop = false;
-            this.picMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picMap_MouseClick);
-            this.picMap.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picMap_MouseDown);
-            this.picMap.MouseHover += new System.EventHandler(this.picMap_MouseHover);
-            this.picMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picMap_MouseMove);
+            picMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picMap.Location = new System.Drawing.Point(2, 2);
+            picMap.Margin = new System.Windows.Forms.Padding(0);
+            picMap.Name = "picMap";
+            picMap.Size = new System.Drawing.Size(298, 295);
+            picMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picMap.TabIndex = 1;
+            picMap.TabStop = false;
+            picMap.MouseClick += picMap_MouseClick;
+            picMap.MouseDown += picMap_MouseDown;
+            picMap.MouseHover += picMap_MouseHover;
+            picMap.MouseMove += picMap_MouseMove;
             // 
             // btnMapMarkers
             // 
-            this.btnMapMarkers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMapMarkers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMapMarkers.Image = ((System.Drawing.Image)(resources.GetObject("btnMapMarkers.Image")));
-            this.btnMapMarkers.Location = new System.Drawing.Point(449, 8);
-            this.btnMapMarkers.Name = "btnMapMarkers";
-            this.btnMapMarkers.Size = new System.Drawing.Size(50, 50);
-            this.btnMapMarkers.TabIndex = 48;
-            this.btnMapMarkers.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnMapMarkers, "Show custom map markers.");
-            this.btnMapMarkers.UseVisualStyleBackColor = true;
-            this.btnMapMarkers.Click += new System.EventHandler(this.btnMapMarkers_Click);
+            btnMapMarkers.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnMapMarkers.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnMapMarkers.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnMapMarkers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnMapMarkers.Image = (System.Drawing.Image)resources.GetObject("btnMapMarkers.Image");
+            btnMapMarkers.Location = new System.Drawing.Point(524, 9);
+            btnMapMarkers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnMapMarkers.Name = "btnMapMarkers";
+            btnMapMarkers.Size = new System.Drawing.Size(58, 58);
+            btnMapMarkers.TabIndex = 48;
+            btnMapMarkers.TabStop = false;
+            toolTip1.SetToolTip(btnMapMarkers, "Show custom map markers.");
+            btnMapMarkers.UseVisualStyleBackColor = false;
+            btnMapMarkers.Click += btnMapMarkers_Click;
             // 
             // btnMapStructures
             // 
-            this.btnMapStructures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMapStructures.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMapStructures.Image = ((System.Drawing.Image)(resources.GetObject("btnMapStructures.Image")));
-            this.btnMapStructures.Location = new System.Drawing.Point(393, 8);
-            this.btnMapStructures.Name = "btnMapStructures";
-            this.btnMapStructures.Size = new System.Drawing.Size(50, 50);
-            this.btnMapStructures.TabIndex = 47;
-            this.btnMapStructures.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnMapStructures, "Show map structures options.");
-            this.btnMapStructures.UseVisualStyleBackColor = true;
-            this.btnMapStructures.Click += new System.EventHandler(this.btnMapStructures_Click);
+            btnMapStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnMapStructures.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnMapStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnMapStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnMapStructures.Image = (System.Drawing.Image)resources.GetObject("btnMapStructures.Image");
+            btnMapStructures.Location = new System.Drawing.Point(458, 9);
+            btnMapStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnMapStructures.Name = "btnMapStructures";
+            btnMapStructures.Size = new System.Drawing.Size(58, 58);
+            btnMapStructures.TabIndex = 47;
+            btnMapStructures.TabStop = false;
+            toolTip1.SetToolTip(btnMapStructures, "Show map structures options.");
+            btnMapStructures.UseVisualStyleBackColor = false;
+            btnMapStructures.Click += btnMapStructures_Click;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTitle.Location = new System.Drawing.Point(50, 12);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(140, 31);
-            this.lblTitle.TabIndex = 49;
-            this.lblTitle.Text = "Map View";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTitle.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblTitle.Location = new System.Drawing.Point(66, 14);
+            lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new System.Drawing.Size(140, 31);
+            lblTitle.TabIndex = 49;
+            lblTitle.Text = "Map View";
             // 
             // picIcon
             // 
-            this.picIcon.Image = global::ARKViewer.Properties.Resources.ModernXP_73_Globe_icon;
-            this.picIcon.Location = new System.Drawing.Point(4, 8);
-            this.picIcon.Name = "picIcon";
-            this.picIcon.Size = new System.Drawing.Size(40, 50);
-            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon.TabIndex = 50;
-            this.picIcon.TabStop = false;
+            picIcon.Image = (System.Drawing.Image)resources.GetObject("picIcon.Image");
+            picIcon.Location = new System.Drawing.Point(5, 9);
+            picIcon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon.Name = "picIcon";
+            picIcon.Size = new System.Drawing.Size(58, 58);
+            picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon.TabIndex = 50;
+            picIcon.TabStop = false;
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Enabled = false;
-            this.btnSave.Image = global::ARKViewer.Properties.Resources.button_save;
-            this.btnSave.Location = new System.Drawing.Point(505, 8);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(50, 50);
-            this.btnSave.TabIndex = 51;
-            this.btnSave.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnSave, "Save map image.");
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnSave.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnSave.Enabled = false;
+            btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSave.Image = (System.Drawing.Image)resources.GetObject("btnSave.Image");
+            btnSave.Location = new System.Drawing.Point(589, 9);
+            btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new System.Drawing.Size(58, 58);
+            btnSave.TabIndex = 51;
+            btnSave.TabStop = false;
+            toolTip1.SetToolTip(btnSave, "Save map image.");
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // toolTip1
             // 
-            this.toolTip1.StripAmpersands = true;
+            toolTip1.StripAmpersands = true;
             // 
             // toolTip2
             // 
-            this.toolTip2.StripAmpersands = true;
+            toolTip2.StripAmpersands = true;
             // 
             // frmMapView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(560, 594);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.picIcon);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnMapMarkers);
-            this.Controls.Add(this.btnMapStructures);
-            this.Controls.Add(this.pnlMap);
-            this.Controls.Add(this.pnlZoom);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.MinimumSize = new System.Drawing.Size(400, 400);
-            this.Name = "frmMapView";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Map View";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMapView_FormClosed);
-            this.pnlZoom.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackZoom)).EndInit();
-            this.pnlMap.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picMap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
+            ClientSize = new System.Drawing.Size(653, 685);
+            Controls.Add(btnSave);
+            Controls.Add(picIcon);
+            Controls.Add(lblTitle);
+            Controls.Add(btnMapMarkers);
+            Controls.Add(btnMapStructures);
+            Controls.Add(pnlMap);
+            Controls.Add(pnlZoom);
+            ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(464, 456);
+            Name = "frmMapView";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Map View";
+            FormClosed += frmMapView_FormClosed;
+            pnlZoom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)trackZoom).EndInit();
+            pnlMap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picMap).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picIcon).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -110,22 +110,12 @@ namespace AsaSavegameToolkit
                     {
                         AsaGameObject gameObject = new AsaGameObject(archive);
 
-  
-
                         gameObjects.Add(gameObject);
                     }
 
                     foreach (var gameObject in gameObjects)
                     {
                         gameObject.ReadProperties(archive);
-                        if (archive.Position < archive.Limit)
-                        {
-                            var i = archive.ReadInt();
-                            if (i != 0)
-                            {
-                                gameObject.Guid = GuidExtensions.ToGuid(archive.ReadBytes(16));
-                            }
-                        }
 
                     }
                 }

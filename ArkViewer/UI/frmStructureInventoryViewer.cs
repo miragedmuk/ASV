@@ -93,7 +93,7 @@ namespace ARKViewer
             {
                 //var playerItems = selectedPlayer.Creatures;
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
-                
+
                 var inventItems = loadedInventory.GroupBy(g => new
                 {
                     g.ClassName,

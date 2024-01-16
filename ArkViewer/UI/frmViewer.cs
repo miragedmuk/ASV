@@ -142,6 +142,7 @@ namespace ARKViewer
         {
             isLoading = true;
 
+
             LoadWindowSettings();
             chkCryo.Checked = Program.ProgramConfig.StoredTames;
             lblVersion.Text = $"{Application.ProductVersion}";
@@ -724,6 +725,44 @@ namespace ARKViewer
 
         }
 
+        private void ownerDrawTabControl_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabControl tabControl = sender as TabControl;
+            TabPage tabPage = tabControl.TabPages[tabControl.SelectedIndex];
+
+            // Set Border header  
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45, 45, 45)), e.Bounds);
+            Rectangle paddedBounds = e.Bounds;
+            paddedBounds.Inflate(-2, -2);
+            paddedBounds.Offset(1, 1);
+            e.Graphics.DrawString(tabControl.TabPages[e.Index].Text, this.Font, SystemBrushes.HighlightText, paddedBounds);
+
+            //set  Tabcontrol border  
+            Graphics g = e.Graphics;
+            Pen p = new Pen(Color.FromArgb(45, 45, 45), 2);
+            g.DrawRectangle(p, tabPage.Bounds);
+        }
+
+
+
+        //private void ownerDrawCombo_DrawItem(object sender, DrawItemEventArgs e)
+        //{
+        //    if (e.Index < 0) return;
+
+        //    System.Windows.Forms.ComboBox comboBox = sender as System.Windows.Forms.ComboBox;
+
+        //    e.DrawBackground();
+
+        //    Rectangle r1 = e.Bounds;
+        //    r1.Width = r1.Width;
+
+        //    using (SolidBrush sb = new SolidBrush(comboBox.ForeColor))
+        //    {
+        //        string drawText = comboBox.Items[e.Index].ToString();
+        //        e.Graphics.DrawString(drawText, e.Font, sb, r1);
+        //    }
+        //}
+
         private void cboSelected_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
@@ -738,7 +777,7 @@ namespace ARKViewer
             Rectangle r1 = e.Bounds;
             r1.Width = r1.Width;
 
-            using (SolidBrush sb = new SolidBrush(Color.Black))
+            using (SolidBrush sb = new SolidBrush(cboWildClass.ForeColor))
             {
                 e.Graphics.DrawString(dinoName, e.Font, sb, r1);
             }
@@ -751,7 +790,7 @@ namespace ARKViewer
             r2.X = e.Bounds.Width - 200;
             r2.Width = r2.Width / 4;
 
-            using (SolidBrush sb = new SolidBrush(Color.Black))
+            using (SolidBrush sb = new SolidBrush(cboWildClass.ForeColor))
             {
                 e.Graphics.DrawString(dinoCount, e.Font, sb, r2);
             }
@@ -764,7 +803,7 @@ namespace ARKViewer
             r3.X = e.Bounds.Width - 120;
             r3.Width = r3.Width / 4;
 
-            using (SolidBrush sb = new SolidBrush(Color.Black))
+            using (SolidBrush sb = new SolidBrush(cboWildClass.ForeColor))
             {
                 e.Graphics.DrawString(minLevel, e.Font, sb, r3);
             }
@@ -777,7 +816,7 @@ namespace ARKViewer
             r4.X = (int)(e.Bounds.Width - 65);
             r4.Width = r4.Width / 4;
 
-            using (SolidBrush sb = new SolidBrush(Color.Black))
+            using (SolidBrush sb = new SolidBrush(cboWildClass.ForeColor))
             {
                 e.Graphics.DrawString(maxLevel, e.Font, sb, r4);
             }
@@ -6594,7 +6633,7 @@ namespace ARKViewer
                             item.SubItems.Add(detail.TamedStats[11].ToString());
 
                         }
-                        else if(optStatsBase.Checked)
+                        else if (optStatsBase.Checked)
                         {
                             item.SubItems.Add(detail.BaseStats[0].ToString());
                             item.SubItems.Add(detail.BaseStats[1].ToString());

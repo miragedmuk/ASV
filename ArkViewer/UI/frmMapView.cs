@@ -114,14 +114,9 @@ namespace ARKViewer
             };
 
 
-
-            var zoomPercent = ((double)trackZoom.Value / 100.0);
-            var markerSize = 10 * (1-zoomPercent);
-            cm.MarkerSize = (float)markerSize;
-
             DrawMapImage(cm.GetMapImageTribes(tribeId, showStructures, showPlayers, showTames, selectedLocations, mapOptions, CustomMarkers));
         }
-        public void DrawMapImageItems(long tribeId, string className,  List<Tuple<float,float>> selectedLocations, string selectedRealm)
+        public void DrawMapImageItems(long tribeId, string className, List<Tuple<float, float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
 
@@ -142,15 +137,12 @@ namespace ARKViewer
                 BeeHives = c.BeeHives
             };
 
-            var zoomPercent = ((double)trackZoom.Value / 100.0);
-            var markerSize = 10 * zoomPercent;
-            cm.MarkerSize = (float)markerSize;
 
             DrawMapImage(cm.GetMapImageItems(tribeId, className, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
 
 
-        public void DrawMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, List<Tuple<float,float>> selectedLocations, string selectedRealm)
+        public void DrawMapImageWild(string className, string productionClassName, int minLevel, int maxLevel, float filterLat, float filterLon, float filterRadius, List<Tuple<float, float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -332,8 +324,8 @@ namespace ARKViewer
             picMap.Height = (int)newSize;
 
 
-            
- 
+
+
             Program.ProgramConfig.Zoom = trackZoom.Value;
         }
 
@@ -385,7 +377,7 @@ namespace ARKViewer
                 }
             }
 
-            if(e.Button == MouseButtons.None)
+            if (e.Button == MouseButtons.None)
             {
                 if (picMap.Image == null) return;
 
@@ -409,7 +401,7 @@ namespace ARKViewer
                     toolTip2.RemoveAll();
                 }
             }
-            
+
 
         }
 
@@ -423,7 +415,7 @@ namespace ARKViewer
 
             double latitude = clickY / 10.25;
             double longitude = clickX / 10.25;
-            if(e.Button == MouseButtons.Left) OnMapClicked?.Invoke((decimal)latitude, (decimal)longitude);
+            if (e.Button == MouseButtons.Left) OnMapClicked?.Invoke((decimal)latitude, (decimal)longitude);
         }
 
         private void trackZoom_ValueChanged(object sender, EventArgs e)

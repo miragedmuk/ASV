@@ -28,131 +28,150 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.pnlWrapper = new System.Windows.Forms.Panel();
-            this.lstStructureFilter = new System.Windows.Forms.CheckedListBox();
-            this.chkApplyFilter = new System.Windows.Forms.CheckBox();
-            this.lblFilter = new System.Windows.Forms.Label();
-            this.txtFilter = new System.Windows.Forms.TextBox();
-            this.lblWindowTitle = new System.Windows.Forms.Label();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.pnlWrapper.SuspendLayout();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStructureExclusionFilter));
+            btnCancel = new System.Windows.Forms.Button();
+            pnlWrapper = new System.Windows.Forms.Panel();
+            lstStructureFilter = new System.Windows.Forms.CheckedListBox();
+            chkApplyFilter = new System.Windows.Forms.CheckBox();
+            lblFilter = new System.Windows.Forms.Label();
+            txtFilter = new System.Windows.Forms.TextBox();
+            lblWindowTitle = new System.Windows.Forms.Label();
+            btnApply = new System.Windows.Forms.Button();
+            pnlWrapper.SuspendLayout();
+            SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancel.Location = new System.Drawing.Point(317, 428);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Close";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnCancel.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnCancel.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnCancel.Location = new System.Drawing.Point(370, 494);
+            btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new System.Drawing.Size(88, 27);
+            btnCancel.TabIndex = 2;
+            btnCancel.Text = "Close";
+            btnCancel.UseVisualStyleBackColor = false;
             // 
             // pnlWrapper
             // 
-            this.pnlWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlWrapper.BackColor = System.Drawing.Color.PowderBlue;
-            this.pnlWrapper.Controls.Add(this.lstStructureFilter);
-            this.pnlWrapper.Controls.Add(this.chkApplyFilter);
-            this.pnlWrapper.Controls.Add(this.lblFilter);
-            this.pnlWrapper.Controls.Add(this.txtFilter);
-            this.pnlWrapper.Location = new System.Drawing.Point(12, 46);
-            this.pnlWrapper.Name = "pnlWrapper";
-            this.pnlWrapper.Size = new System.Drawing.Size(380, 365);
-            this.pnlWrapper.TabIndex = 0;
+            pnlWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlWrapper.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            pnlWrapper.Controls.Add(lstStructureFilter);
+            pnlWrapper.Controls.Add(chkApplyFilter);
+            pnlWrapper.Controls.Add(lblFilter);
+            pnlWrapper.Controls.Add(txtFilter);
+            pnlWrapper.Location = new System.Drawing.Point(14, 53);
+            pnlWrapper.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlWrapper.Name = "pnlWrapper";
+            pnlWrapper.Size = new System.Drawing.Size(443, 421);
+            pnlWrapper.TabIndex = 0;
             // 
             // lstStructureFilter
             // 
-            this.lstStructureFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstStructureFilter.FormattingEnabled = true;
-            this.lstStructureFilter.Location = new System.Drawing.Point(18, 15);
-            this.lstStructureFilter.Name = "lstStructureFilter";
-            this.lstStructureFilter.Size = new System.Drawing.Size(342, 304);
-            this.lstStructureFilter.TabIndex = 0;
-            this.lstStructureFilter.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstStructureFilter_ItemCheck);
+            lstStructureFilter.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lstStructureFilter.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lstStructureFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            lstStructureFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lstStructureFilter.FormattingEnabled = true;
+            lstStructureFilter.Location = new System.Drawing.Point(21, 10);
+            lstStructureFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lstStructureFilter.Name = "lstStructureFilter";
+            lstStructureFilter.Size = new System.Drawing.Size(398, 360);
+            lstStructureFilter.TabIndex = 0;
+            lstStructureFilter.ItemCheck += lstStructureFilter_ItemCheck;
             // 
             // chkApplyFilter
             // 
-            this.chkApplyFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkApplyFilter.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkApplyFilter.Image = global::ARKViewer.Properties.Resources.button_filter;
-            this.chkApplyFilter.Location = new System.Drawing.Point(325, 325);
-            this.chkApplyFilter.Name = "chkApplyFilter";
-            this.chkApplyFilter.Size = new System.Drawing.Size(35, 35);
-            this.chkApplyFilter.TabIndex = 3;
-            this.chkApplyFilter.UseVisualStyleBackColor = true;
-            this.chkApplyFilter.CheckedChanged += new System.EventHandler(this.chkApplyFilter_CheckedChanged);
+            chkApplyFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkApplyFilter.Appearance = System.Windows.Forms.Appearance.Button;
+            chkApplyFilter.Image = (System.Drawing.Image)resources.GetObject("chkApplyFilter.Image");
+            chkApplyFilter.Location = new System.Drawing.Point(379, 375);
+            chkApplyFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkApplyFilter.Name = "chkApplyFilter";
+            chkApplyFilter.Size = new System.Drawing.Size(41, 40);
+            chkApplyFilter.TabIndex = 3;
+            chkApplyFilter.UseVisualStyleBackColor = true;
+            chkApplyFilter.CheckedChanged += chkApplyFilter_CheckedChanged;
             // 
             // lblFilter
             // 
-            this.lblFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblFilter.AutoSize = true;
-            this.lblFilter.Location = new System.Drawing.Point(15, 336);
-            this.lblFilter.Name = "lblFilter";
-            this.lblFilter.Size = new System.Drawing.Size(29, 13);
-            this.lblFilter.TabIndex = 1;
-            this.lblFilter.Text = "Filter";
+            lblFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblFilter.AutoSize = true;
+            lblFilter.Location = new System.Drawing.Point(18, 388);
+            lblFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblFilter.Name = "lblFilter";
+            lblFilter.Size = new System.Drawing.Size(33, 15);
+            lblFilter.TabIndex = 1;
+            lblFilter.Text = "Filter";
             // 
             // txtFilter
             // 
-            this.txtFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFilter.Location = new System.Drawing.Point(50, 333);
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(271, 20);
-            this.txtFilter.TabIndex = 2;
+            txtFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtFilter.Location = new System.Drawing.Point(58, 384);
+            txtFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new System.Drawing.Size(316, 20);
+            txtFilter.TabIndex = 2;
             // 
             // lblWindowTitle
             // 
-            this.lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindowTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblWindowTitle.Location = new System.Drawing.Point(12, 9);
-            this.lblWindowTitle.Name = "lblWindowTitle";
-            this.lblWindowTitle.Size = new System.Drawing.Size(301, 31);
-            this.lblWindowTitle.TabIndex = 0;
-            this.lblWindowTitle.Text = "Structure Exclusions";
-            this.lblWindowTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWindowTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lblWindowTitle.Location = new System.Drawing.Point(14, 10);
+            lblWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWindowTitle.Name = "lblWindowTitle";
+            lblWindowTitle.Size = new System.Drawing.Size(351, 36);
+            lblWindowTitle.TabIndex = 0;
+            lblWindowTitle.Text = "Structure Exclusions";
+            lblWindowTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnApply
             // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(236, 428);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 1;
-            this.btnApply.Text = "Save";
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            btnApply.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnApply.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnApply.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnApply.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnApply.Location = new System.Drawing.Point(275, 494);
+            btnApply.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnApply.Name = "btnApply";
+            btnApply.Size = new System.Drawing.Size(88, 27);
+            btnApply.TabIndex = 1;
+            btnApply.Text = "Save";
+            btnApply.UseVisualStyleBackColor = false;
+            btnApply.Click += btnApply_Click;
             // 
             // frmStructureExclusionFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(404, 463);
-            this.Controls.Add(this.btnApply);
-            this.Controls.Add(this.lblWindowTitle);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.pnlWrapper);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.MinimumSize = new System.Drawing.Size(265, 300);
-            this.Name = "frmStructureExclusionFilter";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Structure Exclusions";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStructureExclusionFilter_FormClosed);
-            this.pnlWrapper.ResumeLayout(false);
-            this.pnlWrapper.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
+            CancelButton = btnCancel;
+            ClientSize = new System.Drawing.Size(471, 534);
+            Controls.Add(btnApply);
+            Controls.Add(lblWindowTitle);
+            Controls.Add(btnCancel);
+            Controls.Add(pnlWrapper);
+            ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(306, 340);
+            Name = "frmStructureExclusionFilter";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Structure Exclusions";
+            FormClosed += frmStructureExclusionFilter_FormClosed;
+            pnlWrapper.ResumeLayout(false);
+            pnlWrapper.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

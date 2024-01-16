@@ -29,844 +29,852 @@ namespace ARKViewer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMapToolboxStructures));
-            this.layoutStructures = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlContainer12 = new System.Windows.Forms.Panel();
-            this.picIcon12 = new System.Windows.Forms.PictureBox();
-            this.chkMapGlitches = new System.Windows.Forms.CheckBox();
-            this.pnlContainer6 = new System.Windows.Forms.Panel();
-            this.picIcon6 = new System.Windows.Forms.PictureBox();
-            this.chkMapArtifacts = new System.Windows.Forms.CheckBox();
-            this.pnlContainer5 = new System.Windows.Forms.Panel();
-            this.picIcon5 = new System.Windows.Forms.PictureBox();
-            this.chkMapChargeNodes = new System.Windows.Forms.CheckBox();
-            this.pnlContainer11 = new System.Windows.Forms.Panel();
-            this.picIcon11 = new System.Windows.Forms.PictureBox();
-            this.chkMapBeaverDams = new System.Windows.Forms.CheckBox();
-            this.pnlContainer4 = new System.Windows.Forms.Panel();
-            this.picIcon4 = new System.Windows.Forms.PictureBox();
-            this.chkMapWaterVeins = new System.Windows.Forms.CheckBox();
-            this.pnlContainer10 = new System.Windows.Forms.Panel();
-            this.chkMapMagmaNests = new System.Windows.Forms.CheckBox();
-            this.picIcon10 = new System.Windows.Forms.PictureBox();
-            this.pnlContainer3 = new System.Windows.Forms.Panel();
-            this.chkMapGasVeins = new System.Windows.Forms.CheckBox();
-            this.picIcon3 = new System.Windows.Forms.PictureBox();
-            this.pnlContainer9 = new System.Windows.Forms.Panel();
-            this.chkMapDrakeNests = new System.Windows.Forms.CheckBox();
-            this.picIcon9 = new System.Windows.Forms.PictureBox();
-            this.pnlContainer2 = new System.Windows.Forms.Panel();
-            this.chkMapOilVeins = new System.Windows.Forms.CheckBox();
-            this.picIcon2 = new System.Windows.Forms.PictureBox();
-            this.pnlContainer8 = new System.Windows.Forms.Panel();
-            this.chkMapDeinoNests = new System.Windows.Forms.CheckBox();
-            this.picIcon8 = new System.Windows.Forms.PictureBox();
-            this.pnlContainer1 = new System.Windows.Forms.Panel();
-            this.picIcon1 = new System.Windows.Forms.PictureBox();
-            this.chkMapTerminals = new System.Windows.Forms.CheckBox();
-            this.pnlContainer7 = new System.Windows.Forms.Panel();
-            this.picIcon7 = new System.Windows.Forms.PictureBox();
-            this.chkMapWyvernNests = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.picIcon13 = new System.Windows.Forms.PictureBox();
-            this.chkMapBeeHives = new System.Windows.Forms.CheckBox();
-            this.lvwStructureLocations = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuContextExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkGroup = new System.Windows.Forms.CheckBox();
-            this.txtContents = new System.Windows.Forms.TextBox();
-            this.lblSelectedContent = new System.Windows.Forms.Label();
-            this.btnCopyCommand = new System.Windows.Forms.Button();
-            this.cboConsoleCommands = new System.Windows.Forms.ComboBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.layoutStructures.SuspendLayout();
-            this.pnlContainer12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon12)).BeginInit();
-            this.pnlContainer6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon6)).BeginInit();
-            this.pnlContainer5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon5)).BeginInit();
-            this.pnlContainer11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon11)).BeginInit();
-            this.pnlContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon4)).BeginInit();
-            this.pnlContainer10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon10)).BeginInit();
-            this.pnlContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon3)).BeginInit();
-            this.pnlContainer9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon9)).BeginInit();
-            this.pnlContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon2)).BeginInit();
-            this.pnlContainer8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon8)).BeginInit();
-            this.pnlContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon1)).BeginInit();
-            this.pnlContainer7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon7)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon13)).BeginInit();
-            this.mnuContext.SuspendLayout();
-            this.SuspendLayout();
+            layoutStructures = new System.Windows.Forms.TableLayoutPanel();
+            pnlContainer12 = new System.Windows.Forms.Panel();
+            picIcon12 = new System.Windows.Forms.PictureBox();
+            chkMapGlitches = new System.Windows.Forms.CheckBox();
+            pnlContainer6 = new System.Windows.Forms.Panel();
+            picIcon6 = new System.Windows.Forms.PictureBox();
+            chkMapArtifacts = new System.Windows.Forms.CheckBox();
+            pnlContainer5 = new System.Windows.Forms.Panel();
+            picIcon5 = new System.Windows.Forms.PictureBox();
+            chkMapChargeNodes = new System.Windows.Forms.CheckBox();
+            pnlContainer11 = new System.Windows.Forms.Panel();
+            picIcon11 = new System.Windows.Forms.PictureBox();
+            chkMapBeaverDams = new System.Windows.Forms.CheckBox();
+            pnlContainer4 = new System.Windows.Forms.Panel();
+            picIcon4 = new System.Windows.Forms.PictureBox();
+            chkMapWaterVeins = new System.Windows.Forms.CheckBox();
+            pnlContainer10 = new System.Windows.Forms.Panel();
+            chkMapMagmaNests = new System.Windows.Forms.CheckBox();
+            picIcon10 = new System.Windows.Forms.PictureBox();
+            pnlContainer3 = new System.Windows.Forms.Panel();
+            chkMapGasVeins = new System.Windows.Forms.CheckBox();
+            picIcon3 = new System.Windows.Forms.PictureBox();
+            pnlContainer9 = new System.Windows.Forms.Panel();
+            chkMapDrakeNests = new System.Windows.Forms.CheckBox();
+            picIcon9 = new System.Windows.Forms.PictureBox();
+            pnlContainer2 = new System.Windows.Forms.Panel();
+            chkMapOilVeins = new System.Windows.Forms.CheckBox();
+            picIcon2 = new System.Windows.Forms.PictureBox();
+            pnlContainer8 = new System.Windows.Forms.Panel();
+            chkMapDeinoNests = new System.Windows.Forms.CheckBox();
+            picIcon8 = new System.Windows.Forms.PictureBox();
+            pnlContainer1 = new System.Windows.Forms.Panel();
+            picIcon1 = new System.Windows.Forms.PictureBox();
+            chkMapTerminals = new System.Windows.Forms.CheckBox();
+            pnlContainer7 = new System.Windows.Forms.Panel();
+            picIcon7 = new System.Windows.Forms.PictureBox();
+            chkMapWyvernNests = new System.Windows.Forms.CheckBox();
+            panel1 = new System.Windows.Forms.Panel();
+            picIcon13 = new System.Windows.Forms.PictureBox();
+            chkMapBeeHives = new System.Windows.Forms.CheckBox();
+            lvwStructureLocations = new System.Windows.Forms.ListView();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            mnuContext = new System.Windows.Forms.ContextMenuStrip(components);
+            mnuContextExport = new System.Windows.Forms.ToolStripMenuItem();
+            chkGroup = new System.Windows.Forms.CheckBox();
+            txtContents = new System.Windows.Forms.TextBox();
+            lblSelectedContent = new System.Windows.Forms.Label();
+            btnCopyCommand = new System.Windows.Forms.Button();
+            cboConsoleCommands = new System.Windows.Forms.ComboBox();
+            lblStatus = new System.Windows.Forms.Label();
+            btnAdd = new System.Windows.Forms.Button();
+            btnEdit = new System.Windows.Forms.Button();
+            btnRemove = new System.Windows.Forms.Button();
+            layoutStructures.SuspendLayout();
+            pnlContainer12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon12).BeginInit();
+            pnlContainer6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon6).BeginInit();
+            pnlContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon5).BeginInit();
+            pnlContainer11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon11).BeginInit();
+            pnlContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon4).BeginInit();
+            pnlContainer10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon10).BeginInit();
+            pnlContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon3).BeginInit();
+            pnlContainer9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon9).BeginInit();
+            pnlContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon2).BeginInit();
+            pnlContainer8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon8).BeginInit();
+            pnlContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon1).BeginInit();
+            pnlContainer7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon7).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon13).BeginInit();
+            mnuContext.SuspendLayout();
+            SuspendLayout();
             // 
             // layoutStructures
             // 
-            this.layoutStructures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layoutStructures.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.layoutStructures.ColumnCount = 2;
-            this.layoutStructures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.layoutStructures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.layoutStructures.Controls.Add(this.pnlContainer12, 0, 6);
-            this.layoutStructures.Controls.Add(this.pnlContainer6, 0, 5);
-            this.layoutStructures.Controls.Add(this.pnlContainer5, 0, 4);
-            this.layoutStructures.Controls.Add(this.pnlContainer11, 0, 4);
-            this.layoutStructures.Controls.Add(this.pnlContainer4, 0, 3);
-            this.layoutStructures.Controls.Add(this.pnlContainer10, 0, 3);
-            this.layoutStructures.Controls.Add(this.pnlContainer3, 0, 2);
-            this.layoutStructures.Controls.Add(this.pnlContainer9, 0, 2);
-            this.layoutStructures.Controls.Add(this.pnlContainer2, 0, 1);
-            this.layoutStructures.Controls.Add(this.pnlContainer8, 0, 1);
-            this.layoutStructures.Controls.Add(this.pnlContainer1, 0, 0);
-            this.layoutStructures.Controls.Add(this.pnlContainer7, 1, 0);
-            this.layoutStructures.Controls.Add(this.panel1, 1, 5);
-            this.layoutStructures.Location = new System.Drawing.Point(14, 14);
-            this.layoutStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.layoutStructures.Name = "layoutStructures";
-            this.layoutStructures.RowCount = 7;
-            this.layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.layoutStructures.Size = new System.Drawing.Size(444, 330);
-            this.layoutStructures.TabIndex = 0;
-            this.layoutStructures.Paint += new System.Windows.Forms.PaintEventHandler(this.layoutStructures_Paint);
+            layoutStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            layoutStructures.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            layoutStructures.ColumnCount = 2;
+            layoutStructures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            layoutStructures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            layoutStructures.Controls.Add(pnlContainer12, 0, 6);
+            layoutStructures.Controls.Add(pnlContainer6, 0, 5);
+            layoutStructures.Controls.Add(pnlContainer5, 0, 4);
+            layoutStructures.Controls.Add(pnlContainer11, 0, 4);
+            layoutStructures.Controls.Add(pnlContainer4, 0, 3);
+            layoutStructures.Controls.Add(pnlContainer10, 0, 3);
+            layoutStructures.Controls.Add(pnlContainer3, 0, 2);
+            layoutStructures.Controls.Add(pnlContainer9, 0, 2);
+            layoutStructures.Controls.Add(pnlContainer2, 0, 1);
+            layoutStructures.Controls.Add(pnlContainer8, 0, 1);
+            layoutStructures.Controls.Add(pnlContainer1, 0, 0);
+            layoutStructures.Controls.Add(pnlContainer7, 1, 0);
+            layoutStructures.Controls.Add(panel1, 1, 5);
+            layoutStructures.Location = new System.Drawing.Point(14, 14);
+            layoutStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            layoutStructures.Name = "layoutStructures";
+            layoutStructures.RowCount = 7;
+            layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            layoutStructures.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            layoutStructures.Size = new System.Drawing.Size(444, 330);
+            layoutStructures.TabIndex = 0;
+            layoutStructures.Paint += layoutStructures_Paint;
             // 
             // pnlContainer12
             // 
-            this.pnlContainer12.BackColor = System.Drawing.Color.PowderBlue;
-            this.pnlContainer12.Controls.Add(this.picIcon12);
-            this.pnlContainer12.Controls.Add(this.chkMapGlitches);
-            this.pnlContainer12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer12.Location = new System.Drawing.Point(4, 285);
-            this.pnlContainer12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer12.Name = "pnlContainer12";
-            this.pnlContainer12.Size = new System.Drawing.Size(214, 42);
-            this.pnlContainer12.TabIndex = 12;
+            pnlContainer12.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer12.Controls.Add(picIcon12);
+            pnlContainer12.Controls.Add(chkMapGlitches);
+            pnlContainer12.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer12.Location = new System.Drawing.Point(4, 285);
+            pnlContainer12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer12.Name = "pnlContainer12";
+            pnlContainer12.Size = new System.Drawing.Size(214, 42);
+            pnlContainer12.TabIndex = 12;
             // 
             // picIcon12
             // 
-            this.picIcon12.BackColor = System.Drawing.Color.White;
-            this.picIcon12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon12.Image = ((System.Drawing.Image)(resources.GetObject("picIcon12.Image")));
-            this.picIcon12.Location = new System.Drawing.Point(13, 2);
-            this.picIcon12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon12.Name = "picIcon12";
-            this.picIcon12.Size = new System.Drawing.Size(37, 35);
-            this.picIcon12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon12.TabIndex = 29;
-            this.picIcon12.TabStop = false;
+            picIcon12.BackColor = System.Drawing.Color.White;
+            picIcon12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon12.Image = (System.Drawing.Image)resources.GetObject("picIcon12.Image");
+            picIcon12.Location = new System.Drawing.Point(13, 2);
+            picIcon12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon12.Name = "picIcon12";
+            picIcon12.Size = new System.Drawing.Size(37, 35);
+            picIcon12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon12.TabIndex = 29;
+            picIcon12.TabStop = false;
             // 
             // chkMapGlitches
             // 
-            this.chkMapGlitches.AutoSize = true;
-            this.chkMapGlitches.Location = new System.Drawing.Point(62, 14);
-            this.chkMapGlitches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapGlitches.Name = "chkMapGlitches";
-            this.chkMapGlitches.Size = new System.Drawing.Size(68, 19);
-            this.chkMapGlitches.TabIndex = 0;
-            this.chkMapGlitches.Text = "Glitches";
-            this.chkMapGlitches.UseVisualStyleBackColor = true;
+            chkMapGlitches.AutoSize = true;
+            chkMapGlitches.Location = new System.Drawing.Point(62, 14);
+            chkMapGlitches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapGlitches.Name = "chkMapGlitches";
+            chkMapGlitches.Size = new System.Drawing.Size(68, 19);
+            chkMapGlitches.TabIndex = 0;
+            chkMapGlitches.Text = "Glitches";
+            chkMapGlitches.UseVisualStyleBackColor = true;
             // 
             // pnlContainer6
             // 
-            this.pnlContainer6.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer6.Controls.Add(this.picIcon6);
-            this.pnlContainer6.Controls.Add(this.chkMapArtifacts);
-            this.pnlContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer6.Location = new System.Drawing.Point(4, 239);
-            this.pnlContainer6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer6.Name = "pnlContainer6";
-            this.pnlContainer6.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer6.TabIndex = 10;
+            pnlContainer6.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer6.Controls.Add(picIcon6);
+            pnlContainer6.Controls.Add(chkMapArtifacts);
+            pnlContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer6.Location = new System.Drawing.Point(4, 239);
+            pnlContainer6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer6.Name = "pnlContainer6";
+            pnlContainer6.Size = new System.Drawing.Size(214, 40);
+            pnlContainer6.TabIndex = 10;
             // 
             // picIcon6
             // 
-            this.picIcon6.BackColor = System.Drawing.Color.Cornsilk;
-            this.picIcon6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon6.Image = ((System.Drawing.Image)(resources.GetObject("picIcon6.Image")));
-            this.picIcon6.Location = new System.Drawing.Point(14, 2);
-            this.picIcon6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon6.Name = "picIcon6";
-            this.picIcon6.Size = new System.Drawing.Size(37, 35);
-            this.picIcon6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon6.TabIndex = 17;
-            this.picIcon6.TabStop = false;
+            picIcon6.BackColor = System.Drawing.Color.Cornsilk;
+            picIcon6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon6.Image = (System.Drawing.Image)resources.GetObject("picIcon6.Image");
+            picIcon6.Location = new System.Drawing.Point(14, 2);
+            picIcon6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon6.Name = "picIcon6";
+            picIcon6.Size = new System.Drawing.Size(37, 35);
+            picIcon6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon6.TabIndex = 17;
+            picIcon6.TabStop = false;
             // 
             // chkMapArtifacts
             // 
-            this.chkMapArtifacts.AutoSize = true;
-            this.chkMapArtifacts.Location = new System.Drawing.Point(64, 11);
-            this.chkMapArtifacts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapArtifacts.Name = "chkMapArtifacts";
-            this.chkMapArtifacts.Size = new System.Drawing.Size(70, 19);
-            this.chkMapArtifacts.TabIndex = 0;
-            this.chkMapArtifacts.Text = "Artifacts";
-            this.chkMapArtifacts.UseVisualStyleBackColor = true;
-            this.chkMapArtifacts.CheckedChanged += new System.EventHandler(this.chkMapArtifacts_CheckedChanged);
+            chkMapArtifacts.AutoSize = true;
+            chkMapArtifacts.Location = new System.Drawing.Point(64, 11);
+            chkMapArtifacts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapArtifacts.Name = "chkMapArtifacts";
+            chkMapArtifacts.Size = new System.Drawing.Size(70, 19);
+            chkMapArtifacts.TabIndex = 0;
+            chkMapArtifacts.Text = "Artifacts";
+            chkMapArtifacts.UseVisualStyleBackColor = true;
+            chkMapArtifacts.CheckedChanged += chkMapArtifacts_CheckedChanged;
             // 
             // pnlContainer5
             // 
-            this.pnlContainer5.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer5.Controls.Add(this.picIcon5);
-            this.pnlContainer5.Controls.Add(this.chkMapChargeNodes);
-            this.pnlContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer5.Location = new System.Drawing.Point(4, 193);
-            this.pnlContainer5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer5.Name = "pnlContainer5";
-            this.pnlContainer5.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer5.TabIndex = 8;
+            pnlContainer5.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer5.Controls.Add(picIcon5);
+            pnlContainer5.Controls.Add(chkMapChargeNodes);
+            pnlContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer5.Location = new System.Drawing.Point(4, 193);
+            pnlContainer5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer5.Name = "pnlContainer5";
+            pnlContainer5.Size = new System.Drawing.Size(214, 40);
+            pnlContainer5.TabIndex = 8;
             // 
             // picIcon5
             // 
-            this.picIcon5.BackColor = System.Drawing.Color.White;
-            this.picIcon5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon5.Image = ((System.Drawing.Image)(resources.GetObject("picIcon5.Image")));
-            this.picIcon5.Location = new System.Drawing.Point(14, 2);
-            this.picIcon5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon5.Name = "picIcon5";
-            this.picIcon5.Size = new System.Drawing.Size(37, 35);
-            this.picIcon5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon5.TabIndex = 19;
-            this.picIcon5.TabStop = false;
+            picIcon5.BackColor = System.Drawing.Color.White;
+            picIcon5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon5.Image = (System.Drawing.Image)resources.GetObject("picIcon5.Image");
+            picIcon5.Location = new System.Drawing.Point(14, 2);
+            picIcon5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon5.Name = "picIcon5";
+            picIcon5.Size = new System.Drawing.Size(37, 35);
+            picIcon5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon5.TabIndex = 19;
+            picIcon5.TabStop = false;
             // 
             // chkMapChargeNodes
             // 
-            this.chkMapChargeNodes.AutoSize = true;
-            this.chkMapChargeNodes.Location = new System.Drawing.Point(64, 14);
-            this.chkMapChargeNodes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapChargeNodes.Name = "chkMapChargeNodes";
-            this.chkMapChargeNodes.Size = new System.Drawing.Size(101, 19);
-            this.chkMapChargeNodes.TabIndex = 0;
-            this.chkMapChargeNodes.Text = "Charge Nodes";
-            this.chkMapChargeNodes.UseVisualStyleBackColor = true;
-            this.chkMapChargeNodes.CheckedChanged += new System.EventHandler(this.chkMapChargeNodes_CheckedChanged);
+            chkMapChargeNodes.AutoSize = true;
+            chkMapChargeNodes.Location = new System.Drawing.Point(64, 14);
+            chkMapChargeNodes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapChargeNodes.Name = "chkMapChargeNodes";
+            chkMapChargeNodes.Size = new System.Drawing.Size(101, 19);
+            chkMapChargeNodes.TabIndex = 0;
+            chkMapChargeNodes.Text = "Charge Nodes";
+            chkMapChargeNodes.UseVisualStyleBackColor = true;
+            chkMapChargeNodes.CheckedChanged += chkMapChargeNodes_CheckedChanged;
             // 
             // pnlContainer11
             // 
-            this.pnlContainer11.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer11.Controls.Add(this.picIcon11);
-            this.pnlContainer11.Controls.Add(this.chkMapBeaverDams);
-            this.pnlContainer11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer11.Location = new System.Drawing.Point(226, 193);
-            this.pnlContainer11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer11.Name = "pnlContainer11";
-            this.pnlContainer11.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer11.TabIndex = 9;
+            pnlContainer11.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer11.Controls.Add(picIcon11);
+            pnlContainer11.Controls.Add(chkMapBeaverDams);
+            pnlContainer11.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer11.Location = new System.Drawing.Point(226, 193);
+            pnlContainer11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer11.Name = "pnlContainer11";
+            pnlContainer11.Size = new System.Drawing.Size(214, 40);
+            pnlContainer11.TabIndex = 9;
             // 
             // picIcon11
             // 
-            this.picIcon11.BackColor = System.Drawing.Color.White;
-            this.picIcon11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon11.Image = ((System.Drawing.Image)(resources.GetObject("picIcon11.Image")));
-            this.picIcon11.Location = new System.Drawing.Point(13, 2);
-            this.picIcon11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon11.Name = "picIcon11";
-            this.picIcon11.Size = new System.Drawing.Size(37, 35);
-            this.picIcon11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon11.TabIndex = 3;
-            this.picIcon11.TabStop = false;
+            picIcon11.BackColor = System.Drawing.Color.White;
+            picIcon11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon11.Image = (System.Drawing.Image)resources.GetObject("picIcon11.Image");
+            picIcon11.Location = new System.Drawing.Point(13, 2);
+            picIcon11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon11.Name = "picIcon11";
+            picIcon11.Size = new System.Drawing.Size(37, 35);
+            picIcon11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon11.TabIndex = 3;
+            picIcon11.TabStop = false;
             // 
             // chkMapBeaverDams
             // 
-            this.chkMapBeaverDams.AutoSize = true;
-            this.chkMapBeaverDams.Location = new System.Drawing.Point(62, 14);
-            this.chkMapBeaverDams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapBeaverDams.Name = "chkMapBeaverDams";
-            this.chkMapBeaverDams.Size = new System.Drawing.Size(94, 19);
-            this.chkMapBeaverDams.TabIndex = 0;
-            this.chkMapBeaverDams.Text = "Beaver Dams";
-            this.chkMapBeaverDams.UseVisualStyleBackColor = true;
-            this.chkMapBeaverDams.CheckedChanged += new System.EventHandler(this.chkMapBeaverDams_CheckedChanged);
+            chkMapBeaverDams.AutoSize = true;
+            chkMapBeaverDams.Location = new System.Drawing.Point(62, 14);
+            chkMapBeaverDams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapBeaverDams.Name = "chkMapBeaverDams";
+            chkMapBeaverDams.Size = new System.Drawing.Size(94, 19);
+            chkMapBeaverDams.TabIndex = 0;
+            chkMapBeaverDams.Text = "Beaver Dams";
+            chkMapBeaverDams.UseVisualStyleBackColor = true;
+            chkMapBeaverDams.CheckedChanged += chkMapBeaverDams_CheckedChanged;
             // 
             // pnlContainer4
             // 
-            this.pnlContainer4.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer4.Controls.Add(this.picIcon4);
-            this.pnlContainer4.Controls.Add(this.chkMapWaterVeins);
-            this.pnlContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer4.Location = new System.Drawing.Point(226, 147);
-            this.pnlContainer4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer4.Name = "pnlContainer4";
-            this.pnlContainer4.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer4.TabIndex = 6;
+            pnlContainer4.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer4.Controls.Add(picIcon4);
+            pnlContainer4.Controls.Add(chkMapWaterVeins);
+            pnlContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer4.Location = new System.Drawing.Point(226, 147);
+            pnlContainer4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer4.Name = "pnlContainer4";
+            pnlContainer4.Size = new System.Drawing.Size(214, 40);
+            pnlContainer4.TabIndex = 6;
             // 
             // picIcon4
             // 
-            this.picIcon4.BackColor = System.Drawing.Color.White;
-            this.picIcon4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon4.Image = ((System.Drawing.Image)(resources.GetObject("picIcon4.Image")));
-            this.picIcon4.Location = new System.Drawing.Point(14, 4);
-            this.picIcon4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon4.Name = "picIcon4";
-            this.picIcon4.Size = new System.Drawing.Size(37, 35);
-            this.picIcon4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon4.TabIndex = 11;
-            this.picIcon4.TabStop = false;
+            picIcon4.BackColor = System.Drawing.Color.White;
+            picIcon4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon4.Image = (System.Drawing.Image)resources.GetObject("picIcon4.Image");
+            picIcon4.Location = new System.Drawing.Point(14, 4);
+            picIcon4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon4.Name = "picIcon4";
+            picIcon4.Size = new System.Drawing.Size(37, 35);
+            picIcon4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon4.TabIndex = 11;
+            picIcon4.TabStop = false;
             // 
             // chkMapWaterVeins
             // 
-            this.chkMapWaterVeins.AutoSize = true;
-            this.chkMapWaterVeins.Location = new System.Drawing.Point(64, 15);
-            this.chkMapWaterVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapWaterVeins.Name = "chkMapWaterVeins";
-            this.chkMapWaterVeins.Size = new System.Drawing.Size(87, 19);
-            this.chkMapWaterVeins.TabIndex = 0;
-            this.chkMapWaterVeins.Text = "Water Veins";
-            this.chkMapWaterVeins.UseVisualStyleBackColor = true;
-            this.chkMapWaterVeins.CheckedChanged += new System.EventHandler(this.chkMapWaterVeins_CheckedChanged);
+            chkMapWaterVeins.AutoSize = true;
+            chkMapWaterVeins.Location = new System.Drawing.Point(64, 15);
+            chkMapWaterVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapWaterVeins.Name = "chkMapWaterVeins";
+            chkMapWaterVeins.Size = new System.Drawing.Size(87, 19);
+            chkMapWaterVeins.TabIndex = 0;
+            chkMapWaterVeins.Text = "Water Veins";
+            chkMapWaterVeins.UseVisualStyleBackColor = true;
+            chkMapWaterVeins.CheckedChanged += chkMapWaterVeins_CheckedChanged;
             // 
             // pnlContainer10
             // 
-            this.pnlContainer10.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer10.Controls.Add(this.chkMapMagmaNests);
-            this.pnlContainer10.Controls.Add(this.picIcon10);
-            this.pnlContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer10.Location = new System.Drawing.Point(4, 147);
-            this.pnlContainer10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer10.Name = "pnlContainer10";
-            this.pnlContainer10.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer10.TabIndex = 7;
+            pnlContainer10.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer10.Controls.Add(chkMapMagmaNests);
+            pnlContainer10.Controls.Add(picIcon10);
+            pnlContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer10.Location = new System.Drawing.Point(4, 147);
+            pnlContainer10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer10.Name = "pnlContainer10";
+            pnlContainer10.Size = new System.Drawing.Size(214, 40);
+            pnlContainer10.TabIndex = 7;
             // 
             // chkMapMagmaNests
             // 
-            this.chkMapMagmaNests.AutoSize = true;
-            this.chkMapMagmaNests.Location = new System.Drawing.Point(62, 15);
-            this.chkMapMagmaNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapMagmaNests.Name = "chkMapMagmaNests";
-            this.chkMapMagmaNests.Size = new System.Drawing.Size(121, 19);
-            this.chkMapMagmaNests.TabIndex = 0;
-            this.chkMapMagmaNests.Text = "Magmasaur Nests";
-            this.chkMapMagmaNests.UseVisualStyleBackColor = true;
-            this.chkMapMagmaNests.CheckedChanged += new System.EventHandler(this.chkMapMagmaNests_CheckedChanged);
+            chkMapMagmaNests.AutoSize = true;
+            chkMapMagmaNests.Location = new System.Drawing.Point(62, 15);
+            chkMapMagmaNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapMagmaNests.Name = "chkMapMagmaNests";
+            chkMapMagmaNests.Size = new System.Drawing.Size(121, 19);
+            chkMapMagmaNests.TabIndex = 0;
+            chkMapMagmaNests.Text = "Magmasaur Nests";
+            chkMapMagmaNests.UseVisualStyleBackColor = true;
+            chkMapMagmaNests.CheckedChanged += chkMapMagmaNests_CheckedChanged;
             // 
             // picIcon10
             // 
-            this.picIcon10.BackColor = System.Drawing.Color.White;
-            this.picIcon10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon10.Image = ((System.Drawing.Image)(resources.GetObject("picIcon10.Image")));
-            this.picIcon10.Location = new System.Drawing.Point(13, 4);
-            this.picIcon10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon10.Name = "picIcon10";
-            this.picIcon10.Size = new System.Drawing.Size(37, 35);
-            this.picIcon10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon10.TabIndex = 27;
-            this.picIcon10.TabStop = false;
+            picIcon10.BackColor = System.Drawing.Color.White;
+            picIcon10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon10.Image = (System.Drawing.Image)resources.GetObject("picIcon10.Image");
+            picIcon10.Location = new System.Drawing.Point(13, 4);
+            picIcon10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon10.Name = "picIcon10";
+            picIcon10.Size = new System.Drawing.Size(37, 35);
+            picIcon10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon10.TabIndex = 27;
+            picIcon10.TabStop = false;
             // 
             // pnlContainer3
             // 
-            this.pnlContainer3.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer3.Controls.Add(this.chkMapGasVeins);
-            this.pnlContainer3.Controls.Add(this.picIcon3);
-            this.pnlContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer3.Location = new System.Drawing.Point(226, 101);
-            this.pnlContainer3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer3.Name = "pnlContainer3";
-            this.pnlContainer3.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer3.TabIndex = 4;
+            pnlContainer3.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer3.Controls.Add(chkMapGasVeins);
+            pnlContainer3.Controls.Add(picIcon3);
+            pnlContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer3.Location = new System.Drawing.Point(226, 101);
+            pnlContainer3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer3.Name = "pnlContainer3";
+            pnlContainer3.Size = new System.Drawing.Size(214, 40);
+            pnlContainer3.TabIndex = 4;
             // 
             // chkMapGasVeins
             // 
-            this.chkMapGasVeins.AutoSize = true;
-            this.chkMapGasVeins.Location = new System.Drawing.Point(64, 15);
-            this.chkMapGasVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapGasVeins.Name = "chkMapGasVeins";
-            this.chkMapGasVeins.Size = new System.Drawing.Size(75, 19);
-            this.chkMapGasVeins.TabIndex = 0;
-            this.chkMapGasVeins.Text = "Gas Veins";
-            this.chkMapGasVeins.UseVisualStyleBackColor = true;
-            this.chkMapGasVeins.CheckedChanged += new System.EventHandler(this.chkMapGasVeins_CheckedChanged);
+            chkMapGasVeins.AutoSize = true;
+            chkMapGasVeins.Location = new System.Drawing.Point(64, 15);
+            chkMapGasVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapGasVeins.Name = "chkMapGasVeins";
+            chkMapGasVeins.Size = new System.Drawing.Size(75, 19);
+            chkMapGasVeins.TabIndex = 0;
+            chkMapGasVeins.Text = "Gas Veins";
+            chkMapGasVeins.UseVisualStyleBackColor = true;
+            chkMapGasVeins.CheckedChanged += chkMapGasVeins_CheckedChanged;
             // 
             // picIcon3
             // 
-            this.picIcon3.BackColor = System.Drawing.Color.White;
-            this.picIcon3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon3.Image = ((System.Drawing.Image)(resources.GetObject("picIcon3.Image")));
-            this.picIcon3.Location = new System.Drawing.Point(14, 4);
-            this.picIcon3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon3.Name = "picIcon3";
-            this.picIcon3.Size = new System.Drawing.Size(37, 35);
-            this.picIcon3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon3.TabIndex = 7;
-            this.picIcon3.TabStop = false;
+            picIcon3.BackColor = System.Drawing.Color.White;
+            picIcon3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon3.Image = (System.Drawing.Image)resources.GetObject("picIcon3.Image");
+            picIcon3.Location = new System.Drawing.Point(14, 4);
+            picIcon3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon3.Name = "picIcon3";
+            picIcon3.Size = new System.Drawing.Size(37, 35);
+            picIcon3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon3.TabIndex = 7;
+            picIcon3.TabStop = false;
             // 
             // pnlContainer9
             // 
-            this.pnlContainer9.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer9.Controls.Add(this.chkMapDrakeNests);
-            this.pnlContainer9.Controls.Add(this.picIcon9);
-            this.pnlContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer9.Location = new System.Drawing.Point(4, 101);
-            this.pnlContainer9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer9.Name = "pnlContainer9";
-            this.pnlContainer9.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer9.TabIndex = 5;
+            pnlContainer9.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer9.Controls.Add(chkMapDrakeNests);
+            pnlContainer9.Controls.Add(picIcon9);
+            pnlContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer9.Location = new System.Drawing.Point(4, 101);
+            pnlContainer9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer9.Name = "pnlContainer9";
+            pnlContainer9.Size = new System.Drawing.Size(214, 40);
+            pnlContainer9.TabIndex = 5;
             // 
             // chkMapDrakeNests
             // 
-            this.chkMapDrakeNests.AutoSize = true;
-            this.chkMapDrakeNests.Location = new System.Drawing.Point(62, 15);
-            this.chkMapDrakeNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapDrakeNests.Name = "chkMapDrakeNests";
-            this.chkMapDrakeNests.Size = new System.Drawing.Size(117, 19);
-            this.chkMapDrakeNests.TabIndex = 0;
-            this.chkMapDrakeNests.Text = "Rock Drake Nests";
-            this.chkMapDrakeNests.UseVisualStyleBackColor = true;
-            this.chkMapDrakeNests.CheckedChanged += new System.EventHandler(this.chkMapDrakeNests_CheckedChanged);
+            chkMapDrakeNests.AutoSize = true;
+            chkMapDrakeNests.Location = new System.Drawing.Point(62, 15);
+            chkMapDrakeNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapDrakeNests.Name = "chkMapDrakeNests";
+            chkMapDrakeNests.Size = new System.Drawing.Size(117, 19);
+            chkMapDrakeNests.TabIndex = 0;
+            chkMapDrakeNests.Text = "Rock Drake Nests";
+            chkMapDrakeNests.UseVisualStyleBackColor = true;
+            chkMapDrakeNests.CheckedChanged += chkMapDrakeNests_CheckedChanged;
             // 
             // picIcon9
             // 
-            this.picIcon9.BackColor = System.Drawing.Color.White;
-            this.picIcon9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon9.Image = ((System.Drawing.Image)(resources.GetObject("picIcon9.Image")));
-            this.picIcon9.Location = new System.Drawing.Point(13, 4);
-            this.picIcon9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon9.Name = "picIcon9";
-            this.picIcon9.Size = new System.Drawing.Size(37, 35);
-            this.picIcon9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon9.TabIndex = 25;
-            this.picIcon9.TabStop = false;
+            picIcon9.BackColor = System.Drawing.Color.White;
+            picIcon9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon9.Image = (System.Drawing.Image)resources.GetObject("picIcon9.Image");
+            picIcon9.Location = new System.Drawing.Point(13, 4);
+            picIcon9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon9.Name = "picIcon9";
+            picIcon9.Size = new System.Drawing.Size(37, 35);
+            picIcon9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon9.TabIndex = 25;
+            picIcon9.TabStop = false;
             // 
             // pnlContainer2
             // 
-            this.pnlContainer2.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer2.Controls.Add(this.chkMapOilVeins);
-            this.pnlContainer2.Controls.Add(this.picIcon2);
-            this.pnlContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer2.Location = new System.Drawing.Point(4, 55);
-            this.pnlContainer2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer2.Name = "pnlContainer2";
-            this.pnlContainer2.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer2.TabIndex = 2;
+            pnlContainer2.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer2.Controls.Add(chkMapOilVeins);
+            pnlContainer2.Controls.Add(picIcon2);
+            pnlContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer2.Location = new System.Drawing.Point(4, 55);
+            pnlContainer2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer2.Name = "pnlContainer2";
+            pnlContainer2.Size = new System.Drawing.Size(214, 40);
+            pnlContainer2.TabIndex = 2;
             // 
             // chkMapOilVeins
             // 
-            this.chkMapOilVeins.AutoSize = true;
-            this.chkMapOilVeins.Location = new System.Drawing.Point(64, 15);
-            this.chkMapOilVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapOilVeins.Name = "chkMapOilVeins";
-            this.chkMapOilVeins.Size = new System.Drawing.Size(71, 19);
-            this.chkMapOilVeins.TabIndex = 0;
-            this.chkMapOilVeins.Text = "Oil Veins";
-            this.chkMapOilVeins.UseVisualStyleBackColor = true;
-            this.chkMapOilVeins.CheckedChanged += new System.EventHandler(this.chkMapOilVeins_CheckedChanged);
+            chkMapOilVeins.AutoSize = true;
+            chkMapOilVeins.Location = new System.Drawing.Point(64, 15);
+            chkMapOilVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapOilVeins.Name = "chkMapOilVeins";
+            chkMapOilVeins.Size = new System.Drawing.Size(71, 19);
+            chkMapOilVeins.TabIndex = 0;
+            chkMapOilVeins.Text = "Oil Veins";
+            chkMapOilVeins.UseVisualStyleBackColor = true;
+            chkMapOilVeins.CheckedChanged += chkMapOilVeins_CheckedChanged;
             // 
             // picIcon2
             // 
-            this.picIcon2.BackColor = System.Drawing.Color.White;
-            this.picIcon2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon2.Image = ((System.Drawing.Image)(resources.GetObject("picIcon2.Image")));
-            this.picIcon2.Location = new System.Drawing.Point(14, 4);
-            this.picIcon2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon2.Name = "picIcon2";
-            this.picIcon2.Size = new System.Drawing.Size(37, 35);
-            this.picIcon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon2.TabIndex = 9;
-            this.picIcon2.TabStop = false;
+            picIcon2.BackColor = System.Drawing.Color.White;
+            picIcon2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon2.Image = (System.Drawing.Image)resources.GetObject("picIcon2.Image");
+            picIcon2.Location = new System.Drawing.Point(14, 4);
+            picIcon2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon2.Name = "picIcon2";
+            picIcon2.Size = new System.Drawing.Size(37, 35);
+            picIcon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon2.TabIndex = 9;
+            picIcon2.TabStop = false;
             // 
             // pnlContainer8
             // 
-            this.pnlContainer8.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer8.Controls.Add(this.chkMapDeinoNests);
-            this.pnlContainer8.Controls.Add(this.picIcon8);
-            this.pnlContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer8.Location = new System.Drawing.Point(226, 55);
-            this.pnlContainer8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer8.Name = "pnlContainer8";
-            this.pnlContainer8.Size = new System.Drawing.Size(214, 40);
-            this.pnlContainer8.TabIndex = 3;
+            pnlContainer8.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer8.Controls.Add(chkMapDeinoNests);
+            pnlContainer8.Controls.Add(picIcon8);
+            pnlContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer8.Location = new System.Drawing.Point(226, 55);
+            pnlContainer8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer8.Name = "pnlContainer8";
+            pnlContainer8.Size = new System.Drawing.Size(214, 40);
+            pnlContainer8.TabIndex = 3;
             // 
             // chkMapDeinoNests
             // 
-            this.chkMapDeinoNests.AutoSize = true;
-            this.chkMapDeinoNests.Location = new System.Drawing.Point(62, 15);
-            this.chkMapDeinoNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapDeinoNests.Name = "chkMapDeinoNests";
-            this.chkMapDeinoNests.Size = new System.Drawing.Size(127, 19);
-            this.chkMapDeinoNests.TabIndex = 0;
-            this.chkMapDeinoNests.Text = "Deinonychus Nests";
-            this.chkMapDeinoNests.UseVisualStyleBackColor = true;
-            this.chkMapDeinoNests.CheckedChanged += new System.EventHandler(this.chkMapDeinoNests_CheckedChanged);
+            chkMapDeinoNests.AutoSize = true;
+            chkMapDeinoNests.Location = new System.Drawing.Point(62, 15);
+            chkMapDeinoNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapDeinoNests.Name = "chkMapDeinoNests";
+            chkMapDeinoNests.Size = new System.Drawing.Size(127, 19);
+            chkMapDeinoNests.TabIndex = 0;
+            chkMapDeinoNests.Text = "Deinonychus Nests";
+            chkMapDeinoNests.UseVisualStyleBackColor = true;
+            chkMapDeinoNests.CheckedChanged += chkMapDeinoNests_CheckedChanged;
             // 
             // picIcon8
             // 
-            this.picIcon8.BackColor = System.Drawing.Color.White;
-            this.picIcon8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon8.Image = ((System.Drawing.Image)(resources.GetObject("picIcon8.Image")));
-            this.picIcon8.Location = new System.Drawing.Point(13, 4);
-            this.picIcon8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon8.Name = "picIcon8";
-            this.picIcon8.Size = new System.Drawing.Size(37, 35);
-            this.picIcon8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon8.TabIndex = 5;
-            this.picIcon8.TabStop = false;
+            picIcon8.BackColor = System.Drawing.Color.White;
+            picIcon8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon8.Image = (System.Drawing.Image)resources.GetObject("picIcon8.Image");
+            picIcon8.Location = new System.Drawing.Point(13, 4);
+            picIcon8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon8.Name = "picIcon8";
+            picIcon8.Size = new System.Drawing.Size(37, 35);
+            picIcon8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon8.TabIndex = 5;
+            picIcon8.TabStop = false;
             // 
             // pnlContainer1
             // 
-            this.pnlContainer1.BackColor = System.Drawing.Color.PowderBlue;
-            this.pnlContainer1.Controls.Add(this.picIcon1);
-            this.pnlContainer1.Controls.Add(this.chkMapTerminals);
-            this.pnlContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer1.Location = new System.Drawing.Point(4, 3);
-            this.pnlContainer1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer1.Name = "pnlContainer1";
-            this.pnlContainer1.Size = new System.Drawing.Size(214, 46);
-            this.pnlContainer1.TabIndex = 0;
+            pnlContainer1.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer1.Controls.Add(picIcon1);
+            pnlContainer1.Controls.Add(chkMapTerminals);
+            pnlContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer1.Location = new System.Drawing.Point(4, 3);
+            pnlContainer1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer1.Name = "pnlContainer1";
+            pnlContainer1.Size = new System.Drawing.Size(214, 46);
+            pnlContainer1.TabIndex = 0;
             // 
             // picIcon1
             // 
-            this.picIcon1.BackColor = System.Drawing.Color.Green;
-            this.picIcon1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon1.Image = ((System.Drawing.Image)(resources.GetObject("picIcon1.Image")));
-            this.picIcon1.Location = new System.Drawing.Point(14, 4);
-            this.picIcon1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon1.Name = "picIcon1";
-            this.picIcon1.Size = new System.Drawing.Size(37, 35);
-            this.picIcon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon1.TabIndex = 13;
-            this.picIcon1.TabStop = false;
+            picIcon1.BackColor = System.Drawing.Color.Green;
+            picIcon1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon1.Image = (System.Drawing.Image)resources.GetObject("picIcon1.Image");
+            picIcon1.Location = new System.Drawing.Point(14, 4);
+            picIcon1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon1.Name = "picIcon1";
+            picIcon1.Size = new System.Drawing.Size(37, 35);
+            picIcon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon1.TabIndex = 13;
+            picIcon1.TabStop = false;
             // 
             // chkMapTerminals
             // 
-            this.chkMapTerminals.AutoSize = true;
-            this.chkMapTerminals.Location = new System.Drawing.Point(64, 14);
-            this.chkMapTerminals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapTerminals.Name = "chkMapTerminals";
-            this.chkMapTerminals.Size = new System.Drawing.Size(131, 19);
-            this.chkMapTerminals.TabIndex = 0;
-            this.chkMapTerminals.Text = "Obelisks / Terminals";
-            this.chkMapTerminals.UseVisualStyleBackColor = true;
-            this.chkMapTerminals.CheckedChanged += new System.EventHandler(this.chkMapTerminals_CheckedChanged);
+            chkMapTerminals.AutoSize = true;
+            chkMapTerminals.Location = new System.Drawing.Point(64, 14);
+            chkMapTerminals.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapTerminals.Name = "chkMapTerminals";
+            chkMapTerminals.Size = new System.Drawing.Size(131, 19);
+            chkMapTerminals.TabIndex = 0;
+            chkMapTerminals.Text = "Obelisks / Terminals";
+            chkMapTerminals.UseVisualStyleBackColor = true;
+            chkMapTerminals.CheckedChanged += chkMapTerminals_CheckedChanged;
             // 
             // pnlContainer7
             // 
-            this.pnlContainer7.BackColor = System.Drawing.Color.CadetBlue;
-            this.pnlContainer7.Controls.Add(this.picIcon7);
-            this.pnlContainer7.Controls.Add(this.chkMapWyvernNests);
-            this.pnlContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer7.Location = new System.Drawing.Point(226, 3);
-            this.pnlContainer7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pnlContainer7.Name = "pnlContainer7";
-            this.pnlContainer7.Size = new System.Drawing.Size(214, 46);
-            this.pnlContainer7.TabIndex = 1;
+            pnlContainer7.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            pnlContainer7.Controls.Add(picIcon7);
+            pnlContainer7.Controls.Add(chkMapWyvernNests);
+            pnlContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContainer7.Location = new System.Drawing.Point(226, 3);
+            pnlContainer7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlContainer7.Name = "pnlContainer7";
+            pnlContainer7.Size = new System.Drawing.Size(214, 46);
+            pnlContainer7.TabIndex = 1;
             // 
             // picIcon7
             // 
-            this.picIcon7.BackColor = System.Drawing.Color.White;
-            this.picIcon7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon7.Image = ((System.Drawing.Image)(resources.GetObject("picIcon7.Image")));
-            this.picIcon7.Location = new System.Drawing.Point(13, 4);
-            this.picIcon7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon7.Name = "picIcon7";
-            this.picIcon7.Size = new System.Drawing.Size(37, 35);
-            this.picIcon7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon7.TabIndex = 15;
-            this.picIcon7.TabStop = false;
+            picIcon7.BackColor = System.Drawing.Color.White;
+            picIcon7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon7.Image = (System.Drawing.Image)resources.GetObject("picIcon7.Image");
+            picIcon7.Location = new System.Drawing.Point(13, 4);
+            picIcon7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon7.Name = "picIcon7";
+            picIcon7.Size = new System.Drawing.Size(37, 35);
+            picIcon7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon7.TabIndex = 15;
+            picIcon7.TabStop = false;
             // 
             // chkMapWyvernNests
             // 
-            this.chkMapWyvernNests.AutoSize = true;
-            this.chkMapWyvernNests.Location = new System.Drawing.Point(62, 13);
-            this.chkMapWyvernNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapWyvernNests.Name = "chkMapWyvernNests";
-            this.chkMapWyvernNests.Size = new System.Drawing.Size(98, 19);
-            this.chkMapWyvernNests.TabIndex = 0;
-            this.chkMapWyvernNests.Text = "Wyvern Nests";
-            this.chkMapWyvernNests.UseVisualStyleBackColor = true;
-            this.chkMapWyvernNests.CheckedChanged += new System.EventHandler(this.chkMapWyvernNests_CheckedChanged);
+            chkMapWyvernNests.AutoSize = true;
+            chkMapWyvernNests.Location = new System.Drawing.Point(62, 13);
+            chkMapWyvernNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapWyvernNests.Name = "chkMapWyvernNests";
+            chkMapWyvernNests.Size = new System.Drawing.Size(98, 19);
+            chkMapWyvernNests.TabIndex = 0;
+            chkMapWyvernNests.Text = "Wyvern Nests";
+            chkMapWyvernNests.UseVisualStyleBackColor = true;
+            chkMapWyvernNests.CheckedChanged += chkMapWyvernNests_CheckedChanged;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel1.Controls.Add(this.picIcon13);
-            this.panel1.Controls.Add(this.chkMapBeeHives);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(226, 239);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 40);
-            this.panel1.TabIndex = 13;
+            panel1.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            panel1.Controls.Add(picIcon13);
+            panel1.Controls.Add(chkMapBeeHives);
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel1.Location = new System.Drawing.Point(226, 239);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(214, 40);
+            panel1.TabIndex = 13;
             // 
             // picIcon13
             // 
-            this.picIcon13.BackColor = System.Drawing.Color.White;
-            this.picIcon13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picIcon13.Image = ((System.Drawing.Image)(resources.GetObject("picIcon13.Image")));
-            this.picIcon13.Location = new System.Drawing.Point(13, 2);
-            this.picIcon13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picIcon13.Name = "picIcon13";
-            this.picIcon13.Size = new System.Drawing.Size(37, 35);
-            this.picIcon13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcon13.TabIndex = 3;
-            this.picIcon13.TabStop = false;
+            picIcon13.BackColor = System.Drawing.Color.White;
+            picIcon13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picIcon13.Image = (System.Drawing.Image)resources.GetObject("picIcon13.Image");
+            picIcon13.Location = new System.Drawing.Point(13, 2);
+            picIcon13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picIcon13.Name = "picIcon13";
+            picIcon13.Size = new System.Drawing.Size(37, 35);
+            picIcon13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picIcon13.TabIndex = 3;
+            picIcon13.TabStop = false;
             // 
             // chkMapBeeHives
             // 
-            this.chkMapBeeHives.AutoSize = true;
-            this.chkMapBeeHives.Location = new System.Drawing.Point(62, 11);
-            this.chkMapBeeHives.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkMapBeeHives.Name = "chkMapBeeHives";
-            this.chkMapBeeHives.Size = new System.Drawing.Size(77, 19);
-            this.chkMapBeeHives.TabIndex = 0;
-            this.chkMapBeeHives.Text = "Bee Hives";
-            this.chkMapBeeHives.UseVisualStyleBackColor = true;
-            this.chkMapBeeHives.CheckedChanged += new System.EventHandler(this.chkMapBeeHives_CheckedChanged);
+            chkMapBeeHives.AutoSize = true;
+            chkMapBeeHives.Location = new System.Drawing.Point(62, 11);
+            chkMapBeeHives.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMapBeeHives.Name = "chkMapBeeHives";
+            chkMapBeeHives.Size = new System.Drawing.Size(77, 19);
+            chkMapBeeHives.TabIndex = 0;
+            chkMapBeeHives.Text = "Bee Hives";
+            chkMapBeeHives.UseVisualStyleBackColor = true;
+            chkMapBeeHives.CheckedChanged += chkMapBeeHives_CheckedChanged;
             // 
             // lvwStructureLocations
             // 
-            this.lvwStructureLocations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lvwStructureLocations.ContextMenuStrip = this.mnuContext;
-            this.lvwStructureLocations.FullRowSelect = true;
-            this.lvwStructureLocations.Location = new System.Drawing.Point(14, 350);
-            this.lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.lvwStructureLocations.MultiSelect = false;
-            this.lvwStructureLocations.Name = "lvwStructureLocations";
-            this.lvwStructureLocations.Size = new System.Drawing.Size(440, 132);
-            this.lvwStructureLocations.TabIndex = 1;
-            this.lvwStructureLocations.UseCompatibleStateImageBehavior = false;
-            this.lvwStructureLocations.View = System.Windows.Forms.View.Details;
-            this.lvwStructureLocations.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwStructureLocations_ColumnClick);
-            this.lvwStructureLocations.SelectedIndexChanged += new System.EventHandler(this.lvwStructureLocations_SelectedIndexChanged);
-            this.lvwStructureLocations.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvwStructureLocations_MouseClick);
+            lvwStructureLocations.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwStructureLocations.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwStructureLocations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            lvwStructureLocations.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lvwStructureLocations.ContextMenuStrip = mnuContext;
+            lvwStructureLocations.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lvwStructureLocations.FullRowSelect = true;
+            lvwStructureLocations.Location = new System.Drawing.Point(14, 350);
+            lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwStructureLocations.MultiSelect = false;
+            lvwStructureLocations.Name = "lvwStructureLocations";
+            lvwStructureLocations.Size = new System.Drawing.Size(440, 132);
+            lvwStructureLocations.TabIndex = 1;
+            lvwStructureLocations.UseCompatibleStateImageBehavior = false;
+            lvwStructureLocations.View = System.Windows.Forms.View.Details;
+            lvwStructureLocations.ColumnClick += lvwStructureLocations_ColumnClick;
+            lvwStructureLocations.SelectedIndexChanged += lvwStructureLocations_SelectedIndexChanged;
+            lvwStructureLocations.MouseClick += lvwStructureLocations_MouseClick;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Structure Type";
-            this.columnHeader1.Width = 200;
+            columnHeader1.Text = "Structure Type";
+            columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Latitude";
-            this.columnHeader2.Width = 75;
+            columnHeader2.Text = "Latitude";
+            columnHeader2.Width = 75;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Longitude";
-            this.columnHeader3.Width = 75;
+            columnHeader3.Text = "Longitude";
+            columnHeader3.Width = 75;
             // 
             // mnuContext
             // 
-            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuContextExport});
-            this.mnuContext.Name = "mnuContext";
-            this.mnuContext.Size = new System.Drawing.Size(136, 26);
-            this.mnuContext.Text = "Export";
+            mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { mnuContextExport });
+            mnuContext.Name = "mnuContext";
+            mnuContext.Size = new System.Drawing.Size(136, 26);
+            mnuContext.Text = "Export";
             // 
             // mnuContextExport
             // 
-            this.mnuContextExport.Name = "mnuContextExport";
-            this.mnuContextExport.Size = new System.Drawing.Size(135, 22);
-            this.mnuContextExport.Text = "Export Data";
-            this.mnuContextExport.Click += new System.EventHandler(this.mnuContextExport_Click);
+            mnuContextExport.Name = "mnuContextExport";
+            mnuContextExport.Size = new System.Drawing.Size(135, 22);
+            mnuContextExport.Text = "Export Data";
+            mnuContextExport.Click += mnuContextExport_Click;
             // 
             // chkGroup
             // 
-            this.chkGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkGroup.AutoSize = true;
-            this.chkGroup.Checked = true;
-            this.chkGroup.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkGroup.Location = new System.Drawing.Point(360, 535);
-            this.chkGroup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.chkGroup.Name = "chkGroup";
-            this.chkGroup.Size = new System.Drawing.Size(95, 19);
-            this.chkGroup.TabIndex = 5;
-            this.chkGroup.Text = "Group Stacks";
-            this.chkGroup.UseVisualStyleBackColor = true;
+            chkGroup.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkGroup.AutoSize = true;
+            chkGroup.Checked = true;
+            chkGroup.CheckState = System.Windows.Forms.CheckState.Checked;
+            chkGroup.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            chkGroup.Location = new System.Drawing.Point(360, 535);
+            chkGroup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkGroup.Name = "chkGroup";
+            chkGroup.Size = new System.Drawing.Size(95, 19);
+            chkGroup.TabIndex = 5;
+            chkGroup.Text = "Group Stacks";
+            chkGroup.UseVisualStyleBackColor = true;
             // 
             // txtContents
             // 
-            this.txtContents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContents.Location = new System.Drawing.Point(19, 561);
-            this.txtContents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtContents.Multiline = true;
-            this.txtContents.Name = "txtContents";
-            this.txtContents.ReadOnly = true;
-            this.txtContents.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtContents.Size = new System.Drawing.Size(436, 114);
-            this.txtContents.TabIndex = 6;
+            txtContents.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtContents.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            txtContents.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtContents.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtContents.Location = new System.Drawing.Point(19, 558);
+            txtContents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtContents.Multiline = true;
+            txtContents.Name = "txtContents";
+            txtContents.ReadOnly = true;
+            txtContents.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            txtContents.Size = new System.Drawing.Size(436, 114);
+            txtContents.TabIndex = 6;
             // 
             // lblSelectedContent
             // 
-            this.lblSelectedContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSelectedContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSelectedContent.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblSelectedContent.Location = new System.Drawing.Point(15, 528);
-            this.lblSelectedContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSelectedContent.Name = "lblSelectedContent";
-            this.lblSelectedContent.Size = new System.Drawing.Size(146, 29);
-            this.lblSelectedContent.TabIndex = 4;
-            this.lblSelectedContent.Text = "Selected  Content(s)";
-            this.lblSelectedContent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblSelectedContent.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblSelectedContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblSelectedContent.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblSelectedContent.Location = new System.Drawing.Point(15, 528);
+            lblSelectedContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSelectedContent.Name = "lblSelectedContent";
+            lblSelectedContent.Size = new System.Drawing.Size(146, 29);
+            lblSelectedContent.TabIndex = 4;
+            lblSelectedContent.Text = "Selected  Content(s)";
+            lblSelectedContent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnCopyCommand
             // 
-            this.btnCopyCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopyCommand.Image = ((System.Drawing.Image)(resources.GetObject("btnCopyCommand.Image")));
-            this.btnCopyCommand.Location = new System.Drawing.Point(275, 489);
-            this.btnCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCopyCommand.Name = "btnCopyCommand";
-            this.btnCopyCommand.Size = new System.Drawing.Size(35, 35);
-            this.btnCopyCommand.TabIndex = 3;
-            this.btnCopyCommand.UseVisualStyleBackColor = true;
-            this.btnCopyCommand.Click += new System.EventHandler(this.btnCopyCommand_Click);
+            btnCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnCopyCommand.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnCopyCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCopyCommand.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnCopyCommand.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommand.Image");
+            btnCopyCommand.Location = new System.Drawing.Point(275, 489);
+            btnCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCopyCommand.Name = "btnCopyCommand";
+            btnCopyCommand.Size = new System.Drawing.Size(35, 35);
+            btnCopyCommand.TabIndex = 3;
+            btnCopyCommand.UseVisualStyleBackColor = false;
+            btnCopyCommand.Click += btnCopyCommand_Click;
             // 
             // cboConsoleCommands
             // 
-            this.cboConsoleCommands.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboConsoleCommands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboConsoleCommands.FormattingEnabled = true;
-            this.cboConsoleCommands.Items.AddRange(new object[] {
-            "SetPlayerPos  <x> <y> <z>"});
-            this.cboConsoleCommands.Location = new System.Drawing.Point(18, 494);
-            this.cboConsoleCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboConsoleCommands.Name = "cboConsoleCommands";
-            this.cboConsoleCommands.Size = new System.Drawing.Size(250, 23);
-            this.cboConsoleCommands.TabIndex = 2;
+            cboConsoleCommands.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            cboConsoleCommands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommands.FormattingEnabled = true;
+            cboConsoleCommands.Items.AddRange(new object[] { "SetPlayerPos  <x> <y> <z>" });
+            cboConsoleCommands.Location = new System.Drawing.Point(18, 494);
+            cboConsoleCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommands.Name = "cboConsoleCommands";
+            cboConsoleCommands.Size = new System.Drawing.Size(250, 23);
+            cboConsoleCommands.TabIndex = 2;
             // 
             // lblStatus
             // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStatus.ForeColor = System.Drawing.Color.DimGray;
-            this.lblStatus.Location = new System.Drawing.Point(15, 678);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(355, 21);
-            this.lblStatus.TabIndex = 7;
-            this.lblStatus.Text = "Loading...";
+            lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStatus.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblStatus.Location = new System.Drawing.Point(15, 678);
+            lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new System.Drawing.Size(355, 21);
+            lblStatus.TabIndex = 7;
+            lblStatus.Text = "Loading...";
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(420, 489);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(35, 35);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnAdd.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnAdd.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnAdd.Image = (System.Drawing.Image)resources.GetObject("btnAdd.Image");
+            btnAdd.Location = new System.Drawing.Point(420, 489);
+            btnAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new System.Drawing.Size(35, 35);
+            btnAdd.TabIndex = 8;
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Enabled = false;
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.Location = new System.Drawing.Point(380, 489);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(35, 35);
-            this.btnEdit.TabIndex = 9;
-            this.btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnEdit.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnEdit.Enabled = false;
+            btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnEdit.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnEdit.Image = (System.Drawing.Image)resources.GetObject("btnEdit.Image");
+            btnEdit.Location = new System.Drawing.Point(380, 489);
+            btnEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new System.Drawing.Size(35, 35);
+            btnEdit.TabIndex = 9;
+            btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnRemove
             // 
-            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemove.Enabled = false;
-            this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
-            this.btnRemove.Location = new System.Drawing.Point(341, 489);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(35, 35);
-            this.btnRemove.TabIndex = 10;
-            this.btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            btnRemove.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnRemove.Enabled = false;
+            btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnRemove.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnRemove.Image = (System.Drawing.Image)resources.GetObject("btnRemove.Image");
+            btnRemove.Location = new System.Drawing.Point(341, 489);
+            btnRemove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new System.Drawing.Size(35, 35);
+            btnRemove.TabIndex = 10;
+            btnRemove.UseVisualStyleBackColor = false;
             // 
             // frmMapToolboxStructures
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(471, 705);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.chkGroup);
-            this.Controls.Add(this.txtContents);
-            this.Controls.Add(this.lblSelectedContent);
-            this.Controls.Add(this.btnCopyCommand);
-            this.Controls.Add(this.cboConsoleCommands);
-            this.Controls.Add(this.lvwStructureLocations);
-            this.Controls.Add(this.layoutStructures);
-            this.Controls.Add(this.btnEdit);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MinimumSize = new System.Drawing.Size(464, 744);
-            this.Name = "frmMapToolboxStructures";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Map Structures";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMapToolboxStructures_FormClosed);
-            this.layoutStructures.ResumeLayout(false);
-            this.pnlContainer12.ResumeLayout(false);
-            this.pnlContainer12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon12)).EndInit();
-            this.pnlContainer6.ResumeLayout(false);
-            this.pnlContainer6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon6)).EndInit();
-            this.pnlContainer5.ResumeLayout(false);
-            this.pnlContainer5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon5)).EndInit();
-            this.pnlContainer11.ResumeLayout(false);
-            this.pnlContainer11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon11)).EndInit();
-            this.pnlContainer4.ResumeLayout(false);
-            this.pnlContainer4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon4)).EndInit();
-            this.pnlContainer10.ResumeLayout(false);
-            this.pnlContainer10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon10)).EndInit();
-            this.pnlContainer3.ResumeLayout(false);
-            this.pnlContainer3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon3)).EndInit();
-            this.pnlContainer9.ResumeLayout(false);
-            this.pnlContainer9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon9)).EndInit();
-            this.pnlContainer2.ResumeLayout(false);
-            this.pnlContainer2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon2)).EndInit();
-            this.pnlContainer8.ResumeLayout(false);
-            this.pnlContainer8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon8)).EndInit();
-            this.pnlContainer1.ResumeLayout(false);
-            this.pnlContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon1)).EndInit();
-            this.pnlContainer7.ResumeLayout(false);
-            this.pnlContainer7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon7)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon13)).EndInit();
-            this.mnuContext.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
+            ClientSize = new System.Drawing.Size(471, 705);
+            Controls.Add(btnRemove);
+            Controls.Add(btnAdd);
+            Controls.Add(lblStatus);
+            Controls.Add(chkGroup);
+            Controls.Add(txtContents);
+            Controls.Add(lblSelectedContent);
+            Controls.Add(btnCopyCommand);
+            Controls.Add(cboConsoleCommands);
+            Controls.Add(lvwStructureLocations);
+            Controls.Add(layoutStructures);
+            Controls.Add(btnEdit);
+            ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(464, 744);
+            Name = "frmMapToolboxStructures";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Map Structures";
+            FormClosed += frmMapToolboxStructures_FormClosed;
+            layoutStructures.ResumeLayout(false);
+            pnlContainer12.ResumeLayout(false);
+            pnlContainer12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon12).EndInit();
+            pnlContainer6.ResumeLayout(false);
+            pnlContainer6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon6).EndInit();
+            pnlContainer5.ResumeLayout(false);
+            pnlContainer5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon5).EndInit();
+            pnlContainer11.ResumeLayout(false);
+            pnlContainer11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon11).EndInit();
+            pnlContainer4.ResumeLayout(false);
+            pnlContainer4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon4).EndInit();
+            pnlContainer10.ResumeLayout(false);
+            pnlContainer10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon10).EndInit();
+            pnlContainer3.ResumeLayout(false);
+            pnlContainer3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon3).EndInit();
+            pnlContainer9.ResumeLayout(false);
+            pnlContainer9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon9).EndInit();
+            pnlContainer2.ResumeLayout(false);
+            pnlContainer2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon2).EndInit();
+            pnlContainer8.ResumeLayout(false);
+            pnlContainer8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon8).EndInit();
+            pnlContainer1.ResumeLayout(false);
+            pnlContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon1).EndInit();
+            pnlContainer7.ResumeLayout(false);
+            pnlContainer7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon7).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcon13).EndInit();
+            mnuContext.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -24,7 +24,7 @@ namespace AsaSavegameToolkit
         string saveFilename = string.Empty;
         string sqlConnectionString = string.Empty;
         Dictionary<int, string> nameTable = new Dictionary<int, string>();
-        Dictionary<Guid,AsaGameObject> gameObects = new Dictionary<Guid, AsaGameObject>();
+        Dictionary<Guid,AsaGameObject> gameObjects = new Dictionary<Guid, AsaGameObject>();
         List<AsaTribe> tribeData = new List<AsaTribe>();
         List<AsaProfile> profileData = new List<AsaProfile>();
         Dictionary<Guid, byte[]> gameData = new Dictionary<Guid, byte[]>();
@@ -36,7 +36,7 @@ namespace AsaSavegameToolkit
         {
             get
             {
-                return gameObects.Values.ToArray();
+                return gameObjects.Values.ToArray();
             }
         }
 
@@ -53,7 +53,7 @@ namespace AsaSavegameToolkit
         {
             try
             {
-                return gameObects[guid];
+                return gameObjects[guid];
             }
             catch
             {
@@ -332,9 +332,13 @@ namespace AsaSavegameToolkit
 
             if(objectBag.Count > 0)
             {
-                objectBag.ToList().ForEach(p=>gameObects.Add(p.Key,p.Value));
+                objectBag.ToList().ForEach(p=>gameObjects.Add(p.Key,p.Value));
             }
             objectBag.Clear();
+
+            //var chibs = gameObjects.Where(o => o.Value.ClassString.ToLower().Contains("chib")).ToList();
+
+
 
             endTicks = DateTime.Now.Ticks;
             //time to parse stored creatures
@@ -342,30 +346,8 @@ namespace AsaSavegameToolkit
             Debug.Print($"parseStoredCreatures took {TimeSpan.FromTicks(endTicks - startTicks).ToString(@"mm\:ss")}");
         }
 
-        private byte[] AddPadding(byte[] data)
-        {
-            byte[] result;
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                foreach (byte b in data)
-                {
-
-                    
-                    
-                    ms.WriteByte(b);
-
-                }
-
-                result = new byte[ms.Length];
-                Array.Copy(ms.GetBuffer(), result, ms.Length);
-            }
-
-            return result;
-        }
-
-        private void readActorLocations(SqliteConnection connection)
-        {
+         private void readActorLocations(SqliteConnection connection)
+         {
             long startTicks = DateTime.Now.Ticks;
             long endTicks = DateTime.Now.Ticks;
 
@@ -519,7 +501,7 @@ namespace AsaSavegameToolkit
         private void parseGameObjects()
         {
             if (gameData.Count == 0) return;
-            gameObects.Clear();
+            gameObjects.Clear();
 
             long startTicks = DateTime.Now.Ticks;
             long endTicks = DateTime.Now.Ticks;
@@ -557,7 +539,7 @@ namespace AsaSavegameToolkit
             {
 
                 
-                gameObects = asaGameObjectDictionary.ToDictionary(kvp => kvp.Key,
+                gameObjects = asaGameObjectDictionary.ToDictionary(kvp => kvp.Key,
                                                           kvp => kvp.Value); 
             }
             asaGameObjectDictionary.Clear();

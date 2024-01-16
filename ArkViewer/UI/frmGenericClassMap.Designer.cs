@@ -28,160 +28,179 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCcancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.txtClassName = new System.Windows.Forms.TextBox();
-            this.lblDisplayName = new System.Windows.Forms.Label();
-            this.lblClassName = new System.Windows.Forms.Label();
-            this.txtDisplayName = new System.Windows.Forms.TextBox();
-            this.grpWrapper = new System.Windows.Forms.GroupBox();
-            this.lblClassDisplayName = new System.Windows.Forms.Label();
-            this.lblHeaderWrapper = new System.Windows.Forms.Label();
-            this.grpWrapper.SuspendLayout();
-            this.SuspendLayout();
+            btnCcancel = new System.Windows.Forms.Button();
+            btnSave = new System.Windows.Forms.Button();
+            txtClassName = new System.Windows.Forms.TextBox();
+            lblDisplayName = new System.Windows.Forms.Label();
+            lblClassName = new System.Windows.Forms.Label();
+            txtDisplayName = new System.Windows.Forms.TextBox();
+            grpWrapper = new System.Windows.Forms.GroupBox();
+            lblClassDisplayName = new System.Windows.Forms.Label();
+            lblHeaderWrapper = new System.Windows.Forms.Label();
+            grpWrapper.SuspendLayout();
+            SuspendLayout();
             // 
             // btnCcancel
             // 
-            this.btnCcancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCcancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCcancel.Location = new System.Drawing.Point(259, 205);
-            this.btnCcancel.Name = "btnCcancel";
-            this.btnCcancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCcancel.TabIndex = 2;
-            this.btnCcancel.Text = "Close";
-            this.btnCcancel.UseVisualStyleBackColor = true;
+            btnCcancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnCcancel.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnCcancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCcancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCcancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnCcancel.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnCcancel.Location = new System.Drawing.Point(302, 237);
+            btnCcancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCcancel.Name = "btnCcancel";
+            btnCcancel.Size = new System.Drawing.Size(88, 27);
+            btnCcancel.TabIndex = 2;
+            btnCcancel.Text = "Close";
+            btnCcancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(178, 205);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnSave.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnSave.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnSave.Location = new System.Drawing.Point(208, 237);
+            btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new System.Drawing.Size(88, 27);
+            btnSave.TabIndex = 1;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // txtClassName
             // 
-            this.txtClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClassName.Location = new System.Drawing.Point(23, 70);
-            this.txtClassName.Name = "txtClassName";
-            this.txtClassName.Size = new System.Drawing.Size(274, 22);
-            this.txtClassName.TabIndex = 1;
-            this.txtClassName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtClassName.Validating += new System.ComponentModel.CancelEventHandler(this.txtClassName_Validating);
+            txtClassName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtClassName.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtClassName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtClassName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtClassName.Location = new System.Drawing.Point(28, 78);
+            txtClassName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtClassName.Name = "txtClassName";
+            txtClassName.Size = new System.Drawing.Size(320, 17);
+            txtClassName.TabIndex = 1;
+            txtClassName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txtClassName.Validating += txtClassName_Validating;
             // 
             // lblDisplayName
             // 
-            this.lblDisplayName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDisplayName.BackColor = System.Drawing.SystemColors.Control;
-            this.lblDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplayName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDisplayName.Location = new System.Drawing.Point(21, 103);
-            this.lblDisplayName.Name = "lblDisplayName";
-            this.lblDisplayName.Size = new System.Drawing.Size(276, 23);
-            this.lblDisplayName.TabIndex = 2;
-            this.lblDisplayName.Text = "Display Name";
-            this.lblDisplayName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblDisplayName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblDisplayName.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblDisplayName.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            lblDisplayName.Location = new System.Drawing.Point(28, 119);
+            lblDisplayName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDisplayName.Name = "lblDisplayName";
+            lblDisplayName.Size = new System.Drawing.Size(320, 27);
+            lblDisplayName.TabIndex = 2;
+            lblDisplayName.Text = "Display Name";
+            lblDisplayName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblClassName
             // 
-            this.lblClassName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblClassName.BackColor = System.Drawing.SystemColors.Control;
-            this.lblClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblClassName.Location = new System.Drawing.Point(20, 41);
-            this.lblClassName.Name = "lblClassName";
-            this.lblClassName.Size = new System.Drawing.Size(277, 23);
-            this.lblClassName.TabIndex = 0;
-            this.lblClassName.Text = "Class Name";
-            this.lblClassName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblClassName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblClassName.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblClassName.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            lblClassName.Location = new System.Drawing.Point(28, 47);
+            lblClassName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblClassName.Name = "lblClassName";
+            lblClassName.Size = new System.Drawing.Size(320, 27);
+            lblClassName.TabIndex = 0;
+            lblClassName.Text = "Class Name";
+            lblClassName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtDisplayName
             // 
-            this.txtDisplayName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDisplayName.Location = new System.Drawing.Point(21, 129);
-            this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(274, 22);
-            this.txtDisplayName.TabIndex = 3;
-            this.txtDisplayName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txtDisplayName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtDisplayName.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtDisplayName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtDisplayName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtDisplayName.Location = new System.Drawing.Point(28, 149);
+            txtDisplayName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtDisplayName.Name = "txtDisplayName";
+            txtDisplayName.Size = new System.Drawing.Size(320, 17);
+            txtDisplayName.TabIndex = 3;
+            txtDisplayName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // grpWrapper
             // 
-            this.grpWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpWrapper.Controls.Add(this.lblClassDisplayName);
-            this.grpWrapper.Controls.Add(this.txtDisplayName);
-            this.grpWrapper.Controls.Add(this.lblHeaderWrapper);
-            this.grpWrapper.Controls.Add(this.txtClassName);
-            this.grpWrapper.Controls.Add(this.lblClassName);
-            this.grpWrapper.Controls.Add(this.lblDisplayName);
-            this.grpWrapper.Location = new System.Drawing.Point(10, 5);
-            this.grpWrapper.Name = "grpWrapper";
-            this.grpWrapper.Size = new System.Drawing.Size(323, 188);
-            this.grpWrapper.TabIndex = 0;
-            this.grpWrapper.TabStop = false;
+            grpWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            grpWrapper.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            grpWrapper.Controls.Add(lblClassDisplayName);
+            grpWrapper.Controls.Add(txtDisplayName);
+            grpWrapper.Controls.Add(lblHeaderWrapper);
+            grpWrapper.Controls.Add(txtClassName);
+            grpWrapper.Controls.Add(lblClassName);
+            grpWrapper.Controls.Add(lblDisplayName);
+            grpWrapper.Location = new System.Drawing.Point(12, 11);
+            grpWrapper.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpWrapper.Name = "grpWrapper";
+            grpWrapper.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpWrapper.Size = new System.Drawing.Size(377, 217);
+            grpWrapper.TabIndex = 0;
+            grpWrapper.TabStop = false;
             // 
             // lblClassDisplayName
             // 
-            this.lblClassDisplayName.AutoSize = true;
-            this.lblClassDisplayName.BackColor = System.Drawing.Color.Transparent;
-            this.lblClassDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassDisplayName.Location = new System.Drawing.Point(8, 16);
-            this.lblClassDisplayName.Name = "lblClassDisplayName";
-            this.lblClassDisplayName.Size = new System.Drawing.Size(135, 15);
-            this.lblClassDisplayName.TabIndex = 1;
-            this.lblClassDisplayName.Text = "Class Display Name";
-            this.lblClassDisplayName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblClassDisplayName.AutoSize = true;
+            lblClassDisplayName.BackColor = System.Drawing.Color.Transparent;
+            lblClassDisplayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblClassDisplayName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lblClassDisplayName.Location = new System.Drawing.Point(9, 18);
+            lblClassDisplayName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblClassDisplayName.Name = "lblClassDisplayName";
+            lblClassDisplayName.Size = new System.Drawing.Size(135, 15);
+            lblClassDisplayName.TabIndex = 1;
+            lblClassDisplayName.Text = "Class Display Name";
+            lblClassDisplayName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHeaderWrapper
             // 
-            this.lblHeaderWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHeaderWrapper.BackColor = System.Drawing.Color.Aqua;
-            this.lblHeaderWrapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeaderWrapper.Location = new System.Drawing.Point(0, 4);
-            this.lblHeaderWrapper.Name = "lblHeaderWrapper";
-            this.lblHeaderWrapper.Size = new System.Drawing.Size(325, 6);
-            this.lblHeaderWrapper.TabIndex = 0;
-            this.lblHeaderWrapper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblHeaderWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lblHeaderWrapper.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lblHeaderWrapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderWrapper.Location = new System.Drawing.Point(0, 1);
+            lblHeaderWrapper.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHeaderWrapper.Name = "lblHeaderWrapper";
+            lblHeaderWrapper.Size = new System.Drawing.Size(379, 7);
+            lblHeaderWrapper.TabIndex = 0;
+            lblHeaderWrapper.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmGenericClassMap
             // 
-            this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCcancel;
-            this.ClientSize = new System.Drawing.Size(348, 240);
-            this.Controls.Add(this.grpWrapper);
-            this.Controls.Add(this.btnCcancel);
-            this.Controls.Add(this.btnSave);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(230, 265);
-            this.Name = "frmGenericClassMap";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Display Name Editor";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmGenericClassMap_FormClosed);
-            this.Load += new System.EventHandler(this.frmGenericClassMap_Load);
-            this.Shown += new System.EventHandler(this.frmGenericClassMap_Shown);
-            this.Enter += new System.EventHandler(this.frmGenericClassMap_Enter);
-            this.grpWrapper.ResumeLayout(false);
-            this.grpWrapper.PerformLayout();
-            this.ResumeLayout(false);
-
+            AcceptButton = btnSave;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
+            CancelButton = btnCcancel;
+            ClientSize = new System.Drawing.Size(406, 277);
+            Controls.Add(grpWrapper);
+            Controls.Add(btnCcancel);
+            Controls.Add(btnSave);
+            ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            MinimumSize = new System.Drawing.Size(266, 300);
+            Name = "frmGenericClassMap";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Display Name Editor";
+            FormClosed += frmGenericClassMap_FormClosed;
+            Load += frmGenericClassMap_Load;
+            Shown += frmGenericClassMap_Shown;
+            Enter += frmGenericClassMap_Enter;
+            grpWrapper.ResumeLayout(false);
+            grpWrapper.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

@@ -80,6 +80,25 @@ namespace ARKViewer
 
         }
 
+
+        private void ownerDrawCombo_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            System.Windows.Forms.ComboBox comboBox = sender as System.Windows.Forms.ComboBox;
+
+            e.DrawBackground();
+
+            Rectangle r1 = e.Bounds;
+            r1.Width = r1.Width;
+
+            using (SolidBrush sb = new SolidBrush(comboBox.ForeColor))
+            {
+                string drawText = comboBox.Items[e.Index].ToString();
+                e.Graphics.DrawString(drawText, e.Font, sb, r1);
+            }
+        }
+
         private void PopulateExportTribes()
         {
             if (cm == null) return;
@@ -517,7 +536,7 @@ namespace ARKViewer
             PopulateDinoClassMap("");
             PopulateStructureClassMap("");
             PopulateItemClassMap("");
-            
+
             lblCryopodHighlight.BackColor = Color.FromArgb(SavedConfig.HighlightColorCryopod);
             lblCryopodHighlight.ForeColor = Program.IdealTextColor(lblCryopodHighlight.BackColor);
 
@@ -604,19 +623,19 @@ namespace ARKViewer
                 int localSelectedIndex = -1;
                 if (cboLocalARK.Items.Count > 0)
                 {
-                    for(int itemIndex=0;cboLocalARK.Items.Count>itemIndex;itemIndex++)
+                    for (int itemIndex = 0; cboLocalARK.Items.Count > itemIndex; itemIndex++)
                     {
                         var item = cboLocalARK.Items[itemIndex] as OfflineFileConfiguration;
                         if (item.Filename == SavedConfig.SelectedFile)
                         {
                             localSelectedIndex = itemIndex;
                             SavedConfig.ClusterFolder = item.ClusterFolder;
-                            
+
                             break;
                         }
 
                     }
-                    cboLocalARK.SelectedIndex=localSelectedIndex;
+                    cboLocalARK.SelectedIndex = localSelectedIndex;
                 }
 
             }
@@ -666,7 +685,7 @@ namespace ARKViewer
                     }
 
                 }
-                cboLocalARK.SelectedIndex= selectedOfflineIndex;
+                cboLocalARK.SelectedIndex = selectedOfflineIndex;
                 cboLocalARK.Sorted = true;
             }
 
@@ -689,10 +708,10 @@ namespace ARKViewer
 
             DisplayServerSettings();
 
-            lblSelectedMapSP.BackColor = optSinglePlayer.Checked ? Color.Aqua : Color.LightGray;
-            lblOfflineSave.BackColor = optOffline.Checked ? Color.Aqua : Color.LightGray;
-            lblFTPServer.BackColor = optServer.Checked ? Color.Aqua : Color.LightGray;
-            lblSelectedMapContentPack.BackColor = optContentPack.Checked ? Color.Aqua : Color.LightGray;
+            lblSelectedMapSP.BackColor = optSinglePlayer.Checked ? Color.FromArgb(225, 225, 225) : Color.FromArgb(125, 125, 125);
+            lblOfflineSave.BackColor = optOffline.Checked ? Color.FromArgb(225, 225, 225) : Color.FromArgb(125, 125, 125);
+            lblFTPServer.BackColor = optServer.Checked ? Color.FromArgb(225, 225, 225) : Color.FromArgb(125, 125, 125);
+            lblSelectedMapContentPack.BackColor = optContentPack.Checked ? Color.FromArgb(225, 225, 225) : Color.FromArgb(125, 125, 125);
 
             chkUpdateNotificationSingle.Enabled = optSinglePlayer.Checked;
 
@@ -2047,78 +2066,6 @@ namespace ARKViewer
             }
         }
 
-        private void btnNewClient_Click(object sender, EventArgs e)
-        {
-
-            using (frmClientAccess access = new frmClientAccess(cm))
-            {
-                if (access.ShowDialog() == DialogResult.OK)
-                {
-                    Program.ApiConfig.Clients.Add(access.ClientConfig);
-                    PopulateApiUsers();
-                }
-            }
-
-        }
-
-        private void PopulateApiUsers()
-        {
-            lvwClientAccess.Items.Clear();
-            var clients = Program.ApiConfig.Clients;
-            if (clients != null && clients.Count > 0)
-            {
-                foreach (var client in clients.OrderBy(o => o.Name))
-                {
-                    ListViewItem clientItem = lvwClientAccess.Items.Add(client.Name);
-                    clientItem.SubItems.Add(client.Created.ToString("dd MMM yyyy HH:mm"));
-                    clientItem.SubItems.Add(client.Accessed == DateTime.MinValue ? "n/a" : client.Accessed.ToString("dd MMM yyyy HH:mm"));
-                    clientItem.Tag = client;
-                }
-            }
-
-
-
-        }
-
-        private void btnRemoveClient_Click(object sender, EventArgs e)
-        {
-            ApiUserConfiguration clientConfig = (ApiUserConfiguration)lvwClientAccess.SelectedItems[0].Tag;
-            if (MessageBox.Show("Are you sure you want to remove access for this client?", "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                var foundConfig = Program.ApiConfig.Clients.First(a => a.AccessKey == clientConfig.AccessKey);
-                Program.ApiConfig.Clients.Remove(foundConfig);
-                PopulateApiUsers();
-            }
-        }
-
-        private void chkFilterClient_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEditClient_Click(object sender, EventArgs e)
-        {
-            if (lvwClientAccess.SelectedItems.Count == 0) return;
-
-            ApiUserConfiguration clientConfig = (ApiUserConfiguration)lvwClientAccess.SelectedItems[0].Tag;
-            using (frmClientAccess access = new frmClientAccess(cm, clientConfig))
-            {
-                if (access.ShowDialog() == DialogResult.OK)
-                {
-                    var foundConfig = Program.ApiConfig.Clients.First(a => a.AccessKey == clientConfig.AccessKey);
-                    Program.ApiConfig.Clients.Remove(foundConfig);
-                    Program.ApiConfig.Clients.Add(access.ClientConfig);
-
-                    PopulateApiUsers();
-                }
-            }
-        }
-
-        private void lvwClientAccess_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnEditClient.Enabled = lvwClientAccess.SelectedItems.Count == 1;
-            btnRemoveClient.Enabled = lvwClientAccess.SelectedItems.Count == 1;
-        }
 
         private void lvwColours_ColumnClick(object sender, ColumnClickEventArgs e)
         {
@@ -2145,10 +2092,6 @@ namespace ARKViewer
 
         }
 
-        private void lvwClientAccess_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-
-        }
 
         private void btnAddARK_Click(object sender, EventArgs e)
         {

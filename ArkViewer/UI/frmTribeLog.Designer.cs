@@ -29,171 +29,175 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTribeLog));
-            this.lblPlayerLevelLabel = new System.Windows.Forms.Label();
-            this.lblPlayerLevel = new System.Windows.Forms.Label();
-            this.lblTribeName = new System.Windows.Forms.Label();
-            this.lblPlayerName = new System.Windows.Forms.Label();
-            this.picPlayerGender = new System.Windows.Forms.PictureBox();
-            this.pnlWrapper = new System.Windows.Forms.Panel();
-            this.lvwLog = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picPlayerGender)).BeginInit();
-            this.pnlWrapper.SuspendLayout();
-            this.SuspendLayout();
+            lblPlayerLevelLabel = new System.Windows.Forms.Label();
+            lblPlayerLevel = new System.Windows.Forms.Label();
+            lblTribeName = new System.Windows.Forms.Label();
+            lblPlayerName = new System.Windows.Forms.Label();
+            picPlayerGender = new System.Windows.Forms.PictureBox();
+            pnlWrapper = new System.Windows.Forms.Panel();
+            lvwLog = new System.Windows.Forms.ListView();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            btnClose = new System.Windows.Forms.Button();
+            btnSettings = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)picPlayerGender).BeginInit();
+            pnlWrapper.SuspendLayout();
+            SuspendLayout();
             // 
             // lblPlayerLevelLabel
             // 
-            this.lblPlayerLevelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerLevelLabel.AutoSize = true;
-            this.lblPlayerLevelLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPlayerLevelLabel.Location = new System.Drawing.Point(763, 14);
-            this.lblPlayerLevelLabel.Name = "lblPlayerLevelLabel";
-            this.lblPlayerLevelLabel.Size = new System.Drawing.Size(65, 13);
-            this.lblPlayerLevelLabel.TabIndex = 2;
-            this.lblPlayerLevelLabel.Text = "Player Level";
+            lblPlayerLevelLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblPlayerLevelLabel.AutoSize = true;
+            lblPlayerLevelLabel.ForeColor = System.Drawing.Color.DarkGray;
+            lblPlayerLevelLabel.Location = new System.Drawing.Point(890, 16);
+            lblPlayerLevelLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerLevelLabel.Name = "lblPlayerLevelLabel";
+            lblPlayerLevelLabel.Size = new System.Drawing.Size(69, 15);
+            lblPlayerLevelLabel.TabIndex = 2;
+            lblPlayerLevelLabel.Text = "Player Level";
             // 
             // lblPlayerLevel
             // 
-            this.lblPlayerLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerLevel.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayerLevel.Location = new System.Drawing.Point(764, 27);
-            this.lblPlayerLevel.Name = "lblPlayerLevel";
-            this.lblPlayerLevel.Size = new System.Drawing.Size(62, 31);
-            this.lblPlayerLevel.TabIndex = 3;
-            this.lblPlayerLevel.Text = "135";
-            this.lblPlayerLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblPlayerLevel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerLevel.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lblPlayerLevel.Location = new System.Drawing.Point(891, 31);
+            lblPlayerLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerLevel.Name = "lblPlayerLevel";
+            lblPlayerLevel.Size = new System.Drawing.Size(72, 36);
+            lblPlayerLevel.TabIndex = 3;
+            lblPlayerLevel.Text = "135";
+            lblPlayerLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTribeName
             // 
-            this.lblTribeName.AutoSize = true;
-            this.lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTribeName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTribeName.Location = new System.Drawing.Point(74, 41);
-            this.lblTribeName.Name = "lblTribeName";
-            this.lblTribeName.Size = new System.Drawing.Size(90, 16);
-            this.lblTribeName.TabIndex = 1;
-            this.lblTribeName.Text = "Tribe Name";
-            this.lblTribeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblTribeName.AutoSize = true;
+            lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTribeName.ForeColor = System.Drawing.Color.DimGray;
+            lblTribeName.Location = new System.Drawing.Point(86, 47);
+            lblTribeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTribeName.Name = "lblTribeName";
+            lblTribeName.Size = new System.Drawing.Size(89, 16);
+            lblTribeName.TabIndex = 1;
+            lblTribeName.Text = "Tribe Name";
+            lblTribeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPlayerName
             // 
-            this.lblPlayerName.AutoSize = true;
-            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerName.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lblPlayerName.Location = new System.Drawing.Point(72, 8);
-            this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(163, 29);
-            this.lblPlayerName.TabIndex = 0;
-            this.lblPlayerName.Text = "Player Name";
-            this.lblPlayerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblPlayerName.AutoSize = true;
+            lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lblPlayerName.Location = new System.Drawing.Point(84, 9);
+            lblPlayerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlayerName.Name = "lblPlayerName";
+            lblPlayerName.Size = new System.Drawing.Size(163, 29);
+            lblPlayerName.TabIndex = 0;
+            lblPlayerName.Text = "Player Name";
+            lblPlayerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // picPlayerGender
             // 
-            this.picPlayerGender.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picPlayerGender.Image = global::ARKViewer.Properties.Resources.marker_28;
-            this.picPlayerGender.Location = new System.Drawing.Point(17, 8);
-            this.picPlayerGender.Name = "picPlayerGender";
-            this.picPlayerGender.Size = new System.Drawing.Size(50, 50);
-            this.picPlayerGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picPlayerGender.TabIndex = 11;
-            this.picPlayerGender.TabStop = false;
+            picPlayerGender.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            picPlayerGender.Image = (System.Drawing.Image)resources.GetObject("picPlayerGender.Image");
+            picPlayerGender.Location = new System.Drawing.Point(20, 9);
+            picPlayerGender.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            picPlayerGender.Name = "picPlayerGender";
+            picPlayerGender.Size = new System.Drawing.Size(58, 57);
+            picPlayerGender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            picPlayerGender.TabIndex = 11;
+            picPlayerGender.TabStop = false;
             // 
             // pnlWrapper
             // 
-            this.pnlWrapper.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlWrapper.BackColor = System.Drawing.Color.PowderBlue;
-            this.pnlWrapper.Controls.Add(this.lvwLog);
-            this.pnlWrapper.Location = new System.Drawing.Point(12, 73);
-            this.pnlWrapper.Name = "pnlWrapper";
-            this.pnlWrapper.Size = new System.Drawing.Size(816, 318);
-            this.pnlWrapper.TabIndex = 4;
+            pnlWrapper.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlWrapper.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            pnlWrapper.Controls.Add(lvwLog);
+            pnlWrapper.Location = new System.Drawing.Point(14, 84);
+            pnlWrapper.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlWrapper.Name = "pnlWrapper";
+            pnlWrapper.Size = new System.Drawing.Size(952, 367);
+            pnlWrapper.TabIndex = 4;
             // 
             // lvwLog
             // 
-            this.lvwLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lvwLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader3});
-            this.lvwLog.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lvwLog.FullRowSelect = true;
-            this.lvwLog.HideSelection = false;
-            this.lvwLog.Location = new System.Drawing.Point(22, 20);
-            this.lvwLog.Name = "lvwLog";
-            this.lvwLog.Size = new System.Drawing.Size(764, 276);
-            this.lvwLog.TabIndex = 0;
-            this.lvwLog.UseCompatibleStateImageBehavior = false;
-            this.lvwLog.View = System.Windows.Forms.View.Details;
-            this.lvwLog.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwLog_ColumnClick);
+            lvwLog.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwLog.BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            lvwLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader3 });
+            lvwLog.ForeColor = System.Drawing.Color.WhiteSmoke;
+            lvwLog.FullRowSelect = true;
+            lvwLog.Location = new System.Drawing.Point(26, 23);
+            lvwLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwLog.Name = "lvwLog";
+            lvwLog.Size = new System.Drawing.Size(891, 318);
+            lvwLog.TabIndex = 0;
+            lvwLog.UseCompatibleStateImageBehavior = false;
+            lvwLog.View = System.Windows.Forms.View.Details;
+            lvwLog.ColumnClick += lvwLog_ColumnClick;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Date";
-            this.columnHeader1.Width = 110;
+            columnHeader1.Text = "Date";
+            columnHeader1.Width = 110;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Information";
-            this.columnHeader3.Width = 630;
+            columnHeader3.Text = "Information";
+            columnHeader3.Width = 630;
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnClose.Location = new System.Drawing.Point(753, 399);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 6;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.Location = new System.Drawing.Point(878, 460);
+            btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new System.Drawing.Size(88, 27);
+            btnClose.TabIndex = 6;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // btnSettings
             // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(11, 395);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(35, 35);
-            this.btnSettings.TabIndex = 5;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnSettings.Image = (System.Drawing.Image)resources.GetObject("btnSettings.Image");
+            btnSettings.Location = new System.Drawing.Point(13, 456);
+            btnSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new System.Drawing.Size(41, 40);
+            btnSettings.TabIndex = 5;
+            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
             // 
             // frmTribeLog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(840, 434);
-            this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblPlayerLevelLabel);
-            this.Controls.Add(this.lblPlayerLevel);
-            this.Controls.Add(this.lblTribeName);
-            this.Controls.Add(this.lblPlayerName);
-            this.Controls.Add(this.picPlayerGender);
-            this.Controls.Add(this.pnlWrapper);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(350, 350);
-            this.Name = "frmTribeLog";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tribe Log Viewer";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTribeLog_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.picPlayerGender)).EndInit();
-            this.pnlWrapper.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
+            CancelButton = btnClose;
+            ClientSize = new System.Drawing.Size(980, 501);
+            Controls.Add(btnSettings);
+            Controls.Add(btnClose);
+            Controls.Add(lblPlayerLevelLabel);
+            Controls.Add(lblPlayerLevel);
+            Controls.Add(lblTribeName);
+            Controls.Add(lblPlayerName);
+            Controls.Add(picPlayerGender);
+            Controls.Add(pnlWrapper);
+            ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            MinimumSize = new System.Drawing.Size(406, 398);
+            Name = "frmTribeLog";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Tribe Log Viewer";
+            FormClosed += frmTribeLog_FormClosed;
+            ((System.ComponentModel.ISupportInitialize)picPlayerGender).EndInit();
+            pnlWrapper.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -124,15 +124,18 @@ namespace ARKViewer
             // btnSelect
             // 
             btnSelect.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnSelect.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
             btnSelect.Enabled = false;
+            btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnSelect.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnSelect.Location = new System.Drawing.Point(683, 501);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new System.Drawing.Size(71, 23);
             btnSelect.TabIndex = 1;
             btnSelect.Text = "Save";
-            btnSelect.UseVisualStyleBackColor = true;
+            btnSelect.UseVisualStyleBackColor = false;
             btnSelect.Click += btnSelect_Click;
             // 
             // lblStatus
@@ -172,8 +175,9 @@ namespace ARKViewer
             // lblMode
             // 
             lblMode.AutoSize = true;
-            lblMode.BackColor = System.Drawing.SystemColors.Control;
+            lblMode.BackColor = System.Drawing.Color.Transparent;
             lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblMode.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblMode.Location = new System.Drawing.Point(21, 278);
             lblMode.Name = "lblMode";
             lblMode.Size = new System.Drawing.Size(34, 13);
@@ -184,11 +188,13 @@ namespace ARKViewer
             // chkPasswordVisibility
             // 
             chkPasswordVisibility.Appearance = System.Windows.Forms.Appearance.Button;
+            chkPasswordVisibility.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             chkPasswordVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkPasswordVisibility.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             chkPasswordVisibility.Image = (System.Drawing.Image)resources.GetObject("chkPasswordVisibility.Image");
-            chkPasswordVisibility.Location = new System.Drawing.Point(238, 252);
+            chkPasswordVisibility.Location = new System.Drawing.Point(238, 251);
             chkPasswordVisibility.Name = "chkPasswordVisibility";
-            chkPasswordVisibility.Size = new System.Drawing.Size(20, 20);
+            chkPasswordVisibility.Size = new System.Drawing.Size(25, 21);
             chkPasswordVisibility.TabIndex = 10;
             chkPasswordVisibility.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             chkPasswordVisibility.UseVisualStyleBackColor = false;
@@ -221,8 +227,9 @@ namespace ARKViewer
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.BackColor = System.Drawing.SystemColors.Control;
+            lblPassword.BackColor = System.Drawing.Color.Transparent;
             lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPassword.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPassword.Location = new System.Drawing.Point(21, 234);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new System.Drawing.Size(53, 13);
@@ -232,8 +239,9 @@ namespace ARKViewer
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.BackColor = System.Drawing.SystemColors.Control;
+            lblUsername.BackColor = System.Drawing.Color.Transparent;
             lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUsername.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUsername.Location = new System.Drawing.Point(21, 181);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new System.Drawing.Size(55, 13);
@@ -252,8 +260,9 @@ namespace ARKViewer
             // lblServerPort
             // 
             lblServerPort.AutoSize = true;
-            lblServerPort.BackColor = System.Drawing.SystemColors.Control;
+            lblServerPort.BackColor = System.Drawing.Color.Transparent;
             lblServerPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblServerPort.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblServerPort.Location = new System.Drawing.Point(21, 134);
             lblServerPort.Name = "lblServerPort";
             lblServerPort.Size = new System.Drawing.Size(26, 13);
@@ -262,8 +271,9 @@ namespace ARKViewer
             // 
             // lblServerAddress
             // 
-            lblServerAddress.BackColor = System.Drawing.SystemColors.Control;
+            lblServerAddress.BackColor = System.Drawing.Color.Transparent;
             lblServerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblServerAddress.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblServerAddress.Location = new System.Drawing.Point(21, 89);
             lblServerAddress.Name = "lblServerAddress";
             lblServerAddress.Size = new System.Drawing.Size(217, 19);
@@ -273,12 +283,15 @@ namespace ARKViewer
             // 
             // btnConnect
             // 
+            btnConnect.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnConnect.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnConnect.Location = new System.Drawing.Point(27, 352);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new System.Drawing.Size(211, 23);
             btnConnect.TabIndex = 14;
             btnConnect.Text = "Connect";
-            btnConnect.UseVisualStyleBackColor = true;
+            btnConnect.UseVisualStyleBackColor = false;
             btnConnect.Click += btnConnect_Click;
             // 
             // txtServerName
@@ -291,8 +304,9 @@ namespace ARKViewer
             // lblServerName
             // 
             lblServerName.AutoSize = true;
-            lblServerName.BackColor = System.Drawing.SystemColors.Control;
+            lblServerName.BackColor = System.Drawing.Color.Transparent;
             lblServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblServerName.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblServerName.Location = new System.Drawing.Point(21, 47);
             lblServerName.Name = "lblServerName";
             lblServerName.Size = new System.Drawing.Size(69, 13);
@@ -303,18 +317,22 @@ namespace ARKViewer
             // btnClose
             // 
             btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnClose.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnClose.Location = new System.Drawing.Point(760, 501);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(71, 23);
             btnClose.TabIndex = 2;
             btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             // 
             // grpFtpServer
             // 
             grpFtpServer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            grpFtpServer.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpFtpServer.Controls.Add(label1);
             grpFtpServer.Controls.Add(lblFtpServerDetails);
             grpFtpServer.Controls.Add(lblHeaderFtp);
@@ -345,7 +363,7 @@ namespace ARKViewer
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.Transparent;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            label1.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             label1.Location = new System.Drawing.Point(276, 16);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(87, 15);
@@ -358,7 +376,7 @@ namespace ARKViewer
             lblFtpServerDetails.AutoSize = true;
             lblFtpServerDetails.BackColor = System.Drawing.Color.Transparent;
             lblFtpServerDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lblFtpServerDetails.ForeColor = System.Drawing.Color.DarkSlateGray;
+            lblFtpServerDetails.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblFtpServerDetails.Location = new System.Drawing.Point(10, 14);
             lblFtpServerDetails.Name = "lblFtpServerDetails";
             lblFtpServerDetails.Size = new System.Drawing.Size(126, 15);
@@ -369,7 +387,7 @@ namespace ARKViewer
             // lblHeaderFtp
             // 
             lblHeaderFtp.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblHeaderFtp.BackColor = System.Drawing.Color.Aqua;
+            lblHeaderFtp.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblHeaderFtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblHeaderFtp.Location = new System.Drawing.Point(0, 0);
             lblHeaderFtp.Name = "lblHeaderFtp";
@@ -390,6 +408,7 @@ namespace ARKViewer
             // 
             // tpgFtp
             // 
+            tpgFtp.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
             tpgFtp.Controls.Add(grpFtpServer);
             tpgFtp.Location = new System.Drawing.Point(4, 22);
             tpgFtp.Name = "tpgFtp";
@@ -397,22 +416,22 @@ namespace ARKViewer
             tpgFtp.Size = new System.Drawing.Size(823, 459);
             tpgFtp.TabIndex = 0;
             tpgFtp.Text = "FTP Server";
-            tpgFtp.UseVisualStyleBackColor = true;
             // 
             // tpgRCON
             // 
+            tpgRCON.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             tpgRCON.Controls.Add(groupBox1);
-            tpgRCON.Location = new System.Drawing.Point(4, 24);
+            tpgRCON.Location = new System.Drawing.Point(4, 22);
             tpgRCON.Name = "tpgRCON";
             tpgRCON.Padding = new System.Windows.Forms.Padding(3);
-            tpgRCON.Size = new System.Drawing.Size(858, 449);
+            tpgRCON.Size = new System.Drawing.Size(823, 459);
             tpgRCON.TabIndex = 1;
             tpgRCON.Text = "RCON";
-            tpgRCON.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            groupBox1.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             groupBox1.Controls.Add(btnTestRcon);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label4);
@@ -424,19 +443,22 @@ namespace ARKViewer
             groupBox1.Controls.Add(txtRconPassword);
             groupBox1.Location = new System.Drawing.Point(26, 28);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(802, 408);
+            groupBox1.Size = new System.Drawing.Size(775, 410);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 
             // btnTestRcon
             // 
             btnTestRcon.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            btnTestRcon.Location = new System.Drawing.Point(298, 267);
+            btnTestRcon.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnTestRcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnTestRcon.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            btnTestRcon.Location = new System.Drawing.Point(284, 267);
             btnTestRcon.Name = "btnTestRcon";
             btnTestRcon.Size = new System.Drawing.Size(212, 23);
             btnTestRcon.TabIndex = 8;
             btnTestRcon.Text = "Connect";
-            btnTestRcon.UseVisualStyleBackColor = true;
+            btnTestRcon.UseVisualStyleBackColor = false;
             btnTestRcon.Click += btnTestRcon_Click;
             // 
             // label3
@@ -445,8 +467,8 @@ namespace ARKViewer
             label3.AutoSize = true;
             label3.BackColor = System.Drawing.Color.Transparent;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            label3.Location = new System.Drawing.Point(295, 66);
+            label3.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            label3.Location = new System.Drawing.Point(281, 66);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(171, 15);
             label3.TabIndex = 1;
@@ -456,20 +478,21 @@ namespace ARKViewer
             // label4
             // 
             label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            label4.BackColor = System.Drawing.Color.Aqua;
+            label4.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label4.Location = new System.Drawing.Point(0, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(1376, 6);
+            label4.Size = new System.Drawing.Size(775, 12);
             label4.TabIndex = 0;
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
             label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label6.BackColor = System.Drawing.SystemColors.Control;
+            label6.BackColor = System.Drawing.Color.Transparent;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(295, 107);
+            label6.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            label6.Location = new System.Drawing.Point(281, 107);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(217, 19);
             label6.TabIndex = 2;
@@ -480,9 +503,10 @@ namespace ARKViewer
             // 
             label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label7.AutoSize = true;
-            label7.BackColor = System.Drawing.SystemColors.Control;
+            label7.BackColor = System.Drawing.Color.Transparent;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(295, 152);
+            label7.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            label7.Location = new System.Drawing.Point(281, 152);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(26, 13);
             label7.TabIndex = 4;
@@ -491,18 +515,23 @@ namespace ARKViewer
             // txtRconServer
             // 
             txtRconServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            txtRconServer.Location = new System.Drawing.Point(298, 129);
+            txtRconServer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtRconServer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtRconServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtRconServer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtRconServer.Location = new System.Drawing.Point(284, 129);
             txtRconServer.Name = "txtRconServer";
-            txtRconServer.Size = new System.Drawing.Size(214, 20);
+            txtRconServer.Size = new System.Drawing.Size(214, 17);
             txtRconServer.TabIndex = 3;
             // 
             // label10
             // 
             label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label10.AutoSize = true;
-            label10.BackColor = System.Drawing.SystemColors.Control;
+            label10.BackColor = System.Drawing.Color.Transparent;
             label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label10.Location = new System.Drawing.Point(295, 210);
+            label10.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            label10.Location = new System.Drawing.Point(281, 210);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(53, 13);
             label10.TabIndex = 6;
@@ -511,26 +540,35 @@ namespace ARKViewer
             // udRconPort
             // 
             udRconPort.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            udRconPort.Location = new System.Drawing.Point(298, 173);
+            udRconPort.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            udRconPort.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            udRconPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udRconPort.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            udRconPort.Location = new System.Drawing.Point(284, 173);
             udRconPort.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
             udRconPort.Name = "udRconPort";
-            udRconPort.Size = new System.Drawing.Size(60, 20);
+            udRconPort.Size = new System.Drawing.Size(60, 18);
             udRconPort.TabIndex = 5;
             udRconPort.Value = new decimal(new int[] { 27020, 0, 0, 0 });
             // 
             // txtRconPassword
             // 
             txtRconPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            txtRconPassword.Location = new System.Drawing.Point(298, 228);
+            txtRconPassword.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtRconPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtRconPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtRconPassword.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtRconPassword.Location = new System.Drawing.Point(284, 228);
             txtRconPassword.Name = "txtRconPassword";
             txtRconPassword.PasswordChar = '●';
-            txtRconPassword.Size = new System.Drawing.Size(214, 20);
+            txtRconPassword.Size = new System.Drawing.Size(214, 17);
             txtRconPassword.TabIndex = 7;
             // 
             // frmFtpFileBrowser
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             CancelButton = btnClose;
             ClientSize = new System.Drawing.Size(844, 533);
             Controls.Add(tabControl1);
@@ -538,6 +576,7 @@ namespace ARKViewer
             Controls.Add(lblStatus);
             Controls.Add(btnSelect);
             Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             MinimumSize = new System.Drawing.Size(530, 485);
             Name = "frmFtpFileBrowser";

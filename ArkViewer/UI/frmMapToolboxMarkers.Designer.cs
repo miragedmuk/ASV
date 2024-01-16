@@ -30,158 +30,177 @@ namespace ARKViewer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMapToolboxMarkers));
-            this.lvwMapMarkers = new System.Windows.Forms.ListView();
-            this.lvwMapMarkers_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwMapMarkers_Lat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvwMapMarkers_Lon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnRemoveMarker = new System.Windows.Forms.Button();
-            this.chkApplyFilterMarkers = new System.Windows.Forms.CheckBox();
-            this.btnAddMarker = new System.Windows.Forms.Button();
-            this.btnEditMarker = new System.Windows.Forms.Button();
-            this.txtMarkerFilter = new System.Windows.Forms.TextBox();
-            this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            lvwMapMarkers = new System.Windows.Forms.ListView();
+            lvwMapMarkers_Name = new System.Windows.Forms.ColumnHeader();
+            lvwMapMarkers_Lat = new System.Windows.Forms.ColumnHeader();
+            lvwMapMarkers_Lon = new System.Windows.Forms.ColumnHeader();
+            btnRemoveMarker = new System.Windows.Forms.Button();
+            chkApplyFilterMarkers = new System.Windows.Forms.CheckBox();
+            btnAddMarker = new System.Windows.Forms.Button();
+            btnEditMarker = new System.Windows.Forms.Button();
+            txtMarkerFilter = new System.Windows.Forms.TextBox();
+            cboCategory = new System.Windows.Forms.ComboBox();
+            label1 = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // lvwMapMarkers
             // 
-            this.lvwMapMarkers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwMapMarkers.CheckBoxes = true;
-            this.lvwMapMarkers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.lvwMapMarkers_Name,
-            this.lvwMapMarkers_Lat,
-            this.lvwMapMarkers_Lon});
-            this.lvwMapMarkers.FullRowSelect = true;
-            this.lvwMapMarkers.HideSelection = false;
-            this.lvwMapMarkers.Location = new System.Drawing.Point(6, 45);
-            this.lvwMapMarkers.Name = "lvwMapMarkers";
-            this.lvwMapMarkers.Size = new System.Drawing.Size(301, 382);
-            this.lvwMapMarkers.TabIndex = 0;
-            this.lvwMapMarkers.UseCompatibleStateImageBehavior = false;
-            this.lvwMapMarkers.View = System.Windows.Forms.View.Details;
-            this.lvwMapMarkers.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvwMapMarkers_ColumnClick);
-            this.lvwMapMarkers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvwMapMarkers_ItemChecked);
-            this.lvwMapMarkers.SelectedIndexChanged += new System.EventHandler(this.lvwMapMarkers_SelectedIndexChanged);
+            lvwMapMarkers.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwMapMarkers.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            lvwMapMarkers.CheckBoxes = true;
+            lvwMapMarkers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwMapMarkers_Name, lvwMapMarkers_Lat, lvwMapMarkers_Lon });
+            lvwMapMarkers.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lvwMapMarkers.FullRowSelect = true;
+            lvwMapMarkers.Location = new System.Drawing.Point(7, 52);
+            lvwMapMarkers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwMapMarkers.Name = "lvwMapMarkers";
+            lvwMapMarkers.Size = new System.Drawing.Size(350, 440);
+            lvwMapMarkers.TabIndex = 0;
+            lvwMapMarkers.UseCompatibleStateImageBehavior = false;
+            lvwMapMarkers.View = System.Windows.Forms.View.Details;
+            lvwMapMarkers.ColumnClick += lvwMapMarkers_ColumnClick;
+            lvwMapMarkers.ItemChecked += lvwMapMarkers_ItemChecked;
+            lvwMapMarkers.SelectedIndexChanged += lvwMapMarkers_SelectedIndexChanged;
             // 
             // lvwMapMarkers_Name
             // 
-            this.lvwMapMarkers_Name.Text = "Name";
-            this.lvwMapMarkers_Name.Width = 167;
+            lvwMapMarkers_Name.Text = "Name";
+            lvwMapMarkers_Name.Width = 167;
             // 
             // lvwMapMarkers_Lat
             // 
-            this.lvwMapMarkers_Lat.Text = "Lat";
+            lvwMapMarkers_Lat.Text = "Lat";
             // 
             // lvwMapMarkers_Lon
             // 
-            this.lvwMapMarkers_Lon.Text = "Lon";
+            lvwMapMarkers_Lon.Text = "Lon";
             // 
             // btnRemoveMarker
             // 
-            this.btnRemoveMarker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemoveMarker.Enabled = false;
-            this.btnRemoveMarker.Image = global::ARKViewer.Properties.Resources.button_remove;
-            this.btnRemoveMarker.Location = new System.Drawing.Point(42, 437);
-            this.btnRemoveMarker.Name = "btnRemoveMarker";
-            this.btnRemoveMarker.Size = new System.Drawing.Size(30, 30);
-            this.btnRemoveMarker.TabIndex = 2;
-            this.btnRemoveMarker.UseVisualStyleBackColor = true;
-            this.btnRemoveMarker.Click += new System.EventHandler(this.btnRemoveMarker_Click);
+            btnRemoveMarker.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnRemoveMarker.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnRemoveMarker.Enabled = false;
+            btnRemoveMarker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnRemoveMarker.Image = (System.Drawing.Image)resources.GetObject("btnRemoveMarker.Image");
+            btnRemoveMarker.Location = new System.Drawing.Point(49, 504);
+            btnRemoveMarker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnRemoveMarker.Name = "btnRemoveMarker";
+            btnRemoveMarker.Size = new System.Drawing.Size(35, 35);
+            btnRemoveMarker.TabIndex = 2;
+            btnRemoveMarker.UseVisualStyleBackColor = false;
+            btnRemoveMarker.Click += btnRemoveMarker_Click;
             // 
             // chkApplyFilterMarkers
             // 
-            this.chkApplyFilterMarkers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkApplyFilterMarkers.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkApplyFilterMarkers.Image = global::ARKViewer.Properties.Resources.button_filter;
-            this.chkApplyFilterMarkers.Location = new System.Drawing.Point(239, 437);
-            this.chkApplyFilterMarkers.Name = "chkApplyFilterMarkers";
-            this.chkApplyFilterMarkers.Size = new System.Drawing.Size(30, 30);
-            this.chkApplyFilterMarkers.TabIndex = 4;
-            this.chkApplyFilterMarkers.UseVisualStyleBackColor = true;
-            this.chkApplyFilterMarkers.CheckedChanged += new System.EventHandler(this.chkApplyFilterMarkers_CheckedChanged);
+            chkApplyFilterMarkers.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            chkApplyFilterMarkers.Appearance = System.Windows.Forms.Appearance.Button;
+            chkApplyFilterMarkers.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            chkApplyFilterMarkers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            chkApplyFilterMarkers.Image = (System.Drawing.Image)resources.GetObject("chkApplyFilterMarkers.Image");
+            chkApplyFilterMarkers.Location = new System.Drawing.Point(279, 504);
+            chkApplyFilterMarkers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkApplyFilterMarkers.Name = "chkApplyFilterMarkers";
+            chkApplyFilterMarkers.Size = new System.Drawing.Size(35, 35);
+            chkApplyFilterMarkers.TabIndex = 4;
+            chkApplyFilterMarkers.UseVisualStyleBackColor = false;
+            chkApplyFilterMarkers.CheckedChanged += chkApplyFilterMarkers_CheckedChanged;
             // 
             // btnAddMarker
             // 
-            this.btnAddMarker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddMarker.Image = global::ARKViewer.Properties.Resources.button_add;
-            this.btnAddMarker.Location = new System.Drawing.Point(6, 437);
-            this.btnAddMarker.Name = "btnAddMarker";
-            this.btnAddMarker.Size = new System.Drawing.Size(30, 30);
-            this.btnAddMarker.TabIndex = 1;
-            this.btnAddMarker.UseVisualStyleBackColor = true;
-            this.btnAddMarker.Click += new System.EventHandler(this.btnAddMarker_Click);
+            btnAddMarker.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnAddMarker.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnAddMarker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnAddMarker.Image = (System.Drawing.Image)resources.GetObject("btnAddMarker.Image");
+            btnAddMarker.Location = new System.Drawing.Point(7, 504);
+            btnAddMarker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnAddMarker.Name = "btnAddMarker";
+            btnAddMarker.Size = new System.Drawing.Size(35, 35);
+            btnAddMarker.TabIndex = 1;
+            btnAddMarker.UseVisualStyleBackColor = false;
+            btnAddMarker.Click += btnAddMarker_Click;
             // 
             // btnEditMarker
             // 
-            this.btnEditMarker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditMarker.Enabled = false;
-            this.btnEditMarker.Image = ((System.Drawing.Image)(resources.GetObject("btnEditMarker.Image")));
-            this.btnEditMarker.Location = new System.Drawing.Point(277, 437);
-            this.btnEditMarker.Name = "btnEditMarker";
-            this.btnEditMarker.Size = new System.Drawing.Size(30, 30);
-            this.btnEditMarker.TabIndex = 5;
-            this.btnEditMarker.UseVisualStyleBackColor = true;
-            this.btnEditMarker.Click += new System.EventHandler(this.btnEditMarker_Click);
+            btnEditMarker.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnEditMarker.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnEditMarker.Enabled = false;
+            btnEditMarker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnEditMarker.Image = (System.Drawing.Image)resources.GetObject("btnEditMarker.Image");
+            btnEditMarker.Location = new System.Drawing.Point(323, 504);
+            btnEditMarker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnEditMarker.Name = "btnEditMarker";
+            btnEditMarker.Size = new System.Drawing.Size(35, 35);
+            btnEditMarker.TabIndex = 5;
+            btnEditMarker.UseVisualStyleBackColor = false;
+            btnEditMarker.Click += btnEditMarker_Click;
             // 
             // txtMarkerFilter
             // 
-            this.txtMarkerFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMarkerFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarkerFilter.Location = new System.Drawing.Point(81, 439);
-            this.txtMarkerFilter.Name = "txtMarkerFilter";
-            this.txtMarkerFilter.Size = new System.Drawing.Size(152, 22);
-            this.txtMarkerFilter.TabIndex = 3;
+            txtMarkerFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtMarkerFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtMarkerFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtMarkerFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtMarkerFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtMarkerFilter.Location = new System.Drawing.Point(94, 509);
+            txtMarkerFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtMarkerFilter.Multiline = true;
+            txtMarkerFilter.Name = "txtMarkerFilter";
+            txtMarkerFilter.Size = new System.Drawing.Size(177, 23);
+            txtMarkerFilter.TabIndex = 3;
             // 
             // cboCategory
             // 
-            this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(75, 13);
-            this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(232, 21);
-            this.cboCategory.TabIndex = 6;
-            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
+            cboCategory.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            cboCategory.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboCategory.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            cboCategory.FormattingEnabled = true;
+            cboCategory.Location = new System.Drawing.Point(88, 15);
+            cboCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboCategory.Name = "cboCategory";
+            cboCategory.Size = new System.Drawing.Size(270, 23);
+            cboCategory.TabIndex = 6;
+            cboCategory.DrawItem += ownerDrawCombo_DrawItem;
+            cboCategory.SelectedIndexChanged += cboCategory_SelectedIndexChanged;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.CadetBlue;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(11, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Category:";
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            label1.Location = new System.Drawing.Point(13, 18);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(61, 13);
+            label1.TabIndex = 7;
+            label1.Text = "Category:";
             // 
             // frmMapToolboxMarkers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(314, 473);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboCategory);
-            this.Controls.Add(this.lvwMapMarkers);
-            this.Controls.Add(this.btnRemoveMarker);
-            this.Controls.Add(this.chkApplyFilterMarkers);
-            this.Controls.Add(this.btnAddMarker);
-            this.Controls.Add(this.btnEditMarker);
-            this.Controls.Add(this.txtMarkerFilter);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.MinimumSize = new System.Drawing.Size(330, 200);
-            this.Name = "frmMapToolboxMarkers";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Custom Map Markers";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMapToolboxMarkers_FormClosed);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            ClientSize = new System.Drawing.Size(366, 546);
+            Controls.Add(label1);
+            Controls.Add(cboCategory);
+            Controls.Add(lvwMapMarkers);
+            Controls.Add(btnRemoveMarker);
+            Controls.Add(chkApplyFilterMarkers);
+            Controls.Add(btnAddMarker);
+            Controls.Add(btnEditMarker);
+            Controls.Add(txtMarkerFilter);
+            ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(382, 225);
+            Name = "frmMapToolboxMarkers";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Custom Map Markers";
+            FormClosed += frmMapToolboxMarkers_FormClosed;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

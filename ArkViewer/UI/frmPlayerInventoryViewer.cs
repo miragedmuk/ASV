@@ -32,6 +32,23 @@ namespace ARKViewer
 
 
 
+        private void ownerDrawCombo_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            System.Windows.Forms.ComboBox comboBox = sender as System.Windows.Forms.ComboBox;
+
+            e.DrawBackground();
+
+            Rectangle r1 = e.Bounds;
+            r1.Width = r1.Width;
+
+            using (SolidBrush sb = new SolidBrush(comboBox.ForeColor))
+            {
+                string drawText = comboBox.Items[e.Index].ToString();
+                e.Graphics.DrawString(drawText, e.Font, sb, r1);
+            }
+        }
         private void LoadWindowSettings()
         {
             var savedWindow = ARKViewer.Program.ProgramConfig.Windows.FirstOrDefault(w => w.Name == this.Name);
@@ -155,7 +172,7 @@ namespace ARKViewer
                 Parallel.ForEach(playerHairstyles, invItem =>
                 {
                     string itemName = invItem.ClassName;
-                    
+
                     int itemIcon = 0;
                     var itemMap = Program.ProgramConfig.ItemMap.Where(i => i.ClassName == invItem.ClassName).FirstOrDefault<ItemClassMap>();
                     if (itemMap != null && itemMap.ClassName != "")
@@ -341,7 +358,7 @@ namespace ARKViewer
         private void PopulateMissionScores()
         {
             lvwPlayerScores.Items.Clear();
-            foreach(var score in currentPlayer.MissionScores)
+            foreach (var score in currentPlayer.MissionScores)
             {
                 ListViewItem item = lvwPlayerScores.Items.Add(score.MissionTag);
                 item.SubItems.Add(score.HighScore.ToString("f2"));
@@ -501,7 +518,7 @@ namespace ARKViewer
                 }).ToList();
 
 
-                Parallel.ForEach(inventItems, invItem =>  
+                Parallel.ForEach(inventItems, invItem =>
                 {
                     string itemName = invItem.ClassName;
                     string categoryName = "Misc.";
@@ -569,7 +586,7 @@ namespace ARKViewer
                     }
 
                 });
-                
+
             });
 
             lvwStorageInventory.Items.AddRange(listItems.ToArray());
@@ -584,25 +601,25 @@ namespace ARKViewer
             cm = manager;
             currentPlayer = selectedPlayer;
             playerTribe = cm.GetPlayerTribe(currentPlayer.Id);
-            playerInventory = selectedPlayer.Inventory.Items.GroupBy(g=> new 
-            { 
-                g.ClassName, 
-                g.CraftedByTribe, 
+            playerInventory = selectedPlayer.Inventory.Items.GroupBy(g => new
+            {
+                g.ClassName,
+                g.CraftedByTribe,
                 g.CraftedByPlayer,
                 g.CustomName,
-                g.IsBlueprint, 
-                g.IsEngram, 
+                g.IsBlueprint,
+                g.IsEngram,
                 g.Rating
-            }).Select(s=> new ContentItem  
-            { 
-                ClassName =  s.Key.ClassName,
-                CraftedByTribe = s.Key.CraftedByTribe, 
-                CraftedByPlayer = s.Key.CraftedByPlayer, 
-                CustomName = s.Key.CustomName, 
-                IsBlueprint = s.Key.IsBlueprint, 
-                IsEngram  = s.Key.IsEngram, 
-                Rating = s.Key.Rating, 
-                Quantity = s.Sum(i=> i.Quantity) 
+            }).Select(s => new ContentItem
+            {
+                ClassName = s.Key.ClassName,
+                CraftedByTribe = s.Key.CraftedByTribe,
+                CraftedByPlayer = s.Key.CraftedByPlayer,
+                CustomName = s.Key.CustomName,
+                IsBlueprint = s.Key.IsBlueprint,
+                IsEngram = s.Key.IsEngram,
+                Rating = s.Key.Rating,
+                Quantity = s.Sum(i => i.Quantity)
             }).ToList();
 
             lvwCreatureInventory.SmallImageList = Program.ItemImageList;
@@ -642,7 +659,7 @@ namespace ARKViewer
 
             //get list of inventory containers
             List<ContentStructure> tribeStructures = new List<ContentStructure>();
-            var playerStructures = playerTribe.Structures.Where(s => s.Inventory.Items.Count >0);
+            var playerStructures = playerTribe.Structures.Where(s => s.Inventory.Items.Count > 0);
             if (playerStructures != null && playerStructures.Count() > 0)
             {
                 tribeStructures.AddRange(playerStructures);
