@@ -252,7 +252,7 @@ namespace ARKViewer.Models
             if (pack.Tribes == null) return null;
             return pack.Tribes
                 .SelectMany(c =>
-                                c.Tames.Where(w => (long)w.Id == tameId)
+                                c.Tames.Where(w => (long)w.Id == tameId || w.DinoId == tameId.ToString())
                             ).ToList().FirstOrDefault();
         }
 

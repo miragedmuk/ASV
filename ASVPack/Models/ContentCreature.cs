@@ -220,7 +220,7 @@ namespace ASVPack.Models
 
             }
 
-            DinoId = creatureObject.GetPropertyValue<int>("DinoID1").ToString() + creatureObject.GetPropertyValue<int>("DinoID2").ToString();
+            DinoId = Id.ToString();
 
 
         }

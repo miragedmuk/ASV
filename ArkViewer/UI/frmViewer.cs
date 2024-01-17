@@ -470,10 +470,6 @@ namespace ARKViewer
                         string localFilename = Path.Combine(AppContext.BaseDirectory, $@"{i.Name}\", i.Map);
 
                         int newIndex = cboSelectedMap.Items.Add(new ASVComboValue(localFilename, i.Name));
-                        if (localFilename.ToLower() == Program.ProgramConfig.SelectedFile.ToLower())
-                        {
-                            cboSelectedMap.SelectedIndex = newIndex;
-                        }
                     }
                     break;
                 case ViewerModes.Mode_Offline:
@@ -497,6 +493,20 @@ namespace ARKViewer
                     break;
             }
             cboSelectedMap.Sorted = true;
+
+            if (cboSelectedMap.Items.Count > 0)
+            {
+                for (int i = 0; i < cboSelectedMap.Items.Count; i++)
+                {
+                    ASVComboValue itemValue = cboSelectedMap.Items[i] as ASVComboValue;
+                    if (itemValue != null && itemValue.Key.ToLower() == Program.ProgramConfig.SelectedFile.ToLower())
+                    {
+                        cboSelectedMap.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
             isLoading = false;
 
             StartRCON();

@@ -211,7 +211,7 @@ namespace AsaSavegameToolkit
             long endTicks = DateTime.Now.Ticks;
 
             ConcurrentDictionary<Guid,AsaGameObject> objectBag = new ConcurrentDictionary<Guid, AsaGameObject>();
-            var pods = Objects.Where(o => o.ClassString.Contains("Cryo") && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas")).ToList();
+            var pods = Objects.Where(o => (o.ClassString.Contains("Cryo") || o.ClassString.Contains("Dinoball")) && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas")).ToList();
             Parallel.ForEach(pods, pod =>
             //foreach(var pod in pods)
             {

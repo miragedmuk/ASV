@@ -175,7 +175,7 @@
             txtPlayerFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtPlayerFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtPlayerFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtPlayerFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtPlayerFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtPlayerFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtPlayerFilter.Location = new System.Drawing.Point(50, 383);
             txtPlayerFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -288,7 +288,7 @@
             // lblPlayerLevel
             // 
             lblPlayerLevel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             lblPlayerLevel.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblPlayerLevel.Location = new System.Drawing.Point(747, 36);
             lblPlayerLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -301,7 +301,7 @@
             // lblTribeName
             // 
             lblTribeName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblTribeName.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTribeName.Location = new System.Drawing.Point(100, 59);
             lblTribeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -314,7 +314,7 @@
             // lblPlayerName
             // 
             lblPlayerName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             lblPlayerName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblPlayerName.Location = new System.Drawing.Point(98, 21);
             lblPlayerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -364,7 +364,9 @@
             // 
             // cboCreatureType
             // 
-            cboCreatureType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboCreatureType.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboCreatureType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboCreatureType.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboCreatureType.FormattingEnabled = true;
             cboCreatureType.Location = new System.Drawing.Point(125, 48);
             cboCreatureType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -376,7 +378,7 @@
             // lblCreatureType
             // 
             lblCreatureType.AutoSize = true;
-            lblCreatureType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCreatureType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblCreatureType.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblCreatureType.Location = new System.Drawing.Point(121, 29);
             lblCreatureType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -430,7 +432,7 @@
             txtCreatureFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtCreatureFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtCreatureFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtCreatureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtCreatureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtCreatureFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtCreatureFilter.Location = new System.Drawing.Point(48, 362);
             txtCreatureFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -532,7 +534,9 @@
             // 
             // cboStorageType
             // 
-            cboStorageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboStorageType.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStorageType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboStorageType.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStorageType.FormattingEnabled = true;
             cboStorageType.Location = new System.Drawing.Point(125, 48);
             cboStorageType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -544,7 +548,7 @@
             // lblStorageType
             // 
             lblStorageType.AutoSize = true;
-            lblStorageType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStorageType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStorageType.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblStorageType.Location = new System.Drawing.Point(121, 29);
             lblStorageType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -597,7 +601,7 @@
             txtStorageFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtStorageFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtStorageFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtStorageFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtStorageFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtStorageFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtStorageFilter.Location = new System.Drawing.Point(50, 365);
             txtStorageFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -690,7 +694,7 @@
             // label3
             // 
             label3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             label3.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             label3.Location = new System.Drawing.Point(427, 16);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -702,7 +706,7 @@
             // 
             // label2
             // 
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             label2.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             label2.Location = new System.Drawing.Point(24, 17);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -770,7 +774,7 @@
             // lblPlayerEngrams
             // 
             lblPlayerEngrams.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerEngrams.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerEngrams.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             lblPlayerEngrams.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblPlayerEngrams.Location = new System.Drawing.Point(23, 208);
             lblPlayerEngrams.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -874,7 +878,7 @@
             textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             textBox1.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             textBox1.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             textBox1.Location = new System.Drawing.Point(51, 465);
             textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -924,7 +928,7 @@
             // lblWindowTitle
             // 
             lblWindowTitle.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             lblWindowTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblWindowTitle.Location = new System.Drawing.Point(565, 7);
             lblWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -940,7 +944,7 @@
             btnClose.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             btnClose.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnClose.Location = new System.Drawing.Point(776, 624);
             btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

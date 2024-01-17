@@ -179,7 +179,7 @@ namespace ARKViewer
             // chkMapGlitches
             // 
             chkMapGlitches.AutoSize = true;
-            chkMapGlitches.Location = new System.Drawing.Point(62, 14);
+            chkMapGlitches.Location = new System.Drawing.Point(62, 12);
             chkMapGlitches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapGlitches.Name = "chkMapGlitches";
             chkMapGlitches.Size = new System.Drawing.Size(68, 19);
@@ -215,7 +215,7 @@ namespace ARKViewer
             // chkMapArtifacts
             // 
             chkMapArtifacts.AutoSize = true;
-            chkMapArtifacts.Location = new System.Drawing.Point(64, 11);
+            chkMapArtifacts.Location = new System.Drawing.Point(64, 10);
             chkMapArtifacts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapArtifacts.Name = "chkMapArtifacts";
             chkMapArtifacts.Size = new System.Drawing.Size(70, 19);
@@ -252,7 +252,7 @@ namespace ARKViewer
             // chkMapChargeNodes
             // 
             chkMapChargeNodes.AutoSize = true;
-            chkMapChargeNodes.Location = new System.Drawing.Point(64, 14);
+            chkMapChargeNodes.Location = new System.Drawing.Point(64, 11);
             chkMapChargeNodes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapChargeNodes.Name = "chkMapChargeNodes";
             chkMapChargeNodes.Size = new System.Drawing.Size(101, 19);
@@ -289,7 +289,7 @@ namespace ARKViewer
             // chkMapBeaverDams
             // 
             chkMapBeaverDams.AutoSize = true;
-            chkMapBeaverDams.Location = new System.Drawing.Point(62, 14);
+            chkMapBeaverDams.Location = new System.Drawing.Point(62, 11);
             chkMapBeaverDams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapBeaverDams.Name = "chkMapBeaverDams";
             chkMapBeaverDams.Size = new System.Drawing.Size(94, 19);
@@ -326,7 +326,7 @@ namespace ARKViewer
             // chkMapWaterVeins
             // 
             chkMapWaterVeins.AutoSize = true;
-            chkMapWaterVeins.Location = new System.Drawing.Point(64, 15);
+            chkMapWaterVeins.Location = new System.Drawing.Point(64, 12);
             chkMapWaterVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapWaterVeins.Name = "chkMapWaterVeins";
             chkMapWaterVeins.Size = new System.Drawing.Size(87, 19);
@@ -350,7 +350,7 @@ namespace ARKViewer
             // chkMapMagmaNests
             // 
             chkMapMagmaNests.AutoSize = true;
-            chkMapMagmaNests.Location = new System.Drawing.Point(62, 15);
+            chkMapMagmaNests.Location = new System.Drawing.Point(62, 12);
             chkMapMagmaNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapMagmaNests.Name = "chkMapMagmaNests";
             chkMapMagmaNests.Size = new System.Drawing.Size(121, 19);
@@ -387,7 +387,7 @@ namespace ARKViewer
             // chkMapGasVeins
             // 
             chkMapGasVeins.AutoSize = true;
-            chkMapGasVeins.Location = new System.Drawing.Point(64, 15);
+            chkMapGasVeins.Location = new System.Drawing.Point(64, 12);
             chkMapGasVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapGasVeins.Name = "chkMapGasVeins";
             chkMapGasVeins.Size = new System.Drawing.Size(75, 19);
@@ -424,7 +424,7 @@ namespace ARKViewer
             // chkMapDrakeNests
             // 
             chkMapDrakeNests.AutoSize = true;
-            chkMapDrakeNests.Location = new System.Drawing.Point(62, 15);
+            chkMapDrakeNests.Location = new System.Drawing.Point(62, 12);
             chkMapDrakeNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapDrakeNests.Name = "chkMapDrakeNests";
             chkMapDrakeNests.Size = new System.Drawing.Size(117, 19);
@@ -461,7 +461,7 @@ namespace ARKViewer
             // chkMapOilVeins
             // 
             chkMapOilVeins.AutoSize = true;
-            chkMapOilVeins.Location = new System.Drawing.Point(64, 15);
+            chkMapOilVeins.Location = new System.Drawing.Point(64, 13);
             chkMapOilVeins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapOilVeins.Name = "chkMapOilVeins";
             chkMapOilVeins.Size = new System.Drawing.Size(71, 19);
@@ -498,7 +498,7 @@ namespace ARKViewer
             // chkMapDeinoNests
             // 
             chkMapDeinoNests.AutoSize = true;
-            chkMapDeinoNests.Location = new System.Drawing.Point(62, 15);
+            chkMapDeinoNests.Location = new System.Drawing.Point(62, 13);
             chkMapDeinoNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapDeinoNests.Name = "chkMapDeinoNests";
             chkMapDeinoNests.Size = new System.Drawing.Size(127, 19);
@@ -585,7 +585,7 @@ namespace ARKViewer
             // chkMapWyvernNests
             // 
             chkMapWyvernNests.AutoSize = true;
-            chkMapWyvernNests.Location = new System.Drawing.Point(62, 13);
+            chkMapWyvernNests.Location = new System.Drawing.Point(62, 14);
             chkMapWyvernNests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapWyvernNests.Name = "chkMapWyvernNests";
             chkMapWyvernNests.Size = new System.Drawing.Size(98, 19);
@@ -622,7 +622,7 @@ namespace ARKViewer
             // chkMapBeeHives
             // 
             chkMapBeeHives.AutoSize = true;
-            chkMapBeeHives.Location = new System.Drawing.Point(62, 11);
+            chkMapBeeHives.Location = new System.Drawing.Point(62, 10);
             chkMapBeeHives.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkMapBeeHives.Name = "chkMapBeeHives";
             chkMapBeeHives.Size = new System.Drawing.Size(77, 19);
@@ -644,7 +644,7 @@ namespace ARKViewer
             lvwStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwStructureLocations.MultiSelect = false;
             lvwStructureLocations.Name = "lvwStructureLocations";
-            lvwStructureLocations.Size = new System.Drawing.Size(440, 132);
+            lvwStructureLocations.Size = new System.Drawing.Size(444, 132);
             lvwStructureLocations.TabIndex = 1;
             lvwStructureLocations.UseCompatibleStateImageBehavior = false;
             lvwStructureLocations.View = System.Windows.Forms.View.Details;
@@ -714,7 +714,7 @@ namespace ARKViewer
             // lblSelectedContent
             // 
             lblSelectedContent.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            lblSelectedContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblSelectedContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblSelectedContent.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblSelectedContent.Location = new System.Drawing.Point(15, 528);
             lblSelectedContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -731,7 +731,7 @@ namespace ARKViewer
             btnCopyCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCopyCommand.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnCopyCommand.Image = (System.Drawing.Image)resources.GetObject("btnCopyCommand.Image");
-            btnCopyCommand.Location = new System.Drawing.Point(275, 489);
+            btnCopyCommand.Location = new System.Drawing.Point(275, 488);
             btnCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnCopyCommand.Name = "btnCopyCommand";
             btnCopyCommand.Size = new System.Drawing.Size(35, 35);
@@ -742,7 +742,9 @@ namespace ARKViewer
             // cboConsoleCommands
             // 
             cboConsoleCommands.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            cboConsoleCommands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommands.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            cboConsoleCommands.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommands.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommands.FormattingEnabled = true;
             cboConsoleCommands.Items.AddRange(new object[] { "SetPlayerPos  <x> <y> <z>" });
             cboConsoleCommands.Location = new System.Drawing.Point(18, 494);
@@ -754,7 +756,7 @@ namespace ARKViewer
             // lblStatus
             // 
             lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStatus.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStatus.Location = new System.Drawing.Point(15, 678);
             lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -770,7 +772,7 @@ namespace ARKViewer
             btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAdd.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnAdd.Image = (System.Drawing.Image)resources.GetObject("btnAdd.Image");
-            btnAdd.Location = new System.Drawing.Point(420, 489);
+            btnAdd.Location = new System.Drawing.Point(423, 488);
             btnAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new System.Drawing.Size(35, 35);
@@ -785,7 +787,7 @@ namespace ARKViewer
             btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnEdit.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnEdit.Image = (System.Drawing.Image)resources.GetObject("btnEdit.Image");
-            btnEdit.Location = new System.Drawing.Point(380, 489);
+            btnEdit.Location = new System.Drawing.Point(383, 488);
             btnEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new System.Drawing.Size(35, 35);
@@ -800,7 +802,7 @@ namespace ARKViewer
             btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRemove.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnRemove.Image = (System.Drawing.Image)resources.GetObject("btnRemove.Image");
-            btnRemove.Location = new System.Drawing.Point(341, 489);
+            btnRemove.Location = new System.Drawing.Point(344, 488);
             btnRemove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemove.Name = "btnRemove";
             btnRemove.Size = new System.Drawing.Size(35, 35);

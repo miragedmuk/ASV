@@ -1,4 +1,5 @@
 ﻿using AsaSavegameToolkit;
+using AsaSavegameToolkit.Propertys;
 using ASVPack.Extensions;
 using SavegameToolkit;
 using SavegameToolkit.Arrays;
@@ -7,6 +8,7 @@ using SavegameToolkit.Structs;
 using SavegameToolkit.Types;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -376,34 +378,22 @@ namespace ASVPack.Models
 
 
             //ancestors
-            List<dynamic>? parents = creatureObject.GetPropertyValue<dynamic>("DinoAncestors", 0, null);
-            if (parents != null)
+            List<dynamic>? dinoAncestors = creatureObject.GetPropertyValue<List<dynamic>?>("DinoAncestors", 0, null);
+            if (dinoAncestors != null)
             {
-                /*
-                ArkArrayStruct parentPropertyStruct = (ArkArrayStruct)parents.Value;
-                if (parentPropertyStruct != null)
-                {
-                    StructPropertyList? parentProperties = parentPropertyStruct.Cast<StructPropertyList>().FirstOrDefault();
-                    if (parentProperties != null)
-                    {
-                        int maleId1 = parentProperties.GetPropertyValue<int>("MaleDinoID1");
-                        int maleId2 = parentProperties.GetPropertyValue<int>("MaleDinoID2");
+                var ancestorData = dinoAncestors.FirstOrDefault() as List<dynamic>;
 
-                        long fatherId = (long)maleId1 << 32 | (maleId2 & 0xFFFFFFFFL);
-                        FatherId = fatherId;
-                        FatherName = parentProperties.GetPropertyValue<string>("MaleName");
+                UInt32 maleId1 = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p => p.Name == "MaleDinoID1").Value;
+                UInt32 maleId2 = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p => p.Name == "MaleDinoID2").Value;
+                
+                FatherId = AsaExtensions.CreateDinoId((int)maleId1,(int)maleId2);
+                FatherName = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p=>p.Name == "MaleName")?.Value??"[Unknown]";
 
-                        int femaleId1 = parentProperties.GetPropertyValue<int>("FemaleDinoID1");
-                        int femaleId2 = parentProperties.GetPropertyValue<int>("FemaleDinoID2");
 
-                        long motherId = (long)femaleId1 << 32 | (femaleId2 & 0xFFFFFFFFL);
-                        MotherId = motherId;
-                        MotherName = parentProperties.GetPropertyValue<string>("FemaleName");
-
-                    }
-
-                }
-                */
+                UInt32 femaleId1 = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p => p.Name == "FemaleDinoID1")?.Value;
+                UInt32 femaleId2 = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p => p.Name == "FemaleDinoID2")?.Value;
+                MotherId  = AsaExtensions.CreateDinoId((int)femaleId1,(int)femaleId2);
+                MotherName = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p => p.Name == "FemaleName")?.Value ?? "[Unknown]";
 
             }
         }

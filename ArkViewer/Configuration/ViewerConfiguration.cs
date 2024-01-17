@@ -33,7 +33,6 @@ namespace ARKViewer.Configuration
     [DataContract]
     public class ViewerConfiguration
     {
-        private int BlockSize = 128;
 
         Dictionary<string, string> mapFilenameMap = new Dictionary<string, string>
         {

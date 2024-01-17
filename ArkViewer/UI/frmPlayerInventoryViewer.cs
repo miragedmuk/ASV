@@ -310,8 +310,8 @@ namespace ARKViewer
                         if (!invItem.IsEngram)
                         {
                             string qualityName = "";
-                            Color backColor = SystemColors.Window;
-                            Color foreColor = SystemColors.WindowText;
+                            Color backColor = lvwPlayerInventory.BackColor;
+                            Color foreColor = lvwPlayerInventory.ForeColor;
                             if (invItem.Rating.HasValue)
                             {
                                 var itemQuality = Program.GetQualityByRating(invItem.Rating.Value);
@@ -438,8 +438,8 @@ namespace ARKViewer
                         {
 
                             string qualityName = "";
-                            Color backColor = SystemColors.Window;
-                            Color foreColor = SystemColors.WindowText;
+                            Color backColor = lvwCreatureInventory.BackColor;
+                            Color foreColor = lvwCreatureInventory.ForeColor;
                             if (invItem.Rating.HasValue)
                             {
                                 var itemQuality = Program.GetQualityByRating(invItem.Rating.Value);
@@ -548,8 +548,8 @@ namespace ARKViewer
                         if (!invItem.IsEngram)
                         {
                             string qualityName = "";
-                            Color backColor = SystemColors.Window;
-                            Color foreColor = SystemColors.WindowText;
+                            Color backColor = lvwStorageInventory.BackColor;
+                            Color foreColor = lvwStorageInventory.ForeColor;
                             if (invItem.Rating.HasValue)
                             {
                                 var itemQuality = Program.GetQualityByRating(invItem.Rating.Value);

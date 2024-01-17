@@ -1340,6 +1340,7 @@ namespace ARKViewer
             lblMap.Size = new System.Drawing.Size(89, 13);
             lblMap.TabIndex = 25;
             lblMap.Text = "Selected Map:";
+            lblMap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboSelectedMap
             // 
@@ -1426,6 +1427,7 @@ namespace ARKViewer
             lblMissionPlayer.Size = new System.Drawing.Size(46, 13);
             lblMissionPlayer.TabIndex = 17;
             lblMissionPlayer.Text = "Player:";
+            lblMissionPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lvwLeaderboardSummary
             // 
@@ -1528,6 +1530,7 @@ namespace ARKViewer
             lblLeaderboardMission.Size = new System.Drawing.Size(53, 13);
             lblLeaderboardMission.TabIndex = 8;
             lblLeaderboardMission.Text = "Mission:";
+            lblLeaderboardMission.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboLeaderboardTribe
             // 
@@ -1556,6 +1559,7 @@ namespace ARKViewer
             lblLeaderboardTribe.Size = new System.Drawing.Size(40, 13);
             lblLeaderboardTribe.TabIndex = 4;
             lblLeaderboardTribe.Text = "Tribe:";
+            lblLeaderboardTribe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tpgLocalProfile
             // 
@@ -2052,6 +2056,7 @@ namespace ARKViewer
             lblPaintingTribe.Size = new System.Drawing.Size(40, 13);
             lblPaintingTribe.TabIndex = 23;
             lblPaintingTribe.Text = "Tribe:";
+            lblPaintingTribe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lvwPlayerPaintings
             // 
@@ -2121,6 +2126,7 @@ namespace ARKViewer
             lblStructurePainting.Size = new System.Drawing.Size(63, 13);
             lblStructurePainting.TabIndex = 29;
             lblStructurePainting.Text = "Structure:";
+            lblStructurePainting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboConsoleCommandPainting
             // 
@@ -2259,6 +2265,7 @@ namespace ARKViewer
             lblItemListTribe.Size = new System.Drawing.Size(40, 13);
             lblItemListTribe.TabIndex = 0;
             lblItemListTribe.Text = "Tribe:";
+            lblItemListTribe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboItemListTribe
             // 
@@ -2349,6 +2356,7 @@ namespace ARKViewer
             lblItemListItem.Size = new System.Drawing.Size(35, 13);
             lblItemListItem.TabIndex = 2;
             lblItemListItem.Text = "Item:";
+            lblItemListItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lvwItemList
             // 
@@ -2714,12 +2722,13 @@ namespace ARKViewer
             lblPlayerRealm.AutoSize = true;
             lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblPlayerRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblPlayerRealm.Location = new System.Drawing.Point(791, 22);
+            lblPlayerRealm.Location = new System.Drawing.Point(802, 22);
             lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayerRealm.Name = "lblPlayerRealm";
             lblPlayerRealm.Size = new System.Drawing.Size(46, 13);
             lblPlayerRealm.TabIndex = 24;
             lblPlayerRealm.Text = "Realm:";
+            lblPlayerRealm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlFilterPlayers
             // 
@@ -2799,24 +2808,26 @@ namespace ARKViewer
             lblPlayersPlayer.AutoSize = true;
             lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblPlayersPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblPlayersPlayer.Location = new System.Drawing.Point(405, 21);
+            lblPlayersPlayer.Location = new System.Drawing.Point(405, 22);
             lblPlayersPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayersPlayer.Name = "lblPlayersPlayer";
             lblPlayersPlayer.Size = new System.Drawing.Size(46, 13);
             lblPlayersPlayer.TabIndex = 2;
             lblPlayersPlayer.Text = "Player:";
+            lblPlayersPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPlayersTribe
             // 
             lblPlayersTribe.AutoSize = true;
             lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblPlayersTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblPlayersTribe.Location = new System.Drawing.Point(16, 21);
+            lblPlayersTribe.Location = new System.Drawing.Point(16, 22);
             lblPlayersTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayersTribe.Name = "lblPlayersTribe";
             lblPlayersTribe.Size = new System.Drawing.Size(40, 13);
             lblPlayersTribe.TabIndex = 0;
             lblPlayersTribe.Text = "Tribe:";
+            lblPlayersTribe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboTribes
             // 
@@ -3110,12 +3121,13 @@ namespace ARKViewer
             lblChartTop.AutoSize = true;
             lblChartTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblChartTop.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblChartTop.Location = new System.Drawing.Point(12, 46);
+            lblChartTop.Location = new System.Drawing.Point(20, 46);
             lblChartTop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblChartTop.Name = "lblChartTop";
             lblChartTop.Size = new System.Drawing.Size(33, 13);
             lblChartTop.TabIndex = 7;
             lblChartTop.Text = "Top:";
+            lblChartTop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // udChartTop
             // 
@@ -3139,6 +3151,7 @@ namespace ARKViewer
             lblChart.Size = new System.Drawing.Size(41, 13);
             lblChart.TabIndex = 4;
             lblChart.Text = "Chart:";
+            lblChart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboChartType
             // 
@@ -3245,6 +3258,7 @@ namespace ARKViewer
             lblStructureRealm.Size = new System.Drawing.Size(46, 13);
             lblStructureRealm.TabIndex = 23;
             lblStructureRealm.Text = "Realm:";
+            lblStructureRealm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlFilterStructures
             // 
@@ -3323,12 +3337,13 @@ namespace ARKViewer
             lblStructureStructure.AutoSize = true;
             lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblStructureStructure.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblStructureStructure.Location = new System.Drawing.Point(18, 54);
+            lblStructureStructure.Location = new System.Drawing.Point(26, 54);
             lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureStructure.Name = "lblStructureStructure";
             lblStructureStructure.Size = new System.Drawing.Size(63, 13);
             lblStructureStructure.TabIndex = 4;
             lblStructureStructure.Text = "Structure:";
+            lblStructureStructure.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboStructureStructure
             // 
@@ -3357,6 +3372,7 @@ namespace ARKViewer
             lblStructurePlayer.Size = new System.Drawing.Size(46, 13);
             lblStructurePlayer.TabIndex = 2;
             lblStructurePlayer.Text = "Player:";
+            lblStructurePlayer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblStructureTribe
             // 
@@ -3369,6 +3385,7 @@ namespace ARKViewer
             lblStructureTribe.Size = new System.Drawing.Size(40, 13);
             lblStructureTribe.TabIndex = 0;
             lblStructureTribe.Text = "Tribe:";
+            lblStructureTribe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboStructureTribe
             // 
@@ -3532,12 +3549,13 @@ namespace ARKViewer
             lblTameRealm.AutoSize = true;
             lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblTameRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblTameRealm.Location = new System.Drawing.Point(791, 28);
+            lblTameRealm.Location = new System.Drawing.Point(802, 28);
             lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameRealm.Name = "lblTameRealm";
             lblTameRealm.Size = new System.Drawing.Size(46, 13);
             lblTameRealm.TabIndex = 23;
             lblTameRealm.Text = "Realm:";
+            lblTameRealm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlFilterTamed
             // 
@@ -3593,6 +3611,7 @@ namespace ARKViewer
             lblTameResource.Size = new System.Drawing.Size(65, 13);
             lblTameResource.TabIndex = 15;
             lblTameResource.Text = "Resource:";
+            lblTameResource.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTamedCommand
             // 
@@ -3669,30 +3688,33 @@ namespace ARKViewer
             lblTameCreature.Size = new System.Drawing.Size(59, 13);
             lblTameCreature.TabIndex = 4;
             lblTameCreature.Text = "Creature:";
+            lblTameCreature.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTamePlayer
             // 
             lblTamePlayer.AutoSize = true;
             lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblTamePlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblTamePlayer.Location = new System.Drawing.Point(352, 23);
+            lblTamePlayer.Location = new System.Drawing.Point(359, 23);
             lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTamePlayer.Name = "lblTamePlayer";
             lblTamePlayer.Size = new System.Drawing.Size(46, 13);
             lblTamePlayer.TabIndex = 2;
             lblTamePlayer.Text = "Player:";
+            lblTamePlayer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTameTribe
             // 
             lblTameTribe.AutoSize = true;
             lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblTameTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblTameTribe.Location = new System.Drawing.Point(21, 21);
+            lblTameTribe.Location = new System.Drawing.Point(41, 21);
             lblTameTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameTribe.Name = "lblTameTribe";
             lblTameTribe.Size = new System.Drawing.Size(40, 13);
             lblTameTribe.TabIndex = 0;
             lblTameTribe.Text = "Tribe:";
+            lblTameTribe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lvwTameDetail
             // 
@@ -4083,12 +4105,13 @@ namespace ARKViewer
             lblWildRealm.AutoSize = true;
             lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblWildRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblWildRealm.Location = new System.Drawing.Point(788, 20);
+            lblWildRealm.Location = new System.Drawing.Point(807, 19);
             lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildRealm.Name = "lblWildRealm";
             lblWildRealm.Size = new System.Drawing.Size(46, 13);
             lblWildRealm.TabIndex = 21;
             lblWildRealm.Text = "Realm:";
+            lblWildRealm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnlFilterWilds
             // 
@@ -4146,18 +4169,20 @@ namespace ARKViewer
             lblResource.Size = new System.Drawing.Size(65, 13);
             lblResource.TabIndex = 10;
             lblResource.Text = "Resource:";
+            lblResource.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblWildRadius
             // 
             lblWildRadius.AutoSize = true;
             lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblWildRadius.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblWildRadius.Location = new System.Drawing.Point(490, 20);
+            lblWildRadius.Location = new System.Drawing.Point(490, 19);
             lblWildRadius.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildRadius.Name = "lblWildRadius";
             lblWildRadius.Size = new System.Drawing.Size(50, 13);
             lblWildRadius.TabIndex = 8;
             lblWildRadius.Text = "Radius:";
+            lblWildRadius.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // udWildRadius
             // 
@@ -4180,12 +4205,13 @@ namespace ARKViewer
             lblWildLon.AutoSize = true;
             lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblWildLon.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblWildLon.Location = new System.Drawing.Point(371, 20);
+            lblWildLon.Location = new System.Drawing.Point(371, 19);
             lblWildLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildLon.Name = "lblWildLon";
             lblWildLon.Size = new System.Drawing.Size(32, 13);
             lblWildLon.TabIndex = 6;
             lblWildLon.Text = "Lon:";
+            lblWildLon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // udWildLon
             // 
@@ -4208,12 +4234,13 @@ namespace ARKViewer
             lblWildLat.AutoSize = true;
             lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblWildLat.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblWildLat.Location = new System.Drawing.Point(251, 20);
+            lblWildLat.Location = new System.Drawing.Point(251, 19);
             lblWildLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildLat.Name = "lblWildLat";
             lblWildLat.Size = new System.Drawing.Size(29, 13);
             lblWildLat.TabIndex = 4;
             lblWildLat.Text = "Lat:";
+            lblWildLat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // udWildLat
             // 
@@ -4236,24 +4263,26 @@ namespace ARKViewer
             lblWildMin.AutoSize = true;
             lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblWildMin.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblWildMin.Location = new System.Drawing.Point(49, 20);
+            lblWildMin.Location = new System.Drawing.Point(49, 19);
             lblWildMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildMin.Name = "lblWildMin";
             lblWildMin.Size = new System.Drawing.Size(31, 13);
             lblWildMin.TabIndex = 0;
             lblWildMin.Text = "Min:";
+            lblWildMin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblWildMax
             // 
             lblWildMax.AutoSize = true;
             lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblWildMax.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblWildMax.Location = new System.Drawing.Point(145, 20);
+            lblWildMax.Location = new System.Drawing.Point(145, 19);
             lblWildMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildMax.Name = "lblWildMax";
             lblWildMax.Size = new System.Drawing.Size(34, 13);
             lblWildMax.TabIndex = 2;
             lblWildMax.Text = "Max:";
+            lblWildMax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // udWildMin
             // 
@@ -4338,12 +4367,13 @@ namespace ARKViewer
             lblWildClass.AutoSize = true;
             lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             lblWildClass.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblWildClass.Location = new System.Drawing.Point(16, 61);
+            lblWildClass.Location = new System.Drawing.Point(21, 60);
             lblWildClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblWildClass.Name = "lblWildClass";
             lblWildClass.Size = new System.Drawing.Size(59, 13);
             lblWildClass.TabIndex = 12;
             lblWildClass.Text = "Creature:";
+            lblWildClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lvwWildDetail
             // 
@@ -4674,10 +4704,7 @@ namespace ARKViewer
         private System.Windows.Forms.ToolStripMenuItem mnuContext_DinoId;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem mnuContext_ProfileFilename;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ListView lvwUnusedPaintings;
         private System.Windows.Forms.Button btnCopyFilenames;
-        private System.Windows.Forms.ColumnHeader lvwUnusedPaintings_Filename;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TabPage tpgLeaderboard;
         private ArkViewer.UI.BorderlessComboBox cboLeaderboardPlayer;

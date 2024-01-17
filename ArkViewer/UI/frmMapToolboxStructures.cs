@@ -21,7 +21,6 @@ namespace ARKViewer
 
         frmMapView MapViewer = null;
         bool isLoading = false;
-        bool isUpdating = false;
         ASVDataManager cm = null;
 
         ColumnHeader SortingColumn_Structures = null;

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace ARKViewer
 {
@@ -98,7 +99,7 @@ namespace ARKViewer
             if (searchRankCriteria == null) searchRankCriteria = new ASVBreedingSearch()
             {
                 ClassName = tame.ClassName,
-                Tamed=false
+                Tamed = false
             };
             var wildMatches = cm.GetWildCreatures(0, int.MaxValue, 50, 50, 250, tame.ClassName, "").Where(w => w.Gender != tame.Gender).ToList();
             lvwWildLovers.BeginUpdate();
@@ -111,7 +112,7 @@ namespace ARKViewer
                 Parallel.ForEach(wildMatches, wild =>
                 {
 
-                    ASVBreedingResult rankedResult = new ASVBreedingResult(tame,wild, searchRankCriteria);
+                    ASVBreedingResult rankedResult = new ASVBreedingResult(tame, wild, searchRankCriteria);
                     decimal percentRank = (rankedResult.RankCombined / rankedResult.MaxRank) * 100;
 
                     //Rank, Lvl, Lat, Lon, HP, Stam, Melee, Weight, Speed, Food, Oxygen, Craft, c0, c1, c2, c3, c4, c5
@@ -231,7 +232,7 @@ namespace ARKViewer
                     if (tamedCreature.Name != null)
                     {
                         creatureName = tamedCreature.Name;
-}
+                    }
 
 
                     ASVBreedingResult rankedResult = new ASVBreedingResult(tame, tamedCreature, searchRankCriteria);
@@ -785,69 +786,33 @@ namespace ARKViewer
                 item.SubItems.Add(isStored.ToString());
                 if (tameAncestor.IsCryo)
                 {
-                    item.BackColor = Color.LightSkyBlue;
-                    item.SubItems[1].BackColor = Color.LightSkyBlue;
-                    item.SubItems[2].BackColor = Color.LightSkyBlue;
-                    item.SubItems[3].BackColor = Color.LightSkyBlue;
-                    item.SubItems[4].BackColor = Color.LightSkyBlue;
-                    item.SubItems[5].BackColor = Color.LightSkyBlue;
-                    item.SubItems[6].BackColor = Color.LightSkyBlue;
-                    item.SubItems[7].BackColor = Color.LightSkyBlue;
-                    item.SubItems[8].BackColor = Color.LightSkyBlue;
-                    item.SubItems[9].BackColor = Color.LightSkyBlue;
-                    item.SubItems[10].BackColor = Color.LightSkyBlue;
-                    item.SubItems[11].BackColor = Color.LightSkyBlue;
-                    item.SubItems[12].BackColor = Color.LightSkyBlue;
-                    item.SubItems[13].BackColor = Color.LightSkyBlue;
-                    item.SubItems[14].BackColor = Color.LightSkyBlue;
-                    item.SubItems[15].BackColor = Color.LightSkyBlue;
-                    item.SubItems[16].BackColor = Color.LightSkyBlue;
-                    item.SubItems[17].BackColor = Color.LightSkyBlue;
-                    item.SubItems[18].BackColor = Color.LightSkyBlue;
+                    item.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorCryopod);
+
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        subItem.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorCryopod);
+                        subItem.ForeColor = Program.IdealTextColor(subItem.BackColor);
+                    }
                 }
                 if (tameAncestor.IsVivarium)
                 {
-                    item.BackColor = Color.LightPink;
-                    item.SubItems[1].BackColor = Color.LightGreen;
-                    item.SubItems[2].BackColor = Color.LightGreen;
-                    item.SubItems[3].BackColor = Color.LightGreen;
-                    item.SubItems[4].BackColor = Color.LightGreen;
-                    item.SubItems[5].BackColor = Color.LightGreen;
-                    item.SubItems[6].BackColor = Color.LightGreen;
-                    item.SubItems[7].BackColor = Color.LightGreen;
-                    item.SubItems[8].BackColor = Color.LightGreen;
-                    item.SubItems[9].BackColor = Color.LightGreen;
-                    item.SubItems[10].BackColor = Color.LightGreen;
-                    item.SubItems[11].BackColor = Color.LightGreen;
-                    item.SubItems[12].BackColor = Color.LightGreen;
-                    item.SubItems[13].BackColor = Color.LightGreen;
-                    item.SubItems[14].BackColor = Color.LightGreen;
-                    item.SubItems[15].BackColor = Color.LightGreen;
-                    item.SubItems[16].BackColor = Color.LightGreen;
-                    item.SubItems[17].BackColor = Color.LightGreen;
-                    item.SubItems[18].BackColor = Color.LightGreen;
+                    item.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorVivarium);
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        subItem.BackColor = Color.FromArgb(Program.ProgramConfig.HighlightColorVivarium);
+                        subItem.ForeColor = Program.IdealTextColor(subItem.BackColor);
+                    }
+
                 }
-                if (tameAncestor.BaseStats == null) //fake tame, used for ancestry only as unable to identify living parent
+                if (tameAncestor.BaseStats.Sum(s=>s) == 0) //fake tame, used for ancestry only as unable to identify living parent
                 {
                     item.BackColor = Color.LightPink;
-                    item.SubItems[1].BackColor = Color.LightPink;
-                    item.SubItems[2].BackColor = Color.LightPink;
-                    item.SubItems[3].BackColor = Color.LightPink;
-                    item.SubItems[4].BackColor = Color.LightPink;
-                    item.SubItems[5].BackColor = Color.LightPink;
-                    item.SubItems[6].BackColor = Color.LightPink;
-                    item.SubItems[7].BackColor = Color.LightPink;
-                    item.SubItems[8].BackColor = Color.LightPink;
-                    item.SubItems[9].BackColor = Color.LightPink;
-                    item.SubItems[10].BackColor = Color.LightPink;
-                    item.SubItems[11].BackColor = Color.LightPink;
-                    item.SubItems[12].BackColor = Color.LightPink;
-                    item.SubItems[13].BackColor = Color.LightPink;
-                    item.SubItems[14].BackColor = Color.LightPink;
-                    item.SubItems[15].BackColor = Color.LightPink;
-                    item.SubItems[16].BackColor = Color.LightPink;
-                    item.SubItems[17].BackColor = Color.LightPink;
-                    item.SubItems[18].BackColor = Color.LightPink;
+                    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                    {
+                        subItem.BackColor = Color.LightPink;
+                        subItem.ForeColor = Program.IdealTextColor(subItem.BackColor);
+                    }
+
                 }
 
                 //Colours
@@ -859,7 +824,7 @@ namespace ARKViewer
                     if (selectedColor != null && selectedColor.Hex.Length > 0)
                     {
                         item.SubItems[20].BackColor = selectedColor.Color;
-                        item.SubItems[20].ForeColor = selectedColor.Color;
+                        item.SubItems[20].ForeColor = Program.IdealTextColor(selectedColor.Color);
                     }
 
                     colourCheck = (int)tameAncestor.Colors[1];
@@ -868,7 +833,7 @@ namespace ARKViewer
                     if (selectedColor != null && selectedColor.Hex.Length > 0)
                     {
                         item.SubItems[21].BackColor = selectedColor.Color;
-                        item.SubItems[21].ForeColor = selectedColor.Color;
+                        item.SubItems[21].ForeColor = Program.IdealTextColor(selectedColor.Color);
                     }
 
                     colourCheck = (int)tameAncestor.Colors[2];
@@ -877,7 +842,7 @@ namespace ARKViewer
                     if (selectedColor != null && selectedColor.Hex.Length > 0)
                     {
                         item.SubItems[22].BackColor = selectedColor.Color;
-                        item.SubItems[22].ForeColor = selectedColor.Color;
+                        item.SubItems[22].ForeColor = Program.IdealTextColor(selectedColor.Color);
                     }
 
                     colourCheck = (int)tameAncestor.Colors[3];
@@ -886,7 +851,7 @@ namespace ARKViewer
                     if (selectedColor != null && selectedColor.Hex.Length > 0)
                     {
                         item.SubItems[23].BackColor = selectedColor.Color;
-                        item.SubItems[23].ForeColor = selectedColor.Color;
+                        item.SubItems[23].ForeColor = Program.IdealTextColor(selectedColor.Color);
                     }
 
                     colourCheck = (int)tameAncestor.Colors[4];
@@ -895,7 +860,7 @@ namespace ARKViewer
                     if (selectedColor != null && selectedColor.Hex.Length > 0)
                     {
                         item.SubItems[24].BackColor = selectedColor.Color;
-                        item.SubItems[24].ForeColor = selectedColor.Color;
+                        item.SubItems[24].ForeColor = Program.IdealTextColor(selectedColor.Color);
                     }
                     colourCheck = (int)tameAncestor.Colors[5];
                     item.SubItems.Add(colourCheck == 0 ? "n/a" : tameAncestor.Colors[5].ToString()); //19
@@ -903,7 +868,7 @@ namespace ARKViewer
                     if (selectedColor != null && selectedColor.Hex.Length > 0)
                     {
                         item.SubItems[25].BackColor = selectedColor.Color;
-                        item.SubItems[25].ForeColor = selectedColor.Color;
+                        item.SubItems[25].ForeColor = Program.IdealTextColor(selectedColor.Color);
                     }
 
                 }
@@ -1421,7 +1386,7 @@ namespace ARKViewer
 
         private void btnTameSettings_Click(object sender, EventArgs e)
         {
-            
+
             using (frmBreedingFindOptions options = new frmBreedingFindOptions(tame))
             {
                 options.Owner = this;
@@ -1461,7 +1426,7 @@ namespace ARKViewer
 
         private void btnWildSettings_Click(object sender, EventArgs e)
         {
-            
+
             using (frmBreedingFindOptions options = new frmBreedingFindOptions(tame))
             {
                 options.Owner = this;

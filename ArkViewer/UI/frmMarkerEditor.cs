@@ -99,7 +99,7 @@ namespace ARKViewer
             udBorderSize.Value = 0;
             udLat.Value = 0;
             udLon.Value = 0;
-            picIcon.Image = new Bitmap(100,100);
+            picIcon.Image = new Bitmap(100, 100);
 
             if (EditingMarker != null)
             {

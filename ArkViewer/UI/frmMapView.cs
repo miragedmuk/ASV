@@ -34,7 +34,6 @@ namespace ARKViewer
         }
 
         private static ASVDataManager cm;
-        private ColumnHeader SortingColumn_Markers = null;
         private Image currentMapImage = null;
         private int mapMouseDownX;
         private int mapMouseDownY;

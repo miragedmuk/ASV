@@ -23,7 +23,6 @@ namespace ARKViewer
         private ColumnHeader SortingColumn_StructureMap = null;
         string imageFolder = "";
         ASVDataManager cm = null;
-        bool changesApplied = false;
 
 
 
@@ -493,8 +492,6 @@ namespace ARKViewer
             if (Directory.Exists(directoryCheck))
             {
                 cboMapSinglePlayer.Sorted = true;
-
-                int selectedIndex = 0;
 
                 var saveFiles = Directory.GetFiles(directoryCheck, "*.ark", SearchOption.AllDirectories);
                 foreach (string saveFilename in saveFiles)

@@ -64,7 +64,7 @@ namespace ARKViewer
                     Arguments = folderPath,
                     FileName = "explorer.exe"
                 };
-                Process.Start(startInfo);           
+                Process.Start(startInfo);
             }
         }
 
