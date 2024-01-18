@@ -59,7 +59,7 @@
             // lblPlayerLevel
             // 
             lblPlayerLevel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             lblPlayerLevel.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayerLevel.Location = new System.Drawing.Point(891, 31);
             lblPlayerLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -72,7 +72,7 @@
             // lblTribeName
             // 
             lblTribeName.AutoSize = true;
-            lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTribeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblTribeName.ForeColor = System.Drawing.Color.DimGray;
             lblTribeName.Location = new System.Drawing.Point(86, 47);
             lblTribeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -85,7 +85,7 @@
             // lblPlayerName
             // 
             lblPlayerName.AutoSize = true;
-            lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             lblPlayerName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblPlayerName.Location = new System.Drawing.Point(84, 9);
             lblPlayerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -148,7 +148,8 @@
             // 
             btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            btnClose.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnClose.Location = new System.Drawing.Point(878, 460);
             btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnClose.Name = "btnClose";

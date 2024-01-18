@@ -6114,8 +6114,8 @@ namespace ARKViewer
                     if (chkItemSearchBlueprints.Checked || !chkItemSearchBlueprints.Checked & !foundItem.IsBlueprint)
                     {
                         string qualityName = "";
-                        Color backColor = SystemColors.Window;
-                        Color foreColor = SystemColors.WindowText;
+                        Color backColor = lvwItemList.BackColor;
+                        Color foreColor = lvwItemList.ForeColor;
                         if (foundItem.Rating.HasValue)
                         {
                             var itemQuality = Program.GetQualityByRating(foundItem.Rating.Value);

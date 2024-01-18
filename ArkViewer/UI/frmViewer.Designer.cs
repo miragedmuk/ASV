@@ -545,7 +545,7 @@ namespace ARKViewer
             // 
             lblMapDate.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblMapDate.BackColor = System.Drawing.Color.Transparent;
-            lblMapDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMapDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblMapDate.ForeColor = System.Drawing.Color.FromArgb(150, 150, 150);
             lblMapDate.Location = new System.Drawing.Point(737, 1);
             lblMapDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -612,7 +612,7 @@ namespace ARKViewer
             lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblStatus.AutoEllipsis = true;
             lblStatus.BackColor = System.Drawing.Color.Transparent;
-            lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStatus.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStatus.Location = new System.Drawing.Point(19, 635);
             lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -626,7 +626,7 @@ namespace ARKViewer
             // 
             lblTitle.AutoSize = true;
             lblTitle.BackColor = System.Drawing.Color.Transparent;
-            lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             lblTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblTitle.Location = new System.Drawing.Point(96, 7);
             lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -639,7 +639,7 @@ namespace ARKViewer
             // 
             lblSubTitle.AutoSize = true;
             lblSubTitle.BackColor = System.Drawing.Color.Transparent;
-            lblSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblSubTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblSubTitle.ForeColor = System.Drawing.Color.FromArgb(175, 175, 175);
             lblSubTitle.Location = new System.Drawing.Point(100, 39);
             lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -652,7 +652,7 @@ namespace ARKViewer
             // 
             lblMapTypeName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblMapTypeName.BackColor = System.Drawing.Color.Transparent;
-            lblMapTypeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblMapTypeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             lblMapTypeName.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblMapTypeName.Location = new System.Drawing.Point(532, 21);
             lblMapTypeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -666,7 +666,7 @@ namespace ARKViewer
             // 
             lblVersion.AutoSize = true;
             lblVersion.BackColor = System.Drawing.Color.Transparent;
-            lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblVersion.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblVersion.Location = new System.Drawing.Point(102, 58);
             lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1332,7 +1332,7 @@ namespace ARKViewer
             lblMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblMap.AutoSize = true;
             lblMap.BackColor = System.Drawing.Color.Transparent;
-            lblMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblMap.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblMap.Location = new System.Drawing.Point(786, 82);
             lblMap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1351,7 +1351,7 @@ namespace ARKViewer
             cboSelectedMap.DropDownHeight = 100;
             cboSelectedMap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboSelectedMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboSelectedMap.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cboSelectedMap.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             cboSelectedMap.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboSelectedMap.FormattingEnabled = true;
             cboSelectedMap.IntegralHeight = false;
@@ -1419,7 +1419,7 @@ namespace ARKViewer
             // lblMissionPlayer
             // 
             lblMissionPlayer.AutoSize = true;
-            lblMissionPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblMissionPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblMissionPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblMissionPlayer.Location = new System.Drawing.Point(401, 248);
             lblMissionPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1522,7 +1522,7 @@ namespace ARKViewer
             // lblLeaderboardMission
             // 
             lblLeaderboardMission.AutoSize = true;
-            lblLeaderboardMission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblLeaderboardMission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblLeaderboardMission.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblLeaderboardMission.Location = new System.Drawing.Point(13, 248);
             lblLeaderboardMission.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1551,7 +1551,7 @@ namespace ARKViewer
             // lblLeaderboardTribe
             // 
             lblLeaderboardTribe.AutoSize = true;
-            lblLeaderboardTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblLeaderboardTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblLeaderboardTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblLeaderboardTribe.Location = new System.Drawing.Point(13, 36);
             lblLeaderboardTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1633,7 +1633,7 @@ namespace ARKViewer
             // 
             lblUploadedCountItems.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblUploadedCountItems.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblUploadedCountItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblUploadedCountItems.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCountItems.Location = new System.Drawing.Point(961, 486);
             lblUploadedCountItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1647,7 +1647,7 @@ namespace ARKViewer
             // 
             lblUploadedCountTames.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblUploadedCountTames.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblUploadedCountTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblUploadedCountTames.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCountTames.Location = new System.Drawing.Point(961, 313);
             lblUploadedCountTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1661,7 +1661,7 @@ namespace ARKViewer
             // 
             lblUploadedCountCharacters.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblUploadedCountCharacters.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblUploadedCountCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCountCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblUploadedCountCharacters.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCountCharacters.Location = new System.Drawing.Point(961, 145);
             lblUploadedCountCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1674,7 +1674,7 @@ namespace ARKViewer
             // lblUploadedItems
             // 
             lblUploadedItems.AutoSize = true;
-            lblUploadedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblUploadedItems.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedItems.Location = new System.Drawing.Point(12, 359);
             lblUploadedItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1727,7 +1727,7 @@ namespace ARKViewer
             // lblUploadedTames
             // 
             lblUploadedTames.AutoSize = true;
-            lblUploadedTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblUploadedTames.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedTames.Location = new System.Drawing.Point(12, 153);
             lblUploadedTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1739,7 +1739,7 @@ namespace ARKViewer
             // lblUploadedCharacters
             // 
             lblUploadedCharacters.AutoSize = true;
-            lblUploadedCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedCharacters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblUploadedCharacters.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblUploadedCharacters.Location = new System.Drawing.Point(12, 18);
             lblUploadedCharacters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2014,7 +2014,7 @@ namespace ARKViewer
             // 
             lblPaintingsCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblPaintingsCount.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblPaintingsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPaintingsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblPaintingsCount.Location = new System.Drawing.Point(568, 458);
             lblPaintingsCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPaintingsCount.Name = "lblPaintingsCount";
@@ -2048,7 +2048,7 @@ namespace ARKViewer
             // lblPaintingTribe
             // 
             lblPaintingTribe.AutoSize = true;
-            lblPaintingTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPaintingTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblPaintingTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPaintingTribe.Location = new System.Drawing.Point(18, 22);
             lblPaintingTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2118,7 +2118,7 @@ namespace ARKViewer
             // lblStructurePainting
             // 
             lblStructurePainting.AutoSize = true;
-            lblStructurePainting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructurePainting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructurePainting.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructurePainting.Location = new System.Drawing.Point(373, 22);
             lblStructurePainting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2167,7 +2167,7 @@ namespace ARKViewer
             // 
             lblCopyCommandPaintings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblCopyCommandPaintings.AutoSize = true;
-            lblCopyCommandPaintings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCopyCommandPaintings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblCopyCommandPaintings.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCopyCommandPaintings.Location = new System.Drawing.Point(12, 465);
             lblCopyCommandPaintings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2229,7 +2229,7 @@ namespace ARKViewer
             txtFilterSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterSearch.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterSearch.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterSearch.Location = new System.Drawing.Point(12, 5);
             txtFilterSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2257,7 +2257,7 @@ namespace ARKViewer
             // lblItemListTribe
             // 
             lblItemListTribe.AutoSize = true;
-            lblItemListTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblItemListTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListTribe.Location = new System.Drawing.Point(20, 21);
             lblItemListTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2303,7 +2303,7 @@ namespace ARKViewer
             // 
             lblItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblItemListCommand.AutoSize = true;
-            lblItemListCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblItemListCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListCommand.Location = new System.Drawing.Point(16, 481);
             lblItemListCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2335,7 +2335,7 @@ namespace ARKViewer
             // 
             lblItemListCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblItemListCount.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblItemListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblItemListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblItemListCount.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListCount.Location = new System.Drawing.Point(943, 472);
             lblItemListCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2348,7 +2348,7 @@ namespace ARKViewer
             // lblItemListItem
             // 
             lblItemListItem.AutoSize = true;
-            lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblItemListItem.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblItemListItem.Location = new System.Drawing.Point(342, 22);
             lblItemListItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2478,7 +2478,7 @@ namespace ARKViewer
             // lblDroppedItemRealm
             // 
             lblDroppedItemRealm.AutoSize = true;
-            lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedItemRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblDroppedItemRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblDroppedItemRealm.Location = new System.Drawing.Point(662, 22);
             lblDroppedItemRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2505,7 +2505,7 @@ namespace ARKViewer
             txtFilterDropped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterDropped.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterDropped.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterDropped.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterDropped.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterDropped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterDropped.Location = new System.Drawing.Point(12, 5);
             txtFilterDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2533,7 +2533,7 @@ namespace ARKViewer
             // lblDroppedPlayer
             // 
             lblDroppedPlayer.AutoSize = true;
-            lblDroppedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblDroppedPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblDroppedPlayer.Location = new System.Drawing.Point(20, 21);
             lblDroppedPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2562,7 +2562,7 @@ namespace ARKViewer
             // 
             lblCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblCopyCommandDropped.AutoSize = true;
-            lblCopyCommandDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCopyCommandDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblCopyCommandDropped.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCopyCommandDropped.Location = new System.Drawing.Point(16, 481);
             lblCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2594,7 +2594,7 @@ namespace ARKViewer
             // 
             lblCountDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblCountDropped.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblCountDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblCountDropped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblCountDropped.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCountDropped.Location = new System.Drawing.Point(945, 472);
             lblCountDropped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2607,7 +2607,7 @@ namespace ARKViewer
             // lblDroppedItem
             // 
             lblDroppedItem.AutoSize = true;
-            lblDroppedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblDroppedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblDroppedItem.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblDroppedItem.Location = new System.Drawing.Point(342, 22);
             lblDroppedItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2720,7 +2720,7 @@ namespace ARKViewer
             // 
             lblPlayerRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblPlayerRealm.AutoSize = true;
-            lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayerRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblPlayerRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayerRealm.Location = new System.Drawing.Point(802, 22);
             lblPlayerRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2748,7 +2748,7 @@ namespace ARKViewer
             txtFilterPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterPlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterPlayer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterPlayer.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterPlayer.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterPlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterPlayer.Location = new System.Drawing.Point(12, 5);
             txtFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -2761,7 +2761,7 @@ namespace ARKViewer
             // 
             lblPlayerTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblPlayerTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblPlayerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPlayerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblPlayerTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayerTotal.Location = new System.Drawing.Point(943, 468);
             lblPlayerTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2775,7 +2775,7 @@ namespace ARKViewer
             // 
             lblCommandPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblCommandPlayer.AutoSize = true;
-            lblCommandPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCommandPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblCommandPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblCommandPlayer.Location = new System.Drawing.Point(16, 475);
             lblCommandPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2806,7 +2806,7 @@ namespace ARKViewer
             // lblPlayersPlayer
             // 
             lblPlayersPlayer.AutoSize = true;
-            lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayersPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblPlayersPlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayersPlayer.Location = new System.Drawing.Point(405, 22);
             lblPlayersPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2819,7 +2819,7 @@ namespace ARKViewer
             // lblPlayersTribe
             // 
             lblPlayersTribe.AutoSize = true;
-            lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblPlayersTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblPlayersTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblPlayersTribe.Location = new System.Drawing.Point(16, 22);
             lblPlayersTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3096,7 +3096,7 @@ namespace ARKViewer
             txtFilterTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterTribe.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterTribe.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterTribe.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterTribe.Location = new System.Drawing.Point(12, 5);
             txtFilterTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3119,7 +3119,7 @@ namespace ARKViewer
             // lblChartTop
             // 
             lblChartTop.AutoSize = true;
-            lblChartTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblChartTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblChartTop.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblChartTop.Location = new System.Drawing.Point(20, 46);
             lblChartTop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3143,7 +3143,7 @@ namespace ARKViewer
             // lblChart
             // 
             lblChart.AutoSize = true;
-            lblChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblChart.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblChart.Location = new System.Drawing.Point(12, 17);
             lblChart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3175,7 +3175,7 @@ namespace ARKViewer
             // 
             lblTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblTribeCopyCommand.AutoSize = true;
-            lblTribeCopyCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTribeCopyCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTribeCopyCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTribeCopyCommand.Location = new System.Drawing.Point(16, 478);
             lblTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3238,7 +3238,7 @@ namespace ARKViewer
             cboStructureRealm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructureRealm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboStructureRealm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboStructureRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            cboStructureRealm.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStructureRealm.FormattingEnabled = true;
             cboStructureRealm.Location = new System.Drawing.Point(438, 49);
             cboStructureRealm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3250,7 +3250,7 @@ namespace ARKViewer
             // lblStructureRealm
             // 
             lblStructureRealm.AutoSize = true;
-            lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureRealm.Location = new System.Drawing.Point(364, 54);
             lblStructureRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3278,7 +3278,7 @@ namespace ARKViewer
             txtFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterStructures.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterStructures.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterStructures.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterStructures.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterStructures.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterStructures.Location = new System.Drawing.Point(12, 5);
             txtFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3291,7 +3291,7 @@ namespace ARKViewer
             // 
             lblStructureTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblStructureTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblStructureTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblStructureTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblStructureTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureTotal.Location = new System.Drawing.Point(943, 474);
             lblStructureTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3305,7 +3305,7 @@ namespace ARKViewer
             // 
             lblCommandStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblCommandStructure.AutoSize = true;
-            lblCommandStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCommandStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblCommandStructure.Location = new System.Drawing.Point(10, 479);
             lblCommandStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCommandStructure.Name = "lblCommandStructure";
@@ -3335,7 +3335,7 @@ namespace ARKViewer
             // lblStructureStructure
             // 
             lblStructureStructure.AutoSize = true;
-            lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureStructure.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureStructure.Location = new System.Drawing.Point(26, 54);
             lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3352,7 +3352,7 @@ namespace ARKViewer
             cboStructureStructure.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructureStructure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboStructureStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboStructureStructure.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            cboStructureStructure.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStructureStructure.FormattingEnabled = true;
             cboStructureStructure.Location = new System.Drawing.Point(99, 50);
             cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3364,7 +3364,7 @@ namespace ARKViewer
             // lblStructurePlayer
             // 
             lblStructurePlayer.AutoSize = true;
-            lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructurePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructurePlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructurePlayer.Location = new System.Drawing.Point(364, 21);
             lblStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3377,7 +3377,7 @@ namespace ARKViewer
             // lblStructureTribe
             // 
             lblStructureTribe.AutoSize = true;
-            lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblStructureTribe.Location = new System.Drawing.Point(49, 21);
             lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3394,7 +3394,7 @@ namespace ARKViewer
             cboStructureTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructureTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboStructureTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboStructureTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            cboStructureTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStructureTribe.FormattingEnabled = true;
             cboStructureTribe.Location = new System.Drawing.Point(99, 18);
             cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3410,7 +3410,7 @@ namespace ARKViewer
             cboStructurePlayer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboStructurePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboStructurePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboStructurePlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            cboStructurePlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStructurePlayer.FormattingEnabled = true;
             cboStructurePlayer.Location = new System.Drawing.Point(438, 18);
             cboStructurePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3547,7 +3547,7 @@ namespace ARKViewer
             // 
             lblTameRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblTameRealm.AutoSize = true;
-            lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTameRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameRealm.Location = new System.Drawing.Point(802, 28);
             lblTameRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3575,7 +3575,7 @@ namespace ARKViewer
             txtFilterTamed.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterTamed.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterTamed.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterTamed.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterTamed.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterTamed.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterTamed.Location = new System.Drawing.Point(12, 5);
             txtFilterTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -3603,7 +3603,7 @@ namespace ARKViewer
             // lblTameResource
             // 
             lblTameResource.AutoSize = true;
-            lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTameResource.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameResource.Location = new System.Drawing.Point(340, 59);
             lblTameResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3617,7 +3617,7 @@ namespace ARKViewer
             // 
             lblTamedCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblTamedCommand.AutoSize = true;
-            lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTamedCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTamedCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTamedCommand.Location = new System.Drawing.Point(327, 479);
             lblTamedCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3680,7 +3680,7 @@ namespace ARKViewer
             // lblTameCreature
             // 
             lblTameCreature.AutoSize = true;
-            lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTameCreature.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameCreature.Location = new System.Drawing.Point(22, 59);
             lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3693,7 +3693,7 @@ namespace ARKViewer
             // lblTamePlayer
             // 
             lblTamePlayer.AutoSize = true;
-            lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTamePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTamePlayer.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTamePlayer.Location = new System.Drawing.Point(359, 23);
             lblTamePlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3706,7 +3706,7 @@ namespace ARKViewer
             // lblTameTribe
             // 
             lblTameTribe.AutoSize = true;
-            lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTameTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTameTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameTribe.Location = new System.Drawing.Point(41, 21);
             lblTameTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3941,7 +3941,7 @@ namespace ARKViewer
             // 
             lblTameTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblTameTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblTameTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblTameTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblTameTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblTameTotal.Location = new System.Drawing.Point(943, 471);
             lblTameTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4103,7 +4103,7 @@ namespace ARKViewer
             // 
             lblWildRealm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblWildRealm.AutoSize = true;
-            lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildRealm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildRealm.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildRealm.Location = new System.Drawing.Point(807, 19);
             lblWildRealm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4131,7 +4131,7 @@ namespace ARKViewer
             txtFilterWild.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterWild.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterWild.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterWild.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterWild.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterWild.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterWild.Location = new System.Drawing.Point(12, 5);
             txtFilterWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -4161,7 +4161,7 @@ namespace ARKViewer
             // 
             lblResource.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblResource.AutoSize = true;
-            lblResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblResource.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblResource.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblResource.Location = new System.Drawing.Point(788, 60);
             lblResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4174,7 +4174,7 @@ namespace ARKViewer
             // lblWildRadius
             // 
             lblWildRadius.AutoSize = true;
-            lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildRadius.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildRadius.Location = new System.Drawing.Point(490, 19);
             lblWildRadius.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4203,7 +4203,7 @@ namespace ARKViewer
             // lblWildLon
             // 
             lblWildLon.AutoSize = true;
-            lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildLon.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildLon.Location = new System.Drawing.Point(371, 19);
             lblWildLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4232,7 +4232,7 @@ namespace ARKViewer
             // lblWildLat
             // 
             lblWildLat.AutoSize = true;
-            lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildLat.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildLat.Location = new System.Drawing.Point(251, 19);
             lblWildLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4261,7 +4261,7 @@ namespace ARKViewer
             // lblWildMin
             // 
             lblWildMin.AutoSize = true;
-            lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildMin.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildMin.Location = new System.Drawing.Point(49, 19);
             lblWildMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4274,7 +4274,7 @@ namespace ARKViewer
             // lblWildMax
             // 
             lblWildMax.AutoSize = true;
-            lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildMax.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildMax.Location = new System.Drawing.Point(145, 19);
             lblWildMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4320,7 +4320,7 @@ namespace ARKViewer
             // 
             lblWildCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblWildCommand.AutoSize = true;
-            lblWildCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildCommand.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildCommand.Location = new System.Drawing.Point(16, 479);
             lblWildCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4352,7 +4352,7 @@ namespace ARKViewer
             // 
             lblSelectedWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblSelectedWildTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblSelectedWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblSelectedWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblSelectedWildTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblSelectedWildTotal.Location = new System.Drawing.Point(788, 471);
             lblSelectedWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4365,7 +4365,7 @@ namespace ARKViewer
             // lblWildClass
             // 
             lblWildClass.AutoSize = true;
-            lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWildClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblWildClass.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildClass.Location = new System.Drawing.Point(21, 60);
             lblWildClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4533,7 +4533,7 @@ namespace ARKViewer
             // 
             lblWildTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lblWildTotal.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            lblWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblWildTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             lblWildTotal.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             lblWildTotal.Location = new System.Drawing.Point(936, 471);
             lblWildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -4576,7 +4576,7 @@ namespace ARKViewer
             tabFeatures.Controls.Add(tpgLocalProfile);
             tabFeatures.Controls.Add(tpgLeaderboard);
             tabFeatures.HotTrack = true;
-            tabFeatures.Location = new System.Drawing.Point(10, 80);
+            tabFeatures.Location = new System.Drawing.Point(8, 81);
             tabFeatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabFeatures.Name = "tabFeatures";
             tabFeatures.SelectedIndex = 0;

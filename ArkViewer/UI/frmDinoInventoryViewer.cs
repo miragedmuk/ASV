@@ -154,8 +154,8 @@ namespace ARKViewer
                         {
 
                             string qualityName = "";
-                            Color backColor = SystemColors.Window;
-                            Color foreColor = SystemColors.WindowText;
+                            Color backColor = lvwCreatureInventory.BackColor;
+                            Color foreColor = lvwCreatureInventory.ForeColor;
                             if (invItem.Rating.HasValue)
                             {
                                 var itemQuality = Program.GetQualityByRating(invItem.Rating.Value);
