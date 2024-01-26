@@ -1,6 +1,7 @@
 ﻿using AsaSavegameToolkit;
 using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
+using AsaSavegameToolkit.Types;
 using ASVPack.Extensions;
 using SavegameToolkit;
 using SavegameToolkit.Arrays;
@@ -354,6 +355,58 @@ namespace ASVPack.Models
                 {
                     var pointValue= characterStats.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CharacterStatusComponent_NumberOfLevelUpPointsApplied" && ((AsaProperty<dynamic>)p).Position == i)?.Value ?? 0;
                     Stats[i] = (byte)pointValue;
+                }
+
+
+                Emotes = new ContentInventory();
+                Hairstyles = new ContentInventory();
+                FacialStyles = new ContentInventory();
+
+                
+                var playerEmotes = characterStats.FirstOrDefault(p => ((AsaProperty<dynamic>?)p).Name == "EmoteUnlocks")?.Value ?? null;
+                if (playerEmotes != null)
+                {
+                    
+                    foreach (var playerEmote in playerEmotes)
+                    {
+                        ContentItem engramItem = new ContentItem();
+
+                        engramItem.ClassName = playerEmote;
+                        engramItem.Quantity = 1;
+                        engramItem.IsEngram = true;
+
+                        if (engramItem.ClassName.ToLower().StartsWith("emote"))
+                        {
+                            Emotes.Items.Add(engramItem);
+                        }
+                        else if (engramItem.ClassName.ToLower().StartsWith("headhair"))
+                        {
+                            Hairstyles.Items.Add(engramItem);
+                        }
+                        else if (engramItem.ClassName.ToLower().StartsWith("facialhair"))
+                        {
+                            FacialStyles.Items.Add(engramItem);
+                        }
+                    }
+                }
+
+
+                Engrams = new ContentInventory();
+                var playerEngrams = characterStats.FirstOrDefault(p => ((AsaProperty<dynamic>?)p).Name == "PlayerState_EngramBlueprints")?.Value ?? null;
+                if (playerEngrams != null)
+                {
+                    foreach (AsaObjectReference playerEngram in playerEngrams)
+                    {
+                        ContentItem engramItem = new ContentItem();
+
+                        string fullTag = playerEngram.Value;
+                        engramItem.ClassName = fullTag.Substring(fullTag.LastIndexOf(".") + 1);
+                        engramItem.Quantity = 1;
+                        engramItem.IsEngram = true;
+
+                        Engrams.Items.Add(engramItem);
+
+                    }
                 }
 
             }

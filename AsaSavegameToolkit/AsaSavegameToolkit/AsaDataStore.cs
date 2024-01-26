@@ -129,16 +129,25 @@ namespace AsaSavegameToolkit
             }
 
             //add reference to new statuscomponent id
-            var statusObject = gameObjects.FirstOrDefault(o => o.ClassString.Contains("CharacterStatusComponent"));
-            gameObjects[0].Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(statusObject.Guid)));
-            gameObjects[0].Properties.Add(new Propertys.AsaProperty<dynamic>("IsInCryo", "BoolProperty", 0, 0, true));
-
-
-            foreach (var gameObject in gameObjects)
+            if(gameObjects.Count > 1)
             {
-                Objects.Add(gameObject.Guid, gameObject);
+                var statusObject = gameObjects.First(o => o.ClassString.Contains("CharacterStatus")) ?? gameObjects[1];
+
+                if (statusObject != null)
+                {
+                    gameObjects[0].Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(statusObject.Guid)));
+                    gameObjects[0].Properties.Add(new Propertys.AsaProperty<dynamic>("IsInCryo", "BoolProperty", 0, 0, true));
+
+
+                    foreach (var gameObject in gameObjects)
+                    {
+                        Objects.Add(gameObject.Guid, gameObject);
+                    }
+                    gameObjects.Clear();
+
+                }
+
             }
-            gameObjects.Clear();
 
         }
 

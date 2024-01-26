@@ -1086,5 +1086,11 @@ namespace ARKViewer
             // Sort.
             lvwEngrams.Sort();
         }
+
+        private void lblPlayerId_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblPlayerId.Text.Replace("Player Id:", ""));
+            MessageBox.Show("Player Id copied to clipboard.", "Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

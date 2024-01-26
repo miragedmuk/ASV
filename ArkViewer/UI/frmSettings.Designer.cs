@@ -261,28 +261,34 @@
             // btnSave
             // 
             btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnSave.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            btnSave.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnSave.Location = new System.Drawing.Point(485, 773);
             btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new System.Drawing.Size(78, 27);
             btnSave.TabIndex = 1;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnClose
             // 
             btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnClose.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            btnClose.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
             btnClose.Location = new System.Drawing.Point(570, 773);
             btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(88, 27);
             btnClose.TabIndex = 2;
             btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             // 
             // openFileDialog1
             // 
@@ -332,9 +338,9 @@
             // optContentPack
             // 
             optContentPack.AutoSize = true;
-            optContentPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            optContentPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optContentPack.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            optContentPack.Location = new System.Drawing.Point(47, 334);
+            optContentPack.Location = new System.Drawing.Point(47, 329);
             optContentPack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optContentPack.Name = "optContentPack";
             optContentPack.Size = new System.Drawing.Size(138, 17);
@@ -378,7 +384,7 @@
             txtContentPackFilename.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtContentPackFilename.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtContentPackFilename.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtContentPackFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtContentPackFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             txtContentPackFilename.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtContentPackFilename.Location = new System.Drawing.Point(21, 40);
             txtContentPackFilename.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -391,7 +397,7 @@
             // 
             lblSelectedMapContentPack.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblSelectedMapContentPack.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblSelectedMapContentPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblSelectedMapContentPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblSelectedMapContentPack.Location = new System.Drawing.Point(-2, 1);
             lblSelectedMapContentPack.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblSelectedMapContentPack.Name = "lblSelectedMapContentPack";
@@ -403,9 +409,9 @@
             // optOffline
             // 
             optOffline.AutoSize = true;
-            optOffline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            optOffline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optOffline.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            optOffline.Location = new System.Drawing.Point(47, 176);
+            optOffline.Location = new System.Drawing.Point(47, 170);
             optOffline.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optOffline.Name = "optOffline";
             optOffline.Size = new System.Drawing.Size(173, 17);
@@ -417,7 +423,7 @@
             // optServer
             // 
             optServer.AutoSize = true;
-            optServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            optServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optServer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             optServer.Location = new System.Drawing.Point(47, 487);
             optServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -431,9 +437,9 @@
             // optSinglePlayer
             // 
             optSinglePlayer.AutoSize = true;
-            optSinglePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            optSinglePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optSinglePlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            optSinglePlayer.Location = new System.Drawing.Point(47, 32);
+            optSinglePlayer.Location = new System.Drawing.Point(47, 26);
             optSinglePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optSinglePlayer.Name = "optSinglePlayer";
             optSinglePlayer.Size = new System.Drawing.Size(146, 17);
@@ -464,7 +470,7 @@
             // 
             lblFTPServer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblFTPServer.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblFTPServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblFTPServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblFTPServer.Location = new System.Drawing.Point(-1, 1);
             lblFTPServer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFTPServer.Name = "lblFTPServer";
@@ -493,7 +499,7 @@
             // 
             lblFtpMap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblFtpMap.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            lblFtpMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblFtpMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             lblFtpMap.Location = new System.Drawing.Point(24, 76);
             lblFtpMap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFtpMap.Name = "lblFtpMap";
@@ -541,7 +547,7 @@
             cboFTPServer.BorderColor = System.Drawing.Color.Transparent;
             cboFTPServer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboFTPServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboFTPServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cboFTPServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             cboFTPServer.FormattingEnabled = true;
             cboFTPServer.Location = new System.Drawing.Point(29, 35);
             cboFTPServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -559,7 +565,7 @@
             cboFtpMap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboFtpMap.Enabled = false;
             cboFtpMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboFtpMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cboFtpMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             cboFtpMap.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboFtpMap.FormattingEnabled = true;
             cboFtpMap.Location = new System.Drawing.Point(160, 76);
@@ -644,7 +650,7 @@
             cboLocalARK.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             cboLocalARK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboLocalARK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboLocalARK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cboLocalARK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             cboLocalARK.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboLocalARK.FormattingEnabled = true;
             cboLocalARK.Location = new System.Drawing.Point(21, 39);
@@ -659,7 +665,7 @@
             // 
             lblOfflineSave.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblOfflineSave.BackColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblOfflineSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblOfflineSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblOfflineSave.Location = new System.Drawing.Point(-2, 1);
             lblOfflineSave.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOfflineSave.Name = "lblOfflineSave";
@@ -717,7 +723,7 @@
             // 
             lblSelectedMapSP.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblSelectedMapSP.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblSelectedMapSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblSelectedMapSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblSelectedMapSP.Location = new System.Drawing.Point(-2, 2);
             lblSelectedMapSP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblSelectedMapSP.Name = "lblSelectedMapSP";
@@ -776,7 +782,7 @@
             lblUploadedHighlight.BackColor = System.Drawing.Color.WhiteSmoke;
             lblUploadedHighlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             lblUploadedHighlight.Cursor = System.Windows.Forms.Cursors.Hand;
-            lblUploadedHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblUploadedHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             lblUploadedHighlight.ForeColor = System.Drawing.Color.Black;
             lblUploadedHighlight.Location = new System.Drawing.Point(192, 115);
             lblUploadedHighlight.Name = "lblUploadedHighlight";
@@ -792,7 +798,7 @@
             lblCryopodHighlight.BackColor = System.Drawing.Color.LightSkyBlue;
             lblCryopodHighlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             lblCryopodHighlight.Cursor = System.Windows.Forms.Cursors.Hand;
-            lblCryopodHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCryopodHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             lblCryopodHighlight.ForeColor = System.Drawing.Color.Black;
             lblCryopodHighlight.Location = new System.Drawing.Point(192, 79);
             lblCryopodHighlight.Name = "lblCryopodHighlight";
@@ -808,7 +814,7 @@
             lblVivariumHighlight.BackColor = System.Drawing.Color.LightGreen;
             lblVivariumHighlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             lblVivariumHighlight.Cursor = System.Windows.Forms.Cursors.Hand;
-            lblVivariumHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblVivariumHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             lblVivariumHighlight.ForeColor = System.Drawing.Color.Black;
             lblVivariumHighlight.Location = new System.Drawing.Point(192, 44);
             lblVivariumHighlight.Name = "lblVivariumHighlight";
@@ -822,7 +828,7 @@
             // 
             label9.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             label9.BackColor = System.Drawing.Color.Gainsboro;
-            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             label9.Location = new System.Drawing.Point(-3, 1);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
@@ -833,7 +839,7 @@
             // lblTamedHighlight
             // 
             lblTamedHighlight.BackColor = System.Drawing.Color.Transparent;
-            lblTamedHighlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblTamedHighlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblTamedHighlight.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblTamedHighlight.Location = new System.Drawing.Point(10, 11);
             lblTamedHighlight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -893,7 +899,7 @@
             // lblColourNotMapped
             // 
             lblColourNotMapped.BackColor = System.Drawing.Color.Transparent;
-            lblColourNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblColourNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblColourNotMapped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblColourNotMapped.Location = new System.Drawing.Point(12, 18);
             lblColourNotMapped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -907,7 +913,7 @@
             // 
             lblHeaderColoursNotMatched.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderColoursNotMatched.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderColoursNotMatched.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderColoursNotMatched.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderColoursNotMatched.Location = new System.Drawing.Point(-2, 1);
             lblHeaderColoursNotMatched.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderColoursNotMatched.Name = "lblHeaderColoursNotMatched";
@@ -959,7 +965,7 @@
             // label1
             // 
             label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             label1.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             label1.Location = new System.Drawing.Point(12, 18);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -990,7 +996,7 @@
             // 
             lblHeaderColours.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderColours.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderColours.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderColours.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderColours.Location = new System.Drawing.Point(-2, 1);
             lblHeaderColours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderColours.Name = "lblHeaderColours";
@@ -1003,7 +1009,7 @@
             txtFilterColour.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilterColour.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilterColour.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilterColour.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilterColour.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterColour.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilterColour.Location = new System.Drawing.Point(107, 236);
             txtFilterColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1159,7 +1165,7 @@
             // lblCreaturesNotMapped
             // 
             lblCreaturesNotMapped.BackColor = System.Drawing.Color.Transparent;
-            lblCreaturesNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCreaturesNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblCreaturesNotMapped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblCreaturesNotMapped.Location = new System.Drawing.Point(12, 18);
             lblCreaturesNotMapped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1173,7 +1179,7 @@
             // 
             lblHeaderCreaturesNotMapped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderCreaturesNotMapped.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderCreaturesNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderCreaturesNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderCreaturesNotMapped.Location = new System.Drawing.Point(-2, 1);
             lblHeaderCreaturesNotMapped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderCreaturesNotMapped.Name = "lblHeaderCreaturesNotMapped";
@@ -1224,7 +1230,7 @@
             // label6
             // 
             label6.BackColor = System.Drawing.Color.Transparent;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             label6.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             label6.Location = new System.Drawing.Point(12, 18);
             label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1253,7 +1259,7 @@
             // 
             lblHeaderCreatures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderCreatures.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderCreatures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderCreatures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderCreatures.Location = new System.Drawing.Point(-2, 1);
             lblHeaderCreatures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderCreatures.Name = "lblHeaderCreatures";
@@ -1265,7 +1271,7 @@
             // 
             txtCreatureFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtCreatureFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtCreatureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtCreatureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtCreatureFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtCreatureFilter.Location = new System.Drawing.Point(107, 339);
             txtCreatureFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1414,7 +1420,7 @@
             // lblStructuresNotMapped
             // 
             lblStructuresNotMapped.BackColor = System.Drawing.Color.Transparent;
-            lblStructuresNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructuresNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblStructuresNotMapped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblStructuresNotMapped.Location = new System.Drawing.Point(12, 18);
             lblStructuresNotMapped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1428,7 +1434,7 @@
             // 
             lblHeaderStructuresNotMapped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderStructuresNotMapped.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderStructuresNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderStructuresNotMapped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderStructuresNotMapped.Location = new System.Drawing.Point(-2, 1);
             lblHeaderStructuresNotMapped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderStructuresNotMapped.Name = "lblHeaderStructuresNotMapped";
@@ -1495,7 +1501,7 @@
             // 
             lblHeaderStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderStructures.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderStructures.Location = new System.Drawing.Point(-2, 1);
             lblHeaderStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderStructures.Name = "lblHeaderStructures";
@@ -1507,7 +1513,7 @@
             // 
             txtStructureFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtStructureFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtStructureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtStructureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtStructureFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtStructureFilter.Location = new System.Drawing.Point(107, 339);
             txtStructureFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1654,7 +1660,7 @@
             // lblItemsNotMatched
             // 
             lblItemsNotMatched.BackColor = System.Drawing.Color.Transparent;
-            lblItemsNotMatched.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblItemsNotMatched.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblItemsNotMatched.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblItemsNotMatched.Location = new System.Drawing.Point(12, 18);
             lblItemsNotMatched.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1668,7 +1674,7 @@
             // 
             lblHeaderItemsNotMatched.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderItemsNotMatched.BackColor = System.Drawing.Color.Gainsboro;
-            lblHeaderItemsNotMatched.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderItemsNotMatched.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderItemsNotMatched.Location = new System.Drawing.Point(-2, 2);
             lblHeaderItemsNotMatched.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderItemsNotMatched.Name = "lblHeaderItemsNotMatched";
@@ -1734,7 +1740,7 @@
             // 
             lblHeaderItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderItems.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderItems.Location = new System.Drawing.Point(-2, 1);
             lblHeaderItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderItems.Name = "lblHeaderItems";
@@ -1746,7 +1752,7 @@
             // 
             txtItemFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtItemFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtItemFilter.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtItemFilter.Font = new System.Drawing.Font("Segoe UI", 11F);
             txtItemFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtItemFilter.Location = new System.Drawing.Point(107, 339);
             txtItemFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1878,7 +1884,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             label7.Location = new System.Drawing.Point(338, 207);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
@@ -1904,7 +1910,7 @@
             // lblExportPlayerStructures
             // 
             lblExportPlayerStructures.AutoSize = true;
-            lblExportPlayerStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblExportPlayerStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblExportPlayerStructures.Location = new System.Drawing.Point(338, 157);
             lblExportPlayerStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportPlayerStructures.Name = "lblExportPlayerStructures";
@@ -1930,7 +1936,7 @@
             // lblExportTamed
             // 
             lblExportTamed.AutoSize = true;
-            lblExportTamed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblExportTamed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblExportTamed.Location = new System.Drawing.Point(22, 157);
             lblExportTamed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportTamed.Name = "lblExportTamed";
@@ -1956,7 +1962,7 @@
             // lblExportPlayers
             // 
             lblExportPlayers.AutoSize = true;
-            lblExportPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblExportPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblExportPlayers.Location = new System.Drawing.Point(338, 105);
             lblExportPlayers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportPlayers.Name = "lblExportPlayers";
@@ -1982,7 +1988,7 @@
             // lblExportTribes
             // 
             lblExportTribes.AutoSize = true;
-            lblExportTribes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblExportTribes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblExportTribes.Location = new System.Drawing.Point(338, 60);
             lblExportTribes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportTribes.Name = "lblExportTribes";
@@ -2008,7 +2014,7 @@
             // lblExportWild
             // 
             lblExportWild.AutoSize = true;
-            lblExportWild.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblExportWild.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblExportWild.Location = new System.Drawing.Point(22, 105);
             lblExportWild.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportWild.Name = "lblExportWild";
@@ -2034,7 +2040,7 @@
             // lblExportAll
             // 
             lblExportAll.AutoSize = true;
-            lblExportAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblExportAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblExportAll.Location = new System.Drawing.Point(22, 60);
             lblExportAll.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportAll.Name = "lblExportAll";
@@ -2061,7 +2067,7 @@
             // 
             lblHeaderJsonExport.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderJsonExport.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderJsonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderJsonExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderJsonExport.Location = new System.Drawing.Point(0, 2);
             lblHeaderJsonExport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderJsonExport.Name = "lblHeaderJsonExport";
@@ -2072,7 +2078,7 @@
             // lblJsonFileExport
             // 
             lblJsonFileExport.BackColor = System.Drawing.Color.Transparent;
-            lblJsonFileExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblJsonFileExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblJsonFileExport.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblJsonFileExport.Location = new System.Drawing.Point(9, 16);
             lblJsonFileExport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2287,7 +2293,7 @@
             // lblContentPackFilters
             // 
             lblContentPackFilters.BackColor = System.Drawing.Color.Transparent;
-            lblContentPackFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblContentPackFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblContentPackFilters.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblContentPackFilters.Location = new System.Drawing.Point(9, 180);
             lblContentPackFilters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2338,7 +2344,7 @@
             // 
             lblHeaderConteentPack.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblHeaderConteentPack.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblHeaderConteentPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblHeaderConteentPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblHeaderConteentPack.Location = new System.Drawing.Point(0, 2);
             lblHeaderConteentPack.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderConteentPack.Name = "lblHeaderConteentPack";
@@ -2349,7 +2355,7 @@
             // lblContentPackOptions
             // 
             lblContentPackOptions.BackColor = System.Drawing.Color.Transparent;
-            lblContentPackOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblContentPackOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblContentPackOptions.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblContentPackOptions.Location = new System.Drawing.Point(9, 16);
             lblContentPackOptions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2433,7 +2439,7 @@
             // lblCommandExportOptionTitle
             // 
             lblCommandExportOptionTitle.AutoSize = true;
-            lblCommandExportOptionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblCommandExportOptionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             lblCommandExportOptionTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblCommandExportOptionTitle.Location = new System.Drawing.Point(12, 10);
             lblCommandExportOptionTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2456,7 +2462,7 @@
             // 
             label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             label4.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             label4.Location = new System.Drawing.Point(-2, 0);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -2557,7 +2563,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             label2.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             label2.Location = new System.Drawing.Point(12, 12);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2621,7 +2627,7 @@
             // lblOptionHeaderStructures
             // 
             lblOptionHeaderStructures.AutoSize = true;
-            lblOptionHeaderStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblOptionHeaderStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderStructures.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblOptionHeaderStructures.Location = new System.Drawing.Point(12, 6);
             lblOptionHeaderStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2699,7 +2705,7 @@
             // lblOptionHeaderCommand
             // 
             lblOptionHeaderCommand.AutoSize = true;
-            lblOptionHeaderCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblOptionHeaderCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderCommand.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblOptionHeaderCommand.Location = new System.Drawing.Point(12, 9);
             lblOptionHeaderCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2763,7 +2769,7 @@
             // lblOptionHeaderTames
             // 
             lblOptionHeaderTames.AutoSize = true;
-            lblOptionHeaderTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblOptionHeaderTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderTames.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblOptionHeaderTames.Location = new System.Drawing.Point(12, 8);
             lblOptionHeaderTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -2827,7 +2833,7 @@
             // lblOptionHeaderBody
             // 
             lblOptionHeaderBody.AutoSize = true;
-            lblOptionHeaderBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblOptionHeaderBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderBody.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblOptionHeaderBody.Location = new System.Drawing.Point(12, 9);
             lblOptionHeaderBody.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);

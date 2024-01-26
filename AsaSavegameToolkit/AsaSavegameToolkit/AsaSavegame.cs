@@ -122,6 +122,8 @@ namespace AsaSavegameToolkit
                                     //need to parse into AsaGameObjects and add to Objects list and review when
                                     //official introduces them to see if implemented the same/similar way.
 
+
+
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
@@ -176,6 +178,8 @@ namespace AsaSavegameToolkit
             );
 
             profileData = profileFileBag.ToList();
+
+
 
             endTicks = DateTime.Now.Ticks;
             //time to read profile data
@@ -246,12 +250,13 @@ namespace AsaSavegameToolkit
                                     {
                                         var dataStore = new AsaDataStore(dataBytes);
 
+                                        /*
                                         if (dataStore.Objects.Count > 0)
                                         {
-                                            AsaGameObject? statusComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("statuscomponent")).Value;
+                                            AsaGameObject? statusComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("status")).Value;
                                             AsaGameObject? creatureComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("character")).Value;
 
-
+                                            
                                             if (creatureComponent != null)
                                             {
                                                 if (objectBag.ContainsKey(creatureComponent.Guid))
@@ -276,16 +281,14 @@ namespace AsaSavegameToolkit
                                                 }
 
                                             }
+                                            
                                         }
+                                        */
 
                                         foreach (var o in dataStore.Objects)
                                         {
 
-                                            if (actorLocations.ContainsKey(o.Key))
-                                            {
-                                                o.Value.Location = actorLocations[o.Key];
-                                            }
-                                            else if (actorLocations.ContainsKey(pod.Guid))
+                                            if (actorLocations.ContainsKey(pod.Guid))
                                             {
                                                 o.Value.Location = actorLocations[pod.Guid];
                                             }
@@ -335,10 +338,6 @@ namespace AsaSavegameToolkit
                 objectBag.ToList().ForEach(p=>gameObjects.Add(p.Key,p.Value));
             }
             objectBag.Clear();
-
-            //var chibs = gameObjects.Where(o => o.Value.ClassString.ToLower().Contains("chib")).ToList();
-
-
 
             endTicks = DateTime.Now.Ticks;
             //time to parse stored creatures

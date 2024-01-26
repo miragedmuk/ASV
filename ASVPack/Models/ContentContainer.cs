@@ -231,8 +231,6 @@ namespace ASVPack.Models
 
 
 
-
-
                 foreach (var tribe in Tribes)
                 {
                     var missingPlayers = tribe.Members.Where(m => !tribe.Players.Any(p => p.Id == m.Key)).ToList();
@@ -757,8 +755,23 @@ namespace ASVPack.Models
 
                     //allocate players to tribes
                     fileProfiles.AsParallel().ForAll(p =>
+                    //foreach(var p in fileProfiles)
                     {
                         var playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.TargetingTeam);
+
+                        if (playerTribe != null)
+                        {
+                            if (playerTribe.Members.ContainsKey((int)p.Id))
+                            {
+                                playerTribe.Players.Add(p);
+                            }
+                            else
+                            {
+                                p.TargetingTeam = (int)p.Id; //must have left tribe, put in own tribe
+                                playerTribe = null;
+                            }
+                        }
+
                         if (playerTribe == null)
                         {
                             playerTribe = new ContentTribe()
@@ -768,14 +781,18 @@ namespace ASVPack.Models
                                 TribeId = p.Id,
                                 TribeName = $"Tribe of {p.CharacterName}"
                             };
-
+                            playerTribe.Members.Add((int)p.Id, p.CharacterName);
+                            playerTribe.Players.Add(p);
                             fileTribes.Add(playerTribe);
                         }
 
 
-                        playerTribe.Players.Add(p);
-                    });
+
+
+                    }
+                    );
                     long allocationEnd = DateTime.Now.Ticks;
+
 
 
                     long structureStart = DateTime.Now.Ticks;
@@ -1813,6 +1830,8 @@ namespace ASVPack.Models
             GameSaveTime = fileTimestamp.ToUniversalTime();
 
 
+            //var test = arkSavegame.Objects.Where(o => o.ClassString.Contains("chibi", StringComparison.InvariantCultureIgnoreCase)).ToList();
+            //ChibiDino
             
             //parse tribes
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Tribes...");
@@ -1863,6 +1882,7 @@ namespace ASVPack.Models
             );
 
 
+
             endTicks = DateTime.Now.Ticks;
             timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
             logWriter.Info($"Profile data loaded in: {timeTaken.ToString(@"mm\:ss")}.");
@@ -1898,6 +1918,9 @@ namespace ASVPack.Models
                 playerTribe.Players.Add(p);
             }
             //);
+
+            
+
             endTicks = DateTime.Now.Ticks;
             timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
             logWriter.Info($"Allocated player tribes in: {timeTaken.ToString(@"mm\:ss")}.");
@@ -2310,6 +2333,7 @@ namespace ASVPack.Models
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing tame data...");
             var allPlayerTames = allTames.SelectMany(t=>t.Tames).ToList();
             Parallel.ForEach(allPlayerTames, x=>
+            //foreach(var x in allPlayerTames)
             {
                 //find appropriate tribe to add to
                 var teamId = x.GetPropertyValue<int>("TargetingTeam");
@@ -2434,6 +2458,7 @@ namespace ASVPack.Models
                 }
             }
             );
+
 
             endTicks = DateTime.Now.Ticks;
             timeTaken = TimeSpan.FromTicks(endTicks - startTicks);

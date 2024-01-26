@@ -958,12 +958,14 @@
             // 
             lblPlayerId.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lblPlayerId.AutoSize = true;
+            lblPlayerId.Cursor = System.Windows.Forms.Cursors.Hand;
             lblPlayerId.Location = new System.Drawing.Point(15, 630);
             lblPlayerId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayerId.Name = "lblPlayerId";
             lblPlayerId.Size = new System.Drawing.Size(55, 15);
             lblPlayerId.TabIndex = 0;
             lblPlayerId.Text = "Player Id:";
+            lblPlayerId.Click += lblPlayerId_Click;
             // 
             // frmPlayerInventoryViewer
             // 

@@ -6,6 +6,7 @@ using ARKViewer.Models.NameMap;
 using ASVPack.Models;
 using CoreRCON;
 using FluentFTP;
+using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json.Linq;
 using Renci.SshNet;
 using SkiaSharp.Views.Desktop;
@@ -2519,9 +2520,9 @@ namespace ARKViewer
                                         for (int colIndex = 0; colIndex < lvwWildDetail.Columns.Count; colIndex++)
                                         {
 
-                                            if (double.TryParse(item.SubItems[colIndex].Text, out _))
+                                            if (double.TryParse(item.SubItems[colIndex].Text, out double parsedValue))
                                             {
-                                                csvBuilder.Append(item.SubItems[colIndex].Text);
+                                                csvBuilder.Append(System.FormattableString.Invariant($"{parsedValue:0.00}"));
                                             }
                                             else
                                             {
@@ -2633,9 +2634,9 @@ namespace ARKViewer
                                         for (int colIndex = 0; colIndex < lvwTameDetail.Columns.Count; colIndex++)
                                         {
 
-                                            if (double.TryParse(item.SubItems[colIndex].Text, out _))
+                                            if (double.TryParse(item.SubItems[colIndex].Text, out double parsedValue))
                                             {
-                                                csvBuilder.Append(item.SubItems[colIndex].Text);
+                                                csvBuilder.Append(System.FormattableString.Invariant($"{parsedValue:0.00}"));
                                             }
                                             else
                                             {
@@ -2749,9 +2750,9 @@ namespace ARKViewer
                                         for (int colIndex = 0; colIndex < lvwStructureLocations.Columns.Count; colIndex++)
                                         {
 
-                                            if (double.TryParse(item.SubItems[colIndex].Text, out _))
+                                            if (double.TryParse(item.SubItems[colIndex].Text, out double parsedValue))
                                             {
-                                                csvBuilder.Append(item.SubItems[colIndex].Text);
+                                                csvBuilder.Append(System.FormattableString.Invariant($"{parsedValue:0.00}"));
                                             }
                                             else
                                             {
@@ -2864,9 +2865,9 @@ namespace ARKViewer
                                         for (int colIndex = 0; colIndex < lvwTribes.Columns.Count; colIndex++)
                                         {
 
-                                            if (double.TryParse(item.SubItems[colIndex].Text, out _))
+                                            if (double.TryParse(item.SubItems[colIndex].Text, out double parsedValue))
                                             {
-                                                csvBuilder.Append(item.SubItems[colIndex].Text);
+                                                csvBuilder.Append(System.FormattableString.Invariant($"{parsedValue:0.00}"));
                                             }
                                             else
                                             {
@@ -2980,9 +2981,9 @@ namespace ARKViewer
                                         for (int colIndex = 0; colIndex < lvwPlayers.Columns.Count; colIndex++)
                                         {
 
-                                            if (double.TryParse(item.SubItems[colIndex].Text, out _))
+                                            if (double.TryParse(item.SubItems[colIndex].Text, out double parsedValue))
                                             {
-                                                csvBuilder.Append(item.SubItems[colIndex].Text);
+                                                csvBuilder.Append(System.FormattableString.Invariant($"{parsedValue:0.00}"));
                                             }
                                             else
                                             {
@@ -3095,9 +3096,9 @@ namespace ARKViewer
                                         for (int colIndex = 0; colIndex < lvwDroppedItems.Columns.Count; colIndex++)
                                         {
 
-                                            if (double.TryParse(item.SubItems[colIndex].Text, out _))
+                                            if (double.TryParse(item.SubItems[colIndex].Text, out double parsedValue))
                                             {
-                                                csvBuilder.Append(item.SubItems[colIndex].Text);
+                                                csvBuilder.Append(System.FormattableString.Invariant($"{parsedValue:0.00}"));
                                             }
                                             else
                                             {
@@ -8197,7 +8198,6 @@ namespace ARKViewer
 
         private void frmViewer_ResizeEnd(object sender, EventArgs e)
         {
-
         }
 
         private void frmViewer_Resize(object sender, EventArgs e)
@@ -8804,6 +8804,70 @@ namespace ARKViewer
             {
                 LoadTameDetail();
             }
+        }
+
+        private void tabFeatures_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Brush _textBrush;
+            Brush _bgBrush;
+
+            TabPage _tabPage = tabFeatures.TabPages[e.Index];
+
+            //tab page
+            Rectangle pageBounds = _tabPage.Bounds;
+            pageBounds.Inflate(4, 4);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45, 45, 45)), pageBounds);
+
+
+
+
+            Rectangle paddedBounds = tabFeatures.GetTabRect(e.Index);//  e.Bounds;
+            paddedBounds.Inflate(0, 2);
+
+
+            Rectangle textBounds = paddedBounds;
+            if (e.Index == tabFeatures.TabPages.Count - 1)
+            {
+                Rectangle b = tabFeatures.GetTabRect(e.Index);
+                b.Inflate(0, 2);
+                var newWidth = tabFeatures.Width - b.Left;
+                b.Width = newWidth;
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(60, 60, 60)), b);
+            }
+            else
+            {
+
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(60, 60, 60)), paddedBounds);
+            }
+
+
+
+
+            Font _textFont = tabFeatures.Font;
+
+
+            //tab text
+            if (e.State == DrawItemState.Selected)
+            {
+                _textFont = new Font(_textFont, FontStyle.Bold);
+                _textBrush = new SolidBrush(Color.FromArgb(200, 200, 200));
+
+            }
+            else
+            {
+                _textBrush = new SolidBrush(Color.FromArgb(150, 150, 150));
+            }
+
+
+            int yOffset = (e.State == DrawItemState.Selected) ? -2 : 1;
+            textBounds.Offset(1, yOffset);
+
+            StringFormat _stringFlags = new StringFormat();
+            _stringFlags.Alignment = StringAlignment.Center;
+            _stringFlags.LineAlignment = StringAlignment.Center;
+            g.DrawString(_tabPage.Text, _textFont, _textBrush, textBounds, new StringFormat(_stringFlags));
+
         }
     }
 }
