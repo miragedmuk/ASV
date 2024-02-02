@@ -161,7 +161,13 @@ namespace ASVPack.Extensions
 
         public static long GetDinoId(this AsaGameObject gameObject)
         {
-            return CreateDinoId((int)gameObject.GetPropertyValue<uint>("DinoID1"), (int)gameObject.GetPropertyValue<uint>("DinoID2")) ;
+
+            int dinoId1 = (int)gameObject.GetPropertyValue<uint>("DinoID1", 0, 0);
+            int dinoId2 = (int)gameObject.GetPropertyValue<uint>("DinoID2", 0, 0);
+            string newDinoId = string.Concat(dinoId1, dinoId2);
+            long.TryParse(newDinoId, out long dinoId);
+
+            return dinoId;
         }
 
         public static long CreateDinoId(int id1, int id2)

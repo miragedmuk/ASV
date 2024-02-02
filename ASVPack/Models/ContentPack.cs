@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
@@ -401,30 +402,32 @@ namespace ASVPack.Models
                             jw.WritePropertyName("craft-w");
                             jw.WriteValue(creature.BaseStats[11]);
 
+                            if(creature.TamedMutations!=null && creature.TamedMutations?.LongCount() > 0)
+                            {
+                                jw.WritePropertyName("hp-m");
+                                jw.WriteValue(creature.TamedMutations[0]);
 
-                            jw.WritePropertyName("hp-m");
-                            jw.WriteValue(creature.TamedMutations[0]);
+                                jw.WritePropertyName("stam-m");
+                                jw.WriteValue(creature.TamedMutations[1]);
 
-                            jw.WritePropertyName("stam-m");
-                            jw.WriteValue(creature.TamedMutations[1]);
+                                jw.WritePropertyName("melee-m");
+                                jw.WriteValue(creature.TamedMutations[8]);
 
-                            jw.WritePropertyName("melee-m");
-                            jw.WriteValue(creature.TamedMutations[8]);
+                                jw.WritePropertyName("weight-m");
+                                jw.WriteValue(creature.TamedMutations[7]);
 
-                            jw.WritePropertyName("weight-m");
-                            jw.WriteValue(creature.TamedMutations[7]);
+                                jw.WritePropertyName("speed-m");
+                                jw.WriteValue(creature.TamedMutations[9]);
 
-                            jw.WritePropertyName("speed-m");
-                            jw.WriteValue(creature.TamedMutations[9]);
+                                jw.WritePropertyName("food-m");
+                                jw.WriteValue(creature.TamedMutations[4]);
 
-                            jw.WritePropertyName("food-m");
-                            jw.WriteValue(creature.TamedMutations[4]);
+                                jw.WritePropertyName("oxy-m");
+                                jw.WriteValue(creature.TamedMutations[3]);
 
-                            jw.WritePropertyName("oxy-m");
-                            jw.WriteValue(creature.TamedMutations[3]);
-
-                            jw.WritePropertyName("craft-m");
-                            jw.WriteValue(creature.TamedMutations[11]);
+                                jw.WritePropertyName("craft-m");
+                                jw.WriteValue(creature.TamedMutations[11]);
+                            }                          
 
 
                             jw.WritePropertyName("hp-t");
@@ -495,6 +498,10 @@ namespace ASVPack.Models
 
                             jw.WritePropertyName("isClone");
                             jw.WriteValue(creature.IsClone);
+
+                            jw.WritePropertyName("tamedServer");
+                            jw.WriteValue(creature.TamedOnServerName);
+
 
                             if (creature.UploadedTimeInGame != 0)
                             {

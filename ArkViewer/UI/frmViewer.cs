@@ -4877,6 +4877,10 @@ namespace ARKViewer
             }
 
 
+            optStatsMutated.Enabled = cm.GetPack().Tribes.Any(t => t.Tames.Any(x => x.TamedMutations != null));
+            if (!optStatsMutated.Enabled && optStatsMutated.Checked) optStatsBase.Checked = true;
+
+
             //MessageBox.Show("Listing tamed creatures.");
             var tamedSummary = cm.GetTamedCreatures("", 0, 0, chkCryo.Checked, "")
                                 .Where(t => !(t.ClassName == "MotorRaft_BP_C" || t.ClassName == "Raft_BP_C"))
@@ -6622,14 +6626,31 @@ namespace ARKViewer
 
                         if (optStatsMutated.Checked)
                         {
-                            item.SubItems.Add(detail.TamedMutations[0].ToString());
-                            item.SubItems.Add(detail.TamedMutations[1].ToString());
-                            item.SubItems.Add(detail.TamedMutations[8].ToString());
-                            item.SubItems.Add(detail.TamedMutations[7].ToString());
-                            item.SubItems.Add(detail.TamedMutations[9].ToString());
-                            item.SubItems.Add(detail.TamedMutations[4].ToString());
-                            item.SubItems.Add(detail.TamedMutations[3].ToString());
-                            item.SubItems.Add(detail.TamedMutations[11].ToString());
+                            if (detail.TamedMutations != null)
+                            {
+                                item.SubItems.Add(detail.TamedMutations[0].ToString());
+                                item.SubItems.Add(detail.TamedMutations[1].ToString());
+                                item.SubItems.Add(detail.TamedMutations[8].ToString());
+                                item.SubItems.Add(detail.TamedMutations[7].ToString());
+                                item.SubItems.Add(detail.TamedMutations[9].ToString());
+                                item.SubItems.Add(detail.TamedMutations[4].ToString());
+                                item.SubItems.Add(detail.TamedMutations[3].ToString());
+                                item.SubItems.Add(detail.TamedMutations[11].ToString());
+
+                            }
+                            else
+                            {
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+                                item.SubItems.Add("0");
+
+                            }
 
                         }
                         else if (optStatsTamed.Checked)
