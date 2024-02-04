@@ -36,6 +36,8 @@ namespace ASVPack.Models
         [DataMember] public int RandomMutationsFemale { get; set; } = 0;
         [DataMember] public int RandomMutationsMale { get; set; } = 0;
         [DataMember] public string TamedOnServerName { get; set; } = "";
+        [DataMember] public string UploadedServerName { get; set; } = "";
+
         [DataMember] public byte[] TamedStats { get; set; }
         [DataMember] public byte[] TamedMutations { get; set; }
 
@@ -129,9 +131,6 @@ namespace ASVPack.Models
                 for (var i = 0; i < TamedStats.Length; i++) TamedStats[i] = statusObject.GetPropertyValue<ArkByteValue>("NumberOfLevelUpPointsAppliedTamed", i)?.ByteValue ?? 0;
 
             }
-
-
-
 
 
             //ancestors
@@ -320,6 +319,8 @@ namespace ASVPack.Models
 
 
             TamedOnServerName = creatureObject.GetPropertyValue<string>("TamedOnServerName", 0, "") ?? "";
+            UploadedServerName = creatureObject.GetPropertyValue<string>("UploadedFromServerName", 0, "") ?? "";
+
             TamerName = creatureObject.GetPropertyValue<string>("TamerString", 0, "") ?? "";
 
             ImprintedPlayerId = (long)creatureObject.GetPropertyValue<ulong>("ImprinterPlayerDataID", 0, 0);

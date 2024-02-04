@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
@@ -230,6 +231,8 @@ namespace AsaSavegameToolkit
                         AsaProperty<dynamic> customContainer = customProperties[0];
 
                         var byteListContainer = customContainer.Value;
+                        AsaGameObject creatureObject = null;
+
 
                         for (int i = 0; i < byteListContainer.Count; i++)
                         {
@@ -250,41 +253,6 @@ namespace AsaSavegameToolkit
                                     {
                                         var dataStore = new AsaDataStore(dataBytes);
 
-                                        /*
-                                        if (dataStore.Objects.Count > 0)
-                                        {
-                                            AsaGameObject? statusComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("status")).Value;
-                                            AsaGameObject? creatureComponent = dataStore.Objects.FirstOrDefault(o => o.Value.ClassString.ToLower().Contains("character")).Value;
-
-                                            
-                                            if (creatureComponent != null)
-                                            {
-                                                if (objectBag.ContainsKey(creatureComponent.Guid))
-                                                {
-                                                    creatureComponent.Guid = Guid.NewGuid();
-                                                }
-                                            }
-
-                                            if (statusComponent != null)
-                                            {
-                                                if (objectBag.ContainsKey(statusComponent.Guid))
-                                                {
-                                                    //already added, give it a new guid
-                                                    statusComponent.Guid = Guid.NewGuid();
-
-                                                    //then assign this to the creature
-                                                    if (creatureComponent != null)
-                                                    {
-                                                        creatureComponent.Properties.RemoveAll(p => p.Name == "MyCharacterStatusComponent");
-                                                        creatureComponent.Properties.Add(new Propertys.AsaProperty<dynamic>("MyCharacterStatusComponent", "ObjectProperty", 0, 0, new AsaObjectReference(statusComponent.Guid)));
-                                                    }
-                                                }
-
-                                            }
-                                            
-                                        }
-                                        */
-
                                         foreach (var o in dataStore.Objects)
                                         {
 
@@ -301,7 +269,7 @@ namespace AsaSavegameToolkit
                                                     var podContainerInventory = GetObjectByGuid(Guid.Parse(containerId.Value));
                                                     if (podContainerInventory != null)
                                                     {
-                                                        var podContainer = Objects.FirstOrDefault(o => o.Names[0] == podContainerInventory.Names[1]);
+                                                        var podContainer = Objects.FirstOrDefault(o => o.Names!=null && o.Names.Count > 0 &&  o.Names[0] == podContainerInventory.Names[1]);
                                                         if (podContainer != null)
                                                         {
                                                             o.Value.Location = podContainer.Location;
@@ -311,9 +279,62 @@ namespace AsaSavegameToolkit
                                                 }
                                             }
 
+                                            creatureObject = o.Value;
                                             objectBag.TryAdd(o.Value.Guid, o.Value);
                                         }
 
+                                    }
+                                    else
+                                    {
+                                        List<AsaProperty<dynamic>> properties = new List<AsaProperty<dynamic>>();
+                                        //skins/costumes/inventory
+                                        using(Stream stream = new MemoryStream(dataBytes)) 
+                                        { 
+                                            using(AsaArchive dataArchive = new AsaArchive(stream))
+                                            {
+                                                var archiveVersion = dataArchive.ReadInt();
+                                                AsaProperty<dynamic>? prop = null;
+                                                try
+                                                {
+                                                    prop = AsaPropertyRegistry.ReadProperty(dataArchive);                                                
+                                                }catch
+                                                {
+
+                                                }
+
+                                                while(prop!=null)
+                                                {
+                                                    properties.Add(prop);
+                                                    try
+                                                    {
+                                                        prop = AsaPropertyRegistry.ReadProperty(dataArchive);
+                                                    }
+                                                    catch
+                                                    {
+                                                        break;
+                                                    }                                                   
+                                                }
+                                            }
+                                        
+                                        }
+
+                                        if(properties.Count > 0 && creatureObject!=null)
+                                        {
+                                            
+
+                                            //DinoCharacterInventoryComponent_BP_Creature_C
+
+
+                                            //MyInventoryComponent
+
+
+                                            //add ownerinvnetory and equippeditem properties
+                                            //properties.Add(new AsaProperty<dynamic>("bEquippedItem", "BoolProperty", 0, 0, true));
+                                            //properties.Add(new AsaProperty<dynamic>("OwnerInventory", "ObjectProperty", 0, 0, new AsaObjectReference(inventoryGuid)));
+
+                                            AsaGameObject asaObject = new AsaGameObject(properties);
+                                            objectBag.TryAdd(asaObject.Guid, asaObject);
+                                        }
                                     }
                                     
                                 }

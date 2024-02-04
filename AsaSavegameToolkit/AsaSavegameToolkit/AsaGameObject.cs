@@ -65,13 +65,42 @@ namespace AsaSavegameToolkit
             //readProperties(archive);           
         }
 
+
+        private dynamic? GetPropertyValue<T>(string name, int index = 0, dynamic? defaultValue = null)
+        {
+            foreach (var prop in Properties)
+            {
+                if (prop.Position == index && prop.Name == name)
+                {
+                    return prop.Value;
+                }
+            }
+
+            return defaultValue;
+        }
+
+
+
+        public AsaGameObject(List<AsaProperty<dynamic>> properties)
+        {
+            Guid = Guid.NewGuid();
+            Properties = properties;
+
+            AsaObjectReference? classRef = GetPropertyValue<AsaObjectReference?>("ItemArchetype", 0, null);
+            if (classRef != null)
+            {
+                ClassName = AsaName.From(classRef.Value);
+            }
+
+            IsItem = true;
+        }
+
         public AsaGameObject(Guid objectId, AsaArchive archive)
         {
             Guid = objectId;
 
             ClassName = archive.ReadName();
-
-            IsItem = archive.ReadBool();
+            IsItem = archive.ReadBool();//? not isitem - always false?
 
             int nameCount = archive.ReadInt();
             Names.Clear();

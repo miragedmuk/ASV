@@ -337,7 +337,7 @@ namespace AsaSavegameToolkit
             var objectName = archive.ReadName();
             var objectValue = Convert.ToHexString(archive.ReadBytes(4));
 
-            return new AsaProperty<dynamic>(objectName.ToString(), "PropertyStr", 0, 0, objectValue);
+            return new AsaProperty<dynamic>(objectName?.ToString(), "PropertyStr", 0, 0, objectValue);
         }
 
 

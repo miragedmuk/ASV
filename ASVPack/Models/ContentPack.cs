@@ -503,6 +503,13 @@ namespace ASVPack.Models
                             jw.WriteValue(creature.TamedOnServerName);
 
 
+                            jw.WritePropertyName("uploadedServer");
+                            jw.WriteValue(creature.UploadedServerName??"");
+
+                            jw.WritePropertyName("maturation");
+                            jw.WriteValue(creature.Maturation.ToString());
+
+
                             if (creature.UploadedTimeInGame != 0)
                             {
                                 jw.WritePropertyName("uploadedTime");

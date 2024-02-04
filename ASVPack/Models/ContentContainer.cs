@@ -2403,52 +2403,55 @@ namespace ASVPack.Models
                                     
 
 
-                                    List<dynamic>? equippedItemsArray = inventoryComponent.GetPropertyValue<dynamic>("EquippedItems");
-
-                                    if (equippedItemsArray != null)
-                                    {
-
-                                        if (x.ClassString == "TekStrider_Character_BP_C")
-                                        {
-                                            AsaGameObject rig1Object = equippedItemsArray[0];
-                                            if (rig1Object != null)
-                                            {
-                                                var itemRig1 = rig1Object.AsItem();
-                                                creature.Rig1 = itemRig1?.ClassName??"";
-                                            }
-
-                                            if (equippedItemsArray.Count > 1)
-                                            {
-                                                AsaGameObject rig2Object = equippedItemsArray[1];
-                                                var itemRig2 = rig2Object.AsItem();
-                                                creature.Rig2 = itemRig2?.ClassName??"";
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            //Parallel.ForEach(equippedItemsArray, objectReference =>
-                                            foreach (var objectReference in equippedItemsArray)
-                                            {
-                                                Guid itemId = Guid.Parse(objectReference.Value);
-                                                AsaGameObject itemObject = arkSavegame.GetObjectByGuid(itemId);
-                                                if (itemObject != null)
-                                                {
-                                                    var item = itemObject.AsItem();
-                                                    if (!item.IsEngram)
-                                                    {
-
-                                                        inventoryItems.Add(item);
-                                                    }
-                                                }
-                                            }
-                                            //);
-                                        }
-                                    }
-
-                                    creature.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
+                                    
 
                                 }
+
+                                List<dynamic>? equippedItemsArray = inventoryComponent.GetPropertyValue<dynamic>("EquippedItems");
+
+                                if (equippedItemsArray != null)
+                                {
+
+                                    if (x.ClassString == "TekStrider_Character_BP_C")
+                                    {
+                                        AsaGameObject rig1Object = equippedItemsArray[0];
+                                        if (rig1Object != null)
+                                        {
+                                            var itemRig1 = rig1Object.AsItem();
+                                            creature.Rig1 = itemRig1?.ClassName ?? "";
+                                        }
+
+                                        if (equippedItemsArray.Count > 1)
+                                        {
+                                            AsaGameObject rig2Object = equippedItemsArray[1];
+                                            var itemRig2 = rig2Object.AsItem();
+                                            creature.Rig2 = itemRig2?.ClassName ?? "";
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        //Parallel.ForEach(equippedItemsArray, objectReference =>
+                                        foreach (var objectReference in equippedItemsArray)
+                                        {
+                                            Guid itemId = Guid.Parse(objectReference.Value);
+                                            AsaGameObject itemObject = arkSavegame.GetObjectByGuid(itemId);
+                                            if (itemObject != null)
+                                            {
+                                                var item = itemObject.AsItem();
+                                                if (!item.IsEngram)
+                                                {
+
+                                                    inventoryItems.Add(item);
+                                                }
+                                            }
+                                        }
+                                        //);
+                                    }
+                                }
+
+                                creature.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
+
                             }
                         }
                         inventoryItems.Clear();

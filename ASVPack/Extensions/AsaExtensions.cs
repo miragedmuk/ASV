@@ -172,7 +172,12 @@ namespace ASVPack.Extensions
 
         public static long CreateDinoId(int id1, int id2)
         {
-            return (long)id1 << 32 | (id2 & 0xFFFFFFFFL);
+            string newDinoId = string.Concat(id1, id2);
+            long.TryParse(newDinoId, out long dinoId);
+
+            return dinoId;
+
+            //return (long)id1 << 32 | (id2 & 0xFFFFFFFFL);
         }
         public static ContentTribe AsTribe(this AsaObject tribeObject)
         {
