@@ -562,6 +562,8 @@ namespace ARKViewer
 
             optExportNoSort.Checked = !SavedConfig.SortCommandLineExport;
             optExportSort.Checked = SavedConfig.SortCommandLineExport;
+            optStartupAuto.Checked = SavedConfig.LoadSaveOnStartup;
+            optStartupManual.Checked = !SavedConfig.LoadSaveOnStartup;
 
             switch (SavedConfig.CommandPrefix)
             {
@@ -804,6 +806,7 @@ namespace ARKViewer
 
             SavedConfig.SortCommandLineExport = optExportSort.Checked;
             SavedConfig.UpdateNotificationSingle = chkUpdateNotificationSingle.Checked;
+            SavedConfig.LoadSaveOnStartup = optStartupAuto.Checked;
 
             //update server list
             if (optSinglePlayer.Checked)

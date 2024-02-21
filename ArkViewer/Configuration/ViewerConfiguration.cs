@@ -105,6 +105,9 @@ namespace ARKViewer.Configuration
 
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public int ProfileDayLimit { get; set; } = 30;
 
+        [DataMember(IsRequired = false, EmitDefaultValue = false)] public bool LoadSaveOnStartup{ get; set; } = true;
+
+
         public List<DinoClassMap> DinoMap = new List<DinoClassMap>();
         public List<ContentMarker> MapMarkerList { get; set; } = new List<ContentMarker>();
         public List<ItemClassMap> ItemMap { get; set; } = new List<ItemClassMap>();
@@ -116,6 +119,8 @@ namespace ARKViewer.Configuration
         public List<ASVBreedingSearch> BreedingSearchOptions { get; set; } = new List<ASVBreedingSearch>();
 
         public List<MissionMap> MissionMaps { get; set; } = new List<MissionMap>();
+
+
         
 
         public ViewerConfiguration()
@@ -594,6 +599,8 @@ namespace ARKViewer.Configuration
                 if (savedState.HighlightColorVivarium != 0) this.HighlightColorVivarium= savedState.HighlightColorVivarium;
                 if (savedState.HighlightColorUploaded != 0) this.HighlightColorUploaded= savedState.HighlightColorUploaded;
 
+
+                this.LoadSaveOnStartup = savedState.LoadSaveOnStartup;
 
                 this.HideNoBody = savedState.HideNoBody;
                 this.HideNoStructures = savedState.HideNoStructures;

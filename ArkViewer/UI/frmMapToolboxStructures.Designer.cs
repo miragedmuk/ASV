@@ -743,6 +743,7 @@ namespace ARKViewer
             // 
             cboConsoleCommands.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             cboConsoleCommands.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            cboConsoleCommands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboConsoleCommands.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboConsoleCommands.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommands.FormattingEnabled = true;

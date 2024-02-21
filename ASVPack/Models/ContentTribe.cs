@@ -57,6 +57,9 @@ namespace ASVPack.Models
             StructPropertyList propertyList = (StructPropertyList)properties.Value;
 
             TribeId = propertyList.GetPropertyValue<int>("TribeId");
+
+            
+
             if (TribeId == 0) TribeId = propertyList.GetPropertyValue<int>("TribeID");
             TribeName = propertyList.GetPropertyValue<string>("TribeName");
 
@@ -87,6 +90,7 @@ namespace ASVPack.Models
 
         public ContentTribe(AsaObject tribeObject)
         {
+            
             List<dynamic> propertyList = tribeObject.Properties[0].Value;
             if (propertyList != null)
             {

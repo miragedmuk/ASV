@@ -619,7 +619,7 @@ namespace ARKViewer
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new System.Drawing.Size(908, 58);
             lblStatus.TabIndex = 1;
-            lblStatus.Text = "Loading...";
+            lblStatus.Text = "Use settings page to select a save game or press refresh to reload data.";
             lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTitle

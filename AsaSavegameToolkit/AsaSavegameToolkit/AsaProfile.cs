@@ -45,6 +45,7 @@ namespace AsaSavegameToolkit
                         aObject.ReadProperties(archive);
                     }
                 }
+                ms.Close();
             }
         }
 

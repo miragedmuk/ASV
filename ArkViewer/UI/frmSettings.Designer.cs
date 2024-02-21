@@ -185,6 +185,13 @@
             lblContentPackOptions = new System.Windows.Forms.Label();
             tpgOptions = new System.Windows.Forms.TabPage();
             groupBox1 = new System.Windows.Forms.GroupBox();
+            pnlOptionsStartup = new System.Windows.Forms.Panel();
+            optStartupManual = new System.Windows.Forms.RadioButton();
+            optStartupAuto = new System.Windows.Forms.RadioButton();
+            radioButton1 = new System.Windows.Forms.RadioButton();
+            radioButton2 = new System.Windows.Forms.RadioButton();
+            lblStartup = new System.Windows.Forms.Label();
+            lblStartupInfo = new System.Windows.Forms.Label();
             pnlCommandExportOptions = new System.Windows.Forms.Panel();
             optExportNoSort = new System.Windows.Forms.RadioButton();
             optExportSort = new System.Windows.Forms.RadioButton();
@@ -249,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)udExportLat).BeginInit();
             tpgOptions.SuspendLayout();
             groupBox1.SuspendLayout();
+            pnlOptionsStartup.SuspendLayout();
             pnlCommandExportOptions.SuspendLayout();
             pnlFtpSettingsCommands.SuspendLayout();
             pnlDownloadOption.SuspendLayout();
@@ -2224,6 +2232,7 @@
             cboExportPlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             cboExportPlayer.BorderColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboExportPlayer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboExportPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboExportPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboExportPlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboExportPlayer.FormattingEnabled = true;
@@ -2239,6 +2248,7 @@
             cboExportTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             cboExportTribe.BorderColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboExportTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboExportTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboExportTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboExportTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboExportTribe.FormattingEnabled = true;
@@ -2381,6 +2391,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            groupBox1.Controls.Add(pnlOptionsStartup);
             groupBox1.Controls.Add(pnlCommandExportOptions);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(pnlFtpSettingsCommands);
@@ -2395,6 +2406,96 @@
             groupBox1.Size = new System.Drawing.Size(597, 669);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
+            // 
+            // pnlOptionsStartup
+            // 
+            pnlOptionsStartup.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            pnlOptionsStartup.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            pnlOptionsStartup.Controls.Add(optStartupManual);
+            pnlOptionsStartup.Controls.Add(optStartupAuto);
+            pnlOptionsStartup.Controls.Add(radioButton1);
+            pnlOptionsStartup.Controls.Add(radioButton2);
+            pnlOptionsStartup.Controls.Add(lblStartup);
+            pnlOptionsStartup.Controls.Add(lblStartupInfo);
+            pnlOptionsStartup.Location = new System.Drawing.Point(9, 510);
+            pnlOptionsStartup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pnlOptionsStartup.Name = "pnlOptionsStartup";
+            pnlOptionsStartup.Size = new System.Drawing.Size(580, 68);
+            pnlOptionsStartup.TabIndex = 6;
+            // 
+            // optStartupManual
+            // 
+            optStartupManual.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            optStartupManual.AutoSize = true;
+            optStartupManual.Checked = true;
+            optStartupManual.Location = new System.Drawing.Point(398, 36);
+            optStartupManual.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optStartupManual.Name = "optStartupManual";
+            optStartupManual.Size = new System.Drawing.Size(41, 19);
+            optStartupManual.TabIndex = 4;
+            optStartupManual.TabStop = true;
+            optStartupManual.Text = "No";
+            optStartupManual.UseVisualStyleBackColor = true;
+            // 
+            // optStartupAuto
+            // 
+            optStartupAuto.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            optStartupAuto.AutoSize = true;
+            optStartupAuto.Location = new System.Drawing.Point(510, 36);
+            optStartupAuto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            optStartupAuto.Name = "optStartupAuto";
+            optStartupAuto.Size = new System.Drawing.Size(42, 19);
+            optStartupAuto.TabIndex = 5;
+            optStartupAuto.Text = "Yes";
+            optStartupAuto.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            radioButton1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
+            radioButton1.Location = new System.Drawing.Point(780, 37);
+            radioButton1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new System.Drawing.Size(41, 19);
+            radioButton1.TabIndex = 2;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "No";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new System.Drawing.Point(892, 37);
+            radioButton2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new System.Drawing.Size(42, 19);
+            radioButton2.TabIndex = 3;
+            radioButton2.Text = "Yes";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // lblStartup
+            // 
+            lblStartup.AutoSize = true;
+            lblStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lblStartup.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lblStartup.Location = new System.Drawing.Point(12, 10);
+            lblStartup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStartup.Name = "lblStartup";
+            lblStartup.Size = new System.Drawing.Size(62, 18);
+            lblStartup.TabIndex = 0;
+            lblStartup.Text = "Startup";
+            // 
+            // lblStartupInfo
+            // 
+            lblStartupInfo.AutoSize = true;
+            lblStartupInfo.Location = new System.Drawing.Point(12, 39);
+            lblStartupInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblStartupInfo.Name = "lblStartupInfo";
+            lblStartupInfo.Size = new System.Drawing.Size(202, 15);
+            lblStartupInfo.TabIndex = 1;
+            lblStartupInfo.Text = "Auto load last saved map on startup?";
             // 
             // pnlCommandExportOptions
             // 
@@ -2917,6 +3018,8 @@
             ((System.ComponentModel.ISupportInitialize)udExportLat).EndInit();
             tpgOptions.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
+            pnlOptionsStartup.ResumeLayout(false);
+            pnlOptionsStartup.PerformLayout();
             pnlCommandExportOptions.ResumeLayout(false);
             pnlCommandExportOptions.PerformLayout();
             pnlFtpSettingsCommands.ResumeLayout(false);
@@ -3127,5 +3230,12 @@
         private System.Windows.Forms.Label lblVivariumHighlight;
         private System.Windows.Forms.Label lblUploadedHighlight;
         private System.Windows.Forms.Label lblCryopodHighlight;
+        private System.Windows.Forms.Panel pnlOptionsStartup;
+        private System.Windows.Forms.RadioButton optStartupManual;
+        private System.Windows.Forms.RadioButton optStartupAuto;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label lblStartup;
+        private System.Windows.Forms.Label lblStartupInfo;
     }
 }

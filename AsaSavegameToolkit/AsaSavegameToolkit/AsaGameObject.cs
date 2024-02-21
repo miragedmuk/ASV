@@ -127,6 +127,8 @@ namespace AsaSavegameToolkit
         {
             archive.Position = PropertyOffset;
 
+
+
             long lastPropertyPosition = archive.Position;
             if (archive.Position == archive.Limit)
             { 
@@ -151,7 +153,6 @@ namespace AsaSavegameToolkit
             {
 
             }
-
 
 
         }

@@ -99,11 +99,19 @@ namespace ASVPack.Models
             if(fileInfo.Length > int.MaxValue)
             {
                 // >2GB limit for MemoryStream, return as FileStream instead.
-                return File.OpenRead(filename);
+                return new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             }
 
-            return new MemoryStream(File.ReadAllBytes(filename));
-            
+            byte[] fileContentBytes;
+            using(FileStream s = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using(BinaryReader r = new BinaryReader(s))
+                {
+                    fileContentBytes = r.ReadAllBytes();
+                }
+            }
+
+            return new MemoryStream(fileContentBytes);            
         }
 
 
@@ -1830,6 +1838,7 @@ namespace ASVPack.Models
             GameSaveTime = fileTimestamp.ToUniversalTime();
 
 
+            
             //var test = arkSavegame.Objects.Where(o => o.ClassString.Contains("chibi", StringComparison.InvariantCultureIgnoreCase)).ToList();
             //ChibiDino
             
@@ -1852,6 +1861,7 @@ namespace ASVPack.Models
             arkSavegame.Tribes.AsParallel().ForAll(tribe =>
             {
                 var contentTribe = tribe.Tribe.AsTribe();
+                contentTribe.TribeFileDate = tribe.TribeFileTimestamp.ToLocalTime();
                 if (contentTribe != null) fileTribes.Add(contentTribe);
             });
 
@@ -1869,6 +1879,8 @@ namespace ASVPack.Models
 
                 if (contentPlayer != null)
                 {
+    
+
                     if (playerProfile?.Location != null)
                     {
                         float latitude = (float)LoadedMap.LatShift + ((float)playerProfile?.Location.Y / (float)LoadedMap.LatDiv);
@@ -1970,8 +1982,9 @@ namespace ASVPack.Models
                             AsaObjectReference? paintingRef = s.GetPropertyValue<AsaObjectReference?>("PaintingComponent", 0, null);
                             if (paintingRef != null)
                             {
-                                paintingComponent = arkSavegame.Objects.First(o => o.Guid.ToString() == paintingRef.Value);
-                                structure.UniquePaintingId = paintingComponent.GetPropertyValue<int>("UniquePaintingId", 0, 0);
+                                paintingComponent = arkSavegame.Objects.FirstOrDefault(o => o.Guid.ToString() == paintingRef.Value);
+                                if(paintingComponent!=null)
+                                    structure.UniquePaintingId = paintingComponent.GetPropertyValue<int>("UniquePaintingId", 0, 0);
                             }
 
 
@@ -1979,7 +1992,7 @@ namespace ASVPack.Models
                             AsaObjectReference? inventoryRef = s.GetPropertyValue<AsaObjectReference?>("MyInventoryComponent", 0, null);
                             if (inventoryRef != null)
                             {
-                                inventoryComponent = arkSavegame.Objects.First(o => o.Guid.ToString() == inventoryRef.Value);
+                                inventoryComponent = arkSavegame.Objects.FirstOrDefault(o => o.Guid.ToString() == inventoryRef.Value);
                                 
                                 structure.Inventory = new ContentInventory();
 
@@ -2241,16 +2254,25 @@ namespace ASVPack.Models
                     if (arkPlayer != null)
                     {
                         AsaObjectReference? statusRef = arkPlayer.GetPropertyValue<AsaObjectReference?>("MyCharacterStatusComponent");
+                        if(statusRef == null)
+                        {
+                            continue;
+                        }
+
                         Guid statusId = Guid.Parse(statusRef.Value);
                         AsaGameObject? playerStatus = arkSavegame.GetObjectByGuid(statusId);
-
                         ContentPlayer contentPlayer = arkPlayer.AsPlayer(playerStatus);
 
-                        player.X = (float)arkPlayer.Location.X;
-                        player.Y = (float)arkPlayer.Location.Y;
-                        player.Z = (float)arkPlayer.Location.Z;
-                        player.Latitude = (float)LoadedMap.LatShift + (player.Y / (float)LoadedMap.LatDiv);
-                        player.Longitude = (float)LoadedMap.LonShift + (player.X / (float)LoadedMap.LonDiv);
+                        if (arkPlayer.Location != null)
+                        {
+                            player.X = (float)arkPlayer.Location.X;
+                            player.Y = (float)arkPlayer.Location.Y;
+                            player.Z = (float)arkPlayer.Location.Z;
+                            player.Latitude = (float)LoadedMap.LatShift + (player.Y / (float)LoadedMap.LatDiv);
+                            player.Longitude = (float)LoadedMap.LonShift + (player.X / (float)LoadedMap.LonDiv);
+
+                        }
+
                         player.LastTimeInGame = contentPlayer.LastTimeInGame;
                         player.LastActiveDateTime = GetApproxDateTimeOf(player.LastTimeInGame);
                         player.Gender = arkPlayer.ClassName.Name.Contains("Female") ? "Female" : "Male";
@@ -2502,6 +2524,8 @@ namespace ASVPack.Models
             }
 
 
+            var taps = arkSavegame.Objects.Where(o => o.ClassString.ToLower().Contains("treetap") && o.HasAnyProperty("MyInventoryComponent")).ToList();
+
             //allocate tribe structures
             startTicks = DateTime.Now.Ticks;
 
@@ -2556,6 +2580,7 @@ namespace ASVPack.Models
                     if (item.Quantity != 0) inventoryItems.Add(item);
                 }
 
+
                 if (x.GetPropertyValue<AsaObjectReference>("MyInventoryComponent") != null)
                 {
                     var inventoryRefId = x.GetPropertyValue<AsaObjectReference?>("MyInventoryComponent", 0, null)?.Value ?? "";
@@ -2585,12 +2610,20 @@ namespace ASVPack.Models
                             }
                             );
                         }
+
+                    }
+                    else
+                    {
+
                     }
 
                     structure.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                     inventoryItems.Clear();
 
                 }
+
+
+
 
                 if (tribe != null && !tribe.Structures.Contains(structure)) tribe.Structures.Add(structure);
 

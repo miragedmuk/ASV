@@ -450,6 +450,12 @@ namespace AsaSavegameToolkit
             nameTableOffset = archive.ReadInt();
             gameTime = archive.ReadDouble();
 
+            if (saveVersion > 11)
+            {
+                var unknownInt = archive.ReadInt();
+            }
+            
+
         }
 
         private void readParts(AsaArchive archive)

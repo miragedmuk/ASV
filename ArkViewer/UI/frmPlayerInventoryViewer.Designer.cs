@@ -365,6 +365,7 @@
             // cboCreatureType
             // 
             cboCreatureType.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboCreatureType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboCreatureType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboCreatureType.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboCreatureType.FormattingEnabled = true;
@@ -535,6 +536,7 @@
             // cboStorageType
             // 
             cboStorageType.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboStorageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboStorageType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboStorageType.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStorageType.FormattingEnabled = true;

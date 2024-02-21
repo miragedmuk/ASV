@@ -3764,7 +3764,11 @@ namespace ARKViewer
                         try
                         {
                             Program.LogWriter.Debug($"Removing local file for a clean download: {profileFilename}");
-                            if (File.Exists(profileFilename)) File.Delete(profileFilename);
+                            File.Delete(profileFilename);
+                        }
+                        catch
+                        {
+                            Program.LogWriter.Debug($"Failed to remove local file for a clean download: {profileFilename}");
                         }
                         finally
                         {
@@ -3780,8 +3784,13 @@ namespace ARKViewer
                         {
                             Program.LogWriter.Debug($"Removing local file for a clean download: {tribeFilename}");
 
-                            if (File.Exists(tribeFilename)) File.Delete(tribeFilename);
+                            File.Delete(tribeFilename);
                         }
+                        catch
+                        {
+                            Program.LogWriter.Debug($"Failed to remove local file for a clean download: {tribeFilename}");
+                        }
+
                         finally
                         {
                             //ignore, issue deleting the file but not concerned.
@@ -3872,6 +3881,8 @@ namespace ARKViewer
 
                                     localFilename = Path.Combine(downloadPath, serverTribeFile.Name);
                                     shouldDownload = true;
+
+
                                     if (File.Exists(localFilename) && serverTribeFile.Modified.ToUniversalTime() <= File.GetLastWriteTimeUtc(localFilename))
                                     {
                                         if (Program.ProgramConfig.FtpDownloadMode == 0)
@@ -4043,6 +4054,8 @@ namespace ARKViewer
         /***** Drawn Maps ******/
         private void RefreshMap(bool downloadData = false)
         {
+            //if (!Program.ProgramConfig.LoadSaveOnStartup) return;
+
             Program.LogWriter.Trace("BEGIN RefreshMap()");
 
             this.Cursor = Cursors.WaitCursor;
@@ -4092,14 +4105,8 @@ namespace ARKViewer
                 return;
             }
 
-            if (selectedX != 0 || selectedY != 0)
-            {
-                MapViewer.BringToFront();
-            }
-
             lblStatus.Text = "Updating selections...";
             lblStatus.Refresh();
-
 
             switch (tabFeatures.SelectedTab.Name)
             {

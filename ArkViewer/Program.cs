@@ -133,9 +133,9 @@ namespace ARKViewer
 
                 if (!File.Exists(ProgramConfig.SelectedFile))
                 {
-                    using(frmSettings settings = new frmSettings())
+                    using (frmSettings settings = new frmSettings())
                     {
-                        if(settings.ShowDialog() != DialogResult.OK)
+                        if (settings.ShowDialog() != DialogResult.OK)
                         {
                             LogWriter.Info("No game file selected, aborting.");
                             return;
@@ -144,11 +144,18 @@ namespace ARKViewer
                 }
 
                 frmViewer mainForm = new frmViewer();
-                mainForm.UpdateProgress("Loading content pack...");
+                if (ProgramConfig.LoadSaveOnStartup)
+                {
+                    mainForm.UpdateProgress("Loading content pack...");
+                }
+            
                 mainForm.Show();
                 mainForm.BringToFront();
                 Application.DoEvents();
-                mainForm.LoadContent(ProgramConfig.SelectedFile,false);
+                if (ProgramConfig.LoadSaveOnStartup)
+                {
+                    mainForm.LoadContent(ProgramConfig.SelectedFile, false);
+                }                
 
                 Application.Run(mainForm);
             }
