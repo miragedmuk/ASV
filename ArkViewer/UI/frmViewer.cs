@@ -1816,9 +1816,45 @@ namespace ARKViewer
             var commandTemplate = cboConsoleCommandsTamed.SelectedItem.ToString();
             if (commandTemplate != null & !commandTemplate.Contains("<"))
             {
-                return commandTemplate;
-            }
+                if (commandTemplate != "AddMutations") 
+                    return commandTemplate;
 
+                ContentTamedCreature selectedCreature = (ContentTamedCreature)lvwTameDetail.SelectedItems[0].Tag;
+
+                bool hasMutations = false;
+                List<string> mutationCommands = new List<string>();
+
+                for (int statId = 0; statId < selectedCreature.TamedMutations.Length; statId++)
+                {
+
+                    int statValue = selectedCreature.TamedMutations[statId];
+                    if (statValue != 0)
+                    {
+                        hasMutations = true;
+
+                        string commandText = $"AddMutations {statId} {statValue}";
+
+                        switch (Program.ProgramConfig.CommandPrefix)
+                        {
+                            case 1:
+                                commandText = $"admincheat {commandText}";
+
+                                break;
+                            case 2:
+                                commandText = $"cheat {commandText}";
+                                break;
+                        }
+
+                        mutationCommands.Add(commandText);
+                    }
+                }
+
+                if (hasMutations)
+                {
+                    return string.Join('|', mutationCommands.ToArray());
+                }
+                
+            }
             if (commandTemplate != null && lvwTameDetail.SelectedItems.Count > 0)
             {
 

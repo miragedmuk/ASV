@@ -3637,7 +3637,7 @@ namespace ARKViewer
             cboConsoleCommandsTamed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboConsoleCommandsTamed.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommandsTamed.FormattingEnabled = true;
-            cboConsoleCommandsTamed.Items.AddRange(new object[] { "Cryo <DinoId>", "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsTamed.Items"), "TakeTribe <TribeID>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
+            cboConsoleCommandsTamed.Items.AddRange(new object[] { "AddMutations", "Cryo <DinoId>", "DestroyTribeIdDinos <TribeID>", "GMSummon \"<ClassName>\"  <Level>", "GMSummon \"<ClassName>\"  <Level> | <DoTame>", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsTamed.Items"), "TakeTribe <TribeID>", "TeleportCreatureToMe <DinoId>", "TeleportToCreature <DinoId>" });
             cboConsoleCommandsTamed.Location = new System.Drawing.Point(406, 475);
             cboConsoleCommandsTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsTamed.Name = "cboConsoleCommandsTamed";
@@ -4340,7 +4340,7 @@ namespace ARKViewer
             cboConsoleCommandsWild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboConsoleCommandsWild.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboConsoleCommandsWild.FormattingEnabled = true;
-            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyAll <ClassName> 1", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsWild.Items") });
+            cboConsoleCommandsWild.Items.AddRange(new object[] { "DestroyWildDinoClasses <ClassName> 1 ", "DestroyWildDinos", "GMSummon \"<ClassName>\" <Level> ", "SaveWorld", "SetPlayerPos  <x> <y> <z>", resources.GetString("cboConsoleCommandsWild.Items") });
             cboConsoleCommandsWild.Location = new System.Drawing.Point(96, 470);
             cboConsoleCommandsWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboConsoleCommandsWild.Name = "cboConsoleCommandsWild";
