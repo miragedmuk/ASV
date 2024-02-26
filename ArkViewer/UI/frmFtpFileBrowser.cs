@@ -382,7 +382,7 @@ namespace ARKViewer
                     ftpClient.ValidateCertificate += FtpClient_ValidateCertificate1;
 
 
-                    ftpClient.Connect();
+                    ftpClient.AutoConnect();
 
 
                     //not found, please select

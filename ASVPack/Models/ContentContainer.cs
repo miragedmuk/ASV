@@ -2524,8 +2524,6 @@ namespace ASVPack.Models
             }
 
 
-            var taps = arkSavegame.Objects.Where(o => o.ClassString.ToLower().Contains("treetap") && o.HasAnyProperty("MyInventoryComponent")).ToList();
-
             //allocate tribe structures
             startTicks = DateTime.Now.Ticks;
 
@@ -2556,10 +2554,12 @@ namespace ASVPack.Models
                 AsaObjectReference? paintingRef = x.GetPropertyValue<AsaObjectReference?>("PaintingComponent", 0, null);
                 if (paintingRef != null)
                 {
-                    paintingComponent = arkSavegame.Objects.First(o => o.Guid.ToString() == paintingRef.Value);
-                    structure.UniquePaintingId = paintingComponent.GetPropertyValue<int>("UniquePaintingId", 0, 0);
+                    paintingComponent = arkSavegame.GetObjectByGuid(Guid.Parse(paintingRef.Value));
+                    if (paintingComponent != null)
+                    {
+                        structure.UniquePaintingId = paintingComponent.GetPropertyValue<int>("UniquePaintingId", 0, 0);
+                    }                    
                 }
-
 
                 //inventory
                 logWriter.Debug($"Determining inventory status for: {structure.ClassName}");

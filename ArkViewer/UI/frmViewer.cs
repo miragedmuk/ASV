@@ -3847,7 +3847,7 @@ namespace ARKViewer
                     try
                     {
                         Program.LogWriter.Debug($"Attempting secure connection (explicit)");
-                        ftpClient.Connect();
+                        ftpClient.AutoConnect();
 
 
                         Program.LogWriter.Debug($"Retrieving FTP server files in: {selectedServer.SaveGamePath}");
