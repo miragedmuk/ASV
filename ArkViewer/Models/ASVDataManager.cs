@@ -75,7 +75,7 @@ namespace ARKViewer.Models
             }
         }
 
-        public string Realm { get; set; } = "";
+        private string imageRealmName { get; set; } = "";
         
 
 
@@ -90,12 +90,12 @@ namespace ARKViewer.Models
 
 
 
-                if(Realm!=null && Realm.Length > 0)
+                if(imageRealmName!=null && imageRealmName.Length > 0)
                 {
-                    var selectedRealm = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == Realm);
-                    if (selectedRealm != null)
+                    var selectedRealmData = LoadedMap.Regions.FirstOrDefault(r => r.RegionName == imageRealmName);
+                    if (selectedRealmData != null)
                     {
-                        var realmImage = selectedRealm.ImageFile ?? "";
+                        var realmImage = selectedRealmData.ImageFile ?? "";
                         if(realmImage.Length > 0)
                         {
                             var realmFilePath = Path.Combine(imageFilePath, "Maps\\", realmImage);
@@ -171,7 +171,7 @@ namespace ARKViewer.Models
         {
             if (pack.WildCreatures == null) return new List<ContentWildCreature>();
 
-            Realm = selectedRealm;
+            imageRealmName = selectedRealm;
 
             var wilds = pack.WildCreatures.Where(w =>
                                             ((w.ClassName == selectedClass || selectedClass == "") && ((w.BaseLevel >= minLevel && w.BaseLevel <= maxLevel) || w.BaseLevel == 0))
@@ -211,7 +211,7 @@ namespace ARKViewer.Models
         {
             if (pack.Tribes == null) return new List<ContentTamedCreature>();
 
-            Realm = selectedRealm;
+            imageRealmName = selectedRealm;
 
             var tamed = pack.Tribes
                 .Where(t => (t.TribeId == selectedTribeId || selectedTribeId == 0) || t.Players.Any(p => p.Id == selectedPlayerId && selectedPlayerId != 0))
@@ -351,7 +351,7 @@ namespace ARKViewer.Models
         {
             if (pack.Tribes == null) return new List<ContentStructure>();
 
-            Realm = selectedRealm;
+            imageRealmName = selectedRealm;
 
             var tribeStructures = pack.Tribes
                 .Where(t =>
@@ -405,7 +405,7 @@ namespace ARKViewer.Models
         {
             if (pack.Tribes == null) return new List<ContentPlayer>();
 
-            Realm = selectedRealm;
+            imageRealmName = selectedRealm;
 
             var tribePlayers = pack.Tribes
                 .Where(t =>
@@ -458,7 +458,7 @@ namespace ARKViewer.Models
         {
             if (pack.DroppedItems == null) return new List<ContentDroppedItem>();
 
-            Realm = selectedRealm;
+            imageRealmName = selectedRealm;
 
             var foundItems = pack.DroppedItems
                 .Where(d =>
@@ -495,7 +495,7 @@ namespace ARKViewer.Models
         {
             List<ASVFoundItem> foundItems = new List<ASVFoundItem>();
 
-            Realm = selectedRealm;
+            imageRealmName = selectedRealm;
 
             //get selected tribe(s)
             var tribes = GetTribes(tribeId);
@@ -810,6 +810,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = selectedRealm;
 
             if (
                 cachedOptions.Equals(mapOptions)
@@ -832,8 +833,7 @@ namespace ARKViewer.Models
                 cacheImageItems = new Tuple<long, string>(tribeId, className);
                 cachedOptions = mapOptions;
                 lastRealm = selectedRealm;
-                Realm = selectedRealm;
-
+                
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions);
 
@@ -883,6 +883,8 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = selectedRealm;
+
             if (
                 cachedOptions.Equals(mapOptions)
                 && (cacheImageWild != null
@@ -906,7 +908,6 @@ namespace ARKViewer.Models
                 lastDrawRequest = "wild";
                 cacheImageWild = new Tuple<string, string, int, int, float, float, float>(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius);
                 lastRealm = selectedRealm;
-                Realm = selectedRealm;
 
                 cachedOptions = mapOptions;
 
@@ -983,6 +984,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = selectedRealm;
 
             if (cachedOptions.Equals(mapOptions) 
                 && (cacheImageTamed != null
@@ -1002,7 +1004,6 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "tamed";
                 lastRealm = selectedRealm;
-                Realm = selectedRealm;
 
                 cacheImageTamed = new Tuple<string, string, bool, long, long>(className, productionClassName, includeStored, tribeId, playerId);
                 cachedOptions = mapOptions;
@@ -1078,6 +1079,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = selectedRealm;
 
             if (cachedOptions.Equals(mapOptions)
                 &&(cacheImageDroppedItems != null
@@ -1095,7 +1097,6 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "droppeditems";
                 lastRealm = selectedRealm;
-                Realm = selectedRealm;
 
                 cacheImageDroppedItems = new Tuple<long, string>(droppedPlayerId, droppedClass);
                 cachedOptions = mapOptions;
@@ -1170,6 +1171,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = selectedRealm;
 
             if (cachedOptions.Equals(mapOptions)
                 && (cacheImageDropBags != null
@@ -1185,7 +1187,7 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "dropbags";
                 lastRealm = selectedRealm;
-                Realm = selectedRealm;
+
 
                 cacheImageDropBags = new Tuple<long>(droppedPlayerId);
                 cachedOptions = mapOptions;
@@ -1258,6 +1260,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = selectedRealm;
 
             if (cachedOptions.Equals(mapOptions)
                 && (cacheImagePlayerStructures != null
@@ -1275,7 +1278,6 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "structures";
                 lastRealm = selectedRealm;
-                Realm = selectedRealm;
 
                 cacheImagePlayerStructures = new Tuple<string, long, long>(className, tribeId, playerId);
                 cachedOptions = mapOptions;
@@ -1345,6 +1347,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = string.Empty;
 
             if (cacheImageTribes != null
                 && cacheImageTribes.Item1 == tribeId
@@ -1360,8 +1363,7 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "tribes";
                 cacheImageTribes = new Tuple<long, bool, bool, bool>(tribeId, showStructures, showPlayers, showTames);
-                Realm = string.Empty;
-
+                
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions);
 
@@ -1547,6 +1549,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            imageRealmName = selectedRealm;
 
             if (cachedOptions.Equals(mapOptions)
                 && (cacheImagePlayers != null
@@ -1563,7 +1566,6 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "players";
                 lastRealm = selectedRealm;
-                Realm = selectedRealm;
 
                 cacheImagePlayers = new Tuple<long, long>(tribeId, playerId);
                 cachedOptions = mapOptions;
@@ -1648,7 +1650,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            Realm = string.Empty;
+            imageRealmName = string.Empty;
 
             graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
 
