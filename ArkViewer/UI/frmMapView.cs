@@ -212,7 +212,7 @@ namespace ARKViewer
             DrawMapImage(cm.GetMapImageDroppedItems(droppedPlayerId, droppedClass, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
 
         }
-        public void DrawMapImageDropBags(long droppedPlayerId, List<Tuple<float, float>> selectedLocations)
+        public void DrawMapImageDropBags(long droppedPlayerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -232,7 +232,7 @@ namespace ARKViewer
                 BeeHives = c.BeeHives
             };
 
-            DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLocations, mapOptions, CustomMarkers));
+            DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
         public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
         {

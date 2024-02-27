@@ -4301,7 +4301,7 @@ namespace ARKViewer
                     if (droppedClass == "-1")
                     {
 
-                        MapViewer.DrawMapImageDropBags(droppedPlayerId, selectedDropLocations);
+                        MapViewer.DrawMapImageDropBags(droppedPlayerId, selectedDropLocations, (cboDroppedItemRealm.SelectedItem as ASVComboValue).Key);
                     }
                     else
                     {
@@ -5535,7 +5535,7 @@ namespace ARKViewer
                 long.TryParse(selectedValue.Key, out playerId);
             }
 
-            var droppedItems = cm.GetDroppedItems(playerId, "", "");
+            var droppedItems = cm.GetDroppedItems(playerId, "", (cboDroppedItemRealm.SelectedItem as ASVComboValue)?.Key);
             if (droppedItems != null && droppedItems.Count() > 0)
             {
                 //player
@@ -8285,27 +8285,27 @@ namespace ARKViewer
 
         private void cboWildRealm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadWildDetail();
+            RefreshWildSummary();
         }
 
         private void cboTameRealm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadTameDetail();
+            RefreshTamedSummary();
         }
 
         private void cboStructureRealm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadPlayerStructureDetail();
+            RefreshStructureSummary();
         }
 
         private void cboPlayerRealm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadPlayerDetail();
+            RefreshPlayerTribes();
         }
 
         private void cboDroppedItemRealm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadDroppedItemDetail();
+            RefreshDroppedPlayers();
         }
 
         private void cboTameStatus_SelectedIndexChanged(object sender, EventArgs e)

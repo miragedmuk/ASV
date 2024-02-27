@@ -819,6 +819,7 @@ namespace ARKViewer.Models
                     && cacheImageItems.Item1 == tribeId
                     && cacheImageItems.Item2 == className
                     && lastDrawRequest == "items"
+                    && lastRealm == selectedRealm
                 )
             )
             {
@@ -830,6 +831,8 @@ namespace ARKViewer.Models
                 lastDrawRequest = "items";
                 cacheImageItems = new Tuple<long, string>(tribeId, className);
                 cachedOptions = mapOptions;
+                lastRealm = selectedRealm;
+                Realm = selectedRealm;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions);
@@ -903,6 +906,8 @@ namespace ARKViewer.Models
                 lastDrawRequest = "wild";
                 cacheImageWild = new Tuple<string, string, int, int, float, float, float>(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius);
                 lastRealm = selectedRealm;
+                Realm = selectedRealm;
+
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
@@ -997,6 +1002,8 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "tamed";
                 lastRealm = selectedRealm;
+                Realm = selectedRealm;
+
                 cacheImageTamed = new Tuple<string, string, bool, long, long>(className, productionClassName, includeStored, tribeId, playerId);
                 cachedOptions = mapOptions;
 
@@ -1088,6 +1095,8 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "droppeditems";
                 lastRealm = selectedRealm;
+                Realm = selectedRealm;
+
                 cacheImageDroppedItems = new Tuple<long, string>(droppedPlayerId, droppedClass);
                 cachedOptions = mapOptions;
 
@@ -1154,7 +1163,7 @@ namespace ARKViewer.Models
 
         }
 
-        public Bitmap GetMapImageDropBags(long droppedPlayerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers)
+        public Bitmap GetMapImageDropBags(long droppedPlayerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1166,6 +1175,7 @@ namespace ARKViewer.Models
                 && (cacheImageDropBags != null
                 && droppedPlayerId == cacheImageDropBags.Item1
                 && lastDrawRequest == "dropbags")
+                && lastRealm == selectedRealm
             )
             {
                 //if all match, return cached content image
@@ -1174,6 +1184,9 @@ namespace ARKViewer.Models
             else
             {
                 lastDrawRequest = "dropbags";
+                lastRealm = selectedRealm;
+                Realm = selectedRealm;
+
                 cacheImageDropBags = new Tuple<long>(droppedPlayerId);
                 cachedOptions = mapOptions;
 
@@ -1262,6 +1275,8 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "structures";
                 lastRealm = selectedRealm;
+                Realm = selectedRealm;
+
                 cacheImagePlayerStructures = new Tuple<string, long, long>(className, tribeId, playerId);
                 cachedOptions = mapOptions;
 
@@ -1345,6 +1360,7 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "tribes";
                 cacheImageTribes = new Tuple<long, bool, bool, bool>(tribeId, showStructures, showPlayers, showTames);
+                Realm = string.Empty;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions);
@@ -1547,6 +1563,7 @@ namespace ARKViewer.Models
             {
                 lastDrawRequest = "players";
                 lastRealm = selectedRealm;
+                Realm = selectedRealm;
 
                 cacheImagePlayers = new Tuple<long, long>(tribeId, playerId);
                 cachedOptions = mapOptions;
@@ -1631,6 +1648,7 @@ namespace ARKViewer.Models
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
+            Realm = string.Empty;
 
             graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
 
