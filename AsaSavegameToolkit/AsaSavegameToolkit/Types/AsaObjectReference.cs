@@ -21,6 +21,11 @@ namespace AsaSavegameToolkit.Types
 
         public string Value => value.ToString();
 
+        public AsaObjectReference(string objectValue)
+        {
+            value = objectValue;
+        }
+
         public AsaObjectReference(AsaArchive archive, bool useNameTable)
         {
             if (useNameTable && archive.NameTable.Count>0)

@@ -2475,6 +2475,10 @@ namespace ASVPack.Models
                                 creature.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
 
                             }
+                            else
+                            {
+
+                            }
                         }
                         inventoryItems.Clear();
 

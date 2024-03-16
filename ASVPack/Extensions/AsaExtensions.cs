@@ -24,7 +24,7 @@ namespace ASVPack.Extensions
             {
                 if (prop.Position == index && prop.Name == name)
                 {
-                    return prop.Value;
+                    return (T)prop.Value ;
                 }
             }
 
@@ -37,7 +37,7 @@ namespace ASVPack.Extensions
             {
                 if (prop.Position == index && prop.Name == name)
                 {
-                    return prop.Value;
+                    return (T)prop.Value;
                 }
             }
 

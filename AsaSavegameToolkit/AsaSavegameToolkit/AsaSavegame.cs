@@ -89,15 +89,17 @@ namespace AsaSavegameToolkit
             saveFilename = filename;
             string savePath = Path.GetDirectoryName(saveFilename) ?? AppContext.BaseDirectory;
 
-            sqlConnectionString = string.Concat("Data Source=", saveFilename);
+            sqlConnectionString = string.Concat("Data Source=", saveFilename, ";Filename=", saveFilename, ";Mode=ReadOnly");
 
-            using (SqliteConnection connection = new SqliteConnection(string.Concat("Data Source=", saveFilename)))
+            using (SqliteConnection connection = new SqliteConnection(sqlConnectionString))
             {
                 connection.Open();
 
                 readBaseData(connection);
                 readGameData(connection);
                 readActorLocations(connection);
+
+
 
 
 
@@ -116,6 +118,8 @@ namespace AsaSavegameToolkit
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
+
+            
 
             //addComponents();
 
@@ -232,7 +236,8 @@ namespace AsaSavegameToolkit
 
                         var byteListContainer = customContainer.Value;
                         AsaGameObject creatureObject = null;
-
+                        Guid inventoryGuid = Guid.NewGuid();
+                        List<Guid> inventoryItems = new List<Guid>();
 
                         for (int i = 0; i < byteListContainer.Count; i++)
                         {
@@ -247,11 +252,20 @@ namespace AsaSavegameToolkit
                                     dataBytes[x] = byteObjectData[x];
                                 }
 
+
                                 try
                                 {
                                     if(i == 0)
                                     {
                                         var dataStore = new AsaDataStore(dataBytes);
+
+
+                                        if(dataStore.Objects.Count == 0)
+                                        {
+                                            break;
+                                        }
+
+                                        creatureObject = dataStore.Objects.First().Value;
 
                                         foreach (var o in dataStore.Objects)
                                         {
@@ -279,7 +293,6 @@ namespace AsaSavegameToolkit
                                                 }
                                             }
 
-                                            creatureObject = o.Value;
                                             objectBag.TryAdd(o.Value.Guid, o.Value);
                                         }
 
@@ -318,21 +331,11 @@ namespace AsaSavegameToolkit
                                         
                                         }
 
-                                        if(properties.Count > 0 && creatureObject!=null)
+                                        if(properties.Count > 0)
                                         {
-                                            
-
-                                            //DinoCharacterInventoryComponent_BP_Creature_C
-
-
-                                            //MyInventoryComponent
-
-
-                                            //add ownerinvnetory and equippeditem properties
-                                            //properties.Add(new AsaProperty<dynamic>("bEquippedItem", "BoolProperty", 0, 0, true));
-                                            //properties.Add(new AsaProperty<dynamic>("OwnerInventory", "ObjectProperty", 0, 0, new AsaObjectReference(inventoryGuid)));
-
+                                            properties.Add(new AsaProperty<dynamic>("OwnerInventory", "ObjectProperty", 0, 0, new AsaObjectReference(inventoryGuid)));
                                             AsaGameObject asaObject = new AsaGameObject(properties);
+                                            inventoryItems.Add(asaObject.Guid);
                                             objectBag.TryAdd(asaObject.Guid, asaObject);
                                         }
                                     }
@@ -345,6 +348,36 @@ namespace AsaSavegameToolkit
                             }
 
                         }
+
+
+                        if(inventoryItems.Count > 0)
+                        {
+                            //InventoryItems
+                            var inventoryItemReferences = new List<object>();
+                            foreach (var itemGuid in inventoryItems)
+                            {
+                                inventoryItemReferences.Add(new AsaObjectReference(itemGuid));    
+                            }
+                            var inventoryItemContainer = new AsaProperty<dynamic>("InventoryItems", "ArrayProperty", 0, 0, inventoryItemReferences);
+
+
+                            List<AsaProperty<dynamic>> inventoryProperties = new List<AsaProperty<dynamic>>();
+                            
+                            inventoryProperties.Add(inventoryItemContainer);
+                            inventoryProperties.Add(new AsaProperty<dynamic>("bInitializedMe", "BoolProperty", 0, 0, true));
+                            inventoryProperties.Add(new AsaProperty<dynamic>("ItemArchetype", "ObjectProperty", 0, 0, new AsaObjectReference("PrimalInventor yBP_StoredCreature")));
+
+                            var inventoryComponent = new AsaGameObject(inventoryGuid, inventoryProperties);
+                            objectBag.TryAdd(inventoryGuid, inventoryComponent);
+
+                            if (creatureObject != null)
+                            {
+                                creatureObject.Properties.Add(new AsaProperty<dynamic>("MyInventoryComponent", "ObjectProperty", 0, 0, new AsaObjectReference(inventoryGuid)));
+                            }                          
+                            
+
+                        }
+
                     }
 
                 }

@@ -3896,12 +3896,15 @@ namespace ARKViewer
                             {
                                 Program.LogWriter.Debug($"Downloading: {serverSaveFile} as {localFilename}");
 
+                                ftpClient.DownloadFile(localFilename, serverSaveFile.FullName,FtpLocalExists.Overwrite,FtpVerify.None,null);
+                                /*
                                 using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
                                 {
                                     Program.LogWriter.Debug($"Downloading: {serverSaveFile} as {localFilename}");
                                     ftpClient.DownloadStream(outputStream, serverSaveFile.FullName);
                                     outputStream.Flush();
                                 }
+                                */
                                 File.SetLastWriteTimeUtc(localFilename, serverSaveFile.Modified.ToUniversalTime());
                             }
 
@@ -3934,11 +3937,7 @@ namespace ARKViewer
                                     {
                                         Program.LogWriter.Debug($"Downloading: {serverTribeFile} as {localFilename}");
 
-                                        using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
-                                        {
-                                            ftpClient.DownloadStream(outputStream, serverTribeFile.FullName);
-                                            outputStream.Flush();
-                                        }
+                                        ftpClient.DownloadFile(localFilename, serverTribeFile.FullName, FtpLocalExists.Overwrite, FtpVerify.None, null);
                                         File.SetLastWriteTimeUtc(localFilename, serverTribeFile.Modified.ToUniversalTime());
                                     }
 
@@ -3970,11 +3969,7 @@ namespace ARKViewer
                                     {
                                         Program.LogWriter.Debug($"Downloading: {serverProfileFile} as {localFilename}");
 
-                                        using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
-                                        {
-                                            ftpClient.DownloadStream(outputStream, serverProfileFile.FullName);
-                                            outputStream.Flush();
-                                        }
+                                        ftpClient.DownloadFile(localFilename, serverProfileFile.FullName, FtpLocalExists.Overwrite, FtpVerify.None, null);
                                         File.SetLastWriteTimeUtc(localFilename, serverProfileFile.Modified.ToUniversalTime());
                                     }
                                 }

@@ -80,6 +80,30 @@ namespace AsaSavegameToolkit
         }
 
 
+        public AsaGameObject(Guid newId, List<AsaProperty<dynamic>> properties)
+        {
+            Guid = newId;
+            Properties = properties;
+
+            AsaObjectReference? classRef = GetPropertyValue<AsaObjectReference?>("ItemArchetype", 0, null);
+            if (classRef != null)
+            {
+                var classString = classRef.Value.Substring(classRef.Value.LastIndexOf('.') + 1);
+
+                ClassName = AsaName.From(classString);
+            }
+
+            AsaProperty<dynamic>? itemQty = properties.FirstOrDefault(p => p.Name == "ItemQuantity");
+            if (itemQty != null && itemQty.Value == 0)
+            {
+                properties.Remove(itemQty);
+                properties.Add(new AsaProperty<dynamic>("ItemQuantity", "UInt32Property", 0, 0, 1));
+            }
+
+
+            IsItem = true;
+        }
+
 
         public AsaGameObject(List<AsaProperty<dynamic>> properties)
         {
@@ -89,8 +113,18 @@ namespace AsaSavegameToolkit
             AsaObjectReference? classRef = GetPropertyValue<AsaObjectReference?>("ItemArchetype", 0, null);
             if (classRef != null)
             {
-                ClassName = AsaName.From(classRef.Value);
+                var classString = classRef.Value.Substring(classRef.Value.LastIndexOf('.')+1);
+
+                ClassName = AsaName.From(classString);
             }
+
+            AsaProperty<dynamic>? itemQty = properties.FirstOrDefault(p => p.Name == "ItemQuantity");
+            if (itemQty != null && itemQty.Value ==0)
+            {
+                properties.Remove(itemQty);
+                properties.Add(new AsaProperty<dynamic>("ItemQuantity", "UInt32Property", 0, 0, 1));
+            }
+
 
             IsItem = true;
         }
