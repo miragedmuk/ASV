@@ -5139,7 +5139,7 @@ namespace ARKViewer
                     if (Program.ProgramConfig.HideNoBody)
                     {
 
-                        addTribe = tribe.Players.Count > 0 && !tribe.Players.All(p => (p.Latitude == 0 && p.Longitude == 0));
+                        addTribe = tribe.Players.Count > 0 && !tribe.Players.All(p => (p.Latitude.GetValueOrDefault(0) ==0 && p.Longitude.GetValueOrDefault(0) == 0));
                     }
 
                     if (addTribe)
@@ -5494,8 +5494,18 @@ namespace ARKViewer
             {
                 foreach (var player in allPlayers)
                 {
-                    ASVComboValue valuePair = new ASVComboValue(player.Id.ToString(), player.CharacterName != null && player.CharacterName.Length > 0 ? player.CharacterName : player.Name);
-                    newItems.Add(valuePair);
+                    bool addPlayer = true;
+                    if (Program.ProgramConfig.HideNoBody)
+                    {
+                        addPlayer = !(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0);
+                    }
+
+                    if (addPlayer)
+                    {
+                        ASVComboValue valuePair = new ASVComboValue(player.Id.ToString(), player.CharacterName != null && player.CharacterName.Length > 0 ? player.CharacterName : player.Name);
+                        newItems.Add(valuePair);
+
+                    }
                 }
             }
 
@@ -5605,7 +5615,7 @@ namespace ARKViewer
                     bool addPlayer = true;
                     if (Program.ProgramConfig.HideNoBody)
                     {
-                        addPlayer = !(player.Latitude == 0 && player.Longitude == 0);
+                        addPlayer = !(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0);
                     }
 
                     if (addPlayer)
@@ -5655,6 +5665,11 @@ namespace ARKViewer
                     if (Program.ProgramConfig.HideNoTames)
                     {
                         addItem = tribe.Tames != null && tribe.Tames.Count > 0;
+                    }
+
+                    if(Program.ProgramConfig.HideNoBody && addItem)
+                    {
+                        addItem = !(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0);
                     }
 
                     if (addItem)
@@ -5727,8 +5742,16 @@ namespace ARKViewer
                                    );
                     }
 
+                    if (Program.ProgramConfig.HideNoBody && addItem)
+                    {
+                        addItem = !(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0);
+                    }
+
                     if (addItem)
                     {
+
+
+
 
                         ASVComboValue valuePair = new ASVComboValue(player.Id.ToString(), player.CharacterName);
                         newItems.Add(valuePair);

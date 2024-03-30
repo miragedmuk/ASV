@@ -4298,15 +4298,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CoreRCON" Version="5.2.1" />
-    <PackageReference Include="FluentFTP" Version="49.0.1" />
+    <PackageReference Include="CoreRCON" Version="5.4.0" />
+    <PackageReference Include="FluentFTP" Version="49.0.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="3.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NLog" Version="5.2.8" />
     <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="2.88.7" />
-    <PackageReference Include="SSH.NET" Version="2023.0.1" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.1" />
+    <PackageReference Include="SSH.NET" Version="2024.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Form1.cs" />
