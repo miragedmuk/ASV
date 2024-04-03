@@ -78,7 +78,8 @@ namespace ASVPack.Extensions
 
         public static bool IsCreature(this AsaGameObject gameObject)
         {
-            return gameObject.HasAnyProperty("bServerInitializedDino")
+            var isCreature = 
+            (gameObject.HasAnyProperty("bServerInitializedDino") || gameObject.ClassString == "Oasisaur_Character_BP_C")
             & !(
                 gameObject.ClassString == "MotorRaft_BP_C"
                 || gameObject.ClassString == "Raft_BP_C"
@@ -89,6 +90,8 @@ namespace ASVPack.Extensions
                 || gameObject.ClassString == "SRaft_BP_C"
                 );
 
+
+            return isCreature;
         }
 
 

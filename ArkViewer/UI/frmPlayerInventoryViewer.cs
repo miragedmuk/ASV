@@ -6,6 +6,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -104,6 +105,7 @@ namespace ARKViewer
 
             if (currentPlayer.Engrams != null)
             {
+
                 //var playerItems = selectedPlayer.Creatures;
 
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
@@ -122,7 +124,7 @@ namespace ARKViewer
                     ClassName = s.Key.ClassName
                 }).ToList();
 
-
+                
                 Parallel.ForEach(playerEngrams, invItem =>
                 {
                     string itemName = invItem.ClassName;

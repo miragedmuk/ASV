@@ -24,6 +24,7 @@ using System.Security;
 using System.Text;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using System.Xml;
 
 
 namespace ASVPack.Models
@@ -209,7 +210,8 @@ namespace ASVPack.Models
                 List<ContentTribe> tribeContentList = new List<ContentTribe>();
 
                 var fileInf = new FileInfo(saveFilename);
-                GameSaveTime = fileInf.LastWriteTimeUtc.ToLocalTime();
+                
+                GameSaveTime = fileInf.LastWriteTime;
                 fileInf = null;
 
                 logWriter.Debug($"Reading game save data: {saveFilename}");
@@ -236,6 +238,8 @@ namespace ASVPack.Models
                 {
                     LoadArkEvolvedData(saveFilename);
                 }
+
+
 
 
 
@@ -1833,12 +1837,14 @@ namespace ASVPack.Models
 
             //read game time and file datetime
             FileInfo fileInfo = new FileInfo(saveFilename);
-            DateTime fileTimestamp =  fileInfo.LastWriteTimeUtc;
+            DateTime fileTimestamp =  fileInfo.LastWriteTime;
             GameSeconds = (float)arkSavegame.GameTime;
-            GameSaveTime = fileTimestamp.ToUniversalTime();
+            GameSaveTime = fileTimestamp;
 
 
-            
+//            var oasis = arkSavegame.Objects.Where(o => o.ClassString.ToLower().Contains("oasis")).ToList();
+
+
             //var test = arkSavegame.Objects.Where(o => o.ClassString.Contains("chibi", StringComparison.InvariantCultureIgnoreCase)).ToList();
             //ChibiDino
             
@@ -2079,7 +2085,9 @@ namespace ASVPack.Models
             
             ConcurrentBag<ContentWildCreature> wildBag = new ConcurrentBag<ContentWildCreature>();
             arkSavegame.Objects.AsParallel().Where(x => x.IsWild()).ForAll(x=>           
+            //foreach(var x in arkSavegame.Objects.Where(o => o.IsWild()))
             {
+
                 AsaObjectReference? statusCompRef = x.GetPropertyValue<AsaObjectReference?>("MyCharacterStatusComponent", 0, null) ?? x.GetPropertyValue<AsaObjectReference?>("MyDinoStatusComponent", 0, null);
                 if (statusCompRef != null)
                 {

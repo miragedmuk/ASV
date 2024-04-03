@@ -3905,7 +3905,7 @@ namespace ARKViewer
                                     outputStream.Flush();
                                 }
                                 */
-                                File.SetLastWriteTimeUtc(localFilename, serverSaveFile.Modified.ToUniversalTime());
+                                File.SetLastWriteTime(localFilename, serverSaveFile.Modified.ToLocalTime());
                             }
 
 

@@ -40,8 +40,8 @@ namespace ASVPack.Models
                         var newMarker = new ContentMarker();
 
                         string markerName = markerProperties.GetPropertyValue<string>("Name");
-                        float lat = markerProperties.GetPropertyValue<float>("coord1f");
-                        float lon = markerProperties.GetPropertyValue<float>("coord2f");
+                        float lat = markerProperties.GetPropertyValue<float>("coord2f");
+                        float lon = markerProperties.GetPropertyValue<float>("coord1f");
 
                         newMarker.Displayed = true;
                         newMarker.Lat = lat;

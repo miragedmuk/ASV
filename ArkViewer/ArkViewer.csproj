@@ -41,6 +41,9 @@
     <None Update="maps.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Maps\map_grid.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Maps\fjordur_asgard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -55,6 +58,9 @@
     </None>
     <None Update="Maps\map_fjordur_old.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Maps\map_scorchedearth_wp.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Maps\map_svartalfheim.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
