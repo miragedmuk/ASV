@@ -24,7 +24,7 @@ namespace ASVPack.Models
 
         public ContentWildCreature(GameObject gameObject, GameObject statusObject) : base(gameObject, statusObject)
         {
-            IsTameable = !gameObject.GetPropertyValue<bool>("bForceDisablingTaming");
+            IsTameable = !gameObject.GetPropertyValue<bool>("bForceDisablingTaming",0,false);
             if(ClassName.StartsWith("Mega")) 
             {
                 if (Regex.IsMatch(ClassName, "Mega[A-Z]") || ClassName.StartsWith("Mega_")) IsTameable = false;

@@ -1,4 +1,5 @@
 ﻿using AsaSavegameToolkit;
+using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
 using AsaSavegameToolkit.Types;
 using ASVPack.Extensions;
@@ -21,6 +22,7 @@ using System.Linq;
 using System.Numerics;
 using System.Runtime.Serialization;
 using System.Security;
+using System.Security.AccessControl;
 using System.Text;
 using System.Text.Unicode;
 using System.Threading.Tasks;
@@ -1841,13 +1843,6 @@ namespace ASVPack.Models
             GameSeconds = (float)arkSavegame.GameTime;
             GameSaveTime = fileTimestamp;
 
-
-//            var oasis = arkSavegame.Objects.Where(o => o.ClassString.ToLower().Contains("oasis")).ToList();
-
-
-            //var test = arkSavegame.Objects.Where(o => o.ClassString.Contains("chibi", StringComparison.InvariantCultureIgnoreCase)).ToList();
-            //ChibiDino
-            
             //parse tribes
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Tribes...");
             ConcurrentBag<ContentTribe> fileTribes = new ConcurrentBag<ContentTribe>();
@@ -1993,6 +1988,7 @@ namespace ASVPack.Models
                                     structure.UniquePaintingId = paintingComponent.GetPropertyValue<int>("UniquePaintingId", 0, 0);
                             }
 
+                            structure.Inventory = new ContentInventory();
 
                             AsaGameObject inventoryComponent = null;
                             AsaObjectReference? inventoryRef = s.GetPropertyValue<AsaObjectReference?>("MyInventoryComponent", 0, null);
@@ -2000,7 +1996,7 @@ namespace ASVPack.Models
                             {
                                 inventoryComponent = arkSavegame.Objects.FirstOrDefault(o => o.Guid.ToString() == inventoryRef.Value);
                                 
-                                structure.Inventory = new ContentInventory();
+
 
                                 if (inventoryComponent != null)
                                 {
@@ -2029,35 +2025,53 @@ namespace ASVPack.Models
                                     }
 
                                 }
-                                else
-                                {
-                                    //check for eggs *near* nests
-                                    if (s.ClassName.Name.Contains("Nest"))
-                                    {
-                                        var eggInRange = arkSavegame.Objects.FirstOrDefault(x =>
-                                            x.ClassName.Name.Contains("Egg")
-                                            && x.Location != null
-                                            && (((x.Location.X > s.Location.X) ? x.Location.X - s.Location.X : s.Location.X - x.Location.X) < 1500)
-                                            && (((x.Location.Z > s.Location.Z) ? x.Location.Z - s.Location.Z : s.Location.Z - x.Location.Z) < 1500)
-                                        );
-
-                                        if (eggInRange != null)
-                                        {
-                                            inventoryItems.Add(new ContentItem()
-                                            {
-                                                ClassName = eggInRange.ClassString,
-                                                CustomName = eggInRange.GetPropertyValue<string>("DroppedByName", 0, "")??"",
-                                                Quantity = 1
-                                            });
-                                        }
-                                    }
-
-                                }
 
 
-                                if (inventoryItems.Count > 0) structure.Inventory.Items.AddRange(inventoryItems.ToArray());
 
                             }
+                            else
+                            {
+                                //check for eggs *near* nests
+                                if (s.ClassString.Contains("nest", StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    var eggInRange = arkSavegame.Objects.FirstOrDefault(x =>
+                                        x.ClassString.Contains("egg", StringComparison.CurrentCultureIgnoreCase)
+                                        && x.Location != null
+                                        && Math.Abs((x.Location.X > s.Location.X) ? x.Location.X - s.Location.X : s.Location.X - x.Location.X) < 100
+                                        && Math.Abs((x.Location.Y > s.Location.Y) ? x.Location.Y - s.Location.Y : s.Location.Y - x.Location.Y) < 100
+                                    );
+
+                                    if (eggInRange != null)
+                                    {
+                                        AsaObjectReference? itemRef = eggInRange.GetPropertyValue<AsaObjectReference?>("MyItem", 0, null);
+                                        if (itemRef != null)
+                                        {
+                                            var itemId = Guid.Parse(itemRef.Value);
+                                            var itemObj = arkSavegame.GetObjectByGuid(itemId);
+                                            if (itemObj != null)
+                                            {
+                                                ContentItem eggItem = new ContentItem()
+                                                {
+                                                    ClassName = itemObj.ClassString,
+                                                    Quantity = 1
+                                                };
+
+                                                string customName = itemObj.GetPropertyValue<string?>("CustomItemDescription", 0, "") ?? "";
+                                                customName = customName.Replace("\n", " / ");
+                                                customName = customName.Replace("Parents: /", "");
+                                                eggItem.CustomName = customName;
+                                                
+                                              
+
+                                                inventoryItems.Add(eggItem);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (inventoryItems.Count > 0) structure.Inventory.Items.AddRange(inventoryItems.ToArray());
+
 
                             return structure;
                         }
@@ -2089,6 +2103,7 @@ namespace ASVPack.Models
             {
 
                 AsaObjectReference? statusCompRef = x.GetPropertyValue<AsaObjectReference?>("MyCharacterStatusComponent", 0, null) ?? x.GetPropertyValue<AsaObjectReference?>("MyDinoStatusComponent", 0, null);
+                
                 if (statusCompRef != null)
                 {
                     Guid refGuid = Guid.Parse(statusCompRef.Value);

@@ -567,9 +567,9 @@ namespace AsaSavegameToolkit
 
             ConcurrentDictionary<Guid,AsaGameObject> asaGameObjectDictionary = new ConcurrentDictionary<Guid, AsaGameObject>();
 
-            Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
+            //Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
             //foreach(var objectData in gameData) 
-            //gameData.AsParallel().ForAll(objectData =>
+            gameData.AsParallel().ForAll(objectData =>
             {
                 using (var ms = new MemoryStream(objectData.Value))
                 {

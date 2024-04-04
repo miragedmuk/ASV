@@ -684,8 +684,9 @@ namespace ARKViewer
                     }
 
                 }
-                cboLocalARK.SelectedIndex = selectedOfflineIndex;
                 cboLocalARK.Sorted = true;
+                cboLocalARK.SelectedIndex = selectedOfflineIndex;
+
             }
 
             UpdateDisplay();
