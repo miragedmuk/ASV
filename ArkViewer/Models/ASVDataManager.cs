@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ARKViewer.Models
@@ -200,14 +201,11 @@ namespace ARKViewer.Models
                     );
 
                 }
-
             }
-
-
             return wilds;
         }
 
-        public List<ContentTamedCreature> GetTamedCreatures(string selectedClass, long selectedTribeId, long selectedPlayerId, bool includeCryoVivarium, string selectedRealm)
+        public List<ContentTamedCreature> GetTamedCreatures(string selectedClass, long selectedTribeId, long selectedPlayerId, bool includeCryoVivarium, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             if (pack.Tribes == null) return new List<ContentTamedCreature>();
 
@@ -221,6 +219,11 @@ namespace ARKViewer.Models
                                     & !(w.ClassName == "MotorRaft_BP_C" || w.ClassName == "Raft_BP_C")
                                     && (includeCryoVivarium || w.IsCryo == false)
                                     && (includeCryoVivarium || w.IsVivarium == false)
+                                    &&
+                                    (
+                                        (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                                        && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                    )
                                 )
                             ).ToList();
 
@@ -347,7 +350,7 @@ namespace ARKViewer.Models
 
         }
 
-        public List<ContentStructure> GetPlayerStructures(long selectedTribeId, long selectedPlayerId, string selectedClass, bool includeExcluded, string selectedRealm)
+        public List<ContentStructure> GetPlayerStructures(long selectedTribeId, long selectedPlayerId, string selectedClass, bool includeExcluded, string selectedRealm, float fromLat = 50, float fromLon=50, float fromRadius = 100)
         {
             if (pack.Tribes == null) return new List<ContentStructure>();
 
@@ -363,6 +366,12 @@ namespace ARKViewer.Models
                         (selectedClass.Length == 0 || x.ClassName == selectedClass)
                         &&
                         (!Program.ProgramConfig.StructureExclusions.Contains(x.ClassName) || includeExcluded)
+                        &&
+                        (
+                            (Math.Abs(x.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                            && (Math.Abs(x.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                        )
+
                     )
                 ).ToList();
 

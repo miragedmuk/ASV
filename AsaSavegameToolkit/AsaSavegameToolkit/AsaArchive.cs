@@ -29,6 +29,8 @@ namespace AsaSavegameToolkit
 
         public long Limit => mbb.Length;
 
+        public short SaveVersion { get; internal set; }
+
         public AsaArchive(Stream stream)
         {
             mbb = stream;

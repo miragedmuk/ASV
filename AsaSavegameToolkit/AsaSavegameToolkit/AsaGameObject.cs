@@ -34,6 +34,7 @@ namespace AsaSavegameToolkit
         public IEnumerable<AsaName> ParentNames => Names.Skip(1).ToList();
         public int DataFileIndex { get; private set; } = 0;
         public long PropertyOffset { get;private set; } = 0;
+        
 
         public AsaGameObject(AsaArchive archive)
         {
@@ -132,17 +133,27 @@ namespace AsaSavegameToolkit
         public AsaGameObject(Guid objectId, AsaArchive archive)
         {
             Guid = objectId;
-
             ClassName = archive.ReadName();
             IsItem = archive.ReadBool();//? not isitem - always false?
 
-            int nameCount = archive.ReadInt();
+            int nameCount = archive.ReadInt();           
             Names.Clear();
             while (nameCount-- > 0)
             {
-                Names.Add(archive.ReadName());
+                if(archive.SaveVersion < 13)
+                {
+                    Names.Add(archive.ReadName());
+                }
+
+                if (archive.SaveVersion >= 13)
+                {
+                    Names.Add(AsaName.From(archive.ReadString()));
+                }
+
             }
 
+            
+           
             DataFileIndex = archive.ReadInt();
             archive.SkipBytes(1);
 

@@ -26,6 +26,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Timer = System.Windows.Forms.Timer;
@@ -1816,7 +1817,7 @@ namespace ARKViewer
             var commandTemplate = cboConsoleCommandsTamed.SelectedItem.ToString();
             if (commandTemplate != null & !commandTemplate.Contains("<"))
             {
-                if (commandTemplate != "AddMutations") 
+                if (commandTemplate != "AddMutations")
                     return commandTemplate;
 
                 ContentTamedCreature selectedCreature = (ContentTamedCreature)lvwTameDetail.SelectedItems[0].Tag;
@@ -1853,7 +1854,7 @@ namespace ARKViewer
                 {
                     return string.Join('|', mutationCommands.ToArray());
                 }
-                
+
             }
             if (commandTemplate != null && lvwTameDetail.SelectedItems.Count > 0)
             {
@@ -3896,7 +3897,7 @@ namespace ARKViewer
                             {
                                 Program.LogWriter.Debug($"Downloading: {serverSaveFile} as {localFilename}");
 
-                                ftpClient.DownloadFile(localFilename, serverSaveFile.FullName,FtpLocalExists.Overwrite,FtpVerify.None,null);
+                                ftpClient.DownloadFile(localFilename, serverSaveFile.FullName, FtpLocalExists.Overwrite, FtpVerify.None, null);
                                 /*
                                 using (FileStream outputStream = new FileStream(localFilename, FileMode.Create))
                                 {
@@ -4565,8 +4566,12 @@ namespace ARKViewer
             comboValue = (ASVComboValue)cboStructurePlayer.SelectedItem;
             int.TryParse(comboValue.Key, out int selectedPlayerId);
 
+            float fromLat = (float)udLatStructures.Value;
+            float fromLon = (float)udLonStructures.Value;
+            float fromRadius = (float)udRadiusStructures.Value;
 
-            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, "", false, (cboStructureRealm.SelectedItem as ASVComboValue).Key)
+
+            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, "", false, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLat, fromLon, fromRadius)
                                                         .Where(s =>
                                                             Program.ProgramConfig.StructureExclusions == null
                                                             || (Program.ProgramConfig.StructureExclusions != null & !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName))
@@ -4603,7 +4608,7 @@ namespace ARKViewer
             }
 
 
-            int selectedIndex = 1;
+            int selectedIndex = 0;
             if (newItems.Count > 0)
             {
                 cboStructureStructure.BeginUpdate();
@@ -4920,7 +4925,7 @@ namespace ARKViewer
 
 
             //MessageBox.Show("Listing tamed creatures.");
-            var tamedSummary = cm.GetTamedCreatures("", 0, 0, chkCryo.Checked, "")
+            var tamedSummary = cm.GetTamedCreatures("", 0, 0, chkCryo.Checked, "", (float)udLatTamed.Value, (float)udLonTamed.Value, (float)udRadiusTamed.Value)
                                 .Where(t => !(t.ClassName == "MotorRaft_BP_C" || t.ClassName == "Raft_BP_C"))
                                 .GroupBy(c => c.ClassName)
                                 .Select(g => new { ClassName = g.Key, Name = ARKViewer.Program.ProgramConfig.DinoMap.Count(d => d.ClassName == g.Key) == 0 ? g.Key : ARKViewer.Program.ProgramConfig.DinoMap.Where(d => d.ClassName == g.Key).FirstOrDefault().FriendlyName, Count = g.Count(), Min = g.Min(l => l.Level), Max = g.Max(l => l.Level) })
@@ -5139,7 +5144,7 @@ namespace ARKViewer
                     if (Program.ProgramConfig.HideNoBody)
                     {
 
-                        addTribe = tribe.Players.Count > 0 && !tribe.Players.All(p => (p.Latitude.GetValueOrDefault(0) ==0 && p.Longitude.GetValueOrDefault(0) == 0));
+                        addTribe = tribe.Players.Count > 0 && !tribe.Players.All(p => (p.Latitude.GetValueOrDefault(0) == 0 && p.Longitude.GetValueOrDefault(0) == 0));
                     }
 
                     if (addTribe)
@@ -5356,6 +5361,19 @@ namespace ARKViewer
 
                     if (addItem)
                     {
+                        float fromLat = (float)udLatTamed.Value;
+                        float fromLon = (float)udLonTamed.Value;
+                        float fromRadius = (float)udRadiusTamed.Value;
+
+
+                        addItem = tribe.Tames.LongCount(w => (
+                                        (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                                        && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                    )) > 0;
+                    }
+
+                    if (addItem)
+                    {
                         if (tribe.TribeName == null || tribe.TribeName.Length == 0) tribe.TribeName = "[N/A]";
                         ASVComboValue valuePair = new ASVComboValue(tribe.TribeId.ToString(), tribe.TribeName);
                         newItems.Add(valuePair);
@@ -5403,6 +5421,19 @@ namespace ARKViewer
                                 );
 
                     }
+
+                    if (addItem)
+                    {
+                        float fromLat = (float)udLatStructures.Value;
+                        float fromLon = (float)udLonStructures.Value;
+                        float fromRadius = (float)udRadiusStructures.Value;
+
+                        addItem = tribe.Structures.LongCount(w => (
+                                        (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                                        && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                    )) > 0;
+                    }
+
 
                     if (addItem)
                     {
@@ -5667,7 +5698,22 @@ namespace ARKViewer
                         addItem = tribe.Tames != null && tribe.Tames.Count > 0;
                     }
 
-                    if(Program.ProgramConfig.HideNoBody && addItem)
+                    float fromLat = (float)udLatTamed.Value;
+                    float fromLon = (float)udLonTamed.Value;
+                    float fromRadius = (float)udRadiusTamed.Value;
+
+
+                    if (addItem)
+                    {
+
+                        addItem = tribe.Tames.LongCount(w => (
+                                        (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                                        && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                    )) > 0;
+                    }
+
+
+                    if (Program.ProgramConfig.HideNoBody && addItem)
                     {
                         addItem = !(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0);
                     }
@@ -5749,6 +5795,20 @@ namespace ARKViewer
 
                     if (addItem)
                     {
+                        float fromLat = (float)udLatTamed.Value;
+                        float fromLon = (float)udLonTamed.Value;
+                        float fromRadius = (float)udRadiusTamed.Value;
+
+
+                        addItem = tribe.Structures.LongCount(w => (
+                                        (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                                        && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                    )) > 0;
+                    }
+
+
+                    if (addItem)
+                    {
 
 
 
@@ -5821,8 +5881,12 @@ namespace ARKViewer
             comboValue = (ASVComboValue)cboStructureStructure.SelectedItem;
             if (comboValue != null) selectedClass = comboValue.Key;
 
+            float fromLat = (float)udLatStructures.Value;
+            float fromLon = (float)udLonStructures.Value;
+            float fromRad = (float)udRadiusStructures.Value;
 
-            var playerStructures = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, selectedClass, false, (cboStructureRealm.SelectedItem as ASVComboValue).Key)
+
+            var playerStructures = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, selectedClass, false, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLat,fromLon,fromRad)
                 .Where(s => (!Program.ProgramConfig.StructureExclusions.Contains(s.ClassName))).ToList();
 
             lblStructureTotal.Text = $"Count: {playerStructures.Count()}";
@@ -6584,6 +6648,10 @@ namespace ARKViewer
                     int.TryParse(comboValue.Key, out selectedPlayerId);
                 }
 
+                float fromLat = (float)udLatTamed.Value;
+                float fromLon = (float)udLonTamed.Value;
+                float fromRadius = (float)udRadiusTamed.Value;
+
                 var tribes = cm.GetTribes(selectedTribeId);
                 var detailList = tribes.SelectMany(t => t.Tames
                     .Where(x =>
@@ -6592,6 +6660,12 @@ namespace ARKViewer
                         && (chkCryo.Checked || x.IsCryo == false)
                         && (chkCryo.Checked || x.IsVivarium == false)
                         && (x.TargetingTeam == selectedTribeId || x.TargetingTeam > 0 && x.TargetingTeam < 2000000000 && selectedTribeId == 0)
+                        &&
+                        (
+                            (Math.Abs(x.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                            &&
+                            (Math.Abs(x.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                        )
                     )).DistinctBy(u => new { u.DinoId, u.Latitude, u.Longitude, u.Name, u.Level }).ToList();
 
                 if (cboTamedResource.SelectedIndex > 0)
@@ -8950,6 +9024,20 @@ namespace ARKViewer
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _textFont, _textBrush, textBounds, new StringFormat(_stringFlags));
 
+        }
+
+        private void FilterTamedLocations(object sender, EventArgs e)
+        {
+            RefreshTamedTribes();
+            RefreshTamePlayerList();
+            RefreshTamedSummary();
+        }
+
+        private void FilterStructureLocations(object sender, EventArgs e)
+        {
+            RefreshStructureTribes();
+            RefreshStructurePlayerList();
+            RefreshStructureSummary();  
         }
     }
 }

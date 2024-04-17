@@ -1,11 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using AsaSavegameToolkit;
+using Newtonsoft.Json;
+using SavegameToolkit.Arrays;
+using SavegameToolkit.Propertys;
+using SavegameToolkit.Structs;
+using SavegameToolkit;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.Compression;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
@@ -190,11 +197,6 @@ namespace ASVPack.Models
         }
 
 
-
-
-
-
-
         public void ExportJsonAll(string exportPath)
         {
             if (!Directory.Exists(exportPath)) Directory.CreateDirectory(exportPath);
@@ -209,6 +211,180 @@ namespace ASVPack.Models
                 )
             ;
         }
+
+        public void ExportClusterToJson(string clusterFolder, string clusterFilename = "")
+        {
+            if (!Directory.Exists(clusterFolder)) return;
+
+            if (!string.IsNullOrEmpty(clusterFolder) && Directory.Exists(clusterFolder))
+            {
+
+                var profileFilenames = Directory.GetFiles(clusterFolder, "*");
+                profileFilenames.AsParallel().ForAll(fileName =>
+                {
+                    long itemOwnerId = 0;
+                    long.TryParse(System.IO.Path.GetFileNameWithoutExtension(fileName), out itemOwnerId);
+
+                    try
+                    {
+                        using (Stream clusterFileStream = new FileStream(fileName, FileMode.Open))
+                        {
+                            using (ArkArchive clusterArchive = new ArkArchive(clusterFileStream))
+                            {
+                                ArkCloudInventory cloudInventory = new ArkCloudInventory();
+                                cloudInventory.ReadBinary(clusterArchive, ReadingOptions.Create().WithBuildComponentTree(true).WithDataFilesObjectMap(false).WithGameObjects(true).WithGameObjectProperties(true));
+
+                                PropertyStruct propTest = cloudInventory.GetTypedProperty<PropertyStruct>("MyArkData");
+                                StructPropertyList? propList = propTest.Value as StructPropertyList;
+                                if (propList != null)
+                                {
+                                    var itemList = propList.GetTypedProperty<PropertyArray>("ArkItems");
+                                    if (itemList != null)
+                                    {
+                                        foreach (StructPropertyList testItem in (ArkArrayStruct)itemList.Value)
+                                        {
+                                            try
+                                            {
+                                                var item = testItem.GetTypedProperty<PropertyStruct>("ArkTributeItem");
+
+                                                var isInitialItem = ((StructPropertyList)item.Value).GetPropertyValue<bool>("bIsInitialItem");
+                                                if (!isInitialItem)
+                                                {
+                                                    ContentItem newItem = new ContentItem((StructPropertyList)item.Value);
+                                                    if (newItem.Quantity == 0)
+                                                    {
+                                                        newItem.Quantity = 1;
+                                                    }
+
+                                                    //targetPlayer.Inventory.Items.Add(newItem);
+                                                }
+                                            }
+                                            catch
+                                            {
+
+                                            }
+
+
+                                        }
+
+                                    }
+
+                                    var dinoList = propList.GetTypedProperty<PropertyArray>("ArkTamedDinosData");
+                                    if (dinoList != null && dinoList.Value != null)
+                                    {
+
+
+                                        foreach (StructPropertyList dinoData in (ArkArrayStruct)dinoList.Value)
+                                        {
+                                            var byteArray = dinoData.GetTypedProperty<PropertyArray>("DinoData");
+                                            int uploadTime = dinoData.GetPropertyValue<int>("UploadTime");
+
+
+                                            ArkArrayUInt8? creatureBytes = byteArray.Value as ArkArrayUInt8;
+                                            if (creatureBytes != null)
+                                            {
+
+
+                                                var cryoStream = new System.IO.MemoryStream(creatureBytes.ToArray<byte>());
+
+                                                using (ArkArchive uploadArchive = new ArkArchive(cryoStream))
+                                                {
+                                                    // number of serialized objects
+                                                    int objCount = uploadArchive.ReadInt();
+                                                    if (objCount != 0)
+                                                    {
+                                                        var storedGameObjects = new List<GameObject>(objCount);
+                                                        for (int oi = 0; oi < objCount; oi++)
+                                                        {
+                                                            storedGameObjects.Add(new GameObject(uploadArchive));
+                                                        }
+
+                                                        foreach (var ob in storedGameObjects)
+                                                        {
+                                                            ob.LoadProperties(uploadArchive, new GameObject(), 0);
+                                                        }
+
+                                                        var creatureObject = storedGameObjects[0];
+                                                        var statusObject = storedGameObjects[1];
+
+                                                        // assume the first object is the creature object
+                                                        string creatureActorId = creatureObject.Names[0].ToString();
+
+                                                        // the tribe name is stored in `TamerString`, non-cryoed creatures have the property `TribeName` for that.
+                                                        if (creatureObject.GetPropertyValue<string>("TribeName")?.Length == 0 && creatureObject.GetPropertyValue<string>("TamerString")?.Length > 0)
+                                                            creatureObject.Properties.Add(new PropertyString("TribeName", creatureObject.GetPropertyValue<string>("TamerString")));
+
+
+                                                        ContentTamedCreature tamedDino = new ContentTamedCreature(uploadTime, creatureObject, statusObject);
+
+                                                        if (tamedDino.UploadedTimeInGame != 0)
+                                                        {
+                                                            tamedDino.UploadedTime = DateTime.UnixEpoch.AddSeconds(tamedDino.UploadedTimeInGame);
+                                                        }
+
+
+                                                        var targetTribe = Tribes.FirstOrDefault(t => t.TribeId == tamedDino.TargetingTeam);
+                                                        if (targetTribe == null)
+                                                        {
+                                                            //see if we can find a matching steam player in existing tribe
+                                                            var ownerTribe = Tribes.FirstOrDefault(t => t.Players.LongCount(p => p.NetworkId == itemOwnerId.ToString()) > 0);
+                                                            if (ownerTribe != null)
+                                                            {
+                                                                targetTribe = ownerTribe;
+                                                            }
+
+                                                            if (targetTribe == null)
+                                                            {
+                                                                targetTribe = new ContentTribe()
+                                                                {
+                                                                    TribeName = tamedDino.TribeName ?? tamedDino.TamerName ?? tamedDino.ImprinterName,
+                                                                    TribeId = tamedDino.TargetingTeam
+                                                                };
+                                                                if (!string.IsNullOrEmpty(targetTribe.TribeName))
+                                                                {
+                                                                    targetTribe.Tames.Add(tamedDino);
+                                                                    Tribes.Add(targetTribe);
+                                                                }
+                                                            }
+
+                                                        }
+                                                        if (targetTribe != null)
+                                                        {
+                                                            targetTribe.Tames.Add(tamedDino);
+                                                            if (string.IsNullOrEmpty(tamedDino.TribeName))
+                                                            {
+                                                                tamedDino.TribeName = targetTribe.TribeName;
+                                                            }
+                                                        }
+
+
+                                                    }
+
+                                                }
+
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        //ignore
+                    }
+
+                }
+                );
+
+            }
+
+        }
+
 
         public void ExportJsonWild(string exportFilename)
         {
@@ -1597,6 +1773,8 @@ namespace ASVPack.Models
             }
 
         }
+
+    
 
         public void ExportJsonPlayers(string exportFilename)
         {
