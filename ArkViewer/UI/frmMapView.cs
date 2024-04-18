@@ -234,7 +234,7 @@ namespace ARKViewer
 
             DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
-        public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
+        public void DrawMapImagePlayerStructures(List<string> classNames, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -255,7 +255,7 @@ namespace ARKViewer
             };
 
 
-            DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
+            DrawMapImage(cm.GetMapImagePlayerStructures(classNames, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
 
         }
         public void DrawMapImagePlayers(long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)

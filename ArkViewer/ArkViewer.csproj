@@ -4328,5 +4328,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="UI\BorderlessMultiComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

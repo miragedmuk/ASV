@@ -437,7 +437,7 @@ namespace ARKViewer
 
             string structureExportFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_Structures.json");
             string structureImageFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_Structures.png");
-            string structureClassName = "";
+            List<string> structureClassNames = new List<string>();
 
             string playerExportFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_Players.json");
             string playerImageFilename = Path.Combine(AppContext.BaseDirectory, @"Export\ASV_Export_Players.png");
@@ -495,7 +495,7 @@ namespace ARKViewer
                     {
                         structureExportFilename = exportStructures.Property("jsonFilename") == null ? "" : exportStructures.Property("jsonFilename").Value.ToString();
                         structureImageFilename = exportStructures.Property("imageFilename") == null ? "" : exportStructures.Property("imageFilename").Value.ToString();
-                        structureClassName = exportStructures.Property("className") == null ? "" : exportStructures.Property("className").Value.ToString();
+                        if (exportStructures.Property("className") != null) structureClassNames.Add(exportStructures.Property("className").Value.ToString());
                     }
 
                     //Players
@@ -594,7 +594,7 @@ namespace ARKViewer
                 string exportFolder = Path.GetDirectoryName(structureImageFilename);
                 if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
                 LogWriter.Info($"Exporting Structures Image.");
-                var image = exportManger.GetMapImagePlayerStructures(structureImageFilename, tribeId, playerId, new List<Tuple<float, float>>(), new ASVStructureOptions(), new List<ContentMarker>(), "");
+                var image = exportManger.GetMapImagePlayerStructures(structureClassNames, tribeId, playerId, new List<Tuple<float, float>>(), new ASVStructureOptions(), new List<ContentMarker>(), "");
                 if (image != null)
                 {
                     image.Save(structureImageFilename);

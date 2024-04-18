@@ -1,5 +1,6 @@
 ﻿using ArkViewer;
 using ArkViewer.Configuration;
+using ArkViewer.UI;
 using ARKViewer.Configuration;
 using ARKViewer.Models;
 using ARKViewer.Models.NameMap;
@@ -28,6 +29,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Timer = System.Windows.Forms.Timer;
 
@@ -1147,17 +1149,11 @@ namespace ARKViewer
 
         }
 
-        private void cboStructureStructure_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            LoadPlayerStructureDetail();
-        }
-
         private void btnStructureExclusionFilter_Click(object sender, EventArgs e)
         {
             if (cm == null) return;
 
-            var structureList = cm.GetPlayerStructures(0, 0, "", true, "");
+            var structureList = cm.GetPlayerStructures(0, 0, new List<string>() { "ALL" }, true, "");
             if (structureList != null && structureList.Count > 0)
             {
                 frmStructureExclusionFilter exclusionEditor = new frmStructureExclusionFilter(structureList);
@@ -4211,12 +4207,14 @@ namespace ARKViewer
                     break;
                 case "tpgStructures":
                     //map out player structures
-                    string structureClass = "";
-                    if (cboStructureStructure.SelectedItem != null)
-                    {
-                        ASVComboValue selectedStructure = (ASVComboValue)cboStructureStructure.SelectedItem;
-                        structureClass = selectedStructure.Key;
-                    }
+                    List<string> structureClasses = new List<string>();
+                    foreach (var item in cboStructureStructure.Items)
+                        if (item is BorderlessMultiComboBox)
+                        {
+                            BorderlessMultiComboBox current = (BorderlessMultiComboBox)item;
+                            if (current != null && current.CheckState)
+                                structureClasses.Add(current.ComboValue.Key);
+                        }
                     long structureTribe = 0;
                     if (cboStructureTribe.SelectedItem != null)
                     {
@@ -4240,7 +4238,7 @@ namespace ARKViewer
                     }
 
 
-                    MapViewer.DrawMapImagePlayerStructures(structureClass, structureTribe, structurePlayer, selectedStructLocations, (cboStructureRealm.SelectedItem as ASVComboValue).Key);
+                    MapViewer.DrawMapImagePlayerStructures(structureClasses, structureTribe, structurePlayer, selectedStructLocations, (cboStructureRealm.SelectedItem as ASVComboValue).Key);
 
                     break;
                 case "tpgPlayers":
@@ -4547,16 +4545,15 @@ namespace ARKViewer
             if (cboStructureTribe.SelectedItem == null) return;
 
 
-            string selectedClass = "NONE";
-            if (cboStructureStructure.SelectedItem != null)
-            {
-                ASVComboValue selectedValue = (ASVComboValue)cboStructureStructure.SelectedItem;
-                selectedClass = selectedValue.Key;
-            }
+            List<string> selectedClasses = new List<string>();
+            if (cboStructureStructure.Items != null)
+                foreach (var item in cboStructureStructure.Items)
+                    if (item != null && item is BorderlessMultiComboBox && ((BorderlessMultiComboBox)item).CheckState)
+                        selectedClasses.Add(((BorderlessMultiComboBox)item).ComboValue.Key);
 
             cboStructureStructure.Items.Clear();
-            cboStructureStructure.Items.Add(new ASVComboValue() { Key = "NONE", Value = "[None]" });
-            cboStructureStructure.Items.Add(new ASVComboValue() { Key = "", Value = "[All Structures]" });
+            //cboStructureStructure.Items.Add(new ASVComboValue() { Key = "NONE", Value = "[None]" });
+            cboStructureStructure.Items.Add(new ArkViewer.UI.BorderlessMultiComboBox() { ComboValue = new ASVComboValue() { Key = "ALL", Value = "[All Structures]" }, CheckState = false });
 
             //tribe
             ASVComboValue comboValue = (ASVComboValue)cboStructureTribe.SelectedItem;
@@ -4571,7 +4568,7 @@ namespace ARKViewer
             float fromRadius = (float)udRadiusStructures.Value;
 
 
-            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, "", false, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLat, fromLon, fromRadius)
+            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, new List<string>() { "ALL" }, false, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLat, fromLon, fromRadius)
                                                         .Where(s =>
                                                             Program.ProgramConfig.StructureExclusions == null
                                                             || (Program.ProgramConfig.StructureExclusions != null & !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName))
@@ -4607,33 +4604,18 @@ namespace ARKViewer
 
             }
 
-
             int selectedIndex = 0;
             if (newItems.Count > 0)
             {
                 cboStructureStructure.BeginUpdate();
                 foreach (var newItem in newItems.OrderBy(o => o.Value))
                 {
-                    int newIndex = cboStructureStructure.Items.Add(newItem);
-                    if (newItem.Key == selectedClass)
-                    {
-                        selectedIndex = newIndex;
-                    }
+                    int newIndex = cboStructureStructure.Items.Add(new BorderlessMultiComboBox() { ComboValue = newItem, CheckState = (selectedClasses.Contains(newItem.Key)) });
+                    if (selectedClasses.Contains(newItem.Key)) selectedIndex = newIndex;
                 }
                 cboStructureStructure.EndUpdate();
 
             }
-
-            if (tabFeatures.SelectedTab.Name == "tpgStructures")
-            {
-                cboStructureStructure.SelectedIndex = selectedIndex;
-            }
-            else
-            {
-                cboStructureStructure.SelectedIndex = 0;
-            }
-
-
         }
 
         private void RefreshPaintingStructures()
@@ -4658,7 +4640,7 @@ namespace ARKViewer
             int.TryParse(comboValue.Key, out int selectedTribeId);
 
 
-            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, 0, "", false, string.Empty)
+            var playerStructureTypes = cm.GetPlayerStructures(selectedTribeId, 0, new List<string>() { "ALL" }, false, string.Empty)
                                                         .Where(s =>
                                                             (Program.ProgramConfig.StructureExclusions == null
                                                             || (Program.ProgramConfig.StructureExclusions != null & !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName)))
@@ -5877,16 +5859,27 @@ namespace ARKViewer
             }
 
             //structure
-            string selectedClass = "NONE";
-            comboValue = (ASVComboValue)cboStructureStructure.SelectedItem;
-            if (comboValue != null) selectedClass = comboValue.Key;
+            List<string> selectedClasses = new List<string>();
+            ArkViewer.UI.BorderlessMultiComboBox checkboxValue = null;
+            foreach (var item in cboStructureStructure.Items)
+            {
+                if (item is ArkViewer.UI.BorderlessMultiComboBox)
+                {
+                    checkboxValue = (ArkViewer.UI.BorderlessMultiComboBox)item;
+                    if (checkboxValue != null && checkboxValue.CheckState) selectedClasses.Add(checkboxValue.ComboValue.Key); 
+                }
+                else if (item is ASVComboValue)
+                {
+                    comboValue = (ASVComboValue)cboStructureStructure.SelectedItem;
+                    if (comboValue != null) selectedClasses.Add(comboValue.Key);
+                }
+            }
 
             float fromLat = (float)udLatStructures.Value;
             float fromLon = (float)udLonStructures.Value;
             float fromRad = (float)udRadiusStructures.Value;
 
-
-            var playerStructures = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, selectedClass, false, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLat,fromLon,fromRad)
+            var playerStructures = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, selectedClasses, false, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLat,fromLon,fromRad)
                 .Where(s => (!Program.ProgramConfig.StructureExclusions.Contains(s.ClassName))).ToList();
 
             lblStructureTotal.Text = $"Count: {playerStructures.Count()}";
@@ -5903,7 +5896,7 @@ namespace ARKViewer
             var tribes = cm.GetTribes(selectedTribeId);
             foreach (var tribe in tribes)
             {
-                var filterStructures = tribe.Structures.Where(s => s.ClassName == selectedClass || selectedClass == "");
+                var filterStructures = tribe.Structures.Where(s => selectedClasses.Contains(s.ClassName) || selectedClasses.Contains("ALL"));
                 Parallel.ForEach(filterStructures, playerStructure =>
                 {
 
@@ -8660,12 +8653,12 @@ namespace ARKViewer
 
 
             //structure
-            string selectedClass = "NONE";
+            List<string> selectedClasses = new List<string>();
             comboValue = (ASVComboValue)cboPaintingStructure.SelectedItem;
-            if (comboValue != null) selectedClass = comboValue.Key;
+            if (comboValue != null) selectedClasses.Add(comboValue.Key);
 
 
-            var playerStructures = cm.GetPlayerStructures(selectedTribeId, 0, selectedClass, false, string.Empty)
+            var playerStructures = cm.GetPlayerStructures(selectedTribeId, 0, selectedClasses, false, string.Empty)
                 .Where(s => (!Program.ProgramConfig.StructureExclusions.Contains(s.ClassName)) && s.UniquePaintingId != 0).ToList();
 
             lblPaintingsCount.Text = $"Count: {playerStructures.Count()}";
@@ -8682,7 +8675,7 @@ namespace ARKViewer
             var tribes = cm.GetTribes(selectedTribeId);
             foreach (var tribe in tribes)
             {
-                var filterStructures = tribe.Structures.Where(s => (s.ClassName == selectedClass || selectedClass == "") && s.UniquePaintingId != 0);
+                var filterStructures = tribe.Structures.Where(s => (selectedClasses.Contains("ALL") || selectedClasses.Contains(s.ClassName)) && s.UniquePaintingId != 0);
                 Parallel.ForEach(filterStructures, playerStructure =>
                 {
 
@@ -8802,7 +8795,7 @@ namespace ARKViewer
                 lblStatus.Text = "Identifying un-used .pnt files...";
                 lblStatus.Refresh();
 
-                var allPaintingFilenames = cm.GetPlayerStructures(0, 0, "", false, string.Empty)
+                var allPaintingFilenames = cm.GetPlayerStructures(0, 0, new List<string>() { "ALL" }, false, string.Empty)
                                                             .Where(s =>
                                                                 (Program.ProgramConfig.StructureExclusions == null
                                                                 || (Program.ProgramConfig.StructureExclusions != null & !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName)))

@@ -31,7 +31,7 @@ namespace ARKViewer.Models
         Tuple<string, string, bool, long, long> cacheImageTamed = null;
         Tuple<long, string> cacheImageDroppedItems = null;
         Tuple<long> cacheImageDropBags = null;
-        Tuple<string, long, long> cacheImagePlayerStructures = null;
+        Tuple<List<string>, long, long> cacheImagePlayerStructuresList = null;
         Tuple<long, long> cacheImagePlayers = null;
         Tuple<long, string> cacheImageItems = null;
 
@@ -350,7 +350,7 @@ namespace ARKViewer.Models
 
         }
 
-        public List<ContentStructure> GetPlayerStructures(long selectedTribeId, long selectedPlayerId, string selectedClass, bool includeExcluded, string selectedRealm, float fromLat = 50, float fromLon=50, float fromRadius = 100)
+        public List<ContentStructure> GetPlayerStructures(long selectedTribeId, long selectedPlayerId, List<string> selectedClasses, bool includeExcluded, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             if (pack.Tribes == null) return new List<ContentStructure>();
 
@@ -363,7 +363,7 @@ namespace ARKViewer.Models
                     && t.Structures != null
                 ).SelectMany(s =>
                     s.Structures.Where(x =>
-                        (selectedClass.Length == 0 || x.ClassName == selectedClass)
+                        (selectedClasses.Contains("ALL") || selectedClasses.Contains(x.ClassName))
                         &&
                         (!Program.ProgramConfig.StructureExclusions.Contains(x.ClassName) || includeExcluded)
                         &&
@@ -393,7 +393,7 @@ namespace ARKViewer.Models
                 }
 
             }
-            
+
             return tribeStructures;
         }
 
@@ -1261,8 +1261,43 @@ namespace ARKViewer.Models
 
             return bitmap;
         }
+        
+        /// <summary>
+        /// Compares two lists of strings to check if they have the same content.
+        /// The items order and the presence of duplicates in the lists do not matter.
+        /// </summary>
+        /// <param name="listA">The strings list A.</param>
+        /// <param name="listB">The strings list B.</param>
+        /// <returns>Returns true if lists are equal, false otherwise.</returns>
+        private bool StringListsAreEqual(List<string> listA, List<string> listB)
+        {
+            // If both lists are NULL.
+            if (listA == null && listB == null)
+                return true;
+            // If list A is NULL.
+            if (listA == null)
+                return !(listB != null && listB.Count > 0); // Return false if list B has one item or more.
+            // If list B is NULL.
+            if (listB == null)
+                return !(listA != null && listA.Count > 0); // Return false if list A has one item or more.
 
-        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+            // If we reach here, lists are not NULL.
+
+            int lenA = listA.Count;
+            int lenB = listB.Count;
+            // If list A does not have the same size as list B.
+            if (lenA != lenB)
+                return false;
+            // Compare lists content (items order and duplicates does not matter).
+            for (int i = 0; i < lenA; i++)
+                if (!listB.Contains(listA[i]) || !listA.Contains(listB[i]))
+                    return false;
+
+            // If we reach here, lists have the same content (items might not in the same order, and there might be some duplicated items, but it doesn't matter).
+            return true;
+        }
+
+        public Bitmap GetMapImagePlayerStructures(List<string> classNames, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1272,10 +1307,10 @@ namespace ARKViewer.Models
             imageRealmName = selectedRealm;
 
             if (cachedOptions.Equals(mapOptions)
-                && (cacheImagePlayerStructures != null
-                && cacheImagePlayerStructures.Item1 == className
-                && cacheImagePlayerStructures.Item2 == tribeId
-                && cacheImagePlayerStructures.Item3 == playerId
+                && (cacheImagePlayerStructuresList != null
+                && StringListsAreEqual(cacheImagePlayerStructuresList.Item1, classNames)
+                && cacheImagePlayerStructuresList.Item2 == tribeId
+                && cacheImagePlayerStructuresList.Item3 == playerId
                 && lastRealm == selectedRealm
                 && lastDrawRequest == "structures")
             )
@@ -1288,18 +1323,18 @@ namespace ARKViewer.Models
                 lastDrawRequest = "structures";
                 lastRealm = selectedRealm;
 
-                cacheImagePlayerStructures = new Tuple<string, long, long>(className, tribeId, playerId);
+                cacheImagePlayerStructuresList = new Tuple<List<string>, long, long>(classNames, tribeId, playerId);
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions);
 
-                var filteredStructures = GetPlayerStructures(tribeId, playerId, className, false, selectedRealm);
+                var filteredStructures = GetPlayerStructures(tribeId, playerId, classNames, false, selectedRealm);
                 foreach (var playerStructure in filteredStructures)
                 {
                     var markerX = (float)(playerStructure.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     var markerY = (float)(playerStructure.Latitude.GetValueOrDefault(0)) * 1024 / 100;
-                    
+
                     if (float.IsInfinity(markerX) || float.IsInfinity(markerY)) continue;
 
                     Color markerColor = Color.WhiteSmoke;

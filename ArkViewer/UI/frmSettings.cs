@@ -454,7 +454,7 @@ namespace ARKViewer
                 lvwStructuresNotMapped.Items.Clear();
 
                 //map loaded
-                var structures = cm.GetPlayerStructures(0, 0, "", false, "");
+                var structures = cm.GetPlayerStructures(0, 0, new List<string>() { "ALL" }, false, "");
 
                 if (structures != null && structures.Count > 0)
                 {

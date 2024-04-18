@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 
 namespace ARKViewer
 {
@@ -300,7 +301,7 @@ namespace ARKViewer
             lblCommandStructure = new System.Windows.Forms.Label();
             cboConsoleCommandsStructure = new ArkViewer.UI.BorderlessComboBox();
             lblStructureStructure = new System.Windows.Forms.Label();
-            cboStructureStructure = new ArkViewer.UI.BorderlessComboBox();
+            cboStructureStructure = new ArkViewer.UI.BorderlessMultiComboBox();
             lblStructurePlayer = new System.Windows.Forms.Label();
             lblStructureTribe = new System.Windows.Forms.Label();
             cboStructureTribe = new ArkViewer.UI.BorderlessComboBox();
@@ -3467,7 +3468,7 @@ namespace ARKViewer
             cboStructureStructure.Name = "cboStructureStructure";
             cboStructureStructure.Size = new System.Drawing.Size(626, 24);
             cboStructureStructure.TabIndex = 5;
-            cboStructureStructure.SelectedIndexChanged += cboStructureStructure_SelectedIndexChanged;
+            cboStructureStructure.CheckStateChanged += cboStructureStructure_CheckStateChanged;
             // 
             // lblStructurePlayer
             // 
@@ -4886,6 +4887,15 @@ namespace ARKViewer
             PerformLayout();
         }
 
+        private void cboStructureStructure_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (sender is ArkViewer.UI.BorderlessMultiComboBox)
+            {
+                ArkViewer.UI.BorderlessMultiComboBox item = (ArkViewer.UI.BorderlessMultiComboBox)sender;
+                LoadPlayerStructureDetail();
+            }
+        }
+
         #endregion
         private System.Windows.Forms.Label lblMapDate;
         private System.Windows.Forms.Button btnRefresh;
@@ -5137,7 +5147,7 @@ namespace ARKViewer
         private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsStructure;
         private System.Windows.Forms.Button btnStructureExclusionFilter;
         private System.Windows.Forms.Label lblStructureStructure;
-        private ArkViewer.UI.BorderlessComboBox cboStructureStructure;
+        private ArkViewer.UI.BorderlessMultiComboBox cboStructureStructure;
         private System.Windows.Forms.Label lblStructurePlayer;
         private System.Windows.Forms.Label lblStructureTribe;
         private ArkViewer.UI.BorderlessComboBox cboStructureTribe;
