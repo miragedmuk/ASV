@@ -1,5 +1,4 @@
-﻿using ArkViewer;
-using ArkViewer.Configuration;
+﻿using ArkViewer.Configuration;
 using ArkViewer.UI;
 using ARKViewer.Configuration;
 using ARKViewer.Models;
@@ -7,7 +6,6 @@ using ARKViewer.Models.NameMap;
 using ASVPack.Models;
 using CoreRCON;
 using FluentFTP;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json.Linq;
 using Renci.SshNet;
 using SkiaSharp.Views.Desktop;
@@ -21,16 +19,9 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Numerics;
-using System.Security.Policy;
 using System.Text;
-using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Timer = System.Windows.Forms.Timer;
 
 namespace ARKViewer
