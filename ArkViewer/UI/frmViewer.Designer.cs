@@ -3263,7 +3263,7 @@ namespace ARKViewer
             lblStructureRad.AutoSize = true;
             lblStructureRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureRad.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblStructureRad.Location = new System.Drawing.Point(269, 15);
+            lblStructureRad.Location = new System.Drawing.Point(281, 14);
             lblStructureRad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureRad.Name = "lblStructureRad";
             lblStructureRad.Size = new System.Drawing.Size(50, 13);
@@ -3277,7 +3277,7 @@ namespace ARKViewer
             udRadiusStructures.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udRadiusStructures.DecimalPlaces = 2;
             udRadiusStructures.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            udRadiusStructures.Location = new System.Drawing.Point(325, 15);
+            udRadiusStructures.Location = new System.Drawing.Point(337, 14);
             udRadiusStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udRadiusStructures.Name = "udRadiusStructures";
             udRadiusStructures.Size = new System.Drawing.Size(62, 19);
@@ -3290,7 +3290,7 @@ namespace ARKViewer
             lblStructureLon.AutoSize = true;
             lblStructureLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureLon.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblStructureLon.Location = new System.Drawing.Point(164, 15);
+            lblStructureLon.Location = new System.Drawing.Point(162, 14);
             lblStructureLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureLon.Name = "lblStructureLon";
             lblStructureLon.Size = new System.Drawing.Size(32, 13);
@@ -3304,7 +3304,7 @@ namespace ARKViewer
             udLonStructures.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udLonStructures.DecimalPlaces = 2;
             udLonStructures.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            udLonStructures.Location = new System.Drawing.Point(199, 15);
+            udLonStructures.Location = new System.Drawing.Point(197, 14);
             udLonStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udLonStructures.Name = "udLonStructures";
             udLonStructures.Size = new System.Drawing.Size(62, 19);
@@ -3317,7 +3317,7 @@ namespace ARKViewer
             lblStructureLat.AutoSize = true;
             lblStructureLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureLat.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblStructureLat.Location = new System.Drawing.Point(53, 15);
+            lblStructureLat.Location = new System.Drawing.Point(47, 14);
             lblStructureLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureLat.Name = "lblStructureLat";
             lblStructureLat.Size = new System.Drawing.Size(29, 13);
@@ -3331,7 +3331,7 @@ namespace ARKViewer
             udLatStructures.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udLatStructures.DecimalPlaces = 2;
             udLatStructures.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            udLatStructures.Location = new System.Drawing.Point(93, 15);
+            udLatStructures.Location = new System.Drawing.Point(84, 14);
             udLatStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udLatStructures.Name = "udLatStructures";
             udLatStructures.Size = new System.Drawing.Size(62, 19);
@@ -3445,7 +3445,7 @@ namespace ARKViewer
             lblStructureStructure.AutoSize = true;
             lblStructureStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureStructure.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblStructureStructure.Location = new System.Drawing.Point(20, 78);
+            lblStructureStructure.Location = new System.Drawing.Point(13, 78);
             lblStructureStructure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureStructure.Name = "lblStructureStructure";
             lblStructureStructure.Size = new System.Drawing.Size(63, 13);
@@ -3462,10 +3462,10 @@ namespace ARKViewer
             cboStructureStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboStructureStructure.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStructureStructure.FormattingEnabled = true;
-            cboStructureStructure.Location = new System.Drawing.Point(93, 74);
+            cboStructureStructure.Location = new System.Drawing.Point(85, 74);
             cboStructureStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboStructureStructure.Name = "cboStructureStructure";
-            cboStructureStructure.Size = new System.Drawing.Size(626, 24);
+            cboStructureStructure.Size = new System.Drawing.Size(634, 24);
             cboStructureStructure.TabIndex = 5;
             cboStructureStructure.SelectedIndexChanged += cboStructureStructure_SelectedIndexChanged;
             // 
@@ -3487,7 +3487,7 @@ namespace ARKViewer
             lblStructureTribe.AutoSize = true;
             lblStructureTribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblStructureTribe.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblStructureTribe.Location = new System.Drawing.Point(42, 45);
+            lblStructureTribe.Location = new System.Drawing.Point(36, 45);
             lblStructureTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStructureTribe.Name = "lblStructureTribe";
             lblStructureTribe.Size = new System.Drawing.Size(40, 13);
@@ -3504,10 +3504,10 @@ namespace ARKViewer
             cboStructureTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboStructureTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboStructureTribe.FormattingEnabled = true;
-            cboStructureTribe.Location = new System.Drawing.Point(92, 42);
+            cboStructureTribe.Location = new System.Drawing.Point(84, 42);
             cboStructureTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboStructureTribe.Name = "cboStructureTribe";
-            cboStructureTribe.Size = new System.Drawing.Size(295, 24);
+            cboStructureTribe.Size = new System.Drawing.Size(315, 24);
             cboStructureTribe.TabIndex = 1;
             cboStructureTribe.SelectedIndexChanged += cboStructureTribe_SelectedIndexChanged;
             // 

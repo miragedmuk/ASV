@@ -986,7 +986,7 @@ namespace ARKViewer.Models
         }
 
 
-        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1021,7 +1021,7 @@ namespace ARKViewer.Models
                 graphics = AddMapStructures(graphics, mapOptions);
 
 
-                var filteredTames = GetTamedCreatures(className, tribeId, playerId, includeStored, selectedRealm);
+                var filteredTames = GetTamedCreatures(className, tribeId, playerId, includeStored, selectedRealm, fromLat,fromLon,fromRadius);
                 //remove any not matching productionClass
                 if (productionClassName.Length > 0) filteredTames.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == productionClassName));
 
@@ -1262,7 +1262,7 @@ namespace ARKViewer.Models
             return bitmap;
         }
 
-        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm)
+        public Bitmap GetMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1294,7 +1294,7 @@ namespace ARKViewer.Models
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions);
 
-                var filteredStructures = GetPlayerStructures(tribeId, playerId, className, false, selectedRealm);
+                var filteredStructures = GetPlayerStructures(tribeId, playerId, className, false, selectedRealm, fromLat,fromLon,fromRadius);
                 foreach (var playerStructure in filteredStructures)
                 {
                     var markerX = (float)(playerStructure.Longitude.GetValueOrDefault(0)) * 1024 / 100;

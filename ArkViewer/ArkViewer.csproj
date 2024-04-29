@@ -41,6 +41,9 @@
     <None Update="maps.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Maps\map_forglar.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Maps\map_grid.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

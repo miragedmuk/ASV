@@ -4205,7 +4205,12 @@ namespace ARKViewer
                         selectedTameLocations.Add(new Tuple<float, float>(selectedTame.Latitude.GetValueOrDefault(0), selectedTame.Longitude.GetValueOrDefault(0)));
                     }
 
-                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, chkCryo.Checked, tribeId, playerId, selectedTameLocations, (cboTameRealm.SelectedItem as ASVComboValue).Key);
+                    
+                    var fromLatTamed = (float)udLatTamed.Value;
+                    var fromLonTamed = (float)udLonTamed.Value;
+                    var fromRadiusTamed = (float)udRadiusTamed.Value;
+
+                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, chkCryo.Checked, tribeId, playerId, selectedTameLocations, (cboTameRealm.SelectedItem as ASVComboValue).Key, fromLatTamed, fromLonTamed, fromRadiusTamed);
 
 
                     break;
@@ -4240,7 +4245,12 @@ namespace ARKViewer
                     }
 
 
-                    MapViewer.DrawMapImagePlayerStructures(structureClass, structureTribe, structurePlayer, selectedStructLocations, (cboStructureRealm.SelectedItem as ASVComboValue).Key);
+                    
+                    var fromLatStructures = (float)udLatStructures.Value;
+                    var fromLonStructures = (float)udLonStructures.Value;
+                    var fromRadStructures = (float)udRadiusStructures.Value;
+
+                    MapViewer.DrawMapImagePlayerStructures(structureClass, structureTribe, structurePlayer, selectedStructLocations, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLatStructures,fromLonStructures,fromRadStructures);
 
                     break;
                 case "tpgPlayers":
@@ -5887,7 +5897,7 @@ namespace ARKViewer
 
 
             var playerStructures = cm.GetPlayerStructures(selectedTribeId, selectedPlayerId, selectedClass, false, (cboStructureRealm.SelectedItem as ASVComboValue).Key, fromLat,fromLon,fromRad)
-                .Where(s => (!Program.ProgramConfig.StructureExclusions.Contains(s.ClassName))).ToList();
+                .Where(s => !Program.ProgramConfig.StructureExclusions.Contains(s.ClassName)).ToList();
 
             lblStructureTotal.Text = $"Count: {playerStructures.Count()}";
             lblStructureTotal.Refresh();
@@ -5903,7 +5913,15 @@ namespace ARKViewer
             var tribes = cm.GetTribes(selectedTribeId);
             foreach (var tribe in tribes)
             {
-                var filterStructures = tribe.Structures.Where(s => s.ClassName == selectedClass || selectedClass == "");
+                var filterStructures = tribe.Structures.Where(s => 
+                    (s.ClassName == selectedClass || selectedClass == "")
+                    &&
+                    (
+                        (Math.Abs(s.Latitude.GetValueOrDefault(0) - fromLat) <= fromRad)
+                        &&
+                        (Math.Abs(s.Longitude.GetValueOrDefault(0) - fromLon) <= fromRad)
+                    )
+                    );
                 Parallel.ForEach(filterStructures, playerStructure =>
                 {
 

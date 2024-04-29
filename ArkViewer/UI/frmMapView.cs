@@ -164,7 +164,7 @@ namespace ARKViewer
 
             DrawMapImage(cm.GetMapImageWild(className, productionClassName, minLevel, maxLevel, filterLat, filterLon, filterRadius, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
-        public void DrawMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
+        public void DrawMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -185,7 +185,7 @@ namespace ARKViewer
             };
 
 
-            DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
+            DrawMapImage(cm.GetMapImageTamed(className, productionClassName, includeStored, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm, fromLat,fromLon,fromRadius));
 
         }
         public void DrawMapImageDroppedItems(long droppedPlayerId, string droppedClass, List<Tuple<float, float>> selectedLocations, string selectedRealm)
@@ -234,7 +234,7 @@ namespace ARKViewer
 
             DrawMapImage(cm.GetMapImageDropBags(droppedPlayerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
         }
-        public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
+        public void DrawMapImagePlayerStructures(string className, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             var c = Program.ProgramConfig;
             ASVStructureOptions mapOptions = new ASVStructureOptions()
@@ -255,7 +255,7 @@ namespace ARKViewer
             };
 
 
-            DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm));
+            DrawMapImage(cm.GetMapImagePlayerStructures(className, tribeId, playerId, selectedLocations, mapOptions, CustomMarkers, selectedRealm, fromLat,fromLon,fromRadius));
 
         }
         public void DrawMapImagePlayers(long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, string selectedRealm)
