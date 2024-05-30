@@ -196,7 +196,7 @@ namespace ARKViewer
             cboItemListTribe = new ArkViewer.UI.BorderlessComboBox();
             btnCopyItemListCommand = new System.Windows.Forms.Button();
             lblItemListCommand = new System.Windows.Forms.Label();
-            cboItemListCommand = new ArkViewer.UI.BorderlessComboBox();
+            cboConsoleCommandSearch = new ArkViewer.UI.BorderlessComboBox();
             lblItemListCount = new System.Windows.Forms.Label();
             lblItemListItem = new System.Windows.Forms.Label();
             lvwItemList = new System.Windows.Forms.ListView();
@@ -221,7 +221,7 @@ namespace ARKViewer
             lblDroppedPlayer = new System.Windows.Forms.Label();
             cboDroppedPlayer = new ArkViewer.UI.BorderlessComboBox();
             lblCopyCommandDropped = new System.Windows.Forms.Label();
-            cboCopyCommandDropped = new ArkViewer.UI.BorderlessComboBox();
+            cboConsoleCommandDropped = new ArkViewer.UI.BorderlessComboBox();
             lblCountDropped = new System.Windows.Forms.Label();
             lblDroppedItem = new System.Windows.Forms.Label();
             lvwDroppedItems = new System.Windows.Forms.ListView();
@@ -240,7 +240,7 @@ namespace ARKViewer
             txtFilterPlayer = new System.Windows.Forms.TextBox();
             lblPlayerTotal = new System.Windows.Forms.Label();
             lblCommandPlayer = new System.Windows.Forms.Label();
-            cboConsoleCommandsPlayerTribe = new ArkViewer.UI.BorderlessComboBox();
+            cboConsoleCommandsPlayer = new ArkViewer.UI.BorderlessComboBox();
             lblPlayersPlayer = new System.Windows.Forms.Label();
             lblPlayersTribe = new System.Windows.Forms.Label();
             cboTribes = new ArkViewer.UI.BorderlessComboBox();
@@ -284,7 +284,7 @@ namespace ARKViewer
             lblChart = new System.Windows.Forms.Label();
             cboChartType = new ArkViewer.UI.BorderlessComboBox();
             lblTribeCopyCommand = new System.Windows.Forms.Label();
-            cboTribeCopyCommand = new ArkViewer.UI.BorderlessComboBox();
+            cboConsoleCommandsTribe = new ArkViewer.UI.BorderlessComboBox();
             tpgStructures = new System.Windows.Forms.TabPage();
             lblStructureRad = new System.Windows.Forms.Label();
             udRadiusStructures = new System.Windows.Forms.NumericUpDown();
@@ -2220,7 +2220,7 @@ namespace ARKViewer
             tpgItemList.Controls.Add(cboItemListTribe);
             tpgItemList.Controls.Add(btnCopyItemListCommand);
             tpgItemList.Controls.Add(lblItemListCommand);
-            tpgItemList.Controls.Add(cboItemListCommand);
+            tpgItemList.Controls.Add(cboConsoleCommandSearch);
             tpgItemList.Controls.Add(lblItemListCount);
             tpgItemList.Controls.Add(lblItemListItem);
             tpgItemList.Controls.Add(lvwItemList);
@@ -2333,24 +2333,24 @@ namespace ARKViewer
             lblItemListCommand.TabIndex = 5;
             lblItemListCommand.Text = "Command:";
             // 
-            // cboItemListCommand
+            // cboConsoleCommandSearch
             // 
-            cboItemListCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboItemListCommand.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboItemListCommand.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboItemListCommand.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            cboItemListCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboItemListCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboItemListCommand.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            cboItemListCommand.FormattingEnabled = true;
-            cboItemListCommand.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
-            cboItemListCommand.Location = new System.Drawing.Point(96, 478);
-            cboItemListCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboItemListCommand.Name = "cboItemListCommand";
-            cboItemListCommand.Size = new System.Drawing.Size(305, 24);
-            cboItemListCommand.Sorted = true;
-            cboItemListCommand.TabIndex = 6;
-            cboItemListCommand.SelectedIndexChanged += cboItemListCommand_SelectedIndexChanged;
+            cboConsoleCommandSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandSearch.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandSearch.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboConsoleCommandSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandSearch.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            cboConsoleCommandSearch.FormattingEnabled = true;
+            cboConsoleCommandSearch.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
+            cboConsoleCommandSearch.Location = new System.Drawing.Point(96, 478);
+            cboConsoleCommandSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandSearch.Name = "cboConsoleCommandSearch";
+            cboConsoleCommandSearch.Size = new System.Drawing.Size(305, 24);
+            cboConsoleCommandSearch.Sorted = true;
+            cboConsoleCommandSearch.TabIndex = 6;
+            cboConsoleCommandSearch.SelectedIndexChanged += cboItemListCommand_SelectedIndexChanged;
             // 
             // lblItemListCount
             // 
@@ -2468,7 +2468,7 @@ namespace ARKViewer
             tpgDroppedItems.Controls.Add(cboDroppedPlayer);
             tpgDroppedItems.Controls.Add(btnCopyCommandDropped);
             tpgDroppedItems.Controls.Add(lblCopyCommandDropped);
-            tpgDroppedItems.Controls.Add(cboCopyCommandDropped);
+            tpgDroppedItems.Controls.Add(cboConsoleCommandDropped);
             tpgDroppedItems.Controls.Add(lblCountDropped);
             tpgDroppedItems.Controls.Add(lblDroppedItem);
             tpgDroppedItems.Controls.Add(lvwDroppedItems);
@@ -2592,24 +2592,24 @@ namespace ARKViewer
             lblCopyCommandDropped.TabIndex = 5;
             lblCopyCommandDropped.Text = "Command:";
             // 
-            // cboCopyCommandDropped
+            // cboConsoleCommandDropped
             // 
-            cboCopyCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboCopyCommandDropped.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboCopyCommandDropped.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboCopyCommandDropped.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            cboCopyCommandDropped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboCopyCommandDropped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboCopyCommandDropped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            cboCopyCommandDropped.FormattingEnabled = true;
-            cboCopyCommandDropped.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
-            cboCopyCommandDropped.Location = new System.Drawing.Point(96, 478);
-            cboCopyCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboCopyCommandDropped.Name = "cboCopyCommandDropped";
-            cboCopyCommandDropped.Size = new System.Drawing.Size(305, 24);
-            cboCopyCommandDropped.Sorted = true;
-            cboCopyCommandDropped.TabIndex = 6;
-            cboCopyCommandDropped.SelectedIndexChanged += cboCopyCommandDropped_SelectedIndexChanged;
+            cboConsoleCommandDropped.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandDropped.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandDropped.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandDropped.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboConsoleCommandDropped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandDropped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandDropped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            cboConsoleCommandDropped.FormattingEnabled = true;
+            cboConsoleCommandDropped.Items.AddRange(new object[] { "SaveWorld", "SetPlayerPos  <x> <y> <z>" });
+            cboConsoleCommandDropped.Location = new System.Drawing.Point(96, 478);
+            cboConsoleCommandDropped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandDropped.Name = "cboConsoleCommandDropped";
+            cboConsoleCommandDropped.Size = new System.Drawing.Size(305, 24);
+            cboConsoleCommandDropped.Sorted = true;
+            cboConsoleCommandDropped.TabIndex = 6;
+            cboConsoleCommandDropped.SelectedIndexChanged += cboCopyCommandDropped_SelectedIndexChanged;
             // 
             // lblCountDropped
             // 
@@ -2703,7 +2703,7 @@ namespace ARKViewer
             tpgPlayers.Controls.Add(lblPlayerTotal);
             tpgPlayers.Controls.Add(btnCopyCommandPlayer);
             tpgPlayers.Controls.Add(lblCommandPlayer);
-            tpgPlayers.Controls.Add(cboConsoleCommandsPlayerTribe);
+            tpgPlayers.Controls.Add(cboConsoleCommandsPlayer);
             tpgPlayers.Controls.Add(btnPlayerTribeLog);
             tpgPlayers.Controls.Add(btnPlayerInventory);
             tpgPlayers.Controls.Add(lblPlayersPlayer);
@@ -2805,24 +2805,24 @@ namespace ARKViewer
             lblCommandPlayer.TabIndex = 5;
             lblCommandPlayer.Text = "Command:";
             // 
-            // cboConsoleCommandsPlayerTribe
+            // cboConsoleCommandsPlayer
             // 
-            cboConsoleCommandsPlayerTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboConsoleCommandsPlayerTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboConsoleCommandsPlayerTribe.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboConsoleCommandsPlayerTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            cboConsoleCommandsPlayerTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboConsoleCommandsPlayerTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboConsoleCommandsPlayerTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            cboConsoleCommandsPlayerTribe.FormattingEnabled = true;
-            cboConsoleCommandsPlayerTribe.Items.AddRange(new object[] { "AddChibiExpToPlayer <PlayerID> <HowMuch>", "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "RM <FileCsvList>", "SaveWorld", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>", "UnbanPlayer <SteamID>" });
-            cboConsoleCommandsPlayerTribe.Location = new System.Drawing.Point(96, 472);
-            cboConsoleCommandsPlayerTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboConsoleCommandsPlayerTribe.Name = "cboConsoleCommandsPlayerTribe";
-            cboConsoleCommandsPlayerTribe.Size = new System.Drawing.Size(305, 24);
-            cboConsoleCommandsPlayerTribe.Sorted = true;
-            cboConsoleCommandsPlayerTribe.TabIndex = 6;
-            cboConsoleCommandsPlayerTribe.SelectedIndexChanged += cboConsoleCommandsPlayerTribe_SelectedIndexChanged;
+            cboConsoleCommandsPlayer.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsPlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsPlayer.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsPlayer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboConsoleCommandsPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandsPlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            cboConsoleCommandsPlayer.FormattingEnabled = true;
+            cboConsoleCommandsPlayer.Items.AddRange(new object[] { "AddChibiExpToPlayer <PlayerID> <HowMuch>", "AllowPlayerToJoinNoCheck <SteamID>", "BanPlayer <SteamID>", "ClearPlayerInventory <PlayerID> true true true", "DefeatAllBosses <PlayerID> ", "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "DisallowPlayerToJoinNoCheck <SteamID> ", "GetPlayerIDForSteamID <SteamID> ", "GetSteamIDForPlayerID <PlayerID> ", "GiveCreativeModeToPlayer <PlayerID> ", "GiveExpToPlayer <PlayerID> <XP> false true", "GiveItemToPlayer <PlayerID> <BlueprintPath> <Quantity> <Quality> <ForceBlueprint>", "GiveTekengramsTo <PlayerID> tek", "KickPlayer <SteamID> ", "KillPlayer <PlayerID>", "MaxAscend <PlayerID>  ", "RenamePlayer \"<CharacterName>\" <NewName>", "RenameTribe \"<TribeName>\" <NewName>", "RM <FileCsvList>", "SaveWorld", "ServerChatToPlayer <PlayerName>", "SetImprintedPlayer \"<CharacterName>\" <PlayerID>", "SetPlayerPos  <x> <y> <z>", "TakeTribe <TribeID>", "TeleportPlayerIDToMe <PlayerID>", "TeleportPlayerNameToMe <CharacterName>", "TeleportToPlayer <PlayerID>", "TeleportToPlayerName <CharacterName>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>", "UnbanPlayer <SteamID>" });
+            cboConsoleCommandsPlayer.Location = new System.Drawing.Point(96, 472);
+            cboConsoleCommandsPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsPlayer.Name = "cboConsoleCommandsPlayer";
+            cboConsoleCommandsPlayer.Size = new System.Drawing.Size(305, 24);
+            cboConsoleCommandsPlayer.Sorted = true;
+            cboConsoleCommandsPlayer.TabIndex = 6;
+            cboConsoleCommandsPlayer.SelectedIndexChanged += cboConsoleCommandsPlayer_SelectedIndexChanged;
             // 
             // lblPlayersPlayer
             // 
@@ -3015,7 +3015,7 @@ namespace ARKViewer
             tpgTribes.Controls.Add(chkTribePlayers);
             tpgTribes.Controls.Add(btnTribeCopyCommand);
             tpgTribes.Controls.Add(lblTribeCopyCommand);
-            tpgTribes.Controls.Add(cboTribeCopyCommand);
+            tpgTribes.Controls.Add(cboConsoleCommandsTribe);
             tpgTribes.Controls.Add(btnTribeLog);
             tpgTribes.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
             tpgTribes.Location = new System.Drawing.Point(4, 29);
@@ -3205,24 +3205,24 @@ namespace ARKViewer
             lblTribeCopyCommand.TabIndex = 1;
             lblTribeCopyCommand.Text = "Command:";
             // 
-            // cboTribeCopyCommand
+            // cboConsoleCommandsTribe
             // 
-            cboTribeCopyCommand.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            cboTribeCopyCommand.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboTribeCopyCommand.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            cboTribeCopyCommand.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            cboTribeCopyCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cboTribeCopyCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cboTribeCopyCommand.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            cboTribeCopyCommand.FormattingEnabled = true;
-            cboTribeCopyCommand.Items.AddRange(new object[] { "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "RM <FileCsvList>", "SaveWorld", "TakeTribe <TribeID>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>" });
-            cboTribeCopyCommand.Location = new System.Drawing.Point(96, 474);
-            cboTribeCopyCommand.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            cboTribeCopyCommand.Name = "cboTribeCopyCommand";
-            cboTribeCopyCommand.Size = new System.Drawing.Size(305, 24);
-            cboTribeCopyCommand.Sorted = true;
-            cboTribeCopyCommand.TabIndex = 2;
-            cboTribeCopyCommand.SelectedIndexChanged += cboTribeCopyCommand_SelectedIndexChanged;
+            cboConsoleCommandsTribe.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            cboConsoleCommandsTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsTribe.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboConsoleCommandsTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboConsoleCommandsTribe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboConsoleCommandsTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboConsoleCommandsTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            cboConsoleCommandsTribe.FormattingEnabled = true;
+            cboConsoleCommandsTribe.Items.AddRange(new object[] { "DEL <FileCsvList>", "DestroyTribeId <TribeID> ", "DestroyTribeIdDinos <TribeID>", "DestroyTribeIdPlayers <TribeID>", "DestroyTribeIdStructures <TribeID>", "RenameTribe \"<TribeName>\" ", "RM <FileCsvList>", "SaveWorld", "TakeTribe <TribeID>", "TribeDinoAudit  <TribeID>", "TribeStructureAudit <TribeID>" });
+            cboConsoleCommandsTribe.Location = new System.Drawing.Point(96, 474);
+            cboConsoleCommandsTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboConsoleCommandsTribe.Name = "cboConsoleCommandsTribe";
+            cboConsoleCommandsTribe.Size = new System.Drawing.Size(305, 24);
+            cboConsoleCommandsTribe.Sorted = true;
+            cboConsoleCommandsTribe.TabIndex = 2;
+            cboConsoleCommandsTribe.SelectedIndexChanged += cboTribeCopyCommand_SelectedIndexChanged;
             // 
             // tpgStructures
             // 
@@ -5017,7 +5017,7 @@ namespace ARKViewer
         private ArkViewer.UI.BorderlessComboBox cboItemListTribe;
         private System.Windows.Forms.Button btnCopyItemListCommand;
         private System.Windows.Forms.Label lblItemListCommand;
-        private ArkViewer.UI.BorderlessComboBox cboItemListCommand;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandSearch;
         private System.Windows.Forms.Label lblItemListCount;
         private System.Windows.Forms.Label lblItemListItem;
         private System.Windows.Forms.ListView lvwItemList;
@@ -5046,7 +5046,7 @@ namespace ARKViewer
         private ArkViewer.UI.BorderlessComboBox cboDroppedPlayer;
         private System.Windows.Forms.Button btnCopyCommandDropped;
         private System.Windows.Forms.Label lblCopyCommandDropped;
-        private ArkViewer.UI.BorderlessComboBox cboCopyCommandDropped;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandDropped;
         private System.Windows.Forms.Label lblCountDropped;
         private System.Windows.Forms.Label lblDroppedItem;
         private System.Windows.Forms.ListView lvwDroppedItems;
@@ -5069,7 +5069,7 @@ namespace ARKViewer
         private System.Windows.Forms.Label lblPlayerTotal;
         private System.Windows.Forms.Button btnCopyCommandPlayer;
         private System.Windows.Forms.Label lblCommandPlayer;
-        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsPlayerTribe;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsPlayer;
         private System.Windows.Forms.Button btnPlayerTribeLog;
         private System.Windows.Forms.Button btnPlayerInventory;
         private System.Windows.Forms.Label lblPlayersPlayer;
@@ -5121,7 +5121,7 @@ namespace ARKViewer
         private System.Windows.Forms.CheckBox chkTribePlayers;
         private System.Windows.Forms.Button btnTribeCopyCommand;
         private System.Windows.Forms.Label lblTribeCopyCommand;
-        private ArkViewer.UI.BorderlessComboBox cboTribeCopyCommand;
+        private ArkViewer.UI.BorderlessComboBox cboConsoleCommandsTribe;
         private System.Windows.Forms.Button btnTribeLog;
         private System.Windows.Forms.TabPage tpgStructures;
         private System.Windows.Forms.Button btnRconCommandStructures;

@@ -1,0 +1,972 @@
+﻿{
+  "tabs": [
+    {
+      "name": "wild",
+      "commands": [
+        {
+          "text": "ServerChat",
+          "params": [],
+          "inputs": [
+            {
+              "key": "Message",
+              "quoted": false,
+              "order": 1
+            }
+          ]
+        },
+        {
+          "text": "DestroyWildDinoClasses",
+          "params": [
+            {
+              "key": "ClassName",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "ExactMatch",
+              "quoted": false,
+              "order": 2,
+              "default":  "true"
+            }
+
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyWildDinos",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "GMSummon",
+          "params": [
+            {
+              "key": "ClassName",
+              "quoted": true,
+              "order": 1
+            },
+            {
+              "key": "Level",
+              "quoted": false,
+              "order": 2
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "SetPlayerPos",
+          "params": [
+            {
+              "key": "x",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "y",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "z",
+              "quoted": false,
+              "order": 3
+            }
+          ],
+          "inputs": []
+        }
+      ]
+    },
+    {
+      "name": "tamed",
+      "commands": [
+        {
+          "text": "AddMutations",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "Cryo",
+          "params": [
+            {
+              "key": "DinoId",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdDinos",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "GMSummon",
+          "params": [
+            {
+              "key": "ClassName",
+              "quoted": true,
+              "order": 1
+            },
+            {
+              "key": "Level",
+              "quoted": false,
+              "order": 2
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "SetPlayerPos",
+          "params": [
+            {
+              "key": "x",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "y",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "z",
+              "quoted": false,
+              "order": 3
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TakeTribe",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TeleportCreatureToMe",
+          "params": [
+            {
+              "key": "DinoId",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TeleportToCreature",
+          "params": [
+            {
+              "key": "DinoId",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        }
+      ]
+    },
+    {
+      "name": "structures",
+      "commands": [
+        {
+          "text": "DestroyTribeId",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdDinos",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdPlayers",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdStructures",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "SetPlayerPos",
+          "params": [
+            {
+              "key": "x",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "y",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "z",
+              "quoted": false,
+              "order": 3
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TakeTribe",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        }
+      ]
+    },
+    {
+      "name": "tribes",
+      "commands": [
+        {
+          "text": "DestroyTribeId",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdDinos",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdPlayers",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdStructures",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "RenameTribe",
+          "params": [
+            {
+              "key": "TribeName",
+              "quoted": true,
+              "order": 1
+            }
+          ],
+          "inputs": [
+            {
+              "key": "New Name",
+              "quoted": true,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "TakeTribe",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TribeDinoAudit",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TribeStructureAudit",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "commands": [
+        {
+          "text": "AddChibiExpToPlayer",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": [
+            {
+              "key": "Experience Amount",
+              "quoted": false,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "text": "AlowPlayerToJoinNoCheck",
+          "params": [
+            {
+              "key": "SteamID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "BanPlayer",
+          "params": [
+            {
+              "key": "SteamID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "ClearPlayerInventory",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "Inventory",
+              "quoted": false,
+              "order": 2,
+              "default": "true"
+            },
+            {
+              "key": "Slot",
+              "quoted": false,
+              "order": 3,
+              "default": "true"
+            },
+            {
+              "key": "Equipped",
+              "quoted": false,
+              "order": 4,
+              "default": "true"
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DefeatAllBosses",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeId",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdDinos",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdPlayers",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdStructures",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DisallowPlayerToJoinNoCheck",
+          "params": [
+            {
+              "key": "SteamID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "GetPlayerIDForSteamID",
+          "params": [
+            {
+              "key": "SteamID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "GetSteamIDForPlayerID",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "GiveCreativeModeToPlayer",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "GiveExpToPlayer",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "XP",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "FromTribe",
+              "quoted": false,
+              "order": 3,
+              "default": "false"
+            },
+            {
+              "key": "PreventTribeShare",
+              "quoted": false,
+              "order": 4,
+              "default": "true"
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "GiveTekEngramsTo",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "GFI",
+              "quoted": false,
+              "order": 2,
+              "default": "tek"
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "KickPlayer",
+          "params": [
+            {
+              "key": "SteamID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "KillPlayer",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "MaxAscend",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "RenamePlayer",
+          "params": [
+            {
+              "key": "CharacterName",
+              "quoted": true,
+              "order": 1
+            }
+          ],
+          "inputs": [
+            {
+              "key": "New Name",
+              "quoted": true,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "text": "RenameTribe",
+          "params": [
+            {
+              "key": "TribeName",
+              "quoted": true,
+              "order": 1
+            }
+          ],
+          "inputs": [
+            {
+              "key": "New Name",
+              "quoted": true,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "ServerChatTo",
+          "params": [
+            {
+              "key": "SteamID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": [
+            {
+              "key": "Message",
+              "quoted": false,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "text": "ServerChatToPlayer",
+          "params": [
+            {
+              "key": "CharacterName",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": [
+            {
+              "key": "Message",
+              "quoted": false,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "text": "SetImprintedPlayer",
+          "params": [
+            {
+              "key": "CharacterName",
+              "quoted": true,
+              "order": 1
+            },
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 2
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "SetPlayerPos",
+          "params": [
+            {
+              "key": "x",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "y",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "z",
+              "quoted": false,
+              "order": 3
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TakeTribe",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TeleportPlayerIDToMe",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TeleportPlayerNameToMe",
+          "params": [
+            {
+              "key": "CharacterName",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TeleportToPlayer",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TeleportToPlayerName",
+          "params": [
+            {
+              "key": "CharacterName",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TribeDinoAudit",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "TribeStructureAudit",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "UnbanPlayer",
+          "params": [
+            {
+              "key": "SteamID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "ListPlayers",
+          "params": [],
+          "inputs": []
+        }
+      ]
+    },
+    {
+      "name": "droppeditems",
+      "commands": [
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "SetPlayerPos",
+          "params": [
+            {
+              "key": "x",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "y",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "z",
+              "quoted": false,
+              "order": 3
+            }
+          ],
+          "inputs": []
+        }
+      ]
+    },
+    {
+      "name": "itemsearch",
+      "commands": [
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "SetPlayerPos",
+          "params": [
+            {
+              "key": "x",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "y",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "z",
+              "quoted": false,
+              "order": 3
+            }
+          ],
+          "inputs": []
+        }
+      ]
+    },
+    {
+      "name": "paintings",
+      "commands": [
+        {
+          "text": "DestroyTribeId",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdDinos",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdPlayers",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "DestroyTribeIdStructures",
+          "params": [
+            {
+              "key": "TribeID",
+              "quoted": false,
+              "order": 1
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "text": "SaveWorld",
+          "params": [],
+          "inputs": []
+        },
+        {
+          "text": "SetPlayerPos",
+          "params": [
+            {
+              "key": "x",
+              "quoted": false,
+              "order": 1
+            },
+            {
+              "key": "y",
+              "quoted": false,
+              "order": 2
+            },
+            {
+              "key": "z",
+              "quoted": false,
+              "order": 3
+            }
+          ],
+          "inputs": []
+        }
+      ]
+    }
+  ]
+}

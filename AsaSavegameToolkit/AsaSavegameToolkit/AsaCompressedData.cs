@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace AsaSavegameToolkit
             this.inputStream = inputStream;
         }
 
+
         public byte[] Inflate()
         {
             List<int> list = new List<int>();
@@ -35,6 +37,76 @@ namespace AsaSavegameToolkit
 
         }
 
+        public byte[] InflateTest()
+        {
+            using(var stream = new MemoryStream())
+            {
+                using(var writer = new BinaryWriter(stream))
+                {                    
+                    inputStream.Position = 0;
+                    while (inputStream.Position < inputStream.Length)
+                    {                                              
+                        int next = inputStream.ReadByte();
+                        switch(next)
+                        {
+                            case 0xF0:
+                                //escape
+                                inputStream.ReadByte();
+                                break;
+                            case 0xF1:
+                                //switch
+                                next = inputStream.ReadByte();
+                                int returnValue = 0xF0 | ((next & 0xF0) >> 4);
+                                writer.Write((byte)returnValue);
+                                writer.Write((byte)(0xF0 | (next & 0x0F)));
+
+                                break;
+
+                            case 0xFF:
+                                //zero padded double value
+                                var b1 = inputStream.ReadByte();
+                                var b2 = inputStream.ReadByte();
+
+                                writer.Write((byte)0);
+                                writer.Write((byte)0);
+                                writer.Write((byte)0);
+                                writer.Write((byte)b1);
+                                writer.Write((byte)0);
+                                writer.Write((byte)0);
+                                writer.Write((byte)0);
+                                writer.Write((byte)b2);
+                                writer.Write((byte)0);
+                                writer.Write((byte)0);
+                                writer.Write((byte)0);
+
+                                break;
+
+                            case int b when (b >= 0xF2 && b < 0xFF):
+                                //zero padding
+                                int byteCount = next & 0x0F;
+                                for (int i = 0; i < byteCount; i++)
+                                {
+                                    writer.Write((byte)0);
+                                }
+
+                                break;
+
+                            default:
+                                writer.Write((byte)next);
+                                break;
+                        }
+
+
+                    }
+
+                    writer.Flush();
+                }
+
+                return stream.ToArray();
+            }
+
+        }
+
         private int Read()
         {
             if (fifoQueue.Count > 0)
@@ -43,6 +115,7 @@ namespace AsaSavegameToolkit
             }
 
             int next = inputStream.ReadByte();
+
             if (readState == ReadState.Switch)
             {
                 int returnValue = 0xF0 | ((next & 0xF0) >> 4);

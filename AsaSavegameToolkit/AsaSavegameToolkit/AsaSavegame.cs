@@ -299,6 +299,8 @@ namespace AsaSavegameToolkit
                                     }
                                     else
                                     {
+                                        if (dataBytes.Length < 8) continue;
+
                                         List<AsaProperty<dynamic>> properties = new List<AsaProperty<dynamic>>();
                                         //skins/costumes/inventory
                                         using(Stream stream = new MemoryStream(dataBytes)) 
@@ -456,7 +458,7 @@ namespace AsaSavegameToolkit
                 commandHeader.Connection = connection;
 
                 //read header
-                using (SqliteDataReader reader = commandHeader.ExecuteReader())
+                using ( SqliteDataReader reader = commandHeader.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -479,15 +481,17 @@ namespace AsaSavegameToolkit
         }
         private void readHeader(AsaArchive archive)
         {
+            var unknownInt1 = 0;
+            var unknownInt2 = 0;
+            
             saveVersion = archive.ReadShort();
             nameTableOffset = archive.ReadInt();
             gameTime = archive.ReadDouble();
 
             if (saveVersion > 11)
             {
-                var unknownInt = archive.ReadInt();
+                unknownInt1 = archive.ReadInt(); //582
             }
-            
 
         }
 
@@ -548,7 +552,15 @@ namespace AsaSavegameToolkit
                         Guid guid = GuidExtensions.ToGuid(keyBytes);
 
                         byte[] valueBytes = GetSqlBytes(readerData, 1);
-                        gameData.Add(guid, valueBytes);
+                        try
+                        {
+                            gameData.Add(guid, valueBytes);
+                        }
+                        catch
+                        {
+
+                        }
+                        
                     }
                 }
             }
@@ -567,9 +579,9 @@ namespace AsaSavegameToolkit
 
             ConcurrentDictionary<Guid,AsaGameObject> asaGameObjectDictionary = new ConcurrentDictionary<Guid, AsaGameObject>();
 
-            //Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
+            Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
             //foreach(var objectData in gameData) 
-            gameData.AsParallel().ForAll(objectData =>
+            //gameData.AsParallel().ForAll(objectData =>
             {
                 using (var ms = new MemoryStream(objectData.Value))
                 {

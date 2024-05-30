@@ -1,8 +1,11 @@
-﻿using ARKViewer.Configuration;
+﻿using ArkViewer.Configuration;
+using ARKViewer.Configuration;
 using ARKViewer.Models;
+using ARKViewer.Models.NameMap;
 using ASVPack;
 using ASVPack.Models;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NLog;
 using System;
@@ -32,6 +35,7 @@ namespace ARKViewer
         public static ContentPack LoadedPack { get; set; } = null;
         public static ViewerConfiguration ProgramConfig { get; set; }
         public static ApiConfiguration ApiConfig { get; set; }
+        public static List<RCONTabCommands> TabCommands { get; set; } = new List<RCONTabCommands>();
 
         public static string GetSteamFolder()
         {
@@ -140,6 +144,22 @@ namespace ARKViewer
                             LogWriter.Info("No game file selected, aborting.");
                             return;
                         }
+                    }
+                }
+
+                string rconCommandListFilename = Path.Combine(AppContext.BaseDirectory, "commands.json");
+                if(File.Exists(rconCommandListFilename))
+                {
+                    TabCommands = new List<RCONTabCommands>();
+
+                    string fileContent = File.ReadAllText(rconCommandListFilename);
+                    JObject jsonTabContainer = JObject.Parse(fileContent);
+
+                    JArray tabList = (JArray)jsonTabContainer.GetValue("tabs");
+                    foreach (JObject tabObject in tabList)
+                    {
+                        var tabCommands = JsonConvert.DeserializeObject<RCONTabCommands>(tabObject.ToString());
+                        TabCommands.Add(tabCommands);
                     }
                 }
 

@@ -219,8 +219,9 @@ namespace ASVPack.Models
             if (!string.IsNullOrEmpty(clusterFolder) && Directory.Exists(clusterFolder))
             {
 
-                var profileFilenames = Directory.GetFiles(clusterFolder, "*");
-                profileFilenames.AsParallel().ForAll(fileName =>
+                var profileFilenames = Directory.EnumerateFiles(clusterFolder, "*");
+                Parallel.ForEach(profileFilenames, fileName =>
+                //profileFilenames.AsParallel().ForAll(fileName =>
                 {
                     long itemOwnerId = 0;
                     long.TryParse(System.IO.Path.GetFileNameWithoutExtension(fileName), out itemOwnerId);

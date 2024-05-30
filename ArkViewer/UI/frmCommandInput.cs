@@ -14,12 +14,11 @@ namespace ArkViewer.UI
     {
         public string EnteredValue { get; internal set; } = string.Empty;
 
-        public frmCommandInput(string paramName, string paramDescription)
+        public frmCommandInput(string paramName)
         {
             InitializeComponent();
 
             lblParamName.Text = paramName;
-            lblParamDescription.Text = paramDescription;
 
         }
 
