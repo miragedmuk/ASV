@@ -1,288 +1,349 @@
 {
-    "terminals": [
-		 {
-            "Map": "Caballus_P.ark",
-            "Lat": 44.9,
-            "Lon": 87.9,
-            "X": 308343,
-            "Y": -40561,
-            "Z": 26249,
-            "Colour": "Red"
-        }, {
-            "Map": "Caballus_P.ark",
-            "Lat": 67.2,
-            "Lon": 36.9,
-            "X": -105705,
-            "Y": 140292,
-            "Z": -8875,
-            "Colour": "Green"
-        }, {
-            "Map": "Caballus_P.ark",
-            "Lat": 18.7,
-            "Lon": 17.6,
-            "X": -262358,
-            "Y": -253687,
-            "Z": 5841,
-            "Colour": "Blue"
-        }, {
-            "Map": "TheIsland.ark",
-            "Lat": 79.8,
-            "Lon": 17.4,
-            "X": -260575.20,
-            "Y": 239011.30,
-            "Z": -11209.40,
-            "Colour": "Red"
-        }, {
-            "Name": "Green Obelisk",
-            "Map": "TheIsland.ark",
-            "Lat": 59,
-            "Lon": 72.3,
-            "X": 178452.40,
-            "Y": 71749.46,
-            "Z": -10071.47,
-            "Colour": "Green"
-        }, {
-            "Map": "TheIsland.ark",
-            "Lat": 25.5,
-            "Lon": 25.6,
-            "X": -195138.10,
-            "Y": -196079.90,
-            "Z": 33843.36,
-            "Colour": "Blue"
-        }, {
-            "Map": "TheIsland.ark",
-            "Lat": 43.1,
-            "Lon": 39.1,
-            "X": -87004.34,
-            "Y": -54520.68,
-            "Z": 33454.82,
-            "Colour": "Purple"
-        }, {
-            "Map": "ScorchedEarth_P.ark",
-            "Lat": 71,
-            "Lon": 39.2,
-            "X": -86321.97,
-            "Y": 168998.70,
-            "Z": -16335.72,
-            "Colour": "Red"
-        }, {
-            "Map": "ScorchedEarth_P.ark",
-            "Lat": 50,
-            "Lon": 74.3,
-            "X": 195113.10,
-            "Y": 286.48,
-            "Z": -12495.29,
-            "Colour": "Green"
-        }, {
-            "Map": "ScorchedEarth_P.ark",
-            "Lat": 17.3,
-            "Lon": 34,
-            "X": -128492.00,
-            "Y": -261338.10,
-            "Z": -15420.09,
-            "Colour": "Blue"
-        }, {
-            "Map": "Ragnarok.ark",
-            "Lat": 35,
-            "Lon": 85.7,
-            "X": 467526.30,
-            "Y": -196062.00,
-            "Z": -14171.74,
-            "Colour": "Red"
-        }, {
-            "Map": "Ragnarok.ark",
-            "Lat": 57,
-            "Lon": 38.2,
-            "X": -155921.40,
-            "Y": 91693.63,
-            "Z": 11635.79,
-            "Colour": "Green"
-        }, {
-            "Map": "Ragnarok.ark",
-            "Lat": 18.1,
-            "Lon": 17.3,
-            "X": -427502.70,
-            "Y": -417153.80,
-            "Z": -13703.29,
-            "Colour": "Blue"
-        }, {
-            "Map": "Aberration_P.ark",
-            "Lat": 80.8,
-            "Lon": 20.3,
-            "X": -236973.20,
-            "Y": 247101.40,
-            "Z": 53462.56,
-            "Colour": "Red"
-        }, {
-            "Map": "Aberration_P.ark",
-            "Lat": 22.5,
-            "Lon": 77.7,
-            "X": 222375.30,
-            "Y": -219457.80,
-            "Z": 57330.59,
-            "Colour": "Green"
-        }, {
-            "Map": "Aberration_P.ark",
-            "Lat": 18.9,
-            "Lon": 16.1,
-            "X": -271163.20,
-            "Y": -248230.70,
-            "Z": 66772.88,
-            "Colour": "Blue"
-        }, {
-            "Map": "Aberration_P.ark",
-            "Lat": 42.7,
-            "Lon": 36.7,
-            "X": -105786.00,
-            "Y": -58249.00,
-            "Z": -102960.00,
-            "Colour": "Purple"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 77.6,
-            "Lon": 76.9,
-            "X": 216025.00,
-            "Y": 222958.00,
-            "Z": -41370.00,
-            "Colour": "Red"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 50.6,
-            "Lon": 29.7,
-            "X": -161718.00,
-            "Y": 4918.00,
-            "Z": -22021.00,
-            "Colour": "Green"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 21.8,
-            "Lon": 78.2,
-            "X": 226012.00,
-            "Y": -224975.00,
-            "Z": 15208.00,
-            "Colour": "Blue"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 3.5,
-            "Lon": 49.2,
-            "X": -6311.00,
-            "Y": -371887.00,
-            "Z": 36783.00,
-            "Colour": "Gold"
-        }, {
-            "Map": "Valguero_P.ark",
-            "Lat": 9.3,
-            "Lon": 17.3,
-            "X": -266874.80,
-            "Y": -331607.10,
-            "Z": 627.36,
-            "Colour": "Blue"
-        }, {
-            "Map": "Valguero_P.ark",
-            "Lat": 76.1,
-            "Lon": 17.1,
-            "X": -268007.30,
-            "Y": 213572.30,
-            "Z": -147.40,
-            "Colour": "Red"
-        }, {
-            "Map": "Valguero_P.ark",
-            "Lat": 48.8,
-            "Lon": 76.1,
-            "X": 213654.40,
-            "Y": -9281.54,
-            "Z": -12788.47,
-            "Colour": "Green"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 25.2,
-            "Lon": 22.7,
-            "X": -217605.00,
-            "Y": -198236.00,
-            "Z": -108710.00,
-            "Colour": "Blue"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 97.1,
-            "Lon": 90.1,
-            "X": 321380.00,
-            "Y": 377424.00,
-            "Z": -60392.00,
-            "Colour": "Purple"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 6.7,
-            "Lon": 85.8,
-            "X": 286839.10,
-            "Y": -346195.80,
-            "Z": -40757.38,
-            "Colour": "Purple"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 3.5,
-            "Lon": 49.2,
-            "X": -6242.42,
-            "Y": -371914.00,
-            "Z": 36809.02,
-            "Colour": "Purple"
-        }, {
-            "Map": "Extinction.ark",
-            "Lat": 15.9,
-            "Lon": 50.5,
-            "X": 4246.83,
-            "Y": -272759.80,
-            "Z": -146041.30,
-            "Colour": "Purple"
-        }, {
-            "Map": "TheCenter.ark",
-            "Lat": 8.2,
-            "Lon": 57.4,
-            "X": 37250.00,
-            "Y": -210833.00,
-            "Z": 1972.00,
-            "Colour": "Red"
-        }, {
-            "Map": "TheCenter.ark",
-            "Lat": 35.6,
-            "Lon": 15.3,
-            "X": -376544.00,
-            "Y": 42806.00,
-            "Z": -13637.00,
-            "Colour": "Green"
-        }, {
-            "Map": "TheCenter.ark",
-            "Lat": 50.3,
-            "Lon": 81.0,
-            "X": 250669.00,
-            "Y": 194864.00,
-            "Z": -8489.00,
-            "Colour": "Blue"
-        }, {
-            "Map": "CrystalIsles.ark",
-            "Lat": 25.6,
-            "Lon": 56.7,
-            "X": 114544.0,
-            "Y": -368783.0,
-            "Z": -12194.0,
-            "Colour": "Blue"
-        }, {
-            "Map": "CrystalIsles.ark",
-            "Lat": 51.4,
-            "Lon": 25.4,
-            "X": -417751.0,
-            "Y": 43909.0,
-            "Z": -13886.0,
-            "Colour": "Green"
-        }, {
-            "Map": "CrystalIsles.ark",
-            "Lat": 63.8,
-            "Lon": 58.4,
-            "X": 146508.0,
-            "Y": 240701.0,
-            "Z": -13851.0,
-            "Colour": "Red"
-        }
-    ],
+  "terminals": [
+    {
+      "Map": "Caballus_P.ark",
+      "Lat": 44.9,
+      "Lon": 87.9,
+      "X": 308343,
+      "Y": -40561,
+      "Z": 26249,
+      "Colour": "Red"
+    },
+    {
+      "Map": "Caballus_P.ark",
+      "Lat": 67.2,
+      "Lon": 36.9,
+      "X": -105705,
+      "Y": 140292,
+      "Z": -8875,
+      "Colour": "Green"
+    },
+    {
+      "Map": "Caballus_P.ark",
+      "Lat": 18.7,
+      "Lon": 17.6,
+      "X": -262358,
+      "Y": -253687,
+      "Z": 5841,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "TheIsland.ark",
+      "Lat": 79.8,
+      "Lon": 17.4,
+      "X": -260575.20,
+      "Y": 239011.30,
+      "Z": -11209.40,
+      "Colour": "Red"
+    },
+    {
+      "Name": "Green Obelisk",
+      "Map": "TheIsland.ark",
+      "Lat": 59,
+      "Lon": 72.3,
+      "X": 178452.40,
+      "Y": 71749.46,
+      "Z": -10071.47,
+      "Colour": "Green"
+    },
+    {
+      "Map": "TheIsland.ark",
+      "Lat": 25.5,
+      "Lon": 25.6,
+      "X": -195138.10,
+      "Y": -196079.90,
+      "Z": 33843.36,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "TheIsland.ark",
+      "Lat": 43.1,
+      "Lon": 39.1,
+      "X": -87004.34,
+      "Y": -54520.68,
+      "Z": 33454.82,
+      "Colour": "Purple"
+    },
+    {
+      "Map": "ScorchedEarth_P.ark",
+      "Lat": 71,
+      "Lon": 39.2,
+      "X": -86321.97,
+      "Y": 168998.70,
+      "Z": -16335.72,
+      "Colour": "Red"
+    },
+    {
+      "Map": "ScorchedEarth_P.ark",
+      "Lat": 50,
+      "Lon": 74.3,
+      "X": 195113.10,
+      "Y": 286.48,
+      "Z": -12495.29,
+      "Colour": "Green"
+    },
+    {
+      "Map": "ScorchedEarth_P.ark",
+      "Lat": 17.3,
+      "Lon": 34,
+      "X": -128492.00,
+      "Y": -261338.10,
+      "Z": -15420.09,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "Ragnarok.ark",
+      "Lat": 35,
+      "Lon": 85.7,
+      "X": 467526.30,
+      "Y": -196062.00,
+      "Z": -14171.74,
+      "Colour": "Red"
+    },
+    {
+      "Map": "Ragnarok.ark",
+      "Lat": 57,
+      "Lon": 38.2,
+      "X": -155921.40,
+      "Y": 91693.63,
+      "Z": 11635.79,
+      "Colour": "Green"
+    },
+    {
+      "Map": "Ragnarok.ark",
+      "Lat": 18.1,
+      "Lon": 17.3,
+      "X": -427502.70,
+      "Y": -417153.80,
+      "Z": -13703.29,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "Aberration_P.ark",
+      "Lat": 80.8,
+      "Lon": 20.3,
+      "X": -236973.20,
+      "Y": 247101.40,
+      "Z": 53462.56,
+      "Colour": "Red"
+    },
+    {
+      "Map": "Aberration_P.ark",
+      "Lat": 22.5,
+      "Lon": 77.7,
+      "X": 222375.30,
+      "Y": -219457.80,
+      "Z": 57330.59,
+      "Colour": "Green"
+    },
+    {
+      "Map": "Aberration_P.ark",
+      "Lat": 18.9,
+      "Lon": 16.1,
+      "X": -271163.20,
+      "Y": -248230.70,
+      "Z": 66772.88,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "Aberration_P.ark",
+      "Lat": 42.7,
+      "Lon": 36.7,
+      "X": -105786.00,
+      "Y": -58249.00,
+      "Z": -102960.00,
+      "Colour": "Purple"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 77.6,
+      "Lon": 76.9,
+      "X": 216025.00,
+      "Y": 222958.00,
+      "Z": -41370.00,
+      "Colour": "Red"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 50.6,
+      "Lon": 29.7,
+      "X": -161718.00,
+      "Y": 4918.00,
+      "Z": -22021.00,
+      "Colour": "Green"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 21.8,
+      "Lon": 78.2,
+      "X": 226012.00,
+      "Y": -224975.00,
+      "Z": 15208.00,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 3.5,
+      "Lon": 49.2,
+      "X": -6311.00,
+      "Y": -371887.00,
+      "Z": 36783.00,
+      "Colour": "Gold"
+    },
+    {
+      "Map": "Valguero_P.ark",
+      "Lat": 9.3,
+      "Lon": 17.3,
+      "X": -266874.80,
+      "Y": -331607.10,
+      "Z": 627.36,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "Valguero_P.ark",
+      "Lat": 76.1,
+      "Lon": 17.1,
+      "X": -268007.30,
+      "Y": 213572.30,
+      "Z": -147.40,
+      "Colour": "Red"
+    },
+    {
+      "Map": "Valguero_P.ark",
+      "Lat": 48.8,
+      "Lon": 76.1,
+      "X": 213654.40,
+      "Y": -9281.54,
+      "Z": -12788.47,
+      "Colour": "Green"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 25.2,
+      "Lon": 22.7,
+      "X": -217605.00,
+      "Y": -198236.00,
+      "Z": -108710.00,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 97.1,
+      "Lon": 90.1,
+      "X": 321380.00,
+      "Y": 377424.00,
+      "Z": -60392.00,
+      "Colour": "Purple"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 6.7,
+      "Lon": 85.8,
+      "X": 286839.10,
+      "Y": -346195.80,
+      "Z": -40757.38,
+      "Colour": "Purple"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 3.5,
+      "Lon": 49.2,
+      "X": -6242.42,
+      "Y": -371914.00,
+      "Z": 36809.02,
+      "Colour": "Purple"
+    },
+    {
+      "Map": "Extinction.ark",
+      "Lat": 15.9,
+      "Lon": 50.5,
+      "X": 4246.83,
+      "Y": -272759.80,
+      "Z": -146041.30,
+      "Colour": "Purple"
+    },
+    {
+      "Map": "TheCenter.ark",
+      "Lat": 8.2,
+      "Lon": 57.4,
+      "X": 37250.00,
+      "Y": -210833.00,
+      "Z": 1972.00,
+      "Colour": "Red"
+    },
+    {
+      "Map": "TheCenter.ark",
+      "Lat": 35.6,
+      "Lon": 15.3,
+      "X": -376544.00,
+      "Y": 42806.00,
+      "Z": -13637.00,
+      "Colour": "Green"
+    },
+    {
+      "Map": "TheCenter.ark",
+      "Lat": 50.3,
+      "Lon": 81.0,
+      "X": 250669.00,
+      "Y": 194864.00,
+      "Z": -8489.00,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "TheCenter_wp.ark",
+      "Lat": 12.2,
+      "Lon": 54.1,
+      "X": 37358.00,
+      "Y": -210703.00,
+      "Z": 2268.00,
+      "Colour": "Red"
+    },
+    {
+      "Map": "TheCenter_wp.ark",
+      "Lat": 36.6,
+      "Lon": 14.2,
+      "X": -376553.00,
+      "Y": 42871.00,
+      "Z": -13735.00,
+      "Colour": "Green"
+    },
+    {
+      "Map": "TheCenter_wp.ark",
+      "Lat": 51.3,
+      "Lon": 74.7,
+      "X": 250554.00,
+      "Y": 194907.00,
+      "Z": -8618.00,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "CrystalIsles.ark",
+      "Lat": 25.6,
+      "Lon": 56.7,
+      "X": 114544.0,
+      "Y": -368783.0,
+      "Z": -12194.0,
+      "Colour": "Blue"
+    },
+    {
+      "Map": "CrystalIsles.ark",
+      "Lat": 51.4,
+      "Lon": 25.4,
+      "X": -417751.0,
+      "Y": 43909.0,
+      "Z": -13886.0,
+      "Colour": "Green"
+    },
+    {
+      "Map": "CrystalIsles.ark",
+      "Lat": 63.8,
+      "Lon": 58.4,
+      "X": 146508.0,
+      "Y": 240701.0,
+      "Z": -13851.0,
+      "Colour": "Red"
+    }
+  ],
     "glitches": [{
             "Map": "Genesis.ark",
             "Lat": 12.4,

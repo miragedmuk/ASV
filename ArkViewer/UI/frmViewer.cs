@@ -9051,8 +9051,13 @@ namespace ARKViewer
                     if (lvwPlayers.SelectedItems.Count > 0)
                     {
                         ContentPlayer player = (ContentPlayer)lvwPlayers.SelectedItems[0].Tag;
-                        Clipboard.SetText(player.PlayerFilename);
-                        MessageBox.Show("Player filename copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (!string.IsNullOrEmpty(player.PlayerFilename))
+                        {
+                            Clipboard.SetText(player?.PlayerFilename);
+                            MessageBox.Show("Player filename copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+
 
                     }
                     break;

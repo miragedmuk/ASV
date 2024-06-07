@@ -2079,6 +2079,26 @@
       "ClassName": "Fasola_Character_BP_C",
       "FriendlyName": "Fasolasuchus",
       "BlueprintPath": null
+    },
+    {
+      "ClassName": "Shastasaurus_Character_BP_C",
+      "FriendlyName": "Shastasaurus",
+      "BlueprintPath": "\"Blueprint'/Game/ASA/Dinos/Shastasaurus/Shastasaurus_Character_BP.Shastasaurus_Character_BP'\""
+    },
+    {
+      "ClassName": "FireLion_Character_BP_C",
+      "FriendlyName": "Pyromane",
+      "BlueprintPath": "\"Blueprint'/Game/ASA/Dinos/FireLion/FireLion_Character_BP.FireLion_Character_BP'\""
+    },
+    {
+      "ClassName": "Ceratosaurus_Character_BP_ASA_C",
+      "FriendlyName": "Ceratosaurus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Xiphactinus_Character_BP_ASA_C",
+      "FriendlyName": "Xiphactinus",
+      "BlueprintPath": null
     }
   ]
 }
