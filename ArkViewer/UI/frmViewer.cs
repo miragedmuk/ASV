@@ -1303,14 +1303,7 @@ namespace ARKViewer
                     {
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -1330,14 +1323,7 @@ namespace ARKViewer
             {
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
                 foreach (ListViewItem selectedItem in lvwStructureLocations.SelectedItems)
@@ -1691,14 +1677,8 @@ namespace ARKViewer
                     {
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -1721,14 +1701,8 @@ namespace ARKViewer
 
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+ 
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
                 foreach (ListViewItem selectedItem in lvwItemList.SelectedItems)
@@ -1777,14 +1751,7 @@ namespace ARKViewer
                     {
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -1803,14 +1770,7 @@ namespace ARKViewer
             {
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
                 if (commandTemplate.Contains("<FileCsvList>"))
@@ -1908,14 +1868,7 @@ namespace ARKViewer
                         inputForm.Owner = this;
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -1935,14 +1888,7 @@ namespace ARKViewer
             {
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
                 foreach (ListViewItem selectedItem in lvwWildDetail.SelectedItems)
@@ -2419,14 +2365,8 @@ namespace ARKViewer
                     {
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -2446,14 +2386,8 @@ namespace ARKViewer
             {
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
                 foreach (ListViewItem selectedItem in lvwDroppedItems.SelectedItems)
@@ -2670,14 +2604,7 @@ namespace ARKViewer
                         inputForm.Owner = this;
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -2719,14 +2646,7 @@ namespace ARKViewer
             {
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
                 foreach (ListViewItem selectedItem in lvwTribes.SelectedItems)
@@ -9431,14 +9351,7 @@ namespace ARKViewer
                     {
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -9460,14 +9373,7 @@ namespace ARKViewer
             {
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
                 if (commandTemplate.Contains("<FileCsvList>"))
