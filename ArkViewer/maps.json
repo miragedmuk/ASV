@@ -32,9 +32,9 @@
       "Filename": "thecenter_wp.ark",
       "ImageFile": "map_thecenter_asa.jpg",
       "LatShift": 32.5,
-      "LatDiv": 10375,
+      "LatDiv": 10380.52,
       "LonShift": 50.5,
-      "LonDiv": 10375
+      "LonDiv": 10374.29
     },
     {
       "MapName": "Scorched Earth",

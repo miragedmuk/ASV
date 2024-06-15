@@ -15,7 +15,9 @@ namespace ASVPack.Models
 {
     [DataContract]
     public class ContentItem
+
     {
+        [DataMember] public long ItemId { get; set; } = 0;
         [DataMember] public string ClassName { get; set; } = "";
         [DataMember] public string CustomName { get; set; } = "";
         [DataMember] public string CraftedByPlayer { get; set; } = "";
@@ -108,8 +110,8 @@ namespace ASVPack.Models
             CraftedByPlayer = itemObject.GetPropertyValue<string>("CrafterCharacterName", 0, "");
             UploadedTimeInGame = 0;
             UploadedTime = null;
-
-
+            ItemId  = itemObject.GetItemId();
+            
             if (itemObject.HasAnyProperty("ItemRating") & !ClassName.ToLower().Contains("egg"))
             {
                 var ratingProp = itemObject.GetPropertyValue<float>("ItemRating");

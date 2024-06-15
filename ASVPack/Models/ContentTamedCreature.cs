@@ -26,6 +26,7 @@ namespace ASVPack.Models
         [DataMember] public bool IsCryo { get; set; } = false;
         [DataMember] public bool IsVivarium { get; set; } = false;
         [DataMember] public long ImprintedPlayerId { get; set; } = 0;
+        public string ImprintedPlayerNetId { get; set; } = string.Empty;
         [DataMember] public string ImprinterName { get; set; } = "";
         [DataMember] public decimal ImprintQuality { get; set; } = 0;
         [DataMember] public ContentInventory Inventory { get; set; } = new ContentInventory();
@@ -56,6 +57,7 @@ namespace ASVPack.Models
         [DataMember] public DateTime? UploadedTime { get; set; } = null;
         public double UploadedTimeInGame { get; set; } = 0;
 
+        [DataMember] public float Experience { get; set; } = 0;
 
         public ContentTamedCreature(double uploadTime, GameObject creatureObject, GameObject statusObject): base(creatureObject,statusObject)
         {
@@ -324,12 +326,13 @@ namespace ASVPack.Models
             TamerName = creatureObject.GetPropertyValue<string>("TamerString", 0, "") ?? "";
 
             ImprintedPlayerId = (long)creatureObject.GetPropertyValue<ulong>("ImprinterPlayerDataID", 0, 0);
-            //if (ImprintedPlayerId > 0 && statusObject != null)
-            //{
-                ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
-                ImprinterName = creatureObject.GetPropertyValue<string>("ImprinterName", 0, "") ?? "";
-                if(!string.IsNullOrEmpty(ImprinterName)) TamerName = "";
-            //}
+            ImprintedPlayerNetId = creatureObject.GetPropertyValue<string>("ImprinterPlayerUniqueNetId", 0, "")??"";
+
+            ImprintQuality = (decimal)statusObject.GetPropertyValue<float>("DinoImprintingQuality", 0, 0);
+            ImprinterName = creatureObject.GetPropertyValue<string>("ImprinterName", 0, "") ?? "";
+            if(!string.IsNullOrEmpty(ImprinterName)) TamerName = "";
+
+
 
 
             //IsCryo = false;
@@ -347,6 +350,8 @@ namespace ASVPack.Models
             TamedStats = new byte[12];
             if (statusObject != null)
             {
+                Experience = statusObject.GetPropertyValue<float>("ExperiencePoints", 0, 0);
+
                 for (var i = 0; i < TamedStats.Length; i++)
                 { 
                     var tamedBase = (byte)(statusObject.GetPropertyValue<uint>("NumberOfLevelUpPointsAppliedTamed", i,0) ?? 0);

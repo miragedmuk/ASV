@@ -22,6 +22,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using System.Security.Policy;
 using System.Text;
 using System.Text.Json.Nodes;
@@ -2059,14 +2060,7 @@ namespace ARKViewer
                     {
                         if (inputForm.ShowDialog() == DialogResult.OK)
                         {
-                            if (inputRequest.Quoted)
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"\"{inputForm.EnteredValue}\"");
-                            }
-                            else
-                            {
-                                commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
-                            }
+                            commandTemplate = commandTemplate.Replace($"<{inputRequest.Key}>", $"{inputForm.EnteredValue}");
                         }
                         else
                         {
@@ -2077,67 +2071,63 @@ namespace ARKViewer
                 }
             }
 
+            if (commandTemplate.Contains("AddMutations"))
+            {
+                //only first selected item - but one command per mutation
+                ContentTamedCreature selectedCreature = (ContentTamedCreature)lvwTameDetail.SelectedItems[0].Tag;
+
+                bool hasMutations = false;
+                List<string> mutationCommands = new List<string>();
+
+                for (int statId = 0; statId < selectedCreature.TamedMutations.Length; statId++)
+                {
+
+                    int statValue = selectedCreature.TamedMutations[statId];
+                    if (statValue != 0)
+                    {
+                        hasMutations = true;
+
+                        string mutationText = $"AddMutations {statId} {statValue}";
+
+                        switch (Program.ProgramConfig.CommandPrefix)
+                        {
+                            case 1:
+                                mutationText = $"admincheat {mutationText}";
+
+                                break;
+                            case 2:
+                                mutationText = $"cheat {mutationText}";
+                                break;
+                        }
+
+                        mutationCommands.Add(mutationText);
+                    }
+                }
+
+                if (hasMutations)
+                {
+                    return string.Join('|', mutationCommands.ToArray());
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+
             if (command.Parameters.Count == 0 || lvwTameDetail.SelectedItems.Count == 0)
             {
                 allCommands.Add(commandTemplate);
             }
 
+
             if (command.Parameters.Count > 0 && lvwTameDetail.SelectedItems.Count > 0)
             {
-                foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
+                foreach (var defaultParam in command.Parameters.Where(p => p.Default != null))
                 {
-                    if (defaultParam.Quoted)
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"\"{defaultParam.Default}\"");
-                    }
-                    else
-                    {
-                        commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }
+                    commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", defaultParam.Default);
                 }
 
-                if (commandTemplate.Contains("AddMutations"))
-                {
-                    //only first selected item - but one command per mutation
-                    ContentTamedCreature selectedCreature = (ContentTamedCreature)lvwTameDetail.SelectedItems[0].Tag;
 
-                    bool hasMutations = false;
-                    List<string> mutationCommands = new List<string>();
-
-                    for (int statId = 0; statId < selectedCreature.TamedMutations.Length; statId++)
-                    {
-
-                        int statValue = selectedCreature.TamedMutations[statId];
-                        if (statValue != 0)
-                        {
-                            hasMutations = true;
-
-                            string mutationText = $"AddMutations {statId} {statValue}";
-
-                            switch (Program.ProgramConfig.CommandPrefix)
-                            {
-                                case 1:
-                                    mutationText = $"admincheat {mutationText}";
-
-                                    break;
-                                case 2:
-                                    mutationText = $"cheat {mutationText}";
-                                    break;
-                            }
-
-                            mutationCommands.Add(mutationText);
-                        }
-                    }
-
-                    if (hasMutations)
-                    {
-                        return string.Join('|', mutationCommands.ToArray());
-                    }
-                    else
-                    {
-                        return string.Empty;
-                    }
-                }
 
 
                 foreach (ListViewItem selectedItem in lvwTameDetail.SelectedItems)
@@ -2198,6 +2188,9 @@ namespace ARKViewer
                     commandText = commandText.Replace("<ImprintedPlayerId>", selectedCreature.ImprintedPlayerId.ToString());
                     commandText = commandText.Replace("<ImprintQuality>", selectedCreature.ImprintQuality.ToString());
                     commandText = commandText.Replace("<Name>", selectedCreature.Name);
+                    commandText = commandText.Replace("<ServerName>", selectedCreature.TamedOnServerName ?? "");
+                    commandText = commandText.Replace("<TamedDate>", selectedCreature.TamedAtDateTime?.ToString("yyyy-mm-dd"));
+                    commandText = commandText.Replace("<CreatureXP>", selectedCreature.Experience.ToString("f4"));
 
                     commandText = commandText.Replace("<x>", System.FormattableString.Invariant($"{selectedCreature.X:0.00}"));
                     commandText = commandText.Replace("<y>", System.FormattableString.Invariant($"{selectedCreature.Y:0.00}"));
@@ -2460,7 +2453,7 @@ namespace ARKViewer
                     else
                     {
                         commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
-                    }                  
+                    }
                 }
 
                 foreach (ListViewItem selectedItem in lvwDroppedItems.SelectedItems)
@@ -3797,7 +3790,98 @@ namespace ARKViewer
 
         private void cboItemListTribe_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RefreshItemListPlayers();
             LoadItemListDetail();
+        }
+
+        private void RefreshItemListPlayers()
+        {
+
+            if (cm == null) return;
+            if (cboItemListTribe.SelectedItem == null) return;
+
+            ASVComboValue comboValue = (ASVComboValue)cboItemListTribe.SelectedItem;
+            int.TryParse(comboValue.Key, out int selectedTribeId);
+
+
+            long selectedPlayerId = 0;
+            if(cboItemListPlayers.SelectedIndex > 0)
+            {
+                comboValue = (ASVComboValue)cboItemListPlayers.SelectedItem;
+                long.TryParse(comboValue.Key, out selectedPlayerId);
+            }
+
+            cboItemListPlayers.Items.Clear();
+            cboItemListPlayers.Items.Add(new ASVComboValue("0", "[All Players]"));
+
+            List<ASVComboValue> newItems = new List<ASVComboValue>();
+
+            if (selectedTribeId == -1) selectedTribeId = 0;
+            var tribes = cm.GetTribes(selectedTribeId);
+            foreach (var tribe in tribes)
+            {
+
+                foreach (var player in tribe.Players)
+                {
+                    bool addItem = true;
+
+                    if (Program.ProgramConfig.HideNoBody && addItem)
+                    {
+                        addItem = !(player.Latitude.GetValueOrDefault(0) == 0 && player.Longitude.GetValueOrDefault(0) == 0);
+                    }
+
+                    if (addItem)
+                    {
+                        float fromLat = (float)udLatTamed.Value;
+                        float fromLon = (float)udLonTamed.Value;
+                        float fromRadius = (float)udRadiusTamed.Value;
+
+
+                        addItem = tribe.Structures.LongCount(w => (
+                                        (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
+                                        && (Math.Abs(w.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
+                                    )) > 0;
+                    }
+
+
+                    if (addItem)
+                    {
+
+                        ASVComboValue valuePair = new ASVComboValue(player.Id.ToString(), player.CharacterName);
+                        newItems.Add(valuePair);
+
+                    }
+                }
+
+            }
+            
+            var selectedPlayerIndex = 0;
+
+            if (newItems.Count > 0)
+            {
+
+
+                cboItemListPlayers.BeginUpdate();
+                foreach (var newItem in newItems.OrderBy(o => o.Value))
+                {
+                    var newIndex = cboItemListPlayers.Items.Add(newItem);
+                    if (selectedPlayerId != 0)
+                    {
+                        long.TryParse(newItem.Key, out long listPlayerId);
+                        if (selectedPlayerId.Equals(listPlayerId))
+                        {
+                            selectedPlayerIndex = newIndex;
+                        }
+                    }
+
+                }
+                cboItemListPlayers.EndUpdate();
+
+            }
+
+            cboItemListPlayers.SelectedIndex = selectedPlayerIndex;
+
+
         }
 
         private void cboItemListItem_SelectedIndexChanged(object sender, EventArgs e)
@@ -6621,7 +6705,13 @@ namespace ARKViewer
             string selectedItemClass = ((ASVComboValue)cboItemListItem.SelectedItem).Key;
 
             List<ListViewItem> newItems = new List<ListViewItem>();
-            var foundItems = cm.GetItems(selectedTribeId, selectedItemClass, "");
+            var foundItems = cm.GetItems(selectedTribeId, selectedItemClass, "", txtItemListItemId.Text.Trim());
+            if(cboItemListPlayers.SelectedIndex > 0)
+            {
+                ASVComboValue selectedPlayer = cboItemListPlayers.SelectedItem as ASVComboValue;
+                foundItems.RemoveAll(r => r.PlayerId.ToString() != selectedPlayer.Key);
+            }
+
             if (foundItems != null && foundItems.Count > 0)
             {
                 foreach (var foundItem in foundItems)
@@ -6643,6 +6733,7 @@ namespace ARKViewer
 
                         newItem.BackColor = backColor;
                         newItem.ForeColor = foreColor;
+
                         newItem.SubItems.Add(foundItem.ContainerName);
                         newItem.SubItems.Add(foundItem.PlayerName);
                         newItem.SubItems.Add(foundItem.DisplayName);
@@ -6662,12 +6753,16 @@ namespace ARKViewer
                             newItem.SubItems.Add($"");
                         }
 
+                        newItem.SubItems.Add(foundItem.ItemId.ToString());
+
                         newItem.Tag = foundItem;
 
                         if (!foundItem.UploadedTime.HasValue || (chkItemSearchUploads.Checked))
                         {
                             newItems.Add(newItem);
                         }
+
+
 
                     }
                 }
@@ -7223,8 +7318,8 @@ namespace ARKViewer
 
 
 
-                        item.SubItems.Add(detail.IsWandering ? "Yes" : "No");
                         item.SubItems.Add(detail.IsMating ? "Yes" : "No");
+                        item.SubItems.Add(detail.IsWandering ? "Yes" : "No");
                         item.SubItems.Add(detail.IsNeutered ? "Yes" : "No");
 
 
@@ -9361,7 +9456,7 @@ namespace ARKViewer
 
 
 
-            if (command.Parameters.Count >0  && lvwPlayerPaintings.SelectedItems.Count > 0)
+            if (command.Parameters.Count > 0 && lvwPlayerPaintings.SelectedItems.Count > 0)
             {
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
@@ -9526,6 +9621,37 @@ namespace ARKViewer
             btnCopyCommandPlayer.Enabled = lvwPlayers.SelectedItems.Count > 0 || !cboConsoleCommandsPlayer.Text.Contains("<");
             btnRconCommandPlayers.Enabled = lvwPlayers.SelectedItems.Count > 0 || !cboConsoleCommandsPlayer.Text.Contains("<");
 
+        }
+
+        private void cboItemListPlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboItemListPlayers.SelectedItem == null) return;
+
+            //select tribe
+            ASVComboValue comboValue = (ASVComboValue)cboItemListPlayers.SelectedItem;
+            long playerId = long.Parse(comboValue.Key);
+            if (playerId == 0) return;
+
+            var playerTribe = cm.GetPlayerTribe(playerId);
+            if (playerTribe != null)
+            {
+                var foundTribe = cboItemListTribe.Items.Cast<ASVComboValue>().First(x => x.Key == playerTribe.TribeId.ToString());
+                var selectedTribeIndex = cboItemListTribe.SelectedIndex;
+                var foundIndex = cboItemListTribe.Items.IndexOf(foundTribe);
+                if (selectedTribeIndex != foundIndex){
+                    cboItemListTribe.SelectedIndex = foundIndex;
+                }
+                else
+                {
+                    LoadItemListDetail();
+                }
+            }
+
+        }
+
+        private void txtItemListItemId_TextChanged(object sender, EventArgs e)
+        {
+            LoadItemListDetail();
         }
     }
 }

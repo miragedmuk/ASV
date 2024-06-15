@@ -173,6 +173,21 @@ namespace ASVPack.Extensions
             return dinoId;
         }
 
+        public static long GetItemId(this AsaGameObject gameObject)
+        {
+
+            List<dynamic> itemIdStruct = gameObject.GetPropertyValue<List<dynamic>>("ItemID", 0, null);
+            if (itemIdStruct == null) return 0;
+
+
+            int itemId1 = (int)itemIdStruct.OfType<AsaProperty<dynamic>>().First(p => p.Name == "ItemID1").Value; 
+            int itemId2 = (int)itemIdStruct.OfType<AsaProperty<dynamic>>().First(p => p.Name == "ItemID2").Value; ;
+            string newItemId = string.Concat(itemId1, itemId2);
+            long.TryParse(newItemId, out long itemId);
+
+            return itemId;
+        }
+
         public static long CreateDinoId(int id1, int id2)
         {
             string newDinoId = string.Concat(id1, id2);

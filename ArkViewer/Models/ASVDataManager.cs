@@ -500,7 +500,7 @@ namespace ARKViewer.Models
 
 
 
-        public List<ASVFoundItem> GetItems(long tribeId, string className, string selectedRealm)
+        public List<ASVFoundItem> GetItems(long tribeId, string className, string selectedRealm, string itemId = "")
         {
             List<ASVFoundItem> foundItems = new List<ASVFoundItem>();
 
@@ -522,14 +522,13 @@ namespace ARKViewer.Models
                             .Select(s => new
                             {
                                 tribe.TribeName,
-                                Container = s.ClassName,
-                   
+                                Container = s.ClassName,                   
                                 s.Latitude,
                                 s.Longitude,
                                 s.X,
                                 s.Y,
                                 s.Z,
-                                MatchedItems = s.Inventory.Items.Where(i => i.ClassName == className || className == "").ToList()
+                                MatchedItems = s.Inventory.Items.Where(i => (i.ClassName == className || className == "") && ((itemId.Length > 0 && i.ItemId.ToString().Contains(itemId)) || itemId.Length==0)).ToList()
                             })
                             .ToList();
 
@@ -537,7 +536,7 @@ namespace ARKViewer.Models
                         {
                             foreach (var container in matchedContainers)
                             {
-                                var groupedItems = container.MatchedItems.GroupBy(x => new { ClassName = x.ClassName, IsBluePrint = x.IsBlueprint, x.Rating, x.UploadedTime, x.OwnerPlayerId, x.CraftedByPlayer}).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBluePrint, Rating = g.Key.Rating, OwnerPlayerId = g.Key.OwnerPlayerId, g.Key.CraftedByPlayer, UploadedTime =g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
+                                var groupedItems = container.MatchedItems.GroupBy(x => new { ClassName = x.ClassName, IsBluePrint = x.IsBlueprint, x.Rating, x.UploadedTime, x.OwnerPlayerId, x.CraftedByPlayer, x.ItemId}).Select(g => new { ClassName = g.Key.ClassName, g.Key.ItemId, IsBlueprint = g.Key.IsBluePrint, Rating = g.Key.Rating, OwnerPlayerId = g.Key.OwnerPlayerId, g.Key.CraftedByPlayer, UploadedTime =g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
 
                                 if (groupedItems != null && groupedItems.Count > 0)
                                 {
@@ -554,12 +553,14 @@ namespace ARKViewer.Models
                                             containerName = containerMap.FriendlyName;
                                         }
                                         
+
                                         foundItems.Add(new ASVFoundItem()
                                         {
                                             ContainerName = containerName,
                                             TribeId = tribe.TribeId,
                                             TribeName = tribe.TribeName,
                                             ClassName = g.ClassName,
+                                            ItemId = g.ItemId,
                                             DisplayName = displayName,
                                             PlayerId = g.OwnerPlayerId,
                                             PlayerName = tribe.Players.FirstOrDefault(p=>p.Id == g.OwnerPlayerId)?.Name,
@@ -572,6 +573,8 @@ namespace ARKViewer.Models
                                             IsBlueprint = g.IsBlueprint,
                                             Rating = g.Rating,
                                             UploadedTime = g.UploadedTime
+                                            
+                                    
 
                                         });
 
@@ -597,14 +600,14 @@ namespace ARKViewer.Models
                                 s.X,
                                 s.Y,
                                 s.Z,
-                                MatchedItems = s.Inventory.Items.Where(i => i.ClassName == className || className == "").ToList()
+                                MatchedItems = s.Inventory.Items.Where(i => (i.ClassName == className || className == "") && ((itemId.Length > 0 && i.ItemId.ToString().Contains(itemId)) || itemId.Length == 0)).ToList()
                             }).ToList();
 
                         if (matchedContainers != null && matchedContainers.Count > 0)
                         {
                             foreach (var container in matchedContainers)
                             {
-                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.IsBlueprint,  x.Rating } ).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, Qty = g.Sum(i => i.Quantity) }).ToList();
+                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.ItemId, x.IsBlueprint,  x.Rating } ).Select(g => new { ClassName = g.Key.ClassName, g.Key.ItemId,IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, Qty = g.Sum(i => i.Quantity) }).ToList();
 
                                 if (groupedItems != null && groupedItems.Count > 0)
                                 {
@@ -620,6 +623,7 @@ namespace ARKViewer.Models
                                             ContainerName = container.Container,
                                             TribeId = tribe.TribeId,
                                             TribeName = tribe.TribeName,
+                                            ItemId = g.ItemId,
                                             ClassName = g.ClassName,
                                             DisplayName = displayName,
                                             Latitude = container.Latitude.GetValueOrDefault(0),
@@ -657,7 +661,7 @@ namespace ARKViewer.Models
                                 s.X,
                                 s.Y,
                                 s.Z,                                
-                                MatchedItems = s.Inventory.Items.Where(i => i.ClassName == className || className == "").ToList()
+                                MatchedItems = s.Inventory.Items.Where(i => (i.ClassName == className || className == "") && ((itemId.Length > 0 && i.ItemId.ToString().Contains(itemId)) || itemId.Length == 0)).ToList()
                             })
                             .ToList();
 
@@ -665,7 +669,7 @@ namespace ARKViewer.Models
                         {
                             foreach (var container in matchedContainers)
                             {
-                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.IsBlueprint, x.Rating, x.UploadedTime} ).Select(g => new { ClassName = g.Key.ClassName, IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, UploadedTime = g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
+                                var groupedItems = container.MatchedItems.GroupBy(x => new { x.ClassName, x.ItemId, x.IsBlueprint, x.Rating, x.UploadedTime} ).Select(g => new { ClassName = g.Key.ClassName, g.Key.ItemId, IsBlueprint = g.Key.IsBlueprint, Rating = g.Key.Rating, UploadedTime = g.Key.UploadedTime, Qty = g.Sum(i => i.Quantity) }).ToList();
 
                                 if (groupedItems != null && groupedItems.Count > 0)
                                 {
@@ -682,6 +686,7 @@ namespace ARKViewer.Models
                                             PlayerName = container.PlayerName,
                                             TribeId = tribe.TribeId,
                                             TribeName = tribe.TribeName,
+                                            ItemId = g.ItemId,
                                             ClassName = g.ClassName,
                                             DisplayName = displayName,
                                             Latitude = container.Latitude.GetValueOrDefault(0),

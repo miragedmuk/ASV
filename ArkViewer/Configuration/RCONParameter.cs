@@ -12,6 +12,6 @@ namespace ArkViewer.Configuration
         [DataMember] public string Key { get; set; }
         [DataMember] public bool Quoted { get; set; }
         [DataMember] public int Order { get; set; }
-        [DataMember] public string Default { get; set; } = string.Empty;
+        [DataMember] public string? Default { get; set; } = null;
     }
 }

@@ -189,6 +189,10 @@ namespace ARKViewer
             lblCopyCommandPaintings = new System.Windows.Forms.Label();
             picPainting = new System.Windows.Forms.PictureBox();
             tpgItemList = new System.Windows.Forms.TabPage();
+            txtItemListItemId = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            cboItemListPlayers = new ArkViewer.UI.BorderlessComboBox();
             pnlFilterSearch = new System.Windows.Forms.Panel();
             txtFilterSearch = new System.Windows.Forms.TextBox();
             cboItemListItem = new ArkViewer.UI.BorderlessComboBox();
@@ -212,6 +216,7 @@ namespace ARKViewer
             lvwItemList_Lon = new System.Windows.Forms.ColumnHeader();
             lvwItemList_CCC = new System.Windows.Forms.ColumnHeader();
             lvwItemList_UploadTime = new System.Windows.Forms.ColumnHeader();
+            lvwItemList_ItemId = new System.Windows.Forms.ColumnHeader();
             tpgDroppedItems = new System.Windows.Forms.TabPage();
             cboDroppedItemRealm = new ArkViewer.UI.BorderlessComboBox();
             lblDroppedItemRealm = new System.Windows.Forms.Label();
@@ -744,10 +749,10 @@ namespace ARKViewer
             // 
             chkItemSearchBlueprints.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             chkItemSearchBlueprints.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkItemSearchBlueprints.Location = new System.Drawing.Point(662, 7);
+            chkItemSearchBlueprints.Location = new System.Drawing.Point(740, 17);
             chkItemSearchBlueprints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkItemSearchBlueprints.Name = "chkItemSearchBlueprints";
-            chkItemSearchBlueprints.Size = new System.Drawing.Size(122, 47);
+            chkItemSearchBlueprints.Size = new System.Drawing.Size(122, 27);
             chkItemSearchBlueprints.TabIndex = 11;
             chkItemSearchBlueprints.Text = "Include blueprints";
             toolTip1.SetToolTip(chkItemSearchBlueprints, "Show / hide blueprints.");
@@ -774,10 +779,10 @@ namespace ARKViewer
             // 
             chkItemSearchUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             chkItemSearchUploads.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkItemSearchUploads.Location = new System.Drawing.Point(792, 7);
+            chkItemSearchUploads.Location = new System.Drawing.Point(740, 51);
             chkItemSearchUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkItemSearchUploads.Name = "chkItemSearchUploads";
-            chkItemSearchUploads.Size = new System.Drawing.Size(122, 47);
+            chkItemSearchUploads.Size = new System.Drawing.Size(115, 23);
             chkItemSearchUploads.TabIndex = 23;
             chkItemSearchUploads.Text = "Include uploads";
             toolTip1.SetToolTip(chkItemSearchUploads, "Show / hide blueprints.");
@@ -2212,6 +2217,10 @@ namespace ARKViewer
             // tpgItemList
             // 
             tpgItemList.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            tpgItemList.Controls.Add(txtItemListItemId);
+            tpgItemList.Controls.Add(label2);
+            tpgItemList.Controls.Add(label1);
+            tpgItemList.Controls.Add(cboItemListPlayers);
             tpgItemList.Controls.Add(chkItemSearchUploads);
             tpgItemList.Controls.Add(pnlFilterSearch);
             tpgItemList.Controls.Add(chkItemSearchBlueprints);
@@ -2231,6 +2240,64 @@ namespace ARKViewer
             tpgItemList.Size = new System.Drawing.Size(1104, 515);
             tpgItemList.TabIndex = 6;
             tpgItemList.Text = "Item Search";
+            // 
+            // txtItemListItemId
+            // 
+            txtItemListItemId.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtItemListItemId.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            txtItemListItemId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtItemListItemId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtItemListItemId.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            txtItemListItemId.Location = new System.Drawing.Point(464, 51);
+            txtItemListItemId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtItemListItemId.MaxLength = 100;
+            txtItemListItemId.Multiline = true;
+            txtItemListItemId.Name = "txtItemListItemId";
+            txtItemListItemId.Size = new System.Drawing.Size(251, 23);
+            txtItemListItemId.TabIndex = 27;
+            txtItemListItemId.TextChanged += txtItemListItemId_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            label2.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            label2.Location = new System.Drawing.Point(401, 55);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(50, 13);
+            label2.TabIndex = 26;
+            label2.Text = "Item Id:";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
+            label1.Location = new System.Drawing.Point(20, 51);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(46, 13);
+            label1.TabIndex = 24;
+            label1.Text = "Player:";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cboItemListPlayers
+            // 
+            cboItemListPlayers.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListPlayers.BorderColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            cboItemListPlayers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            cboItemListPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboItemListPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cboItemListPlayers.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            cboItemListPlayers.FormattingEnabled = true;
+            cboItemListPlayers.Location = new System.Drawing.Point(80, 48);
+            cboItemListPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboItemListPlayers.Name = "cboItemListPlayers";
+            cboItemListPlayers.Size = new System.Drawing.Size(254, 24);
+            cboItemListPlayers.TabIndex = 25;
+            cboItemListPlayers.SelectedIndexChanged += cboItemListPlayers_SelectedIndexChanged;
             // 
             // pnlFilterSearch
             // 
@@ -2268,7 +2335,7 @@ namespace ARKViewer
             cboItemListItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboItemListItem.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboItemListItem.FormattingEnabled = true;
-            cboItemListItem.Location = new System.Drawing.Point(390, 17);
+            cboItemListItem.Location = new System.Drawing.Point(464, 17);
             cboItemListItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboItemListItem.Name = "cboItemListItem";
             cboItemListItem.Size = new System.Drawing.Size(251, 24);
@@ -2371,7 +2438,7 @@ namespace ARKViewer
             lblItemListItem.AutoSize = true;
             lblItemListItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblItemListItem.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblItemListItem.Location = new System.Drawing.Point(342, 22);
+            lblItemListItem.Location = new System.Drawing.Point(416, 22);
             lblItemListItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblItemListItem.Name = "lblItemListItem";
             lblItemListItem.Size = new System.Drawing.Size(35, 13);
@@ -2384,13 +2451,13 @@ namespace ARKViewer
             lvwItemList.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwItemList.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwItemList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            lvwItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwItemList_Tribe, lvwItemList_Container, lvwItemList_Player, lvwItemList_Item, lvwItemList_Quality, lvwItemList_Rating, lvwItemList_BP, lvwItemList_Quantity, lvwItemList_Lat, lvwItemList_Lon, lvwItemList_CCC, lvwItemList_UploadTime });
+            lvwItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwItemList_Tribe, lvwItemList_Container, lvwItemList_Player, lvwItemList_Item, lvwItemList_Quality, lvwItemList_Rating, lvwItemList_BP, lvwItemList_Quantity, lvwItemList_Lat, lvwItemList_Lon, lvwItemList_CCC, lvwItemList_UploadTime, lvwItemList_ItemId });
             lvwItemList.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwItemList.FullRowSelect = true;
-            lvwItemList.Location = new System.Drawing.Point(13, 60);
+            lvwItemList.Location = new System.Drawing.Point(13, 95);
             lvwItemList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwItemList.Name = "lvwItemList";
-            lvwItemList.Size = new System.Drawing.Size(1073, 369);
+            lvwItemList.Size = new System.Drawing.Size(1073, 334);
             lvwItemList.TabIndex = 4;
             lvwItemList.UseCompatibleStateImageBehavior = false;
             lvwItemList.View = System.Windows.Forms.View.Details;
@@ -2454,6 +2521,11 @@ namespace ARKViewer
             // 
             lvwItemList_UploadTime.Text = "Uploaded";
             lvwItemList_UploadTime.Width = 120;
+            // 
+            // lvwItemList_ItemId
+            // 
+            lvwItemList_ItemId.Text = "Id";
+            lvwItemList_ItemId.Width = 150;
             // 
             // tpgDroppedItems
             // 
@@ -5294,6 +5366,11 @@ namespace ARKViewer
         private System.Windows.Forms.NumericUpDown udLonStructures;
         private System.Windows.Forms.Label lblStructureLat;
         private System.Windows.Forms.NumericUpDown udLatStructures;
+        private System.Windows.Forms.Label label1;
+        private ArkViewer.UI.BorderlessComboBox cboItemListPlayers;
+        private System.Windows.Forms.ColumnHeader lvwItemList_ItemId;
+        private System.Windows.Forms.TextBox txtItemListItemId;
+        private System.Windows.Forms.Label label2;
     }
 }
 

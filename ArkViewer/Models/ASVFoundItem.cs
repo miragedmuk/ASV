@@ -11,6 +11,7 @@ namespace ARKViewer.Models
         public long TribeId { get; set; } = int.MinValue;
         public string TribeName { get; set; } = "[Abandoned]";
         public string ContainerName { get; set; } = "Structure";
+        public long ItemId { get; set; } = 0;
         public string ClassName { get; set; } = "";
         public string DisplayName { get; set; } = "";
         public long? PlayerId { get; set; } = null;

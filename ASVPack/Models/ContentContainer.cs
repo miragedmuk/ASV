@@ -2417,6 +2417,15 @@ namespace ASVPack.Models
                     {
                         ContentTamedCreature creature = x.AsTamedCreature(statusObject);
 
+                        if (!string.IsNullOrEmpty(creature.ImprintedPlayerNetId))
+                        {
+                            var imprintPlayer = fileTribes.SelectMany(t => t.Players.Where(p => p.NetworkId.Equals(creature.ImprintedPlayerNetId, StringComparison.InvariantCultureIgnoreCase))).FirstOrDefault();
+                            if (imprintPlayer != null)
+                            {
+                                creature.ImprintedPlayerId = imprintPlayer.Id;
+                            }
+                        }
+
                         if (float.IsNaN(creature.Y.GetValueOrDefault(0)))
                         {
 

@@ -31,7 +31,10 @@ namespace ArkViewer.Configuration
             var sortedParams = allParams.OrderBy(x => x.Order);
             foreach ( RCONParameter param in sortedParams)
             {
-                sb.Append($"<{param.Key}> ");
+                if (param.Quoted) sb.Append("\"");
+                sb.Append($"<{param.Key}>");
+                if (param.Quoted) sb.Append("\"");
+                sb.Append(" ");
             }
 
             return sb.ToString();
