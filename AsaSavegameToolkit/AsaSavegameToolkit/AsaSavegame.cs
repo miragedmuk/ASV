@@ -119,8 +119,6 @@ namespace AsaSavegameToolkit
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
-            
-
             //addComponents();
 
             parseStoredCreatures(); //held in CustomItemData as byte array for mod version of cryopods
@@ -134,6 +132,10 @@ namespace AsaSavegameToolkit
 
             readTribeFiles(savePath); // Search and parse and .arktribe file in the save directory
             readProfileFiles(savePath); // Search and parse and .arkprofile file in the save directory
+
+
+            //var t = Objects.Where(t=>t.ClassName.Name.Contains("day", StringComparison.CurrentCultureIgnoreCase)).ToList();
+
 
             endTicks = DateTime.Now.Ticks;
             //total time load save data
@@ -176,9 +178,19 @@ namespace AsaSavegameToolkit
             Parallel.ForEach(profileFiles ,o =>
             //foreach(var o in profileFiles)
             {
-                var profileData = new AsaProfile();
-                profileData.Read(o);
-                profileFileBag.Add(profileData);
+                try
+                {
+
+                    var profileData = new AsaProfile();
+                    profileData.Read(o);
+                    profileFileBag.Add(profileData);
+
+                }
+                catch 
+                { 
+
+                }
+
             }
             );
 
@@ -202,9 +214,17 @@ namespace AsaSavegameToolkit
             Parallel.ForEach(tribeFiles,o =>
             //foreach(var o in tribeFiles) 
             {
-                var tribeData = new AsaTribe();
-                tribeData.Read(o, new Dictionary<int, string>());
-                tribeFileBag.Add(tribeData);
+                try
+                {
+                    var tribeData = new AsaTribe();
+                    tribeData.Read(o, new Dictionary<int, string>());
+                    tribeFileBag.Add(tribeData);
+                }
+                catch
+                {
+
+                }
+
             }
             );
 

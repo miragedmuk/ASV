@@ -130,5 +130,21 @@ namespace ASVPack.Models
 
 
         }
+
+        public ContentItem(string foliageClassName, int foliageCount)
+        {
+            ClassName = foliageClassName;
+            CustomName = string.Empty;
+            IsBlueprint = false;
+            IsEngram = false;
+            Quantity = foliageCount;
+            CraftedByTribe = string.Empty;
+            CraftedByPlayer = string.Empty ;
+            UploadedTimeInGame = 0;
+            UploadedTime = null;
+            ItemId = -1;
+
+
+        }
     }
 }

@@ -98,6 +98,42 @@ namespace ARKViewer
 
 
 
+        private void PopulatePlayerExplorerNotes()
+        {
+            lvwExplorerNotes.BeginUpdate();
+            lvwExplorerNotes.Items.Clear();
+
+            if (currentPlayer.ExplorerNotes != null)
+            {
+                foreach (var noteDescription in currentPlayer.ExplorerNotes)
+                {
+                    ListViewItem item = lvwExplorerNotes.Items.Add(noteDescription);                    
+                }
+            }
+
+            lvwExplorerNotes.ListViewItemSorter = new ListViewComparer(0, SortOrder.Ascending);
+            lvwExplorerNotes.Sort();
+            lvwExplorerNotes.EndUpdate();
+        }
+        private void PopulatePlayerAchievements()
+        {
+            lvwAchievements.BeginUpdate();
+            lvwAchievements.Items.Clear();
+
+            if (currentPlayer.Achievments != null)
+            {
+                foreach(var achievement in currentPlayer.Achievments)
+                {
+                    ListViewItem item = lvwAchievements.Items.Add(achievement.Description);
+                    item.SubItems.Add(achievement.Level);
+                }           
+            }
+
+            lvwAchievements.ListViewItemSorter = new ListViewComparer(0, SortOrder.Ascending);
+            lvwAchievements.Sort();
+            lvwAchievements.EndUpdate();
+        }
+
         private void PopulatePlayerEngrams()
         {
             lvwEngrams.BeginUpdate();
@@ -645,6 +681,8 @@ namespace ARKViewer
 
             PopulatePersonalInventory();
             PopulatePlayerEngrams();
+            PopulatePlayerAchievements();
+            PopulatePlayerExplorerNotes(); 
 
 
             //get list of tamed dino types

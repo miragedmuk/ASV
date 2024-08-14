@@ -17,6 +17,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 
 namespace ASVPack.Models
@@ -28,6 +29,8 @@ namespace ASVPack.Models
 
         public string LoadedFilename { get; set; } = string.Empty;
         [DataMember] public string MapFilename { get; set; } = "TheIsland.ark";
+        [DataMember] public int MapDay { get; set; } = 0;
+        [DataMember] public DateTime MapTime { get; set; } = DateTime.Now.Date;
         [DataMember] public DateTime ContentDate { get; set; } = DateTime.Now;
         [DataMember] public long ExportedForTribe { get; set; } = 0;
         [DataMember] public long ExportedForPlayer { get; set; } = 0;
@@ -399,8 +402,19 @@ namespace ASVPack.Models
                 {
                     using (JsonTextWriter jw = new JsonTextWriter(sw))
                     {
+
+                        jw.WriteStartObject();
+                        jw.WritePropertyName("map");
+                        jw.WriteValue(MapFilename);
+                        jw.WritePropertyName("day");
+                        jw.WriteValue(MapDay);
+                        jw.WritePropertyName("time");
+                        jw.WriteValue(MapTime.ToString("HH:mm"));
+                        jw.WritePropertyName("data");
+
                         //var creatureList = Program.ProgramConfig.SortCommandLineExport ? gd.WildCreatures.OrderBy(o => o.ClassName).Cast<ArkWildCreature>() : gd.WildCreatures;
                         var creatureList = WildCreatures.OrderBy(o => o.ClassName).ToList();
+                        
                         jw.WriteStartArray();
 
                         //Creature, Sex, Lvl, Lat, Lon, HP, Stam, Weight, Speed, Food, Oxygen, Craft, C0, C1, C2, C3, C4, C5              
@@ -482,6 +496,7 @@ namespace ASVPack.Models
                         }
 
                         jw.WriteEndArray();
+                        jw.WriteEndObject();
                     }
 
                 }
@@ -503,6 +518,16 @@ namespace ASVPack.Models
                 {
                     using (JsonTextWriter jw = new JsonTextWriter(sw))
                     {
+
+                        jw.WriteStartObject();
+                        jw.WritePropertyName("map");
+                        jw.WriteValue(MapFilename);
+                        jw.WritePropertyName("day");
+                        jw.WriteValue(MapDay);
+                        jw.WritePropertyName("time");
+                        jw.WriteValue(MapTime.ToString("HH:mm"));
+                        jw.WritePropertyName("data");
+
                         var allTames = Tribes.SelectMany(t => t.Tames).ToList();
 
                         //var creatureList = shouldSort ? gd.TamedCreatures.OrderBy(o => o.ClassName).Cast<ArkTamedCreature>() : gd.TamedCreatures;
@@ -732,6 +757,7 @@ namespace ASVPack.Models
                         }
 
                         jw.WriteEndArray();
+                        jw.WriteEndObject();
                     }
 
                 }
@@ -751,6 +777,15 @@ namespace ASVPack.Models
                 {
                     using (JsonTextWriter jw = new JsonTextWriter(sw))
                     {
+                        jw.WriteStartObject();
+                        jw.WritePropertyName("map");
+                        jw.WriteValue(MapFilename);
+                        jw.WritePropertyName("day");
+                        jw.WriteValue(MapDay);
+                        jw.WritePropertyName("time");
+                        jw.WriteValue(MapTime.ToString("HH:mm"));
+                        jw.WritePropertyName("data");
+
                         jw.WriteStartArray();
 
                         foreach (var mapStructure in TerminalMarkers)
@@ -1491,6 +1526,7 @@ namespace ASVPack.Models
                         }
 
                         jw.WriteEndArray();
+                        jw.WriteEndObject();
                     }
 
                 }
@@ -1511,6 +1547,15 @@ namespace ASVPack.Models
                 {
                     using (JsonTextWriter jw = new JsonTextWriter(sw))
                     {
+                        jw.WriteStartObject();
+                        jw.WritePropertyName("map");
+                        jw.WriteValue(MapFilename);
+                        jw.WritePropertyName("day");
+                        jw.WriteValue(MapDay);
+                        jw.WritePropertyName("time");
+                        jw.WriteValue(MapTime.ToString("HH:mm"));
+                        jw.WritePropertyName("data");
+
                         jw.WriteStartArray();
 
                         foreach (var tribe in Tribes)
@@ -1632,6 +1677,7 @@ namespace ASVPack.Models
                         }
 
                         jw.WriteEndArray();
+                        jw.WriteEndObject();
                     }
 
                 }
@@ -1652,6 +1698,15 @@ namespace ASVPack.Models
                 {
                     using (JsonTextWriter jw = new JsonTextWriter(sw))
                     {
+                        jw.WriteStartObject();
+                        jw.WritePropertyName("map");
+                        jw.WriteValue(MapFilename);
+                        jw.WritePropertyName("day");
+                        jw.WriteValue(MapDay);
+                        jw.WritePropertyName("time");
+                        jw.WriteValue(MapTime.ToString("HH:mm"));
+                        jw.WritePropertyName("data");
+
                         jw.WriteStartArray();
 
                         foreach (var playerTribe in Tribes)
@@ -1682,6 +1737,7 @@ namespace ASVPack.Models
                         }
 
                         jw.WriteEndArray();
+                        jw.WriteEndObject();
                     }
 
                 }
@@ -1701,7 +1757,15 @@ namespace ASVPack.Models
             {
                 using (JsonTextWriter jw = new JsonTextWriter(sw))
                 {
-                    jw.WriteStartArray();
+
+                    jw.WriteStartObject();
+                    jw.WritePropertyName("map");
+                    jw.WriteValue(MapFilename);
+                    jw.WritePropertyName("day");
+                    jw.WriteValue(MapDay);
+                    jw.WritePropertyName("time");
+                    jw.WriteValue(MapTime.ToString("HH:mm"));
+                    jw.WritePropertyName("data");
 
                     foreach (var playerTribe in Tribes)
                     {
@@ -1769,6 +1833,7 @@ namespace ASVPack.Models
                     }
 
                     jw.WriteEndArray();
+                    jw.WriteEndObject();
                 }
 
             }
@@ -1788,6 +1853,15 @@ namespace ASVPack.Models
                 {
                     using (JsonTextWriter jw = new JsonTextWriter(sw))
                     {
+                        jw.WriteStartObject();
+                        jw.WritePropertyName("map");
+                        jw.WriteValue(MapFilename);
+                        jw.WritePropertyName("day");
+                        jw.WriteValue(MapDay);
+                        jw.WritePropertyName("time");
+                        jw.WriteValue(MapTime.ToString("HH:mm"));
+                        jw.WritePropertyName("data");
+
                         jw.WriteStartArray();
 
                         foreach (var tribe in Tribes)
@@ -1928,30 +2002,13 @@ namespace ASVPack.Models
                         }
 
                         jw.WriteEndArray();
+                        jw.WriteEndObject();
                     }
 
                 }
 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public void ExportPack(string fileName)
         {
@@ -1986,6 +2043,9 @@ namespace ASVPack.Models
             LoadedFilename = container.LoadedFilename;
             MapFilename = container.MapName;
             ContentDate = container.GameSaveTime;
+            MapDay = container.MapDay;
+            MapTime = container.MapTime;
+
             if (IncludeGameStructures)
             {
 

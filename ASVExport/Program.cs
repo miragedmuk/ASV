@@ -251,8 +251,8 @@ namespace ASVExport
                     JObject packConfig = JObject.Parse(packConfigText);
 
                     mapFilename = packConfig.Property("mapFilename") == null ? "" : packConfig.Property("mapFilename").Value.ToString();
-                    exportFilename = packConfig.Property("tribeId") == null ? "" : packConfig.Property("exportFilename").Value.ToString();
-                    tribeId = packConfig.Property("exportFilename") == null ? 0 : (long)packConfig.Property("tribeId").Value;
+                    exportFilename = packConfig.Property("exportFilename") == null ? "" : packConfig.Property("exportFilename").Value.ToString();
+                    tribeId = packConfig.Property("tribeId") == null ? 0 : (long)packConfig.Property("tribeId").Value;
                     playerId = packConfig.Property("playerId") == null ? 0 : (long)packConfig.Property("playerId").Value;
                     filterLat = packConfig.Property("filterLat") == null ? 50 : (decimal)packConfig.Property("filterLat").Value;
                     filterLon = packConfig.Property("filterLon") == null ? 50 : (decimal)packConfig.Property("filterLon").Value;

@@ -360,6 +360,9 @@ namespace ARKViewer
                 {
                     //asv pack (compressed)
                     ContentPack pack = new ContentPack(File.ReadAllBytes(fileName));
+
+
+                    cm = new ASVDataManager(pack);
                     Program.ProgramConfig.GlitchMarkers.Where(m => m.Map == cm.LoadedMap.MapName).ToList().ForEach(x =>
                     {
                         pack.GlitchMarkers.Add(new ContentStructure()
@@ -374,9 +377,6 @@ namespace ARKViewer
                         });
 
                     });
-
-                    cm = new ASVDataManager(pack);
-
                 }
                 else
                 {
@@ -448,7 +448,7 @@ namespace ARKViewer
                 MapViewer.OnMapClicked += MapViewer_OnMapClicked;
 
                 string mapFileDateString = (cm.ContentDate.Equals(new DateTime()) ? "n/a" : cm.ContentDate.GetValueOrDefault(DateTime.Now).ToString("dd MMM yyyy HH:mm"));
-                lblMapDate.Text = $"{cm.MapName}: {mapFileDateString}";
+                lblMapDate.Text = $"{cm.MapName} (Day: {cm.MapDay} - {cm.MapTime.ToString("HH:mm")}): {mapFileDateString}";
 
                 switch (Program.ProgramConfig.Mode)
                 {
@@ -1762,7 +1762,7 @@ namespace ARKViewer
                 }
             }
 
-            if (command.Parameters.Count == 0 || lvwTameDetail.SelectedItems.Count == 0)
+            if (command.Parameters.Count == 0 || lvwPlayers.SelectedItems.Count == 0)
             {
                 allCommands.Add(commandTemplate);
             }
@@ -1803,8 +1803,6 @@ namespace ARKViewer
 
                         var tribe = cm.GetPlayerTribe(selectedPlayer.Id);
                         long selectedTribeId = selectedPlayer.TargetingTeam;
-
-                        commandText = cboConsoleCommandsPlayer.SelectedItem.ToString();
 
                         commandText = commandText.Replace("<PlayerID>", selectedPlayerId.ToString("f0"));
                         commandText = commandText.Replace("<TribeID>", selectedTribeId.ToString("f0"));
@@ -9452,11 +9450,11 @@ namespace ARKViewer
 
             TabPage _tabPage = tabFeatures.TabPages[e.Index];
 
+
             //tab page
             Rectangle pageBounds = _tabPage.Bounds;
             pageBounds.Inflate(4, 4);
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45, 45, 45)), pageBounds);
-
 
 
 

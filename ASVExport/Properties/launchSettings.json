@@ -2,7 +2,7 @@
   "profiles": {
     "ASVExport": {
       "commandName": "Project",
-      "commandLineArgs": "profile2json \"c:\\temp\\Asa\\Elgar\\00027cf53a65450ca7259eee8fba997d.arkprofile\" \"c:\\temp\\Asa\\Elgar\\profile.json\""
+      "commandLineArgs": "pack \"c:\\temp\\packconfig.json\""
     }
   }
 }

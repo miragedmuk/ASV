@@ -88,6 +88,10 @@
             lvwStorageInventory_Lon = new System.Windows.Forms.ColumnHeader();
             lvwStorageInventory_Qty = new System.Windows.Forms.ColumnHeader();
             tpgEngrams = new System.Windows.Forms.TabPage();
+            label4 = new System.Windows.Forms.Label();
+            panel3 = new System.Windows.Forms.Panel();
+            lvwExplorerNotes = new System.Windows.Forms.ListView();
+            columnHeader5 = new System.Windows.Forms.ColumnHeader();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             panel2 = new System.Windows.Forms.Panel();
@@ -102,6 +106,9 @@
             lvwEngrams_Category = new System.Windows.Forms.ColumnHeader();
             tpgMissions = new System.Windows.Forms.TabPage();
             pnlMissionScores = new System.Windows.Forms.Panel();
+            lvwAchievements = new System.Windows.Forms.ListView();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            columnHeader4 = new System.Windows.Forms.ColumnHeader();
             checkBox1 = new System.Windows.Forms.CheckBox();
             label1 = new System.Windows.Forms.Label();
             textBox1 = new System.Windows.Forms.TextBox();
@@ -123,6 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)picIconStorage).BeginInit();
             pnlStorageInventory.SuspendLayout();
             tpgEngrams.SuspendLayout();
+            panel3.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tpgMissions.SuspendLayout();
@@ -680,6 +688,8 @@
             // tpgEngrams
             // 
             tpgEngrams.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            tpgEngrams.Controls.Add(label4);
+            tpgEngrams.Controls.Add(panel3);
             tpgEngrams.Controls.Add(label3);
             tpgEngrams.Controls.Add(label2);
             tpgEngrams.Controls.Add(panel2);
@@ -691,7 +701,52 @@
             tpgEngrams.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgEngrams.Size = new System.Drawing.Size(846, 559);
             tpgEngrams.TabIndex = 4;
-            tpgEngrams.Text = "Engrams";
+            tpgEngrams.Text = "Unlocks";
+            // 
+            // label4
+            // 
+            label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label4.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            label4.Location = new System.Drawing.Point(23, 378);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(544, 36);
+            label4.TabIndex = 16;
+            label4.Text = "Explorer Notes";
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            panel3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel3.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            panel3.Controls.Add(lvwExplorerNotes);
+            panel3.Location = new System.Drawing.Point(29, 414);
+            panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(783, 127);
+            panel3.TabIndex = 15;
+            // 
+            // lvwExplorerNotes
+            // 
+            lvwExplorerNotes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwExplorerNotes.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwExplorerNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            lvwExplorerNotes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5 });
+            lvwExplorerNotes.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lvwExplorerNotes.FullRowSelect = true;
+            lvwExplorerNotes.Location = new System.Drawing.Point(10, 13);
+            lvwExplorerNotes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwExplorerNotes.Name = "lvwExplorerNotes";
+            lvwExplorerNotes.Size = new System.Drawing.Size(761, 100);
+            lvwExplorerNotes.TabIndex = 0;
+            lvwExplorerNotes.UseCompatibleStateImageBehavior = false;
+            lvwExplorerNotes.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Note";
+            columnHeader5.Width = 500;
             // 
             // label3
             // 
@@ -701,9 +756,9 @@
             label3.Location = new System.Drawing.Point(427, 16);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(386, 36);
+            label3.Size = new System.Drawing.Size(386, 28);
             label3.TabIndex = 14;
-            label3.Text = "Unlocked Hair Styles";
+            label3.Text = "Hair Styles";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
@@ -713,9 +768,9 @@
             label2.Location = new System.Drawing.Point(24, 17);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(386, 36);
+            label2.Size = new System.Drawing.Size(386, 28);
             label2.TabIndex = 13;
-            label2.Text = "Unlocked Emotes";
+            label2.Text = "Emotes";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
@@ -724,14 +779,15 @@
             panel2.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             panel2.Controls.Add(lvwEmotes);
             panel2.Controls.Add(lvwHairstyles);
-            panel2.Location = new System.Drawing.Point(30, 55);
+            panel2.Location = new System.Drawing.Point(30, 50);
             panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(783, 149);
+            panel2.Size = new System.Drawing.Size(783, 131);
             panel2.TabIndex = 12;
             // 
             // lvwEmotes
             // 
+            lvwEmotes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             lvwEmotes.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwEmotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwEmotes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1 });
@@ -741,7 +797,7 @@
             lvwEmotes.Location = new System.Drawing.Point(9, 13);
             lvwEmotes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwEmotes.Name = "lvwEmotes";
-            lvwEmotes.Size = new System.Drawing.Size(370, 124);
+            lvwEmotes.Size = new System.Drawing.Size(370, 105);
             lvwEmotes.TabIndex = 2;
             lvwEmotes.UseCompatibleStateImageBehavior = false;
             lvwEmotes.View = System.Windows.Forms.View.Details;
@@ -753,7 +809,7 @@
             // 
             // lvwHairstyles
             // 
-            lvwHairstyles.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            lvwHairstyles.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lvwHairstyles.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwHairstyles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             lvwHairstyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader2 });
@@ -763,7 +819,7 @@
             lvwHairstyles.Location = new System.Drawing.Point(416, 13);
             lvwHairstyles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwHairstyles.Name = "lvwHairstyles";
-            lvwHairstyles.Size = new System.Drawing.Size(354, 124);
+            lvwHairstyles.Size = new System.Drawing.Size(354, 105);
             lvwHairstyles.TabIndex = 1;
             lvwHairstyles.UseCompatibleStateImageBehavior = false;
             lvwHairstyles.View = System.Windows.Forms.View.Details;
@@ -776,14 +832,14 @@
             // lblPlayerEngrams
             // 
             lblPlayerEngrams.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            lblPlayerEngrams.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            lblPlayerEngrams.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             lblPlayerEngrams.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblPlayerEngrams.Location = new System.Drawing.Point(23, 208);
+            lblPlayerEngrams.Location = new System.Drawing.Point(23, 185);
             lblPlayerEngrams.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPlayerEngrams.Name = "lblPlayerEngrams";
             lblPlayerEngrams.Size = new System.Drawing.Size(544, 36);
             lblPlayerEngrams.TabIndex = 11;
-            lblPlayerEngrams.Text = "Learned Engrams";
+            lblPlayerEngrams.Text = "Engrams";
             lblPlayerEngrams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
@@ -791,10 +847,10 @@
             panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             panel1.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             panel1.Controls.Add(lvwEngrams);
-            panel1.Location = new System.Drawing.Point(29, 252);
+            panel1.Location = new System.Drawing.Point(29, 221);
             panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(783, 288);
+            panel1.Size = new System.Drawing.Size(783, 155);
             panel1.TabIndex = 9;
             // 
             // lvwEngrams
@@ -808,7 +864,7 @@
             lvwEngrams.Location = new System.Drawing.Point(10, 13);
             lvwEngrams.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwEngrams.Name = "lvwEngrams";
-            lvwEngrams.Size = new System.Drawing.Size(761, 261);
+            lvwEngrams.Size = new System.Drawing.Size(761, 128);
             lvwEngrams.TabIndex = 0;
             lvwEngrams.UseCompatibleStateImageBehavior = false;
             lvwEngrams.View = System.Windows.Forms.View.Details;
@@ -834,12 +890,13 @@
             tpgMissions.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgMissions.Size = new System.Drawing.Size(846, 559);
             tpgMissions.TabIndex = 3;
-            tpgMissions.Text = "Mission Scores";
+            tpgMissions.Text = "Achievements";
             // 
             // pnlMissionScores
             // 
             pnlMissionScores.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             pnlMissionScores.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            pnlMissionScores.Controls.Add(lvwAchievements);
             pnlMissionScores.Controls.Add(checkBox1);
             pnlMissionScores.Controls.Add(label1);
             pnlMissionScores.Controls.Add(textBox1);
@@ -849,6 +906,32 @@
             pnlMissionScores.Name = "pnlMissionScores";
             pnlMissionScores.Size = new System.Drawing.Size(798, 501);
             pnlMissionScores.TabIndex = 0;
+            // 
+            // lvwAchievements
+            // 
+            lvwAchievements.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            lvwAchievements.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
+            lvwAchievements.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            lvwAchievements.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader3, columnHeader4 });
+            lvwAchievements.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            lvwAchievements.FullRowSelect = true;
+            lvwAchievements.Location = new System.Drawing.Point(15, 10);
+            lvwAchievements.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lvwAchievements.Name = "lvwAchievements";
+            lvwAchievements.Size = new System.Drawing.Size(769, 177);
+            lvwAchievements.TabIndex = 7;
+            lvwAchievements.UseCompatibleStateImageBehavior = false;
+            lvwAchievements.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Description";
+            columnHeader3.Width = 487;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Level";
+            columnHeader4.Width = 150;
             // 
             // checkBox1
             // 
@@ -896,10 +979,10 @@
             lvwPlayerScores.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwPlayerScores_Mission, lvwPlayerScores_Result });
             lvwPlayerScores.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwPlayerScores.FullRowSelect = true;
-            lvwPlayerScores.Location = new System.Drawing.Point(14, 13);
+            lvwPlayerScores.Location = new System.Drawing.Point(14, 199);
             lvwPlayerScores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwPlayerScores.Name = "lvwPlayerScores";
-            lvwPlayerScores.Size = new System.Drawing.Size(769, 433);
+            lvwPlayerScores.Size = new System.Drawing.Size(769, 247);
             lvwPlayerScores.TabIndex = 0;
             lvwPlayerScores.UseCompatibleStateImageBehavior = false;
             lvwPlayerScores.View = System.Windows.Forms.View.Details;
@@ -914,7 +997,7 @@
             // 
             lvwPlayerScores_Result.Text = "Best Result";
             lvwPlayerScores_Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            lvwPlayerScores_Result.Width = 80;
+            lvwPlayerScores_Result.Width = 150;
             // 
             // picWindowIcon
             // 
@@ -1008,6 +1091,7 @@
             pnlStorageInventory.ResumeLayout(false);
             pnlStorageInventory.PerformLayout();
             tpgEngrams.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             tpgMissions.ResumeLayout(false);
@@ -1102,5 +1186,12 @@
         private System.Windows.Forms.ListView lvwEmotes;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader lvwPlayerInventory_UploadedTime;
+        private System.Windows.Forms.ListView lvwAchievements;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ListView lvwExplorerNotes;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

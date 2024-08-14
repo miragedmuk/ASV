@@ -273,7 +273,7 @@
             btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             btnSave.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
-            btnSave.Location = new System.Drawing.Point(485, 773);
+            btnSave.Location = new System.Drawing.Point(370, 602);
             btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new System.Drawing.Size(78, 27);
@@ -290,7 +290,7 @@
             btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             btnClose.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
-            btnClose.Location = new System.Drawing.Point(570, 773);
+            btnClose.Location = new System.Drawing.Point(459, 602);
             btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(88, 27);
@@ -308,6 +308,7 @@
             // 
             // tabSettings
             // 
+            tabSettings.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             tabSettings.Controls.Add(tpgMap);
             tabSettings.Controls.Add(tpgColours);
             tabSettings.Controls.Add(tpgCreatures);
@@ -320,7 +321,7 @@
             tabSettings.Multiline = true;
             tabSettings.Name = "tabSettings";
             tabSettings.SelectedIndex = 0;
-            tabSettings.Size = new System.Drawing.Size(645, 752);
+            tabSettings.Size = new System.Drawing.Size(537, 582);
             tabSettings.TabIndex = 0;
             tabSettings.Selecting += tabSettings_Selecting;
             // 
@@ -339,7 +340,7 @@
             tpgMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgMap.Name = "tpgMap";
             tpgMap.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tpgMap.Size = new System.Drawing.Size(637, 724);
+            tpgMap.Size = new System.Drawing.Size(529, 554);
             tpgMap.TabIndex = 0;
             tpgMap.Text = "Map Data";
             // 
@@ -348,7 +349,7 @@
             optContentPack.AutoSize = true;
             optContentPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optContentPack.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            optContentPack.Location = new System.Drawing.Point(47, 329);
+            optContentPack.Location = new System.Drawing.Point(27, 275);
             optContentPack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optContentPack.Name = "optContentPack";
             optContentPack.Size = new System.Drawing.Size(138, 17);
@@ -359,15 +360,16 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             groupBox2.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             groupBox2.Controls.Add(btnLoadContentPack);
             groupBox2.Controls.Add(txtContentPackFilename);
             groupBox2.Controls.Add(lblSelectedMapContentPack);
-            groupBox2.Location = new System.Drawing.Point(43, 351);
+            groupBox2.Location = new System.Drawing.Point(23, 297);
             groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox2.Size = new System.Drawing.Size(550, 85);
+            groupBox2.Size = new System.Drawing.Size(483, 85);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
             // 
@@ -378,7 +380,7 @@
             btnLoadContentPack.Cursor = System.Windows.Forms.Cursors.Hand;
             btnLoadContentPack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnLoadContentPack.Image = (System.Drawing.Image)resources.GetObject("btnLoadContentPack.Image");
-            btnLoadContentPack.Location = new System.Drawing.Point(484, 29);
+            btnLoadContentPack.Location = new System.Drawing.Point(417, 29);
             btnLoadContentPack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnLoadContentPack.Name = "btnLoadContentPack";
             btnLoadContentPack.Size = new System.Drawing.Size(41, 40);
@@ -398,7 +400,7 @@
             txtContentPackFilename.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtContentPackFilename.Name = "txtContentPackFilename";
             txtContentPackFilename.ReadOnly = true;
-            txtContentPackFilename.Size = new System.Drawing.Size(455, 17);
+            txtContentPackFilename.Size = new System.Drawing.Size(388, 17);
             txtContentPackFilename.TabIndex = 1;
             // 
             // lblSelectedMapContentPack
@@ -409,7 +411,7 @@
             lblSelectedMapContentPack.Location = new System.Drawing.Point(-2, 1);
             lblSelectedMapContentPack.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblSelectedMapContentPack.Name = "lblSelectedMapContentPack";
-            lblSelectedMapContentPack.Size = new System.Drawing.Size(553, 8);
+            lblSelectedMapContentPack.Size = new System.Drawing.Size(486, 8);
             lblSelectedMapContentPack.TabIndex = 0;
             lblSelectedMapContentPack.Text = "   ";
             lblSelectedMapContentPack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -419,7 +421,7 @@
             optOffline.AutoSize = true;
             optOffline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optOffline.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            optOffline.Location = new System.Drawing.Point(47, 170);
+            optOffline.Location = new System.Drawing.Point(27, 151);
             optOffline.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optOffline.Name = "optOffline";
             optOffline.Size = new System.Drawing.Size(173, 17);
@@ -433,12 +435,12 @@
             optServer.AutoSize = true;
             optServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optServer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            optServer.Location = new System.Drawing.Point(47, 487);
+            optServer.Location = new System.Drawing.Point(27, 387);
             optServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optServer.Name = "optServer";
-            optServer.Size = new System.Drawing.Size(154, 17);
+            optServer.Size = new System.Drawing.Size(89, 17);
             optServer.TabIndex = 6;
-            optServer.Text = "FTP Server (.ark / .gz)";
+            optServer.Text = "FTP Server";
             optServer.UseVisualStyleBackColor = true;
             optServer.CheckedChanged += optServer_CheckedChanged;
             // 
@@ -447,7 +449,7 @@
             optSinglePlayer.AutoSize = true;
             optSinglePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             optSinglePlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            optSinglePlayer.Location = new System.Drawing.Point(47, 26);
+            optSinglePlayer.Location = new System.Drawing.Point(27, 26);
             optSinglePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optSinglePlayer.Name = "optSinglePlayer";
             optSinglePlayer.Size = new System.Drawing.Size(146, 17);
@@ -458,6 +460,7 @@
             // 
             // grpServer
             // 
+            grpServer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpServer.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpServer.Controls.Add(lblFTPServer);
             grpServer.Controls.Add(btnEditServer);
@@ -466,11 +469,11 @@
             grpServer.Controls.Add(btnAddServer);
             grpServer.Controls.Add(cboFTPServer);
             grpServer.Controls.Add(cboFtpMap);
-            grpServer.Location = new System.Drawing.Point(44, 510);
+            grpServer.Location = new System.Drawing.Point(24, 410);
             grpServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpServer.Name = "grpServer";
             grpServer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpServer.Size = new System.Drawing.Size(550, 126);
+            grpServer.Size = new System.Drawing.Size(483, 126);
             grpServer.TabIndex = 7;
             grpServer.TabStop = false;
             // 
@@ -482,7 +485,7 @@
             lblFTPServer.Location = new System.Drawing.Point(-1, 1);
             lblFTPServer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFTPServer.Name = "lblFTPServer";
-            lblFTPServer.Size = new System.Drawing.Size(553, 8);
+            lblFTPServer.Size = new System.Drawing.Size(486, 8);
             lblFTPServer.TabIndex = 0;
             lblFTPServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -494,7 +497,7 @@
             btnEditServer.Enabled = false;
             btnEditServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnEditServer.Image = (System.Drawing.Image)resources.GetObject("btnEditServer.Image");
-            btnEditServer.Location = new System.Drawing.Point(390, 28);
+            btnEditServer.Location = new System.Drawing.Point(323, 28);
             btnEditServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnEditServer.Name = "btnEditServer";
             btnEditServer.Size = new System.Drawing.Size(41, 40);
@@ -505,7 +508,6 @@
             // 
             // lblFtpMap
             // 
-            lblFtpMap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lblFtpMap.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             lblFtpMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             lblFtpMap.Location = new System.Drawing.Point(24, 76);
@@ -524,7 +526,7 @@
             btnRemoveServer.Enabled = false;
             btnRemoveServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRemoveServer.Image = (System.Drawing.Image)resources.GetObject("btnRemoveServer.Image");
-            btnRemoveServer.Location = new System.Drawing.Point(483, 28);
+            btnRemoveServer.Location = new System.Drawing.Point(416, 28);
             btnRemoveServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemoveServer.Name = "btnRemoveServer";
             btnRemoveServer.Size = new System.Drawing.Size(41, 40);
@@ -540,7 +542,7 @@
             btnAddServer.Cursor = System.Windows.Forms.Cursors.Hand;
             btnAddServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAddServer.Image = (System.Drawing.Image)resources.GetObject("btnAddServer.Image");
-            btnAddServer.Location = new System.Drawing.Point(436, 28);
+            btnAddServer.Location = new System.Drawing.Point(369, 28);
             btnAddServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnAddServer.Name = "btnAddServer";
             btnAddServer.Size = new System.Drawing.Size(41, 40);
@@ -560,7 +562,7 @@
             cboFTPServer.Location = new System.Drawing.Point(29, 35);
             cboFTPServer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboFTPServer.Name = "cboFTPServer";
-            cboFTPServer.Size = new System.Drawing.Size(347, 23);
+            cboFTPServer.Size = new System.Drawing.Size(280, 23);
             cboFTPServer.TabIndex = 1;
             cboFTPServer.SelectedIndexChanged += cboFTPServer_SelectedIndexChanged;
             // 
@@ -579,24 +581,25 @@
             cboFtpMap.Location = new System.Drawing.Point(160, 76);
             cboFtpMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboFtpMap.Name = "cboFtpMap";
-            cboFtpMap.Size = new System.Drawing.Size(364, 25);
+            cboFtpMap.Size = new System.Drawing.Size(297, 25);
             cboFtpMap.TabIndex = 19;
             cboFtpMap.DrawItem += ownerDrawCombo_DrawItem;
             cboFtpMap.SelectedIndexChanged += cboFtpMap_SelectedIndexChanged;
             // 
             // grpOffline
             // 
+            grpOffline.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpOffline.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpOffline.Controls.Add(btnEditARK);
             grpOffline.Controls.Add(btnRemoveARK);
             grpOffline.Controls.Add(btnAddARK);
             grpOffline.Controls.Add(cboLocalARK);
             grpOffline.Controls.Add(lblOfflineSave);
-            grpOffline.Location = new System.Drawing.Point(43, 192);
+            grpOffline.Location = new System.Drawing.Point(23, 173);
             grpOffline.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpOffline.Name = "grpOffline";
             grpOffline.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpOffline.Size = new System.Drawing.Size(550, 96);
+            grpOffline.Size = new System.Drawing.Size(483, 96);
             grpOffline.TabIndex = 3;
             grpOffline.TabStop = false;
             // 
@@ -608,7 +611,7 @@
             btnEditARK.Enabled = false;
             btnEditARK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnEditARK.Image = (System.Drawing.Image)resources.GetObject("btnEditARK.Image");
-            btnEditARK.Location = new System.Drawing.Point(387, 32);
+            btnEditARK.Location = new System.Drawing.Point(320, 32);
             btnEditARK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnEditARK.Name = "btnEditARK";
             btnEditARK.Size = new System.Drawing.Size(41, 40);
@@ -625,7 +628,7 @@
             btnRemoveARK.Enabled = false;
             btnRemoveARK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRemoveARK.Image = (System.Drawing.Image)resources.GetObject("btnRemoveARK.Image");
-            btnRemoveARK.Location = new System.Drawing.Point(482, 32);
+            btnRemoveARK.Location = new System.Drawing.Point(415, 32);
             btnRemoveARK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemoveARK.Name = "btnRemoveARK";
             btnRemoveARK.Size = new System.Drawing.Size(41, 40);
@@ -641,7 +644,7 @@
             btnAddARK.Cursor = System.Windows.Forms.Cursors.Hand;
             btnAddARK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAddARK.Image = (System.Drawing.Image)resources.GetObject("btnAddARK.Image");
-            btnAddARK.Location = new System.Drawing.Point(435, 32);
+            btnAddARK.Location = new System.Drawing.Point(368, 32);
             btnAddARK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnAddARK.Name = "btnAddARK";
             btnAddARK.Size = new System.Drawing.Size(41, 40);
@@ -664,7 +667,7 @@
             cboLocalARK.Location = new System.Drawing.Point(21, 39);
             cboLocalARK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboLocalARK.Name = "cboLocalARK";
-            cboLocalARK.Size = new System.Drawing.Size(356, 23);
+            cboLocalARK.Size = new System.Drawing.Size(289, 23);
             cboLocalARK.TabIndex = 5;
             cboLocalARK.DrawItem += ownerDrawCombo_DrawItem;
             cboLocalARK.SelectedIndexChanged += cboLocalARK_SelectedIndexChanged;
@@ -677,23 +680,24 @@
             lblOfflineSave.Location = new System.Drawing.Point(-2, 1);
             lblOfflineSave.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOfflineSave.Name = "lblOfflineSave";
-            lblOfflineSave.Size = new System.Drawing.Size(553, 8);
+            lblOfflineSave.Size = new System.Drawing.Size(486, 8);
             lblOfflineSave.TabIndex = 0;
             lblOfflineSave.Text = "   ";
             lblOfflineSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grpSinglePlayer
             // 
+            grpSinglePlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpSinglePlayer.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpSinglePlayer.Controls.Add(btnSelectFolder);
             grpSinglePlayer.Controls.Add(chkUpdateNotificationSingle);
             grpSinglePlayer.Controls.Add(lblSelectedMapSP);
             grpSinglePlayer.Controls.Add(cboMapSinglePlayer);
-            grpSinglePlayer.Location = new System.Drawing.Point(42, 48);
+            grpSinglePlayer.Location = new System.Drawing.Point(22, 48);
             grpSinglePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpSinglePlayer.Name = "grpSinglePlayer";
             grpSinglePlayer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpSinglePlayer.Size = new System.Drawing.Size(551, 98);
+            grpSinglePlayer.Size = new System.Drawing.Size(484, 98);
             grpSinglePlayer.TabIndex = 1;
             grpSinglePlayer.TabStop = false;
             // 
@@ -705,7 +709,7 @@
             btnSelectFolder.Enabled = false;
             btnSelectFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSelectFolder.Image = (System.Drawing.Image)resources.GetObject("btnSelectFolder.Image");
-            btnSelectFolder.Location = new System.Drawing.Point(483, 30);
+            btnSelectFolder.Location = new System.Drawing.Point(416, 30);
             btnSelectFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnSelectFolder.Name = "btnSelectFolder";
             btnSelectFolder.Size = new System.Drawing.Size(41, 40);
@@ -735,7 +739,7 @@
             lblSelectedMapSP.Location = new System.Drawing.Point(-2, 2);
             lblSelectedMapSP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblSelectedMapSP.Name = "lblSelectedMapSP";
-            lblSelectedMapSP.Size = new System.Drawing.Size(554, 8);
+            lblSelectedMapSP.Size = new System.Drawing.Size(487, 8);
             lblSelectedMapSP.TabIndex = 0;
             lblSelectedMapSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -752,7 +756,7 @@
             cboMapSinglePlayer.Location = new System.Drawing.Point(22, 39);
             cboMapSinglePlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboMapSinglePlayer.Name = "cboMapSinglePlayer";
-            cboMapSinglePlayer.Size = new System.Drawing.Size(455, 24);
+            cboMapSinglePlayer.Size = new System.Drawing.Size(388, 24);
             cboMapSinglePlayer.TabIndex = 1;
             cboMapSinglePlayer.DrawItem += ownerDrawCombo_DrawItem;
             cboMapSinglePlayer.SelectedIndexChanged += cboMapSinglePlayer_SelectedIndexChanged;
@@ -766,35 +770,36 @@
             tpgColours.Location = new System.Drawing.Point(4, 24);
             tpgColours.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgColours.Name = "tpgColours";
-            tpgColours.Size = new System.Drawing.Size(637, 724);
+            tpgColours.Size = new System.Drawing.Size(529, 554);
             tpgColours.TabIndex = 5;
             tpgColours.Text = "Colours";
             // 
             // grpTamedHighlights
             // 
+            grpTamedHighlights.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpTamedHighlights.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpTamedHighlights.Controls.Add(lblUploadedHighlight);
             grpTamedHighlights.Controls.Add(lblCryopodHighlight);
             grpTamedHighlights.Controls.Add(lblVivariumHighlight);
             grpTamedHighlights.Controls.Add(label9);
             grpTamedHighlights.Controls.Add(lblTamedHighlight);
-            grpTamedHighlights.Location = new System.Drawing.Point(23, 525);
+            grpTamedHighlights.Location = new System.Drawing.Point(23, 453);
             grpTamedHighlights.Name = "grpTamedHighlights";
-            grpTamedHighlights.Size = new System.Drawing.Size(590, 158);
+            grpTamedHighlights.Size = new System.Drawing.Size(491, 97);
             grpTamedHighlights.TabIndex = 2;
             grpTamedHighlights.TabStop = false;
+            grpTamedHighlights.Text = "z";
             // 
             // lblUploadedHighlight
             // 
-            lblUploadedHighlight.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblUploadedHighlight.BackColor = System.Drawing.Color.WhiteSmoke;
             lblUploadedHighlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             lblUploadedHighlight.Cursor = System.Windows.Forms.Cursors.Hand;
             lblUploadedHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             lblUploadedHighlight.ForeColor = System.Drawing.Color.Black;
-            lblUploadedHighlight.Location = new System.Drawing.Point(192, 115);
+            lblUploadedHighlight.Location = new System.Drawing.Point(185, 48);
             lblUploadedHighlight.Name = "lblUploadedHighlight";
-            lblUploadedHighlight.Size = new System.Drawing.Size(193, 25);
+            lblUploadedHighlight.Size = new System.Drawing.Size(74, 35);
             lblUploadedHighlight.TabIndex = 6;
             lblUploadedHighlight.Text = "Uploaded";
             lblUploadedHighlight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -802,31 +807,29 @@
             // 
             // lblCryopodHighlight
             // 
-            lblCryopodHighlight.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblCryopodHighlight.BackColor = System.Drawing.Color.LightSkyBlue;
             lblCryopodHighlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             lblCryopodHighlight.Cursor = System.Windows.Forms.Cursors.Hand;
             lblCryopodHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             lblCryopodHighlight.ForeColor = System.Drawing.Color.Black;
-            lblCryopodHighlight.Location = new System.Drawing.Point(192, 79);
+            lblCryopodHighlight.Location = new System.Drawing.Point(105, 48);
             lblCryopodHighlight.Name = "lblCryopodHighlight";
-            lblCryopodHighlight.Size = new System.Drawing.Size(193, 25);
+            lblCryopodHighlight.Size = new System.Drawing.Size(74, 35);
             lblCryopodHighlight.TabIndex = 5;
-            lblCryopodHighlight.Text = "Cryopod";
+            lblCryopodHighlight.Text = "Cryo";
             lblCryopodHighlight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             lblCryopodHighlight.Click += lblCryopodHighlight_Click;
             // 
             // lblVivariumHighlight
             // 
-            lblVivariumHighlight.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblVivariumHighlight.BackColor = System.Drawing.Color.LightGreen;
             lblVivariumHighlight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             lblVivariumHighlight.Cursor = System.Windows.Forms.Cursors.Hand;
             lblVivariumHighlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             lblVivariumHighlight.ForeColor = System.Drawing.Color.Black;
-            lblVivariumHighlight.Location = new System.Drawing.Point(192, 44);
+            lblVivariumHighlight.Location = new System.Drawing.Point(15, 48);
             lblVivariumHighlight.Name = "lblVivariumHighlight";
-            lblVivariumHighlight.Size = new System.Drawing.Size(193, 25);
+            lblVivariumHighlight.Size = new System.Drawing.Size(74, 35);
             lblVivariumHighlight.TabIndex = 4;
             lblVivariumHighlight.Text = "Vivarium";
             lblVivariumHighlight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -840,7 +843,7 @@
             label9.Location = new System.Drawing.Point(-3, 1);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(596, 8);
+            label9.Size = new System.Drawing.Size(497, 8);
             label9.TabIndex = 2;
             label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -859,17 +862,18 @@
             // 
             // grpColoursNotMapped
             // 
+            grpColoursNotMapped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpColoursNotMapped.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpColoursNotMapped.Controls.Add(btnRefreshUnknownColours);
             grpColoursNotMapped.Controls.Add(btnColoursNotMatchedAdd);
             grpColoursNotMapped.Controls.Add(lblColourNotMapped);
             grpColoursNotMapped.Controls.Add(lblHeaderColoursNotMatched);
             grpColoursNotMapped.Controls.Add(lvwColoursNotMapped);
-            grpColoursNotMapped.Location = new System.Drawing.Point(22, 298);
+            grpColoursNotMapped.Location = new System.Drawing.Point(22, 246);
             grpColoursNotMapped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpColoursNotMapped.Name = "grpColoursNotMapped";
             grpColoursNotMapped.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpColoursNotMapped.Size = new System.Drawing.Size(593, 221);
+            grpColoursNotMapped.Size = new System.Drawing.Size(494, 201);
             grpColoursNotMapped.TabIndex = 1;
             grpColoursNotMapped.TabStop = false;
             // 
@@ -880,7 +884,7 @@
             btnRefreshUnknownColours.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRefreshUnknownColours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRefreshUnknownColours.Image = (System.Drawing.Image)resources.GetObject("btnRefreshUnknownColours.Image");
-            btnRefreshUnknownColours.Location = new System.Drawing.Point(13, 172);
+            btnRefreshUnknownColours.Location = new System.Drawing.Point(13, 152);
             btnRefreshUnknownColours.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRefreshUnknownColours.Name = "btnRefreshUnknownColours";
             btnRefreshUnknownColours.Size = new System.Drawing.Size(41, 40);
@@ -896,7 +900,7 @@
             btnColoursNotMatchedAdd.Enabled = false;
             btnColoursNotMatchedAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnColoursNotMatchedAdd.Image = (System.Drawing.Image)resources.GetObject("btnColoursNotMatchedAdd.Image");
-            btnColoursNotMatchedAdd.Location = new System.Drawing.Point(539, 172);
+            btnColoursNotMatchedAdd.Location = new System.Drawing.Point(539, 152);
             btnColoursNotMatchedAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnColoursNotMatchedAdd.Name = "btnColoursNotMatchedAdd";
             btnColoursNotMatchedAdd.Size = new System.Drawing.Size(41, 40);
@@ -925,7 +929,7 @@
             lblHeaderColoursNotMatched.Location = new System.Drawing.Point(-2, 1);
             lblHeaderColoursNotMatched.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderColoursNotMatched.Name = "lblHeaderColoursNotMatched";
-            lblHeaderColoursNotMatched.Size = new System.Drawing.Size(596, 8);
+            lblHeaderColoursNotMatched.Size = new System.Drawing.Size(497, 8);
             lblHeaderColoursNotMatched.TabIndex = 0;
             lblHeaderColoursNotMatched.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -939,7 +943,7 @@
             lvwColoursNotMapped.Location = new System.Drawing.Point(15, 52);
             lvwColoursNotMapped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwColoursNotMapped.Name = "lvwColoursNotMapped";
-            lvwColoursNotMapped.Size = new System.Drawing.Size(565, 112);
+            lvwColoursNotMapped.Size = new System.Drawing.Size(466, 92);
             lvwColoursNotMapped.TabIndex = 2;
             lvwColoursNotMapped.UseCompatibleStateImageBehavior = false;
             lvwColoursNotMapped.View = System.Windows.Forms.View.Details;
@@ -953,6 +957,7 @@
             // 
             // grpColours
             // 
+            grpColours.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpColours.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpColours.Controls.Add(label1);
             grpColours.Controls.Add(chkApplyFilterColours);
@@ -966,7 +971,7 @@
             grpColours.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpColours.Name = "grpColours";
             grpColours.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpColours.Size = new System.Drawing.Size(593, 280);
+            grpColours.Size = new System.Drawing.Size(494, 228);
             grpColours.TabIndex = 0;
             grpColours.TabStop = false;
             // 
@@ -991,7 +996,7 @@
             chkApplyFilterColours.Cursor = System.Windows.Forms.Cursors.Hand;
             chkApplyFilterColours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             chkApplyFilterColours.Image = (System.Drawing.Image)resources.GetObject("chkApplyFilterColours.Image");
-            chkApplyFilterColours.Location = new System.Drawing.Point(496, 228);
+            chkApplyFilterColours.Location = new System.Drawing.Point(397, 176);
             chkApplyFilterColours.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkApplyFilterColours.Name = "chkApplyFilterColours";
             chkApplyFilterColours.Size = new System.Drawing.Size(41, 40);
@@ -1008,7 +1013,7 @@
             lblHeaderColours.Location = new System.Drawing.Point(-2, 1);
             lblHeaderColours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderColours.Name = "lblHeaderColours";
-            lblHeaderColours.Size = new System.Drawing.Size(596, 8);
+            lblHeaderColours.Size = new System.Drawing.Size(497, 8);
             lblHeaderColours.TabIndex = 0;
             lblHeaderColours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1019,10 +1024,10 @@
             txtFilterColour.BorderStyle = System.Windows.Forms.BorderStyle.None;
             txtFilterColour.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilterColour.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            txtFilterColour.Location = new System.Drawing.Point(107, 236);
+            txtFilterColour.Location = new System.Drawing.Point(107, 184);
             txtFilterColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilterColour.Name = "txtFilterColour";
-            txtFilterColour.Size = new System.Drawing.Size(381, 20);
+            txtFilterColour.Size = new System.Drawing.Size(282, 20);
             txtFilterColour.TabIndex = 4;
             // 
             // btnEditColour
@@ -1033,7 +1038,7 @@
             btnEditColour.Enabled = false;
             btnEditColour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnEditColour.Image = (System.Drawing.Image)resources.GetObject("btnEditColour.Image");
-            btnEditColour.Location = new System.Drawing.Point(542, 228);
+            btnEditColour.Location = new System.Drawing.Point(443, 176);
             btnEditColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnEditColour.Name = "btnEditColour";
             btnEditColour.Size = new System.Drawing.Size(41, 40);
@@ -1052,7 +1057,7 @@
             lvwColours.Location = new System.Drawing.Point(15, 52);
             lvwColours.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwColours.Name = "lvwColours";
-            lvwColours.Size = new System.Drawing.Size(565, 169);
+            lvwColours.Size = new System.Drawing.Size(466, 117);
             lvwColours.TabIndex = 1;
             lvwColours.UseCompatibleStateImageBehavior = false;
             lvwColours.View = System.Windows.Forms.View.Details;
@@ -1083,7 +1088,7 @@
             btnRemoveColour.Enabled = false;
             btnRemoveColour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRemoveColour.Image = (System.Drawing.Image)resources.GetObject("btnRemoveColour.Image");
-            btnRemoveColour.Location = new System.Drawing.Point(61, 228);
+            btnRemoveColour.Location = new System.Drawing.Point(61, 176);
             btnRemoveColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemoveColour.Name = "btnRemoveColour";
             btnRemoveColour.Size = new System.Drawing.Size(41, 40);
@@ -1099,7 +1104,7 @@
             btnNewColour.Cursor = System.Windows.Forms.Cursors.Hand;
             btnNewColour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnNewColour.Image = (System.Drawing.Image)resources.GetObject("btnNewColour.Image");
-            btnNewColour.Location = new System.Drawing.Point(15, 228);
+            btnNewColour.Location = new System.Drawing.Point(15, 176);
             btnNewColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnNewColour.Name = "btnNewColour";
             btnNewColour.Size = new System.Drawing.Size(41, 40);
@@ -1117,23 +1122,24 @@
             tpgCreatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgCreatures.Name = "tpgCreatures";
             tpgCreatures.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tpgCreatures.Size = new System.Drawing.Size(637, 724);
+            tpgCreatures.Size = new System.Drawing.Size(529, 554);
             tpgCreatures.TabIndex = 1;
             tpgCreatures.Text = "Creatures";
             // 
             // grpCreaturesNotMapped
             // 
+            grpCreaturesNotMapped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpCreaturesNotMapped.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpCreaturesNotMapped.Controls.Add(btnRefreshUnknownCreatures);
             grpCreaturesNotMapped.Controls.Add(btnCreaturesNotMappedAdd);
             grpCreaturesNotMapped.Controls.Add(lblCreaturesNotMapped);
             grpCreaturesNotMapped.Controls.Add(lblHeaderCreaturesNotMapped);
             grpCreaturesNotMapped.Controls.Add(lvwCreaturesNotMapped);
-            grpCreaturesNotMapped.Location = new System.Drawing.Point(21, 402);
+            grpCreaturesNotMapped.Location = new System.Drawing.Point(21, 301);
             grpCreaturesNotMapped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpCreaturesNotMapped.Name = "grpCreaturesNotMapped";
             grpCreaturesNotMapped.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpCreaturesNotMapped.Size = new System.Drawing.Size(593, 295);
+            grpCreaturesNotMapped.Size = new System.Drawing.Size(492, 249);
             grpCreaturesNotMapped.TabIndex = 1;
             grpCreaturesNotMapped.TabStop = false;
             // 
@@ -1144,7 +1150,7 @@
             btnRefreshUnknownCreatures.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRefreshUnknownCreatures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRefreshUnknownCreatures.Image = (System.Drawing.Image)resources.GetObject("btnRefreshUnknownCreatures.Image");
-            btnRefreshUnknownCreatures.Location = new System.Drawing.Point(15, 245);
+            btnRefreshUnknownCreatures.Location = new System.Drawing.Point(15, 199);
             btnRefreshUnknownCreatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRefreshUnknownCreatures.Name = "btnRefreshUnknownCreatures";
             btnRefreshUnknownCreatures.Size = new System.Drawing.Size(41, 40);
@@ -1155,13 +1161,13 @@
             // 
             // btnCreaturesNotMappedAdd
             // 
-            btnCreaturesNotMappedAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnCreaturesNotMappedAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnCreaturesNotMappedAdd.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnCreaturesNotMappedAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             btnCreaturesNotMappedAdd.Enabled = false;
             btnCreaturesNotMappedAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnCreaturesNotMappedAdd.Image = (System.Drawing.Image)resources.GetObject("btnCreaturesNotMappedAdd.Image");
-            btnCreaturesNotMappedAdd.Location = new System.Drawing.Point(541, 245);
+            btnCreaturesNotMappedAdd.Location = new System.Drawing.Point(440, 199);
             btnCreaturesNotMappedAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnCreaturesNotMappedAdd.Name = "btnCreaturesNotMappedAdd";
             btnCreaturesNotMappedAdd.Size = new System.Drawing.Size(41, 40);
@@ -1191,12 +1197,13 @@
             lblHeaderCreaturesNotMapped.Location = new System.Drawing.Point(-2, 1);
             lblHeaderCreaturesNotMapped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderCreaturesNotMapped.Name = "lblHeaderCreaturesNotMapped";
-            lblHeaderCreaturesNotMapped.Size = new System.Drawing.Size(596, 8);
+            lblHeaderCreaturesNotMapped.Size = new System.Drawing.Size(495, 8);
             lblHeaderCreaturesNotMapped.TabIndex = 0;
             lblHeaderCreaturesNotMapped.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvwCreaturesNotMapped
             // 
+            lvwCreaturesNotMapped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwCreaturesNotMapped.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwCreaturesNotMapped.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader12 });
             lvwCreaturesNotMapped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
@@ -1204,7 +1211,7 @@
             lvwCreaturesNotMapped.Location = new System.Drawing.Point(15, 52);
             lvwCreaturesNotMapped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwCreaturesNotMapped.Name = "lvwCreaturesNotMapped";
-            lvwCreaturesNotMapped.Size = new System.Drawing.Size(565, 186);
+            lvwCreaturesNotMapped.Size = new System.Drawing.Size(464, 140);
             lvwCreaturesNotMapped.TabIndex = 2;
             lvwCreaturesNotMapped.UseCompatibleStateImageBehavior = false;
             lvwCreaturesNotMapped.View = System.Windows.Forms.View.Details;
@@ -1218,6 +1225,7 @@
             // 
             // grpCreatures
             // 
+            grpCreatures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpCreatures.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpCreatures.Controls.Add(label6);
             grpCreatures.Controls.Add(chkApplyFilterDinos);
@@ -1231,7 +1239,7 @@
             grpCreatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpCreatures.Name = "grpCreatures";
             grpCreatures.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpCreatures.Size = new System.Drawing.Size(593, 383);
+            grpCreatures.Size = new System.Drawing.Size(492, 283);
             grpCreatures.TabIndex = 0;
             grpCreatures.TabStop = false;
             // 
@@ -1250,12 +1258,13 @@
             // 
             // chkApplyFilterDinos
             // 
+            chkApplyFilterDinos.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             chkApplyFilterDinos.Appearance = System.Windows.Forms.Appearance.Button;
             chkApplyFilterDinos.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             chkApplyFilterDinos.Cursor = System.Windows.Forms.Cursors.Hand;
             chkApplyFilterDinos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             chkApplyFilterDinos.Image = (System.Drawing.Image)resources.GetObject("chkApplyFilterDinos.Image");
-            chkApplyFilterDinos.Location = new System.Drawing.Point(496, 331);
+            chkApplyFilterDinos.Location = new System.Drawing.Point(395, 231);
             chkApplyFilterDinos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkApplyFilterDinos.Name = "chkApplyFilterDinos";
             chkApplyFilterDinos.Size = new System.Drawing.Size(41, 40);
@@ -1271,12 +1280,13 @@
             lblHeaderCreatures.Location = new System.Drawing.Point(-2, 1);
             lblHeaderCreatures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderCreatures.Name = "lblHeaderCreatures";
-            lblHeaderCreatures.Size = new System.Drawing.Size(596, 8);
+            lblHeaderCreatures.Size = new System.Drawing.Size(495, 8);
             lblHeaderCreatures.TabIndex = 1;
             lblHeaderCreatures.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtCreatureFilter
             // 
+            txtCreatureFilter.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtCreatureFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtCreatureFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
             txtCreatureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
@@ -1284,13 +1294,14 @@
             txtCreatureFilter.Location = new System.Drawing.Point(107, 339);
             txtCreatureFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtCreatureFilter.Name = "txtCreatureFilter";
-            txtCreatureFilter.Size = new System.Drawing.Size(381, 20);
+            txtCreatureFilter.Size = new System.Drawing.Size(280, 20);
             txtCreatureFilter.TabIndex = 6;
             txtCreatureFilter.TextChanged += txtCreatureFilter_TextChanged;
             txtCreatureFilter.Validating += txtCreatureFilter_Validating;
             // 
             // lvwDinoClasses
             // 
+            lvwDinoClasses.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwDinoClasses.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwDinoClasses.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwDinoClasses_ClassName, lvwDinoClasses_DisplayName });
             lvwDinoClasses.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
@@ -1298,7 +1309,7 @@
             lvwDinoClasses.Location = new System.Drawing.Point(15, 52);
             lvwDinoClasses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwDinoClasses.Name = "lvwDinoClasses";
-            lvwDinoClasses.Size = new System.Drawing.Size(565, 272);
+            lvwDinoClasses.Size = new System.Drawing.Size(464, 172);
             lvwDinoClasses.TabIndex = 3;
             lvwDinoClasses.UseCompatibleStateImageBehavior = false;
             lvwDinoClasses.View = System.Windows.Forms.View.Details;
@@ -1319,12 +1330,13 @@
             // 
             // btnEditDinoClass
             // 
+            btnEditDinoClass.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnEditDinoClass.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnEditDinoClass.Cursor = System.Windows.Forms.Cursors.Hand;
             btnEditDinoClass.Enabled = false;
             btnEditDinoClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnEditDinoClass.Image = (System.Drawing.Image)resources.GetObject("btnEditDinoClass.Image");
-            btnEditDinoClass.Location = new System.Drawing.Point(542, 331);
+            btnEditDinoClass.Location = new System.Drawing.Point(441, 231);
             btnEditDinoClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnEditDinoClass.Name = "btnEditDinoClass";
             btnEditDinoClass.Size = new System.Drawing.Size(41, 40);
@@ -1335,11 +1347,12 @@
             // 
             // btnAddDinoClass
             // 
+            btnAddDinoClass.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             btnAddDinoClass.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnAddDinoClass.Cursor = System.Windows.Forms.Cursors.Hand;
             btnAddDinoClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAddDinoClass.Image = (System.Drawing.Image)resources.GetObject("btnAddDinoClass.Image");
-            btnAddDinoClass.Location = new System.Drawing.Point(15, 331);
+            btnAddDinoClass.Location = new System.Drawing.Point(15, 230);
             btnAddDinoClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnAddDinoClass.Name = "btnAddDinoClass";
             btnAddDinoClass.Size = new System.Drawing.Size(41, 40);
@@ -1350,12 +1363,13 @@
             // 
             // btnRemoveDinoClass
             // 
+            btnRemoveDinoClass.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             btnRemoveDinoClass.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRemoveDinoClass.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRemoveDinoClass.Enabled = false;
             btnRemoveDinoClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRemoveDinoClass.Image = (System.Drawing.Image)resources.GetObject("btnRemoveDinoClass.Image");
-            btnRemoveDinoClass.Location = new System.Drawing.Point(61, 331);
+            btnRemoveDinoClass.Location = new System.Drawing.Point(61, 230);
             btnRemoveDinoClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemoveDinoClass.Name = "btnRemoveDinoClass";
             btnRemoveDinoClass.Size = new System.Drawing.Size(41, 40);
@@ -1372,23 +1386,24 @@
             tpgStructures.Location = new System.Drawing.Point(4, 24);
             tpgStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgStructures.Name = "tpgStructures";
-            tpgStructures.Size = new System.Drawing.Size(637, 724);
+            tpgStructures.Size = new System.Drawing.Size(529, 554);
             tpgStructures.TabIndex = 4;
             tpgStructures.Text = "Structures";
             // 
             // grpStructuresNotMapped
             // 
+            grpStructuresNotMapped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpStructuresNotMapped.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpStructuresNotMapped.Controls.Add(btnRefreshUnknownStructures);
             grpStructuresNotMapped.Controls.Add(btnStructuresNotMappedAdd);
             grpStructuresNotMapped.Controls.Add(lblStructuresNotMapped);
             grpStructuresNotMapped.Controls.Add(lblHeaderStructuresNotMapped);
             grpStructuresNotMapped.Controls.Add(lvwStructuresNotMapped);
-            grpStructuresNotMapped.Location = new System.Drawing.Point(21, 402);
+            grpStructuresNotMapped.Location = new System.Drawing.Point(21, 268);
             grpStructuresNotMapped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpStructuresNotMapped.Name = "grpStructuresNotMapped";
             grpStructuresNotMapped.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpStructuresNotMapped.Size = new System.Drawing.Size(593, 295);
+            grpStructuresNotMapped.Size = new System.Drawing.Size(490, 282);
             grpStructuresNotMapped.TabIndex = 1;
             grpStructuresNotMapped.TabStop = false;
             // 
@@ -1399,7 +1414,7 @@
             btnRefreshUnknownStructures.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRefreshUnknownStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRefreshUnknownStructures.Image = (System.Drawing.Image)resources.GetObject("btnRefreshUnknownStructures.Image");
-            btnRefreshUnknownStructures.Location = new System.Drawing.Point(15, 245);
+            btnRefreshUnknownStructures.Location = new System.Drawing.Point(15, 232);
             btnRefreshUnknownStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRefreshUnknownStructures.Name = "btnRefreshUnknownStructures";
             btnRefreshUnknownStructures.Size = new System.Drawing.Size(41, 40);
@@ -1410,13 +1425,13 @@
             // 
             // btnStructuresNotMappedAdd
             // 
-            btnStructuresNotMappedAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnStructuresNotMappedAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnStructuresNotMappedAdd.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnStructuresNotMappedAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             btnStructuresNotMappedAdd.Enabled = false;
             btnStructuresNotMappedAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnStructuresNotMappedAdd.Image = (System.Drawing.Image)resources.GetObject("btnStructuresNotMappedAdd.Image");
-            btnStructuresNotMappedAdd.Location = new System.Drawing.Point(541, 245);
+            btnStructuresNotMappedAdd.Location = new System.Drawing.Point(438, 232);
             btnStructuresNotMappedAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnStructuresNotMappedAdd.Name = "btnStructuresNotMappedAdd";
             btnStructuresNotMappedAdd.Size = new System.Drawing.Size(41, 40);
@@ -1446,12 +1461,13 @@
             lblHeaderStructuresNotMapped.Location = new System.Drawing.Point(-2, 1);
             lblHeaderStructuresNotMapped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderStructuresNotMapped.Name = "lblHeaderStructuresNotMapped";
-            lblHeaderStructuresNotMapped.Size = new System.Drawing.Size(596, 8);
+            lblHeaderStructuresNotMapped.Size = new System.Drawing.Size(493, 8);
             lblHeaderStructuresNotMapped.TabIndex = 0;
             lblHeaderStructuresNotMapped.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvwStructuresNotMapped
             // 
+            lvwStructuresNotMapped.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwStructuresNotMapped.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwStructuresNotMapped.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader10 });
             lvwStructuresNotMapped.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
@@ -1459,7 +1475,7 @@
             lvwStructuresNotMapped.Location = new System.Drawing.Point(15, 52);
             lvwStructuresNotMapped.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwStructuresNotMapped.Name = "lvwStructuresNotMapped";
-            lvwStructuresNotMapped.Size = new System.Drawing.Size(565, 186);
+            lvwStructuresNotMapped.Size = new System.Drawing.Size(462, 173);
             lvwStructuresNotMapped.TabIndex = 2;
             lvwStructuresNotMapped.UseCompatibleStateImageBehavior = false;
             lvwStructuresNotMapped.View = System.Windows.Forms.View.Details;
@@ -1473,6 +1489,7 @@
             // 
             // grpStructures
             // 
+            grpStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpStructures.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpStructures.Controls.Add(chkApplyFilterStructures);
             grpStructures.Controls.Add(lblHeaderStructures);
@@ -1485,18 +1502,19 @@
             grpStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpStructures.Name = "grpStructures";
             grpStructures.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpStructures.Size = new System.Drawing.Size(593, 383);
+            grpStructures.Size = new System.Drawing.Size(490, 250);
             grpStructures.TabIndex = 0;
             grpStructures.TabStop = false;
             // 
             // chkApplyFilterStructures
             // 
+            chkApplyFilterStructures.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             chkApplyFilterStructures.Appearance = System.Windows.Forms.Appearance.Button;
             chkApplyFilterStructures.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             chkApplyFilterStructures.Cursor = System.Windows.Forms.Cursors.Hand;
             chkApplyFilterStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             chkApplyFilterStructures.Image = (System.Drawing.Image)resources.GetObject("chkApplyFilterStructures.Image");
-            chkApplyFilterStructures.Location = new System.Drawing.Point(496, 331);
+            chkApplyFilterStructures.Location = new System.Drawing.Point(393, 198);
             chkApplyFilterStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkApplyFilterStructures.Name = "chkApplyFilterStructures";
             chkApplyFilterStructures.Size = new System.Drawing.Size(41, 40);
@@ -1513,24 +1531,26 @@
             lblHeaderStructures.Location = new System.Drawing.Point(-2, 1);
             lblHeaderStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderStructures.Name = "lblHeaderStructures";
-            lblHeaderStructures.Size = new System.Drawing.Size(596, 8);
+            lblHeaderStructures.Size = new System.Drawing.Size(493, 8);
             lblHeaderStructures.TabIndex = 0;
             lblHeaderStructures.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtStructureFilter
             // 
+            txtStructureFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtStructureFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtStructureFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
             txtStructureFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtStructureFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            txtStructureFilter.Location = new System.Drawing.Point(107, 339);
+            txtStructureFilter.Location = new System.Drawing.Point(107, 206);
             txtStructureFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtStructureFilter.Name = "txtStructureFilter";
-            txtStructureFilter.Size = new System.Drawing.Size(381, 20);
+            txtStructureFilter.Size = new System.Drawing.Size(278, 20);
             txtStructureFilter.TabIndex = 4;
             // 
             // lvwStructureMap
             // 
+            lvwStructureMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwStructureMap.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwStructureMap.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader5, columnHeader6 });
             lvwStructureMap.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
@@ -1538,7 +1558,7 @@
             lvwStructureMap.Location = new System.Drawing.Point(15, 22);
             lvwStructureMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwStructureMap.Name = "lvwStructureMap";
-            lvwStructureMap.Size = new System.Drawing.Size(565, 302);
+            lvwStructureMap.Size = new System.Drawing.Size(462, 169);
             lvwStructureMap.TabIndex = 1;
             lvwStructureMap.UseCompatibleStateImageBehavior = false;
             lvwStructureMap.View = System.Windows.Forms.View.Details;
@@ -1559,12 +1579,13 @@
             // 
             // btnEditStructure
             // 
+            btnEditStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnEditStructure.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnEditStructure.Cursor = System.Windows.Forms.Cursors.Hand;
             btnEditStructure.Enabled = false;
             btnEditStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnEditStructure.Image = (System.Drawing.Image)resources.GetObject("btnEditStructure.Image");
-            btnEditStructure.Location = new System.Drawing.Point(542, 331);
+            btnEditStructure.Location = new System.Drawing.Point(439, 198);
             btnEditStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnEditStructure.Name = "btnEditStructure";
             btnEditStructure.Size = new System.Drawing.Size(41, 40);
@@ -1575,11 +1596,12 @@
             // 
             // btnAddStructure
             // 
+            btnAddStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             btnAddStructure.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnAddStructure.Cursor = System.Windows.Forms.Cursors.Hand;
             btnAddStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAddStructure.Image = (System.Drawing.Image)resources.GetObject("btnAddStructure.Image");
-            btnAddStructure.Location = new System.Drawing.Point(15, 331);
+            btnAddStructure.Location = new System.Drawing.Point(15, 198);
             btnAddStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnAddStructure.Name = "btnAddStructure";
             btnAddStructure.Size = new System.Drawing.Size(41, 40);
@@ -1590,12 +1612,13 @@
             // 
             // btnRemoveStructure
             // 
+            btnRemoveStructure.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             btnRemoveStructure.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRemoveStructure.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRemoveStructure.Enabled = false;
             btnRemoveStructure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRemoveStructure.Image = (System.Drawing.Image)resources.GetObject("btnRemoveStructure.Image");
-            btnRemoveStructure.Location = new System.Drawing.Point(61, 331);
+            btnRemoveStructure.Location = new System.Drawing.Point(61, 198);
             btnRemoveStructure.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemoveStructure.Name = "btnRemoveStructure";
             btnRemoveStructure.Size = new System.Drawing.Size(41, 40);
@@ -1612,7 +1635,7 @@
             tpgItems.Location = new System.Drawing.Point(4, 24);
             tpgItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgItems.Name = "tpgItems";
-            tpgItems.Size = new System.Drawing.Size(637, 724);
+            tpgItems.Size = new System.Drawing.Size(529, 554);
             tpgItems.TabIndex = 2;
             tpgItems.Text = "Items";
             // 
@@ -1624,11 +1647,11 @@
             grpItemsNotMatched.Controls.Add(lblItemsNotMatched);
             grpItemsNotMatched.Controls.Add(lblHeaderItemsNotMatched);
             grpItemsNotMatched.Controls.Add(lvwItemsNotMatched);
-            grpItemsNotMatched.Location = new System.Drawing.Point(21, 402);
+            grpItemsNotMatched.Location = new System.Drawing.Point(21, 284);
             grpItemsNotMatched.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpItemsNotMatched.Name = "grpItemsNotMatched";
             grpItemsNotMatched.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpItemsNotMatched.Size = new System.Drawing.Size(593, 295);
+            grpItemsNotMatched.Size = new System.Drawing.Size(517, 266);
             grpItemsNotMatched.TabIndex = 1;
             grpItemsNotMatched.TabStop = false;
             // 
@@ -1639,7 +1662,7 @@
             btnRefreshUnknownItems.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRefreshUnknownItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRefreshUnknownItems.Image = (System.Drawing.Image)resources.GetObject("btnRefreshUnknownItems.Image");
-            btnRefreshUnknownItems.Location = new System.Drawing.Point(15, 245);
+            btnRefreshUnknownItems.Location = new System.Drawing.Point(15, 216);
             btnRefreshUnknownItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRefreshUnknownItems.Name = "btnRefreshUnknownItems";
             btnRefreshUnknownItems.Size = new System.Drawing.Size(41, 40);
@@ -1650,13 +1673,13 @@
             // 
             // btnItemsNotMatchedAdd
             // 
-            btnItemsNotMatchedAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnItemsNotMatchedAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnItemsNotMatchedAdd.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnItemsNotMatchedAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             btnItemsNotMatchedAdd.Enabled = false;
             btnItemsNotMatchedAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnItemsNotMatchedAdd.Image = (System.Drawing.Image)resources.GetObject("btnItemsNotMatchedAdd.Image");
-            btnItemsNotMatchedAdd.Location = new System.Drawing.Point(541, 245);
+            btnItemsNotMatchedAdd.Location = new System.Drawing.Point(465, 216);
             btnItemsNotMatchedAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnItemsNotMatchedAdd.Name = "btnItemsNotMatchedAdd";
             btnItemsNotMatchedAdd.Size = new System.Drawing.Size(41, 40);
@@ -1686,12 +1709,13 @@
             lblHeaderItemsNotMatched.Location = new System.Drawing.Point(-2, 2);
             lblHeaderItemsNotMatched.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderItemsNotMatched.Name = "lblHeaderItemsNotMatched";
-            lblHeaderItemsNotMatched.Size = new System.Drawing.Size(596, 8);
+            lblHeaderItemsNotMatched.Size = new System.Drawing.Size(520, 8);
             lblHeaderItemsNotMatched.TabIndex = 0;
             lblHeaderItemsNotMatched.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lvwItemsNotMatched
             // 
+            lvwItemsNotMatched.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwItemsNotMatched.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwItemsNotMatched.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader11 });
             lvwItemsNotMatched.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
@@ -1699,7 +1723,7 @@
             lvwItemsNotMatched.Location = new System.Drawing.Point(15, 52);
             lvwItemsNotMatched.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwItemsNotMatched.Name = "lvwItemsNotMatched";
-            lvwItemsNotMatched.Size = new System.Drawing.Size(565, 186);
+            lvwItemsNotMatched.Size = new System.Drawing.Size(489, 157);
             lvwItemsNotMatched.TabIndex = 2;
             lvwItemsNotMatched.UseCompatibleStateImageBehavior = false;
             lvwItemsNotMatched.View = System.Windows.Forms.View.Details;
@@ -1713,6 +1737,7 @@
             // 
             // grpItems
             // 
+            grpItems.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpItems.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpItems.Controls.Add(chkApplyFilterItems);
             grpItems.Controls.Add(lblHeaderItems);
@@ -1725,18 +1750,19 @@
             grpItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpItems.Name = "grpItems";
             grpItems.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpItems.Size = new System.Drawing.Size(593, 383);
+            grpItems.Size = new System.Drawing.Size(517, 266);
             grpItems.TabIndex = 0;
             grpItems.TabStop = false;
             // 
             // chkApplyFilterItems
             // 
+            chkApplyFilterItems.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             chkApplyFilterItems.Appearance = System.Windows.Forms.Appearance.Button;
             chkApplyFilterItems.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             chkApplyFilterItems.Cursor = System.Windows.Forms.Cursors.Hand;
             chkApplyFilterItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             chkApplyFilterItems.Image = (System.Drawing.Image)resources.GetObject("chkApplyFilterItems.Image");
-            chkApplyFilterItems.Location = new System.Drawing.Point(496, 331);
+            chkApplyFilterItems.Location = new System.Drawing.Point(420, 214);
             chkApplyFilterItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkApplyFilterItems.Name = "chkApplyFilterItems";
             chkApplyFilterItems.Size = new System.Drawing.Size(41, 40);
@@ -1752,26 +1778,28 @@
             lblHeaderItems.Location = new System.Drawing.Point(-2, 1);
             lblHeaderItems.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderItems.Name = "lblHeaderItems";
-            lblHeaderItems.Size = new System.Drawing.Size(596, 8);
+            lblHeaderItems.Size = new System.Drawing.Size(520, 8);
             lblHeaderItems.TabIndex = 0;
             lblHeaderItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtItemFilter
             // 
+            txtItemFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtItemFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtItemFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
             txtItemFilter.Font = new System.Drawing.Font("Segoe UI", 11F);
             txtItemFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            txtItemFilter.Location = new System.Drawing.Point(107, 339);
+            txtItemFilter.Location = new System.Drawing.Point(107, 222);
             txtItemFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtItemFilter.Name = "txtItemFilter";
-            txtItemFilter.Size = new System.Drawing.Size(381, 20);
+            txtItemFilter.Size = new System.Drawing.Size(305, 20);
             txtItemFilter.TabIndex = 4;
             txtItemFilter.TextChanged += txtItemFilter_TextChanged;
             txtItemFilter.Validating += txtItemFilter_Validating;
             // 
             // lvwItemMap
             // 
+            lvwItemMap.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwItemMap.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
             lvwItemMap.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader3, columnHeader1, columnHeader2 });
             lvwItemMap.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
@@ -1779,7 +1807,7 @@
             lvwItemMap.Location = new System.Drawing.Point(15, 22);
             lvwItemMap.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             lvwItemMap.Name = "lvwItemMap";
-            lvwItemMap.Size = new System.Drawing.Size(565, 302);
+            lvwItemMap.Size = new System.Drawing.Size(489, 185);
             lvwItemMap.TabIndex = 1;
             lvwItemMap.UseCompatibleStateImageBehavior = false;
             lvwItemMap.View = System.Windows.Forms.View.Details;
@@ -1805,12 +1833,13 @@
             // 
             // btnEditItem
             // 
+            btnEditItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnEditItem.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnEditItem.Cursor = System.Windows.Forms.Cursors.Hand;
             btnEditItem.Enabled = false;
             btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnEditItem.Image = (System.Drawing.Image)resources.GetObject("btnEditItem.Image");
-            btnEditItem.Location = new System.Drawing.Point(542, 331);
+            btnEditItem.Location = new System.Drawing.Point(466, 214);
             btnEditItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnEditItem.Name = "btnEditItem";
             btnEditItem.Size = new System.Drawing.Size(41, 40);
@@ -1821,11 +1850,12 @@
             // 
             // btnAddItem
             // 
+            btnAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             btnAddItem.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
             btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAddItem.Image = (System.Drawing.Image)resources.GetObject("btnAddItem.Image");
-            btnAddItem.Location = new System.Drawing.Point(15, 331);
+            btnAddItem.Location = new System.Drawing.Point(15, 214);
             btnAddItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnAddItem.Name = "btnAddItem";
             btnAddItem.Size = new System.Drawing.Size(41, 40);
@@ -1836,12 +1866,13 @@
             // 
             // btnRemoveItem
             // 
+            btnRemoveItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             btnRemoveItem.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnRemoveItem.Cursor = System.Windows.Forms.Cursors.Hand;
             btnRemoveItem.Enabled = false;
             btnRemoveItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnRemoveItem.Image = (System.Drawing.Image)resources.GetObject("btnRemoveItem.Image");
-            btnRemoveItem.Location = new System.Drawing.Point(61, 331);
+            btnRemoveItem.Location = new System.Drawing.Point(61, 214);
             btnRemoveItem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnRemoveItem.Name = "btnRemoveItem";
             btnRemoveItem.Size = new System.Drawing.Size(41, 40);
@@ -1858,12 +1889,13 @@
             tpgExport.Location = new System.Drawing.Point(4, 24);
             tpgExport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgExport.Name = "tpgExport";
-            tpgExport.Size = new System.Drawing.Size(637, 724);
+            tpgExport.Size = new System.Drawing.Size(529, 554);
             tpgExport.TabIndex = 6;
             tpgExport.Text = "Export";
             // 
             // grpJsonExport
             // 
+            grpJsonExport.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpJsonExport.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpJsonExport.Controls.Add(label7);
             grpJsonExport.Controls.Add(btnJsonExportMapStructures);
@@ -1881,19 +1913,20 @@
             grpJsonExport.Controls.Add(btnJsonExportAll);
             grpJsonExport.Controls.Add(lblHeaderJsonExport);
             grpJsonExport.Controls.Add(lblJsonFileExport);
-            grpJsonExport.Location = new System.Drawing.Point(26, 440);
+            grpJsonExport.Location = new System.Drawing.Point(26, 340);
             grpJsonExport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpJsonExport.Name = "grpJsonExport";
             grpJsonExport.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpJsonExport.Size = new System.Drawing.Size(584, 248);
+            grpJsonExport.Size = new System.Drawing.Size(482, 210);
             grpJsonExport.TabIndex = 1;
             grpJsonExport.TabStop = false;
             // 
             // label7
             // 
+            label7.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            label7.Location = new System.Drawing.Point(338, 207);
+            label7.Location = new System.Drawing.Point(248, 170);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(93, 13);
@@ -1902,14 +1935,15 @@
             // 
             // btnJsonExportMapStructures
             // 
+            btnJsonExportMapStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnJsonExportMapStructures.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnJsonExportMapStructures.Cursor = System.Windows.Forms.Cursors.Hand;
             btnJsonExportMapStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnJsonExportMapStructures.Image = (System.Drawing.Image)resources.GetObject("btnJsonExportMapStructures.Image");
-            btnJsonExportMapStructures.Location = new System.Drawing.Point(495, 197);
+            btnJsonExportMapStructures.Location = new System.Drawing.Point(405, 160);
             btnJsonExportMapStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnJsonExportMapStructures.Name = "btnJsonExportMapStructures";
-            btnJsonExportMapStructures.Size = new System.Drawing.Size(41, 40);
+            btnJsonExportMapStructures.Size = new System.Drawing.Size(32, 30);
             btnJsonExportMapStructures.TabIndex = 15;
             toolTip1.SetToolTip(btnJsonExportMapStructures, "Export tamed data");
             btnJsonExportMapStructures.UseVisualStyleBackColor = false;
@@ -1917,9 +1951,10 @@
             // 
             // lblExportPlayerStructures
             // 
+            lblExportPlayerStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblExportPlayerStructures.AutoSize = true;
             lblExportPlayerStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            lblExportPlayerStructures.Location = new System.Drawing.Point(338, 157);
+            lblExportPlayerStructures.Location = new System.Drawing.Point(248, 133);
             lblExportPlayerStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportPlayerStructures.Name = "lblExportPlayerStructures";
             lblExportPlayerStructures.Size = new System.Drawing.Size(104, 13);
@@ -1928,14 +1963,15 @@
             // 
             // btnJsonExportPlayerStructures
             // 
+            btnJsonExportPlayerStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnJsonExportPlayerStructures.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnJsonExportPlayerStructures.Cursor = System.Windows.Forms.Cursors.Hand;
             btnJsonExportPlayerStructures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnJsonExportPlayerStructures.Image = (System.Drawing.Image)resources.GetObject("btnJsonExportPlayerStructures.Image");
-            btnJsonExportPlayerStructures.Location = new System.Drawing.Point(495, 147);
+            btnJsonExportPlayerStructures.Location = new System.Drawing.Point(405, 123);
             btnJsonExportPlayerStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnJsonExportPlayerStructures.Name = "btnJsonExportPlayerStructures";
-            btnJsonExportPlayerStructures.Size = new System.Drawing.Size(41, 40);
+            btnJsonExportPlayerStructures.Size = new System.Drawing.Size(32, 30);
             btnJsonExportPlayerStructures.TabIndex = 13;
             toolTip1.SetToolTip(btnJsonExportPlayerStructures, "Export structure data");
             btnJsonExportPlayerStructures.UseVisualStyleBackColor = false;
@@ -1945,7 +1981,7 @@
             // 
             lblExportTamed.AutoSize = true;
             lblExportTamed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            lblExportTamed.Location = new System.Drawing.Point(22, 157);
+            lblExportTamed.Location = new System.Drawing.Point(22, 133);
             lblExportTamed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportTamed.Name = "lblExportTamed";
             lblExportTamed.Size = new System.Drawing.Size(121, 13);
@@ -1958,10 +1994,10 @@
             btnJsonExportTamed.Cursor = System.Windows.Forms.Cursors.Hand;
             btnJsonExportTamed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnJsonExportTamed.Image = (System.Drawing.Image)resources.GetObject("btnJsonExportTamed.Image");
-            btnJsonExportTamed.Location = new System.Drawing.Point(178, 147);
+            btnJsonExportTamed.Location = new System.Drawing.Point(156, 123);
             btnJsonExportTamed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnJsonExportTamed.Name = "btnJsonExportTamed";
-            btnJsonExportTamed.Size = new System.Drawing.Size(41, 40);
+            btnJsonExportTamed.Size = new System.Drawing.Size(32, 30);
             btnJsonExportTamed.TabIndex = 7;
             toolTip1.SetToolTip(btnJsonExportTamed, "Export tamed data");
             btnJsonExportTamed.UseVisualStyleBackColor = false;
@@ -1969,9 +2005,10 @@
             // 
             // lblExportPlayers
             // 
+            lblExportPlayers.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblExportPlayers.AutoSize = true;
             lblExportPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            lblExportPlayers.Location = new System.Drawing.Point(338, 105);
+            lblExportPlayers.Location = new System.Drawing.Point(248, 95);
             lblExportPlayers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportPlayers.Name = "lblExportPlayers";
             lblExportPlayers.Size = new System.Drawing.Size(73, 13);
@@ -1980,14 +2017,15 @@
             // 
             // btnJsonExportPlayers
             // 
+            btnJsonExportPlayers.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnJsonExportPlayers.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnJsonExportPlayers.Cursor = System.Windows.Forms.Cursors.Hand;
             btnJsonExportPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnJsonExportPlayers.Image = (System.Drawing.Image)resources.GetObject("btnJsonExportPlayers.Image");
-            btnJsonExportPlayers.Location = new System.Drawing.Point(495, 97);
+            btnJsonExportPlayers.Location = new System.Drawing.Point(405, 87);
             btnJsonExportPlayers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnJsonExportPlayers.Name = "btnJsonExportPlayers";
-            btnJsonExportPlayers.Size = new System.Drawing.Size(41, 40);
+            btnJsonExportPlayers.Size = new System.Drawing.Size(32, 30);
             btnJsonExportPlayers.TabIndex = 11;
             toolTip1.SetToolTip(btnJsonExportPlayers, "Export player data");
             btnJsonExportPlayers.UseVisualStyleBackColor = false;
@@ -1995,9 +2033,10 @@
             // 
             // lblExportTribes
             // 
+            lblExportTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblExportTribes.AutoSize = true;
             lblExportTribes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            lblExportTribes.Location = new System.Drawing.Point(338, 60);
+            lblExportTribes.Location = new System.Drawing.Point(248, 60);
             lblExportTribes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportTribes.Name = "lblExportTribes";
             lblExportTribes.Size = new System.Drawing.Size(67, 13);
@@ -2006,14 +2045,15 @@
             // 
             // btnJsonExportTribes
             // 
+            btnJsonExportTribes.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnJsonExportTribes.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnJsonExportTribes.Cursor = System.Windows.Forms.Cursors.Hand;
             btnJsonExportTribes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnJsonExportTribes.Image = (System.Drawing.Image)resources.GetObject("btnJsonExportTribes.Image");
-            btnJsonExportTribes.Location = new System.Drawing.Point(495, 51);
+            btnJsonExportTribes.Location = new System.Drawing.Point(405, 51);
             btnJsonExportTribes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnJsonExportTribes.Name = "btnJsonExportTribes";
-            btnJsonExportTribes.Size = new System.Drawing.Size(41, 40);
+            btnJsonExportTribes.Size = new System.Drawing.Size(32, 30);
             btnJsonExportTribes.TabIndex = 9;
             toolTip1.SetToolTip(btnJsonExportTribes, "Export tribe data");
             btnJsonExportTribes.UseVisualStyleBackColor = false;
@@ -2023,7 +2063,7 @@
             // 
             lblExportWild.AutoSize = true;
             lblExportWild.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            lblExportWild.Location = new System.Drawing.Point(22, 105);
+            lblExportWild.Location = new System.Drawing.Point(22, 95);
             lblExportWild.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblExportWild.Name = "lblExportWild";
             lblExportWild.Size = new System.Drawing.Size(108, 13);
@@ -2036,10 +2076,10 @@
             btnJsonExportWild.Cursor = System.Windows.Forms.Cursors.Hand;
             btnJsonExportWild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnJsonExportWild.Image = (System.Drawing.Image)resources.GetObject("btnJsonExportWild.Image");
-            btnJsonExportWild.Location = new System.Drawing.Point(178, 97);
+            btnJsonExportWild.Location = new System.Drawing.Point(156, 87);
             btnJsonExportWild.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnJsonExportWild.Name = "btnJsonExportWild";
-            btnJsonExportWild.Size = new System.Drawing.Size(41, 40);
+            btnJsonExportWild.Size = new System.Drawing.Size(32, 30);
             btnJsonExportWild.TabIndex = 5;
             toolTip1.SetToolTip(btnJsonExportWild, "Export wild data");
             btnJsonExportWild.UseVisualStyleBackColor = false;
@@ -2062,10 +2102,10 @@
             btnJsonExportAll.Cursor = System.Windows.Forms.Cursors.Hand;
             btnJsonExportAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnJsonExportAll.Image = (System.Drawing.Image)resources.GetObject("btnJsonExportAll.Image");
-            btnJsonExportAll.Location = new System.Drawing.Point(178, 51);
+            btnJsonExportAll.Location = new System.Drawing.Point(156, 51);
             btnJsonExportAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnJsonExportAll.Name = "btnJsonExportAll";
-            btnJsonExportAll.Size = new System.Drawing.Size(41, 40);
+            btnJsonExportAll.Size = new System.Drawing.Size(32, 30);
             btnJsonExportAll.TabIndex = 3;
             toolTip1.SetToolTip(btnJsonExportAll, "Export all data");
             btnJsonExportAll.UseVisualStyleBackColor = false;
@@ -2079,7 +2119,7 @@
             lblHeaderJsonExport.Location = new System.Drawing.Point(0, 2);
             lblHeaderJsonExport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderJsonExport.Name = "lblHeaderJsonExport";
-            lblHeaderJsonExport.Size = new System.Drawing.Size(587, 7);
+            lblHeaderJsonExport.Size = new System.Drawing.Size(485, 7);
             lblHeaderJsonExport.TabIndex = 0;
             lblHeaderJsonExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -2098,6 +2138,7 @@
             // 
             // grpContentPack
             // 
+            grpContentPack.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             grpContentPack.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             grpContentPack.Controls.Add(chkDroppedItems);
             grpContentPack.Controls.Add(chkStructureContents);
@@ -2123,14 +2164,14 @@
             grpContentPack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpContentPack.Name = "grpContentPack";
             grpContentPack.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpContentPack.Size = new System.Drawing.Size(584, 420);
+            grpContentPack.Size = new System.Drawing.Size(482, 321);
             grpContentPack.TabIndex = 0;
             grpContentPack.TabStop = false;
             // 
             // chkDroppedItems
             // 
             chkDroppedItems.AutoSize = true;
-            chkDroppedItems.Location = new System.Drawing.Point(33, 111);
+            chkDroppedItems.Location = new System.Drawing.Point(33, 98);
             chkDroppedItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkDroppedItems.Name = "chkDroppedItems";
             chkDroppedItems.Size = new System.Drawing.Size(104, 19);
@@ -2141,7 +2182,7 @@
             // chkStructureContents
             // 
             chkStructureContents.AutoSize = true;
-            chkStructureContents.Location = new System.Drawing.Point(33, 84);
+            chkStructureContents.Location = new System.Drawing.Point(33, 71);
             chkStructureContents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkStructureContents.Name = "chkStructureContents";
             chkStructureContents.Size = new System.Drawing.Size(152, 19);
@@ -2154,7 +2195,7 @@
             chkStructureLocations.AutoSize = true;
             chkStructureLocations.Checked = true;
             chkStructureLocations.CheckState = System.Windows.Forms.CheckState.Checked;
-            chkStructureLocations.Location = new System.Drawing.Point(33, 58);
+            chkStructureLocations.Location = new System.Drawing.Point(33, 45);
             chkStructureLocations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkStructureLocations.Name = "chkStructureLocations";
             chkStructureLocations.Size = new System.Drawing.Size(155, 19);
@@ -2164,14 +2205,15 @@
             // 
             // btnExportContentPack
             // 
+            btnExportContentPack.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnExportContentPack.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnExportContentPack.Cursor = System.Windows.Forms.Cursors.Hand;
             btnExportContentPack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnExportContentPack.Image = (System.Drawing.Image)resources.GetObject("btnExportContentPack.Image");
-            btnExportContentPack.Location = new System.Drawing.Point(495, 361);
+            btnExportContentPack.Location = new System.Drawing.Point(405, 264);
             btnExportContentPack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnExportContentPack.Name = "btnExportContentPack";
-            btnExportContentPack.Size = new System.Drawing.Size(41, 40);
+            btnExportContentPack.Size = new System.Drawing.Size(32, 30);
             btnExportContentPack.TabIndex = 20;
             toolTip1.SetToolTip(btnExportContentPack, "Export content pack");
             btnExportContentPack.UseVisualStyleBackColor = false;
@@ -2183,7 +2225,7 @@
             udExportRadius.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udExportRadius.DecimalPlaces = 2;
             udExportRadius.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            udExportRadius.Location = new System.Drawing.Point(144, 372);
+            udExportRadius.Location = new System.Drawing.Point(144, 285);
             udExportRadius.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udExportRadius.Maximum = new decimal(new int[] { 250, 0, 0, 0 });
             udExportRadius.Name = "udExportRadius";
@@ -2197,7 +2239,7 @@
             udExportLon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udExportLon.DecimalPlaces = 2;
             udExportLon.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            udExportLon.Location = new System.Drawing.Point(144, 332);
+            udExportLon.Location = new System.Drawing.Point(144, 259);
             udExportLon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udExportLon.Name = "udExportLon";
             udExportLon.Size = new System.Drawing.Size(75, 19);
@@ -2210,7 +2252,7 @@
             udExportLat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             udExportLat.DecimalPlaces = 2;
             udExportLat.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            udExportLat.Location = new System.Drawing.Point(144, 294);
+            udExportLat.Location = new System.Drawing.Point(144, 233);
             udExportLat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             udExportLat.Name = "udExportLat";
             udExportLat.Size = new System.Drawing.Size(75, 19);
@@ -2220,7 +2262,7 @@
             // lblFilterRad
             // 
             lblFilterRad.AutoSize = true;
-            lblFilterRad.Location = new System.Drawing.Point(29, 372);
+            lblFilterRad.Location = new System.Drawing.Point(29, 285);
             lblFilterRad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFilterRad.Name = "lblFilterRad";
             lblFilterRad.Size = new System.Drawing.Size(45, 15);
@@ -2229,6 +2271,7 @@
             // 
             // cboExportPlayer
             // 
+            cboExportPlayer.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             cboExportPlayer.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             cboExportPlayer.BorderColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboExportPlayer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -2236,15 +2279,16 @@
             cboExportPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboExportPlayer.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboExportPlayer.FormattingEnabled = true;
-            cboExportPlayer.Location = new System.Drawing.Point(144, 253);
+            cboExportPlayer.Location = new System.Drawing.Point(144, 201);
             cboExportPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboExportPlayer.Name = "cboExportPlayer";
-            cboExportPlayer.Size = new System.Drawing.Size(390, 24);
+            cboExportPlayer.Size = new System.Drawing.Size(293, 24);
             cboExportPlayer.TabIndex = 13;
             cboExportPlayer.DrawItem += ownerDrawCombo_DrawItem;
             // 
             // cboExportTribe
             // 
+            cboExportTribe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             cboExportTribe.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             cboExportTribe.BorderColor = System.Drawing.Color.FromArgb(125, 125, 125);
             cboExportTribe.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -2252,10 +2296,10 @@
             cboExportTribe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboExportTribe.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboExportTribe.FormattingEnabled = true;
-            cboExportTribe.Location = new System.Drawing.Point(144, 216);
+            cboExportTribe.Location = new System.Drawing.Point(144, 171);
             cboExportTribe.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboExportTribe.Name = "cboExportTribe";
-            cboExportTribe.Size = new System.Drawing.Size(390, 24);
+            cboExportTribe.Size = new System.Drawing.Size(293, 24);
             cboExportTribe.TabIndex = 11;
             cboExportTribe.DrawItem += ownerDrawCombo_DrawItem;
             cboExportTribe.SelectedIndexChanged += cboExportTribe_SelectedIndexChanged;
@@ -2263,7 +2307,7 @@
             // lblFilterLon
             // 
             lblFilterLon.AutoSize = true;
-            lblFilterLon.Location = new System.Drawing.Point(29, 332);
+            lblFilterLon.Location = new System.Drawing.Point(29, 259);
             lblFilterLon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFilterLon.Name = "lblFilterLon";
             lblFilterLon.Size = new System.Drawing.Size(64, 15);
@@ -2273,7 +2317,7 @@
             // lblFilterLat
             // 
             lblFilterLat.AutoSize = true;
-            lblFilterLat.Location = new System.Drawing.Point(29, 294);
+            lblFilterLat.Location = new System.Drawing.Point(29, 233);
             lblFilterLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFilterLat.Name = "lblFilterLat";
             lblFilterLat.Size = new System.Drawing.Size(53, 15);
@@ -2283,7 +2327,7 @@
             // lblFilterPlayer
             // 
             lblFilterPlayer.AutoSize = true;
-            lblFilterPlayer.Location = new System.Drawing.Point(29, 256);
+            lblFilterPlayer.Location = new System.Drawing.Point(29, 204);
             lblFilterPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFilterPlayer.Name = "lblFilterPlayer";
             lblFilterPlayer.Size = new System.Drawing.Size(89, 15);
@@ -2293,7 +2337,7 @@
             // lblFilterTribe
             // 
             lblFilterTribe.AutoSize = true;
-            lblFilterTribe.Location = new System.Drawing.Point(29, 216);
+            lblFilterTribe.Location = new System.Drawing.Point(29, 171);
             lblFilterTribe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFilterTribe.Name = "lblFilterTribe";
             lblFilterTribe.Size = new System.Drawing.Size(82, 15);
@@ -2305,7 +2349,7 @@
             lblContentPackFilters.BackColor = System.Drawing.Color.Transparent;
             lblContentPackFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblContentPackFilters.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblContentPackFilters.Location = new System.Drawing.Point(9, 180);
+            lblContentPackFilters.Location = new System.Drawing.Point(9, 135);
             lblContentPackFilters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblContentPackFilters.Name = "lblContentPackFilters";
             lblContentPackFilters.Size = new System.Drawing.Size(231, 25);
@@ -2315,10 +2359,11 @@
             // 
             // chkPlayerStructures
             // 
+            chkPlayerStructures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             chkPlayerStructures.AutoSize = true;
             chkPlayerStructures.Checked = true;
             chkPlayerStructures.CheckState = System.Windows.Forms.CheckState.Checked;
-            chkPlayerStructures.Location = new System.Drawing.Point(348, 111);
+            chkPlayerStructures.Location = new System.Drawing.Point(285, 98);
             chkPlayerStructures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkPlayerStructures.Name = "chkPlayerStructures";
             chkPlayerStructures.Size = new System.Drawing.Size(114, 19);
@@ -2328,10 +2373,11 @@
             // 
             // chkTamedCreatures
             // 
+            chkTamedCreatures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             chkTamedCreatures.AutoSize = true;
             chkTamedCreatures.Checked = true;
             chkTamedCreatures.CheckState = System.Windows.Forms.CheckState.Checked;
-            chkTamedCreatures.Location = new System.Drawing.Point(348, 58);
+            chkTamedCreatures.Location = new System.Drawing.Point(286, 45);
             chkTamedCreatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkTamedCreatures.Name = "chkTamedCreatures";
             chkTamedCreatures.Size = new System.Drawing.Size(114, 19);
@@ -2341,8 +2387,9 @@
             // 
             // chkWildCreatures
             // 
+            chkWildCreatures.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             chkWildCreatures.AutoSize = true;
-            chkWildCreatures.Location = new System.Drawing.Point(348, 84);
+            chkWildCreatures.Location = new System.Drawing.Point(285, 71);
             chkWildCreatures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkWildCreatures.Name = "chkWildCreatures";
             chkWildCreatures.Size = new System.Drawing.Size(103, 19);
@@ -2358,7 +2405,7 @@
             lblHeaderConteentPack.Location = new System.Drawing.Point(0, 2);
             lblHeaderConteentPack.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblHeaderConteentPack.Name = "lblHeaderConteentPack";
-            lblHeaderConteentPack.Size = new System.Drawing.Size(587, 7);
+            lblHeaderConteentPack.Size = new System.Drawing.Size(485, 7);
             lblHeaderConteentPack.TabIndex = 0;
             lblHeaderConteentPack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -2383,13 +2430,14 @@
             tpgOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tpgOptions.Name = "tpgOptions";
             tpgOptions.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tpgOptions.Size = new System.Drawing.Size(637, 724);
+            tpgOptions.Size = new System.Drawing.Size(529, 554);
             tpgOptions.TabIndex = 3;
             tpgOptions.Text = "Options";
             tpgOptions.Click += tpgPlayers_Click;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             groupBox1.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             groupBox1.Controls.Add(pnlOptionsStartup);
             groupBox1.Controls.Add(pnlCommandExportOptions);
@@ -2403,7 +2451,7 @@
             groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox1.Size = new System.Drawing.Size(597, 669);
+            groupBox1.Size = new System.Drawing.Size(515, 522);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             // 
@@ -2417,10 +2465,10 @@
             pnlOptionsStartup.Controls.Add(radioButton2);
             pnlOptionsStartup.Controls.Add(lblStartup);
             pnlOptionsStartup.Controls.Add(lblStartupInfo);
-            pnlOptionsStartup.Location = new System.Drawing.Point(9, 510);
+            pnlOptionsStartup.Location = new System.Drawing.Point(9, 434);
             pnlOptionsStartup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlOptionsStartup.Name = "pnlOptionsStartup";
-            pnlOptionsStartup.Size = new System.Drawing.Size(580, 68);
+            pnlOptionsStartup.Size = new System.Drawing.Size(498, 61);
             pnlOptionsStartup.TabIndex = 6;
             // 
             // optStartupManual
@@ -2428,7 +2476,7 @@
             optStartupManual.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optStartupManual.AutoSize = true;
             optStartupManual.Checked = true;
-            optStartupManual.Location = new System.Drawing.Point(398, 36);
+            optStartupManual.Location = new System.Drawing.Point(316, 27);
             optStartupManual.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optStartupManual.Name = "optStartupManual";
             optStartupManual.Size = new System.Drawing.Size(41, 19);
@@ -2441,7 +2489,7 @@
             // 
             optStartupAuto.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optStartupAuto.AutoSize = true;
-            optStartupAuto.Location = new System.Drawing.Point(510, 36);
+            optStartupAuto.Location = new System.Drawing.Point(428, 27);
             optStartupAuto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optStartupAuto.Name = "optStartupAuto";
             optStartupAuto.Size = new System.Drawing.Size(42, 19);
@@ -2454,7 +2502,7 @@
             radioButton1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             radioButton1.AutoSize = true;
             radioButton1.Checked = true;
-            radioButton1.Location = new System.Drawing.Point(780, 37);
+            radioButton1.Location = new System.Drawing.Point(698, 37);
             radioButton1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new System.Drawing.Size(41, 19);
@@ -2467,7 +2515,7 @@
             // 
             radioButton2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             radioButton2.AutoSize = true;
-            radioButton2.Location = new System.Drawing.Point(892, 37);
+            radioButton2.Location = new System.Drawing.Point(810, 37);
             radioButton2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new System.Drawing.Size(42, 19);
@@ -2490,7 +2538,7 @@
             // lblStartupInfo
             // 
             lblStartupInfo.AutoSize = true;
-            lblStartupInfo.Location = new System.Drawing.Point(12, 39);
+            lblStartupInfo.Location = new System.Drawing.Point(12, 30);
             lblStartupInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStartupInfo.Name = "lblStartupInfo";
             lblStartupInfo.Size = new System.Drawing.Size(202, 15);
@@ -2505,10 +2553,10 @@
             pnlCommandExportOptions.Controls.Add(optExportSort);
             pnlCommandExportOptions.Controls.Add(lblCommandExportOptionTitle);
             pnlCommandExportOptions.Controls.Add(lblCommandExportDescription);
-            pnlCommandExportOptions.Location = new System.Drawing.Point(7, 432);
+            pnlCommandExportOptions.Location = new System.Drawing.Point(7, 371);
             pnlCommandExportOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlCommandExportOptions.Name = "pnlCommandExportOptions";
-            pnlCommandExportOptions.Size = new System.Drawing.Size(580, 68);
+            pnlCommandExportOptions.Size = new System.Drawing.Size(498, 57);
             pnlCommandExportOptions.TabIndex = 0;
             // 
             // optExportNoSort
@@ -2516,7 +2564,7 @@
             optExportNoSort.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optExportNoSort.AutoSize = true;
             optExportNoSort.Checked = true;
-            optExportNoSort.Location = new System.Drawing.Point(400, 37);
+            optExportNoSort.Location = new System.Drawing.Point(318, 27);
             optExportNoSort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optExportNoSort.Name = "optExportNoSort";
             optExportNoSort.Size = new System.Drawing.Size(41, 19);
@@ -2529,7 +2577,7 @@
             // 
             optExportSort.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optExportSort.AutoSize = true;
-            optExportSort.Location = new System.Drawing.Point(512, 37);
+            optExportSort.Location = new System.Drawing.Point(430, 27);
             optExportSort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optExportSort.Name = "optExportSort";
             optExportSort.Size = new System.Drawing.Size(42, 19);
@@ -2552,7 +2600,7 @@
             // lblCommandExportDescription
             // 
             lblCommandExportDescription.AutoSize = true;
-            lblCommandExportDescription.Location = new System.Drawing.Point(12, 39);
+            lblCommandExportDescription.Location = new System.Drawing.Point(12, 29);
             lblCommandExportDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCommandExportDescription.Name = "lblCommandExportDescription";
             lblCommandExportDescription.Size = new System.Drawing.Size(193, 15);
@@ -2567,7 +2615,7 @@
             label4.Location = new System.Drawing.Point(-2, 0);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(601, 7);
+            label4.Size = new System.Drawing.Size(519, 7);
             label4.TabIndex = 0;
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -2581,10 +2629,10 @@
             pnlFtpSettingsCommands.Controls.Add(optFTPClean);
             pnlFtpSettingsCommands.Controls.Add(label2);
             pnlFtpSettingsCommands.Controls.Add(label3);
-            pnlFtpSettingsCommands.Location = new System.Drawing.Point(6, 312);
+            pnlFtpSettingsCommands.Location = new System.Drawing.Point(6, 267);
             pnlFtpSettingsCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlFtpSettingsCommands.Name = "pnlFtpSettingsCommands";
-            pnlFtpSettingsCommands.Size = new System.Drawing.Size(580, 113);
+            pnlFtpSettingsCommands.Size = new System.Drawing.Size(498, 98);
             pnlFtpSettingsCommands.TabIndex = 5;
             // 
             // pnlDownloadOption
@@ -2592,7 +2640,7 @@
             pnlDownloadOption.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             pnlDownloadOption.Controls.Add(optDownloadAuto);
             pnlDownloadOption.Controls.Add(optDownloadManual);
-            pnlDownloadOption.Location = new System.Drawing.Point(374, 63);
+            pnlDownloadOption.Location = new System.Drawing.Point(292, 55);
             pnlDownloadOption.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlDownloadOption.Name = "pnlDownloadOption";
             pnlDownloadOption.Size = new System.Drawing.Size(202, 38);
@@ -2627,7 +2675,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(13, 75);
+            label5.Location = new System.Drawing.Point(13, 67);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(173, 15);
@@ -2639,7 +2687,7 @@
             optFTPSync.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optFTPSync.AutoSize = true;
             optFTPSync.Checked = true;
-            optFTPSync.Location = new System.Drawing.Point(403, 38);
+            optFTPSync.Location = new System.Drawing.Point(321, 30);
             optFTPSync.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optFTPSync.Name = "optFTPSync";
             optFTPSync.Size = new System.Drawing.Size(89, 19);
@@ -2653,7 +2701,7 @@
             // 
             optFTPClean.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optFTPClean.AutoSize = true;
-            optFTPClean.Location = new System.Drawing.Point(509, 38);
+            optFTPClean.Location = new System.Drawing.Point(427, 30);
             optFTPClean.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optFTPClean.Name = "optFTPClean";
             optFTPClean.Size = new System.Drawing.Size(55, 19);
@@ -2676,7 +2724,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(12, 43);
+            label3.Location = new System.Drawing.Point(12, 35);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(146, 15);
@@ -2691,10 +2739,10 @@
             pnlPlayerSettingsStuctures.Controls.Add(optPlayerStructureShow);
             pnlPlayerSettingsStuctures.Controls.Add(lblOptionHeaderStructures);
             pnlPlayerSettingsStuctures.Controls.Add(lblOptionTextStructures);
-            pnlPlayerSettingsStuctures.Location = new System.Drawing.Point(7, 27);
+            pnlPlayerSettingsStuctures.Location = new System.Drawing.Point(7, 17);
             pnlPlayerSettingsStuctures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsStuctures.Name = "pnlPlayerSettingsStuctures";
-            pnlPlayerSettingsStuctures.Size = new System.Drawing.Size(580, 58);
+            pnlPlayerSettingsStuctures.Size = new System.Drawing.Size(498, 51);
             pnlPlayerSettingsStuctures.TabIndex = 0;
             // 
             // optPlayerStructureHide
@@ -2702,7 +2750,7 @@
             optPlayerStructureHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerStructureHide.AutoSize = true;
             optPlayerStructureHide.Checked = true;
-            optPlayerStructureHide.Location = new System.Drawing.Point(441, 29);
+            optPlayerStructureHide.Location = new System.Drawing.Point(359, 23);
             optPlayerStructureHide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerStructureHide.Name = "optPlayerStructureHide";
             optPlayerStructureHide.Size = new System.Drawing.Size(50, 19);
@@ -2716,7 +2764,7 @@
             // 
             optPlayerStructureShow.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerStructureShow.AutoSize = true;
-            optPlayerStructureShow.Location = new System.Drawing.Point(511, 29);
+            optPlayerStructureShow.Location = new System.Drawing.Point(429, 23);
             optPlayerStructureShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerStructureShow.Name = "optPlayerStructureShow";
             optPlayerStructureShow.Size = new System.Drawing.Size(54, 19);
@@ -2740,7 +2788,7 @@
             // lblOptionTextStructures
             // 
             lblOptionTextStructures.AutoSize = true;
-            lblOptionTextStructures.Location = new System.Drawing.Point(12, 31);
+            lblOptionTextStructures.Location = new System.Drawing.Point(12, 25);
             lblOptionTextStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextStructures.Name = "lblOptionTextStructures";
             lblOptionTextStructures.Size = new System.Drawing.Size(288, 15);
@@ -2756,17 +2804,17 @@
             pnlPlayerSettingsCommands.Controls.Add(optPlayerCommandsPrefixCheat);
             pnlPlayerSettingsCommands.Controls.Add(lblOptionHeaderCommand);
             pnlPlayerSettingsCommands.Controls.Add(lblOptionTextCommand);
-            pnlPlayerSettingsCommands.Location = new System.Drawing.Point(6, 234);
+            pnlPlayerSettingsCommands.Location = new System.Drawing.Point(6, 201);
             pnlPlayerSettingsCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsCommands.Name = "pnlPlayerSettingsCommands";
-            pnlPlayerSettingsCommands.Size = new System.Drawing.Size(580, 70);
+            pnlPlayerSettingsCommands.Size = new System.Drawing.Size(498, 60);
             pnlPlayerSettingsCommands.TabIndex = 4;
             // 
             // optPlayerCommandsPrefixAdmincheat
             // 
             optPlayerCommandsPrefixAdmincheat.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerCommandsPrefixAdmincheat.AutoSize = true;
-            optPlayerCommandsPrefixAdmincheat.Location = new System.Drawing.Point(407, 35);
+            optPlayerCommandsPrefixAdmincheat.Location = new System.Drawing.Point(325, 26);
             optPlayerCommandsPrefixAdmincheat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerCommandsPrefixAdmincheat.Name = "optPlayerCommandsPrefixAdmincheat";
             optPlayerCommandsPrefixAdmincheat.Size = new System.Drawing.Size(91, 19);
@@ -2780,7 +2828,7 @@
             optPlayerCommandsPrefixNone.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerCommandsPrefixNone.AutoSize = true;
             optPlayerCommandsPrefixNone.Checked = true;
-            optPlayerCommandsPrefixNone.Location = new System.Drawing.Point(314, 35);
+            optPlayerCommandsPrefixNone.Location = new System.Drawing.Point(232, 26);
             optPlayerCommandsPrefixNone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerCommandsPrefixNone.Name = "optPlayerCommandsPrefixNone";
             optPlayerCommandsPrefixNone.Size = new System.Drawing.Size(62, 19);
@@ -2794,7 +2842,7 @@
             // 
             optPlayerCommandsPrefixCheat.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerCommandsPrefixCheat.AutoSize = true;
-            optPlayerCommandsPrefixCheat.Location = new System.Drawing.Point(511, 35);
+            optPlayerCommandsPrefixCheat.Location = new System.Drawing.Point(429, 26);
             optPlayerCommandsPrefixCheat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerCommandsPrefixCheat.Name = "optPlayerCommandsPrefixCheat";
             optPlayerCommandsPrefixCheat.Size = new System.Drawing.Size(57, 19);
@@ -2818,7 +2866,7 @@
             // lblOptionTextCommand
             // 
             lblOptionTextCommand.AutoSize = true;
-            lblOptionTextCommand.Location = new System.Drawing.Point(12, 37);
+            lblOptionTextCommand.Location = new System.Drawing.Point(12, 28);
             lblOptionTextCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextCommand.Name = "lblOptionTextCommand";
             lblOptionTextCommand.Size = new System.Drawing.Size(171, 15);
@@ -2833,10 +2881,10 @@
             pnlPlayerSettingsTames.Controls.Add(optPlayerTameShow);
             pnlPlayerSettingsTames.Controls.Add(lblOptionHeaderTames);
             pnlPlayerSettingsTames.Controls.Add(lblOptionTextTames);
-            pnlPlayerSettingsTames.Location = new System.Drawing.Point(7, 91);
+            pnlPlayerSettingsTames.Location = new System.Drawing.Point(7, 74);
             pnlPlayerSettingsTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsTames.Name = "pnlPlayerSettingsTames";
-            pnlPlayerSettingsTames.Size = new System.Drawing.Size(580, 63);
+            pnlPlayerSettingsTames.Size = new System.Drawing.Size(498, 57);
             pnlPlayerSettingsTames.TabIndex = 2;
             // 
             // optPlayerTameHide
@@ -2844,7 +2892,7 @@
             optPlayerTameHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerTameHide.AutoSize = true;
             optPlayerTameHide.Checked = true;
-            optPlayerTameHide.Location = new System.Drawing.Point(441, 32);
+            optPlayerTameHide.Location = new System.Drawing.Point(359, 25);
             optPlayerTameHide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerTameHide.Name = "optPlayerTameHide";
             optPlayerTameHide.Size = new System.Drawing.Size(50, 19);
@@ -2858,7 +2906,7 @@
             // 
             optPlayerTameShow.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerTameShow.AutoSize = true;
-            optPlayerTameShow.Location = new System.Drawing.Point(511, 32);
+            optPlayerTameShow.Location = new System.Drawing.Point(429, 25);
             optPlayerTameShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerTameShow.Name = "optPlayerTameShow";
             optPlayerTameShow.Size = new System.Drawing.Size(54, 19);
@@ -2882,7 +2930,7 @@
             // lblOptionTextTames
             // 
             lblOptionTextTames.AutoSize = true;
-            lblOptionTextTames.Location = new System.Drawing.Point(12, 35);
+            lblOptionTextTames.Location = new System.Drawing.Point(12, 28);
             lblOptionTextTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextTames.Name = "lblOptionTextTames";
             lblOptionTextTames.Size = new System.Drawing.Size(275, 15);
@@ -2897,10 +2945,10 @@
             pnlPlayerSettingsBody.Controls.Add(optPlayerBodyShow);
             pnlPlayerSettingsBody.Controls.Add(lblOptionHeaderBody);
             pnlPlayerSettingsBody.Controls.Add(lblOptionTextBody);
-            pnlPlayerSettingsBody.Location = new System.Drawing.Point(7, 162);
+            pnlPlayerSettingsBody.Location = new System.Drawing.Point(7, 137);
             pnlPlayerSettingsBody.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsBody.Name = "pnlPlayerSettingsBody";
-            pnlPlayerSettingsBody.Size = new System.Drawing.Size(580, 66);
+            pnlPlayerSettingsBody.Size = new System.Drawing.Size(498, 58);
             pnlPlayerSettingsBody.TabIndex = 3;
             // 
             // optPlayerBodyHide
@@ -2908,7 +2956,7 @@
             optPlayerBodyHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerBodyHide.AutoSize = true;
             optPlayerBodyHide.Checked = true;
-            optPlayerBodyHide.Location = new System.Drawing.Point(441, 35);
+            optPlayerBodyHide.Location = new System.Drawing.Point(359, 28);
             optPlayerBodyHide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerBodyHide.Name = "optPlayerBodyHide";
             optPlayerBodyHide.Size = new System.Drawing.Size(50, 19);
@@ -2922,7 +2970,7 @@
             // 
             optPlayerBodyShow.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerBodyShow.AutoSize = true;
-            optPlayerBodyShow.Location = new System.Drawing.Point(511, 35);
+            optPlayerBodyShow.Location = new System.Drawing.Point(429, 28);
             optPlayerBodyShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerBodyShow.Name = "optPlayerBodyShow";
             optPlayerBodyShow.Size = new System.Drawing.Size(54, 19);
@@ -2946,7 +2994,7 @@
             // lblOptionTextBody
             // 
             lblOptionTextBody.AutoSize = true;
-            lblOptionTextBody.Location = new System.Drawing.Point(12, 37);
+            lblOptionTextBody.Location = new System.Drawing.Point(12, 30);
             lblOptionTextBody.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextBody.Name = "lblOptionTextBody";
             lblOptionTextBody.Size = new System.Drawing.Size(317, 15);
@@ -2968,18 +3016,19 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
             CancelButton = btnClose;
-            ClientSize = new System.Drawing.Size(676, 812);
+            ClientSize = new System.Drawing.Size(564, 641);
             Controls.Add(tabSettings);
             Controls.Add(btnClose);
             Controls.Add(btnSave);
             ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             MaximizeBox = false;
             MinimizeBox = false;
+            MinimumSize = new System.Drawing.Size(580, 680);
             Name = "frmSettings";
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Settings";
             Load += frmSettings_Load;
             tabSettings.ResumeLayout(false);

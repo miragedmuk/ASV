@@ -3,7 +3,6 @@ using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
 using AsaSavegameToolkit.Types;
 using ASVPack.Extensions;
-using ICSharpCode.SharpZipLib.Zip;
 using NLog;
 using SavegameToolkit;
 using SavegameToolkit.Arrays;
@@ -11,22 +10,10 @@ using SavegameToolkit.Propertys;
 using SavegameToolkit.Structs;
 using SavegameToolkit.Types;
 using SavegameToolkitAdditions;
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.IO.Compression;
-using System.Linq;
-using System.Numerics;
 using System.Runtime.Serialization;
-using System.Security;
-using System.Security.AccessControl;
-using System.Text;
-using System.Text.Unicode;
-using System.Threading.Tasks;
-using System.Xml;
 
 
 namespace ASVPack.Models
@@ -57,6 +44,8 @@ namespace ASVPack.Models
         [DataMember] public ContentMap LoadedMap { get; set; } = new ContentMap();
 
         [DataMember] public string MapName { get; set; } = "";
+        [DataMember] public int MapDay { get; set; } = 0;
+        [DataMember] public DateTime MapTime { get; set; } = DateTime.Now.Date;
         [DataMember] public List<ContentStructure> MapStructures { get; set; } = new List<ContentStructure>();
         [DataMember] public List<ContentWildCreature> WildCreatures { get; set; } = new List<ContentWildCreature>();
         [DataMember] public List<ContentTribe> Tribes { get; set; } = new List<ContentTribe>();
@@ -164,11 +153,6 @@ namespace ASVPack.Models
             {
                 logWriter.Error($"LoadSaveGame failed - unable to find file: {saveFilename}");
                 throw new FileNotFoundException();
-            }
-
-            if(File.GetLastWriteTimeUtc(saveFilename) <= loadedTimestamp) 
-            {
-                return;
             }
 
             ContentMap? selectedMap = null;
@@ -1853,6 +1837,20 @@ namespace ASVPack.Models
             if (selectedMap == null) return;           
             LoadedMap = selectedMap;
 
+
+            var gameDayCycle = arkSavegame.Objects.FirstOrDefault(o => o.ClassString.Contains("daycycle", StringComparison.CurrentCultureIgnoreCase));
+            if (gameDayCycle != null)
+            {
+                MapDay = 1;
+                var mapTimeEpoch = gameDayCycle.GetPropertyValue<float>("CurrentTime", 0, 0);
+                MapTime = DateTime.UnixEpoch.AddSeconds(mapTimeEpoch);
+
+                if (gameDayCycle.HasAnyProperty("theDayNumberToMakeSerilizationWork"))
+                {
+                    MapDay = gameDayCycle.GetPropertyValue<int>("theDayNumberToMakeSerilizationWork", 0, 1);
+                }
+            }
+
             //read game time and file datetime
             FileInfo fileInfo = new FileInfo(saveFilename);
             DateTime fileTimestamp =  fileInfo.LastWriteTime;
@@ -2309,6 +2307,7 @@ namespace ASVPack.Models
                         AsaGameObject? playerStatus = arkSavegame.GetObjectByGuid(statusId);
                         ContentPlayer contentPlayer = arkPlayer.AsPlayer(playerStatus);
 
+
                         if (arkPlayer.Location != null)
                         {
                             player.X = (float)arkPlayer.Location.X;
@@ -2400,6 +2399,8 @@ namespace ASVPack.Models
             // allocate tribe tames
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing tame data...");
             var allPlayerTames = allTames.SelectMany(t=>t.Tames).ToList();
+
+            
             Parallel.ForEach(allPlayerTames, x=>
             //foreach(var x in allPlayerTames)
             {
@@ -2527,6 +2528,28 @@ namespace ASVPack.Models
                                     }
                                 }
 
+                                if (x.HasAnyProperty("FoliageGenerationInfo"))
+                                {
+                                    //oasisaur pool
+                                    List<AsaProperty<dynamic>> foliageInfo = x.Properties.First(p=>p.Name == "FoliageGenerationInfo").Value as List<AsaProperty<dynamic>>;
+                                    List<dynamic> foliageCountInfo = x.Properties.First(p => p.Name == "FoliageInventorySavedQuantities").Value as List<dynamic>;
+
+                                    for (int i = 0; i < foliageInfo.Count; i++)
+                                    {
+                                        string foliageClassName = foliageInfo[i].Name;
+                                        int foliageCount = foliageCountInfo[i];
+
+                                        if (foliageCount > 0)
+                                        {
+                                            ContentItem invItem = new ContentItem(foliageClassName, foliageCount);
+                                            inventoryItems.Add(invItem);
+
+                                        }
+                                    }
+                                }
+
+
+
                                 creature.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
 
                             }
@@ -2589,6 +2612,7 @@ namespace ASVPack.Models
             //var allTribeStructures = tribeStructures.AsParallel().SelectMany(x => x.Structures);
             //allTribeStructures.ForAll(x =>
             Parallel.ForEach(tribeStructures.SelectMany(x=>x.Structures), x =>
+            //foreach(var x in tribeStructures.SelectMany(x => x.Structures)) 
             {
                 var teamId = x.GetPropertyValue<int>("TargetingTeam",0,0);
                 var tribe = fileTribes.FirstOrDefault(t => t.TribeId == teamId) ?? fileTribes.FirstOrDefault(t => t.TribeId == int.MinValue); //tribe or abandoned
@@ -2640,7 +2664,6 @@ namespace ASVPack.Models
                     if (item.Quantity != 0) inventoryItems.Add(item);
                 }
 
-
                 if (x.GetPropertyValue<AsaObjectReference>("MyInventoryComponent") != null)
                 {
                     var inventoryRefId = x.GetPropertyValue<AsaObjectReference?>("MyInventoryComponent", 0, null)?.Value ?? "";
@@ -2671,23 +2694,44 @@ namespace ASVPack.Models
                             );
                         }
 
+                        List<dynamic>? eItemsArray = inventoryComponent.GetPropertyValue<dynamic>("EquippedItems", 0, null);
+                        if (eItemsArray != null)
+                        {
+                            Parallel.ForEach(eItemsArray, objectReference =>
+                            {
+                                Guid itemId = Guid.Parse(objectReference.Value);
+                                AsaGameObject? itemObject = arkSavegame.GetObjectByGuid(itemId);
+
+                                if (itemObject != null)
+                                {
+                                    var item = itemObject.AsItem();
+                                    if (!item.IsEngram)
+                                    {
+
+                                        inventoryItems.Add(item);
+
+                                    }
+                                }
+                            }
+                            );
+                        }
+
                     }
                     else
                     {
 
                     }
 
+
                     structure.Inventory = new ContentInventory() { Items = inventoryItems.ToList() };
                     inventoryItems.Clear();
 
                 }
 
-
-
-
                 if (tribe != null && !tribe.Structures.Contains(structure)) tribe.Structures.Add(structure);
 
-            });
+            }
+            );
 
             endTicks = DateTime.Now.Ticks;
             timeTaken = TimeSpan.FromTicks(endTicks - startTicks);

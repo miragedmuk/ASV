@@ -47,6 +47,9 @@ namespace ARKViewer.Models
 
         public float MarkerSize { get; set; } = 10;
 
+        public int MapDay => pack == null ? 0 : pack.MapDay;
+        public DateTime MapTime => pack == null ? DateTime.Now.Date : pack.MapTime;
+
         public DateTime? ContentDate
         {
             get
@@ -159,6 +162,7 @@ namespace ARKViewer.Models
         public ASVDataManager(ContentPack data)
         {
             pack = data;
+            LoadedMap = new ContentMapPack().GetMap($"{pack.MapFilename}.ark");
         }
 
         ~ASVDataManager()

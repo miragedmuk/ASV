@@ -456,7 +456,7 @@ namespace ARKViewer
 
             ListViewItem selectedItem = lvwFileBrowser.SelectedItems[0];
             ASVFtpItem browseItem = (ASVFtpItem)selectedItem.Tag;
-            btnSelect.Enabled = browseItem.FullName.EndsWith(".ark") || browseItem.FullName.EndsWith(".gz");
+            btnSelect.Enabled = browseItem.FullName.EndsWith(".ark") || browseItem.FullName.EndsWith(".gz") || browseItem.FullName.EndsWith(".asv");
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
