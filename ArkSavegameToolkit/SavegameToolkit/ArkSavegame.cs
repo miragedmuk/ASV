@@ -1003,13 +1003,23 @@ namespace SavegameToolkit
             if (SaveVersion > 8 && hibernationV8Unknown1 == -1 && hibernationV8Unknown2 == 2)
             {
                 // Move back by those four integers, so we can use ChunkedStore
-                archive.Position -= sizeof(int) * 4;
+                long backupPos = archive.Position;
 
-                TribeDataStore = new ChunkedStore();
-                PlayerDataStore = new ChunkedStore();
-                
-                TribeDataStore.ReadBinary(archive, options);
-                PlayerDataStore.ReadBinary(archive, options);
+                try
+                {
+                    archive.Position -= sizeof(int) * 4;
+
+                    TribeDataStore = new ChunkedStore();
+                    PlayerDataStore = new ChunkedStore();
+
+                    TribeDataStore.ReadBinary(archive, options);
+                    PlayerDataStore.ReadBinary(archive, options);
+
+                }
+                catch
+                {
+                    archive.Position = backupPos;
+                }
 
             }
 

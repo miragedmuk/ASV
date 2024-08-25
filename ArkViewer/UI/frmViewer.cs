@@ -448,7 +448,15 @@ namespace ARKViewer
                 MapViewer.OnMapClicked += MapViewer_OnMapClicked;
 
                 string mapFileDateString = (cm.ContentDate.Equals(new DateTime()) ? "n/a" : cm.ContentDate.GetValueOrDefault(DateTime.Now).ToString("dd MMM yyyy HH:mm"));
-                lblMapDate.Text = $"{cm.MapName} (Day: {cm.MapDay} - {cm.MapTime.ToString("HH:mm")}): {mapFileDateString}";
+
+                if(cm.MapDay > 0)
+                {
+                    lblMapDate.Text = $"{cm.MapName} (Day: {cm.MapDay} - {cm.MapTime.ToString("HH:mm")}): {mapFileDateString}";
+                }
+                else
+                {
+                    lblMapDate.Text = $"{cm.MapName}: {mapFileDateString}";
+                }                
 
                 switch (Program.ProgramConfig.Mode)
                 {
@@ -484,6 +492,7 @@ namespace ARKViewer
                     udWildMax.Value = maxLevel;
                 }
 
+                InitializeDefaults();
 
                 RefreshWildSummary();
                 RefreshTamedProductionResources();
@@ -1314,7 +1323,7 @@ namespace ARKViewer
                 }
             }
 
-            if (command.Parameters.Count == 0 || lvwTameDetail.SelectedItems.Count == 0)
+            if (command.Parameters.Count == 0 || lvwStructureLocations.SelectedItems.Count == 0)
             {
                 allCommands.Add(commandTemplate);
             }
@@ -1689,7 +1698,7 @@ namespace ARKViewer
                 }
             }
 
-            if (command.Parameters.Count == 0 || lvwTameDetail.SelectedItems.Count == 0)
+            if (command.Parameters.Count == 0 || lvwItemList.SelectedItems.Count == 0)
             {
                 allCommands.Add(commandTemplate);
             }
@@ -2375,7 +2384,7 @@ namespace ARKViewer
                 }
             }
 
-            if (command.Parameters.Count == 0 || lvwTameDetail.SelectedItems.Count == 0)
+            if (command.Parameters.Count == 0 || lvwDroppedItems.SelectedItems.Count == 0)
             {
                 allCommands.Add(commandTemplate);
             }
@@ -9360,9 +9369,9 @@ namespace ARKViewer
                 }
             }
 
-            if (command.Parameters.Count == 0 || lvwTameDetail.SelectedItems.Count == 0)
+            if (command.Parameters.Count == 0 || lvwPlayerPaintings.SelectedItems.Count == 0)
             {
-                allCommands.Add(commandTemplate);
+                allCommands.Add(commandTemplate); 
             }
 
 

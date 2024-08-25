@@ -58,6 +58,7 @@ namespace ASVPack.Models
 
 
         private int profileDayLimit = 30;
+        private int maxCoresCached = (int)(Environment.ProcessorCount * (0.75));
 
         private bool isLoaded = false;
         public bool IsLoaded()
@@ -107,8 +108,13 @@ namespace ASVPack.Models
         }
 
 
-        public void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder, int profileDayCountLimit=30)
+        public void LoadSaveGame(string saveFilename, string localProfileFilename, string clusterFolder, int profileDayCountLimit=30, int maxCores = -1)
         {
+            if (maxCores <= 0)
+            {
+                maxCores = (int)(Environment.ProcessorCount * (0.75));
+            }
+            maxCoresCached = maxCores;
 
             if (saveFilename.ToLowerInvariant().EndsWith(".gz"))
             {
@@ -217,7 +223,7 @@ namespace ASVPack.Models
                 if (dbTestString.StartsWith("sqlite", StringComparison.InvariantCultureIgnoreCase))
                 {
                     //Ark Survival Ascended
-                    LoadArkAscendedData(saveFilename);
+                    LoadArkAscendedData(saveFilename, maxCores);
                     
                 }
                 else
@@ -258,7 +264,7 @@ namespace ASVPack.Models
                     logWriter.Info("Reading cluster data...");
                     var profileFilenames = Directory.EnumerateFiles(clusterFolder, "*");
 
-                    Parallel.ForEach(profileFilenames, fileName =>
+                    Parallel.ForEach(profileFilenames, new ParallelOptions() { MaxDegreeOfParallelism = maxCores}, fileName =>
                     //profileFilenames.AsParallel().ForAll(fileName =>
                     {
                         long itemOwnerId = 0;
@@ -507,6 +513,8 @@ namespace ASVPack.Models
 
 
 
+
+
                     //get map name from .ark file data
                     logWriter.Debug($"Reading map name from: {saveFilename}");
                     MapName = arkSavegame.DataFiles[0];
@@ -601,16 +609,6 @@ namespace ASVPack.Models
                         }
                     }
 
-
-
-
-
-
-
-
-
-
-
                     var filePath = Path.GetDirectoryName(saveFilename) ?? "";
                     ConcurrentBag<ContentPlayer> fileProfiles = new ConcurrentBag<ContentPlayer>();
 
@@ -623,7 +621,7 @@ namespace ASVPack.Models
                         logWriter.Info("Reading .arkprofile(s)");
 
                         var profileFilenames = Directory.EnumerateFiles(filePath, "*.arkprofile");
-                        Parallel.ForEach(profileFilenames, x =>
+                        Parallel.ForEach(profileFilenames, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, x =>
                         //profileFilenames.AsParallel().ForAll(x =>
                         {
                             try
@@ -707,7 +705,7 @@ namespace ASVPack.Models
                     OnUpdateProgress?.Invoke("Started loading .arktribe data...");
                     var tribeFilenames = Directory.EnumerateFiles(filePath, "*.arktribe");
 
-                    Parallel.ForEach(tribeFilenames, x =>
+                    Parallel.ForEach(tribeFilenames, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, x =>
                     //tribeFilenames.AsParallel().ForAll(x =>
                     {
                         try
@@ -757,7 +755,7 @@ namespace ASVPack.Models
                     logWriter.Info($"Allocating players to tribes");
 
                     //allocate players to tribes
-                    Parallel.ForEach(fileProfiles, p =>
+                    Parallel.ForEach(fileProfiles, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, p =>
                     //fileProfiles.AsParallel().ForAll(p =>
                     //foreach(var p in fileProfiles)
                     {
@@ -933,7 +931,7 @@ namespace ASVPack.Models
                     //wilds
 
                     //Parallel.ForEach(objectContainer.Objects.Where(x=>x.IsWild()), x=>
-                    WildCreatures = objectContainer.Objects.AsParallel().Where(x => x.IsWild())
+                    WildCreatures = objectContainer.Objects.AsParallel().WithDegreeOfParallelism(maxCoresCached).Where(x => x.IsWild())
                         .Select(x =>
                         {
                             logWriter.Debug($"Determining character status for: {x.ClassString}");
@@ -1060,7 +1058,7 @@ namespace ASVPack.Models
                     var abandonedGamePlayers = tribesAndPlayers.Where(x => !fileTribes.Any(t => t.TribeId == (long)x.Key) & !fileProfiles.Any(p => p.Id == (long)x.Key)).ToList();
                     if (abandonedGamePlayers != null && abandonedGamePlayers.Count > 0)
                     {
-                        Parallel.ForEach(abandonedGamePlayers, abandonedTribe =>
+                        Parallel.ForEach(abandonedGamePlayers, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, abandonedTribe =>
                         //abandonedGamePlayers.AsParallel().ForAll(abandonedTribe =>
                         //foreach(var abandonedTribe in abandonedGamePlayers)
                         {
@@ -1148,13 +1146,13 @@ namespace ASVPack.Models
                     logWriter.Debug($"Populating player data");
                     //load inventories, locations etc.
 
-                    Parallel.ForEach(fileTribes.Where(x => x.Players.Count > 0), fileTribe =>
+                    Parallel.ForEach(fileTribes.Where(x => x.Players.Count > 0), new ParallelOptions() { MaxDegreeOfParallelism  = maxCoresCached},  fileTribe =>
                     //fileTribes.AsParallel().Where(x => x.Players.Count > 0).ForAll(fileTribe =>
                     //foreach(var fileTribe in fileTribes.Where(x=>x.Players.Count > 0))
                     {
                         var tribePlayers = fileTribe.Players;
 
-                        Parallel.ForEach(tribePlayers, player =>
+                        Parallel.ForEach(tribePlayers, new ParallelOptions() {MaxDegreeOfParallelism = maxCoresCached }, player =>
                         //tribePlayers.AsParallel().ForAll(player =>
                         //foreach (var player in tribePlayers)
                         {
@@ -1264,7 +1262,7 @@ namespace ASVPack.Models
 
                     OnUpdateProgress?.Invoke("Parsing tame data...");
 
-                    Parallel.ForEach(allTames.SelectMany(x=>x.Tames), x =>
+                    Parallel.ForEach(allTames.SelectMany(x=>x.Tames), new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached},  x =>
                     //allTames.AsParallel().SelectMany(x => x.Tames).ForAll(x =>
                     {
                         //find appropriate tribe to add to
@@ -1405,7 +1403,7 @@ namespace ASVPack.Models
                     var unclaimedBabies = unclaimedTribe.Tames.Where(x => x.IsBaby).ToList();
                     if (unclaimedBabies != null && unclaimedBabies.Count > 0)
                     {
-                        Parallel.ForEach(unclaimedBabies, baby =>
+                        Parallel.ForEach(unclaimedBabies, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, baby =>
                         {
                             if (baby.MotherId.HasValue)
                             {
@@ -1439,7 +1437,7 @@ namespace ASVPack.Models
                     logWriter.Debug($"Populating player structure inventories");
 
                     var allTribeStructures = tribeStructures.SelectMany(x => x.Structures);
-                    Parallel.ForEach(allTribeStructures, x =>
+                    Parallel.ForEach(allTribeStructures, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, x =>
                     {
 
                         var teamId = x.GetPropertyValue<int>("TargetingTeam");
@@ -1503,7 +1501,7 @@ namespace ASVPack.Models
                                 {
                                     ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
-                                    Parallel.ForEach(objectReferences, objectReference =>
+                                    Parallel.ForEach(objectReferences, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, objectReference =>
                                     {
                                         objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                         if (itemObject != null)
@@ -1523,7 +1521,7 @@ namespace ASVPack.Models
                                 if (equippedItemsArray != null)
                                 {
                                     ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)equippedItemsArray.Value;
-                                    Parallel.ForEach(objectReferences, objectReference =>
+                                    Parallel.ForEach(objectReferences, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, objectReference =>
                                     {
                                         objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                         if (itemObject != null)
@@ -1607,7 +1605,7 @@ namespace ASVPack.Models
                                 {
                                     ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
-                                    Parallel.ForEach(objectReferences, objectReference =>
+                                    Parallel.ForEach(objectReferences, new ParallelOptions() { MaxDegreeOfParallelism =maxCoresCached }, objectReference =>
                                     {
                                         objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                         if (itemObject != null)
@@ -1631,7 +1629,7 @@ namespace ASVPack.Models
                                     if (equippedItemArray != null)
                                     {
                                         ArkArrayObjectReference equippedReferences = (ArkArrayObjectReference)equippedItemArray.Value;
-                                        Parallel.ForEach(equippedReferences, objectReference =>
+                                        Parallel.ForEach(equippedReferences, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached},  objectReference =>
                                         {
                                             objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                             if (itemObject != null)
@@ -1688,7 +1686,7 @@ namespace ASVPack.Models
                                     {
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
 
-                                        Parallel.ForEach(objectReferences, objectReference =>
+                                        Parallel.ForEach(objectReferences, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, objectReference =>
                                         {
                                             objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                             if (itemObject != null)
@@ -1716,7 +1714,7 @@ namespace ASVPack.Models
                                     if (inventoryItemsArray != null)
                                     {
                                         ArkArrayObjectReference objectReferences = (ArkArrayObjectReference)inventoryItemsArray.Value;
-                                        Parallel.ForEach(objectReferences, objectReference =>
+                                        Parallel.ForEach(objectReferences, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, objectReference =>
                                         {
                                             objectContainer.TryGetValue(objectReference.ObjectId, out GameObject itemObject);
                                             if (itemObject != null)
@@ -1815,14 +1813,16 @@ namespace ASVPack.Models
             return contentPlayer;
         }
 
-        private void LoadArkAscendedData(string saveFilename)
+        private void LoadArkAscendedData(string saveFilename, int maxCores)
         {
+
+
             long startTicks = DateTime.Now.Ticks;
 
             //load data
             OnUpdateProgress?.Invoke("Loading ARK save file...");
             AsaSavegame arkSavegame = new AsaSavegame();
-            arkSavegame.Read(saveFilename);
+            arkSavegame.Read(saveFilename, maxCores);
             OnUpdateProgress?.Invoke("ARK save file loaded. Analysing and parsing data...");
 
         
@@ -1834,9 +1834,17 @@ namespace ASVPack.Models
             //determine map
             MapName = arkSavegame.DataFiles[0];
             var selectedMap = mapPack.GetMap($"{MapName}.ark");
-            if (selectedMap == null) return;           
-            LoadedMap = selectedMap;
 
+            if (selectedMap != null)
+            {
+                LoadedMap = selectedMap;
+                logWriter.Debug($"Map location data loaded for: {selectedMap.MapName}");
+            }
+            else
+            {
+                logWriter.Debug($"Failed to load location data for: {MapName}.ark");
+                return;
+            }
 
             var gameDayCycle = arkSavegame.Objects.FirstOrDefault(o => o.ClassString.Contains("daycycle", StringComparison.CurrentCultureIgnoreCase));
             if (gameDayCycle != null)
@@ -1874,7 +1882,7 @@ namespace ASVPack.Models
                 TribeName = "[ASV Abandoned]"
             });
 
-            Parallel.ForEach(arkSavegame.Tribes, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, tribe =>
+            Parallel.ForEach(arkSavegame.Tribes, new ParallelOptions { MaxDegreeOfParallelism = maxCores }, tribe =>
             //arkSavegame.Tribes.AsParallel().ForAll(tribe =>
             {
                 var contentTribe = tribe.Tribe.AsTribe();
@@ -1888,7 +1896,7 @@ namespace ASVPack.Models
             //parse profiles
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Profiles...");
             ConcurrentBag<ContentPlayer> fileProfiles = new ConcurrentBag<ContentPlayer>();
-            Parallel.ForEach(arkSavegame.Profiles, profile=>
+            Parallel.ForEach(arkSavegame.Profiles, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, profile=>
             {
                 //parse into ContentPlayer and add to list
                 var playerProfile = profile?.Profile;
@@ -2117,7 +2125,7 @@ namespace ASVPack.Models
             
             ConcurrentBag<ContentWildCreature> wildBag = new ConcurrentBag<ContentWildCreature>();
 
-            Parallel.ForEach(arkSavegame.Objects.Where(x=>x.IsWild()), new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, x =>
+            Parallel.ForEach(arkSavegame.Objects.Where(x=>x.IsWild()), new ParallelOptions { MaxDegreeOfParallelism = maxCores }, x =>
             //arkSavegame.Objects.AsParallel().Where(x => x.IsWild()).ForAll(x=>              
             //foreach(var x in arkSavegame.Objects.Where(o => o.IsWild()))
             {
@@ -2196,7 +2204,7 @@ namespace ASVPack.Models
             var abandonedTribe = fileTribes.FirstOrDefault(t => t.TribeId == int.MinValue);
             if (abandonedTribe != null)
             {
-                Parallel.ForEach(abandonedStructures, s =>
+                Parallel.ForEach(abandonedStructures, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, s =>
                 //abandonedStructures.ForAll(
                     {
                         var structure = s.AsStructure();
@@ -2401,7 +2409,7 @@ namespace ASVPack.Models
             var allPlayerTames = allTames.SelectMany(t=>t.Tames).ToList();
 
             
-            Parallel.ForEach(allPlayerTames, x=>
+            Parallel.ForEach(allPlayerTames,  new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, x=>
             //foreach(var x in allPlayerTames)
             {
                 //find appropriate tribe to add to
@@ -2611,7 +2619,7 @@ namespace ASVPack.Models
 
             //var allTribeStructures = tribeStructures.AsParallel().SelectMany(x => x.Structures);
             //allTribeStructures.ForAll(x =>
-            Parallel.ForEach(tribeStructures.SelectMany(x=>x.Structures), x =>
+            Parallel.ForEach(tribeStructures.SelectMany(x=>x.Structures),  new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, x =>
             //foreach(var x in tribeStructures.SelectMany(x => x.Structures)) 
             {
                 var teamId = x.GetPropertyValue<int>("TargetingTeam",0,0);
@@ -2675,7 +2683,7 @@ namespace ASVPack.Models
                         List<dynamic>? inventoryItemsArray = inventoryComponent.GetPropertyValue<dynamic>("InventoryItems", 0, null);
                         if (inventoryItemsArray != null)
                         {
-                            Parallel.ForEach(inventoryItemsArray, objectReference =>
+                            Parallel.ForEach(inventoryItemsArray, new ParallelOptions() { MaxDegreeOfParallelism = maxCores}, objectReference =>
                             {
                                 Guid itemId = Guid.Parse(objectReference.Value);
                                 AsaGameObject? itemObject = arkSavegame.GetObjectByGuid(itemId);
@@ -2697,7 +2705,7 @@ namespace ASVPack.Models
                         List<dynamic>? eItemsArray = inventoryComponent.GetPropertyValue<dynamic>("EquippedItems", 0, null);
                         if (eItemsArray != null)
                         {
-                            Parallel.ForEach(eItemsArray, objectReference =>
+                            Parallel.ForEach(eItemsArray, new ParallelOptions() { MaxDegreeOfParallelism  =maxCores}, objectReference =>
                             {
                                 Guid itemId = Guid.Parse(objectReference.Value);
                                 AsaGameObject? itemObject = arkSavegame.GetObjectByGuid(itemId);
@@ -2749,7 +2757,7 @@ namespace ASVPack.Models
             ConcurrentBag<ContentDroppedItem> droppedItems = new ConcurrentBag<ContentDroppedItem>();
 
             //..items
-            Parallel.ForEach(arkSavegame.Objects.Where(o=> o.IsDroppedItem()), x =>
+            Parallel.ForEach(arkSavegame.Objects.Where(o=> o.IsDroppedItem()), new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, x =>
             //arkSavegame.Objects.AsParallel().Where(o=>o.IsDroppedItem()).ForAll(x =>
             {
                 ContentDroppedItem droppedItem = x.AsDroppedItem();
@@ -2783,7 +2791,7 @@ namespace ASVPack.Models
             startTicks = DateTime.Now.Ticks;
             //.. corpses
             ConcurrentBag<ContentDroppedItem> droppedBodies = new ConcurrentBag<ContentDroppedItem>();
-            Parallel.ForEach(arkSavegame.Objects.Where(x => x.IsPlayer() && x.HasAnyProperty("MyDeathHarvestingComponent")), x =>
+            Parallel.ForEach(arkSavegame.Objects.Where(x => x.IsPlayer() && x.HasAnyProperty("MyDeathHarvestingComponent")), new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, x =>
             //arkSavegame.Objects.AsParallel().Where(x => x.IsPlayer() && x.HasAnyProperty("MyDeathHarvestingComponent")).ForAll(x =>
             {
                 ContentDroppedItem droppedItem = x.AsDroppedItem();
@@ -2809,7 +2817,7 @@ namespace ASVPack.Models
                         if (inventoryItemsArray != null && inventoryItemsArray.Count > 0)
                         {
 
-                            Parallel.ForEach(inventoryItemsArray, objectReference =>
+                            Parallel.ForEach(inventoryItemsArray, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, objectReference =>
                             {
                                 Guid itemId = Guid.Parse(objectReference.Value);
                                 AsaGameObject? itemObject = arkSavegame.GetObjectByGuid(itemId);
@@ -2873,7 +2881,7 @@ namespace ASVPack.Models
             //.. bags
             ConcurrentBag<ContentDroppedItem> droppedBags = new ConcurrentBag<ContentDroppedItem>();
 
-            Parallel.ForEach(arkSavegame.Objects.Where(x => x.IsDeathItemCache()), x =>
+            Parallel.ForEach(arkSavegame.Objects.Where(x => x.IsDeathItemCache()),  new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, x =>
             //arkSavegame.Objects.AsParallel().Where(o => o.IsDeathItemCache()).ForAll(x =>
             {
 
@@ -2898,7 +2906,7 @@ namespace ASVPack.Models
                         List<dynamic>? inventoryItemsArray = inventoryComponent.GetPropertyValue<dynamic>("InventoryItems", 0, null);
                         if (inventoryItemsArray != null)
                         {
-                            Parallel.ForEach(inventoryItemsArray, objectReference =>
+                            Parallel.ForEach(inventoryItemsArray, new ParallelOptions() { MaxDegreeOfParallelism = maxCores},  objectReference =>
                             {
                                 Guid itemId = Guid.Parse(objectReference.Value);
                                 AsaGameObject? itemObject = arkSavegame.GetObjectByGuid(itemId);

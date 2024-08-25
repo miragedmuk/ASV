@@ -50,7 +50,6 @@ namespace AsaSavegameToolkit
             {
                 var compressedData = new AsaCompressedData(compressedStream);
                 rawBytes = compressedData.Inflate();
-                //var testBytes = compressedData.InflateTest();
             }
             decompressedData = new byte[0];
 

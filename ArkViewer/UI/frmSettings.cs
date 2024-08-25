@@ -550,6 +550,11 @@ namespace ARKViewer
             optPlayerStructureHide.Checked = SavedConfig.HideNoStructures;
             optPlayerStructureShow.Checked = !SavedConfig.HideNoStructures;
 
+            if(SavedConfig.MaxCores <=0) SavedConfig.MaxCores = (int)(Environment.ProcessorCount * 0.75);
+            if (SavedConfig.MaxCores <= 0) SavedConfig.MaxCores = 1;
+            udMaxCores.Value = SavedConfig.MaxCores;
+
+
             optPlayerTameHide.Checked = SavedConfig.HideNoTames;
             optPlayerTameShow.Checked = !SavedConfig.HideNoTames;
 
@@ -801,6 +806,7 @@ namespace ARKViewer
 
             SavedConfig.HideNoTames = optPlayerTameHide.Checked;
             SavedConfig.HideNoStructures = optPlayerStructureHide.Checked;
+            SavedConfig.MaxCores = (int)udMaxCores.Value;
             SavedConfig.HideNoBody = optPlayerBodyHide.Checked;
             SavedConfig.FtpDownloadMode = optFTPSync.Checked ? 0 : 1;
             SavedConfig.FtpLoadMode = optDownloadAuto.Checked ? 1 : 0;

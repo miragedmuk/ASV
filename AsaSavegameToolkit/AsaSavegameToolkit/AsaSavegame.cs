@@ -81,7 +81,7 @@ namespace AsaSavegameToolkit
 
         public List<string> DataFiles = new List<string>();
 
-        public void Read(string filename)
+        public void Read(string filename, int maxCores)
         {
             long startTicks = DateTime.Now.Ticks;
             long endTicks = DateTime.Now.Ticks;
@@ -99,10 +99,6 @@ namespace AsaSavegameToolkit
                 readGameData(connection);
                 readActorLocations(connection);
 
-
-
-
-
                 connection.Close();
                 connection.Dispose();
             }
@@ -113,7 +109,7 @@ namespace AsaSavegameToolkit
             endTicks = DateTime.Now.Ticks;
             //time to read data from db.
 
-            parseGameObjects();
+            parseGameObjects(maxCores);
             gameData.Clear(); //no longer needed, parsed into Objects as list of AsaGameObject
 
             GC.Collect();
@@ -121,17 +117,15 @@ namespace AsaSavegameToolkit
 
             //addComponents();
 
-            parseStoredCreatures(); //held in CustomItemData as byte array for mod version of cryopods
-                                    //need to parse into AsaGameObjects and add to Objects list and review when
-                                    //official introduces them to see if implemented the same/similar way.
+            parseStoredCreatures(maxCores); //held in CustomItemData as byte array with some custom compression
 
 
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
-            readTribeFiles(savePath); // Search and parse and .arktribe file in the save directory
-            readProfileFiles(savePath); // Search and parse and .arkprofile file in the save directory
+            readTribeFiles(savePath, maxCores); // Search and parse and .arktribe file in the save directory
+            readProfileFiles(savePath, maxCores); // Search and parse and .arkprofile file in the save directory
 
 
             //var t = Objects.Where(t=>t.ClassName.Name.Contains("day", StringComparison.CurrentCultureIgnoreCase)).ToList();
@@ -141,13 +135,13 @@ namespace AsaSavegameToolkit
             //total time load save data
         }
 
-        private void addComponents()
+        private void addComponents(int maxCores)
         {
             long startTicks = DateTime.Now.Ticks;
             long endTicks = DateTime.Now.Ticks;
 
             var withParentNames = Objects.Where(o=>o.ParentNames.Any()).ToList();
-            Parallel.ForEach(withParentNames, childObject =>
+            Parallel.ForEach(withParentNames, new ParallelOptions() {MaxDegreeOfParallelism = maxCores },  childObject =>
             {
                 //Parallel.ForEach(childObject.ParentNames, parentName =>
                 foreach (var parentName in childObject.ParentNames)
@@ -167,7 +161,7 @@ namespace AsaSavegameToolkit
 
         }
 
-        private void readProfileFiles(string savePath)
+        private void readProfileFiles(string savePath, int maxCores)
         {
             long startTicks = DateTime.Now.Ticks;
             long endTicks = DateTime.Now.Ticks;
@@ -175,7 +169,7 @@ namespace AsaSavegameToolkit
             ConcurrentBag<AsaProfile> profileFileBag = new ConcurrentBag<AsaProfile>();
 
             IEnumerable<string> profileFiles = Directory.EnumerateFiles(savePath, "*.arkprofile");
-            Parallel.ForEach(profileFiles ,o =>
+            Parallel.ForEach(profileFiles, new ParallelOptions() {  MaxDegreeOfParallelism = maxCores}, o =>
             //foreach(var o in profileFiles)
             {
                 try
@@ -203,7 +197,7 @@ namespace AsaSavegameToolkit
 
         }
 
-        private void readTribeFiles(string savePath)
+        private void readTribeFiles(string savePath, int maxCores)
         {
             long startTicks = DateTime.Now.Ticks;
             long endTicks = DateTime.Now.Ticks;
@@ -211,7 +205,7 @@ namespace AsaSavegameToolkit
             ConcurrentBag<AsaTribe> tribeFileBag = new ConcurrentBag<AsaTribe>();
 
             var tribeFiles = Directory.EnumerateFiles(savePath, "*.arktribe");
-            Parallel.ForEach(tribeFiles,o =>
+            Parallel.ForEach(tribeFiles, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, o =>
             //foreach(var o in tribeFiles) 
             {
                 try
@@ -234,14 +228,14 @@ namespace AsaSavegameToolkit
             //time to read tribe file data
         }
 
-        private void parseStoredCreatures()
+        private void parseStoredCreatures(int maxCores)
         {
             long startTicks = DateTime.Now.Ticks;
             long endTicks = DateTime.Now.Ticks;
 
             ConcurrentDictionary<Guid,AsaGameObject> objectBag = new ConcurrentDictionary<Guid, AsaGameObject>();
             var pods = Objects.Where(o => (o.ClassString.Contains("Cryo") || o.ClassString.Contains("Dinoball")) && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas")).ToList();
-            Parallel.ForEach(pods, pod =>
+            Parallel.ForEach(pods, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, pod =>
             //foreach(var pod in pods)
             {
                 var customDataList = pod.Properties.FirstOrDefault(p => p.Name == "CustomItemDatas")?.Value as List<dynamic>;
@@ -589,7 +583,7 @@ namespace AsaSavegameToolkit
             //time to read game data
         }
 
-        private void parseGameObjects()
+        private void parseGameObjects(int maxCores)
         {
             if (gameData.Count == 0) return;
             gameObjects.Clear();
@@ -599,7 +593,7 @@ namespace AsaSavegameToolkit
 
             ConcurrentDictionary<Guid,AsaGameObject> asaGameObjectDictionary = new ConcurrentDictionary<Guid, AsaGameObject>();
 
-            Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.75) * 1.0)) }, objectData =>
+            Parallel.ForEach(gameData, new ParallelOptions { MaxDegreeOfParallelism = maxCores }, objectData =>
             //foreach(var objectData in gameData) 
             //gameData.AsParallel().ForAll(objectData =>
             {

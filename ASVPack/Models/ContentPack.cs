@@ -183,7 +183,8 @@ namespace ASVPack.Models
                     Tribes = loaded.Tribes;
                     DroppedItems = loaded.DroppedItems;
                     LocalProfile = loaded.LocalProfile;
-
+                    MapDay = loaded.MapDay;
+                    MapTime = loaded.MapTime;
                 }
 
             }

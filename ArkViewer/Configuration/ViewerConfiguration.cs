@@ -34,26 +34,6 @@ namespace ARKViewer.Configuration
     public class ViewerConfiguration
     {
 
-        Dictionary<string, string> mapFilenameMap = new Dictionary<string, string>
-        {
-            { "theisland.ark", "The Island" },
-            { "scorchedearth_p.ark","Scorched Earth"},
-            { "aberration_p.ark", "Aberration"},
-            { "extinction.ark", "Extinction"},
-            { "ragnarok.ark", "Ragnarok"},
-            { "valguero_p.ark", "Valguero" },
-            { "crystalisles.ark", "Crystal Isles" },
-            { "genesis.ark", "Genesis 1" },
-            { "viking_p.ark", "Fjördur"},
-            { "tiamatprime.ark", "Tiamat Prime"},
-            { "glacius_p.ark", "Glacius"},
-            { "antartika.ark", "Antartika" },
-            { "lostisland.ark", "Lost Island" },
-            { "amissa.ark", "Amissa" },
-            { "olympus.ark", "Olympus" },
-            { "ebenusastrum.ark", "Ebenus Astrum" },
-            { "arkforum_eventmap.ark", "ArkForum Event Map" }
-        };
 
         [DataMember] public string IV { get; set; }
         [DataMember] public string EncryptionPassword { get; set; } = "";
@@ -107,6 +87,7 @@ namespace ARKViewer.Configuration
 
         [DataMember(IsRequired = false, EmitDefaultValue = false)] public bool LoadSaveOnStartup{ get; set; } = true;
 
+        [DataMember(IsRequired = false, EmitDefaultValue = true)] public int MaxCores{ get; set; } = Environment.ProcessorCount;
 
         public List<DinoClassMap> DinoMap = new List<DinoClassMap>();
         public List<ContentMarker> MapMarkerList { get; set; } = new List<ContentMarker>();
@@ -621,7 +602,7 @@ namespace ARKViewer.Configuration
                 this.ServerList = savedState.ServerList;
                 this.OfflineList = savedState.OfflineList?? new List<OfflineFileConfiguration>();
                 if(savedState.ProfileDayLimit!=0) this.ProfileDayLimit = savedState.ProfileDayLimit;
-
+                if (savedState.MaxCores != 0) this.MaxCores = savedState.MaxCores;
                 savedState = null;
             }
 

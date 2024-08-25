@@ -229,6 +229,14 @@
             lblOptionHeaderBody = new System.Windows.Forms.Label();
             lblOptionTextBody = new System.Windows.Forms.Label();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
+            panel1 = new System.Windows.Forms.Panel();
+            radioButton3 = new System.Windows.Forms.RadioButton();
+            radioButton4 = new System.Windows.Forms.RadioButton();
+            radioButton5 = new System.Windows.Forms.RadioButton();
+            radioButton6 = new System.Windows.Forms.RadioButton();
+            label8 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            udMaxCores = new System.Windows.Forms.NumericUpDown();
             tabSettings.SuspendLayout();
             tpgMap.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -264,6 +272,8 @@
             pnlPlayerSettingsCommands.SuspendLayout();
             pnlPlayerSettingsTames.SuspendLayout();
             pnlPlayerSettingsBody.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udMaxCores).BeginInit();
             SuspendLayout();
             // 
             // btnSave
@@ -2439,6 +2449,7 @@
             // 
             groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             groupBox1.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            groupBox1.Controls.Add(panel1);
             groupBox1.Controls.Add(pnlOptionsStartup);
             groupBox1.Controls.Add(pnlCommandExportOptions);
             groupBox1.Controls.Add(label4);
@@ -2465,10 +2476,10 @@
             pnlOptionsStartup.Controls.Add(radioButton2);
             pnlOptionsStartup.Controls.Add(lblStartup);
             pnlOptionsStartup.Controls.Add(lblStartupInfo);
-            pnlOptionsStartup.Location = new System.Drawing.Point(9, 434);
+            pnlOptionsStartup.Location = new System.Drawing.Point(9, 378);
             pnlOptionsStartup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlOptionsStartup.Name = "pnlOptionsStartup";
-            pnlOptionsStartup.Size = new System.Drawing.Size(498, 61);
+            pnlOptionsStartup.Size = new System.Drawing.Size(498, 50);
             pnlOptionsStartup.TabIndex = 6;
             // 
             // optStartupManual
@@ -2476,7 +2487,7 @@
             optStartupManual.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optStartupManual.AutoSize = true;
             optStartupManual.Checked = true;
-            optStartupManual.Location = new System.Drawing.Point(316, 27);
+            optStartupManual.Location = new System.Drawing.Point(316, 22);
             optStartupManual.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optStartupManual.Name = "optStartupManual";
             optStartupManual.Size = new System.Drawing.Size(41, 19);
@@ -2489,7 +2500,7 @@
             // 
             optStartupAuto.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optStartupAuto.AutoSize = true;
-            optStartupAuto.Location = new System.Drawing.Point(428, 27);
+            optStartupAuto.Location = new System.Drawing.Point(428, 22);
             optStartupAuto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optStartupAuto.Name = "optStartupAuto";
             optStartupAuto.Size = new System.Drawing.Size(42, 19);
@@ -2526,19 +2537,19 @@
             // lblStartup
             // 
             lblStartup.AutoSize = true;
-            lblStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lblStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblStartup.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblStartup.Location = new System.Drawing.Point(12, 10);
+            lblStartup.Location = new System.Drawing.Point(12, 5);
             lblStartup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStartup.Name = "lblStartup";
-            lblStartup.Size = new System.Drawing.Size(62, 18);
+            lblStartup.Size = new System.Drawing.Size(56, 16);
             lblStartup.TabIndex = 0;
             lblStartup.Text = "Startup";
             // 
             // lblStartupInfo
             // 
             lblStartupInfo.AutoSize = true;
-            lblStartupInfo.Location = new System.Drawing.Point(12, 30);
+            lblStartupInfo.Location = new System.Drawing.Point(12, 25);
             lblStartupInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblStartupInfo.Name = "lblStartupInfo";
             lblStartupInfo.Size = new System.Drawing.Size(202, 15);
@@ -2553,10 +2564,10 @@
             pnlCommandExportOptions.Controls.Add(optExportSort);
             pnlCommandExportOptions.Controls.Add(lblCommandExportOptionTitle);
             pnlCommandExportOptions.Controls.Add(lblCommandExportDescription);
-            pnlCommandExportOptions.Location = new System.Drawing.Point(7, 371);
+            pnlCommandExportOptions.Location = new System.Drawing.Point(7, 323);
             pnlCommandExportOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlCommandExportOptions.Name = "pnlCommandExportOptions";
-            pnlCommandExportOptions.Size = new System.Drawing.Size(498, 57);
+            pnlCommandExportOptions.Size = new System.Drawing.Size(498, 49);
             pnlCommandExportOptions.TabIndex = 0;
             // 
             // optExportNoSort
@@ -2564,7 +2575,7 @@
             optExportNoSort.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optExportNoSort.AutoSize = true;
             optExportNoSort.Checked = true;
-            optExportNoSort.Location = new System.Drawing.Point(318, 27);
+            optExportNoSort.Location = new System.Drawing.Point(318, 22);
             optExportNoSort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optExportNoSort.Name = "optExportNoSort";
             optExportNoSort.Size = new System.Drawing.Size(41, 19);
@@ -2577,7 +2588,7 @@
             // 
             optExportSort.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optExportSort.AutoSize = true;
-            optExportSort.Location = new System.Drawing.Point(430, 27);
+            optExportSort.Location = new System.Drawing.Point(430, 22);
             optExportSort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optExportSort.Name = "optExportSort";
             optExportSort.Size = new System.Drawing.Size(42, 19);
@@ -2588,19 +2599,19 @@
             // lblCommandExportOptionTitle
             // 
             lblCommandExportOptionTitle.AutoSize = true;
-            lblCommandExportOptionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lblCommandExportOptionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblCommandExportOptionTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblCommandExportOptionTitle.Location = new System.Drawing.Point(12, 10);
+            lblCommandExportOptionTitle.Location = new System.Drawing.Point(12, 5);
             lblCommandExportOptionTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCommandExportOptionTitle.Name = "lblCommandExportOptionTitle";
-            lblCommandExportOptionTitle.Size = new System.Drawing.Size(175, 18);
+            lblCommandExportOptionTitle.Size = new System.Drawing.Size(157, 16);
             lblCommandExportOptionTitle.TabIndex = 0;
             lblCommandExportOptionTitle.Text = "Command Line Export";
             // 
             // lblCommandExportDescription
             // 
             lblCommandExportDescription.AutoSize = true;
-            lblCommandExportDescription.Location = new System.Drawing.Point(12, 29);
+            lblCommandExportDescription.Location = new System.Drawing.Point(12, 24);
             lblCommandExportDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCommandExportDescription.Name = "lblCommandExportDescription";
             lblCommandExportDescription.Size = new System.Drawing.Size(193, 15);
@@ -2629,10 +2640,10 @@
             pnlFtpSettingsCommands.Controls.Add(optFTPClean);
             pnlFtpSettingsCommands.Controls.Add(label2);
             pnlFtpSettingsCommands.Controls.Add(label3);
-            pnlFtpSettingsCommands.Location = new System.Drawing.Point(6, 267);
+            pnlFtpSettingsCommands.Location = new System.Drawing.Point(6, 232);
             pnlFtpSettingsCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlFtpSettingsCommands.Name = "pnlFtpSettingsCommands";
-            pnlFtpSettingsCommands.Size = new System.Drawing.Size(498, 98);
+            pnlFtpSettingsCommands.Size = new System.Drawing.Size(498, 85);
             pnlFtpSettingsCommands.TabIndex = 5;
             // 
             // pnlDownloadOption
@@ -2640,10 +2651,10 @@
             pnlDownloadOption.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             pnlDownloadOption.Controls.Add(optDownloadAuto);
             pnlDownloadOption.Controls.Add(optDownloadManual);
-            pnlDownloadOption.Location = new System.Drawing.Point(292, 55);
+            pnlDownloadOption.Location = new System.Drawing.Point(292, 45);
             pnlDownloadOption.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlDownloadOption.Name = "pnlDownloadOption";
-            pnlDownloadOption.Size = new System.Drawing.Size(202, 38);
+            pnlDownloadOption.Size = new System.Drawing.Size(202, 30);
             pnlDownloadOption.TabIndex = 5;
             // 
             // optDownloadAuto
@@ -2651,7 +2662,7 @@
             optDownloadAuto.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optDownloadAuto.AutoSize = true;
             optDownloadAuto.Checked = true;
-            optDownloadAuto.Location = new System.Drawing.Point(66, 9);
+            optDownloadAuto.Location = new System.Drawing.Point(66, 4);
             optDownloadAuto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optDownloadAuto.Name = "optDownloadAuto";
             optDownloadAuto.Size = new System.Drawing.Size(51, 19);
@@ -2664,7 +2675,7 @@
             // 
             optDownloadManual.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optDownloadManual.AutoSize = true;
-            optDownloadManual.Location = new System.Drawing.Point(125, 9);
+            optDownloadManual.Location = new System.Drawing.Point(125, 4);
             optDownloadManual.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optDownloadManual.Name = "optDownloadManual";
             optDownloadManual.Size = new System.Drawing.Size(65, 19);
@@ -2675,7 +2686,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(13, 67);
+            label5.Location = new System.Drawing.Point(13, 53);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(173, 15);
@@ -2687,7 +2698,7 @@
             optFTPSync.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optFTPSync.AutoSize = true;
             optFTPSync.Checked = true;
-            optFTPSync.Location = new System.Drawing.Point(321, 30);
+            optFTPSync.Location = new System.Drawing.Point(321, 20);
             optFTPSync.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optFTPSync.Name = "optFTPSync";
             optFTPSync.Size = new System.Drawing.Size(89, 19);
@@ -2701,7 +2712,7 @@
             // 
             optFTPClean.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optFTPClean.AutoSize = true;
-            optFTPClean.Location = new System.Drawing.Point(427, 30);
+            optFTPClean.Location = new System.Drawing.Point(427, 20);
             optFTPClean.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optFTPClean.Name = "optFTPClean";
             optFTPClean.Size = new System.Drawing.Size(55, 19);
@@ -2712,19 +2723,19 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             label2.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            label2.Location = new System.Drawing.Point(12, 12);
+            label2.Location = new System.Drawing.Point(12, 7);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(128, 18);
+            label2.Size = new System.Drawing.Size(117, 16);
             label2.TabIndex = 0;
             label2.Text = "FTP Downloads";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(12, 35);
+            label3.Location = new System.Drawing.Point(12, 25);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(146, 15);
@@ -2742,7 +2753,7 @@
             pnlPlayerSettingsStuctures.Location = new System.Drawing.Point(7, 17);
             pnlPlayerSettingsStuctures.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsStuctures.Name = "pnlPlayerSettingsStuctures";
-            pnlPlayerSettingsStuctures.Size = new System.Drawing.Size(498, 51);
+            pnlPlayerSettingsStuctures.Size = new System.Drawing.Size(498, 44);
             pnlPlayerSettingsStuctures.TabIndex = 0;
             // 
             // optPlayerStructureHide
@@ -2750,7 +2761,7 @@
             optPlayerStructureHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerStructureHide.AutoSize = true;
             optPlayerStructureHide.Checked = true;
-            optPlayerStructureHide.Location = new System.Drawing.Point(359, 23);
+            optPlayerStructureHide.Location = new System.Drawing.Point(359, 18);
             optPlayerStructureHide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerStructureHide.Name = "optPlayerStructureHide";
             optPlayerStructureHide.Size = new System.Drawing.Size(50, 19);
@@ -2764,7 +2775,7 @@
             // 
             optPlayerStructureShow.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerStructureShow.AutoSize = true;
-            optPlayerStructureShow.Location = new System.Drawing.Point(429, 23);
+            optPlayerStructureShow.Location = new System.Drawing.Point(429, 18);
             optPlayerStructureShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerStructureShow.Name = "optPlayerStructureShow";
             optPlayerStructureShow.Size = new System.Drawing.Size(54, 19);
@@ -2776,19 +2787,19 @@
             // lblOptionHeaderStructures
             // 
             lblOptionHeaderStructures.AutoSize = true;
-            lblOptionHeaderStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lblOptionHeaderStructures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderStructures.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblOptionHeaderStructures.Location = new System.Drawing.Point(12, 6);
+            lblOptionHeaderStructures.Location = new System.Drawing.Point(12, 3);
             lblOptionHeaderStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionHeaderStructures.Name = "lblOptionHeaderStructures";
-            lblOptionHeaderStructures.Size = new System.Drawing.Size(86, 18);
+            lblOptionHeaderStructures.Size = new System.Drawing.Size(76, 16);
             lblOptionHeaderStructures.TabIndex = 0;
             lblOptionHeaderStructures.Text = "Structures";
             // 
             // lblOptionTextStructures
             // 
             lblOptionTextStructures.AutoSize = true;
-            lblOptionTextStructures.Location = new System.Drawing.Point(12, 25);
+            lblOptionTextStructures.Location = new System.Drawing.Point(12, 20);
             lblOptionTextStructures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextStructures.Name = "lblOptionTextStructures";
             lblOptionTextStructures.Size = new System.Drawing.Size(288, 15);
@@ -2804,17 +2815,17 @@
             pnlPlayerSettingsCommands.Controls.Add(optPlayerCommandsPrefixCheat);
             pnlPlayerSettingsCommands.Controls.Add(lblOptionHeaderCommand);
             pnlPlayerSettingsCommands.Controls.Add(lblOptionTextCommand);
-            pnlPlayerSettingsCommands.Location = new System.Drawing.Point(6, 201);
+            pnlPlayerSettingsCommands.Location = new System.Drawing.Point(6, 176);
             pnlPlayerSettingsCommands.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsCommands.Name = "pnlPlayerSettingsCommands";
-            pnlPlayerSettingsCommands.Size = new System.Drawing.Size(498, 60);
+            pnlPlayerSettingsCommands.Size = new System.Drawing.Size(498, 50);
             pnlPlayerSettingsCommands.TabIndex = 4;
             // 
             // optPlayerCommandsPrefixAdmincheat
             // 
             optPlayerCommandsPrefixAdmincheat.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerCommandsPrefixAdmincheat.AutoSize = true;
-            optPlayerCommandsPrefixAdmincheat.Location = new System.Drawing.Point(325, 26);
+            optPlayerCommandsPrefixAdmincheat.Location = new System.Drawing.Point(325, 19);
             optPlayerCommandsPrefixAdmincheat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerCommandsPrefixAdmincheat.Name = "optPlayerCommandsPrefixAdmincheat";
             optPlayerCommandsPrefixAdmincheat.Size = new System.Drawing.Size(91, 19);
@@ -2828,7 +2839,7 @@
             optPlayerCommandsPrefixNone.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerCommandsPrefixNone.AutoSize = true;
             optPlayerCommandsPrefixNone.Checked = true;
-            optPlayerCommandsPrefixNone.Location = new System.Drawing.Point(232, 26);
+            optPlayerCommandsPrefixNone.Location = new System.Drawing.Point(232, 19);
             optPlayerCommandsPrefixNone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerCommandsPrefixNone.Name = "optPlayerCommandsPrefixNone";
             optPlayerCommandsPrefixNone.Size = new System.Drawing.Size(62, 19);
@@ -2842,7 +2853,7 @@
             // 
             optPlayerCommandsPrefixCheat.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerCommandsPrefixCheat.AutoSize = true;
-            optPlayerCommandsPrefixCheat.Location = new System.Drawing.Point(429, 26);
+            optPlayerCommandsPrefixCheat.Location = new System.Drawing.Point(429, 19);
             optPlayerCommandsPrefixCheat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerCommandsPrefixCheat.Name = "optPlayerCommandsPrefixCheat";
             optPlayerCommandsPrefixCheat.Size = new System.Drawing.Size(57, 19);
@@ -2854,19 +2865,19 @@
             // lblOptionHeaderCommand
             // 
             lblOptionHeaderCommand.AutoSize = true;
-            lblOptionHeaderCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lblOptionHeaderCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderCommand.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblOptionHeaderCommand.Location = new System.Drawing.Point(12, 9);
+            lblOptionHeaderCommand.Location = new System.Drawing.Point(12, 4);
             lblOptionHeaderCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionHeaderCommand.Name = "lblOptionHeaderCommand";
-            lblOptionHeaderCommand.Size = new System.Drawing.Size(133, 18);
+            lblOptionHeaderCommand.Size = new System.Drawing.Size(119, 16);
             lblOptionHeaderCommand.TabIndex = 0;
             lblOptionHeaderCommand.Text = "Command Prefix";
             // 
             // lblOptionTextCommand
             // 
             lblOptionTextCommand.AutoSize = true;
-            lblOptionTextCommand.Location = new System.Drawing.Point(12, 28);
+            lblOptionTextCommand.Location = new System.Drawing.Point(12, 21);
             lblOptionTextCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextCommand.Name = "lblOptionTextCommand";
             lblOptionTextCommand.Size = new System.Drawing.Size(171, 15);
@@ -2881,10 +2892,10 @@
             pnlPlayerSettingsTames.Controls.Add(optPlayerTameShow);
             pnlPlayerSettingsTames.Controls.Add(lblOptionHeaderTames);
             pnlPlayerSettingsTames.Controls.Add(lblOptionTextTames);
-            pnlPlayerSettingsTames.Location = new System.Drawing.Point(7, 74);
+            pnlPlayerSettingsTames.Location = new System.Drawing.Point(7, 67);
             pnlPlayerSettingsTames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsTames.Name = "pnlPlayerSettingsTames";
-            pnlPlayerSettingsTames.Size = new System.Drawing.Size(498, 57);
+            pnlPlayerSettingsTames.Size = new System.Drawing.Size(498, 48);
             pnlPlayerSettingsTames.TabIndex = 2;
             // 
             // optPlayerTameHide
@@ -2892,7 +2903,7 @@
             optPlayerTameHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerTameHide.AutoSize = true;
             optPlayerTameHide.Checked = true;
-            optPlayerTameHide.Location = new System.Drawing.Point(359, 25);
+            optPlayerTameHide.Location = new System.Drawing.Point(359, 18);
             optPlayerTameHide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerTameHide.Name = "optPlayerTameHide";
             optPlayerTameHide.Size = new System.Drawing.Size(50, 19);
@@ -2906,7 +2917,7 @@
             // 
             optPlayerTameShow.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerTameShow.AutoSize = true;
-            optPlayerTameShow.Location = new System.Drawing.Point(429, 25);
+            optPlayerTameShow.Location = new System.Drawing.Point(429, 18);
             optPlayerTameShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerTameShow.Name = "optPlayerTameShow";
             optPlayerTameShow.Size = new System.Drawing.Size(54, 19);
@@ -2918,19 +2929,19 @@
             // lblOptionHeaderTames
             // 
             lblOptionHeaderTames.AutoSize = true;
-            lblOptionHeaderTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lblOptionHeaderTames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderTames.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblOptionHeaderTames.Location = new System.Drawing.Point(12, 8);
+            lblOptionHeaderTames.Location = new System.Drawing.Point(12, 3);
             lblOptionHeaderTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionHeaderTames.Name = "lblOptionHeaderTames";
-            lblOptionHeaderTames.Size = new System.Drawing.Size(59, 18);
+            lblOptionHeaderTames.Size = new System.Drawing.Size(55, 16);
             lblOptionHeaderTames.TabIndex = 0;
             lblOptionHeaderTames.Text = "Tames";
             // 
             // lblOptionTextTames
             // 
             lblOptionTextTames.AutoSize = true;
-            lblOptionTextTames.Location = new System.Drawing.Point(12, 28);
+            lblOptionTextTames.Location = new System.Drawing.Point(12, 21);
             lblOptionTextTames.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextTames.Name = "lblOptionTextTames";
             lblOptionTextTames.Size = new System.Drawing.Size(275, 15);
@@ -2945,10 +2956,10 @@
             pnlPlayerSettingsBody.Controls.Add(optPlayerBodyShow);
             pnlPlayerSettingsBody.Controls.Add(lblOptionHeaderBody);
             pnlPlayerSettingsBody.Controls.Add(lblOptionTextBody);
-            pnlPlayerSettingsBody.Location = new System.Drawing.Point(7, 137);
+            pnlPlayerSettingsBody.Location = new System.Drawing.Point(7, 121);
             pnlPlayerSettingsBody.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pnlPlayerSettingsBody.Name = "pnlPlayerSettingsBody";
-            pnlPlayerSettingsBody.Size = new System.Drawing.Size(498, 58);
+            pnlPlayerSettingsBody.Size = new System.Drawing.Size(498, 49);
             pnlPlayerSettingsBody.TabIndex = 3;
             // 
             // optPlayerBodyHide
@@ -2956,7 +2967,7 @@
             optPlayerBodyHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerBodyHide.AutoSize = true;
             optPlayerBodyHide.Checked = true;
-            optPlayerBodyHide.Location = new System.Drawing.Point(359, 28);
+            optPlayerBodyHide.Location = new System.Drawing.Point(359, 19);
             optPlayerBodyHide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerBodyHide.Name = "optPlayerBodyHide";
             optPlayerBodyHide.Size = new System.Drawing.Size(50, 19);
@@ -2970,7 +2981,7 @@
             // 
             optPlayerBodyShow.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             optPlayerBodyShow.AutoSize = true;
-            optPlayerBodyShow.Location = new System.Drawing.Point(429, 28);
+            optPlayerBodyShow.Location = new System.Drawing.Point(429, 19);
             optPlayerBodyShow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             optPlayerBodyShow.Name = "optPlayerBodyShow";
             optPlayerBodyShow.Size = new System.Drawing.Size(54, 19);
@@ -2982,19 +2993,19 @@
             // lblOptionHeaderBody
             // 
             lblOptionHeaderBody.AutoSize = true;
-            lblOptionHeaderBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lblOptionHeaderBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             lblOptionHeaderBody.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblOptionHeaderBody.Location = new System.Drawing.Point(12, 9);
+            lblOptionHeaderBody.Location = new System.Drawing.Point(12, 4);
             lblOptionHeaderBody.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionHeaderBody.Name = "lblOptionHeaderBody";
-            lblOptionHeaderBody.Size = new System.Drawing.Size(46, 18);
+            lblOptionHeaderBody.Size = new System.Drawing.Size(43, 16);
             lblOptionHeaderBody.TabIndex = 0;
             lblOptionHeaderBody.Text = "Body";
             // 
             // lblOptionTextBody
             // 
             lblOptionTextBody.AutoSize = true;
-            lblOptionTextBody.Location = new System.Drawing.Point(12, 30);
+            lblOptionTextBody.Location = new System.Drawing.Point(12, 21);
             lblOptionTextBody.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblOptionTextBody.Name = "lblOptionTextBody";
             lblOptionTextBody.Size = new System.Drawing.Size(317, 15);
@@ -3009,6 +3020,107 @@
             toolTip1.ReshowDelay = 2000;
             toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             toolTip1.ToolTipTitle = "Information";
+            // 
+            // panel1
+            // 
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            panel1.Controls.Add(udMaxCores);
+            panel1.Controls.Add(radioButton3);
+            panel1.Controls.Add(radioButton4);
+            panel1.Controls.Add(radioButton5);
+            panel1.Controls.Add(radioButton6);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label10);
+            panel1.Location = new System.Drawing.Point(8, 434);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(498, 50);
+            panel1.TabIndex = 7;
+            // 
+            // radioButton3
+            // 
+            radioButton3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton3.AutoSize = true;
+            radioButton3.Checked = true;
+            radioButton3.Location = new System.Drawing.Point(614, 22);
+            radioButton3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new System.Drawing.Size(41, 19);
+            radioButton3.TabIndex = 4;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "No";
+            radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            radioButton4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton4.AutoSize = true;
+            radioButton4.Location = new System.Drawing.Point(726, 22);
+            radioButton4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new System.Drawing.Size(42, 19);
+            radioButton4.TabIndex = 5;
+            radioButton4.Text = "Yes";
+            radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            radioButton5.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton5.AutoSize = true;
+            radioButton5.Checked = true;
+            radioButton5.Location = new System.Drawing.Point(996, 37);
+            radioButton5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton5.Name = "radioButton5";
+            radioButton5.Size = new System.Drawing.Size(41, 19);
+            radioButton5.TabIndex = 2;
+            radioButton5.TabStop = true;
+            radioButton5.Text = "No";
+            radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            radioButton6.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton6.AutoSize = true;
+            radioButton6.Location = new System.Drawing.Point(1108, 37);
+            radioButton6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton6.Name = "radioButton6";
+            radioButton6.Size = new System.Drawing.Size(42, 19);
+            radioButton6.TabIndex = 3;
+            radioButton6.Text = "Yes";
+            radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            label8.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            label8.Location = new System.Drawing.Point(12, 5);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(78, 16);
+            label8.TabIndex = 0;
+            label8.Text = "Processor";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(12, 23);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(315, 15);
+            label10.TabIndex = 1;
+            label10.Text = "Maximum number of cores to use when parsing ARK data:";
+            // 
+            // udMaxCores
+            // 
+            udMaxCores.Location = new System.Drawing.Point(425, 19);
+            udMaxCores.Maximum = new decimal(new int[] { 256, 0, 0, 0 });
+            udMaxCores.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            udMaxCores.Name = "udMaxCores";
+            udMaxCores.Size = new System.Drawing.Size(59, 23);
+            udMaxCores.TabIndex = 6;
+            udMaxCores.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // frmSettings
             // 
@@ -3083,6 +3195,9 @@
             pnlPlayerSettingsTames.PerformLayout();
             pnlPlayerSettingsBody.ResumeLayout(false);
             pnlPlayerSettingsBody.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udMaxCores).EndInit();
             ResumeLayout(false);
         }
 
@@ -3286,5 +3401,13 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label lblStartup;
         private System.Windows.Forms.Label lblStartupInfo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.NumericUpDown udMaxCores;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
     }
 }

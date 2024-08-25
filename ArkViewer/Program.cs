@@ -281,7 +281,7 @@ namespace ARKViewer
 
                         ContentContainer container = new ContentContainer();
 
-                        container.LoadSaveGame(inputFilename, "", clusterFolder,30);
+                        container.LoadSaveGame(inputFilename, "", clusterFolder,30, ProgramConfig.MaxCores);
                         ASVDataManager exportManger = new ASVDataManager(container);
 
                         switch (commandOptionCheck)
