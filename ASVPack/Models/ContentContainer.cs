@@ -1960,6 +1960,10 @@ namespace ASVPack.Models
 
             endTicks = DateTime.Now.Ticks;
             timeTaken = TimeSpan.FromTicks(endTicks - startTicks);
+
+            //var drakeNests = arkSavegame.Objects.Where(o => o.ClassString.ToLower().Contains("rockdrakenest_c")).ToList();
+
+
             logWriter.Info($"Allocated player tribes in: {timeTaken.ToString(@"mm\:ss")}.");
 
             startTicks = DateTime.Now.Ticks;

@@ -45,6 +45,11 @@ namespace ASVPack.Models
             else
             {
                 if (ClassName.Contains("Mega_") || ClassName.Contains("Alpha_")) IsTameable = false;
+                if (ClassName.Equals("Xenomorph_Character_BP_Female_C")) IsTameable = false; //reaper queen
+                if (ClassName.Equals("Xenomorph_Character_BP_Male_Surface_C")) IsTameable = false; //reaper king (surface)
+                if (ClassName.Contains("chupacabra", StringComparison.CurrentCultureIgnoreCase)) IsTameable = false; //nameless
+                if (ClassName.Contains("pteroteuthis", StringComparison.CurrentCultureIgnoreCase)) IsTameable = false; //seeker
+                //   
             }
 
         }

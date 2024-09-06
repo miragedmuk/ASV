@@ -151,6 +151,7 @@ namespace ARKViewer
 
             LoadWindowSettings();
             chkCryo.Checked = Program.ProgramConfig.StoredTames;
+            chkTameable.Checked = Program.ProgramConfig.HideNoTames;
             lblVersion.Text = $"{Application.ProductVersion}";
 
             if (Program.TabCommands.Count > 0)
@@ -5411,6 +5412,7 @@ namespace ARKViewer
                 wildDinos.RemoveAll(d => !d.IsTameable);
             }
 
+            
             cboWildClass.Items.Clear();
             int newIndex = 0;
 
@@ -8838,6 +8840,8 @@ namespace ARKViewer
 
         private void chkTameable_CheckedChanged(object sender, EventArgs e)
         {
+            Program.ProgramConfig.HideNoTames = chkTameable.Checked;
+
             RefreshWildSummary();
             LoadWildDetail();
         }
