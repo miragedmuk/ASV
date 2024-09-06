@@ -1,106 +1,81 @@
-﻿using NLog.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AsaSavegameToolkit
+﻿namespace AsaSavegameToolkit
 {
     public class AsaCompressedData
     {
-        private enum ReadState
+        public AsaCompressedData()
         {
-            None,
-            Escape,
-            Switch
-        }
-
-        private readonly Queue<int> fifoQueue = new Queue<int>();
-        private readonly Stream inputStream;
-        private ReadState readState = ReadState.None;
-
-        public AsaCompressedData(Stream inputStream)
-        {
-            this.inputStream = inputStream;
-        }
-
-
-        public byte[] Inflate()
-        {
-            List<int> list = new List<int>();
-            while(inputStream.Position < inputStream.Length || fifoQueue.Count > 0) 
-            {
-                list.Add(Read());            
-            }
-            return list.Select(o=>(byte)o).ToArray(); 
 
         }
 
-
-        private int Read()
+        public static byte[] Inflate(ReadOnlySpan<byte> inputBuffer)
         {
-            if (fifoQueue.Count > 0)
+            int currentPos = 0;
+            using (MemoryStream outputStream = new MemoryStream())
             {
-                return fifoQueue.Dequeue();
-            }
-
-            int next = inputStream.ReadByte();
-
-            if (readState == ReadState.Switch)
-            {
-                int returnValue = 0xF0 | ((next & 0xF0) >> 4);
-                fifoQueue.Enqueue(0xF0 | (next & 0x0F));
-                readState = ReadState.None;
-                return returnValue;
-            }
-
-            if (readState == ReadState.None)
-            {
-                if (next == 0xF0)
+                using(BufferedStream bufferedOutput =  new BufferedStream(outputStream))
                 {
-                    readState = ReadState.Escape;
-                    return Read();
-                }
-
-                if (next == 0xF1)
-                {
-                    readState = ReadState.Switch;
-                    return Read();
-                }
-
-                if (next >= 0xF2 && next < 0xFF)
-                {
-                    int byteCount = next & 0x0F;
-                    for (int i = 0; i < byteCount; i++)
+                    while (currentPos < inputBuffer.Length)
                     {
-                        fifoQueue.Enqueue(0);
+                        var next = inputBuffer[currentPos];
+
+                        switch (next)
+                        {
+                            case byte checkNext when checkNext == 0xF0:
+                                //escape
+                                currentPos++;
+                                bufferedOutput.WriteByte(inputBuffer[currentPos]);
+                                break;
+                            case byte checkNext when checkNext == 0xF1:
+                                //switch
+                                currentPos++;
+                                next = inputBuffer[currentPos];
+                                int returnValue = 0xF0 | ((next & 0xF0) >> 4);
+                                bufferedOutput.WriteByte((byte)returnValue);
+                                bufferedOutput.WriteByte((byte)((0xF0 | (next & 0x0F))));
+
+                                break;
+                            case byte checkNext when checkNext >= 0xF2 && checkNext < 0xFF:
+                                //expand 0's
+                                int byteCount = next & 0x0F;
+                                for (int i = 0; i < byteCount; i++)
+                                {
+                                    bufferedOutput.WriteByte((byte)0);
+                                }
+                                break;
+                            case byte checkNext when checkNext == 0xFF:
+                                //expand
+                                currentPos++;
+                                var b1 = inputBuffer[currentPos];
+                                currentPos++;
+                                var b2 = inputBuffer[currentPos];
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte(b1);
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte(b2);
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte((byte)0);
+                                bufferedOutput.WriteByte((byte)0);
+                                break;
+                            default:
+                                bufferedOutput.WriteByte(next);
+                                break;
+                        }
+                        currentPos++;
+
                     }
-                    return Read();
-                }
 
-                if (next == 0xFF)
-                {
-                    int b1 = inputStream.ReadByte();
-                    int b2 = inputStream.ReadByte();
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(b1);
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(b2);
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(0);
-                    fifoQueue.Enqueue(0);
-                    return Read();
-                }
+                    bufferedOutput.Flush();
+                }                
+
+                return outputStream.ToArray();
             }
-
-            readState = ReadState.None;
-            return next;
         }
+
+
 
     }
 }

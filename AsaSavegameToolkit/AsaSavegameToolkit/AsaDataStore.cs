@@ -1,13 +1,7 @@
-﻿using AsaSavegameToolkit.Extensions;
-using AsaSavegameToolkit.Types;
-using Ionic.Zlib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using AsaSavegameToolkit.Types;
+using System.IO.Compression;
+using System.Reflection.PortableExecutable;
+
 
 namespace AsaSavegameToolkit
 {
@@ -36,21 +30,16 @@ namespace AsaSavegameToolkit
             StoreSize = BitConverter.ToInt16(storeData, 4);                           
             NametableOffset = BitConverter.ToInt16(storeData, 8);
 
-            byte[] dataBytes = new byte[storeData.Length-12];
-            for (int x = 12; x < storeData.Length; x++)
-            {
-                dataBytes[x-12] = storeData[x];
-            }
+            byte[] dataBytes = storeData.AsSpan().Slice(12,storeData.Length-12).ToArray();
 
-            var decompressedData = ZlibDecompress(dataBytes);
+            var decompressedData = ZlibDecompress(dataBytes).AsSpan();
+            
+
             dataBytes = new byte[0];
             byte[] rawBytes;
 
-            using (var compressedStream = new MemoryStream(decompressedData)) 
-            {
-                var compressedData = new AsaCompressedData(compressedStream);
-                rawBytes = compressedData.Inflate();
-            }
+            rawBytes = AsaCompressedData.Inflate(decompressedData);
+
             decompressedData = new byte[0];
 
             using (var stream = new MemoryStream(rawBytes))
@@ -150,51 +139,24 @@ namespace AsaSavegameToolkit
             }
 
         }
-
-
-
         private byte[] ZlibDecompress(byte[] compressed)
         {
-            int outputSize = 2048;
-            byte[] output = new Byte[outputSize];
 
-            // If you have a ZLIB stream, set this to true.  If you have
-            // a bare DEFLATE stream, set this to false.
-            bool expectRfc1950Header = true;
-
-            using (MemoryStream ms = new MemoryStream())
+            using var inputStream = new MemoryStream(compressed);
+            using (var brotliStream = new ZLibStream(inputStream, System.IO.Compression.CompressionMode.Decompress, leaveOpen: false))
             {
-                ZlibCodec compressor = new ZlibCodec();
-                compressor.InitializeInflate(expectRfc1950Header);
-
-                compressor.InputBuffer = compressed;
-                compressor.AvailableBytesIn = compressed.Length;
-                compressor.NextIn = 0;
-                compressor.OutputBuffer = output;
-
-                foreach (var f in new FlushType[] { FlushType.None, FlushType.Finish })
+                const int bufferSize = 4096;
+                using (var ms = new MemoryStream())
                 {
-                    int bytesToWrite = 0;
-                    do
-                    {
-                        compressor.AvailableBytesOut = outputSize;
-                        compressor.NextOut = 0;
-                        compressor.Inflate(f);
-
-                        bytesToWrite = outputSize - compressor.AvailableBytesOut;
-                        if (bytesToWrite > 0)
-                            ms.Write(output, 0, bytesToWrite);
-                    }
-                    while ((f == FlushType.None && (compressor.AvailableBytesIn != 0 || compressor.AvailableBytesOut == 0)) ||
-                           (f == FlushType.Finish && bytesToWrite != 0));
+                    byte[] buffer = new byte[bufferSize];
+                    int count;
+                    while ((count = brotliStream.Read(buffer, 0, buffer.Length)) != 0)
+                        ms.Write(buffer, 0, count);
+                    return ms.ToArray();
                 }
 
-                compressor.EndInflate();
-
-                return ms.ToArray();
             }
         }
-
 
     }
 }

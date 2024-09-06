@@ -594,6 +594,7 @@
             chkApplyFilterStorage.Size = new System.Drawing.Size(41, 40);
             chkApplyFilterStorage.TabIndex = 4;
             chkApplyFilterStorage.UseVisualStyleBackColor = false;
+            chkApplyFilterStorage.CheckedChanged += chkApplyFilterStorage_CheckedChanged;
             // 
             // lblStorageFilter
             // 

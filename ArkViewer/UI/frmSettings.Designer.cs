@@ -185,6 +185,14 @@
             lblContentPackOptions = new System.Windows.Forms.Label();
             tpgOptions = new System.Windows.Forms.TabPage();
             groupBox1 = new System.Windows.Forms.GroupBox();
+            panel1 = new System.Windows.Forms.Panel();
+            udMaxCores = new System.Windows.Forms.NumericUpDown();
+            radioButton3 = new System.Windows.Forms.RadioButton();
+            radioButton4 = new System.Windows.Forms.RadioButton();
+            radioButton5 = new System.Windows.Forms.RadioButton();
+            radioButton6 = new System.Windows.Forms.RadioButton();
+            label8 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
             pnlOptionsStartup = new System.Windows.Forms.Panel();
             optStartupManual = new System.Windows.Forms.RadioButton();
             optStartupAuto = new System.Windows.Forms.RadioButton();
@@ -229,14 +237,6 @@
             lblOptionHeaderBody = new System.Windows.Forms.Label();
             lblOptionTextBody = new System.Windows.Forms.Label();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            panel1 = new System.Windows.Forms.Panel();
-            radioButton3 = new System.Windows.Forms.RadioButton();
-            radioButton4 = new System.Windows.Forms.RadioButton();
-            radioButton5 = new System.Windows.Forms.RadioButton();
-            radioButton6 = new System.Windows.Forms.RadioButton();
-            label8 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
-            udMaxCores = new System.Windows.Forms.NumericUpDown();
             tabSettings.SuspendLayout();
             tpgMap.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -264,6 +264,8 @@
             ((System.ComponentModel.ISupportInitialize)udExportLat).BeginInit();
             tpgOptions.SuspendLayout();
             groupBox1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udMaxCores).BeginInit();
             pnlOptionsStartup.SuspendLayout();
             pnlCommandExportOptions.SuspendLayout();
             pnlFtpSettingsCommands.SuspendLayout();
@@ -272,8 +274,6 @@
             pnlPlayerSettingsCommands.SuspendLayout();
             pnlPlayerSettingsTames.SuspendLayout();
             pnlPlayerSettingsBody.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)udMaxCores).BeginInit();
             SuspendLayout();
             // 
             // btnSave
@@ -798,7 +798,6 @@
             grpTamedHighlights.Size = new System.Drawing.Size(491, 97);
             grpTamedHighlights.TabIndex = 2;
             grpTamedHighlights.TabStop = false;
-            grpTamedHighlights.Text = "z";
             // 
             // lblUploadedHighlight
             // 
@@ -862,10 +861,10 @@
             lblTamedHighlight.BackColor = System.Drawing.Color.Transparent;
             lblTamedHighlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             lblTamedHighlight.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            lblTamedHighlight.Location = new System.Drawing.Point(10, 11);
+            lblTamedHighlight.Location = new System.Drawing.Point(10, 16);
             lblTamedHighlight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTamedHighlight.Name = "lblTamedHighlight";
-            lblTamedHighlight.Size = new System.Drawing.Size(231, 25);
+            lblTamedHighlight.Size = new System.Drawing.Size(231, 21);
             lblTamedHighlight.TabIndex = 3;
             lblTamedHighlight.Text = "Tamed Highlight";
             lblTamedHighlight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2466,6 +2465,107 @@
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            panel1.Controls.Add(udMaxCores);
+            panel1.Controls.Add(radioButton3);
+            panel1.Controls.Add(radioButton4);
+            panel1.Controls.Add(radioButton5);
+            panel1.Controls.Add(radioButton6);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label10);
+            panel1.Location = new System.Drawing.Point(8, 434);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(498, 50);
+            panel1.TabIndex = 7;
+            // 
+            // udMaxCores
+            // 
+            udMaxCores.Location = new System.Drawing.Point(425, 19);
+            udMaxCores.Maximum = new decimal(new int[] { 256, 0, 0, 0 });
+            udMaxCores.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            udMaxCores.Name = "udMaxCores";
+            udMaxCores.Size = new System.Drawing.Size(59, 23);
+            udMaxCores.TabIndex = 6;
+            udMaxCores.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // radioButton3
+            // 
+            radioButton3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton3.AutoSize = true;
+            radioButton3.Checked = true;
+            radioButton3.Location = new System.Drawing.Point(614, 22);
+            radioButton3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new System.Drawing.Size(41, 19);
+            radioButton3.TabIndex = 4;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "No";
+            radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            radioButton4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton4.AutoSize = true;
+            radioButton4.Location = new System.Drawing.Point(726, 22);
+            radioButton4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new System.Drawing.Size(42, 19);
+            radioButton4.TabIndex = 5;
+            radioButton4.Text = "Yes";
+            radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            radioButton5.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton5.AutoSize = true;
+            radioButton5.Checked = true;
+            radioButton5.Location = new System.Drawing.Point(996, 37);
+            radioButton5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton5.Name = "radioButton5";
+            radioButton5.Size = new System.Drawing.Size(41, 19);
+            radioButton5.TabIndex = 2;
+            radioButton5.TabStop = true;
+            radioButton5.Text = "No";
+            radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            radioButton6.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            radioButton6.AutoSize = true;
+            radioButton6.Location = new System.Drawing.Point(1108, 37);
+            radioButton6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioButton6.Name = "radioButton6";
+            radioButton6.Size = new System.Drawing.Size(42, 19);
+            radioButton6.TabIndex = 3;
+            radioButton6.Text = "Yes";
+            radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            label8.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
+            label8.Location = new System.Drawing.Point(12, 5);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(78, 16);
+            label8.TabIndex = 0;
+            label8.Text = "Processor";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(12, 23);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(315, 15);
+            label10.TabIndex = 1;
+            label10.Text = "Maximum number of cores to use when parsing ARK data:";
+            // 
             // pnlOptionsStartup
             // 
             pnlOptionsStartup.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
@@ -3021,107 +3121,6 @@
             toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             toolTip1.ToolTipTitle = "Information";
             // 
-            // panel1
-            // 
-            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            panel1.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            panel1.Controls.Add(udMaxCores);
-            panel1.Controls.Add(radioButton3);
-            panel1.Controls.Add(radioButton4);
-            panel1.Controls.Add(radioButton5);
-            panel1.Controls.Add(radioButton6);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(label10);
-            panel1.Location = new System.Drawing.Point(8, 434);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(498, 50);
-            panel1.TabIndex = 7;
-            // 
-            // radioButton3
-            // 
-            radioButton3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            radioButton3.AutoSize = true;
-            radioButton3.Checked = true;
-            radioButton3.Location = new System.Drawing.Point(614, 22);
-            radioButton3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new System.Drawing.Size(41, 19);
-            radioButton3.TabIndex = 4;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "No";
-            radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            radioButton4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new System.Drawing.Point(726, 22);
-            radioButton4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new System.Drawing.Size(42, 19);
-            radioButton4.TabIndex = 5;
-            radioButton4.Text = "Yes";
-            radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            radioButton5.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            radioButton5.AutoSize = true;
-            radioButton5.Checked = true;
-            radioButton5.Location = new System.Drawing.Point(996, 37);
-            radioButton5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new System.Drawing.Size(41, 19);
-            radioButton5.TabIndex = 2;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "No";
-            radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            radioButton6.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            radioButton6.AutoSize = true;
-            radioButton6.Location = new System.Drawing.Point(1108, 37);
-            radioButton6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            radioButton6.Name = "radioButton6";
-            radioButton6.Size = new System.Drawing.Size(42, 19);
-            radioButton6.TabIndex = 3;
-            radioButton6.Text = "Yes";
-            radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            label8.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
-            label8.Location = new System.Drawing.Point(12, 5);
-            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(78, 16);
-            label8.TabIndex = 0;
-            label8.Text = "Processor";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(12, 23);
-            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(315, 15);
-            label10.TabIndex = 1;
-            label10.Text = "Maximum number of cores to use when parsing ARK data:";
-            // 
-            // udMaxCores
-            // 
-            udMaxCores.Location = new System.Drawing.Point(425, 19);
-            udMaxCores.Maximum = new decimal(new int[] { 256, 0, 0, 0 });
-            udMaxCores.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            udMaxCores.Name = "udMaxCores";
-            udMaxCores.Size = new System.Drawing.Size(59, 23);
-            udMaxCores.TabIndex = 6;
-            udMaxCores.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
             // frmSettings
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3179,6 +3178,9 @@
             ((System.ComponentModel.ISupportInitialize)udExportLat).EndInit();
             tpgOptions.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udMaxCores).EndInit();
             pnlOptionsStartup.ResumeLayout(false);
             pnlOptionsStartup.PerformLayout();
             pnlCommandExportOptions.ResumeLayout(false);
@@ -3195,9 +3197,6 @@
             pnlPlayerSettingsTames.PerformLayout();
             pnlPlayerSettingsBody.ResumeLayout(false);
             pnlPlayerSettingsBody.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)udMaxCores).EndInit();
             ResumeLayout(false);
         }
 

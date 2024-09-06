@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using Renci.SshNet;
 using SkiaSharp.Views.Desktop;
 using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
@@ -22,6 +23,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Policy;
 using System.Text;
@@ -505,13 +507,11 @@ namespace ARKViewer
                 RefreshItemListTribes();
                 RefreshStructureSummary();
                 RefreshDroppedPlayers();
-
                 RefreshLeaderboardTribes();
                 RefreshLeaderboardMissions();
-
                 RefreshPaintingTribes();
                 RefreshPaintingStructures();
-
+                
 
                 LoadUploadedCharacters();
                 LoadUploadedItems();
@@ -1360,6 +1360,8 @@ namespace ARKViewer
                             break;
                     }
 
+                    commandText = commandText.Trim();
+
                     if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
 
                 }
@@ -1734,6 +1736,8 @@ namespace ARKViewer
                             break;
                     }
 
+                    commandText = commandText.Trim();
+
                     if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
 
                 }
@@ -1964,6 +1968,8 @@ namespace ARKViewer
                             break;
                     }
 
+                    commandText = commandText.Trim();
+
                     if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
 
                 }
@@ -2052,7 +2058,7 @@ namespace ARKViewer
                                 mutationText = $"cheat {mutationText}";
                                 break;
                         }
-
+                        mutationText = mutationText.Trim();
                         mutationCommands.Add(mutationText);
                     }
                 }
@@ -2161,6 +2167,8 @@ namespace ARKViewer
                             commandText = $"cheat {commandText}";
                             break;
                     }
+
+                    commandText = commandText.Trim();
 
                     if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
 
@@ -2417,6 +2425,7 @@ namespace ARKViewer
                             break;
                     }
 
+                    commandText = commandText.Trim();
                     if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
 
                 }
@@ -2674,6 +2683,8 @@ namespace ARKViewer
                             commandText = $"cheat {commandText}";
                             break;
                     }
+
+                    commandText = commandText.Trim();
 
                     if (!allCommands.Contains(commandText)) allCommands.Add(commandText);
                 }
@@ -5147,6 +5158,7 @@ namespace ARKViewer
             //udChartTopStructures.Maximum = allTribes.Count;
 
             if (cboChartType.SelectedIndex < 0) cboChartType.SelectedIndex = 0;
+            DrawTribeCharts();
 
 
         }
@@ -7483,6 +7495,7 @@ namespace ARKViewer
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
 
                 Parallel.ForEach(detailList, detail =>
+                //foreach(var detail in CollectionsMarshal.AsSpan(detailList)) 
                 {
                     var dinoMap = ARKViewer.Program.ProgramConfig.DinoMap.Where(dino => dino.ClassName == detail.ClassName).FirstOrDefault();
                     string creatureName = dinoMap == null ? detail.ClassName : dinoMap.FriendlyName;
@@ -7598,7 +7611,8 @@ namespace ARKViewer
                         listItems.Add(item);
                     }
 
-                });
+                }
+                );
 
                 lvwWildDetail.Items.AddRange(listItems.ToArray());
 

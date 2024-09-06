@@ -107,7 +107,7 @@ namespace ARKViewer
             {
                 foreach (var noteDescription in currentPlayer.ExplorerNotes)
                 {
-                    ListViewItem item = lvwExplorerNotes.Items.Add(noteDescription);                    
+                    ListViewItem item = lvwExplorerNotes.Items.Add(noteDescription);
                 }
             }
 
@@ -122,11 +122,11 @@ namespace ARKViewer
 
             if (currentPlayer.Achievments != null)
             {
-                foreach(var achievement in currentPlayer.Achievments)
+                foreach (var achievement in currentPlayer.Achievments)
                 {
                     ListViewItem item = lvwAchievements.Items.Add(achievement.Description);
                     item.SubItems.Add(achievement.Level);
-                }           
+                }
             }
 
             lvwAchievements.ListViewItemSorter = new ListViewComparer(0, SortOrder.Ascending);
@@ -160,7 +160,7 @@ namespace ARKViewer
                     ClassName = s.Key.ClassName
                 }).ToList();
 
-                
+
                 Parallel.ForEach(playerEngrams, invItem =>
                 {
                     string itemName = invItem.ClassName;
@@ -682,7 +682,7 @@ namespace ARKViewer
             PopulatePersonalInventory();
             PopulatePlayerEngrams();
             PopulatePlayerAchievements();
-            PopulatePlayerExplorerNotes(); 
+            PopulatePlayerExplorerNotes();
 
 
             //get list of tamed dino types
@@ -1131,6 +1131,22 @@ namespace ARKViewer
         {
             Clipboard.SetText(lblPlayerId.Text.Replace("Player Id:", ""));
             MessageBox.Show("Player Id copied to clipboard.", "Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void chkApplyFilterStorage_CheckedChanged(object sender, EventArgs e)
+        {
+            txtStorageFilter.Enabled = !chkApplyFilterStorage.Checked;
+            if (chkApplyFilterStorage.Checked)
+            {
+                txtStorageFilter.Enabled = false;
+            }
+            else
+            {
+                txtStorageFilter.Enabled = true;
+                txtStorageFilter.Text = string.Empty;
+                txtStorageFilter.Focus();
+            }
+            PopulateStructureInventory();
         }
     }
 }

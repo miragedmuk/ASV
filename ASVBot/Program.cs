@@ -6,15 +6,11 @@ using ASVPack.Models;
 using DSharpPlus;
 using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SavegameToolkitAdditions.IndexMappings;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection.Metadata;
 using System.Threading.Tasks;
-using System.Timers;
 
 namespace ASVBot
 {

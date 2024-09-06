@@ -17,7 +17,7 @@
       "LatDiv": 6850.0,
       "LonShift": 50.0,
       "LonDiv": 6850.0
-    },  
+    },
     {
       "MapName": "The Center (Evolved)",
       "Filename": "thecenter.ark",
@@ -55,8 +55,17 @@
       "LonDiv": 8000.0
     },
     {
-      "MapName": "Aberration",
+      "MapName": "Aberration (Evolved)",
       "Filename": "aberration_p.ark",
+      "ImageFile": "map_aberration.png",
+      "LatShift": 50.0,
+      "LatDiv": 8000.0,
+      "LonShift": 50.0,
+      "LonDiv": 8000.0
+    },
+    {
+      "MapName": "Aberration (Ascended)",
+      "Filename": "aberration_wp.ark",
       "ImageFile": "map_aberration.png",
       "LatShift": 50.0,
       "LatDiv": 8000.0,

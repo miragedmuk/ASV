@@ -2099,6 +2099,36 @@
       "ClassName": "Xiphactinus_Character_BP_ASA_C",
       "FriendlyName": "Xiphactinus",
       "BlueprintPath": null
+    },
+    {
+      "ClassName": "DeinosuchusASA_Character_BP_C",
+      "FriendlyName": "Deinosuchus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Fasola_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Fasolasuchus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Gigantoraptor_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Gigantoraptor",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "JumpingSpider_Character_BP_C",
+      "FriendlyName": "Cosmo",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Oviraptor_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Oviraptor",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "YiLing_Character_BP_C",
+      "FriendlyName": "Yi Ling",
+      "BlueprintPath": null
     }
   ]
 }

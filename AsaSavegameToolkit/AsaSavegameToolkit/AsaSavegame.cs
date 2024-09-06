@@ -2,17 +2,10 @@
 using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Structs;
 using AsaSavegameToolkit.Types;
-using Ionic.Zlib;
 using Microsoft.Data.Sqlite;
 using System.Collections.Concurrent;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Diagnostics;
-using System.Linq.Expressions;
-using System.Reflection.Metadata;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace AsaSavegameToolkit
 {
@@ -234,7 +227,7 @@ namespace AsaSavegameToolkit
             long endTicks = DateTime.Now.Ticks;
 
             ConcurrentDictionary<Guid,AsaGameObject> objectBag = new ConcurrentDictionary<Guid, AsaGameObject>();
-            var pods = Objects.Where(o => (o.ClassString.Contains("Cryo") || o.ClassString.Contains("Dinoball")) && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas")).ToList();
+            var pods = Objects.Where(o => (o.ClassString.Contains("Cryo") || o.ClassString.Contains("Dinoball")) && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas"));
             Parallel.ForEach(pods, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, pod =>
             //foreach(var pod in pods)
             {
