@@ -36,6 +36,7 @@ namespace ASVPack.Models
         [DataMember] public string Rig1 { get; set; } = "";
         [DataMember] public string Rig2 { get; set; } = "";
         [DataMember] public float Maturation { get; set; } = 100;
+        [DataMember] public List<string> Traits { get; set; } = new List<string>();
 
         public override bool Equals(object? obj)
         {

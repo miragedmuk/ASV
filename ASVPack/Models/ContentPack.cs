@@ -492,6 +492,8 @@ namespace ASVPack.Models
                             jw.WritePropertyName("tameable");
                             jw.WriteValue(creature.IsTameable);
 
+                            jw.WritePropertyName("trait");
+                            jw.WriteValue(creature.Traits.FirstOrDefault()??"");
 
                             jw.WriteEnd();
                         }
@@ -712,12 +714,25 @@ namespace ASVPack.Models
                             jw.WritePropertyName("maturation");
                             jw.WriteValue(creature.Maturation.ToString());
 
-
                             if (creature.UploadedTimeInGame != 0)
                             {
                                 jw.WritePropertyName("uploadedTime");
                                 jw.WriteValue(creature.UploadedTime);
                             }
+
+                            jw.WritePropertyName("traits");
+                            jw.WriteStartArray();
+                            if (creature.Traits.Count > 0)
+                            {
+                                foreach(var traitClass in creature.Traits)
+                                {
+                                    jw.WriteStartObject();
+                                    jw.WritePropertyName("trait");
+                                    jw.WriteValue(traitClass);
+                                    jw.WriteEndObject();
+                                }
+                            }
+                            jw.WriteEndArray();
 
                             bool exportInventories = true;
 

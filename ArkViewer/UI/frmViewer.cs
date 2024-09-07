@@ -63,6 +63,9 @@ namespace ARKViewer
         private string savePath = Path.GetDirectoryName(Application.ExecutablePath);
         private bool isRconConnected = false;
 
+        private List<string> traitList = new List<string>() { "AberrantCarrier", "Aggressive", "Angry", "Athletic", "CarcassCarrier", "Carefree", "Cold", "Cowardly", "Distracting", "Diurnal", "Excitable", "ExoticCarrier", "FastLearner", "Fatty", "FoodFrail", "FoodMutable", "FoodRobust", "Frenetic", "Giantslaying", "HealthFrail", "HealthMutable", "HealthRobust", "HeavyHitting", "Kingslaying", "MeatCarrier", "MeleeFrail", "MeleeMutable", "MeleeRobust", "MineralCarrier", "Nocturnal", "Numb", "OxygenFrail", "OxygenMutable", "OxygenRobust", "PlantCarrier", "Protective", "QuickHitting", "ScorchedCarrier", "SlowMetabolism", "Sprinter", "StaminaFrail", "StaminaMutable", "StaminaRobust", "Swimmer", "Tenacious", "Vampiric", "Warm", "WeightFrail", "WeightMutable", "WeightRobust" };
+
+
         Random rndChartColor = new Random();
 
         //wrapper for the information we need from ARK save data
@@ -452,14 +455,14 @@ namespace ARKViewer
 
                 string mapFileDateString = (cm.ContentDate.Equals(new DateTime()) ? "n/a" : cm.ContentDate.GetValueOrDefault(DateTime.Now).ToString("dd MMM yyyy HH:mm"));
 
-                if(cm.MapDay > 0)
+                if (cm.MapDay > 0)
                 {
                     lblMapDate.Text = $"{cm.MapName} (Day: {cm.MapDay} - {cm.MapTime.ToString("HH:mm")}): {mapFileDateString}";
                 }
                 else
                 {
                     lblMapDate.Text = $"{cm.MapName}: {mapFileDateString}";
-                }                
+                }
 
                 switch (Program.ProgramConfig.Mode)
                 {
@@ -484,7 +487,8 @@ namespace ARKViewer
 
 
                 RefreshRealms();
-
+                RefreshTamedTraits();
+                RefreshWildTraits();
 
                 var allWilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, float.MaxValue, "", "");
                 if (allWilds.Count > 0)
@@ -498,8 +502,8 @@ namespace ARKViewer
                 InitializeDefaults();
 
                 RefreshWildSummary();
-                RefreshTamedProductionResources();
 
+                RefreshTamedProductionResources();
                 RefreshTamedSummary();
                 RefreshTribeSummary();
                 RefreshPlayerTribes();
@@ -512,7 +516,7 @@ namespace ARKViewer
                 RefreshLeaderboardMissions();
                 RefreshPaintingTribes();
                 RefreshPaintingStructures();
-                
+
 
                 LoadUploadedCharacters();
                 LoadUploadedItems();
@@ -1489,8 +1493,6 @@ namespace ARKViewer
 
                 var selectedItem = lvwTameDetail.SelectedItems[0];
                 ContentTamedCreature selectedTame = (ContentTamedCreature)selectedItem.Tag;
-                btnDinoInventory.Enabled = selectedTame.Inventory.Items.Count > 0;
-
                 DrawMap(selectedTame.Longitude.GetValueOrDefault(0), selectedTame.Latitude.GetValueOrDefault(0));
 
             }
@@ -1713,7 +1715,7 @@ namespace ARKViewer
 
                 foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
                 {
- 
+
                     commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
 
@@ -3744,7 +3746,7 @@ namespace ARKViewer
 
 
             long selectedPlayerId = 0;
-            if(cboItemListPlayers.SelectedIndex > 0)
+            if (cboItemListPlayers.SelectedIndex > 0)
             {
                 comboValue = (ASVComboValue)cboItemListPlayers.SelectedItem;
                 long.TryParse(comboValue.Key, out selectedPlayerId);
@@ -3793,7 +3795,7 @@ namespace ARKViewer
                 }
 
             }
-            
+
             var selectedPlayerIndex = 0;
 
             if (newItems.Count > 0)
@@ -4911,6 +4913,30 @@ namespace ARKViewer
 
 
         /******** Summaries **********/
+        private void RefreshTamedTraits()
+        {
+            cboTamedTrait.Items.Clear();
+
+            cboTamedTrait.Items.Add(new ASVComboValue("", "[All Traits]"));
+            cboTamedTrait.SelectedIndex = 0;
+            foreach (var trait in traitList)
+            {
+                cboTamedTrait.Items.Add(new ASVComboValue(trait, trait));
+            }
+        }
+
+        private void RefreshWildTraits()
+        {
+            cboWildTrait.Items.Clear();
+
+            cboWildTrait.Items.Add(new ASVComboValue("", "[All Traits]"));
+            cboWildTrait.SelectedIndex = 0;
+            foreach (var trait in traitList)
+            {
+                cboWildTrait.Items.Add(new ASVComboValue(trait, trait));
+            }
+        }
+
         private void RefreshTamedProductionResources()
         {
             cboTamedResource.Items.Clear();
@@ -5412,7 +5438,7 @@ namespace ARKViewer
                 wildDinos.RemoveAll(d => !d.IsTameable);
             }
 
-            
+
             cboWildClass.Items.Clear();
             int newIndex = 0;
 
@@ -5433,6 +5459,7 @@ namespace ARKViewer
 
             if (wildDinos != null)
             {
+
                 List<ASVComboValue> productionComboValues = new List<ASVComboValue>();
 
                 var productionResources = wildDinos.Where(x => x.ProductionResources != null).SelectMany(d => d.ProductionResources).Distinct().ToList();
@@ -6647,7 +6674,7 @@ namespace ARKViewer
 
             List<ListViewItem> newItems = new List<ListViewItem>();
             var foundItems = cm.GetItems(selectedTribeId, selectedItemClass, "", txtItemListItemId.Text.Trim());
-            if(cboItemListPlayers.SelectedIndex > 0)
+            if (cboItemListPlayers.SelectedIndex > 0)
             {
                 ASVComboValue selectedPlayer = cboItemListPlayers.SelectedItem as ASVComboValue;
                 foundItems.RemoveAll(r => r.PlayerId.ToString() != selectedPlayer.Key);
@@ -7097,6 +7124,16 @@ namespace ARKViewer
                     detailList.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == selectedResourceClass));
                 }
 
+
+                if (cboWildTrait.SelectedIndex != 0)
+                {
+                    //limit by resource production
+                    ASVComboValue selectedTraitValue = (ASVComboValue)cboWildTrait.SelectedItem;
+                    detailList.RemoveAll(d => d.Traits.Count == 0 || !d.Traits.Any(r => r == selectedTraitValue.Key));
+                }
+
+
+
                 string selectedRealm = (cboTameRealm.SelectedItem as ASVComboValue).Key;
 
 
@@ -7368,6 +7405,7 @@ namespace ARKViewer
 
                         item.SubItems.Add(detail.Id.ToString());
                         item.SubItems.Add(Math.Round(detail.WildScale, 1).ToString("f1"));
+                        item.SubItems.Add(detail?.Traits.Count.ToString() ?? "");
 
                         string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
                         string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
@@ -7494,6 +7532,13 @@ namespace ARKViewer
                     detailList.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == selectedResourceClass));
                 }
 
+                if (cboWildTrait.SelectedIndex != 0)
+                {
+                    //limit by resource production
+                    ASVComboValue selectedTraitValue = (ASVComboValue)cboWildTrait.SelectedItem;
+                    detailList.RemoveAll(d => d.Traits.Count == 0 || !d.Traits.Any(r => r == selectedTraitValue.Key));
+                }
+
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
 
                 Parallel.ForEach(detailList, detail =>
@@ -7589,8 +7634,7 @@ namespace ARKViewer
 
                     item.SubItems.Add(detail.Id.ToString());
                     item.SubItems.Add(Math.Round(detail.WildScale, 1).ToString("f1"));
-
-
+                    item.SubItems.Add(detail.Traits.FirstOrDefault() ?? "");
 
                     string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
                     string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
@@ -9389,7 +9433,7 @@ namespace ARKViewer
 
             if (command.Parameters.Count == 0 || lvwPlayerPaintings.SelectedItems.Count == 0)
             {
-                allCommands.Add(commandTemplate); 
+                allCommands.Add(commandTemplate);
             }
 
 
@@ -9569,7 +9613,8 @@ namespace ARKViewer
                 var foundTribe = cboItemListTribe.Items.Cast<ASVComboValue>().First(x => x.Key == playerTribe.TribeId.ToString());
                 var selectedTribeIndex = cboItemListTribe.SelectedIndex;
                 var foundIndex = cboItemListTribe.Items.IndexOf(foundTribe);
-                if (selectedTribeIndex != foundIndex){
+                if (selectedTribeIndex != foundIndex)
+                {
                     cboItemListTribe.SelectedIndex = foundIndex;
                 }
                 else
@@ -9583,6 +9628,16 @@ namespace ARKViewer
         private void txtItemListItemId_TextChanged(object sender, EventArgs e)
         {
             LoadItemListDetail();
+        }
+
+        private void cboTamedTrait_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadTameDetail();
+        }
+
+        private void cboWildTrait_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadWildDetail();
         }
     }
 }

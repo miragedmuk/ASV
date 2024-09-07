@@ -43,6 +43,7 @@
             picWindowIcon = new System.Windows.Forms.PictureBox();
             btnClose = new System.Windows.Forms.Button();
             lblStructureName = new System.Windows.Forms.Label();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
             pnlCreatureInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picWindowIcon).BeginInit();
             SuspendLayout();
@@ -90,7 +91,7 @@
             txtFilter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtFilter.BackColor = System.Drawing.Color.FromArgb(30, 30, 30);
             txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            txtFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             txtFilter.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             txtFilter.Location = new System.Drawing.Point(50, 395);
             txtFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -102,7 +103,7 @@
             // 
             lvwInventory.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwInventory.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
-            lvwInventory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwInventory_Item, lvwInventory_Category, lvwInventory_Quality, lvwInventory_Rating, lvwInventory_Qty });
+            lvwInventory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwInventory_Item, columnHeader1, lvwInventory_Category, lvwInventory_Quality, lvwInventory_Rating, lvwInventory_Qty });
             lvwInventory.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwInventory.FullRowSelect = true;
             lvwInventory.Location = new System.Drawing.Point(13, 15);
@@ -141,7 +142,7 @@
             // lblWindowTitle
             // 
             lblWindowTitle.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             lblWindowTitle.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblWindowTitle.Location = new System.Drawing.Point(471, 15);
             lblWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -169,7 +170,7 @@
             btnClose.BackColor = System.Drawing.Color.FromArgb(225, 225, 225);
             btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             btnClose.ForeColor = System.Drawing.Color.FromArgb(60, 60, 60);
             btnClose.Location = new System.Drawing.Point(637, 503);
             btnClose.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -182,7 +183,7 @@
             // lblStructureName
             // 
             lblStructureName.AutoSize = true;
-            lblStructureName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lblStructureName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             lblStructureName.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lblStructureName.Location = new System.Drawing.Point(14, 18);
             lblStructureName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -191,6 +192,10 @@
             lblStructureName.TabIndex = 0;
             lblStructureName.Text = "Structure Name";
             lblStructureName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Input";
             // 
             // frmStructureInventoryViewer
             // 
@@ -235,5 +240,6 @@
         private System.Windows.Forms.Label lblStructureName;
         private System.Windows.Forms.ColumnHeader lvwInventory_Quality;
         private System.Windows.Forms.ColumnHeader lvwInventory_Rating;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

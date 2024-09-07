@@ -2129,6 +2129,11 @@
       "ClassName": "YiLing_Character_BP_C",
       "FriendlyName": "Yi Ling",
       "BlueprintPath": null
+    },
+    {
+      "ClassName": "HelperBot_Character_BP_C",
+      "FriendlyName": "SIR-5RM8",
+      "BlueprintPath": null
     }
   ]
 }

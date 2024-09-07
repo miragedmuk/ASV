@@ -119,6 +119,7 @@
             lblWindowTitle = new System.Windows.Forms.Label();
             btnClose = new System.Windows.Forms.Button();
             lblPlayerId = new System.Windows.Forms.Label();
+            lvwStorageInventory_IsInput = new System.Windows.Forms.ColumnHeader();
             pnlPlayerInventory.SuspendLayout();
             tabExplorer.SuspendLayout();
             tpgPlayerInventory.SuspendLayout();
@@ -625,7 +626,7 @@
             // 
             lvwStorageInventory.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lvwStorageInventory.BackColor = System.Drawing.Color.FromArgb(90, 90, 90);
-            lvwStorageInventory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStorageInventory_Item, lvwStorageInventory_BP, lvwStorageInventory_Category, lvwStorageInventory_Quality, columnHeader20lvwStorageInventory_Rating, lvwStorageInventory_Crafter, lvwStorageInventory_Container, lvwStorageInventory_Lat, lvwStorageInventory_Lon, lvwStorageInventory_Qty });
+            lvwStorageInventory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { lvwStorageInventory_Item, lvwStorageInventory_IsInput, lvwStorageInventory_BP, lvwStorageInventory_Category, lvwStorageInventory_Quality, columnHeader20lvwStorageInventory_Rating, lvwStorageInventory_Crafter, lvwStorageInventory_Container, lvwStorageInventory_Lat, lvwStorageInventory_Lon, lvwStorageInventory_Qty });
             lvwStorageInventory.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             lvwStorageInventory.FullRowSelect = true;
             lvwStorageInventory.Location = new System.Drawing.Point(13, 12);
@@ -1053,6 +1054,10 @@
             lblPlayerId.Text = "Player Id:";
             lblPlayerId.Click += lblPlayerId_Click;
             // 
+            // lvwStorageInventory_IsInput
+            // 
+            lvwStorageInventory_IsInput.Text = "Input";
+            // 
             // frmPlayerInventoryViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1194,5 +1199,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ListView lvwExplorerNotes;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader lvwStorageInventory_IsInput;
     }
 }

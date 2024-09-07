@@ -52,6 +52,23 @@ namespace ASVPack.Models
                 //   
             }
 
+            var geneTraits = gameObject.Properties.FirstOrDefault(p=>p.Name == "GeneTraits")?.Value;
+            if (geneTraits != null)
+            {
+                foreach (string geneTrait in geneTraits)
+                {
+                    var traitClass = geneTrait.Substring(0, geneTrait.LastIndexOf("["));
+
+                    string traitName = traitClass.Replace("Inherit", "");
+
+                    Traits.Add(traitName);
+
+                }
+
+            }
+
+
+
         }
 
     }

@@ -2052,10 +2052,8 @@ namespace ASVPack.Models
                                      
                                     }
 
+
                                 }
-
-
-
                             }
                             else
                             {
@@ -2471,6 +2469,10 @@ namespace ASVPack.Models
                             AsaGameObject? inventoryComponent = arkSavegame.GetObjectByGuid(inventoryId);
                             if (inventoryComponent != null)
                             {
+
+
+
+
                                 List<dynamic>? inventoryItemsArray = inventoryComponent.GetPropertyValue<dynamic>("InventoryItems");
                                 if (inventoryItemsArray != null && inventoryItemsArray.Count > 0)
                                 {
@@ -2537,6 +2539,25 @@ namespace ASVPack.Models
                                             }
                                         }
                                         //);
+                                    }
+                                }
+
+
+
+                                List<dynamic>? inputItemsArray = inventoryComponent.GetPropertyValue<dynamic>("SortingInputs");
+
+                                if (inputItemsArray != null)
+                                {
+                                    foreach (var inputItem in inputItemsArray)
+                                    {
+                                        ContentItem newItem = new ContentItem()
+                                        {
+                                            ClassName = inputItem.Value,
+                                            Quantity = 1,
+                                            IsInput=true
+                                        };
+
+                                        inventoryItems.Add(newItem);
                                     }
                                 }
 
@@ -2704,6 +2725,24 @@ namespace ASVPack.Models
                                 }
                             }
                             );
+                        }
+
+
+                        List<dynamic>? inputItemsArray = inventoryComponent.GetPropertyValue<dynamic>("SortingInputs");
+
+                        if (inputItemsArray != null)
+                        {
+                            foreach (var inputItem in inputItemsArray)
+                            {
+                                ContentItem newItem = new ContentItem()
+                                {
+                                    ClassName = inputItem.Value,
+                                    Quantity = 1,
+                                    IsInput = true
+                                };
+
+                                inventoryItems.Add(newItem);
+                            }
                         }
 
                         List<dynamic>? eItemsArray = inventoryComponent.GetPropertyValue<dynamic>("EquippedItems", 0, null);

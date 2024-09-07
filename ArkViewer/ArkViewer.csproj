@@ -9,7 +9,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>asv2.ico</ApplicationIcon>
-    <IsPublishable>False</IsPublishable>
+    <IsPublishable>True</IsPublishable>
     <NeutralLanguage>en-GB</NeutralLanguage>
     <BaseOutputPath>c:\temp\ASV\</BaseOutputPath>
     <StartupObject>ARKViewer.Program</StartupObject>

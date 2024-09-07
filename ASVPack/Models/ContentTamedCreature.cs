@@ -304,6 +304,7 @@ namespace ASVPack.Models
 
             }
 
+
             LastAllyInRangeTimeInGame = creatureObject.GetPropertyValue<double>("LastInAllyRangeSerialized", 0, 0);
 
             TribeName = creatureObject.GetPropertyValue<string>("TribeName", 0, "")??"";
@@ -400,6 +401,21 @@ namespace ASVPack.Models
                 UInt32 femaleId2 = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p => p.Name == "FemaleDinoID2")?.Value;
                 MotherId  = AsaExtensions.CreateDinoId((int)femaleId1,(int)femaleId2);
                 MotherName = ancestorData.Cast<AsaProperty<dynamic>>().FirstOrDefault(p => p.Name == "FemaleName")?.Value ?? "[Unknown]";
+
+            }
+
+
+            var geneTraits = creatureObject.Properties.FirstOrDefault(p => p.Name == "GeneTraits")?.Value;
+            if (geneTraits != null)
+            {
+                foreach (string geneTrait in geneTraits)
+                {
+                    string traitClass = geneTrait.Substring(0, geneTrait.LastIndexOf("["));
+                    string traitName = traitClass.Replace("Inherit", "");
+
+                    Traits.Add(traitName);
+
+                }
 
             }
         }

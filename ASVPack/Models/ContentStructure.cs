@@ -96,6 +96,14 @@ namespace ASVPack.Models
                 IsSwitchedOn = structureObject.GetPropertyValue<bool>("bContainerActivated", 0, false);
             }
 
+            if (structureObject.HasAnyProperty("StoredTraits"))
+            {
+
+
+
+
+            }
+
             if (structureObject.HasAnyProperty("DinoFeedingListType"))
             {
                 Inclusions = new List<string>();

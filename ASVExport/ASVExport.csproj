@@ -4,8 +4,8 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <StartupObject>ASVExport.Program</StartupObject>
-    <AssemblyVersion>5.1.0.7</AssemblyVersion>
-    <FileVersion>5.1.0.7</FileVersion>
+    <AssemblyVersion>5.1.0.10</AssemblyVersion>
+    <FileVersion>5.1.0.10</FileVersion>
     <BaseOutputPath>c:\temp\ASV\</BaseOutputPath>
     <ApplicationIcon>asvexporticon.ico</ApplicationIcon>
   </PropertyGroup>
