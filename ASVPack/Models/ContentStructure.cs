@@ -3,6 +3,7 @@ using AsaSavegameToolkit.Propertys;
 using AsaSavegameToolkit.Types;
 using ASVPack.Extensions;
 using SavegameToolkit;
+using SavegameToolkit.Structs;
 using SavegameToolkit.Types;
 using System;
 using System.Collections.Generic;
@@ -82,7 +83,6 @@ namespace ASVPack.Models
         {
             ClassName = structureObject.ClassString;
             DisplayName = structureObject.GetPropertyValue<string>("BoxName") ?? ClassName;
-
 
 
             if (structureObject.GetPropertyValue<AsaObjectReference>("MyInventoryComponent") != null)

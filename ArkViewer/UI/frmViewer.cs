@@ -1266,11 +1266,20 @@ namespace ARKViewer
             string commandText = GetPlayerCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
+                    lblStatus.Text = "Unable to copy command. Please try again.";
+                    lblStatus.Refresh();
+                }
+
 
             }
             else
@@ -1285,11 +1294,20 @@ namespace ARKViewer
             string commandText = GetStructureCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
+                    lblStatus.Text = "Unable to copy command. Please try again.";
+                    lblStatus.Refresh();
+                }
+
 
             }
             else
@@ -1659,11 +1677,20 @@ namespace ARKViewer
             string commandText = GetWildCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
+                    lblStatus.Text = "Unable to copy command. Please try again.";
+                    lblStatus.Refresh();
+                }
+
 
             }
             else
@@ -1989,11 +2016,19 @@ namespace ARKViewer
             string commandText = GetTamedCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
+                    lblStatus.Text = "Unable to copy command. Please try again.";
+                    lblStatus.Refresh();
+                }
 
             }
             else
@@ -2250,9 +2285,17 @@ namespace ARKViewer
                     if (lvwPlayers.SelectedItems.Count > 0)
                     {
                         ContentPlayer player = (ContentPlayer)lvwPlayers.SelectedItems[0].Tag;
-                        Clipboard.SetText(player.Id.ToString("f0"));
-                        MessageBox.Show("Player ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            Clipboard.SetText(player.Id.ToString("f0"));
+                            MessageBox.Show("Player ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        }
+                        catch
+                        {
+
+                            MessageBox.Show("Failed to copy command.\n\nPlease try again.", "Copy Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     break;
             }
@@ -2275,9 +2318,18 @@ namespace ARKViewer
                 case "tpgPlayers":
                     if (lvwPlayers.SelectedItems.Count > 0)
                     {
+
                         ContentPlayer player = (ContentPlayer)lvwPlayers.SelectedItems[0].Tag;
-                        Clipboard.SetText(player.NetworkId.ToString());
-                        MessageBox.Show("Steam ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            Clipboard.SetText(player.NetworkId.ToString());
+                            MessageBox.Show("Steam ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch
+                        {
+
+                            MessageBox.Show("Failed to copy command.\n\nPlease try again.", "Copy Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
 
                     }
                     break;
@@ -2295,8 +2347,17 @@ namespace ARKViewer
                     if (lvwTameDetail.SelectedItems.Count > 0)
                     {
                         ContentTamedCreature creature = (ContentTamedCreature)lvwTameDetail.SelectedItems[0].Tag;
-                        Clipboard.SetText(creature.TargetingTeam.ToString("f0"));
-                        MessageBox.Show("Tribe ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            Clipboard.SetText(creature.TargetingTeam.ToString("f0"));
+                            MessageBox.Show("Tribe ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch
+                        {
+
+                            MessageBox.Show("Failed to copy command.\n\nPlease try again.", "Copy Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+
                     }
                     break;
 
@@ -2304,8 +2365,16 @@ namespace ARKViewer
                     if (lvwStructureLocations.SelectedItems.Count > 0)
                     {
                         ContentStructure structure = (ContentStructure)lvwStructureLocations.SelectedItems[0].Tag;
-                        Clipboard.SetText(structure.TargetingTeam.ToString("f0"));
-                        MessageBox.Show("Tribe ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            Clipboard.SetText(structure.TargetingTeam.ToString("f0"));
+                            MessageBox.Show("Tribe ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch
+                        {
+
+                            MessageBox.Show("Failed to copy command.\n\nPlease try again.", "Copy Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     break;
                 case "tpgTribes":
@@ -2313,8 +2382,16 @@ namespace ARKViewer
                     {
                         ContentTribe selectedTribe = (ContentTribe)lvwTribes.SelectedItems[0].Tag;
 
-                        Clipboard.SetText(selectedTribe.TribeId.ToString("f0"));
-                        MessageBox.Show("Tribe ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            Clipboard.SetText(selectedTribe.TribeId.ToString("f0"));
+                            MessageBox.Show("Tribe ID copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch
+                        {
+
+                            MessageBox.Show("Failed to copy command.\n\nPlease try again.", "Copy Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
 
                     }
                     break;
@@ -2442,11 +2519,21 @@ namespace ARKViewer
             string commandText = GetDroppedItemCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
+
+                    lblStatus.Text = "Failed to copy command.  Please try again.";
+                    lblStatus.Refresh();
+                }
+
 
             }
             else
@@ -2590,11 +2677,20 @@ namespace ARKViewer
             string commandText = GetTribeCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
+
+                    lblStatus.Text = "Failed to copy command.  Please try again.";
+                    lblStatus.Refresh();
+                }
 
             }
             else
@@ -3855,12 +3951,20 @@ namespace ARKViewer
             string commandText = GetItemSearchCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
 
+                    lblStatus.Text = "Failed to copy command.  Please try again.";
+                    lblStatus.Refresh();
+                }
             }
             else
             {
@@ -5725,6 +5829,21 @@ namespace ARKViewer
 
                         });
                     }
+
+                    if (tribe.Players != null && tribe.Players.Count > 0)
+                    {
+                        tribe.Players.ToList().ForEach(s =>
+                        {
+                            if (s.Inventory.Items.Count > 0)
+                            {
+                                var matchedItems = s.Inventory.Items.Where(i => !playerItems.Contains(i.ClassName)).Select(c => c.ClassName).Distinct().ToList();
+
+                                if (matchedItems != null && matchedItems.Count > 0) playerItems.AddRange(matchedItems);
+                            }
+
+                        });
+                    }
+
                 }
 
                 if (playerItems != null && playerItems.Count > 0)
@@ -7125,11 +7244,11 @@ namespace ARKViewer
                 }
 
 
-                if (cboWildTrait.SelectedIndex != 0)
+                if (cboTamedTrait.SelectedIndex != 0)
                 {
                     //limit by resource production
-                    ASVComboValue selectedTraitValue = (ASVComboValue)cboWildTrait.SelectedItem;
-                    detailList.RemoveAll(d => d.Traits.Count == 0 || !d.Traits.Any(r => r == selectedTraitValue.Key));
+                    ASVComboValue selectedTraitValue = (ASVComboValue)cboTamedTrait.SelectedItem;
+                    detailList.RemoveAll(d => d.Traits.Count == 0 || !d.Traits.Any(r => r.StartsWith(selectedTraitValue.Key)));
                 }
 
 
@@ -7536,7 +7655,7 @@ namespace ARKViewer
                 {
                     //limit by resource production
                     ASVComboValue selectedTraitValue = (ASVComboValue)cboWildTrait.SelectedItem;
-                    detailList.RemoveAll(d => d.Traits.Count == 0 || !d.Traits.Any(r => r == selectedTraitValue.Key));
+                    detailList.RemoveAll(d => d.Traits.Count == 0 || !d.Traits.Any(r => r.StartsWith(selectedTraitValue.Key)));
                 }
 
                 ConcurrentBag<ListViewItem> listItems = new ConcurrentBag<ListViewItem>();
@@ -8726,7 +8845,15 @@ namespace ARKViewer
                     if (lvwWildDetail.SelectedItems.Count > 0)
                     {
                         var wildDino = lvwWildDetail.SelectedItems[0].Tag as ContentWildCreature;
-                        Clipboard.SetText(wildDino.DinoId);
+                        try
+                        {
+                            Clipboard.SetText(wildDino.DinoId);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Unable to copy command to clipboard.\n\nPlease try again.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        
                     }
                     else
                     {
@@ -8738,7 +8865,15 @@ namespace ARKViewer
                     if (lvwTameDetail.SelectedItems.Count > 0)
                     {
                         var tamedDino = lvwTameDetail.SelectedItems[0].Tag as ContentTamedCreature;
-                        Clipboard.SetText(tamedDino.DinoId);
+                        try
+                        {
+                            Clipboard.SetText(tamedDino.DinoId);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Unable to copy command to clipboard.\n\nPlease try again.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+
                     }
                     else
                     {
@@ -9137,9 +9272,15 @@ namespace ARKViewer
                         ContentPlayer player = (ContentPlayer)lvwPlayers.SelectedItems[0].Tag;
                         if (!string.IsNullOrEmpty(player.PlayerFilename))
                         {
-                            Clipboard.SetText(player?.PlayerFilename);
-                            MessageBox.Show("Player filename copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                            try
+                            {
+                                Clipboard.SetText(player?.PlayerFilename);
+                                MessageBox.Show("Player filename copied to the clipboard!", "Copy Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Unable to copy command to clipboard.\n\nPlease try again.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
 
 
@@ -9382,11 +9523,19 @@ namespace ARKViewer
             string commandText = GetPaintingCommandText();
             if (commandText.Length > 0)
             {
-                Clipboard.Clear();
-                Clipboard.SetText(commandText);
+                try
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText(commandText);
 
-                lblStatus.Text = $"Command copied:  {commandText}";
-                lblStatus.Refresh();
+                    lblStatus.Text = $"Command copied:  {commandText}";
+                    lblStatus.Refresh();
+                }
+                catch
+                {
+                    lblStatus.Text = "Unable to copy command. Please try again.";
+                    lblStatus.Refresh();
+                }
 
             }
             else

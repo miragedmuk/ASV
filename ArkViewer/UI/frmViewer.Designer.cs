@@ -451,6 +451,8 @@ namespace ARKViewer
             lblWildTotal = new System.Windows.Forms.Label();
             cboWildClass = new ArkViewer.UI.BorderlessComboBox();
             tabFeatures = new System.Windows.Forms.TabControl();
+            chkTameEmbryos = new System.Windows.Forms.CheckBox();
+            chkTameSouls = new System.Windows.Forms.CheckBox();
             mnuContext.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tpgLeaderboard.SuspendLayout();
@@ -1246,7 +1248,7 @@ namespace ARKViewer
             // 
             chkCryo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             chkCryo.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkCryo.Location = new System.Drawing.Point(489, 75);
+            chkCryo.Location = new System.Drawing.Point(489, 13);
             chkCryo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkCryo.Name = "chkCryo";
             chkCryo.Size = new System.Drawing.Size(103, 27);
@@ -1277,10 +1279,10 @@ namespace ARKViewer
             chkTameUploads.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             chkTameUploads.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             chkTameUploads.Cursor = System.Windows.Forms.Cursors.Hand;
-            chkTameUploads.Location = new System.Drawing.Point(674, 74);
+            chkTameUploads.Location = new System.Drawing.Point(663, 11);
             chkTameUploads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkTameUploads.Name = "chkTameUploads";
-            chkTameUploads.Size = new System.Drawing.Size(111, 31);
+            chkTameUploads.Size = new System.Drawing.Size(122, 31);
             chkTameUploads.TabIndex = 25;
             chkTameUploads.Text = "Include Uploads";
             chkTameUploads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3681,6 +3683,8 @@ namespace ARKViewer
             // tpgTamed
             // 
             tpgTamed.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            tpgTamed.Controls.Add(chkTameEmbryos);
+            tpgTamed.Controls.Add(chkTameSouls);
             tpgTamed.Controls.Add(cboTamedTrait);
             tpgTamed.Controls.Add(label4);
             tpgTamed.Controls.Add(lblTameRad);
@@ -3989,7 +3993,7 @@ namespace ARKViewer
             lblTameCreature.AutoSize = true;
             lblTameCreature.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             lblTameCreature.ForeColor = System.Drawing.Color.FromArgb(125, 125, 125);
-            lblTameCreature.Location = new System.Drawing.Point(417, 49);
+            lblTameCreature.Location = new System.Drawing.Point(417, 80);
             lblTameCreature.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTameCreature.Name = "lblTameCreature";
             lblTameCreature.Size = new System.Drawing.Size(59, 13);
@@ -4336,7 +4340,7 @@ namespace ARKViewer
             cboTameClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cboTameClass.ForeColor = System.Drawing.Color.FromArgb(225, 225, 225);
             cboTameClass.FormattingEnabled = true;
-            cboTameClass.Location = new System.Drawing.Point(489, 45);
+            cboTameClass.Location = new System.Drawing.Point(489, 76);
             cboTameClass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboTameClass.Name = "cboTameClass";
             cboTameClass.Size = new System.Drawing.Size(296, 24);
@@ -4941,6 +4945,36 @@ namespace ARKViewer
             tabFeatures.DrawItem += tabFeatures_DrawItem;
             tabFeatures.SelectedIndexChanged += tabFeatures_SelectedIndexChanged;
             // 
+            // chkTameEmbryos
+            // 
+            chkTameEmbryos.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            chkTameEmbryos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkTameEmbryos.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTameEmbryos.Location = new System.Drawing.Point(663, 40);
+            chkTameEmbryos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTameEmbryos.Name = "chkTameEmbryos";
+            chkTameEmbryos.Size = new System.Drawing.Size(122, 31);
+            chkTameEmbryos.TabIndex = 36;
+            chkTameEmbryos.Text = "Include Embryos";
+            chkTameEmbryos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(chkTameEmbryos, "Show / hide uploaded tames");
+            chkTameEmbryos.UseVisualStyleBackColor = true;
+            chkTameEmbryos.Visible = false;
+            // 
+            // chkTameSouls
+            // 
+            chkTameSouls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chkTameSouls.Cursor = System.Windows.Forms.Cursors.Hand;
+            chkTameSouls.Location = new System.Drawing.Point(489, 42);
+            chkTameSouls.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkTameSouls.Name = "chkTameSouls";
+            chkTameSouls.Size = new System.Drawing.Size(103, 27);
+            chkTameSouls.TabIndex = 35;
+            chkTameSouls.Text = "Include Souls";
+            toolTip1.SetToolTip(chkTameSouls, "Show / hide dead tame soul(s)");
+            chkTameSouls.UseVisualStyleBackColor = true;
+            chkTameSouls.Visible = false;
+            // 
             // frmViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -5462,6 +5496,8 @@ namespace ARKViewer
         private System.Windows.Forms.Label label3;
         private ArkViewer.UI.BorderlessComboBox cboTamedTrait;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkTameEmbryos;
+        private System.Windows.Forms.CheckBox chkTameSouls;
     }
 }
 

@@ -32,7 +32,6 @@ namespace ASVPack.Models
         [DataMember] public DateTime? UploadedTime { get; set; } = null;
         public double UploadedTimeInGame { get; set; } = 0;
 
-
         public ContentItem(StructPropertyList uploadData)
         {
             var testRef = uploadData.Properties[0];

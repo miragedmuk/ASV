@@ -410,8 +410,13 @@ namespace ASVPack.Models
             {
                 foreach (string geneTrait in geneTraits)
                 {
-                    string traitClass = geneTrait.Substring(0, geneTrait.LastIndexOf("["));
-                    string traitName = traitClass.Replace("Inherit", "");
+                    var openBracketPos = geneTrait.LastIndexOf("[");
+                    var closeBracketPos = geneTrait.LastIndexOf("]");
+
+                    var traitClass = geneTrait.Substring(0, openBracketPos);
+                    var traitTier = int.Parse(geneTrait.Substring(openBracketPos + 1, closeBracketPos - openBracketPos - 1));
+
+                    string traitName = string.Concat(traitClass.Replace("Inherit", ""), " (", traitTier + 1, ")");
 
                     Traits.Add(traitName);
 

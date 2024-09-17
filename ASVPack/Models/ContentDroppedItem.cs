@@ -71,6 +71,7 @@ namespace ASVPack.Models
             {
                 DroppedByName = itemObject.GetPropertyValue<string>("DroppedByName", 0, "")??"<Unknown>";
             }
+
             DroppedByTribeId = itemObject.GetPropertyValue<int>("TargetingTeam", 0, 0);
             DroppedByPlayerId = (long)(itemObject.GetPropertyValue<ulong?>("LinkedPlayerDataID") ?? itemObject.GetPropertyValue<long>("DroppedByPlayerID", 0, 0));
             CreatedTimeInGame = itemObject.GetPropertyValue<double>("OriginalCreationTime", 0, 0);

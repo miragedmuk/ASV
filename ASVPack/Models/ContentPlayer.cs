@@ -394,9 +394,12 @@ namespace ASVPack.Models
                                         //dragon
                                         achievement.Description = "Defeated Dragon";
                                         break;
-                                    case 4:
+                                    case 3:
                                         //overseer
                                         achievement.Description = "Defeated Overseer";
+                                        break;
+                                    case 4:
+                                        achievement.Description = "Defeated Manticore";
                                         break;
                                 }
                                 switch (ascensionValue)

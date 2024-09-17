@@ -6,6 +6,7 @@ using Microsoft.Data.Sqlite;
 using System.Collections.Concurrent;
 using System.Data;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace AsaSavegameToolkit
 {
@@ -119,10 +120,6 @@ namespace AsaSavegameToolkit
 
             readTribeFiles(savePath, maxCores); // Search and parse and .arktribe file in the save directory
             readProfileFiles(savePath, maxCores); // Search and parse and .arkprofile file in the save directory
-
-
-            //var t = Objects.Where(t=>t.ClassName.Name.Contains("day", StringComparison.CurrentCultureIgnoreCase)).ToList();
-
 
             endTicks = DateTime.Now.Ticks;
             //total time load save data
@@ -243,6 +240,8 @@ namespace AsaSavegameToolkit
 
                         var byteListContainer = customContainer.Value;
                         AsaGameObject creatureObject = null;
+                        AsaGameObject statusObject = null;
+
                         Guid inventoryGuid = Guid.NewGuid();
                         List<Guid> inventoryItems = new List<Guid>();
 
@@ -272,36 +271,49 @@ namespace AsaSavegameToolkit
                                             break;
                                         }
 
-                                        creatureObject = dataStore.Objects.First().Value;
+                                        creatureObject = dataStore.Objects.FirstOrDefault(c => c.Value.ClassName.Name.Contains("character", StringComparison.CurrentCultureIgnoreCase) &!c.Value.ClassName.Name.Contains("status", StringComparison.CurrentCultureIgnoreCase)).Value;
+                                        statusObject = dataStore.Objects.FirstOrDefault(c => c.Value.ClassName.Name.Contains("status", StringComparison.CurrentCultureIgnoreCase)).Value;
+
+                                        var podContainerRef = pod.Properties.FirstOrDefault(p => p.Name == "OwnerInventory");
+                                        if (podContainerRef != null)
+                                        {
+                                            AsaObjectReference containerId = podContainerRef.Value;
+                                            var podContainerInventory = GetObjectByGuid(Guid.Parse(containerId.Value));
+                                            if (podContainerInventory != null)
+                                            {
+                                                var podContainer = Objects.FirstOrDefault(o => o.Names != null && o.Names.Count > 0 && o.Names[0] == podContainerInventory.Names[1]);
+                                                if (podContainer != null)
+                                                {
+                                                    creatureObject.Location = podContainer.Location;
+                                                    if(creatureObject.Properties.LongCount(c=>c.Name == "TargetingTeam") > 0)
+                                                    {
+                                                        creatureObject.Properties.RemoveAll(p => p.Name == "TargetingTeam");
+                                                        creatureObject.Properties.Add(podContainer.Properties.First(p => p.Name == "TargetingTeam"));
+                                                    }
+
+                                                    if (creatureObject.Properties.LongCount(c => c.Name == "TribeName") > 0)
+                                                    {
+                                                        creatureObject.Properties.RemoveAll(p => p.Name == "TribeName");
+                                                    }
+
+
+                                                }
+                                            }
+                                        }
+
 
                                         foreach (var o in dataStore.Objects)
                                         {
-
                                             if (actorLocations.ContainsKey(pod.Guid))
                                             {
                                                 o.Value.Location = actorLocations[pod.Guid];
                                             }
-                                            else
-                                            {
-                                                var podContainerRef = pod.Properties.FirstOrDefault(p => p.Name == "OwnerInventory");
-                                                if (podContainerRef != null)
-                                                {
-                                                    AsaObjectReference containerId = podContainerRef.Value;
-                                                    var podContainerInventory = GetObjectByGuid(Guid.Parse(containerId.Value));
-                                                    if (podContainerInventory != null)
-                                                    {
-                                                        var podContainer = Objects.FirstOrDefault(o => o.Names!=null && o.Names.Count > 0 &&  o.Names[0] == podContainerInventory.Names[1]);
-                                                        if (podContainer != null)
-                                                        {
-                                                            o.Value.Location = podContainer.Location;
-                                                        }
-
-                                                    }
-                                                }
-                                            }
 
                                             objectBag.TryAdd(o.Value.Guid, o.Value);
                                         }
+
+
+
 
                                     }
                                     else

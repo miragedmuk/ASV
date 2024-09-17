@@ -389,6 +389,8 @@ namespace ASVPack.Models
                                                             }
 
 
+                                              
+
                                                             var targetTribe = Tribes.FirstOrDefault(t => t.TribeId == tamedDino.TargetingTeam);
                                                             if (targetTribe == null)
                                                             {
@@ -416,11 +418,9 @@ namespace ASVPack.Models
                                                             }
                                                             if (targetTribe != null)
                                                             {
+                                                                tamedDino.TribeName = targetTribe.TribeName;
                                                                 targetTribe.Tames.Add(tamedDino);
-                                                                if (string.IsNullOrEmpty(tamedDino.TribeName))
-                                                                {
-                                                                    tamedDino.TribeName = targetTribe.TribeName;
-                                                                }
+
                                                             }
 
 
@@ -808,7 +808,7 @@ namespace ASVPack.Models
                         && x.GetPropertyValue<int?>("TargetingTeam") == null
                         && (x.ClassString.StartsWith("TributeTerminal_")
                         || x.ClassString.Contains("CityTerminal_")
-                        || x.ClassString.StartsWith("PrimalItem_PowerNodeCharge")
+                        || x.ClassString.StartsWith("PowerNodeCharge")
                         || x.ClassString.StartsWith("BeaverDam_C")
                         || x.ClassString.StartsWith("WyvernNest_")
                         || x.ClassString.StartsWith("RockDrakeNest_C")
@@ -1968,13 +1968,14 @@ namespace ASVPack.Models
 
             startTicks = DateTime.Now.Ticks;
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Map Structures...");
-            //parse structures
+            
+            //parse structures         
             var mapStructures = arkSavegame.Objects.Where(x =>
                         x.Location != null
                         && x.GetPropertyValue<int?>("TargetingTeam") == null
                         && (x.ClassString.StartsWith("TributeTerminal_")
                         || x.ClassString.Contains("CityTerminal_")
-                        || x.ClassString.StartsWith("PrimalItem_PowerNodeCharge")
+                        || x.ClassString.Equals("PrimalItem_PowerNodeCharge_C", StringComparison.CurrentCultureIgnoreCase)
                         || x.ClassString.StartsWith("BeaverDam_C")
                         || x.ClassString.StartsWith("WyvernNest_")
                         || x.ClassString.StartsWith("RockDrakeNest_C")
@@ -2023,8 +2024,6 @@ namespace ASVPack.Models
                             if (inventoryRef != null)
                             {
                                 inventoryComponent = arkSavegame.Objects.FirstOrDefault(o => o.Guid.ToString() == inventoryRef.Value);
-                                
-
 
                                 if (inventoryComponent != null)
                                 {
@@ -2105,6 +2104,8 @@ namespace ASVPack.Models
                         return new ContentStructure();
                         
                     }).Where(s=>!string.IsNullOrEmpty(s.ClassName)).ToList<ContentStructure>();
+
+            
 
             MapStructures = new List<ContentStructure>();
             if(mapStructures!=null && mapStructures.Count > 0)

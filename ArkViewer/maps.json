@@ -66,7 +66,7 @@
     {
       "MapName": "Aberration (Ascended)",
       "Filename": "aberration_wp.ark",
-      "ImageFile": "map_aberration.png",
+      "ImageFile": "map_aberration_wp.png",
       "LatShift": 50.0,
       "LatDiv": 8000.0,
       "LonShift": 50.0,
