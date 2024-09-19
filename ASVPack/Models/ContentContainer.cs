@@ -12,6 +12,7 @@ using SavegameToolkit.Types;
 using SavegameToolkitAdditions;
 using System.Collections.Concurrent;
 using System.Collections.Immutable;
+using System.Diagnostics;
 using System.IO.Compression;
 using System.Runtime.Serialization;
 
@@ -1968,25 +1969,26 @@ namespace ASVPack.Models
 
             startTicks = DateTime.Now.Ticks;
             OnUpdateProgress?.Invoke("ARK save file loaded. Parsing Map Structures...");
-            
+
             //parse structures         
             var mapStructures = arkSavegame.Objects.Where(x =>
                         x.Location != null
                         && x.GetPropertyValue<int?>("TargetingTeam") == null
-                        && (x.ClassString.StartsWith("TributeTerminal_")
-                        || x.ClassString.Contains("CityTerminal_")
-                        || x.ClassString.Equals("PrimalItem_PowerNodeCharge_C", StringComparison.CurrentCultureIgnoreCase)
-                        || x.ClassString.StartsWith("BeaverDam_C")
-                        || x.ClassString.StartsWith("WyvernNest_")
-                        || x.ClassString.StartsWith("RockDrakeNest_C")
-                        || x.ClassString.StartsWith("DeinonychusNest_C")
-                        || x.ClassString.StartsWith("CherufeNest_C")
-                        || x.ClassString.StartsWith("OilVein_")
-                        || x.ClassString.StartsWith("WaterVein_")
-                        || x.ClassString.StartsWith("GasVein_")
-                        || x.ClassString.StartsWith("ArtifactCrate_")
-                        || x.ClassString.StartsWith("Structure_PlantSpeciesZ")
-                        || x.ClassString.StartsWith("BeeHive_C")
+                        && (
+                        x.ClassString.StartsWith("TributeTerminal_")
+                            || x.ClassString.Contains("CityTerminal_")
+                            || x.ClassString.Equals("PrimalStructurePowerNode_C")
+                            || x.ClassString.StartsWith("BeaverDam_C")
+                            || x.ClassString.StartsWith("WyvernNest_")
+                            || x.ClassString.StartsWith("RockDrakeNest_C")
+                            || x.ClassString.StartsWith("DeinonychusNest_C")
+                            || x.ClassString.StartsWith("CherufeNest_C")
+                            || x.ClassString.StartsWith("OilVein_")
+                            || x.ClassString.StartsWith("WaterVein_")
+                            || x.ClassString.StartsWith("GasVein_")
+                            || x.ClassString.StartsWith("ArtifactCrate_")
+                            || x.ClassString.StartsWith("Structure_PlantSpeciesZ")
+                            || x.ClassString.StartsWith("BeeHive_C")
                         )
                     ).Select(s =>
                     {
@@ -1994,6 +1996,7 @@ namespace ASVPack.Models
                         
                         if (structure != null)
                         {
+
                             if (s.Location != null)
                             {
                                 float latitude = (float)LoadedMap.LatShift + ((float)s.Location.Y / (float)LoadedMap.LatDiv);
@@ -2001,6 +2004,7 @@ namespace ASVPack.Models
                                 structure.Latitude = latitude;
                                 structure.Longitude = longitude;
                             }
+     
 
                             structure.CreatedDateTime = GetApproxDateTimeOf(structure.CreatedTimeInGame);
                             structure.Latitude = (float)LoadedMap.LatShift + (structure.Y / (float)LoadedMap.LatDiv);
@@ -2040,18 +2044,17 @@ namespace ASVPack.Models
                                                 
                                                 var item = itemObject.AsItem();
 
+
                                                 if (!item.IsEngram & !item.IsBlueprint)
                                                 {
-
-                                                    inventoryItems.Add(item);
+                                                    if(item.ClassName != "PrimalItem_PowerNodeCharge_C")
+                                                        inventoryItems.Add(item);
                                                 }
                                                 
                                             }
                                         };
                                      
                                     }
-
-
                                 }
                             }
                             else

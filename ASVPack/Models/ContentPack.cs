@@ -1782,6 +1782,7 @@ namespace ASVPack.Models
                     jw.WritePropertyName("time");
                     jw.WriteValue(MapTime.ToString("HH:mm"));
                     jw.WritePropertyName("data");
+                    jw.WriteStartArray();
 
                     foreach (var playerTribe in Tribes)
                     {
@@ -2073,7 +2074,9 @@ namespace ASVPack.Models
                     {
                         loadedStructures.Add(new ContentStructure()
                         {
+
                             ClassName = "ASV_Terminal",
+                            DisplayName = terminal.ClassName,
                             Latitude = terminal.Latitude.GetValueOrDefault(0),
                             Longitude = terminal.Longitude.GetValueOrDefault(0),
                             X = terminal.X,

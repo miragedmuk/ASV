@@ -21,7 +21,8 @@ namespace ARKViewer.Models
 {
     public class ASVDataManager
     {
-
+        readonly float poiMarkerSize = 32f;
+        readonly float poiIconSize = 26f;
 
         //cached image params
         ASVStructureOptions cachedOptions = new ASVStructureOptions();
@@ -1715,33 +1716,7 @@ namespace ARKViewer.Models
 
             Tuple<int, int, decimal, decimal, decimal, decimal> mapvals = Tuple.Create(1024, 1024, 0.0m, 0.0m, 100.0m, 100.0m);
 
-            //obelisks/tribute terminals
-            if (structureOptions.Terminals)
-            {
-                var terminalMarkers = pack.TerminalMarkers;
-                foreach (var terminal in terminalMarkers)
-                {
 
-                    //attempt to determine colour from class name
-                    Color brushColor = Color.DarkGreen;
-
-                    markerX = ((float)terminal.Longitude.GetValueOrDefault(0)) * 1024 / 100;
-                    markerY = ((float)terminal.Latitude.GetValueOrDefault(0)) * 1024 / 100;
-
-
-                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - 25f, (float)markerY - 25f, 50, 50);
-                    g.DrawEllipse(new Pen(Color.White, 2), (float)markerX - 25f, (float)markerY - 25f, 50, 50);
-
-                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_obelisk, new Size(40, 40));
-                    g.DrawImage(mapMarker, (float)markerX - 20f, (float)markerY - 20f);
-
-
-                }
-
-
-                //TODO:// Get user defined terminals from json
-
-            }
 
             if (structureOptions.Glitches)
             {
@@ -1749,18 +1724,17 @@ namespace ARKViewer.Models
                 {
                     //attempt to determine colour from class name
                     Color brushColor = Color.MediumPurple;
-
+                    Color borderColor = Color.White;
                     markerX = ((float)glitch.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)glitch.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                    float markerSize = 25;
 
-                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
-                    g.DrawEllipse(new Pen(Color.White, 2), (float)markerX - (markerSize / 2), (float)markerY - (markerSize / 2), markerSize, markerSize);
 
-                    float iconSize = 18.75f;
-                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_glitch, new Size((int)iconSize, (int)iconSize));
-                    g.DrawImage(mapMarker, (float)markerX - (iconSize / 2), (float)markerY - (iconSize / 2));
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_glitch, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
                 }
             }
 
@@ -1775,17 +1749,20 @@ namespace ARKViewer.Models
                     markerX = ((float)chargeNode.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)chargeNode.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                    g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-
+                    
                     Color borderColor = Color.Red;
                     if (chargeNode.Inventory.Items.Count > 0)
                     {
                         borderColor = Color.Green;
                     }
 
-                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-                    Bitmap chargeMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_battery, new Size(20, 20));
-                    g.DrawImage(chargeMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    Color brushColor = Color.White;
+
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_battery, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
                 }
 
 
@@ -1801,17 +1778,22 @@ namespace ARKViewer.Models
                     markerX = ((float)beaverDam.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)beaverDam.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                    g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-
+                    
                     Color borderColor = Color.Red;
              
                     if (beaverDam.Inventory.Items.Count > 0)
                     {
                         borderColor = Color.Green;
                     }
-                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-                    Bitmap beaverMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_beaver, new Size(20, 20));
-                    g.DrawImage(beaverMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+
+                    Color brushColor = Color.White;
+
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_beaver, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
                 }
             }
 
@@ -1824,18 +1806,19 @@ namespace ARKViewer.Models
                     markerX = ((float)deinoNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)deinoNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                    g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-
-
                     Color borderColor = Color.Red;
                     if (deinoNest.Inventory.Items.Count > 0)
                     {
                         borderColor = Color.Green;
                     }
-                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
+                    Color brushColor = Color.White;
 
-                    Bitmap deinoMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_deino, new Size(20, 20));
-                    g.DrawImage(deinoMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_deino, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
             }
@@ -1851,8 +1834,6 @@ namespace ARKViewer.Models
                     markerY = ((float)wyvernNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
 
-                    g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-
                     Color borderColor = Color.Red;
                     if (wyvernNest.Inventory.Items.Count > 0)
                     {
@@ -1861,10 +1842,14 @@ namespace ARKViewer.Models
                     }
 
 
-                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
+                    Color brushColor = Color.White;
 
-                    Bitmap wyvernMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_wyvern, new Size(20, 20));
-                    g.DrawImage(wyvernMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_wyvern, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
             }
@@ -1881,19 +1866,20 @@ namespace ARKViewer.Models
                     markerY = ((float)drakeNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
 
-                    Color markerColor = Color.White;
-                    g.FillEllipse(new SolidBrush(markerColor), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-
 
                     Color borderColor = Color.Red;
                     if (drakeNest.Inventory.Items.Count > 0)
                     {
                         borderColor = Color.Green;
                     }
-                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
+                    Color brushColor = Color.White;
 
-                    Bitmap wyvernMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_rockdrake, new Size(20, 20));
-                    g.DrawImage(wyvernMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_rockdrake, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
             }
@@ -1907,21 +1893,22 @@ namespace ARKViewer.Models
 
                     markerX = ((float)magmaNest.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)magmaNest.Latitude.GetValueOrDefault(0)) * 1024 / 100;
-
-                    Color markerColor = Color.White;
-                    g.FillEllipse(new SolidBrush(markerColor), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-
+ 
                     Color borderColor = Color.Red;
 
                     if (magmaNest.Inventory.Items.Count > 0)
                     {
                         borderColor = Color.Green;
                     }
-                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
 
-                    Bitmap magmaMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_magmasaur, new Size(20, 20));
-                    g.DrawImage(magmaMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    Color brushColor = Color.White;
 
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_magmasaur, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
                 }
             }
 
@@ -1935,12 +1922,15 @@ namespace ARKViewer.Models
                 {
                     markerX = ((float)oilVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)oilVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    Color brushColor = Color.Black;
+                    Color borderColor = Color.White;
 
-                    g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-                    g.DrawEllipse(new Pen(Color.Black, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
 
-                    Bitmap oilMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_oil, new Size(20, 20));
-                    g.DrawImage(oilMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_oil, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
 
@@ -1955,11 +1945,15 @@ namespace ARKViewer.Models
                     markerX = ((float)waterVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)waterVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                    g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
-                    g.DrawEllipse(new Pen(Color.Black, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
+                    Color brushColor = Color.White;
+                    Color borderColor = Color.Black;
 
-                    Bitmap waterMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_water, new Size(20, 20));
-                    g.DrawImage(waterMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_water, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
 
@@ -1973,14 +1967,15 @@ namespace ARKViewer.Models
                 {
                     markerX = ((float)gasVein.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)gasVein.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+                    Color brushColor = Color.WhiteSmoke;
+                    Color borderColor = Color.LightBlue;
 
-                    g.FillEllipse(new SolidBrush(Color.White), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
 
-                    Color borderColor = Color.WhiteSmoke;
-                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - 15f, (float)markerY - 15f, 30, 30);
 
-                    Bitmap gasMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_gas, new Size(20, 20));
-                    g.DrawImage(gasMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_gas, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
             }
@@ -1994,11 +1989,15 @@ namespace ARKViewer.Models
                     markerX = ((float)artifact.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)artifact.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                    g.FillEllipse(new SolidBrush(Color.FloralWhite), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
-                    g.DrawEllipse(new Pen(Color.Yellow, 1), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
+                    Color brushColor = Color.Black;
+                    Color borderColor = Color.Yellow;
 
-                    Bitmap gasMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_trophy, new Size(20, 20));
-                    g.DrawImage(gasMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_trophy, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
 
@@ -2012,18 +2011,66 @@ namespace ARKViewer.Models
                     markerX = ((float)hive.Longitude.GetValueOrDefault(0)) * 1024 / 100;
                     markerY = ((float)hive.Latitude.GetValueOrDefault(0)) * 1024 / 100;
 
-                    g.FillEllipse(new SolidBrush(Color.FloralWhite), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
-                    g.DrawEllipse(new Pen(Color.Yellow, 1), (float)markerX - 15.0f, (float)markerY - 15.0f, 30, 30);
+                    Color brushColor = Color.FloralWhite;
+                    Color borderColor = Color.Yellow;
 
-                    Bitmap hiveMarker = new Bitmap(ARKViewer.Properties.Resources.beehive, new Size(20, 20));
-                    g.DrawImage(hiveMarker, (float)markerX - 10.0f, (float)markerY - 10.0f);
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (poiMarkerSize / 2), (float)markerY - (poiMarkerSize / 2), poiMarkerSize, poiMarkerSize);
+
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.beehive, new Size((int)poiIconSize, (int)poiIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (poiIconSize / 2), (float)markerY - (poiIconSize / 2));
 
                 }
 
             }
 
 
+            //obelisks/tribute terminals
+            if (structureOptions.Terminals)
+            {
+                var terminalMarkers = pack.TerminalMarkers;
+                foreach (var terminal in terminalMarkers)
+                {
 
+                    //attempt to determine colour from class name
+                    Color brushColor = Color.Silver;
+                    if (terminal.DisplayName.Contains("green", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        brushColor = Color.Green;
+                    }
+                    if (terminal.DisplayName.Contains("blue", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        brushColor = Color.Blue;
+                    }
+                    if (terminal.DisplayName.Contains("red", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        brushColor = Color.Red;
+                    }
+                    if (terminal.DisplayName.Contains("purple", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        brushColor = Color.Purple;
+                    }
+
+                    markerX = ((float)terminal.Longitude.GetValueOrDefault(0)) * 1024 / 100;
+                    markerY = ((float)terminal.Latitude.GetValueOrDefault(0)) * 1024 / 100;
+
+                    Color borderColor = Color.White;
+
+                    float terminalMarkerSize = poiMarkerSize * 1.25f;
+                    float terminalIconSize = poiIconSize * 1.25f;
+
+                    g.FillEllipse(new SolidBrush(brushColor), (float)markerX - (terminalMarkerSize / 2), (float)markerY - (terminalMarkerSize / 2), terminalMarkerSize, terminalMarkerSize);
+                    g.DrawEllipse(new Pen(borderColor, 2), (float)markerX - (terminalMarkerSize / 2), (float)markerY - (terminalMarkerSize / 2), terminalMarkerSize, terminalMarkerSize);
+
+                    Bitmap mapMarker = new Bitmap(ARKViewer.Properties.Resources.structure_marker_obelisk, new Size((int)terminalIconSize, (int)terminalIconSize));
+                    g.DrawImage(mapMarker, (float)markerX - (terminalIconSize / 2), (float)markerY - (terminalIconSize / 2));
+                }
+
+
+                //TODO:// Get user defined terminals from json
+
+            }
 
             return g;
         }
