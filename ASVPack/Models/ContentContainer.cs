@@ -2192,7 +2192,6 @@ namespace ASVPack.Models
                                         .ToList();
 
 
-
             var abandonedStructures = allStructures.AsParallel().Where(x => x.GetPropertyValue<int>("TargetingTeam") < 50_0000 &!
                 (
                 x.ClassString.StartsWith("BeeHive_C")

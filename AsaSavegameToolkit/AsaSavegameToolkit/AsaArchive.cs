@@ -35,17 +35,6 @@ namespace AsaSavegameToolkit
 
         #region read data
 
-        public void SkipString()
-        {
-            int size = mbbReader.ReadInt32();
-
-            bool multibyte = size < 0;
-            int absSize = Math.Abs(size);
-            int readSize = multibyte ? absSize * 2 : absSize;
-
-            mbb.Seek(readSize, SeekOrigin.Current);
-        }
-
         public void SkipBytes(int count)
         {
 
@@ -171,11 +160,6 @@ namespace AsaSavegameToolkit
         public byte ReadByte()
         {
             return mbbReader.ReadByte();
-        }
-
-        public sbyte ReadSByte()
-        {
-            return mbbReader.ReadSByte();
         }
 
         public byte[] ReadBytes(int length)

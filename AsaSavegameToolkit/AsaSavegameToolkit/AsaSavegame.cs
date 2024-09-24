@@ -285,7 +285,7 @@ namespace AsaSavegameToolkit
                                                 if (podContainer != null)
                                                 {
                                                     creatureObject.Location = podContainer.Location;
-                                                    if(creatureObject.Properties.LongCount(c=>c.Name == "TargetingTeam") > 0)
+                                                    if(creatureObject.Properties.LongCount(c=>c.Name == "TargetingTeam") > 0 && podContainer.Properties.Any(p => p.Name == "TargetingTeam"))
                                                     {
                                                         creatureObject.Properties.RemoveAll(p => p.Name == "TargetingTeam");
                                                         creatureObject.Properties.Add(podContainer.Properties.First(p => p.Name == "TargetingTeam"));

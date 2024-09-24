@@ -579,7 +579,6 @@ namespace ASVExport
 
         private static void ExportStoredTribes(string saveFilename, string exportFolder)
         {
-
             FileInfo fileInfo = new FileInfo(saveFilename);
 
             using (Stream stream = File.OpenRead(saveFilename))
@@ -598,7 +597,7 @@ namespace ASVExport
                             .WithStoredProfiles(false,90)
                             .WithBuildComponentTree(false));
 
-
+                    arkSavegame.FileTime = fileInfo.LastWriteTime.ToLocalTime();
                     arkSavegame.ExtractStoredArkTribes(archive, exportFolder);
                 }
 
