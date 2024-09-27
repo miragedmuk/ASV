@@ -145,7 +145,7 @@ namespace SavegameToolkit
                                         GameObject statusObject = storedGameObjects.FirstOrDefault(o => o.ClassString.Contains("DinoCharacterStatus"));
                                         if (statusObject == null)
                                         {
-                                            statusObject = storedGameObjects.FirstOrDefault(o => o.ClassString.Contains("status"));
+                                            statusObject = storedGameObjects.FirstOrDefault(o => o.ClassString.Contains("status", StringComparison.CurrentCultureIgnoreCase));
                                         }
 
                                         if(statusObject!= null)

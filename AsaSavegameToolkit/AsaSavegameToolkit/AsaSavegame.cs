@@ -271,8 +271,13 @@ namespace AsaSavegameToolkit
                                             break;
                                         }
 
-                                        creatureObject = dataStore.Objects.FirstOrDefault(c => c.Value.ClassName.Name.Contains("character", StringComparison.CurrentCultureIgnoreCase) &!c.Value.ClassName.Name.Contains("status", StringComparison.CurrentCultureIgnoreCase)).Value;
-                                        statusObject = dataStore.Objects.FirstOrDefault(c => c.Value.ClassName.Name.Contains("status", StringComparison.CurrentCultureIgnoreCase)).Value;
+                                        
+                                        statusObject = dataStore.Objects.FirstOrDefault(c => c.Value.ClassName.Name.Contains("statuscomponent", StringComparison.CurrentCultureIgnoreCase)).Value;
+                                        if (statusObject == null)
+                                        {
+                                            statusObject = dataStore.Objects.FirstOrDefault(c => c.Value.ClassName.Name.Contains("status", StringComparison.CurrentCultureIgnoreCase)).Value;
+                                        }
+                                        creatureObject = dataStore.Objects.First(c => c.Key != statusObject.Guid).Value;
 
                                         var podContainerRef = pod.Properties.FirstOrDefault(p => p.Name == "OwnerInventory");
                                         if (podContainerRef != null)

@@ -1970,6 +1970,18 @@ namespace ASVPack.Models
                                 jw.WritePropertyName("dataFile");
                                 jw.WriteValue(player.PlayerFilename);
 
+
+                                jw.WritePropertyName("achievements");
+                                jw.WriteStartArray();
+                                foreach(var achievement in player.Achievments)
+                                {
+                                    jw.WriteStartObject();
+                                    jw.WritePropertyName("achievement");
+                                    jw.WriteValue($"{achievement.Description.Replace("Defeated ", "")} {achievement.Level}");
+                                    jw.WriteEndObject();
+                                }
+                                jw.WriteEndArray();
+
                                 bool exportInventories = true;
 
                                 if (exportInventories)

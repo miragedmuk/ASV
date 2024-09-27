@@ -578,7 +578,7 @@ namespace ARKViewer
                         if (itemMap != null && itemMap.DisplayName != null)
                         {
                             itemName = itemMap.DisplayName;
-                            categoryName = itemMap.Category;
+                            categoryName = itemMap.Category??"Misc.";
                         }
                     }
 
