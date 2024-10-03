@@ -95,7 +95,7 @@ namespace ARKViewer
         private void PopulateWildLovers()
         {
 
-            var searchRankCriteria = Program.ProgramConfig.BreedingSearchOptions.FirstOrDefault(x => x.ClassName == tame.ClassName & !x.Tamed);
+            var searchRankCriteria = Program.ProgramConfig.BreedingSearchOptions.Find(x => x.ClassName == tame.ClassName & !x.Tamed);
             if (searchRankCriteria == null) searchRankCriteria = new ASVBreedingSearch()
             {
                 ClassName = tame.ClassName,
@@ -206,7 +206,7 @@ namespace ARKViewer
         {
 
 
-            ASVBreedingSearch searchRankCriteria = Program.ProgramConfig.BreedingSearchOptions.FirstOrDefault(x => x.ClassName == tame.ClassName && x.Tamed);
+            ASVBreedingSearch searchRankCriteria = Program.ProgramConfig.BreedingSearchOptions.Find(x => x.ClassName == tame.ClassName && x.Tamed);
             if (searchRankCriteria == null) searchRankCriteria = new ASVBreedingSearch() { ClassName = tame.ClassName, Tamed = true };
 
 
@@ -1394,7 +1394,7 @@ namespace ARKViewer
                 {
                     var selectedOptions = options.SearchOptions;
 
-                    var configOption = Program.ProgramConfig.BreedingSearchOptions.FirstOrDefault(x => x.ClassName == selectedOptions.ClassName && x.Tamed == true);
+                    var configOption = Program.ProgramConfig.BreedingSearchOptions.Find(x => x.ClassName == selectedOptions.ClassName && x.Tamed == true);
                     if (configOption == null)
                     {
                         configOption = selectedOptions;
@@ -1437,7 +1437,7 @@ namespace ARKViewer
                     {
                         var selectedOptions = options.SearchOptions;
 
-                        var configOption = Program.ProgramConfig.BreedingSearchOptions.FirstOrDefault(x => x.ClassName == selectedOptions.ClassName && x.Tamed == false);
+                        var configOption = Program.ProgramConfig.BreedingSearchOptions.Find(x => x.ClassName == selectedOptions.ClassName && x.Tamed == false);
                         if (configOption == null)
                         {
                             configOption = selectedOptions;

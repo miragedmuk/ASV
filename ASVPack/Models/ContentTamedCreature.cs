@@ -25,6 +25,7 @@ namespace ASVPack.Models
         [DataMember] public bool IsClaimed { get; set; } = true;
         [DataMember] public bool IsCryo { get; set; } = false;
         [DataMember] public bool IsVivarium { get; set; } = false;
+        [DataMember] public bool IsEmbryo { get; set; } = false;
         [DataMember] public long ImprintedPlayerId { get; set; } = 0;
         public string ImprintedPlayerNetId { get; set; } = string.Empty;
         [DataMember] public string ImprinterName { get; set; } = "";
@@ -273,10 +274,8 @@ namespace ASVPack.Models
 
             }
 
-
-
-
         }
+
 
         public ContentTamedCreature() : base()
         {
@@ -405,18 +404,25 @@ namespace ASVPack.Models
             }
 
 
-            var geneTraits = creatureObject.Properties.FirstOrDefault(p => p.Name == "GeneTraits")?.Value;
+            var geneTraits = creatureObject.Properties.Find(p => p.Name == "GeneTraits")?.Value;
             if (geneTraits != null)
             {
                 foreach (string geneTrait in geneTraits)
                 {
+                    string traitName = geneTrait;
+                    
                     var openBracketPos = geneTrait.LastIndexOf("[");
                     var closeBracketPos = geneTrait.LastIndexOf("]");
 
-                    var traitClass = geneTrait.Substring(0, openBracketPos);
-                    var traitTier = int.Parse(geneTrait.Substring(openBracketPos + 1, closeBracketPos - openBracketPos - 1));
+                    if(openBracketPos >0 && closeBracketPos > 0)
+                    {
+                        var traitClass = geneTrait.Substring(0, openBracketPos);
+                        var traitTier = int.Parse(geneTrait.Substring(openBracketPos + 1, closeBracketPos - openBracketPos - 1));
 
-                    string traitName = string.Concat(traitClass.Replace("Inherit", ""), " (", traitTier + 1, ")");
+                        traitName = string.Concat(traitClass.Replace("Inherit", ""), " (", traitTier + 1, ")");
+
+                    }
+
 
                     Traits.Add(traitName);
 

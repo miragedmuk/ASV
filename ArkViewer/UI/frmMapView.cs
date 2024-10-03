@@ -384,7 +384,7 @@ namespace ARKViewer
                 double clickY = e.Y / (zoomLevel);
                 double clickX = e.X / (zoomLevel);
 
-                var customMarker = cm.CustomMarkerRegions.FirstOrDefault(x =>
+                var customMarker = cm.CustomMarkerRegions.Find(x =>
                     clickY >= x.Item1.Top
                     && clickY <= x.Item1.Top + x.Item1.Height
                     && clickX >= x.Item1.Left

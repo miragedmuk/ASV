@@ -224,17 +224,20 @@ namespace AsaSavegameToolkit
             long endTicks = DateTime.Now.Ticks;
 
             ConcurrentDictionary<Guid,AsaGameObject> objectBag = new ConcurrentDictionary<Guid, AsaGameObject>();
+
+            var inventoryContainers = Objects.Where(o => o.Properties.Any(p => p.Name.Equals("MyInventoryComponent"))).ToList();
+
             var pods = Objects.Where(o => (o.ClassString.Contains("Cryo") || o.ClassString.Contains("Dinoball")) && o.Properties.Any(p => p.Name.ToLower() == "customitemdatas"));
             Parallel.ForEach(pods, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, pod =>
             //foreach(var pod in pods)
             {
-                var customDataList = pod.Properties.FirstOrDefault(p => p.Name == "CustomItemDatas")?.Value as List<dynamic>;
+                var customDataList = pod.Properties.Find(p => p.Name == "CustomItemDatas")?.Value as List<dynamic>;
 
                 if (customDataList != null)
                 {
                     foreach(List<dynamic> customData in customDataList)
                     {
-                        AsaProperty<dynamic> customBytes = customData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "CustomDataBytes");
+                        AsaProperty<dynamic> customBytes = customData.Find(p => ((AsaProperty<dynamic>)p).Name == "CustomDataBytes");
                         List<dynamic>? customProperties = customBytes?.Value;
                         AsaProperty<dynamic> customContainer = customProperties[0];
 
@@ -279,18 +282,19 @@ namespace AsaSavegameToolkit
                                         }
                                         creatureObject = dataStore.Objects.First(c => c.Key != statusObject.Guid).Value;
 
-                                        var podContainerRef = pod.Properties.FirstOrDefault(p => p.Name == "OwnerInventory");
+                                        var podContainerRef = pod.Properties.Find(p => p.Name == "OwnerInventory");
                                         if (podContainerRef != null)
                                         {
                                             AsaObjectReference containerId = podContainerRef.Value;
                                             var podContainerInventory = GetObjectByGuid(Guid.Parse(containerId.Value));
                                             if (podContainerInventory != null)
                                             {
-                                                var podContainer = Objects.FirstOrDefault(o => o.Names != null && o.Names.Count > 0 && o.Names[0] == podContainerInventory.Names[1]);
+                                                
+                                                var podContainer = inventoryContainers.Find(o =>  o.Names[0].Equals( podContainerInventory.Names[1]));
                                                 if (podContainer != null)
                                                 {
                                                     creatureObject.Location = podContainer.Location;
-                                                    if(creatureObject.Properties.LongCount(c=>c.Name == "TargetingTeam") > 0 && podContainer.Properties.Any(p => p.Name == "TargetingTeam"))
+                                                    if(creatureObject.Properties.Any(c=>c.Name == "TargetingTeam") && podContainer.Properties.Any(p => p.Name == "TargetingTeam"))
                                                     {
                                                         creatureObject.Properties.RemoveAll(p => p.Name == "TargetingTeam");
                                                         creatureObject.Properties.Add(podContainer.Properties.First(p => p.Name == "TargetingTeam"));
@@ -303,6 +307,7 @@ namespace AsaSavegameToolkit
 
 
                                                 }
+                                                
                                             }
                                         }
 

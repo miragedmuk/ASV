@@ -230,10 +230,10 @@ namespace ARKViewer
             {
                 checkMarker.Displayed = e.Item.Checked;
 
-                var mapViewMarker = MapViewer.CustomMarkers.FirstOrDefault(x => x.Map == checkMarker.Map && x.Name == checkMarker.Name);
+                var mapViewMarker = MapViewer.CustomMarkers.Find(x => x.Map == checkMarker.Map && x.Name == checkMarker.Name);
                 mapViewMarker.Displayed = checkMarker.Displayed;
 
-                var configMarker = Program.ProgramConfig.MapMarkerList.FirstOrDefault(x => x.Map == checkMarker.Map && x.Name == checkMarker.Name);
+                var configMarker = Program.ProgramConfig.MapMarkerList.Find(x => x.Map == checkMarker.Map && x.Name == checkMarker.Name);
                 mapViewMarker.Displayed = checkMarker.Displayed;
 
                 MapViewer.DrawTestMap(selectedLocations);
@@ -340,10 +340,10 @@ namespace ARKViewer
                 lvwMapMarkers.Items.Remove(selectedItem);
 
 
-                var mapViewMarker = MapViewer.CustomMarkers.FirstOrDefault(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
+                var mapViewMarker = MapViewer.CustomMarkers.Find(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
                 if (mapViewMarker != null) MapViewer.CustomMarkers.Remove(mapViewMarker);
 
-                var configMarker = Program.ProgramConfig.MapMarkerList.FirstOrDefault(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
+                var configMarker = Program.ProgramConfig.MapMarkerList.Find(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
                 if (configMarker != null) Program.ProgramConfig.MapMarkerList.Remove(configMarker);
 
                 MapViewer.DrawTestMap(new List<Tuple<float, float>>());
@@ -379,11 +379,11 @@ namespace ARKViewer
                 selectedItem.SubItems[2].Text = markerEditor.EditingMarker.Lon.ToString("0.00");
                 selectedItem.Tag = markerEditor.EditingMarker;
 
-                var mapViewMarker = MapViewer.CustomMarkers.FirstOrDefault(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
+                var mapViewMarker = MapViewer.CustomMarkers.Find(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
                 if (mapViewMarker != null) MapViewer.CustomMarkers.Remove(mapViewMarker);
                 MapViewer.CustomMarkers.Add(markerEditor.EditingMarker);
 
-                var configMarker = Program.ProgramConfig.MapMarkerList.FirstOrDefault(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
+                var configMarker = Program.ProgramConfig.MapMarkerList.Find(x => x.Map == selectedMarker.Map && x.Name == selectedMarker.Name);
                 if (configMarker != null) Program.ProgramConfig.MapMarkerList.Remove(configMarker);
                 Program.ProgramConfig.MapMarkerList.Add(markerEditor.EditingMarker);
 

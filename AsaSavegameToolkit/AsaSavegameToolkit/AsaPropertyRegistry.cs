@@ -148,6 +148,12 @@ namespace AsaSavegameToolkit
                         property.Add(ReadStructMap(archive, keyType, valueType));
 
                         break;
+                    case "ObjectProperty":
+                        var mapObjectRef = new AsaObjectReference(archive, true);
+                        archive.SkipBytes(1);
+
+
+                        break;
                     default:
 
                         propertyName = archive.ReadName();

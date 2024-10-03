@@ -553,7 +553,7 @@ namespace ARKViewer
             if(SavedConfig.MaxCores <=0) SavedConfig.MaxCores = (int)(Environment.ProcessorCount * 0.75);
             if (SavedConfig.MaxCores <= 0) SavedConfig.MaxCores = 1;
             udMaxCores.Value = SavedConfig.MaxCores;
-
+            udMaxCores.Maximum = Environment.ProcessorCount;
 
             optPlayerTameHide.Checked = SavedConfig.HideNoTames;
             optPlayerTameShow.Checked = !SavedConfig.HideNoTames;

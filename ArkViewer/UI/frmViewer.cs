@@ -75,7 +75,7 @@ namespace ARKViewer
         private void LoadWindowSettings()
         {
 
-            var savedWindow = ARKViewer.Program.ProgramConfig.Windows.FirstOrDefault(w => w.Name == this.Name);
+            var savedWindow = ARKViewer.Program.ProgramConfig.Windows.Find(w => w.Name == this.Name);
 
             if (savedWindow != null)
             {
@@ -99,7 +99,7 @@ namespace ARKViewer
             //only save location if normal window, do not save location/size if minimized/maximized
             if (this.WindowState == FormWindowState.Normal)
             {
-                var savedWindow = ARKViewer.Program.ProgramConfig.Windows.FirstOrDefault(w => w.Name == this.Name);
+                var savedWindow = ARKViewer.Program.ProgramConfig.Windows.Find(w => w.Name == this.Name);
                 if (savedWindow == null)
                 {
                     savedWindow = new ViewerWindow();
@@ -160,14 +160,14 @@ namespace ARKViewer
             if (Program.TabCommands.Count > 0)
             {
                 //populate copy/rcon command lists
-                var wildCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "wild");
+                var wildCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "wild");
                 if (wildCommands != null && wildCommands.Commands.Count > 0)
                 {
                     cboConsoleCommandsWild.Items.Clear();
                     cboConsoleCommandsWild.Items.AddRange(wildCommands.Commands.ToArray());
                 }
 
-                var tamedCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "tamed");
+                var tamedCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "tamed");
                 if (tamedCommands != null && tamedCommands.Commands.Count > 0)
                 {
                     cboConsoleCommandsTamed.Items.Clear();
@@ -175,7 +175,7 @@ namespace ARKViewer
 
                 }
 
-                var structureCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "structures");
+                var structureCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "structures");
                 if (structureCommands != null && structureCommands.Commands.Count > 0)
                 {
                     cboConsoleCommandsStructure.Items.Clear();
@@ -183,7 +183,7 @@ namespace ARKViewer
                 }
 
 
-                var tribeCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "tribes");
+                var tribeCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "tribes");
                 if (tribeCommands != null && tribeCommands.Commands.Count > 0)
                 {
                     cboConsoleCommandsTribe.Items.Clear();
@@ -191,7 +191,7 @@ namespace ARKViewer
                 }
 
 
-                var playerCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "players");
+                var playerCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "players");
                 if (playerCommands != null && playerCommands.Commands.Count > 0)
                 {
                     cboConsoleCommandsPlayer.Items.Clear();
@@ -199,7 +199,7 @@ namespace ARKViewer
                 }
 
 
-                var droppedCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "droppeditems");
+                var droppedCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "droppeditems");
                 if (droppedCommands != null && droppedCommands.Commands.Count > 0)
                 {
                     cboConsoleCommandDropped.Items.Clear();
@@ -208,7 +208,7 @@ namespace ARKViewer
 
 
 
-                var searchCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "itemsearch");
+                var searchCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "itemsearch");
                 if (searchCommands != null && searchCommands.Commands.Count > 0)
                 {
                     cboConsoleCommandSearch.Items.Clear();
@@ -216,7 +216,7 @@ namespace ARKViewer
                 }
 
 
-                var paintingCommands = Program.TabCommands.FirstOrDefault(t => t.TabName.ToLower() == "paintings");
+                var paintingCommands = Program.TabCommands.Find(t => t.TabName.ToLower() == "paintings");
                 if (paintingCommands != null && paintingCommands.Commands.Count > 0)
                 {
 
@@ -319,6 +319,8 @@ namespace ARKViewer
             Program.LogWriter.Trace("BEGIN LoadContent()");
 
             this.Cursor = Cursors.WaitCursor;
+
+            InitializeDefaults();
 
             if (Program.ProgramConfig.Mode == ViewerModes.Mode_Ftp)
             {
@@ -486,46 +488,6 @@ namespace ARKViewer
                 }
 
 
-                RefreshRealms();
-                RefreshTamedTraits();
-                RefreshWildTraits();
-
-                var allWilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, float.MaxValue, "", "");
-                if (allWilds.Count > 0)
-                {
-                    int maxLevel = allWilds.Max(w => w.BaseLevel);
-                    udWildMax.Maximum = maxLevel;
-                    udWildMin.Maximum = maxLevel;
-                    udWildMax.Value = maxLevel;
-                }
-
-                InitializeDefaults();
-
-                RefreshWildSummary();
-
-                RefreshTamedProductionResources();
-                RefreshTamedSummary();
-                RefreshTribeSummary();
-                RefreshPlayerTribes();
-                RefreshTamedTribes();
-                RefreshStructureTribes();
-                RefreshItemListTribes();
-                RefreshStructureSummary();
-                RefreshDroppedPlayers();
-                RefreshLeaderboardTribes();
-                RefreshLeaderboardMissions();
-                RefreshPaintingTribes();
-                RefreshPaintingStructures();
-
-
-                LoadUploadedCharacters();
-                LoadUploadedItems();
-                LoadUploadedTames();
-
-
-
-                DrawMap(0, 0);
-
                 var timeLoaded = TimeSpan.FromTicks(DateTime.Now.Ticks - startLoadTicks);
                 UpdateProgress($"Content pack loaded in {timeLoaded.ToString(@"mm\:ss")}.");
 
@@ -593,6 +555,52 @@ namespace ARKViewer
                 }
             }
 
+            if (cm != null)
+            {
+                RefreshRealms();
+                RefreshTamedTraits();
+                RefreshWildTraits();
+
+                var allWilds = cm.GetWildCreatures(0, int.MaxValue, 50, 50, float.MaxValue, "", "");
+                if (allWilds.Count > 0)
+                {
+                    int maxLevel = allWilds.Max(w => w.BaseLevel);
+                    udWildMax.Maximum = maxLevel;
+                    udWildMin.Maximum = maxLevel;
+                    udWildMax.Value = maxLevel;
+                }
+
+
+
+                RefreshWildSummary();
+
+                RefreshTamedProductionResources();
+                RefreshTamedSummary();
+                RefreshTribeSummary();
+                RefreshPlayerTribes();
+                RefreshTamedTribes();
+                RefreshStructureTribes();
+                RefreshItemListTribes();
+                RefreshStructureSummary();
+                RefreshDroppedPlayers();
+                RefreshLeaderboardTribes();
+                RefreshLeaderboardMissions();
+                RefreshPaintingTribes();
+                RefreshPaintingStructures();
+
+
+                LoadUploadedCharacters();
+                LoadUploadedItems();
+                LoadUploadedTames();
+
+
+
+                DrawMap(0, 0);
+            }
+
+            
+
+
             isLoading = false;
 
             StartRCON();
@@ -617,7 +625,7 @@ namespace ARKViewer
 
         private void RefreshRealms()
         {
-
+            if (cm == null) return;
 
             cboWildRealm.Items.Clear();
             cboWildRealm.Items.Add(new ASVComboValue("", "All Realms"));
@@ -1947,7 +1955,7 @@ namespace ARKViewer
 
                     if (commandText.Contains("<BlueprintPath>"))
                     {
-                        var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
+                        var dinoMap = Program.ProgramConfig.DinoMap.Find(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
                         if (dinoMap != null)
                         {
                             commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
@@ -2139,7 +2147,7 @@ namespace ARKViewer
 
                     if (commandText.Contains("<BlueprintPath>"))
                     {
-                        var dinoMap = Program.ProgramConfig.DinoMap.FirstOrDefault(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
+                        var dinoMap = Program.ProgramConfig.DinoMap.Find(x => x.ClassName.Equals(selectedCreature.ClassName, StringComparison.InvariantCultureIgnoreCase));
                         if (dinoMap != null)
                         {
                             commandText = commandText.Replace("<BlueprintPath>", dinoMap.BlueprintPath?.Replace("\"", ""));
@@ -4602,7 +4610,12 @@ namespace ARKViewer
             else
             {
                 UpdateProgress($"Content loaded and refreshed in {TimeSpan.FromTicks(endContentTicks - startContentTicks).ToString(@"mm\:ss")}.");
+            
+            
             }
+
+
+
 
             this.Cursor = Cursors.Default;
 
@@ -5058,7 +5071,7 @@ namespace ARKViewer
                 foreach (var resourceClass in productionResources)
                 {
                     string displayName = resourceClass;
-                    var itemMap = Program.ProgramConfig.ItemMap.FirstOrDefault(i => i.ClassName == resourceClass);
+                    var itemMap = Program.ProgramConfig.ItemMap.Find(i => i.ClassName == resourceClass);
                     if (itemMap != null && itemMap.DisplayName.Length > 0) displayName = itemMap.DisplayName;
 
                     productionComboValues.Add(new ASVComboValue(resourceClass, displayName));
@@ -5572,7 +5585,7 @@ namespace ARKViewer
                     foreach (var resourceClass in productionResources)
                     {
                         string displayName = resourceClass;
-                        var itemMap = Program.ProgramConfig.ItemMap.FirstOrDefault(i => i.ClassName == resourceClass);
+                        var itemMap = Program.ProgramConfig.ItemMap.Find(i => i.ClassName == resourceClass);
                         if (itemMap != null && itemMap.DisplayName.Length > 0) displayName = itemMap.DisplayName;
 
                         productionComboValues.Add(new ASVComboValue(resourceClass, displayName));
@@ -5853,7 +5866,7 @@ namespace ARKViewer
                     {
                         string displayName = i;
 
-                        var itemMap = Program.ProgramConfig.ItemMap.FirstOrDefault(m => m.ClassName == i);
+                        var itemMap = Program.ProgramConfig.ItemMap.Find(m => m.ClassName == i);
                         if (itemMap != null) displayName = itemMap.DisplayName;
                         comboItems.Add(new ASVComboValue(i, displayName));
 
@@ -6476,7 +6489,7 @@ namespace ARKViewer
                             {
                                 if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
                                 {
-                                    var selectedRegion = cm.LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                                    var selectedRegion = cm.LoadedMap.Regions.Find(r => r.RegionName == selectedRealm);
                                     addItem = playerStructure.Z >= selectedRegion.ZStart
                                                 && playerStructure.Z <= selectedRegion.ZEnd
                                                 && playerStructure.Latitude >= selectedRegion.LatitudeStart
@@ -6745,8 +6758,8 @@ namespace ARKViewer
                 item.SubItems.Add(detail.RandomMutationsFemale.ToString());
                 item.SubItems.Add(detail.RandomMutationsMale.ToString());
 
-                string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
-                string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
+                string rig1Name = Program.ProgramConfig.ItemMap.Find(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
+                string rig2Name = Program.ProgramConfig.ItemMap.Find(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
                 item.SubItems.Add(rig1Name);
                 item.SubItems.Add(rig2Name);
 
@@ -6934,7 +6947,7 @@ namespace ARKViewer
                         {
                             if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
                             {
-                                var selectedRegion = cm.LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                                var selectedRegion = cm.LoadedMap.Regions.Find(r => r.RegionName == selectedRealm);
                                 addPlayer = player.Z >= selectedRegion.ZStart
                                             && player.Z <= selectedRegion.ZEnd
                                             && player.Latitude >= selectedRegion.LatitudeStart
@@ -7287,7 +7300,7 @@ namespace ARKViewer
                         {
                             if (cm.LoadedMap.Regions != null && cm.LoadedMap.Regions.Count > 0)
                             {
-                                var selectedRegion = cm.LoadedMap.Regions.FirstOrDefault(r => r.RegionName == selectedRealm);
+                                var selectedRegion = cm.LoadedMap.Regions.Find(r => r.RegionName == selectedRealm);
                                 addItem = detail.Z >= selectedRegion.ZStart
                                             && detail.Z <= selectedRegion.ZEnd
                                             && detail.Latitude >= selectedRegion.LatitudeStart
@@ -7313,7 +7326,7 @@ namespace ARKViewer
                         string tribeName = detail.TribeName ?? "";
                         if (tribeName.Length == 0)
                         {
-                            var matchedTribe = tribes.FirstOrDefault(t => t.TribeId == detail.TargetingTeam);
+                            var matchedTribe = tribes.Find(t => t.TribeId == detail.TargetingTeam);
                             if (matchedTribe != null)
                             {
                                 tribeName = matchedTribe.TribeName;
@@ -7526,8 +7539,8 @@ namespace ARKViewer
                         item.SubItems.Add(Math.Round(detail.WildScale, 1).ToString("f1"));
                         item.SubItems.Add(detail?.Traits.Count.ToString() ?? "");
 
-                        string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
-                        string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
+                        string rig1Name = Program.ProgramConfig.ItemMap.Find(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
+                        string rig2Name = Program.ProgramConfig.ItemMap.Find(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
                         item.SubItems.Add(rig1Name);
                         item.SubItems.Add(rig2Name);
                         item.SubItems.Add(detail.LastAllyInRangeTime.HasValue ? detail.LastAllyInRangeTime.Value.ToString("dd MMM yyyy HH:mm") : "");
@@ -7755,8 +7768,8 @@ namespace ARKViewer
                     item.SubItems.Add(Math.Round(detail.WildScale, 1).ToString("f1"));
                     item.SubItems.Add(detail.Traits.FirstOrDefault() ?? "");
 
-                    string rig1Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
-                    string rig2Name = Program.ProgramConfig.ItemMap.FirstOrDefault(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
+                    string rig1Name = Program.ProgramConfig.ItemMap.Find(x => x.ClassName == detail.Rig1)?.DisplayName ?? detail.Rig1;
+                    string rig2Name = Program.ProgramConfig.ItemMap.Find(x => x.ClassName == detail.Rig2)?.DisplayName ?? detail.Rig2;
                     item.SubItems.Add(rig1Name);
                     item.SubItems.Add(rig2Name);
                     item.SubItems.Add(detail.DinoId);
@@ -8303,7 +8316,7 @@ namespace ARKViewer
             if (selectedTribeId != 0)
             {
                 tabFeatures.SelectTab("tpgStructures");
-                var foundTribe = cboStructureTribe.Items.Cast<ASVComboValue>().FirstOrDefault(x => x.Key == selectedTribeId.ToString());
+                var foundTribe = cboStructureTribe.Items.Cast<ASVComboValue>().ToList().Find(x => x.Key == selectedTribeId.ToString());
                 if (foundTribe != null) cboStructureTribe.SelectedItem = foundTribe;
             }
 

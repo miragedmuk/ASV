@@ -177,6 +177,8 @@ namespace AsaSavegameToolkit
 
             try
             {
+
+
                 var property = AsaPropertyRegistry.ReadProperty(archive);
                 while (property != null && archive.Position < archive.Limit)
                 {

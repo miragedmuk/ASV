@@ -888,7 +888,7 @@ namespace ASVPack.Models
                             if (s.ClassName.Name.Contains("Nest"))
                             {
                                 logWriter.Debug($"Finding nearby eggs for: {s.ClassString}");
-                                var eggInRange = objectContainer.Objects.FirstOrDefault(x =>
+                                var eggInRange = objectContainer.Objects.Find(x =>
                                     x.ClassName.Name.Contains("Egg")
                                     && x.Location != null
                                     && (((x.Location.X > s.Location.X) ? x.Location.X - s.Location.X : s.Location.X - x.Location.X) < 1500)
@@ -1158,7 +1158,7 @@ namespace ASVPack.Models
                         //foreach (var player in tribePlayers)
                         {
 
-                            GameObject? arkPlayer = gamePlayers.FirstOrDefault(x => x.GetPropertyValue<long>("LinkedPlayerDataID") == player.Id);
+                            GameObject? arkPlayer = gamePlayers.Find(x => x.GetPropertyValue<long>("LinkedPlayerDataID") == player.Id);
 
                             if (arkPlayer != null)
                             {
@@ -2178,7 +2178,30 @@ namespace ASVPack.Models
                 .Where(x => x.IsTamed()) 
                 .GroupBy(x => (long)x.GetPropertyValue<int>("TargetingTeam")).Select(x => new { TribeId = x.Key, TribeName = x.First().GetPropertyValue<string>("TribeName") ?? x.First().GetPropertyValue<string>("TamerString"), Tames = x.ToList() }).ToList();
 
+            /*
+            var embyros = arkSavegame.Objects.Where(o => o.ClassString == "PrimalItemConsumable_Embryo_Base_C").ToList();
+            foreach (var embryo in embyros)
+            {
+                AsaObjectReference? ownerInventoryRef = embryo.Properties.First(p => p.Name == "OwnerInventory")?.Value;
+                if (ownerInventoryRef != null)
+                {
+                    var ownerInventory = arkSavegame.GetObjectByGuid(Guid.Parse(ownerInventoryRef.Value));
+                    if (ownerInventory == null) continue;
+                    if (ownerInventory.Names.Count == 0) continue;
 
+                    AsaGameObject? ownerContainer = arkSavegame.Objects.First(o => o.Names[0] == ownerInventory.Names[1]);
+                    if(ownerContainer==null) continue;
+
+                    
+                    var embryoCreature = new ContentTamedEmbryo(ownerContainer, embryo);
+
+
+
+                }
+
+            }
+
+            */
 
 
             //parse player structures
@@ -2306,7 +2329,7 @@ namespace ASVPack.Models
                 //Parallel.ForEach(tribePlayers, player=>
                 foreach(var player in tribePlayers)
                 {
-                    AsaGameObject? arkPlayer = gamePlayers.FirstOrDefault(x => (long)x.GetPropertyValue<ulong>("LinkedPlayerDataID") == player.Id);
+                    AsaGameObject? arkPlayer = gamePlayers.Find(x => (long)x.GetPropertyValue<ulong>("LinkedPlayerDataID") == player.Id);
 
                     if (arkPlayer != null)
                     {
