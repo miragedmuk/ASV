@@ -47,6 +47,7 @@ namespace ASVPack.Models
         [DataMember] public List<ContentMissionScore> MissionScores { get; set; } = new List<ContentMissionScore>();
         [DataMember] public List<ContentAchievement> Achievments { get; set; } = new List<ContentAchievement>();
         [DataMember] public List<string> ExplorerNotes { get; set; } = new List<string>();
+        [DataMember] public string LastNetAddress { get;set; } = string.Empty;
 
         public bool HasGameFile { get; set; } = false;
         public string PlayerFilename { get; set; } = string.Empty;
@@ -151,7 +152,7 @@ namespace ASVPack.Models
             CharacterName = Name;
             TargetingTeam = playerData.GetPropertyValue<int>("TribeId");
             LastTimeInGame = playerData.GetPropertyValue<double>("LastLoginTime");
-
+            LastNetAddress = playerData.GetPropertyValue<string>("SavedNetworkAddress");
 
 
             var characterConfig = playerData.GetTypedProperty<PropertyStruct>("MyPlayerCharacterConfig");
@@ -292,6 +293,15 @@ namespace ASVPack.Models
 
             LastTimeInGame = playerComponent.GetPropertyValue<double>("SavedLastTimeHadController");
             Name = playerComponent.GetPropertyValue<string>("PlatformProfileName");
+
+            var netId = playerComponent.Properties.Find(p=>p.Name.Name == "PlatformProfileID");
+            if(netId!= null)
+            {
+                PropertyStruct netIdStruct = (PropertyStruct)netId;
+                StructUniqueNetIdRepl uniqueNetId = (StructUniqueNetIdRepl)netIdStruct.Value;
+                NetworkId = uniqueNetId.NetId;
+            }
+
             CharacterName = playerComponent.GetPropertyValue<string>("PlayerName");
             if (statusComponent != null)
             {
@@ -299,7 +309,7 @@ namespace ASVPack.Models
                 ExperiencePoints = statusComponent.GetPropertyValue<float>("ExperiencePoints",0,0);
             }
             Gender = playerComponent.ClassName.Name.ToLower().Contains("female") ? "Female" : "Male";
-
+           
             if (playerComponent.Location != null)
             {
                 X = playerComponent.Location?.X;
@@ -324,6 +334,7 @@ namespace ASVPack.Models
                 Id = (long)playerDataId;
                 AsaSavegameToolkit.Structs.AsaUniqueNetIdRepl netId = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "UniqueID")?.Value;
                 NetworkId = netId == null ? "" : netId.Value;
+                LastNetAddress = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "SavedNetworkAddress")?.Value ?? "";
                 Name = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "PlayerName")?.Value ?? "";
                 CharacterName = Name;
                 TargetingTeam = playerData.FirstOrDefault(p => ((AsaProperty<dynamic>)p).Name == "TribeID")?.Value ?? 0;

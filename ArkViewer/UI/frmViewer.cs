@@ -1935,7 +1935,7 @@ namespace ARKViewer
 
             if (command.Parameters.Count > 0 && lvwWildDetail.SelectedItems.Count > 0)
             {
-                foreach (var defaultParam in command.Parameters.Where(p => !string.IsNullOrEmpty(p.Default)))
+                foreach (var defaultParam in command.Parameters.Where(p => p.Default!=null))
                 {
                     commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }

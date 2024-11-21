@@ -78,6 +78,138 @@
             }
           ],
           "inputs": []
+        },
+        {
+          "text": "SpawnExactDino",
+          "params": [
+            {
+              "key": "BlueprintPath",
+              "quoted": true,
+              "order": 1
+            },
+            {
+              "key": "BlueprintSaddlePath",
+              "quoted": true,
+              "order": 2,
+              "default": ""
+            },
+            {
+              "key": "SaddleQuality",
+              "quoted": false,
+              "order": 3,
+              "default": "0"
+            },
+            {
+              "key": "BaseLevel",
+              "quoted": false,
+              "order": 4
+            },
+            {
+              "key": "AddedLevels",
+              "quoted": false,
+              "order": 5
+            },
+            {
+              "key": "WildStats",
+              "quoted": true,
+              "order": 6,
+              "default": "<hp-w>,<stam-w>,<oxy-w>,<food-w>,<weight-w>,<melee-w>,<speed-w>,<craft-w>"
+            },
+            {
+              "key": "TamedStats",
+              "quoted": true,
+              "order": 7,
+              "default": "<hp-t>,<stam-t>,<oxy-t>,<food-t>,<weight-t>,<melee-t>,<speed-t>,<craft-t>"
+            },
+            {
+              "key": "Name",
+              "quoted": true,
+              "default":  "Generated",
+              "order": 8
+            },
+            {
+              "key": "IsCloned",
+              "quoted": false,
+              "order": 9,
+              "default": "0"
+            },
+            {
+              "key": "IsNeutered",
+              "quoted": false,
+              "order": 10,
+              "default": "0"
+            },
+            {
+              "key": "TamedDate",
+              "quoted": true,
+              "default":  "",
+              "order": 11
+            },
+            {
+              "key": "ServerName",
+              "quoted": true,
+              "default":  "",
+              "order": 12
+            },
+            {
+              "key": "ImprintedName",
+              "quoted": true,
+              "order": 13
+            },
+            {
+              "key": "ImprintedPlayerId",
+              "quoted": false,
+              "order": 14
+            },
+            {
+              "key": "ImprintQuality",
+              "quoted": false,
+              "order": 15
+            },
+            {
+              "key": "ShouldBeZero",
+              "quoted": false,
+              "order": 16,
+              "default": "0"
+            },
+            {
+              "key": "Colors",
+              "quoted": true,
+              "order": 17,
+              "default": "<c0>,<c1>,<c2>,<c3>,<c4>,<c5>"
+            },
+            {
+              "key": "CreatureId",
+              "quoted": false,
+              "order": 18,
+              "default": "0"
+            },
+            {
+              "key": "CreatureXP",
+              "quoted": false,
+              "order": 19,
+              "default": "0"
+            },
+            {
+              "key": "SpawnDistance",
+              "quoted": false,
+              "order": 20,
+              "default": "100"
+            },
+            {
+              "key": "SpawnY",
+              "quoted": false,
+              "order": 21,
+              "default": "0"
+            },
+            {
+              "key": "SpawnZ",
+              "quoted": false,
+              "order": 22,
+              "default": "300"
+            }
+          ],
+          "inputs": []
         }
       ]
     },
@@ -761,6 +893,23 @@
             {
               "key": "CharacterName",
               "quoted": true,
+              "order": 1
+            }
+          ],
+          "inputs": [
+            {
+              "key": "New Name",
+              "quoted": true,
+              "order": 2
+            }
+          ]
+        },
+        {
+          "text": "RenamePlayerId",
+          "params": [
+            {
+              "key": "PlayerID",
+              "quoted": false,
               "order": 1
             }
           ],

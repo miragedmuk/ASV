@@ -2089,6 +2089,7 @@ namespace ASVPack.Models
                                                 customName = customName.Replace("Parents: /", "");
                                                 eggItem.CustomName = customName;
                                                 
+                                                
                                               
 
                                                 inventoryItems.Add(eggItem);

@@ -308,6 +308,7 @@ namespace ASVPack.Models
 
             TribeName = creatureObject.GetPropertyValue<string>("TribeName", 0, "")??"";
             Name = creatureObject.GetPropertyValue<string>("TamedName", 0, "") ?? "";
+
             if (statusObject == null)
             {
                 Level = 1;

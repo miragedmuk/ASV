@@ -438,6 +438,24 @@
       "LatDiv": 8175.0,
       "LonShift": 50.0,
       "LonDiv": 8175.0
+    },
+    {
+      "MapName": "Astraeos (Ascended)",
+      "Filename": "astraeos_wp.ark",
+      "ImageFile": "map_astraeos.png",
+      "LatShift": 50.0,
+      "LatDiv": 16000.0,
+      "LonShift": 50.0,
+      "LonDiv": 16000.0
+    },
+    {
+      "MapName": "Gun Smoke",
+      "Filename": "gunsmoke.ark",
+      "ImageFile": "map_gunsmoke.png",
+      "LatShift": 12.1,
+      "LatDiv": 7900.0,
+      "LonShift": 10.8,
+      "LonDiv": 7850.0
     }
   ]
 }

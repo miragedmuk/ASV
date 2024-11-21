@@ -1971,6 +1971,10 @@ namespace ASVPack.Models
                                 jw.WriteValue(player.PlayerFilename);
 
 
+                                jw.WritePropertyName("netAddress");
+                                jw.WriteValue(player.LastNetAddress??"");
+
+
                                 jw.WritePropertyName("achievements");
                                 jw.WriteStartArray();
                                 foreach(var achievement in player.Achievments)
