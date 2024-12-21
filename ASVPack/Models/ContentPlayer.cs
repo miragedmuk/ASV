@@ -152,8 +152,12 @@ namespace ASVPack.Models
             CharacterName = Name;
             TargetingTeam = playerData.GetPropertyValue<int>("TribeId");
             LastTimeInGame = playerData.GetPropertyValue<double>("LastLoginTime");
-            LastNetAddress = playerData.GetPropertyValue<string>("SavedNetworkAddress");
-
+            try
+            {
+                LastNetAddress = playerData.GetPropertyValue<string>("SavedNetworkAddress");
+            }
+            catch { }
+            
 
             var characterConfig = playerData.GetTypedProperty<PropertyStruct>("MyPlayerCharacterConfig");
             if (characterConfig != null)

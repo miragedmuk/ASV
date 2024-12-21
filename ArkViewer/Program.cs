@@ -677,7 +677,7 @@ namespace ARKViewer
                 string exportFolder = Path.GetDirectoryName(tamedImageFilename);
                 if (!Directory.Exists(exportFolder)) Directory.CreateDirectory(exportFolder);
                 LogWriter.Info($"Exporting Tames Image.");
-                var image = exportManger.GetMapImageTamed(tamedClassName, "", true, tribeId, playerId, new List<Tuple<float, float>>(), new ASVStructureOptions(), new List<ContentMarker>(), "");
+                var image = exportManger.GetMapImageTamed(tamedClassName, "", 0, tribeId, playerId, new List<Tuple<float, float>>(), new ASVStructureOptions(), new List<ContentMarker>(), "");
                 if (image != null)
                 {
                     image.Save(tamedImageFilename);

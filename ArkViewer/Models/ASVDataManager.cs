@@ -29,7 +29,7 @@ namespace ARKViewer.Models
         string lastRealm = string.Empty;
         Tuple<long, bool, bool, bool> cacheImageTribes = null;
         Tuple<string, string, int, int, float, float, float> cacheImageWild = null;
-        Tuple<string, string, bool, long, long> cacheImageTamed = null;
+        Tuple<string, string, int, long, long> cacheImageTamed = null;
         Tuple<long, string> cacheImageDroppedItems = null;
         Tuple<long> cacheImageDropBags = null;
         Tuple<string, long, long> cacheImagePlayerStructures = null;
@@ -210,7 +210,7 @@ namespace ARKViewer.Models
             return wilds;
         }
 
-        public List<ContentTamedCreature> GetTamedCreatures(string selectedClass, long selectedTribeId, long selectedPlayerId, bool includeCryoVivarium, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
+        public List<ContentTamedCreature> GetTamedCreatures(string selectedClass, long selectedTribeId, long selectedPlayerId, int filterType, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             if (pack.Tribes == null) return new List<ContentTamedCreature>();
 
@@ -222,8 +222,6 @@ namespace ARKViewer.Models
                                 c.Tames.Where(w =>
                                     (w.ClassName == selectedClass || selectedClass == "")
                                     & !(w.ClassName == "MotorRaft_BP_C" || w.ClassName == "Raft_BP_C")
-                                    && (includeCryoVivarium || w.IsCryo == false)
-                                    && (includeCryoVivarium || w.IsVivarium == false)
                                     &&
                                     (
                                         (Math.Abs(w.Latitude.GetValueOrDefault(0) - fromLat) <= fromRadius)
@@ -231,6 +229,22 @@ namespace ARKViewer.Models
                                     )
                                 )
                             ).ToList();
+
+            switch (filterType)
+            {
+                case 1:
+                    //normal
+                    tamed.RemoveAll(t => t.IsVivarium || t.IsCryo || t.UploadedTime.HasValue);
+                    break;
+                case 2:
+                    //stored
+                    tamed.RemoveAll(t => !(t.IsCryo || t.IsVivarium));
+                    break;
+                case 3:
+                    //uploaded
+                    tamed.RemoveAll(t => !t.UploadedTime.HasValue);
+                    break;
+            }
 
             if (!string.IsNullOrEmpty(selectedRealm))
             {
@@ -996,7 +1010,7 @@ namespace ARKViewer.Models
         }
 
 
-        public Bitmap GetMapImageTamed(string className, string productionClassName, bool includeStored, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
+        public Bitmap GetMapImageTamed(string className, string productionClassName, int filterType, long tribeId, long playerId, List<Tuple<float, float>> selectedLocations, ASVStructureOptions mapOptions, List<ContentMarker> customMarkers, string selectedRealm, float fromLat = 50, float fromLon = 50, float fromRadius = 100)
         {
             Bitmap bitmap = new Bitmap(1024, 1024);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -1009,7 +1023,7 @@ namespace ARKViewer.Models
                 && (cacheImageTamed != null
                 && cacheImageTamed.Item1 == className
                 && cacheImageTamed.Item2 == productionClassName
-                && cacheImageTamed.Item3 == includeStored
+                && cacheImageTamed.Item3 == filterType
                 && cacheImageTamed.Item4 == tribeId
                 && cacheImageTamed.Item5 == playerId
                 && lastRealm == selectedRealm
@@ -1024,14 +1038,14 @@ namespace ARKViewer.Models
                 lastDrawRequest = "tamed";
                 lastRealm = selectedRealm;
 
-                cacheImageTamed = new Tuple<string, string, bool, long, long>(className, productionClassName, includeStored, tribeId, playerId);
+                cacheImageTamed = new Tuple<string, string, int, long, long>(className, productionClassName, filterType, tribeId, playerId);
                 cachedOptions = mapOptions;
 
                 graphics.DrawImage(MapImage, new Rectangle(0, 0, 1024, 1024));
                 graphics = AddMapStructures(graphics, mapOptions);
 
 
-                var filteredTames = GetTamedCreatures(className, tribeId, playerId, includeStored, selectedRealm, fromLat,fromLon,fromRadius);
+                var filteredTames = GetTamedCreatures(className, tribeId, playerId, filterType, selectedRealm, fromLat,fromLon,fromRadius);
                 //remove any not matching productionClass
                 if (productionClassName.Length > 0) filteredTames.RemoveAll(d => d.ProductionResources == null || !d.ProductionResources.Any(r => r == productionClassName));
 

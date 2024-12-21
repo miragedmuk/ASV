@@ -153,7 +153,6 @@ namespace ARKViewer
 
 
             LoadWindowSettings();
-            chkCryo.Checked = Program.ProgramConfig.StoredTames;
             chkTameable.Checked = Program.ProgramConfig.HideNoTames;
             lblVersion.Text = $"{Application.ProductVersion}";
 
@@ -587,6 +586,7 @@ namespace ARKViewer
                 RefreshLeaderboardMissions();
                 RefreshPaintingTribes();
                 RefreshPaintingStructures();
+                RefreshFilters();
 
 
                 LoadUploadedCharacters();
@@ -598,7 +598,7 @@ namespace ARKViewer
                 DrawMap(0, 0);
             }
 
-            
+
 
 
             isLoading = false;
@@ -607,6 +607,23 @@ namespace ARKViewer
 
             this.Cursor = Cursors.Default;
             Program.LogWriter.Trace("END LoadContent()");
+        }
+
+        private void RefreshFilters()
+        {
+            cboItemListFilter.Items.Clear();
+            cboItemListFilter.Items.Add("All");
+            cboItemListFilter.Items.Add("Normal");
+            cboItemListFilter.Items.Add("Blueprint");
+            cboItemListFilter.Items.Add("Uploaded");
+            cboItemListFilter.SelectedIndex = 0;
+
+            cboTameFilter.Items.Clear();
+            cboTameFilter.Items.Add("All");
+            cboTameFilter.Items.Add("Normal");
+            cboTameFilter.Items.Add("Stored");
+            cboTameFilter.Items.Add("Uploaded");
+            cboTameFilter.SelectedIndex = 0;
         }
 
         private void Container_OnUpdateProgress(string message)
@@ -1935,7 +1952,7 @@ namespace ARKViewer
 
             if (command.Parameters.Count > 0 && lvwWildDetail.SelectedItems.Count > 0)
             {
-                foreach (var defaultParam in command.Parameters.Where(p => p.Default!=null))
+                foreach (var defaultParam in command.Parameters.Where(p => p.Default != null))
                 {
                     commandTemplate = commandTemplate.Replace($"<{defaultParam.Key}>", $"{defaultParam.Default}");
                 }
@@ -2407,14 +2424,6 @@ namespace ARKViewer
 
                     break;
             }
-        }
-
-        private void chkCryo_CheckedChanged(object sender, EventArgs e)
-        {
-            //chkCryo.BackgroundImage = chkCryo.Checked ? ARKViewer.Properties.Resources.button_cryoon : ARKViewer.Properties.Resources.button_cryooff;
-            Program.ProgramConfig.StoredTames = chkCryo.Checked;
-
-            LoadTameDetail();
         }
 
         private void cboDroppedPlayer_SelectedIndexChanged(object sender, EventArgs e)
@@ -4610,8 +4619,8 @@ namespace ARKViewer
             else
             {
                 UpdateProgress($"Content loaded and refreshed in {TimeSpan.FromTicks(endContentTicks - startContentTicks).ToString(@"mm\:ss")}.");
-            
-            
+
+
             }
 
 
@@ -4719,7 +4728,7 @@ namespace ARKViewer
                     var fromLonTamed = (float)udLonTamed.Value;
                     var fromRadiusTamed = (float)udRadiusTamed.Value;
 
-                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, chkCryo.Checked, tribeId, playerId, selectedTameLocations, (cboTameRealm.SelectedItem as ASVComboValue).Key, fromLatTamed, fromLonTamed, fromRadiusTamed);
+                    MapViewer.DrawMapImageTamed(tameClass, tameProduction, cboTameFilter.SelectedIndex, tribeId, playerId, selectedTameLocations, (cboTameRealm.SelectedItem as ASVComboValue).Key, fromLatTamed, fromLonTamed, fromRadiusTamed);
 
 
                     break;
@@ -5063,7 +5072,7 @@ namespace ARKViewer
 
             List<ASVComboValue> productionComboValues = new List<ASVComboValue>();
 
-            var tameDinos = cm.GetTamedCreatures("", 0, 0, true, "");
+            var tameDinos = cm.GetTamedCreatures("", 0, 0, 0, "");
 
             var productionResources = tameDinos.Where(x => x.ProductionResources != null).SelectMany(d => d.ProductionResources).Distinct().ToList();
             if (productionResources != null && productionResources.Count > 0)
@@ -5469,7 +5478,7 @@ namespace ARKViewer
 
 
             //MessageBox.Show("Listing tamed creatures.");
-            var tamedSummary = cm.GetTamedCreatures("", 0, 0, chkCryo.Checked, "", (float)udLatTamed.Value, (float)udLonTamed.Value, (float)udRadiusTamed.Value)
+            var tamedSummary = cm.GetTamedCreatures("", 0, 0, 0, "", (float)udLatTamed.Value, (float)udLonTamed.Value, (float)udRadiusTamed.Value)
                                 .Where(t => !(t.ClassName == "MotorRaft_BP_C" || t.ClassName == "Raft_BP_C"))
                                 .GroupBy(c => c.ClassName)
                                 .Select(g => new { ClassName = g.Key, Name = ARKViewer.Program.ProgramConfig.DinoMap.Count(d => d.ClassName == g.Key) == 0 ? g.Key : ARKViewer.Program.ProgramConfig.DinoMap.Where(d => d.ClassName == g.Key).FirstOrDefault().FriendlyName, Count = g.Count(), Min = g.Min(l => l.Level), Max = g.Max(l => l.Level) })
@@ -6806,6 +6815,26 @@ namespace ARKViewer
 
             List<ListViewItem> newItems = new List<ListViewItem>();
             var foundItems = cm.GetItems(selectedTribeId, selectedItemClass, "", txtItemListItemId.Text.Trim());
+
+            if (cboItemListFilter.SelectedIndex != 0)
+            {
+                switch (cboItemListFilter.SelectedIndex)
+                {
+                    case 1:
+                        //normal
+                        foundItems.RemoveAll(x => x.IsBlueprint || x.UploadedTime.HasValue);
+                        break;
+                    case 2:
+                        //blueprint
+                        foundItems.RemoveAll(x => !x.IsBlueprint);
+                        break;
+                    case 3:
+                        //uploaded
+                        foundItems.RemoveAll(x => !x.UploadedTime.HasValue);
+                        break;
+                }
+            }
+
             if (cboItemListPlayers.SelectedIndex > 0)
             {
                 ASVComboValue selectedPlayer = cboItemListPlayers.SelectedItem as ASVComboValue;
@@ -6816,7 +6845,7 @@ namespace ARKViewer
             {
                 foreach (var foundItem in foundItems)
                 {
-                    if (chkItemSearchBlueprints.Checked || !chkItemSearchBlueprints.Checked & !foundItem.IsBlueprint)
+                    //if (chkItemSearchBlueprints.Checked || !chkItemSearchBlueprints.Checked & !foundItem.IsBlueprint)
                     {
                         string qualityName = "";
                         Color backColor = lvwItemList.BackColor;
@@ -6854,15 +6883,8 @@ namespace ARKViewer
                         }
 
                         newItem.SubItems.Add(foundItem.ItemId.ToString());
-
                         newItem.Tag = foundItem;
-
-                        if (!foundItem.UploadedTime.HasValue || (chkItemSearchUploads.Checked))
-                        {
-                            newItems.Add(newItem);
-                        }
-
-
+                        newItems.Add(newItem);
 
                     }
                 }
@@ -7237,8 +7259,6 @@ namespace ARKViewer
                     .Where(x =>
                         (x.ClassName == className || className == "")
                         & !(x.ClassName == "MotorRaft_BP_C" || x.ClassName == "Raft_BP_C")
-                        && (chkCryo.Checked || x.IsCryo == false)
-                        && (chkCryo.Checked || x.IsVivarium == false)
                         && (x.TargetingTeam == selectedTribeId || x.TargetingTeam > 0 && x.TargetingTeam < 2000000000 && selectedTribeId == 0)
                         &&
                         (
@@ -7247,6 +7267,30 @@ namespace ARKViewer
                             (Math.Abs(x.Longitude.GetValueOrDefault(0) - fromLon) <= fromRadius)
                         )
                     )).DistinctBy(u => new { u.DinoId, u.Latitude, u.Longitude, u.Name, u.Level }).ToList();
+
+                if(cboTameFilter.SelectedIndex > 0)
+                {
+                    switch (cboTameFilter.SelectedIndex)
+                    {
+                        case 1:
+                            //only normal
+                            detailList.RemoveAll(d => d.UploadedTime.HasValue || d.IsCryo || d.IsVivarium);
+
+                            break;
+
+                        case 2:
+                            //only stored
+                            detailList.RemoveAll(d => !(d.IsCryo || d.IsVivarium));
+
+                            break;
+
+                        case 3:
+                            //only uploads
+                            detailList.RemoveAll(d => !d.UploadedTime.HasValue );
+
+                            break;
+                    }
+                }
 
                 if (cboTamedResource.SelectedIndex > 0)
                 {
@@ -7314,11 +7358,6 @@ namespace ARKViewer
                         }
 
 
-                    }
-
-                    if (detail.UploadedTime.HasValue)
-                    {
-                        addItem = chkTameUploads.Checked;
                     }
 
                     if (addItem)
@@ -8866,7 +8905,7 @@ namespace ARKViewer
                         {
                             MessageBox.Show("Unable to copy command to clipboard.\n\nPlease try again.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
-                        
+
                     }
                     else
                     {
@@ -9800,6 +9839,16 @@ namespace ARKViewer
         private void cboWildTrait_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadWildDetail();
+        }
+
+        private void cboItemListFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadItemListDetail();
+        }
+
+        private void cboTameFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadTameDetail();
         }
     }
 }

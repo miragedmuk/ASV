@@ -50,6 +50,9 @@
     <None Update="Maps\map_astraeos.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Maps\map_extinction_wp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Maps\map_forglar.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

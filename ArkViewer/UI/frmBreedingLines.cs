@@ -210,7 +210,7 @@ namespace ARKViewer
             if (searchRankCriteria == null) searchRankCriteria = new ASVBreedingSearch() { ClassName = tame.ClassName, Tamed = true };
 
 
-            var tameMatches = cm.GetTamedCreatures(tame.ClassName, chkAllTribes.Checked ? 0 : tame.TargetingTeam, 0, true, "")
+            var tameMatches = cm.GetTamedCreatures(tame.ClassName, chkAllTribes.Checked ? 0 : tame.TargetingTeam, 0, 0, "")
                                 .Where(t => t.Gender != tame.Gender)
                                 .OrderByDescending(o => o.BaseLevel)
                                 .ToList();

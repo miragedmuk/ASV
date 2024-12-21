@@ -756,6 +756,40 @@ namespace ASVPack.Models
                     logWriter.Info($"Allocating players to tribes");
 
                     //allocate players to tribes
+
+                    foreach (var p in fileProfiles)
+                    {
+
+           
+                        var playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.TargetingTeam);
+                        if (playerTribe == null)
+                        {
+                            playerTribe = fileTribes.FirstOrDefault(t => t.Members.Any(x => x.Key == p.Id));
+                        }
+                        var soloTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.Id);
+
+
+                        if (playerTribe == null && soloTribe == null)
+                        {
+                            playerTribe = new ContentTribe()
+                            {
+                                IsSolo = true,
+                                HasGameFile = false,
+                                TribeId = p.Id,
+                                TribeName = $"Tribe of {p.CharacterName}"
+                            };
+
+                            fileTribes.Add(playerTribe);
+                        }
+
+                        playerTribe.Players.Add(p);
+                    }
+
+                    //var test = fileTribes.Where(t => t.Players.Any(p => p.NetworkId == "2535459452569590")).ToList();
+
+
+
+                    /*
                     Parallel.ForEach(fileProfiles, new ParallelOptions() { MaxDegreeOfParallelism = maxCoresCached}, p =>
                     //fileProfiles.AsParallel().ForAll(p =>
                     //foreach(var p in fileProfiles)
@@ -794,6 +828,7 @@ namespace ASVPack.Models
 
                     }
                     );
+                    */
                     long allocationEnd = DateTime.Now.Ticks;
 
 
@@ -1056,6 +1091,7 @@ namespace ASVPack.Models
 
                     logWriter.Debug($"Identifying in-game players with no .arkprofile");
 
+                    /*
                     var abandonedGamePlayers = tribesAndPlayers.Where(x => !fileTribes.Any(t => t.TribeId == (long)x.Key) & !fileProfiles.Any(p => p.Id == (long)x.Key)).ToList();
                     if (abandonedGamePlayers != null && abandonedGamePlayers.Count > 0)
                     {
@@ -1084,7 +1120,7 @@ namespace ASVPack.Models
                         }
                         );
                     }
-
+                    */
 
 
                     logWriter.Debug($"Identifying in-game missing tribes from player structures");
@@ -1252,12 +1288,7 @@ namespace ASVPack.Models
                     logWriter.Info($"Tribe players loaded in: {tribeLoadTime.ToString(@"mm\:ss")}.");
 
 
-
-
-
-
-
-
+                    
                     logWriter.Debug($"Populating tamed creature inventories");
 
 
@@ -1811,6 +1842,7 @@ namespace ASVPack.Models
                     }
                 }
             }
+
             return contentPlayer;
         }
 
@@ -1930,9 +1962,9 @@ namespace ASVPack.Models
             startTicks = DateTime.Now.Ticks;
             OnUpdateProgress?.Invoke("ARK save file loaded. Allocating Tribe Players...");
             //allocate players to tribes
-            foreach (var p in fileProfiles)
-            {
-
+            //foreach (var p in fileProfiles)
+            Parallel.ForEach(fileProfiles, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, p =>
+            { 
                 var playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.TargetingTeam);
                 if (playerTribe == null)
                 {
@@ -1955,7 +1987,7 @@ namespace ASVPack.Models
 
                 playerTribe.Players.Add(p);
             }
-            //);
+            );
 
             
 

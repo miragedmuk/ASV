@@ -1,1 +1,2154 @@
-{"creatures":[{"ClassName":"Fenrir_Character_BP_C","FriendlyName":"Fenrir","BlueprintPath":"\"Blueprint'/Game/Fjordur/Dinos/Fenrir/Fenrir_Character_BP.Fenrir_Character_BP'\""},{"ClassName":"Canoe_BP_C","FriendlyName":"Canoe","BlueprintPath":""},{"ClassName":"Fjordhawk_Character_BP_C","FriendlyName":"Fjordhawk","BlueprintPath":"\"Blueprint'/Game/Fjordur/Dinos/Fjordhawk/Fjordhawk_Character_BP.Fjordhawk_Character_BP'\""},{"ClassName":"Desmodus_Character_BP_C","FriendlyName":"Desmodus","BlueprintPath":"\"Blueprint'/Game/Fjordur/Dinos/Desmodus/Desmodus_Character_BP.Desmodus_Character_BP'\""},{"ClassName":"Andrewsarchus_Character_BP_C","FriendlyName":"Andrewsarchus","BlueprintPath":"\"Blueprint'/Game/Fjordur/Dinos/Andrewsarchus/Andrewsarchus_Character_BP.Andrewsarchus_Character_BP'\""},{"ClassName":"Monkey_Character_BP_Aggressive_Med_C","FriendlyName":"Mesopithecus (Boss Minion) (Beta)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Monkey/Monkey_Character_BP_Aggressive_Med.Monkey_Character_BP_Aggressive_Med'\""},{"ClassName":"Dinopithecus_Character_BP_C","FriendlyName":"Dinopithecus","BlueprintPath":"\"Blueprint'/Game/LostIsland/Dinos/Dinopithecus/Dinopithecus_Character_BP.Dinopithecus_Character_BP'\""},{"ClassName":"Exosuit_RTS_Character_BP_C","FriendlyName":"Exo Mek","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/Exosuit/Exosuit_RTS_Character_BP.Exosuit_RTS_Character_BP'\""},{"ClassName":"Sinomacrops_Character_BP_C","FriendlyName":"Sinomacrops","BlueprintPath":"\"Blueprint'/Game/LostIsland/Dinos/Sinomacrops/Sinomacrops_Character_BP.Sinomacrops_Character_BP'\""},{"ClassName":"BunnyOviraptor_Character_BP_C","FriendlyName":"Bunny Oviraptor","BlueprintPath":""},{"ClassName":"Amargasaurus_Character_BP_C","FriendlyName":"Amargasaurus","BlueprintPath":"\"Blueprint'/Game/LostIsland/Dinos/Amargasaurus/Amargasaurus_Character_BP.Amargasaurus_Character_BP'\""},{"ClassName":"Dodo_Character_BP_Bunny_C","FriendlyName":"Bunny Dodo","BlueprintPath":""},{"ClassName":"Achatina_Character_BP_C","FriendlyName":"Achatina","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Achatina/Achatina_Character_BP.Achatina_Character_BP'\""},{"ClassName":"Allo_Character_BP_C","FriendlyName":"Allosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Allosaurus/Allo_Character_BP.Allo_Character_BP'\""},{"ClassName":"Ammonite_Character_C","FriendlyName":"Ammonite","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Ammonite/Ammonite_Character.Ammonite_Character'\""},{"ClassName":"Angler_Character_BP_C","FriendlyName":"Anglerfish","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Anglerfish/Angler_Character_BP.Angler_Character_BP'\""},{"ClassName":"Ankylo_Character_BP_C","FriendlyName":"Ankylosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Ankylo/Ankylo_Character_BP.Ankylo_Character_BP'\""},{"ClassName":"SpiderS_Character_BP_C","FriendlyName":"Araneo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Small/SpiderS_Character_BP.SpiderS_Character_BP'\""},{"ClassName":"Archa_Character_BP_C","FriendlyName":"Archaeopteryx","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Archaeopteryx/Archa_Character_BP.Archa_Character_BP'\""},{"ClassName":"Argent_Character_BP_C","FriendlyName":"Argentavis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Argentavis/Argent_Character_BP.Argent_Character_BP'\""},{"ClassName":"Arthro_Character_BP_C","FriendlyName":"Arthropluera","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Arthropluera/Arthro_Character_BP.Arthro_Character_BP'\""},{"ClassName":"Baryonyx_Character_BP_C","FriendlyName":"Baryonyx","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Baryonyx/Baryonyx_Character_BP.Baryonyx_Character_BP'\""},{"ClassName":"Basilosaurus_Character_BP_C","FriendlyName":"Basilosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Basilosaurus/Basilosaurus_Character_BP.Basilosaurus_Character_BP'\""},{"ClassName":"Toad_Character_BP_C","FriendlyName":"Beelzebufo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Toad/Toad_Character_BP.Toad_Character_BP'\""},{"ClassName":"Sauropod_Character_BP_C","FriendlyName":"Brontosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Sauropod/Sauropod_Character_BP.Sauropod_Character_BP'\""},{"ClassName":"Turtle_Character_BP_C","FriendlyName":"Carbonemys","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Turtle/Turtle_Character_BP.Turtle_Character_BP'\""},{"ClassName":"Carno_Character_BP_C","FriendlyName":"Carnotaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Carno/Carno_Character_BP.Carno_Character_BP'\""},{"ClassName":"Beaver_Character_BP_C","FriendlyName":"Castoroides","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Beaver/Beaver_Character_BP.Beaver_Character_BP'\""},{"ClassName":"Chalico_Character_BP_C","FriendlyName":"Chalicotherium","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Chalicotherium/Chalico_Character_BP.Chalico_Character_BP'\""},{"ClassName":"ChalkGolem_Character_BP_C","FriendlyName":"Chalk Golem","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/Dinos/RockGolem/ChalkGolem/ChalkGolem_Character_BP.ChalkGolem_Character_BP'\""},{"ClassName":"Cnidaria_Character_BP_C","FriendlyName":"Cnidaria","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Cnidaria/Cnidaria_Character_BP.Cnidaria_Character_BP'\""},{"ClassName":"Coel_Character_BP_Ocean_C","FriendlyName":"Coelacanth (Ocean)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Coelacanth/Coel_Character_BP_Ocean.Coel_Character_BP_Ocean'\""},{"ClassName":"Coel_Character_BP_C","FriendlyName":"Coelacanth","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Coelacanth/Coel_Character_BP.Coel_Character_BP'\""},{"ClassName":"Compy_Character_BP_C","FriendlyName":"Compy","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Compy/Compy_Character_BP.Compy_Character_BP'\""},{"ClassName":"Daeodon_Character_BP_C","FriendlyName":"Daeodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Daeodon/Daeodon_Character_BP.Daeodon_Character_BP'\""},{"ClassName":"Deathworm_Character_BP_C","FriendlyName":"Deathworm","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/DeathWorm/DeathWorm_Character_BP.DeathWorm_Character_BP'\""},{"ClassName":"Deinonychus_Character_BP_C","FriendlyName":"Deinonychus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Uberraptor/Deinonychus_Character_BP.Deinonychus_Character_BP'\""},{"ClassName":"Dilo_Character_BP_C","FriendlyName":"Dilophosaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dilo/Dilo_Character_BP.Dilo_Character_BP'\""},{"ClassName":"Dimetro_Character_BP_C","FriendlyName":"Dimetrodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dimetrodon/Dimetro_Character_BP.Dimetro_Character_BP'\""},{"ClassName":"Dimorph_Character_BP_C","FriendlyName":"Dimorphodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dimorphodon/Dimorph_Character_BP.Dimorph_Character_BP'\""},{"ClassName":"Diplocaulus_Character_BP_C","FriendlyName":"Diplocaulus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Diplocaulus/Diplocaulus_Character_BP.Diplocaulus_Character_BP'\""},{"ClassName":"Diplodocus_Character_BP_C","FriendlyName":"Diplodocus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Diplodocus/Diplodocus_Character_BP.Diplodocus_Character_BP'\""},{"ClassName":"Direbear_Character_BP_C","FriendlyName":"Dire Bear","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Direbear/Direbear_Character_BP.Direbear_Character_BP'\""},{"ClassName":"Direbear_LL_Character_BP_C","FriendlyName":"Dire Bear","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/LifeLabyrinth/BearDirebear/Direbear_LL_Character_BP.Direbear_LL_Character_BP'\""},{"ClassName":"Direwolf_LL_Character_BP_C","FriendlyName":"Dire Wolf","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/LifeLabyrinth/Wolf/Direwolf_LL_Character_BP.Direwolf_LL_Character_BP'\""},{"ClassName":"Direwolf_Character_BP_C","FriendlyName":"Dire Wolf","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Direwolf/Direwolf_Character_BP.Direwolf_Character_BP'\""},{"ClassName":"Leech_Character_Diseased_C","FriendlyName":"Diseased Leech","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Leech/Leech_Character_Diseased.Leech_Character_Diseased'\""},{"ClassName":"Dodo_Character_BP_C","FriendlyName":"Dodo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Dodo_Character_BP.Dodo_Character_BP'\""},{"ClassName":"Doed_Character_BP_C","FriendlyName":"Doedicurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Doedicurus/Doed_Character_BP.Doed_Character_BP'\""},{"ClassName":"DungBeetle_Character_BP_C","FriendlyName":"Dung Beetle","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/DungBeetle/DungBeetle_Character_BP.DungBeetle_Character_BP'\""},{"ClassName":"Dunkle_Character_BP_C","FriendlyName":"Dunkleosteus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dunkleosteus/Dunkle_Character_BP.Dunkle_Character_BP'\""},{"ClassName":"Eel_Character_BP_C","FriendlyName":"Electrophorus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Eel/Eel_Character_BP.Eel_Character_BP'\""},{"ClassName":"Equus_Character_BP_C","FriendlyName":"Equus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Equus/Equus_Character_BP.Equus_Character_BP'\""},{"ClassName":"Euryp_Character_C","FriendlyName":"Eurypterid","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Eurypterid/Euryp_Character.Euryp_Character'\""},{"ClassName":"Wyvern_Character_BP_Fire_C","FriendlyName":"Fire Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_Fire.Wyvern_Character_BP_Fire'\""},{"ClassName":"Galli_Character_BP_C","FriendlyName":"Gallimimus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Gallimimus/Galli_Character_BP.Galli_Character_BP'\""},{"ClassName":"Bee_Queen_Character_BP_C","FriendlyName":"Giant Queen Bee","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Bee/Bee_Queen_Character_BP.Bee_Queen_Character_BP'\""},{"ClassName":"Gigant_Character_BP_C","FriendlyName":"Giganotosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Giganotosaurus/Gigant_Character_BP.Gigant_Character_BP'\""},{"ClassName":"Gigant_Character_BP_TekCave_C","FriendlyName":"Giganotosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Giganotosaurus/Gigant_Character_BP_TekCave.Gigant_Character_BP_TekCave'\""},{"ClassName":"Bigfoot_Character_BP_C","FriendlyName":"Gigantopithecus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Bigfoot/Bigfoot_Character_BP.Bigfoot_Character_BP'\""},{"ClassName":"Hesperornis_Character_BP_C","FriendlyName":"Hesperornis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Hesperornis/Hesperornis_Character_BP.Hesperornis_Character_BP'\""},{"ClassName":"Hyaenodon_Character_BP_C","FriendlyName":"Hyaenodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Hyaenodon/Hyaenodon_Character_BP.Hyaenodon_Character_BP'\""},{"ClassName":"IceGolem_Character_BP_C","FriendlyName":"Ice Golem","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/Dinos/RockGolem/IceGolem/IceGolem_Character_BP.IceGolem_Character_BP'\""},{"ClassName":"Ragnarok_Wyvern_Override_Ice_C","FriendlyName":"Ice Wyvern","BlueprintPath":"\"Blueprint'/Game/Mods/LostIsland/Assets/Dinos/IceWyvern/Ragnarok_Wyvern_Override_Ice.Ragnarok_Wyvern_Override_Ice'\""},{"ClassName":"Ichthyornis_Character_BP_C","FriendlyName":"Ichthyornis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Ichthyornis/Ichthyornis_Character_BP.Ichthyornis_Character_BP'\""},{"ClassName":"Dolphin_Character_BP_C","FriendlyName":"Ichthyosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dolphin/Dolphin_Character_BP.Dolphin_Character_BP'\""},{"ClassName":"Iguanodon_Character_BP_C","FriendlyName":"Iguanodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Iguanodon/Iguanodon_Character_BP.Iguanodon_Character_BP'\""},{"ClassName":"Jerboa_Character_BP_C","FriendlyName":"Jerboa","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Jerboa/Jerboa_Character_BP.Jerboa_Character_BP'\""},{"ClassName":"Kairuku_Character_BP_C","FriendlyName":"Kairuku","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Kairuku/Kairuku_Character_BP.Kairuku_Character_BP'\""},{"ClassName":"Kaprosuchus_Character_BP_C","FriendlyName":"Kaprosuchus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Kaprosuchus/Kaprosuchus_Character_BP.Kaprosuchus_Character_BP'\""},{"ClassName":"Kentro_Character_BP_C","FriendlyName":"Kentrosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Kentrosaurus/Kentro_Character_BP.Kentro_Character_BP'\""},{"ClassName":"Lamprey_Character_C","FriendlyName":"Lamprey","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Lamprey/Lamprey_Character.Lamprey_Character'\""},{"ClassName":"Leech_Character_C","FriendlyName":"Leech","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Leech/Leech_Character.Leech_Character'\""},{"ClassName":"Leedsichthys_Character_BP_C","FriendlyName":"Leedsichthys","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Leedsichthys/Leedsichthys_Character_BP.Leedsichthys_Character_BP'\""},{"ClassName":"Moth_Character_BP_C","FriendlyName":"Lymantria","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Moth/Moth_Character_BP.Moth_Character_BP'\""},{"ClassName":"Lystro_Character_BP_C","FriendlyName":"Lystrosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Lystrosaurus/Lystro_Character_BP.Lystro_Character_BP'\""},{"ClassName":"Mammoth_Character_BP_C","FriendlyName":"Mammoth","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Mammoth/Mammoth_Character_BP.Mammoth_Character_BP'\""},{"ClassName":"Manta_Character_BP_C","FriendlyName":"Manta","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Manta/Manta_Character_BP.Manta_Character_BP'\""},{"ClassName":"Mantis_Character_BP_C","FriendlyName":"Mantis","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Mantis/Mantis_Character_BP.Mantis_Character_BP'\""},{"ClassName":"Stag_Character_BP_C","FriendlyName":"Megaloceros","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Stag/Stag_Character_BP.Stag_Character_BP'\""},{"ClassName":"Megalodon_Character_BP_C","FriendlyName":"Megalodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megalodon/Megalodon_Character_BP.Megalodon_Character_BP'\""},{"ClassName":"Dragonfly_Character_BP_C","FriendlyName":"Meganeura","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dragonfly/Dragonfly_Character_BP.Dragonfly_Character_BP'\""},{"ClassName":"Megatherium_Character_BP_C","FriendlyName":"Megatherium","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megatherium/Megatherium_Character_BP.Megatherium_Character_BP'\""},{"ClassName":"Megalosaurus_Character_BP_C","FriendlyName":"Megalosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megalosaurus/Megalosaurus_Character_BP.Megalosaurus_Character_BP'\""},{"ClassName":"Monkey_Character_BP_C","FriendlyName":"Mesopithecus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Monkey/Monkey_Character_BP.Monkey_Character_BP'\""},{"ClassName":"Microraptor_Character_BP_C","FriendlyName":"Microraptor","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Microraptor/Microraptor_Character_BP.Microraptor_Character_BP'\""},{"ClassName":"camelsaurus_Character_BP_C","FriendlyName":"Morellatops","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Camelsaurus/camelsaurus_Character_BP.camelsaurus_Character_BP'\""},{"ClassName":"Mosa_Character_BP_C","FriendlyName":"Mosasaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Mosasaurus/Mosa_Character_BP.Mosa_Character_BP'\""},{"ClassName":"Moschops_Character_BP_C","FriendlyName":"Moschops","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Moschops/Moschops_Character_BP.Moschops_Character_BP'\""},{"ClassName":"Bat_Character_BP_C","FriendlyName":"Onyc","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Bat/Bat_Character_BP.Bat_Character_BP'\""},{"ClassName":"Otter_Character_BP_C","FriendlyName":"Otter","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Otter/Otter_Character_BP.Otter_Character_BP'\""},{"ClassName":"Oviraptor_Character_BP_C","FriendlyName":"Oviraptor","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Oviraptor/Oviraptor_Character_BP.Oviraptor_Character_BP'\""},{"ClassName":"Sheep_Character_BP_C","FriendlyName":"Ovis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Sheep/Sheep_Character_BP.Sheep_Character_BP'\""},{"ClassName":"Jugbug_Oil_Character_BP_C","FriendlyName":"Oil Jugbug","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Jugbug/Jugbug_Oil_Character_BP.Jugbug_Oil_Character_BP'\""},{"ClassName":"Pachy_Character_BP_C","FriendlyName":"Pachy","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Pachy/Pachy_Character_BP.Pachy_Character_BP'\""},{"ClassName":"Pachyrhino_Character_BP_C","FriendlyName":"Pachyrhinosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Pachyrhinosaurus/Pachyrhino_Character_BP.Pachyrhino_Character_BP'\""},{"ClassName":"Paracer_Character_BP_C","FriendlyName":"Paraceratherium","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Paraceratherium/Paracer_Character_BP.Paracer_Character_BP'\""},{"ClassName":"Para_Character_BP_C","FriendlyName":"Parasaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Para/Para_Character_BP.Para_Character_BP'\""},{"ClassName":"Pegomastax_Character_BP_C","FriendlyName":"Pegomastax","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Pegomastax/Pegomastax_Character_BP.Pegomastax_Character_BP'\""},{"ClassName":"Pela_Character_BP_C","FriendlyName":"Pelagornis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Pelagornis/Pela_Character_BP.Pela_Character_BP'\""},{"ClassName":"Phiomia_Character_BP_C","FriendlyName":"Phiomia","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Phiomia/Phiomia_Character_BP.Phiomia_Character_BP'\""},{"ClassName":"Phoenix_Character_BP_C","FriendlyName":"Phoenix","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Phoenix/Phoenix_Character_BP.Phoenix_Character_BP'\""},{"ClassName":"Piranha_Character_BP_C","FriendlyName":"Piranha","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Piranha/Piranha_Character_BP.Piranha_Character_BP'\""},{"ClassName":"Plesiosaur_Character_BP_C","FriendlyName":"Plesiosaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Plesiosaur/Plesiosaur_Character_BP.Plesiosaur_Character_BP'\""},{"ClassName":"Direbear_Character_Polar_C","FriendlyName":"Polar Bear","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Direbear/Direbear_Character_Polar.Direbear_Character_Polar'\""},{"ClassName":"Polar_Bear_C","FriendlyName":"Polar Bear","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Dinos/Polar_Bear/Polar_Bear.Polar_Bear'\""},{"ClassName":"Procoptodon_Character_BP_C","FriendlyName":"Procoptodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Procoptodon/Procoptodon_Character_BP.Procoptodon_Character_BP'\""},{"ClassName":"Ptero_Character_BP_C","FriendlyName":"Pteranodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Ptero/Ptero_Character_BP.Ptero_Character_BP'\""},{"ClassName":"Scorpion_Character_BP_C","FriendlyName":"Pulmonoscorpius","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Scorpion/Scorpion_Character_BP.Scorpion_Character_BP'\""},{"ClassName":"Purlovia_Character_BP_C","FriendlyName":"Purlovia","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Purlovia/Purlovia_Character_BP.Purlovia_Character_BP'\""},{"ClassName":"Purlovia_Character_BP_Polar_C","FriendlyName":"Purlovia (Polar)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Purlovia/Purlovia_Character_BP_Polar.Purlovia_Character_BP_Polar'\""},{"ClassName":"Quetz_Character_BP_C","FriendlyName":"Quetzal","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Quetzalcoatlus/Quetz_Character_BP.Quetz_Character_BP'\""},{"ClassName":"Raptor_Character_BP_C","FriendlyName":"Raptor","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Raptor_Character_BP.Raptor_Character_BP'\""},{"ClassName":"Rex_Character_BP_C","FriendlyName":"Rex","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Rex/Rex_Character_BP.Rex_Character_BP'\""},{"ClassName":"Salmon_Character_BP_C","FriendlyName":"Sabertooth Salmon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Salmon/Salmon_Character_BP.Salmon_Character_BP'\""},{"ClassName":"Saber_Character_BP_C","FriendlyName":"Sabertooth","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Saber/Saber_Character_BP.Saber_Character_BP'\""},{"ClassName":"Sarco_Character_BP_C","FriendlyName":"Sarco","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Sarco/Sarco_Character_BP.Sarco_Character_BP'\""},{"ClassName":"Spino_Character_BP_C","FriendlyName":"Spinosaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spino/Spino_Character_BP.Spino_Character_BP'\""},{"ClassName":"Stego_Character_BP_C","FriendlyName":"Stegosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Stego/Stego_Character_BP.Stego_Character_BP'\""},{"ClassName":"Tapejara_Character_BP_C","FriendlyName":"Tapejara","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Tapejara/Tapejara_Character_BP.Tapejara_Character_BP'\""},{"ClassName":"TerrorBird_Character_BP_C","FriendlyName":"Terror Bird","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/TerrorBird/TerrorBird_Character_BP.TerrorBird_Character_BP'\""},{"ClassName":"Therizino_Character_BP_C","FriendlyName":"Therizinosaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Therizinosaurus/Therizino_Character_BP.Therizino_Character_BP'\""},{"ClassName":"SpineyLizard_Character_BP_C","FriendlyName":"Thorny Dragon","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/SpineyLizard/SpineyLizard_Character_BP.SpineyLizard_Character_BP'\""},{"ClassName":"Thylacoleo_Character_BP_C","FriendlyName":"Thylacoleo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Thylacoleo/Thylacoleo_Character_BP.Thylacoleo_Character_BP'\""},{"ClassName":"BoaFrill_Character_BP_C","FriendlyName":"Titanoboa","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/BoaFrill/BoaFrill_Character_BP.BoaFrill_Character_BP'\""},{"ClassName":"Ant_Character_BP_C","FriendlyName":"Titanomyrma Drone","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Ant/Ant_Character_BP.Ant_Character_BP'\""},{"ClassName":"FlyingAnt_Character_BP_C","FriendlyName":"Titanomyrma Soldier","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Ant/FlyingAnt_Character_BP.FlyingAnt_Character_BP'\""},{"ClassName":"Titanosaur_Character_BP_C","FriendlyName":"Titanosaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/titanosaur/Titanosaur_Character_BP.Titanosaur_Character_BP'\""},{"ClassName":"Trike_Character_BP_C","FriendlyName":"Triceratops","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Trike/Trike_Character_BP.Trike_Character_BP'\""},{"ClassName":"Trilobite_Character_C","FriendlyName":"Trilobite","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Trilobite/Trilobite_Character.Trilobite_Character'\""},{"ClassName":"Troodon_Character_BP_C","FriendlyName":"Troodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Troodon/Troodon_Character_BP.Troodon_Character_BP'\""},{"ClassName":"Tusoteuthis_Character_BP_C","FriendlyName":"Tusoteuthis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Tusoteuthis/Tusoteuthis_Character_BP.Tusoteuthis_Character_BP'\""},{"ClassName":"Equus_Character_BP_Unicorn_C","FriendlyName":"Unicorn","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Equus/Equus_Character_BP_Unicorn.Equus_Character_BP_Unicorn'\""},{"ClassName":"Spindles_Character_BP_C","FriendlyName":"Velonasaur","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Spindles/Spindles_Character_BP.Spindles_Character_BP'\""},{"ClassName":"Jugbug_Water_Character_BP_C","FriendlyName":"Water Jugbug","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Jugbug/Jugbug_Water_Character_BP.Jugbug_Water_Character_BP'\""},{"ClassName":"Rhino_Character_BP_C","FriendlyName":"Woolly Rhino","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/WoollyRhino/Rhino_Character_BP.Rhino_Character_BP'\""},{"ClassName":"Yeti_Character_BP_C","FriendlyName":"Yeti","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Bigfoot/Yeti_Character_BP.Yeti_Character_BP'\""},{"ClassName":"Yutyrannus_Character_BP_C","FriendlyName":"Yutyrannus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Yutyrannus/Yutyrannus_Character_BP.Yutyrannus_Character_BP'\""},{"ClassName":"BionicPara_Character_BP_C","FriendlyName":"Tek Parasaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Para/BionicPara_Character_BP.BionicPara_Character_BP'\""},{"ClassName":"BionicQuetz_Character_BP_C","FriendlyName":"Tek Quetz","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Quetzalcoatlus/BionicQuetz_Character_BP.BionicQuetz_Character_BP'\""},{"ClassName":"BionicRaptor_Character_BP_C","FriendlyName":"Tek Raptor","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/BionicRaptor_Character_BP.BionicRaptor_Character_BP'\""},{"ClassName":"BionicRex_Character_BP_C","FriendlyName":"Tek Rex","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Rex/BionicRex_Character_BP.BionicRex_Character_BP'\""},{"ClassName":"BionicStego_Character_BP_C","FriendlyName":"Tek Stegosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Stego/BionicStego_Character_BP.BionicStego_Character_BP'\""},{"ClassName":"Achatina_Character_BP_Aberrant_C","FriendlyName":"Aberrant Achatina","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Achatina/Achatina_Character_BP_Aberrant.Achatina_Character_BP_Aberrant'\""},{"ClassName":"Angler_Character_BP_Aberrant_C","FriendlyName":"Aberrant Anglerfish","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Anglerfish/Angler_Character_BP_Aberrant.Angler_Character_BP_Aberrant'\""},{"ClassName":"Ankylo_Character_BP_Aberrant_C","FriendlyName":"Aberrant Ankylosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Ankylo/Ankylo_Character_BP_Aberrant.Ankylo_Character_BP_Aberrant'\""},{"ClassName":"SpiderS_Character_BP_Aberrant_C","FriendlyName":"Aberrant Araneo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Small/SpiderS_Character_BP_Aberrant.SpiderS_Character_BP_Aberrant'\""},{"ClassName":"Arthro_Character_BP_Aberrant_C","FriendlyName":"Aberrant Arthropluera","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Arthropluera/Arthro_Character_BP_Aberrant.Arthro_Character_BP_Aberrant'\""},{"ClassName":"Baryonyx_Character_BP_Aberrant_C","FriendlyName":"Aberrant Baryonyx","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Baryonyx/Baryonyx_Character_BP_Aberrant.Baryonyx_Character_BP_Aberrant'\""},{"ClassName":"Toad_Character_BP_Aberrant_C","FriendlyName":"Aberrant Beelzebufo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Toad/Toad_Character_BP_Aberrant.Toad_Character_BP_Aberrant'\""},{"ClassName":"Turtle_Character_BP_Aberrant_C","FriendlyName":"Aberrant Carbonemys","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Turtle/Turtle_Character_BP_Aberrant.Turtle_Character_BP_Aberrant'\""},{"ClassName":"Carno_Character_BP_Aberrant_C","FriendlyName":"Aberrant Carnotaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Carno/Carno_Character_BP_Aberrant.Carno_Character_BP_Aberrant'\""},{"ClassName":"Coel_Character_BP_Aberrant_C","FriendlyName":"Aberrant Coelacanth","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Coelacanth/Coel_Character_BP_Aberrant.Coel_Character_BP_Aberrant'\""},{"ClassName":"Cnidaria_Character_BP_Aberrant_C","FriendlyName":"Aberrant Cnidaria","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Cnidaria/Cnidaria_Character_BP_Aberrant.Cnidaria_Character_BP_Aberrant'\""},{"ClassName":"Dimetro_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dimetrodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dimetrodon/Dimetro_Character_BP_Aberrant.Dimetro_Character_BP_Aberrant'\""},{"ClassName":"Dimorph_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dimorphodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dimorphodon/Dimorph_Character_BP_Aberrant.Dimorph_Character_BP_Aberrant'\""},{"ClassName":"Diplocaulus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Diplocaulus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Diplocaulus/Diplocaulus_Character_BP_Aberrant.Diplocaulus_Character_BP_Aberrant'\""},{"ClassName":"Diplodocus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Diplodocus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Diplodocus/Diplodocus_Character_BP_Aberrant.Diplodocus_Character_BP_Aberrant'\""},{"ClassName":"Direbear_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dire Bear","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Direbear/Direbear_Character_BP_Aberrant.Direbear_Character_BP_Aberrant'\""},{"ClassName":"Dodo_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dodo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Dodo_Character_BP_Aberrant.Dodo_Character_BP_Aberrant'\""},{"ClassName":"Doed_Character_BP_Aberrant_C","FriendlyName":"Aberrant Doedicurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Doedicurus/Doed_Character_BP_Aberrant.Doed_Character_BP_Aberrant'\""},{"ClassName":"Eel_Character_BP_Aberrant_C","FriendlyName":"Aberrant Electrophorus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Eel/Eel_Character_BP_Aberrant.Eel_Character_BP_Aberrant'\""},{"ClassName":"Equus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Equus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Equus/Equus_Character_BP_Aberrant.Equus_Character_BP_Aberrant'\""},{"ClassName":"Iguanodon_Character_BP_Aberrant_C","FriendlyName":"Aberrant Iguanodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Iguanodon/Iguanodon_Character_BP_Aberrant.Iguanodon_Character_BP_Aberrant'\""},{"ClassName":"Lystro_Character_BP_Aberrant_C","FriendlyName":"Aberrant Lystrosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Lystrosaurus/Lystro_Character_BP_Aberrant.Lystro_Character_BP_Aberrant'\""},{"ClassName":"Manta_Character_BP_Aberrant_C","FriendlyName":"Aberrant Manta","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Manta/Manta_Character_BP_Aberrant.Manta_Character_BP_Aberrant'\""},{"ClassName":"Megalania_Character_BP_C","FriendlyName":"Megalania","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megalania/Megalania_Character_BP.Megalania_Character_BP'\""},{"ClassName":"Liopleurodon_Character_BP_C","FriendlyName":"Liopleurodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Liopleurodon/Liopleurodon_Character_BP.Liopleurodon_Character_BP'\""},{"ClassName":"Megalania_Character_BP_Aberrant_C","FriendlyName":"Aberrant Megalania","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megalania/Megalania_Character_BP_Aberrant.Megalania_Character_BP_Aberrant'\""},{"ClassName":"Megalosaurus_Character_BP_Aberrant_C","FriendlyName":"Aberrant Megalosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megalosaurus/Megalosaurus_Character_BP_Aberrant.Megalosaurus_Character_BP_Aberrant'\""},{"ClassName":"Dragonfly_Character_BP_Aberrant_C","FriendlyName":"Aberrant Meganeura","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dragonfly/Dragonfly_Character_BP_Aberrant.Dragonfly_Character_BP_Aberrant'\""},{"ClassName":"Moschops_Character_BP_Aberrant_C","FriendlyName":"Aberrant Moschops","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Moschops/Moschops_Character_BP_Aberrant.Moschops_Character_BP_Aberrant'\""},{"ClassName":"Otter_Character_BP_Aberrant_C","FriendlyName":"Aberrant Otter","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Otter/Otter_Character_BP_Aberrant.Otter_Character_BP_Aberrant'\""},{"ClassName":"Sheep_Character_BP_Aberrant_C","FriendlyName":"Aberrant Ovis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Sheep/Sheep_Character_BP_Aberrant.Sheep_Character_BP_Aberrant'\""},{"ClassName":"Paracer_Character_BP_Aberrant_C","FriendlyName":"Aberrant Paraceratherium","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Paraceratherium/Paracer_Character_BP_Aberrant.Paracer_Character_BP_Aberrant'\""},{"ClassName":"Para_Character_BP_Aberrant_C","FriendlyName":"Aberrant Parasaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Para/Para_Character_BP_Aberrant.Para_Character_BP_Aberrant'\""},{"ClassName":"Piranha_Character_BP_Aberrant_C","FriendlyName":"Aberrant Piranha","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Piranha/Piranha_Character_BP_Aberrant.Piranha_Character_BP_Aberrant'\""},{"ClassName":"Scorpion_Character_BP_Aberrant_C","FriendlyName":"Aberrant Pulmonoscorpius","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Scorpion/Scorpion_Character_BP_Aberrant.Scorpion_Character_BP_Aberrant'\""},{"ClassName":"Purlovia_Character_BP_Aberrant_C","FriendlyName":"Aberrant Purlovia","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Purlovia/Purlovia_Character_BP_Aberrant.Purlovia_Character_BP_Aberrant'\""},{"ClassName":"Raptor_Character_BP_Aberrant_C","FriendlyName":"Aberrant Raptor","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Raptor_Character_BP_Aberrant.Raptor_Character_BP_Aberrant'\""},{"ClassName":"Salmon_Character_Aberrant_C","FriendlyName":"Aberrant Salmon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Salmon/Salmon_Character_Aberrant.Salmon_Character_Aberrant'\""},{"ClassName":"Sarco_Character_BP_Aberrant_C","FriendlyName":"Aberrant Sarco","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Sarco/Sarco_Character_BP_Aberrant.Sarco_Character_BP_Aberrant'\""},{"ClassName":"Spino_Character_BP_Aberrant_C","FriendlyName":"Aberrant Spino","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spino/Spino_Character_BP_Aberrant.Spino_Character_BP_Aberrant'\""},{"ClassName":"Stego_Character_BP_Aberrant_C","FriendlyName":"Aberrant Stegosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Stego/Stego_Character_BP_Aberrant.Stego_Character_BP_Aberrant'\""},{"ClassName":"BoaFrill_Character_BP_Aberrant_C","FriendlyName":"Aberrant Titanoboa","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/BoaFrill/BoaFrill_Character_BP_Aberrant.BoaFrill_Character_BP_Aberrant'\""},{"ClassName":"Trike_Character_BP_Aberrant_C","FriendlyName":"Aberrant Triceratops","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Trike/Trike_Character_BP_Aberrant.Trike_Character_BP_Aberrant'\""},{"ClassName":"Trilobite_Character_Aberrant_C","FriendlyName":"Aberrant Trilobite","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Trilobite/Trilobite_Character_Aberrant.Trilobite_Character_Aberrant'\""},{"ClassName":"LanternPug_Character_BP_C","FriendlyName":"Bulbdog","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/LanternPug/LanternPug_Character_BP.LanternPug_Character_BP'\""},{"ClassName":"LanternBird_Character_BP_C","FriendlyName":"Featherlight","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/LanternBird/LanternBird_Character_BP.LanternBird_Character_BP'\""},{"ClassName":"Lightbug_Character_BaseBP_C","FriendlyName":"Glowbug","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Lightbug/Lightbug_Character_BaseBP.Lightbug_Character_BaseBP'\""},{"ClassName":"LanternLizard_Character_BP_C","FriendlyName":"Glowtail","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/LanternLizard/LanternLizard_Character_BP.LanternLizard_Character_BP'\""},{"ClassName":"Crab_Character_BP_C","FriendlyName":"Karkinos","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Crab/Crab_Character_BP.Crab_Character_BP'\""},{"ClassName":"CaveWolf_Character_BP_C","FriendlyName":"Ravager","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/CaveWolf/CaveWolf_Character_BP.CaveWolf_Character_BP'\""},{"ClassName":"MoleRat_Character_BP_C","FriendlyName":"Roll Rat","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/MoleRat/MoleRat_Character_BP.MoleRat_Character_BP'\""},{"ClassName":"Pteroteuthis_Char_BP_C","FriendlyName":"Seeker","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Pteroteuthis/Pteroteuthis_Char_BP.Pteroteuthis_Char_BP'\""},{"ClassName":"Xenomorph_Character_BP_Male_C","FriendlyName":"Reaper","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male.Xenomorph_Character_BP_Male'\""},{"ClassName":"Xenomorph_Character_BP_Male_Chupa_C","FriendlyName":"Reaper King","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Chupa.Xenomorph_Character_BP_Male_Chupa'\""},{"ClassName":"Xenomorph_Character_BP_Male_Minion_C","FriendlyName":"Reaper King","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Minion.Xenomorph_Character_BP_Male_Minion'\""},{"ClassName":"Xenomorph_Character_BP_Female_C","FriendlyName":"Reaper Queen","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Female.Xenomorph_Character_BP_Female'\""},{"ClassName":"ChupaCabra_Character_BP_C","FriendlyName":"Nameless","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/ChupaCabra/ChupaCabra_Character_BP.ChupaCabra_Character_BP'\""},{"ClassName":"RockDrake_Character_BP_C","FriendlyName":"Rock Drake","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/RockDrake/RockDrake_Character_BP.RockDrake_Character_BP'\""},{"ClassName":"EndDrone_Character_BP_C","FriendlyName":"Attack Drone","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Character_BP.EndDrone_Character_BP'\""},{"ClassName":"EndDrone_Character_BP_Hard_C","FriendlyName":"Attack Drone","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Character_BP_Hard.EndDrone_Character_BP_Hard'\""},{"ClassName":"EndDrone_Character_BP_Med_C","FriendlyName":"Attack Drone","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Character_BP_Med.EndDrone_Character_BP_Med'\""},{"ClassName":"EndDrone_Character_BP_Easy_C","FriendlyName":"Attack Drone","BlueprintPath":""},{"ClassName":"Basilisk_Character_BP_C","FriendlyName":"Basilisk","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Basilisk/Basilisk_Character_BP.Basilisk_Character_BP'\""},{"ClassName":"Arthro_Character_BP_Corrupt_C","FriendlyName":"Corrupted Arthropluera","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Arthropluera/Arthro_Character_BP_Corrupt.Arthro_Character_BP_Corrupt'\""},{"ClassName":"Carno_Character_BP_Corrupt_C","FriendlyName":"Corrupted Carnotaurus","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Carno/Carno_Character_BP_Corrupt.Carno_Character_BP_Corrupt'\""},{"ClassName":"Chalico_Character_BP_Corrupt_C","FriendlyName":"Corrupted Chalicotherium","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Chalicotherium/Chalico_Character_BP_Corrupt.Chalico_Character_BP_Corrupt'\""},{"ClassName":"CorruptTumor_Character_BP_C","FriendlyName":"Corrupt Tumor","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/KingKaiju/CorruptTumor_Character_BP.CorruptTumor_Character_BP'\""},{"ClassName":"Dilo_Character_BP_Corrupt_C","FriendlyName":"Corrupted Dilophosaur","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Dilo/Dilo_Character_BP_Corrupt.Dilo_Character_BP_Corrupt'\""},{"ClassName":"Dimorph_Character_BP_Corrupt_C","FriendlyName":"Corrupted Dimorphodon","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Dimorphodon/Dimorph_Character_BP_Corrupt.Dimorph_Character_BP_Corrupt'\""},{"ClassName":"Gigant_Character_BP_Corrupt_C","FriendlyName":"Corrupted Giganotosaurus","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Giganotosaurus/Gigant_Character_BP_Corrupt.Gigant_Character_BP_Corrupt'\""},{"ClassName":"Paracer_Character_BP_Corrupt_C","FriendlyName":"Corrupted Paraceratherium","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Paraceratherium/Paracer_Character_BP_Corrupt.Paracer_Character_BP_Corrupt'\""},{"ClassName":"Ptero_Character_BP_Corrupt_C","FriendlyName":"Corrupted Pteranodon","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Ptero/Ptero_Character_BP_Corrupt.Ptero_Character_BP_Corrupt'\""},{"ClassName":"Raptor_Character_BP_Corrupt_C","FriendlyName":"Corrupted Raptor","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Raptor/Raptor_Character_BP_Corrupt.Raptor_Character_BP_Corrupt'\""},{"ClassName":"Xenomorph_Character_BP_Male_Tamed_Corrupt_C","FriendlyName":"Corrupted Reaper King","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Nameless/Xenomorph_Character_BP_Male_Tamed_Corrupt.Xenomorph_Character_BP_Male_Tamed_Corrupt'\""},{"ClassName":"Rex_Character_BP_Corrupt_C","FriendlyName":"Corrupted Rex","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Rex/Rex_Character_BP_Corrupt.Rex_Character_BP_Corrupt'\""},{"ClassName":"RockDrake_Character_BP_Corrupt_C","FriendlyName":"Corrupted Rock Drake","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/RockDrake/RockDrake_Character_BP_Corrupt.RockDrake_Character_BP_Corrupt'\""},{"ClassName":"Spino_Character_BP_Corrupt_C","FriendlyName":"Corrupted Spino","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Spino/Spino_Character_BP_Corrupt.Spino_Character_BP_Corrupt'\""},{"ClassName":"Stego_Character_BP_Corrupt_C","FriendlyName":"Corrupted Stegosaurus","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Stego/Stego_Character_BP_Corrupt.Stego_Character_BP_Corrupt'\""},{"ClassName":"Trike_Character_BP_Corrupt_C","FriendlyName":"Corrupted Triceratops","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Trike/Trike_Character_BP_Corrupt.Trike_Character_BP_Corrupt'\""},{"ClassName":"Wyvern_Character_BP_Fire_Corrupt_C","FriendlyName":"Corrupted Wyvern","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Wyvern/Wyvern_Character_BP_Fire_Corrupt.Wyvern_Character_BP_Fire_Corrupt'\""},{"ClassName":"EndTank_Character_BP_C","FriendlyName":"Defense Unit","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Tank/EndTank_Character_BP.EndTank_Character_BP'\""},{"ClassName":"Enforcer_Character_BP_C","FriendlyName":"Enforcer","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Enforcer/Enforcer_Character_BP.Enforcer_Character_BP'\""},{"ClassName":"Gacha_Character_BP_C","FriendlyName":"Gacha","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Gacha/Gacha_Character_BP.Gacha_Character_BP'\""},{"ClassName":"Gacha_Claus_Character_BP_C","FriendlyName":"Gacha Claus","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Gacha/Gacha_Claus_Character_BP.Gacha_Claus_Character_BP'\""},{"ClassName":"GasBags_Character_BP_C","FriendlyName":"Gasbags","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/GasBag/GasBags_Character_BP.GasBags_Character_BP'\""},{"ClassName":"IceJumper_Character_BP_C","FriendlyName":"Managarmr","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/IceJumper/IceJumper_Character_BP.IceJumper_Character_BP'\""},{"ClassName":"Mek_Character_BP_C","FriendlyName":"Mek","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Mek/Mek_Character_BP.Mek_Character_BP'\""},{"ClassName":"MegaMek_Character_BP_C","FriendlyName":"Mega Mek","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Mek/MegaMek_Character_BP.MegaMek_Character_BP'\""},{"ClassName":"Scout_Character_BP_C","FriendlyName":"Scout","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Scout/Scout_Character_BP.Scout_Character_BP'\""},{"ClassName":"Owl_Character_BP_C","FriendlyName":"Snow Owl","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Owl/Owl_Character_BP.Owl_Character_BP'\""},{"ClassName":"Griffin_Character_BP_C","FriendlyName":"Griffin","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Griffin/Griffin_Character_BP.Griffin_Character_BP'\""},{"ClassName":"Griffin_Character_Minion_BP_C","FriendlyName":"Griffin","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Griffin_Character_Minion_BP.Griffin_Character_Minion_BP'\""},{"ClassName":"Iceworm_Character_Minion_BP_smaller_C","FriendlyName":"Iceworm","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/JacksonL/Iceworm/Iceworm_Character_Minion_BP_smaller.Iceworm_Character_Minion_BP_smaller'\""},{"ClassName":"LavaGolem_Character_BP_C","FriendlyName":"Lava Golem","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/JacksonL/LavaGolem/LavaGolem_Character_BP.LavaGolem_Character_BP'\""},{"ClassName":"Wyvern_Character_BP_Lightning_C","FriendlyName":"Lightning Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_Lightning.Wyvern_Character_BP_Lightning'\""},{"ClassName":"Wyvern_Character_BP_Poison_C","FriendlyName":"Poison Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_Poison.Wyvern_Character_BP_Poison'\""},{"ClassName":"MegaBasilisk_Character_BP_C","FriendlyName":"Alpha Basilisk","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Basilisk/MegaBasilisk_Character_BP.MegaBasilisk_Character_BP'\""},{"ClassName":"MegaCarno_Character_BP_C","FriendlyName":"Alpha Carnotaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Carno/MegaCarno_Character_BP.MegaCarno_Character_BP'\""},{"ClassName":"MegaDeathworm_Character_BP_C","FriendlyName":"Alpha Deathworm","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Deathworm/MegaDeathworm_Character_BP.MegaDeathworm_Character_BP'\""},{"ClassName":"MegaWyvern_Character_BP_Fire_C","FriendlyName":"Alpha Fire Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/MegaWyvern_Character_BP_Fire.MegaWyvern_Character_BP_Fire'\""},{"ClassName":"MegaCrab_Character_BP_C","FriendlyName":"Alpha Karkinos","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Crab/MegaCrab_Character_BP.MegaCrab_Character_BP'\""},{"ClassName":"Alpha_Leedsichthys_Character_BP_C","FriendlyName":"Alpha Leedsichthys","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Leedsichthys/Alpha_Leedsichthys_Character_BP.Alpha_Leedsichthys_Character_BP'\""},{"ClassName":"Mosa_Character_BP_Mega_C","FriendlyName":"Alpha Mosasaur","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Mosasaurus/Mosa_Character_BP_Mega.Mosa_Character_BP_Mega'\""},{"ClassName":"Mosa_Character_BP_Mega_Cave_C","FriendlyName":"Alpha Mosasaur (Cave)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Mosasaurus/Mosa_Character_BP_Mega_Cave.Mosa_Character_BP_Mega_Cave'\""},{"ClassName":"MegaMegalodon_Character_BP_C","FriendlyName":"Alpha Megalodon","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megalodon/MEgaMegalodon_Character_BP.MegaMegalodon_Character_BP'\""},{"ClassName":"MegaRaptor_Character_BP_C","FriendlyName":"Alpha Raptor","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/MegaRaptor_Character_BP.MegaRaptor_Character_BP'\""},{"ClassName":"MegaRex_Character_BP_C","FriendlyName":"Alpha T-Rex","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Rex/MegaRex_Character_BP.MegaRex_Character_BP'\""},{"ClassName":"Mega_Tusoteuthis_Character_BP_C","FriendlyName":"Alpha Tusoteuthis","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Tusoteuthis/Mega_Tusoteuthis_Character_BP.Mega_Tusoteuthis_Character_BP'\""},{"ClassName":"MegaXenomorph_Character_BP_Male_Surface_C","FriendlyName":"Alpha Reaper King (Surface)","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/MegaXenomorph_Character_BP_Male_Surface.MegaXenomorph_Character_BP_Male_Surface'\""},{"ClassName":"MegaRex_Character_BP_Corrupt_C","FriendlyName":"Alpha Corrupted Rex","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Corrupt/Rex/MegaRex_Character_BP_Corrupt.MegaRex_Character_BP_Corrupt'\""},{"ClassName":"Enraged Triceratops","FriendlyName":"Alpha Corrupted Triceratops","BlueprintPath":""},{"ClassName":"DesertKaiju_FirstFlockChar_BP_C","FriendlyName":"Desert Titan Flock","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/DesertKaiju/DesertKaiju_FirstFlockChar_BP.DesertKaiju_FirstFlockChar_BP'\""},{"ClassName":"DesertKaiju_Character_BP_C","FriendlyName":"Desert Titan","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/DesertKaiju/DesertKaiju_Character_BP.DesertKaiju_Character_BP'\""},{"ClassName":"DesertKaiju_Character_BP_Hard_C","FriendlyName":"Desert Titan (Alpha)","BlueprintPath":""},{"ClassName":"DesertKaiju_Character_BP_Medium_C","FriendlyName":"Desert Titan (Beta)","BlueprintPath":""},{"ClassName":"DesertKaiju_Character_BP_Easy_C","FriendlyName":"Desert Titan (Gamma)","BlueprintPath":""},{"ClassName":"ForestKaiju_Character_BP_C","FriendlyName":"Forest Titan","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/ForestKaiju/ForestKaiju_Character_BP.ForestKaiju_Character_BP'\""},{"ClassName":"ForestKaiju_Character_BP_Hard_C","FriendlyName":"Forest Titan (Alpha)","BlueprintPath":""},{"ClassName":"ForestKaiju_Character_BP_Medium_C","FriendlyName":"Forest Titan (Beta)","BlueprintPath":""},{"ClassName":"ForestKaiju_Character_BP_Easy_C","FriendlyName":"Forest Titan (Gamma)","BlueprintPath":""},{"ClassName":"IceKaiju_Character_BP_C","FriendlyName":"Ice Titan","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/IceKaiju/IceKaiju_Character_BP.IceKaiju_Character_BP'\""},{"ClassName":"IceKaiju_Character_BP_Hard_C","FriendlyName":"Ice Titan (Alpha)","BlueprintPath":""},{"ClassName":"IceKaiju_Character_BP_Medium_C","FriendlyName":"Ice Titan (Beta)","BlueprintPath":""},{"ClassName":"IceKaiju_Character_BP_Easy_C","FriendlyName":"Ice Titan (Gamma)","BlueprintPath":""},{"ClassName":"KingKaiju_Character_BP_Alpha_C","FriendlyName":"King Titan (Alpha)","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/KingKaiju/KingKaiju_Character_BP_Alpha.KingKaiju_Character_BP_Alpha'\""},{"ClassName":"KingKaiju_Character_BP_Beta_C","FriendlyName":"King Titan (Beta)","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/KingKaiju/KingKaiju_Character_BP_Beta.KingKaiju_Character_BP_Beta'\""},{"ClassName":"KingKaiju_Character_BP_Gamma_C","FriendlyName":"King Titan (Gamma)","BlueprintPath":""},{"ClassName":"Dragon_Character_BP_Boss_Hard_C","FriendlyName":"Dragon (Alpha)","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Dragon_Character_BP_Boss_Hard.Dragon_Character_BP_Boss_Hard'\""},{"ClassName":"Dragon_Character_BP_Boss_Medium_C","FriendlyName":"Dragon (Beta)","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Dragon_Character_BP_Boss_Medium.Dragon_Character_BP_Boss_Medium'\""},{"ClassName":"Dragon_Character_BP_Boss_Easy_C","FriendlyName":"Dragon (Gamma)","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Dragon_Character_BP_Boss_Easy.Dragon_Character_BP_Boss_Easy'\""},{"ClassName":"Dragon_Character_BP_Boss_Hard_Ragnarok_C","FriendlyName":"Dragon (Alpha)","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Dragon_Character_BP_Boss_Hard_Ragnarok.Dragon_Character_BP_Boss_Hard_Ragnarok'\""},{"ClassName":"Dragon_Character_BP_Boss_Medium_Ragnarok_C","FriendlyName":"Dragon (Beta)","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Dragon_Character_BP_Boss_Medium_Ragnarok.Dragon_Character_BP_Boss_Medium_Ragnarok'\""},{"ClassName":"Dragon_Character_BP_Boss_Easy_Ragnarok_C","FriendlyName":"Dragon (Gamma)","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Dragon_Character_BP_Boss_Easy_Ragnarok.Dragon_Character_BP_Boss_Easy_Ragnarok'\""},{"ClassName":"EndBossSpiderL_Character_BP_C","FriendlyName":"Broodmother","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP.EndBossSpiderL_Character_BP'\""},{"ClassName":"EndBossSpiderL_Character_BP_Hard_C","FriendlyName":"Broodmother (Alpha)","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP_Hard.EndBossSpiderL_Character_BP_Hard'\""},{"ClassName":"EndBossSpiderL_Character_BP_Medium_C","FriendlyName":"Broodmother (Beta)","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP_Medium.EndBossSpiderL_Character_BP_Medium'\""},{"ClassName":"EndBossSpiderL_Character_BP_Easy_C","FriendlyName":"Broodmother (Gamma)","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP_Easy.EndBossSpiderL_Character_BP_Easy'\""},{"ClassName":"SpiderL_Character_BP_Hard_C","FriendlyName":"Broodmother (Alpha)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_Hard.SpiderL_Character_BP_Hard'\""},{"ClassName":"SpiderL_Character_BP_Medium_C","FriendlyName":"Broodmother (Beta)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_Medium.SpiderL_Character_BP_Medium'\""},{"ClassName":"SpiderL_Character_BP_Easy_C","FriendlyName":"Broodmother (Gamma)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_Easy.SpiderL_Character_BP_Easy'\""},{"ClassName":"SpiderL_Character_BP_TheCenterHard_C","FriendlyName":"Broodmother (Alpha)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_TheCenterHard.SpiderL_Character_BP_TheCenterHard'\""},{"ClassName":"SpiderL_Character_BP_TheCenterMedium_C","FriendlyName":"Broodmother (Beta)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_TheCenterMedium.SpiderL_Character_BP_TheCenterMedium'\""},{"ClassName":"SpiderL_Character_BP_TheCenterEasy_C","FriendlyName":"Broodmother (Gamma)","BlueprintPath":""},{"ClassName":"SpiderL_VAL_Character_BP_C","FriendlyName":"Valguero Broodmother","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/Dinos/SpiderL/SpiderL_VAL_Character_BP.SpiderL_VAL_Character_BP'\""},{"ClassName":"SpiderL_Character_BP_C","FriendlyName":"Dominus Broodmother","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP.SpiderL_Character_BP'\""},{"ClassName":"Gorilla_Character_BP_Hard_C","FriendlyName":"Megapithecus (Alpha)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/gorilla/Gorilla_Character_BP_Hard.Gorilla_Character_BP_Hard'\""},{"ClassName":"Gorilla_Character_BP_Medium_C","FriendlyName":"Megapithecus (Beta)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/gorilla/Gorilla_Character_BP_Medium.Gorilla_Character_BP_Medium'\""},{"ClassName":"Gorilla_Character_BP_Easy_C","FriendlyName":"Megapithecus (Gamma)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/gorilla/Gorilla_Character_BP_Easy.Gorilla_Character_BP_Easy'\""},{"ClassName":"Gorilla_Character_BP_TheCenter_Hard_C","FriendlyName":"Megapithecus (Alpha)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Gorilla/Gorilla_Character_BP_TheCenter_Hard.Gorilla_Character_BP_TheCenter_Hard'\""},{"ClassName":"Gorilla_Character_BP_TheCenter_Medium_C","FriendlyName":"Megapithecus (Beta)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Gorilla/Gorilla_Character_BP_TheCenter_Medium.Gorilla_Character_BP_TheCenter_Medium'\""},{"ClassName":"Gorilla_Character_BP_TheCenter_Easy_C","FriendlyName":"Megapithecus (Gamma)","BlueprintPath":""},{"ClassName":"Iceworm_Queen_Character_BP_C","FriendlyName":"Iceworm Queen","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/JacksonL/Iceworm/Iceworm_Queen_Character_BP.Iceworm_Queen_Character_BP'\""},{"ClassName":"Manticore_Character_BP_C","FriendlyName":"Manticore","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Manticore/Manticore_Character_BP.Manticore_Character_BP'\""},{"ClassName":"Manticore_Character_BP_Hard_C","FriendlyName":"Manticore (Alpha)","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Manticore_Character_BP_Hard.Manticore_Character_BP_Hard'\""},{"ClassName":"Manticore_Character_BP_Medium_C","FriendlyName":"Manticore (Beta)","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Manticore_Character_BP_Medium.Manticore_Character_BP_Medium'\""},{"ClassName":"Manticore_Character_BP_Easy_C","FriendlyName":"Manticore (Gamma)","BlueprintPath":"\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Manticore_Character_BP_Easy.Manticore_Character_BP_Easy'\""},{"ClassName":"Manticore_Character_BP_Hard_Ragnarok_C","FriendlyName":"Manticore (Alpha)","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Manticore_Character_BP_Hard_Ragnarok.Manticore_Character_BP_Hard_Ragnarok'\""},{"ClassName":"Manticore_Character_BP_Medium_Ragnarok_C","FriendlyName":"Manticore (Beta)","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Manticore_Character_BP_Medium_Ragnarok.Manticore_Character_BP_Medium_Ragnarok'\""},{"ClassName":"Manticore_Character_BP_Easy_Ragnarok_C","FriendlyName":"Manticore (Gamma)","BlueprintPath":"\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Manticore_Character_BP_Easy_Ragnarok.Manticore_Character_BP_Easy_Ragnarok'\""},{"ClassName":"Bone_MegaWyvern_Character_BP_Fire_C","FriendlyName":"Bone Fire Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Bone_MegaWyvern_Character_BP_Fire.Bone_MegaWyvern_Character_BP_Fire'\""},{"ClassName":"DodoWyvern_Character_BP_C","FriendlyName":"Dodo Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/DodoWyvern/DodoWyvern_Character_BP.DodoWyvern_Character_BP'\""},{"ClassName":"DodoRex_Character_BP_C","FriendlyName":"Dodo Rex","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/DodoRex/DodoRex_Character_BP.DodoRex_Character_BP'\""},{"ClassName":"Bone_Sauropod_Character_BP_C","FriendlyName":"Skeletal Bronto","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Sauropod/Bone_Sauropod_Character_BP.Bone_Sauropod_Character_BP'\""},{"ClassName":"Bone_MegaCarno_Character_BP_C","FriendlyName":"Skeletal Carnotaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Carno/Bone_MegaCarno_Character_BP.Bone_MegaCarno_Character_BP'\""},{"ClassName":"Bone_Gigant_Character_BP_C","FriendlyName":"Skeletal Gigantosaurus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Giganotosaurus/Bone_Gigant_Character_BP.Bone_Gigant_Character_BP'\""},{"ClassName":"Bone_Jerboa_Character_BP_C","FriendlyName":"Skeletal Jerboa","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Jerboa/Bone_Jerboa_Character_BP.Bone_Jerboa_Character_BP'\""},{"ClassName":"Bone_Quetz_Character_BP_C","FriendlyName":"Skeletal Quetzal","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Quetzalcoatlus/Bone_Quetz_Character_BP.Bone_Quetz_Character_BP'\""},{"ClassName":"Bone_MegaRaptor_Character_BP_C","FriendlyName":"Skeletal Raptor","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Bone_MegaRaptor_Character_BP.Bone_MegaRaptor_Character_BP'\""},{"ClassName":"Bone_MegaRex_Character_BP_C","FriendlyName":"Skeletal Rex","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Rex/Bone_MegaRex_Character_BP.Bone_MegaRex_Character_BP'\""},{"ClassName":"Bone_Stego_Character_BP_C","FriendlyName":"Skeletal Stego","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Stego/Bone_Stego_Character_BP.Bone_Stego_Character_BP'\""},{"ClassName":"Bone_Trike_Character_BP_C","FriendlyName":"Skeletal Trike","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Trike/Bone_Trike_Character_BP.Bone_Trike_Character_BP'\""},{"ClassName":"Wyvern_Character_BP_ZombieFire","FriendlyName":"Zombie Fire Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieFire.Wyvern_Character_BP_ZombieFire'\""},{"ClassName":"Wyvern_Character_BP_ZombieLightning","FriendlyName":"Zombie Lightning Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieLightning.Wyvern_Character_BP_ZombieLightning'\""},{"ClassName":"Wyvern_Character_BP_ZombiePoison","FriendlyName":"Zombie Poison Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombiePoison.Wyvern_Character_BP_ZombiePoison'\""},{"ClassName":"Wyvern_Character_BP_ZombieFire_C","FriendlyName":"Zombie Fire Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieFire.Wyvern_Character_BP_ZombieFire'\""},{"ClassName":"Wyvern_Character_BP_ZombieLightning_C","FriendlyName":"Zombie Lightning Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieLightning.Wyvern_Character_BP_ZombieLightning'\""},{"ClassName":"Wyvern_Character_BP_ZombiePoison_C","FriendlyName":"Zombie Poison Wyvern","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombiePoison.Wyvern_Character_BP_ZombiePoison'\""},{"ClassName":"ZombieWyvern_Character_BP_Fire_C","FriendlyName":"Zombie Fire Wyvern","BlueprintPath":""},{"ClassName":"ZombieWyvern_Character_BP_Poison_C","FriendlyName":"Zombie Poison Wyvern","BlueprintPath":""},{"ClassName":"ZombieWyvern_Character_BP_Lightning_C","FriendlyName":"Zombie Lightning Wyvern","BlueprintPath":""},{"ClassName":"ZombieDodo_Character_BP_C","FriendlyName":"Zomdodo","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/ZombieDodo_Character_BP.ZombieDodo_Character_BP'\""},{"ClassName":"Turkey_Character_BP_C","FriendlyName":"Turkey","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Turkey_Character_BP.Turkey_Character_BP'\""},{"ClassName":"MotorRaft_BP_C","FriendlyName":"Motorboat","BlueprintPath":""},{"ClassName":"Raft_BP_C","FriendlyName":"Raft","BlueprintPath":""},{"ClassName":"RockGolem_Character_BP_C","FriendlyName":"Rock Elemental","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/RockGolem/RockGolem_Character_BP.RockGolem_Character_BP'\""},{"ClassName":"RubbleGolem_Character_BP_C","FriendlyName":"Rubble Golem","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/RockGolem/RubbleGolem_Character_BP.RubbleGolem_Character_BP'\""},{"ClassName":"Vulture_Character_BP_C","FriendlyName":"Vulture","BlueprintPath":"\"Blueprint'/Game/ScorchedEarth/Dinos/Vulture/Vulture_Character_BP.Vulture_Character_BP'\""},{"ClassName":"Bigfoot_Character_BP_Aberrant_C","FriendlyName":"Aberrant Gigantopithecus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Bigfoot/Bigfoot_Character_BP_Aberrant.Bigfoot_Character_BP_Aberrant'\""},{"ClassName":"ChupaCabra_Character_BP_Surface_C","FriendlyName":"Nameless (Surface)","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/ChupaCabra/ChupaCabra_Character_BP_Surface.ChupaCabra_Character_BP_Surface'\""},{"ClassName":"DungBeetle_Character_BP_Aberrant_C","FriendlyName":"Aberrant Dung Beetle","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/DungBeetle/DungBeetle_Character_BP_Aberrant.DungBeetle_Character_BP_Aberrant'\""},{"ClassName":"LanternGoat_Character_BP_C","FriendlyName":"Shinehorn","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/LanternGoat/LanternGoat_Character_BP.LanternGoat_Character_BP'\""},{"ClassName":"Pteroteuthis_Char_BP_Surface_C","FriendlyName":"Seeker (Surface)","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Pteroteuthis/Pteroteuthis_Char_BP_Surface.Pteroteuthis_Char_BP_Surface'\""},{"ClassName":"Xenomorph_Character_BP_Male_Surface_C","FriendlyName":"Reaper King (Surface)","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Surface.Xenomorph_Character_BP_Male_Surface'\""},{"ClassName":"Xenomorph_Character_BP_Male_Tamed_C","FriendlyName":"Reaper King","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Tamed.Xenomorph_Character_BP_Male_Tamed'\""},{"ClassName":"BionicTrike_Character_BP_C","FriendlyName":"Tek Trike","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Trike/BionicTrike_Character_BP.BionicTrike_Character_BP'\""},{"ClassName":"Bog_Para_Character_BP_C","FriendlyName":"X-Parasaur","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/BogPara/Bog_Para_Character_BP.Bog_Para_Character_BP'\""},{"ClassName":"Bog_Paracer_Character_BP_C","FriendlyName":"X-Paracer","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/BogParaceratherium/Bog_Paracer_Character_BP.Bog_Paracer_Character_BP'\""},{"ClassName":"Bog_Raptor_Character_BP_C","FriendlyName":"X-Raptor","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Bog_Raptor/Bog_Raptor_Character_BP.Bog_Raptor_Character_BP'\""},{"ClassName":"Bog_Spino_Character_BP_C","FriendlyName":"X-Spino","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Bog_Spino/Bog_Spino_Character_BP.Bog_Spino_Character_BP'\""},{"ClassName":"BogSpider_Character_BP_C","FriendlyName":"Bloodstalker","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BogSpider/BogSpider_Character_BP.BogSpider_Character_BP'\""},{"ClassName":"Cherufe_Character_BP_C","FriendlyName":"Magmasaur","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/Cherufe/Cherufe_Character_BP.Cherufe_Character_BP'\""},{"ClassName":"EndDrone_Lunar_Character_BP_C","FriendlyName":"X-Drone","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Lunar_Character_BP.EndDrone_Lunar_Character_BP'\""},{"ClassName":"EndTank_Lunar_Character_BP_C","FriendlyName":"X-Defense Unit","BlueprintPath":"\"Blueprint'/Game/EndGame/Dinos/Tank/EndTank_Lunar_Character_BP.EndTank_Lunar_Character_BP'\""},{"ClassName":"GiantTurtle_Character_BP_C","FriendlyName":"Megachelon","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/GiantTurtle/GiantTurtle_Character_BP.GiantTurtle_Character_BP'\""},{"ClassName":"InsectSwarmChar_BP_C","FriendlyName":"Insect Swarm","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/Swarms/InsectSwarmChar_BP.InsectSwarmChar_BP'\""},{"ClassName":"Lunar_Salmon_Character_BP_C","FriendlyName":"X-Salmon","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Lunar_Salmon/Lunar_Salmon_Character_BP.Lunar_Salmon_Character_BP'\""},{"ClassName":"Ocean_Basilosaurus_Character_BP_C","FriendlyName":"X-Basilosaurus","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Basilosaurus/Ocean_Basilosaurus_Character_BP.Ocean_Basilosaurus_Character_BP'\""},{"ClassName":"Ocean_Dolphin_Character_BP_C","FriendlyName":"X-Ichthyosaurus","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Dolphin/Ocean_Dolphin_Character_BP.Ocean_Dolphin_Character_BP'\""},{"ClassName":"Ocean_Dunkle_Character_BP_C","FriendlyName":"X-Dunkleosteus","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Dunkleosteus/Ocean_Dunkle_Character_BP.Ocean_Dunkle_Character_BP'\""},{"ClassName":"Ocean_Megalodon_Character_BP_C","FriendlyName":"X-Megalodon","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Megalodon/Ocean_Megalodon_Character_BP.Ocean_Megalodon_Character_BP'\""},{"ClassName":"Ocean_Mosa_Character_BP_C","FriendlyName":"X-Mosasaur","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Mosasaurus/Ocean_Mosa_Character_BP.Ocean_Mosa_Character_BP'\""},{"ClassName":"Rare_Lunar_Salmon_Character_BP_C","FriendlyName":"X-Salmon (Rare)","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Lunar_Salmon/Rare_Lunar_Salmon_Character_BP.Rare_Lunar_Salmon_Character_BP'\""},{"ClassName":"Shapeshifter_Small_Character_BP_C","FriendlyName":"Ferox (Small)","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/Shapeshifter/Shapeshifter_Small/Shapeshifter_Small_Character_BP.Shapeshifter_Small_Character_BP'\""},{"ClassName":"Shapeshifter_Large_Character_BP_C","FriendlyName":"Ferox (Large)","BlueprintPath":""},{"ClassName":"SpaceWhale_Character_BP_C","FriendlyName":"Astrocetus","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/SpaceWhale/SpaceWhale_Character_BP.SpaceWhale_Character_BP'\""},{"ClassName":"MicrobeSwarmChar_BP_C","FriendlyName":"Parakeet Fish School","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/Swarms/MicrobeSwarmChar_BP.MicrobeSwarmChar_BP'\""},{"ClassName":"Volcano_Golem_Character_BP_C","FriendlyName":"X-Rock Elemental","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Lava_Golem/Volcano_Golem_Character_BP.Volcano_Golem_Character_BP'\""},{"ClassName":"Xenomorph_Character_BP_Male_Lunar_C","FriendlyName":"X-Reaper King","BlueprintPath":"\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Lunar.Xenomorph_Character_BP_Male_Lunar'\""},{"ClassName":"Bog_Tapejara_Character_BP_C","FriendlyName":"X-Tapejara","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Bog_Tapejara/Bog_Tapejara_Character_BP.Bog_Tapejara_Character_BP'\""},{"ClassName":"Snow_Argent_Character_BP_C","FriendlyName":"X-Argentavis","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Argentavis/Snow_Argent_Character_BP.Snow_Argent_Character_BP'\""},{"ClassName":"Snow_Rhino_Character_BP_C","FriendlyName":"X-Rhino","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_WoollyRhino/Snow_Rhino_Character_BP.Snow_Rhino_Character_BP'\""},{"ClassName":"Snow_Saber_Character_BP_C","FriendlyName":"X-Sabertooth","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Saber/Snow_Saber_Character_BP.Snow_Saber_Character_BP'\""},{"ClassName":"Snow_Yutyrannus_Character_BP_C","FriendlyName":"X-Yutyrannus","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Yutyrannus/Snow_Yutyrannus_Character_BP.Snow_Yutyrannus_Character_BP'\""},{"ClassName":"Volcano_Allo_Character_BP_C","FriendlyName":"X-Allosaurus","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Allosaurus/Volcano_Allo_Character_BP.Volcano_Allo_Character_BP'\""},{"ClassName":"Volcano_Ankylo_Character_BP_C","FriendlyName":"X-Ankylosaurus","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Ankylosaurus/Volcano_Ankylo_Character_BP.Volcano_Ankylo_Character_BP'\""},{"ClassName":"Volcano_Rex_Character_BP_C","FriendlyName":"X-Rex","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Rex/Volcano_Rex_Character_BP.Volcano_Rex_Character_BP'\""},{"ClassName":"Volcano_Trike_Character_BP_C","FriendlyName":"X-Triceratops","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Trike/Volcano_Trike_Character_BP.Volcano_Trike_Character_BP'\""},{"ClassName":"Snow_Otter_Character_BP_C","FriendlyName":"X-Otter","BlueprintPath":"\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Otter/Snow_Otter_Character_BP.Snow_Otter_Character_BP'\""},{"ClassName":"CrystalWyvern_Character_BP_Blood_C","FriendlyName":"Wyvern (Blood)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_Blood.CrystalWyvern_Character_BP_Blood'\""},{"ClassName":"CrystalWyvern_Character_BP_WS_C","FriendlyName":"Wyvern (Tropical)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_WS.CrystalWyvern_Character_BP_WS'\""},{"ClassName":"CrystalWyvern_Character_BP_Ember_C","FriendlyName":"Wyvern (Ember)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_Ember.CrystalWyvern_Character_BP_Ember'\""},{"ClassName":"Dodo_Character_BP_Birthday_C","FriendlyName":"Dodo (Birthday)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Dodo_Character_BP_Birthday.Dodo_Character_BP_Birthday'\""},{"ClassName":"HoneyBee_Character_BP_C","FriendlyName":"Honey Bee","BlueprintPath":"\"Blueprint'/Game/Mods/CrystalIsles/Assets/Dinos/HoneyBee/HoneyBee_Character_BP.HoneyBee_Character_BP'\""},{"ClassName":"Tropeognathus_Character_BP_C","FriendlyName":"Tropeognathus","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Tropeognathus/Tropeognathus_Character_BP.Tropeognathus_Character_BP'\""},{"ClassName":"CrystalWyvern_Character_BP_Mega_C","FriendlyName":"Alpha Crystal Wyvern","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_Mega.CrystalWyvern_Character_BP_Mega'\""},{"ClassName":"TekWyvern_Character_BP_C","FriendlyName":"Voidwyrm","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/TekWyvern/TekWyvern_Character_BP.TekWyvern_Character_BP'\""},{"ClassName":"Sauropod_Character_BP_Rockwell_C","FriendlyName":"R-Bronto","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Sauropod_Character_BP_Rockwell.Sauropod_Character_BP_Rockwell'\""},{"ClassName":"Turtle_Character_BP_Rockwell_C","FriendlyName":"R-Carbonemys","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Turtle_Character_BP_Rockwell.Turtle_Character_BP_Rockwell'\""},{"ClassName":"Dilo_Character_BP_Rockwell_C","FriendlyName":"R-Dilophosaur","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Dilo_Character_BP_Rockwell.Dilo_Character_BP_Rockwell'\""},{"ClassName":"Allo_Character_BP_Rockwell_C","FriendlyName":"R-Allosaurus","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Allo_Character_BP_Rockwell.Allo_Character_BP_Rockwell'\""},{"ClassName":"Quetz_Character_BP_Rockwell_C","FriendlyName":"R-Quetzal","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Quetz_Character_BP_Rockwell.Quetz_Character_BP_Rockwell'\""},{"ClassName":"Gigant_Character_BP_Rockwell_C","FriendlyName":"R-Giganotosaurus","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Gigant_Character_BP_Rockwell.Gigant_Character_BP_Rockwell'\""},{"ClassName":"Carno_Character_BP_Rockwell_C","FriendlyName":"R-Carnotaurus","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Carno_Character_BP_Rockwell.Carno_Character_BP_Rockwell'\""},{"ClassName":"Spindles_Character_BP_Rockwell_C","FriendlyName":"R-Velonasaur","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Spindles_Character_BP_Rockwell.Spindles_Character_BP_Rockwell'\""},{"ClassName":"TekStrider_Character_BP_C","FriendlyName":"Tek Stryder","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/TekStrider/TekStrider_Character_BP.TekStrider_Character_BP'\""},{"ClassName":"MilkGlider_Character_BP_C","FriendlyName":"Maewing","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/MilkGlider/MilkGlider_Character_BP.MilkGlider_Character_BP'\""},{"ClassName":"SpaceDolphin_Character_BP_C","FriendlyName":"Astrodelphis","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/SpaceDolphin/SpaceDolphin_Character_BP.SpaceDolphin_Character_BP'\""},{"ClassName":"LionfishLion_Character_BP_C","FriendlyName":"Shadowmane","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/LionfishLion/LionfishLion_Character_BP.LionfishLion_Character_BP'\""},{"ClassName":"Summoner_Character_BP_C","FriendlyName":"Summoner","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/Summoner/Summoner_Character_BP.Summoner_Character_BP'\""},{"ClassName":"Brain_Slug","FriendlyName":"Noglin","BlueprintPath":""},{"ClassName":"Xenomorph_Character_BP_Male_Gen2_C","FriendlyName":"R-Reaper King","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Xenomorph_Character_BP_Male_Gen2.Xenomorph_Character_BP_Male_Gen2'\""},{"ClassName":"Xenomorph_Character_BP_Female_Gen2_C","FriendlyName":"R-Reaper Queen","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Xenomorph_Character_BP_Female_Gen2.Xenomorph_Character_BP_Female_Gen2'\""},{"ClassName":"Direwolf_Character_BP_Eden_C","FriendlyName":"R-Direwolf","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Direwolf_Character_BP_Eden.Direwolf_Character_BP_Eden'\""},{"ClassName":"Para_Character_BP_Eden_C","FriendlyName":"R-Parasaur","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Para_Character_BP_Eden.Para_Character_BP_Eden'\""},{"ClassName":"Owl_Character_BP_Eden_C","FriendlyName":"R-Snow Owl","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Owl_Character_BP_Eden.Owl_Character_BP_Eden'\""},{"ClassName":"Thylacoleo_Character_BP_Eden_C","FriendlyName":"R-Thylacoleo","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Thylacoleo_Character_BP_Eden.Thylacoleo_Character_BP_Eden'\""},{"ClassName":"Daeodon_Character_BP_Eden_C","FriendlyName":"R-Daeodon","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Daeodon_Character_BP_Eden.Daeodon_Character_BP_Eden'\""},{"ClassName":"Megatherium_Character_BP_Eden_C","FriendlyName":"R-Megatherium","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Megatherium_Character_BP_Eden.Megatherium_Character_BP_Eden'\""},{"ClassName":"Equus_Character_BP_Eden_C","FriendlyName":"R-Equus","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Equus_Character_BP_Eden.Equus_Character_BP_Eden'\""},{"ClassName":"GasBags_Character_BP_Eden_C","FriendlyName":"R-Gasbags","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/GasBags_Character_BP_Eden.GasBags_Character_BP_Eden'\""},{"ClassName":"Procoptodon_Character_BP_Eden_C","FriendlyName":"R-Procoptodon","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Procoptodon_Character_BP_Eden.Procoptodon_Character_BP_Eden'\""},{"ClassName":"Macrophage_Swarm_Character_C","FriendlyName":"Macrophage","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/Macrophage/Macrophage_Swarm_Character.Macrophage_Swarm_Character'\""},{"ClassName":"Defender_Character_BP_C","FriendlyName":"Defense Unit","BlueprintPath":"\"Blueprint'/Game/Extinction/Dinos/Tank/Defender_Character_BP.Defender_Character_BP'\""},{"ClassName":"Xenomorph_Character_BP_Male_Tamed_Gen2_C","FriendlyName":"R-Reaper King","BlueprintPath":"\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Xenomorph_Character_BP_Male_Tamed_Gen2.Xenomorph_Character_BP_Male_Tamed_Gen2'\""},{"ClassName":"TekHoverSkiff_Character_BP_C","FriendlyName":"Tek Skiff","BlueprintPath":""},{"ClassName":"Megalosaurus_Character_BP_TekCave_C","FriendlyName":"Megalosaurus (Tek Cave)","BlueprintPath":"\"Blueprint'/Game/PrimalEarth/Dinos/Megalosaurus/Megalosaurus_Character_BP_TekCave.Megalosaurus_Character_BP_TekCave'\""},{"ClassName":"DwarvenWarrior_Character_BP_C","FriendlyName":"Dwarfen Warrior","BlueprintPath":""},{"ClassName":"Rhynio_Character_BP_C","FriendlyName":"Rhyniognatha","BlueprintPath":null},{"ClassName":"Turkey_Character_BP_Event_C","FriendlyName":"Murder Turkey","BlueprintPath":null},{"ClassName":"Carcha_Character_BP_C","FriendlyName":"Carcharodontosaurus","BlueprintPath":null},{"ClassName":"Gigantoraptor_Character_BP_C","FriendlyName":"Gigantoraptor","BlueprintPath":null},{"ClassName":"Oasisaur_Character_BP_C","FriendlyName":"Oasisaur","BlueprintPath":null},{"ClassName":"Fasola_Character_BP_C","FriendlyName":"Fasolasuchus","BlueprintPath":null},{"ClassName":"Shastasaurus_Character_BP_C","FriendlyName":"Shastasaurus","BlueprintPath":"\"Blueprint'/Game/ASA/Dinos/Shastasaurus/Shastasaurus_Character_BP.Shastasaurus_Character_BP'\""},{"ClassName":"FireLion_Character_BP_C","FriendlyName":"Pyromane","BlueprintPath":"\"Blueprint'/Game/ASA/Dinos/FireLion/FireLion_Character_BP.FireLion_Character_BP'\""},{"ClassName":"Ceratosaurus_Character_BP_ASA_C","FriendlyName":"Ceratosaurus","BlueprintPath":null},{"ClassName":"Xiphactinus_Character_BP_ASA_C","FriendlyName":"Xiphactinus","BlueprintPath":null},{"ClassName":"DeinosuchusASA_Character_BP_C","FriendlyName":"Deinosuchus","BlueprintPath":null},{"ClassName":"Fasola_Character_BP_Aberrant_C","FriendlyName":"Aberrant Fasolasuchus","BlueprintPath":null},{"ClassName":"Gigantoraptor_Character_BP_Aberrant_C","FriendlyName":"Aberrant Gigantoraptor","BlueprintPath":null},{"ClassName":"JumpingSpider_Character_BP_C","FriendlyName":"Cosmo","BlueprintPath":null},{"ClassName":"Oviraptor_Character_BP_Aberrant_C","FriendlyName":"Aberrant Oviraptor","BlueprintPath":null},{"ClassName":"YiLing_Character_BP_C","FriendlyName":"Yi Ling","BlueprintPath":null},{"ClassName":"HelperBot_Character_BP_C","FriendlyName":"SIR-5RM8","BlueprintPath":null}]}
+{
+  "creatures": [
+    {
+      "ClassName": "Fenrir_Character_BP_C",
+      "FriendlyName": "Fenrir",
+      "BlueprintPath": "\"Blueprint'/Game/Fjordur/Dinos/Fenrir/Fenrir_Character_BP.Fenrir_Character_BP'\""
+    },
+    {
+      "ClassName": "Canoe_BP_C",
+      "FriendlyName": "Canoe",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Fjordhawk_Character_BP_C",
+      "FriendlyName": "Fjordhawk",
+      "BlueprintPath": "\"Blueprint'/Game/Fjordur/Dinos/Fjordhawk/Fjordhawk_Character_BP.Fjordhawk_Character_BP'\""
+    },
+    {
+      "ClassName": "Desmodus_Character_BP_C",
+      "FriendlyName": "Desmodus",
+      "BlueprintPath": "\"Blueprint'/Game/Fjordur/Dinos/Desmodus/Desmodus_Character_BP.Desmodus_Character_BP'\""
+    },
+    {
+      "ClassName": "Andrewsarchus_Character_BP_C",
+      "FriendlyName": "Andrewsarchus",
+      "BlueprintPath": "\"Blueprint'/Game/Fjordur/Dinos/Andrewsarchus/Andrewsarchus_Character_BP.Andrewsarchus_Character_BP'\""
+    },
+    {
+      "ClassName": "Monkey_Character_BP_Aggressive_Med_C",
+      "FriendlyName": "Mesopithecus (Boss Minion) (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Monkey/Monkey_Character_BP_Aggressive_Med.Monkey_Character_BP_Aggressive_Med'\""
+    },
+    {
+      "ClassName": "Dinopithecus_Character_BP_C",
+      "FriendlyName": "Dinopithecus",
+      "BlueprintPath": "\"Blueprint'/Game/LostIsland/Dinos/Dinopithecus/Dinopithecus_Character_BP.Dinopithecus_Character_BP'\""
+    },
+    {
+      "ClassName": "Exosuit_RTS_Character_BP_C",
+      "FriendlyName": "Exo Mek",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/Exosuit/Exosuit_RTS_Character_BP.Exosuit_RTS_Character_BP'\""
+    },
+    {
+      "ClassName": "Sinomacrops_Character_BP_C",
+      "FriendlyName": "Sinomacrops",
+      "BlueprintPath": "\"Blueprint'/Game/LostIsland/Dinos/Sinomacrops/Sinomacrops_Character_BP.Sinomacrops_Character_BP'\""
+    },
+    {
+      "ClassName": "BunnyOviraptor_Character_BP_C",
+      "FriendlyName": "Bunny Oviraptor",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Amargasaurus_Character_BP_C",
+      "FriendlyName": "Amargasaurus",
+      "BlueprintPath": "\"Blueprint'/Game/LostIsland/Dinos/Amargasaurus/Amargasaurus_Character_BP.Amargasaurus_Character_BP'\""
+    },
+    {
+      "ClassName": "Dodo_Character_BP_Bunny_C",
+      "FriendlyName": "Bunny Dodo",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Achatina_Character_BP_C",
+      "FriendlyName": "Achatina",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Achatina/Achatina_Character_BP.Achatina_Character_BP'\""
+    },
+    {
+      "ClassName": "Allo_Character_BP_C",
+      "FriendlyName": "Allosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Allosaurus/Allo_Character_BP.Allo_Character_BP'\""
+    },
+    {
+      "ClassName": "Ammonite_Character_C",
+      "FriendlyName": "Ammonite",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Ammonite/Ammonite_Character.Ammonite_Character'\""
+    },
+    {
+      "ClassName": "Angler_Character_BP_C",
+      "FriendlyName": "Anglerfish",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Anglerfish/Angler_Character_BP.Angler_Character_BP'\""
+    },
+    {
+      "ClassName": "Ankylo_Character_BP_C",
+      "FriendlyName": "Ankylosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Ankylo/Ankylo_Character_BP.Ankylo_Character_BP'\""
+    },
+    {
+      "ClassName": "SpiderS_Character_BP_C",
+      "FriendlyName": "Araneo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Small/SpiderS_Character_BP.SpiderS_Character_BP'\""
+    },
+    {
+      "ClassName": "Archa_Character_BP_C",
+      "FriendlyName": "Archaeopteryx",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Archaeopteryx/Archa_Character_BP.Archa_Character_BP'\""
+    },
+    {
+      "ClassName": "Argent_Character_BP_C",
+      "FriendlyName": "Argentavis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Argentavis/Argent_Character_BP.Argent_Character_BP'\""
+    },
+    {
+      "ClassName": "Arthro_Character_BP_C",
+      "FriendlyName": "Arthropluera",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Arthropluera/Arthro_Character_BP.Arthro_Character_BP'\""
+    },
+    {
+      "ClassName": "Baryonyx_Character_BP_C",
+      "FriendlyName": "Baryonyx",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Baryonyx/Baryonyx_Character_BP.Baryonyx_Character_BP'\""
+    },
+    {
+      "ClassName": "Basilosaurus_Character_BP_C",
+      "FriendlyName": "Basilosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Basilosaurus/Basilosaurus_Character_BP.Basilosaurus_Character_BP'\""
+    },
+    {
+      "ClassName": "Toad_Character_BP_C",
+      "FriendlyName": "Beelzebufo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Toad/Toad_Character_BP.Toad_Character_BP'\""
+    },
+    {
+      "ClassName": "Sauropod_Character_BP_C",
+      "FriendlyName": "Brontosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Sauropod/Sauropod_Character_BP.Sauropod_Character_BP'\""
+    },
+    {
+      "ClassName": "Turtle_Character_BP_C",
+      "FriendlyName": "Carbonemys",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Turtle/Turtle_Character_BP.Turtle_Character_BP'\""
+    },
+    {
+      "ClassName": "Carno_Character_BP_C",
+      "FriendlyName": "Carnotaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Carno/Carno_Character_BP.Carno_Character_BP'\""
+    },
+    {
+      "ClassName": "Beaver_Character_BP_C",
+      "FriendlyName": "Castoroides",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Beaver/Beaver_Character_BP.Beaver_Character_BP'\""
+    },
+    {
+      "ClassName": "Chalico_Character_BP_C",
+      "FriendlyName": "Chalicotherium",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Chalicotherium/Chalico_Character_BP.Chalico_Character_BP'\""
+    },
+    {
+      "ClassName": "ChalkGolem_Character_BP_C",
+      "FriendlyName": "Chalk Golem",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/Dinos/RockGolem/ChalkGolem/ChalkGolem_Character_BP.ChalkGolem_Character_BP'\""
+    },
+    {
+      "ClassName": "Cnidaria_Character_BP_C",
+      "FriendlyName": "Cnidaria",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Cnidaria/Cnidaria_Character_BP.Cnidaria_Character_BP'\""
+    },
+    {
+      "ClassName": "Coel_Character_BP_Ocean_C",
+      "FriendlyName": "Coelacanth (Ocean)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Coelacanth/Coel_Character_BP_Ocean.Coel_Character_BP_Ocean'\""
+    },
+    {
+      "ClassName": "Coel_Character_BP_C",
+      "FriendlyName": "Coelacanth",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Coelacanth/Coel_Character_BP.Coel_Character_BP'\""
+    },
+    {
+      "ClassName": "Compy_Character_BP_C",
+      "FriendlyName": "Compy",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Compy/Compy_Character_BP.Compy_Character_BP'\""
+    },
+    {
+      "ClassName": "Daeodon_Character_BP_C",
+      "FriendlyName": "Daeodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Daeodon/Daeodon_Character_BP.Daeodon_Character_BP'\""
+    },
+    {
+      "ClassName": "Deathworm_Character_BP_C",
+      "FriendlyName": "Deathworm",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/DeathWorm/DeathWorm_Character_BP.DeathWorm_Character_BP'\""
+    },
+    {
+      "ClassName": "Deinonychus_Character_BP_C",
+      "FriendlyName": "Deinonychus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Uberraptor/Deinonychus_Character_BP.Deinonychus_Character_BP'\""
+    },
+    {
+      "ClassName": "Dilo_Character_BP_C",
+      "FriendlyName": "Dilophosaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dilo/Dilo_Character_BP.Dilo_Character_BP'\""
+    },
+    {
+      "ClassName": "Dimetro_Character_BP_C",
+      "FriendlyName": "Dimetrodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dimetrodon/Dimetro_Character_BP.Dimetro_Character_BP'\""
+    },
+    {
+      "ClassName": "Dimorph_Character_BP_C",
+      "FriendlyName": "Dimorphodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dimorphodon/Dimorph_Character_BP.Dimorph_Character_BP'\""
+    },
+    {
+      "ClassName": "Diplocaulus_Character_BP_C",
+      "FriendlyName": "Diplocaulus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Diplocaulus/Diplocaulus_Character_BP.Diplocaulus_Character_BP'\""
+    },
+    {
+      "ClassName": "Diplodocus_Character_BP_C",
+      "FriendlyName": "Diplodocus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Diplodocus/Diplodocus_Character_BP.Diplodocus_Character_BP'\""
+    },
+    {
+      "ClassName": "Direbear_Character_BP_C",
+      "FriendlyName": "Dire Bear",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Direbear/Direbear_Character_BP.Direbear_Character_BP'\""
+    },
+    {
+      "ClassName": "Direbear_LL_Character_BP_C",
+      "FriendlyName": "Dire Bear",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/LifeLabyrinth/BearDirebear/Direbear_LL_Character_BP.Direbear_LL_Character_BP'\""
+    },
+    {
+      "ClassName": "Direwolf_LL_Character_BP_C",
+      "FriendlyName": "Dire Wolf",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/LifeLabyrinth/Wolf/Direwolf_LL_Character_BP.Direwolf_LL_Character_BP'\""
+    },
+    {
+      "ClassName": "Direwolf_Character_BP_C",
+      "FriendlyName": "Dire Wolf",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Direwolf/Direwolf_Character_BP.Direwolf_Character_BP'\""
+    },
+    {
+      "ClassName": "Leech_Character_Diseased_C",
+      "FriendlyName": "Diseased Leech",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Leech/Leech_Character_Diseased.Leech_Character_Diseased'\""
+    },
+    {
+      "ClassName": "Dodo_Character_BP_C",
+      "FriendlyName": "Dodo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Dodo_Character_BP.Dodo_Character_BP'\""
+    },
+    {
+      "ClassName": "Doed_Character_BP_C",
+      "FriendlyName": "Doedicurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Doedicurus/Doed_Character_BP.Doed_Character_BP'\""
+    },
+    {
+      "ClassName": "DungBeetle_Character_BP_C",
+      "FriendlyName": "Dung Beetle",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/DungBeetle/DungBeetle_Character_BP.DungBeetle_Character_BP'\""
+    },
+    {
+      "ClassName": "Dunkle_Character_BP_C",
+      "FriendlyName": "Dunkleosteus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dunkleosteus/Dunkle_Character_BP.Dunkle_Character_BP'\""
+    },
+    {
+      "ClassName": "Eel_Character_BP_C",
+      "FriendlyName": "Electrophorus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Eel/Eel_Character_BP.Eel_Character_BP'\""
+    },
+    {
+      "ClassName": "Equus_Character_BP_C",
+      "FriendlyName": "Equus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Equus/Equus_Character_BP.Equus_Character_BP'\""
+    },
+    {
+      "ClassName": "Euryp_Character_C",
+      "FriendlyName": "Eurypterid",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Eurypterid/Euryp_Character.Euryp_Character'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Fire_C",
+      "FriendlyName": "Fire Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_Fire.Wyvern_Character_BP_Fire'\""
+    },
+    {
+      "ClassName": "Galli_Character_BP_C",
+      "FriendlyName": "Gallimimus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Gallimimus/Galli_Character_BP.Galli_Character_BP'\""
+    },
+    {
+      "ClassName": "Bee_Queen_Character_BP_C",
+      "FriendlyName": "Giant Queen Bee",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Bee/Bee_Queen_Character_BP.Bee_Queen_Character_BP'\""
+    },
+    {
+      "ClassName": "Gigant_Character_BP_C",
+      "FriendlyName": "Giganotosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Giganotosaurus/Gigant_Character_BP.Gigant_Character_BP'\""
+    },
+    {
+      "ClassName": "Gigant_Character_BP_TekCave_C",
+      "FriendlyName": "Giganotosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Giganotosaurus/Gigant_Character_BP_TekCave.Gigant_Character_BP_TekCave'\""
+    },
+    {
+      "ClassName": "Bigfoot_Character_BP_C",
+      "FriendlyName": "Gigantopithecus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Bigfoot/Bigfoot_Character_BP.Bigfoot_Character_BP'\""
+    },
+    {
+      "ClassName": "Hesperornis_Character_BP_C",
+      "FriendlyName": "Hesperornis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Hesperornis/Hesperornis_Character_BP.Hesperornis_Character_BP'\""
+    },
+    {
+      "ClassName": "Hyaenodon_Character_BP_C",
+      "FriendlyName": "Hyaenodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Hyaenodon/Hyaenodon_Character_BP.Hyaenodon_Character_BP'\""
+    },
+    {
+      "ClassName": "IceGolem_Character_BP_C",
+      "FriendlyName": "Ice Golem",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/Dinos/RockGolem/IceGolem/IceGolem_Character_BP.IceGolem_Character_BP'\""
+    },
+    {
+      "ClassName": "Ragnarok_Wyvern_Override_Ice_C",
+      "FriendlyName": "Ice Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/LostIsland/Assets/Dinos/IceWyvern/Ragnarok_Wyvern_Override_Ice.Ragnarok_Wyvern_Override_Ice'\""
+    },
+    {
+      "ClassName": "Ichthyornis_Character_BP_C",
+      "FriendlyName": "Ichthyornis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Ichthyornis/Ichthyornis_Character_BP.Ichthyornis_Character_BP'\""
+    },
+    {
+      "ClassName": "Dolphin_Character_BP_C",
+      "FriendlyName": "Ichthyosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dolphin/Dolphin_Character_BP.Dolphin_Character_BP'\""
+    },
+    {
+      "ClassName": "Iguanodon_Character_BP_C",
+      "FriendlyName": "Iguanodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Iguanodon/Iguanodon_Character_BP.Iguanodon_Character_BP'\""
+    },
+    {
+      "ClassName": "Jerboa_Character_BP_C",
+      "FriendlyName": "Jerboa",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Jerboa/Jerboa_Character_BP.Jerboa_Character_BP'\""
+    },
+    {
+      "ClassName": "Kairuku_Character_BP_C",
+      "FriendlyName": "Kairuku",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Kairuku/Kairuku_Character_BP.Kairuku_Character_BP'\""
+    },
+    {
+      "ClassName": "Kaprosuchus_Character_BP_C",
+      "FriendlyName": "Kaprosuchus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Kaprosuchus/Kaprosuchus_Character_BP.Kaprosuchus_Character_BP'\""
+    },
+    {
+      "ClassName": "Kentro_Character_BP_C",
+      "FriendlyName": "Kentrosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Kentrosaurus/Kentro_Character_BP.Kentro_Character_BP'\""
+    },
+    {
+      "ClassName": "Lamprey_Character_C",
+      "FriendlyName": "Lamprey",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Lamprey/Lamprey_Character.Lamprey_Character'\""
+    },
+    {
+      "ClassName": "Leech_Character_C",
+      "FriendlyName": "Leech",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Leech/Leech_Character.Leech_Character'\""
+    },
+    {
+      "ClassName": "Leedsichthys_Character_BP_C",
+      "FriendlyName": "Leedsichthys",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Leedsichthys/Leedsichthys_Character_BP.Leedsichthys_Character_BP'\""
+    },
+    {
+      "ClassName": "Moth_Character_BP_C",
+      "FriendlyName": "Lymantria",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Moth/Moth_Character_BP.Moth_Character_BP'\""
+    },
+    {
+      "ClassName": "Lystro_Character_BP_C",
+      "FriendlyName": "Lystrosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Lystrosaurus/Lystro_Character_BP.Lystro_Character_BP'\""
+    },
+    {
+      "ClassName": "Mammoth_Character_BP_C",
+      "FriendlyName": "Mammoth",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Mammoth/Mammoth_Character_BP.Mammoth_Character_BP'\""
+    },
+    {
+      "ClassName": "Manta_Character_BP_C",
+      "FriendlyName": "Manta",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Manta/Manta_Character_BP.Manta_Character_BP'\""
+    },
+    {
+      "ClassName": "Mantis_Character_BP_C",
+      "FriendlyName": "Mantis",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Mantis/Mantis_Character_BP.Mantis_Character_BP'\""
+    },
+    {
+      "ClassName": "Stag_Character_BP_C",
+      "FriendlyName": "Megaloceros",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Stag/Stag_Character_BP.Stag_Character_BP'\""
+    },
+    {
+      "ClassName": "Megalodon_Character_BP_C",
+      "FriendlyName": "Megalodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megalodon/Megalodon_Character_BP.Megalodon_Character_BP'\""
+    },
+    {
+      "ClassName": "Dragonfly_Character_BP_C",
+      "FriendlyName": "Meganeura",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dragonfly/Dragonfly_Character_BP.Dragonfly_Character_BP'\""
+    },
+    {
+      "ClassName": "Megatherium_Character_BP_C",
+      "FriendlyName": "Megatherium",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megatherium/Megatherium_Character_BP.Megatherium_Character_BP'\""
+    },
+    {
+      "ClassName": "Megalosaurus_Character_BP_C",
+      "FriendlyName": "Megalosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megalosaurus/Megalosaurus_Character_BP.Megalosaurus_Character_BP'\""
+    },
+    {
+      "ClassName": "Monkey_Character_BP_C",
+      "FriendlyName": "Mesopithecus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Monkey/Monkey_Character_BP.Monkey_Character_BP'\""
+    },
+    {
+      "ClassName": "Microraptor_Character_BP_C",
+      "FriendlyName": "Microraptor",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Microraptor/Microraptor_Character_BP.Microraptor_Character_BP'\""
+    },
+    {
+      "ClassName": "camelsaurus_Character_BP_C",
+      "FriendlyName": "Morellatops",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Camelsaurus/camelsaurus_Character_BP.camelsaurus_Character_BP'\""
+    },
+    {
+      "ClassName": "Mosa_Character_BP_C",
+      "FriendlyName": "Mosasaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Mosasaurus/Mosa_Character_BP.Mosa_Character_BP'\""
+    },
+    {
+      "ClassName": "Moschops_Character_BP_C",
+      "FriendlyName": "Moschops",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Moschops/Moschops_Character_BP.Moschops_Character_BP'\""
+    },
+    {
+      "ClassName": "Bat_Character_BP_C",
+      "FriendlyName": "Onyc",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Bat/Bat_Character_BP.Bat_Character_BP'\""
+    },
+    {
+      "ClassName": "Otter_Character_BP_C",
+      "FriendlyName": "Otter",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Otter/Otter_Character_BP.Otter_Character_BP'\""
+    },
+    {
+      "ClassName": "Oviraptor_Character_BP_C",
+      "FriendlyName": "Oviraptor",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Oviraptor/Oviraptor_Character_BP.Oviraptor_Character_BP'\""
+    },
+    {
+      "ClassName": "Sheep_Character_BP_C",
+      "FriendlyName": "Ovis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Sheep/Sheep_Character_BP.Sheep_Character_BP'\""
+    },
+    {
+      "ClassName": "Jugbug_Oil_Character_BP_C",
+      "FriendlyName": "Oil Jugbug",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Jugbug/Jugbug_Oil_Character_BP.Jugbug_Oil_Character_BP'\""
+    },
+    {
+      "ClassName": "Pachy_Character_BP_C",
+      "FriendlyName": "Pachy",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Pachy/Pachy_Character_BP.Pachy_Character_BP'\""
+    },
+    {
+      "ClassName": "Pachyrhino_Character_BP_C",
+      "FriendlyName": "Pachyrhinosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Pachyrhinosaurus/Pachyrhino_Character_BP.Pachyrhino_Character_BP'\""
+    },
+    {
+      "ClassName": "Paracer_Character_BP_C",
+      "FriendlyName": "Paraceratherium",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Paraceratherium/Paracer_Character_BP.Paracer_Character_BP'\""
+    },
+    {
+      "ClassName": "Para_Character_BP_C",
+      "FriendlyName": "Parasaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Para/Para_Character_BP.Para_Character_BP'\""
+    },
+    {
+      "ClassName": "Pegomastax_Character_BP_C",
+      "FriendlyName": "Pegomastax",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Pegomastax/Pegomastax_Character_BP.Pegomastax_Character_BP'\""
+    },
+    {
+      "ClassName": "Pela_Character_BP_C",
+      "FriendlyName": "Pelagornis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Pelagornis/Pela_Character_BP.Pela_Character_BP'\""
+    },
+    {
+      "ClassName": "Phiomia_Character_BP_C",
+      "FriendlyName": "Phiomia",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Phiomia/Phiomia_Character_BP.Phiomia_Character_BP'\""
+    },
+    {
+      "ClassName": "Phoenix_Character_BP_C",
+      "FriendlyName": "Phoenix",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Phoenix/Phoenix_Character_BP.Phoenix_Character_BP'\""
+    },
+    {
+      "ClassName": "Piranha_Character_BP_C",
+      "FriendlyName": "Piranha",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Piranha/Piranha_Character_BP.Piranha_Character_BP'\""
+    },
+    {
+      "ClassName": "Plesiosaur_Character_BP_C",
+      "FriendlyName": "Plesiosaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Plesiosaur/Plesiosaur_Character_BP.Plesiosaur_Character_BP'\""
+    },
+    {
+      "ClassName": "Direbear_Character_Polar_C",
+      "FriendlyName": "Polar Bear",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Direbear/Direbear_Character_Polar.Direbear_Character_Polar'\""
+    },
+    {
+      "ClassName": "Polar_Bear_C",
+      "FriendlyName": "Polar Bear",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Dinos/Polar_Bear/Polar_Bear.Polar_Bear'\""
+    },
+    {
+      "ClassName": "Procoptodon_Character_BP_C",
+      "FriendlyName": "Procoptodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Procoptodon/Procoptodon_Character_BP.Procoptodon_Character_BP'\""
+    },
+    {
+      "ClassName": "Ptero_Character_BP_C",
+      "FriendlyName": "Pteranodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Ptero/Ptero_Character_BP.Ptero_Character_BP'\""
+    },
+    {
+      "ClassName": "Scorpion_Character_BP_C",
+      "FriendlyName": "Pulmonoscorpius",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Scorpion/Scorpion_Character_BP.Scorpion_Character_BP'\""
+    },
+    {
+      "ClassName": "Purlovia_Character_BP_C",
+      "FriendlyName": "Purlovia",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Purlovia/Purlovia_Character_BP.Purlovia_Character_BP'\""
+    },
+    {
+      "ClassName": "Purlovia_Character_BP_Polar_C",
+      "FriendlyName": "Purlovia (Polar)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Purlovia/Purlovia_Character_BP_Polar.Purlovia_Character_BP_Polar'\""
+    },
+    {
+      "ClassName": "Quetz_Character_BP_C",
+      "FriendlyName": "Quetzal",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Quetzalcoatlus/Quetz_Character_BP.Quetz_Character_BP'\""
+    },
+    {
+      "ClassName": "Raptor_Character_BP_C",
+      "FriendlyName": "Raptor",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Raptor_Character_BP.Raptor_Character_BP'\""
+    },
+    {
+      "ClassName": "Rex_Character_BP_C",
+      "FriendlyName": "Rex",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Rex/Rex_Character_BP.Rex_Character_BP'\""
+    },
+    {
+      "ClassName": "Salmon_Character_BP_C",
+      "FriendlyName": "Sabertooth Salmon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Salmon/Salmon_Character_BP.Salmon_Character_BP'\""
+    },
+    {
+      "ClassName": "Saber_Character_BP_C",
+      "FriendlyName": "Sabertooth",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Saber/Saber_Character_BP.Saber_Character_BP'\""
+    },
+    {
+      "ClassName": "Sarco_Character_BP_C",
+      "FriendlyName": "Sarco",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Sarco/Sarco_Character_BP.Sarco_Character_BP'\""
+    },
+    {
+      "ClassName": "Spino_Character_BP_C",
+      "FriendlyName": "Spinosaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spino/Spino_Character_BP.Spino_Character_BP'\""
+    },
+    {
+      "ClassName": "Stego_Character_BP_C",
+      "FriendlyName": "Stegosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Stego/Stego_Character_BP.Stego_Character_BP'\""
+    },
+    {
+      "ClassName": "Tapejara_Character_BP_C",
+      "FriendlyName": "Tapejara",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Tapejara/Tapejara_Character_BP.Tapejara_Character_BP'\""
+    },
+    {
+      "ClassName": "TerrorBird_Character_BP_C",
+      "FriendlyName": "Terror Bird",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/TerrorBird/TerrorBird_Character_BP.TerrorBird_Character_BP'\""
+    },
+    {
+      "ClassName": "Therizino_Character_BP_C",
+      "FriendlyName": "Therizinosaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Therizinosaurus/Therizino_Character_BP.Therizino_Character_BP'\""
+    },
+    {
+      "ClassName": "SpineyLizard_Character_BP_C",
+      "FriendlyName": "Thorny Dragon",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/SpineyLizard/SpineyLizard_Character_BP.SpineyLizard_Character_BP'\""
+    },
+    {
+      "ClassName": "Thylacoleo_Character_BP_C",
+      "FriendlyName": "Thylacoleo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Thylacoleo/Thylacoleo_Character_BP.Thylacoleo_Character_BP'\""
+    },
+    {
+      "ClassName": "BoaFrill_Character_BP_C",
+      "FriendlyName": "Titanoboa",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/BoaFrill/BoaFrill_Character_BP.BoaFrill_Character_BP'\""
+    },
+    {
+      "ClassName": "Ant_Character_BP_C",
+      "FriendlyName": "Titanomyrma Drone",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Ant/Ant_Character_BP.Ant_Character_BP'\""
+    },
+    {
+      "ClassName": "FlyingAnt_Character_BP_C",
+      "FriendlyName": "Titanomyrma Soldier",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Ant/FlyingAnt_Character_BP.FlyingAnt_Character_BP'\""
+    },
+    {
+      "ClassName": "Titanosaur_Character_BP_C",
+      "FriendlyName": "Titanosaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/titanosaur/Titanosaur_Character_BP.Titanosaur_Character_BP'\""
+    },
+    {
+      "ClassName": "Trike_Character_BP_C",
+      "FriendlyName": "Triceratops",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Trike/Trike_Character_BP.Trike_Character_BP'\""
+    },
+    {
+      "ClassName": "Trilobite_Character_C",
+      "FriendlyName": "Trilobite",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Trilobite/Trilobite_Character.Trilobite_Character'\""
+    },
+    {
+      "ClassName": "Troodon_Character_BP_C",
+      "FriendlyName": "Troodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Troodon/Troodon_Character_BP.Troodon_Character_BP'\""
+    },
+    {
+      "ClassName": "Tusoteuthis_Character_BP_C",
+      "FriendlyName": "Tusoteuthis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Tusoteuthis/Tusoteuthis_Character_BP.Tusoteuthis_Character_BP'\""
+    },
+    {
+      "ClassName": "Equus_Character_BP_Unicorn_C",
+      "FriendlyName": "Unicorn",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Equus/Equus_Character_BP_Unicorn.Equus_Character_BP_Unicorn'\""
+    },
+    {
+      "ClassName": "Spindles_Character_BP_C",
+      "FriendlyName": "Velonasaur",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Spindles/Spindles_Character_BP.Spindles_Character_BP'\""
+    },
+    {
+      "ClassName": "Jugbug_Water_Character_BP_C",
+      "FriendlyName": "Water Jugbug",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Jugbug/Jugbug_Water_Character_BP.Jugbug_Water_Character_BP'\""
+    },
+    {
+      "ClassName": "Rhino_Character_BP_C",
+      "FriendlyName": "Woolly Rhino",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/WoollyRhino/Rhino_Character_BP.Rhino_Character_BP'\""
+    },
+    {
+      "ClassName": "Yeti_Character_BP_C",
+      "FriendlyName": "Yeti",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Bigfoot/Yeti_Character_BP.Yeti_Character_BP'\""
+    },
+    {
+      "ClassName": "Yutyrannus_Character_BP_C",
+      "FriendlyName": "Yutyrannus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Yutyrannus/Yutyrannus_Character_BP.Yutyrannus_Character_BP'\""
+    },
+    {
+      "ClassName": "BionicPara_Character_BP_C",
+      "FriendlyName": "Tek Parasaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Para/BionicPara_Character_BP.BionicPara_Character_BP'\""
+    },
+    {
+      "ClassName": "BionicQuetz_Character_BP_C",
+      "FriendlyName": "Tek Quetz",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Quetzalcoatlus/BionicQuetz_Character_BP.BionicQuetz_Character_BP'\""
+    },
+    {
+      "ClassName": "BionicRaptor_Character_BP_C",
+      "FriendlyName": "Tek Raptor",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/BionicRaptor_Character_BP.BionicRaptor_Character_BP'\""
+    },
+    {
+      "ClassName": "BionicRex_Character_BP_C",
+      "FriendlyName": "Tek Rex",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Rex/BionicRex_Character_BP.BionicRex_Character_BP'\""
+    },
+    {
+      "ClassName": "BionicStego_Character_BP_C",
+      "FriendlyName": "Tek Stegosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Stego/BionicStego_Character_BP.BionicStego_Character_BP'\""
+    },
+    {
+      "ClassName": "Achatina_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Achatina",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Achatina/Achatina_Character_BP_Aberrant.Achatina_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Angler_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Anglerfish",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Anglerfish/Angler_Character_BP_Aberrant.Angler_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Ankylo_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Ankylosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Ankylo/Ankylo_Character_BP_Aberrant.Ankylo_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "SpiderS_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Araneo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Small/SpiderS_Character_BP_Aberrant.SpiderS_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Arthro_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Arthropluera",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Arthropluera/Arthro_Character_BP_Aberrant.Arthro_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Baryonyx_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Baryonyx",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Baryonyx/Baryonyx_Character_BP_Aberrant.Baryonyx_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Toad_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Beelzebufo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Toad/Toad_Character_BP_Aberrant.Toad_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Turtle_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Carbonemys",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Turtle/Turtle_Character_BP_Aberrant.Turtle_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Carno_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Carnotaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Carno/Carno_Character_BP_Aberrant.Carno_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Coel_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Coelacanth",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Coelacanth/Coel_Character_BP_Aberrant.Coel_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Cnidaria_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Cnidaria",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Cnidaria/Cnidaria_Character_BP_Aberrant.Cnidaria_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Dimetro_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dimetrodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dimetrodon/Dimetro_Character_BP_Aberrant.Dimetro_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Dimorph_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dimorphodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dimorphodon/Dimorph_Character_BP_Aberrant.Dimorph_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Diplocaulus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Diplocaulus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Diplocaulus/Diplocaulus_Character_BP_Aberrant.Diplocaulus_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Diplodocus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Diplodocus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Diplodocus/Diplodocus_Character_BP_Aberrant.Diplodocus_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Direbear_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dire Bear",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Direbear/Direbear_Character_BP_Aberrant.Direbear_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Dodo_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dodo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Dodo_Character_BP_Aberrant.Dodo_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Doed_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Doedicurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Doedicurus/Doed_Character_BP_Aberrant.Doed_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Eel_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Electrophorus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Eel/Eel_Character_BP_Aberrant.Eel_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Equus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Equus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Equus/Equus_Character_BP_Aberrant.Equus_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Iguanodon_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Iguanodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Iguanodon/Iguanodon_Character_BP_Aberrant.Iguanodon_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Lystro_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Lystrosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Lystrosaurus/Lystro_Character_BP_Aberrant.Lystro_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Manta_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Manta",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Manta/Manta_Character_BP_Aberrant.Manta_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Megalania_Character_BP_C",
+      "FriendlyName": "Megalania",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megalania/Megalania_Character_BP.Megalania_Character_BP'\""
+    },
+    {
+      "ClassName": "Liopleurodon_Character_BP_C",
+      "FriendlyName": "Liopleurodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Liopleurodon/Liopleurodon_Character_BP.Liopleurodon_Character_BP'\""
+    },
+    {
+      "ClassName": "Megalania_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Megalania",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megalania/Megalania_Character_BP_Aberrant.Megalania_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Megalosaurus_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Megalosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megalosaurus/Megalosaurus_Character_BP_Aberrant.Megalosaurus_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Dragonfly_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Meganeura",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dragonfly/Dragonfly_Character_BP_Aberrant.Dragonfly_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Moschops_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Moschops",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Moschops/Moschops_Character_BP_Aberrant.Moschops_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Otter_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Otter",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Otter/Otter_Character_BP_Aberrant.Otter_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Sheep_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Ovis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Sheep/Sheep_Character_BP_Aberrant.Sheep_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Paracer_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Paraceratherium",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Paraceratherium/Paracer_Character_BP_Aberrant.Paracer_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Para_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Parasaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Para/Para_Character_BP_Aberrant.Para_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Piranha_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Piranha",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Piranha/Piranha_Character_BP_Aberrant.Piranha_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Scorpion_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Pulmonoscorpius",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Scorpion/Scorpion_Character_BP_Aberrant.Scorpion_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Purlovia_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Purlovia",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Purlovia/Purlovia_Character_BP_Aberrant.Purlovia_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Raptor_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Raptor",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Raptor_Character_BP_Aberrant.Raptor_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Salmon_Character_Aberrant_C",
+      "FriendlyName": "Aberrant Salmon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Salmon/Salmon_Character_Aberrant.Salmon_Character_Aberrant'\""
+    },
+    {
+      "ClassName": "Sarco_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Sarco",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Sarco/Sarco_Character_BP_Aberrant.Sarco_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Spino_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Spino",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spino/Spino_Character_BP_Aberrant.Spino_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Stego_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Stegosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Stego/Stego_Character_BP_Aberrant.Stego_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "BoaFrill_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Titanoboa",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/BoaFrill/BoaFrill_Character_BP_Aberrant.BoaFrill_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Trike_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Triceratops",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Trike/Trike_Character_BP_Aberrant.Trike_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "Trilobite_Character_Aberrant_C",
+      "FriendlyName": "Aberrant Trilobite",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Trilobite/Trilobite_Character_Aberrant.Trilobite_Character_Aberrant'\""
+    },
+    {
+      "ClassName": "LanternPug_Character_BP_C",
+      "FriendlyName": "Bulbdog",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/LanternPug/LanternPug_Character_BP.LanternPug_Character_BP'\""
+    },
+    {
+      "ClassName": "LanternBird_Character_BP_C",
+      "FriendlyName": "Featherlight",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/LanternBird/LanternBird_Character_BP.LanternBird_Character_BP'\""
+    },
+    {
+      "ClassName": "Lightbug_Character_BaseBP_C",
+      "FriendlyName": "Glowbug",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Lightbug/Lightbug_Character_BaseBP.Lightbug_Character_BaseBP'\""
+    },
+    {
+      "ClassName": "LanternLizard_Character_BP_C",
+      "FriendlyName": "Glowtail",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/LanternLizard/LanternLizard_Character_BP.LanternLizard_Character_BP'\""
+    },
+    {
+      "ClassName": "Crab_Character_BP_C",
+      "FriendlyName": "Karkinos",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Crab/Crab_Character_BP.Crab_Character_BP'\""
+    },
+    {
+      "ClassName": "CaveWolf_Character_BP_C",
+      "FriendlyName": "Ravager",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/CaveWolf/CaveWolf_Character_BP.CaveWolf_Character_BP'\""
+    },
+    {
+      "ClassName": "MoleRat_Character_BP_C",
+      "FriendlyName": "Roll Rat",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/MoleRat/MoleRat_Character_BP.MoleRat_Character_BP'\""
+    },
+    {
+      "ClassName": "Pteroteuthis_Char_BP_C",
+      "FriendlyName": "Seeker",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Pteroteuthis/Pteroteuthis_Char_BP.Pteroteuthis_Char_BP'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_C",
+      "FriendlyName": "Reaper",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male.Xenomorph_Character_BP_Male'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Chupa_C",
+      "FriendlyName": "Reaper King",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Chupa.Xenomorph_Character_BP_Male_Chupa'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Minion_C",
+      "FriendlyName": "Reaper King",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Minion.Xenomorph_Character_BP_Male_Minion'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Female_C",
+      "FriendlyName": "Reaper Queen",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Female.Xenomorph_Character_BP_Female'\""
+    },
+    {
+      "ClassName": "ChupaCabra_Character_BP_C",
+      "FriendlyName": "Nameless",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/ChupaCabra/ChupaCabra_Character_BP.ChupaCabra_Character_BP'\""
+    },
+    {
+      "ClassName": "RockDrake_Character_BP_C",
+      "FriendlyName": "Rock Drake",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/RockDrake/RockDrake_Character_BP.RockDrake_Character_BP'\""
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_C",
+      "FriendlyName": "Attack Drone",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Character_BP.EndDrone_Character_BP'\""
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_Hard_C",
+      "FriendlyName": "Attack Drone",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Character_BP_Hard.EndDrone_Character_BP_Hard'\""
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_Med_C",
+      "FriendlyName": "Attack Drone",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Character_BP_Med.EndDrone_Character_BP_Med'\""
+    },
+    {
+      "ClassName": "EndDrone_Character_BP_Easy_C",
+      "FriendlyName": "Attack Drone",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Basilisk_Character_BP_C",
+      "FriendlyName": "Basilisk",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Basilisk/Basilisk_Character_BP.Basilisk_Character_BP'\""
+    },
+    {
+      "ClassName": "Arthro_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Arthropluera",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Arthropluera/Arthro_Character_BP_Corrupt.Arthro_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Carno_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Carnotaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Carno/Carno_Character_BP_Corrupt.Carno_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Chalico_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Chalicotherium",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Chalicotherium/Chalico_Character_BP_Corrupt.Chalico_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "CorruptTumor_Character_BP_C",
+      "FriendlyName": "Corrupt Tumor",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/KingKaiju/CorruptTumor_Character_BP.CorruptTumor_Character_BP'\""
+    },
+    {
+      "ClassName": "Dilo_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Dilophosaur",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Dilo/Dilo_Character_BP_Corrupt.Dilo_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Dimorph_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Dimorphodon",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Dimorphodon/Dimorph_Character_BP_Corrupt.Dimorph_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Gigant_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Giganotosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Giganotosaurus/Gigant_Character_BP_Corrupt.Gigant_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Paracer_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Paraceratherium",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Paraceratherium/Paracer_Character_BP_Corrupt.Paracer_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Ptero_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Pteranodon",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Ptero/Ptero_Character_BP_Corrupt.Ptero_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Raptor_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Raptor",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Raptor/Raptor_Character_BP_Corrupt.Raptor_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Tamed_Corrupt_C",
+      "FriendlyName": "Corrupted Reaper King",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Nameless/Xenomorph_Character_BP_Male_Tamed_Corrupt.Xenomorph_Character_BP_Male_Tamed_Corrupt'\""
+    },
+    {
+      "ClassName": "Rex_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Rex",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Rex/Rex_Character_BP_Corrupt.Rex_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "RockDrake_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Rock Drake",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/RockDrake/RockDrake_Character_BP_Corrupt.RockDrake_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Spino_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Spino",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Spino/Spino_Character_BP_Corrupt.Spino_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Stego_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Stegosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Stego/Stego_Character_BP_Corrupt.Stego_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Trike_Character_BP_Corrupt_C",
+      "FriendlyName": "Corrupted Triceratops",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Trike/Trike_Character_BP_Corrupt.Trike_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Fire_Corrupt_C",
+      "FriendlyName": "Corrupted Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Wyvern/Wyvern_Character_BP_Fire_Corrupt.Wyvern_Character_BP_Fire_Corrupt'\""
+    },
+    {
+      "ClassName": "EndTank_Character_BP_C",
+      "FriendlyName": "Defense Unit",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Tank/EndTank_Character_BP.EndTank_Character_BP'\""
+    },
+    {
+      "ClassName": "Enforcer_Character_BP_C",
+      "FriendlyName": "Enforcer",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Enforcer/Enforcer_Character_BP.Enforcer_Character_BP'\""
+    },
+    {
+      "ClassName": "Gacha_Character_BP_C",
+      "FriendlyName": "Gacha",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Gacha/Gacha_Character_BP.Gacha_Character_BP'\""
+    },
+    {
+      "ClassName": "Gacha_Claus_Character_BP_C",
+      "FriendlyName": "Gacha Claus",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Gacha/Gacha_Claus_Character_BP.Gacha_Claus_Character_BP'\""
+    },
+    {
+      "ClassName": "GasBags_Character_BP_C",
+      "FriendlyName": "Gasbags",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/GasBag/GasBags_Character_BP.GasBags_Character_BP'\""
+    },
+    {
+      "ClassName": "IceJumper_Character_BP_C",
+      "FriendlyName": "Managarmr",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/IceJumper/IceJumper_Character_BP.IceJumper_Character_BP'\""
+    },
+    {
+      "ClassName": "Mek_Character_BP_C",
+      "FriendlyName": "Mek",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Mek/Mek_Character_BP.Mek_Character_BP'\""
+    },
+    {
+      "ClassName": "MegaMek_Character_BP_C",
+      "FriendlyName": "Mega Mek",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Mek/MegaMek_Character_BP.MegaMek_Character_BP'\""
+    },
+    {
+      "ClassName": "Scout_Character_BP_C",
+      "FriendlyName": "Scout",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Scout/Scout_Character_BP.Scout_Character_BP'\""
+    },
+    {
+      "ClassName": "Owl_Character_BP_C",
+      "FriendlyName": "Snow Owl",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Owl/Owl_Character_BP.Owl_Character_BP'\""
+    },
+    {
+      "ClassName": "Griffin_Character_BP_C",
+      "FriendlyName": "Griffin",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Griffin/Griffin_Character_BP.Griffin_Character_BP'\""
+    },
+    {
+      "ClassName": "Griffin_Character_Minion_BP_C",
+      "FriendlyName": "Griffin",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Griffin_Character_Minion_BP.Griffin_Character_Minion_BP'\""
+    },
+    {
+      "ClassName": "Iceworm_Character_Minion_BP_smaller_C",
+      "FriendlyName": "Iceworm",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/JacksonL/Iceworm/Iceworm_Character_Minion_BP_smaller.Iceworm_Character_Minion_BP_smaller'\""
+    },
+    {
+      "ClassName": "LavaGolem_Character_BP_C",
+      "FriendlyName": "Lava Golem",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/JacksonL/LavaGolem/LavaGolem_Character_BP.LavaGolem_Character_BP'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Lightning_C",
+      "FriendlyName": "Lightning Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_Lightning.Wyvern_Character_BP_Lightning'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_Poison_C",
+      "FriendlyName": "Poison Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_Poison.Wyvern_Character_BP_Poison'\""
+    },
+    {
+      "ClassName": "MegaBasilisk_Character_BP_C",
+      "FriendlyName": "Alpha Basilisk",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Basilisk/MegaBasilisk_Character_BP.MegaBasilisk_Character_BP'\""
+    },
+    {
+      "ClassName": "MegaCarno_Character_BP_C",
+      "FriendlyName": "Alpha Carnotaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Carno/MegaCarno_Character_BP.MegaCarno_Character_BP'\""
+    },
+    {
+      "ClassName": "MegaDeathworm_Character_BP_C",
+      "FriendlyName": "Alpha Deathworm",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Deathworm/MegaDeathworm_Character_BP.MegaDeathworm_Character_BP'\""
+    },
+    {
+      "ClassName": "MegaWyvern_Character_BP_Fire_C",
+      "FriendlyName": "Alpha Fire Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/MegaWyvern_Character_BP_Fire.MegaWyvern_Character_BP_Fire'\""
+    },
+    {
+      "ClassName": "MegaCrab_Character_BP_C",
+      "FriendlyName": "Alpha Karkinos",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Crab/MegaCrab_Character_BP.MegaCrab_Character_BP'\""
+    },
+    {
+      "ClassName": "Alpha_Leedsichthys_Character_BP_C",
+      "FriendlyName": "Alpha Leedsichthys",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Leedsichthys/Alpha_Leedsichthys_Character_BP.Alpha_Leedsichthys_Character_BP'\""
+    },
+    {
+      "ClassName": "Mosa_Character_BP_Mega_C",
+      "FriendlyName": "Alpha Mosasaur",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Mosasaurus/Mosa_Character_BP_Mega.Mosa_Character_BP_Mega'\""
+    },
+    {
+      "ClassName": "Mosa_Character_BP_Mega_Cave_C",
+      "FriendlyName": "Alpha Mosasaur (Cave)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Mosasaurus/Mosa_Character_BP_Mega_Cave.Mosa_Character_BP_Mega_Cave'\""
+    },
+    {
+      "ClassName": "MegaMegalodon_Character_BP_C",
+      "FriendlyName": "Alpha Megalodon",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megalodon/MEgaMegalodon_Character_BP.MegaMegalodon_Character_BP'\""
+    },
+    {
+      "ClassName": "MegaRaptor_Character_BP_C",
+      "FriendlyName": "Alpha Raptor",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/MegaRaptor_Character_BP.MegaRaptor_Character_BP'\""
+    },
+    {
+      "ClassName": "MegaRex_Character_BP_C",
+      "FriendlyName": "Alpha T-Rex",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Rex/MegaRex_Character_BP.MegaRex_Character_BP'\""
+    },
+    {
+      "ClassName": "Mega_Tusoteuthis_Character_BP_C",
+      "FriendlyName": "Alpha Tusoteuthis",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Tusoteuthis/Mega_Tusoteuthis_Character_BP.Mega_Tusoteuthis_Character_BP'\""
+    },
+    {
+      "ClassName": "MegaXenomorph_Character_BP_Male_Surface_C",
+      "FriendlyName": "Alpha Reaper King (Surface)",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/MegaXenomorph_Character_BP_Male_Surface.MegaXenomorph_Character_BP_Male_Surface'\""
+    },
+    {
+      "ClassName": "MegaRex_Character_BP_Corrupt_C",
+      "FriendlyName": "Alpha Corrupted Rex",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Corrupt/Rex/MegaRex_Character_BP_Corrupt.MegaRex_Character_BP_Corrupt'\""
+    },
+    {
+      "ClassName": "Enraged Triceratops",
+      "FriendlyName": "Alpha Corrupted Triceratops",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "DesertKaiju_FirstFlockChar_BP_C",
+      "FriendlyName": "Desert Titan Flock",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/DesertKaiju/DesertKaiju_FirstFlockChar_BP.DesertKaiju_FirstFlockChar_BP'\""
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_C",
+      "FriendlyName": "Desert Titan",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/DesertKaiju/DesertKaiju_Character_BP.DesertKaiju_Character_BP'\""
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_Hard_C",
+      "FriendlyName": "Desert Titan (Alpha)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_Medium_C",
+      "FriendlyName": "Desert Titan (Beta)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "DesertKaiju_Character_BP_Easy_C",
+      "FriendlyName": "Desert Titan (Gamma)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_C",
+      "FriendlyName": "Forest Titan",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/ForestKaiju/ForestKaiju_Character_BP.ForestKaiju_Character_BP'\""
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_Hard_C",
+      "FriendlyName": "Forest Titan (Alpha)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_Medium_C",
+      "FriendlyName": "Forest Titan (Beta)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "ForestKaiju_Character_BP_Easy_C",
+      "FriendlyName": "Forest Titan (Gamma)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_C",
+      "FriendlyName": "Ice Titan",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/IceKaiju/IceKaiju_Character_BP.IceKaiju_Character_BP'\""
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_Hard_C",
+      "FriendlyName": "Ice Titan (Alpha)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_Medium_C",
+      "FriendlyName": "Ice Titan (Beta)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "IceKaiju_Character_BP_Easy_C",
+      "FriendlyName": "Ice Titan (Gamma)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "KingKaiju_Character_BP_Alpha_C",
+      "FriendlyName": "King Titan (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/KingKaiju/KingKaiju_Character_BP_Alpha.KingKaiju_Character_BP_Alpha'\""
+    },
+    {
+      "ClassName": "KingKaiju_Character_BP_Beta_C",
+      "FriendlyName": "King Titan (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/KingKaiju/KingKaiju_Character_BP_Beta.KingKaiju_Character_BP_Beta'\""
+    },
+    {
+      "ClassName": "KingKaiju_Character_BP_Gamma_C",
+      "FriendlyName": "King Titan (Gamma)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Hard_C",
+      "FriendlyName": "Dragon (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Dragon_Character_BP_Boss_Hard.Dragon_Character_BP_Boss_Hard'\""
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Medium_C",
+      "FriendlyName": "Dragon (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Dragon_Character_BP_Boss_Medium.Dragon_Character_BP_Boss_Medium'\""
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Easy_C",
+      "FriendlyName": "Dragon (Gamma)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Dragon_Character_BP_Boss_Easy.Dragon_Character_BP_Boss_Easy'\""
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Hard_Ragnarok_C",
+      "FriendlyName": "Dragon (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Dragon_Character_BP_Boss_Hard_Ragnarok.Dragon_Character_BP_Boss_Hard_Ragnarok'\""
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Medium_Ragnarok_C",
+      "FriendlyName": "Dragon (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Dragon_Character_BP_Boss_Medium_Ragnarok.Dragon_Character_BP_Boss_Medium_Ragnarok'\""
+    },
+    {
+      "ClassName": "Dragon_Character_BP_Boss_Easy_Ragnarok_C",
+      "FriendlyName": "Dragon (Gamma)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Dragon_Character_BP_Boss_Easy_Ragnarok.Dragon_Character_BP_Boss_Easy_Ragnarok'\""
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_C",
+      "FriendlyName": "Broodmother",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP.EndBossSpiderL_Character_BP'\""
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_Hard_C",
+      "FriendlyName": "Broodmother (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP_Hard.EndBossSpiderL_Character_BP_Hard'\""
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_Medium_C",
+      "FriendlyName": "Broodmother (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP_Medium.EndBossSpiderL_Character_BP_Medium'\""
+    },
+    {
+      "ClassName": "EndBossSpiderL_Character_BP_Easy_C",
+      "FriendlyName": "Broodmother (Gamma)",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Endboss/EndbossSpider/EndBossSpiderL_Character_BP_Easy.EndBossSpiderL_Character_BP_Easy'\""
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_Hard_C",
+      "FriendlyName": "Broodmother (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_Hard.SpiderL_Character_BP_Hard'\""
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_Medium_C",
+      "FriendlyName": "Broodmother (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_Medium.SpiderL_Character_BP_Medium'\""
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_Easy_C",
+      "FriendlyName": "Broodmother (Gamma)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_Easy.SpiderL_Character_BP_Easy'\""
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_TheCenterHard_C",
+      "FriendlyName": "Broodmother (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_TheCenterHard.SpiderL_Character_BP_TheCenterHard'\""
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_TheCenterMedium_C",
+      "FriendlyName": "Broodmother (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP_TheCenterMedium.SpiderL_Character_BP_TheCenterMedium'\""
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_TheCenterEasy_C",
+      "FriendlyName": "Broodmother (Gamma)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "SpiderL_VAL_Character_BP_C",
+      "FriendlyName": "Valguero Broodmother",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/Dinos/SpiderL/SpiderL_VAL_Character_BP.SpiderL_VAL_Character_BP'\""
+    },
+    {
+      "ClassName": "SpiderL_Character_BP_C",
+      "FriendlyName": "Dominus Broodmother",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Spider-Large/SpiderL_Character_BP.SpiderL_Character_BP'\""
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_Hard_C",
+      "FriendlyName": "Megapithecus (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/gorilla/Gorilla_Character_BP_Hard.Gorilla_Character_BP_Hard'\""
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_Medium_C",
+      "FriendlyName": "Megapithecus (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/gorilla/Gorilla_Character_BP_Medium.Gorilla_Character_BP_Medium'\""
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_Easy_C",
+      "FriendlyName": "Megapithecus (Gamma)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/gorilla/Gorilla_Character_BP_Easy.Gorilla_Character_BP_Easy'\""
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_TheCenter_Hard_C",
+      "FriendlyName": "Megapithecus (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Gorilla/Gorilla_Character_BP_TheCenter_Hard.Gorilla_Character_BP_TheCenter_Hard'\""
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_TheCenter_Medium_C",
+      "FriendlyName": "Megapithecus (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Gorilla/Gorilla_Character_BP_TheCenter_Medium.Gorilla_Character_BP_TheCenter_Medium'\""
+    },
+    {
+      "ClassName": "Gorilla_Character_BP_TheCenter_Easy_C",
+      "FriendlyName": "Megapithecus (Gamma)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Iceworm_Queen_Character_BP_C",
+      "FriendlyName": "Iceworm Queen",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/JacksonL/Iceworm/Iceworm_Queen_Character_BP.Iceworm_Queen_Character_BP'\""
+    },
+    {
+      "ClassName": "Manticore_Character_BP_C",
+      "FriendlyName": "Manticore",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Manticore/Manticore_Character_BP.Manticore_Character_BP'\""
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Hard_C",
+      "FriendlyName": "Manticore (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Manticore_Character_BP_Hard.Manticore_Character_BP_Hard'\""
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Medium_C",
+      "FriendlyName": "Manticore (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Manticore_Character_BP_Medium.Manticore_Character_BP_Medium'\""
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Easy_C",
+      "FriendlyName": "Manticore (Gamma)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Valguero/Assets/CoreBlueprints/Boss/Manticore_Character_BP_Easy.Manticore_Character_BP_Easy'\""
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Hard_Ragnarok_C",
+      "FriendlyName": "Manticore (Alpha)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Manticore_Character_BP_Hard_Ragnarok.Manticore_Character_BP_Hard_Ragnarok'\""
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Medium_Ragnarok_C",
+      "FriendlyName": "Manticore (Beta)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Manticore_Character_BP_Medium_Ragnarok.Manticore_Character_BP_Medium_Ragnarok'\""
+    },
+    {
+      "ClassName": "Manticore_Character_BP_Easy_Ragnarok_C",
+      "FriendlyName": "Manticore (Gamma)",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/Ragnarok/Custom_Assets/Bosses/Manticore_Character_BP_Easy_Ragnarok.Manticore_Character_BP_Easy_Ragnarok'\""
+    },
+    {
+      "ClassName": "Bone_MegaWyvern_Character_BP_Fire_C",
+      "FriendlyName": "Bone Fire Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Bone_MegaWyvern_Character_BP_Fire.Bone_MegaWyvern_Character_BP_Fire'\""
+    },
+    {
+      "ClassName": "DodoWyvern_Character_BP_C",
+      "FriendlyName": "Dodo Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/DodoWyvern/DodoWyvern_Character_BP.DodoWyvern_Character_BP'\""
+    },
+    {
+      "ClassName": "DodoRex_Character_BP_C",
+      "FriendlyName": "Dodo Rex",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/DodoRex/DodoRex_Character_BP.DodoRex_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_Sauropod_Character_BP_C",
+      "FriendlyName": "Skeletal Bronto",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Sauropod/Bone_Sauropod_Character_BP.Bone_Sauropod_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_MegaCarno_Character_BP_C",
+      "FriendlyName": "Skeletal Carnotaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Carno/Bone_MegaCarno_Character_BP.Bone_MegaCarno_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_Gigant_Character_BP_C",
+      "FriendlyName": "Skeletal Gigantosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Giganotosaurus/Bone_Gigant_Character_BP.Bone_Gigant_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_Jerboa_Character_BP_C",
+      "FriendlyName": "Skeletal Jerboa",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Jerboa/Bone_Jerboa_Character_BP.Bone_Jerboa_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_Quetz_Character_BP_C",
+      "FriendlyName": "Skeletal Quetzal",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Quetzalcoatlus/Bone_Quetz_Character_BP.Bone_Quetz_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_MegaRaptor_Character_BP_C",
+      "FriendlyName": "Skeletal Raptor",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Raptor/Bone_MegaRaptor_Character_BP.Bone_MegaRaptor_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_MegaRex_Character_BP_C",
+      "FriendlyName": "Skeletal Rex",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Rex/Bone_MegaRex_Character_BP.Bone_MegaRex_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_Stego_Character_BP_C",
+      "FriendlyName": "Skeletal Stego",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Stego/Bone_Stego_Character_BP.Bone_Stego_Character_BP'\""
+    },
+    {
+      "ClassName": "Bone_Trike_Character_BP_C",
+      "FriendlyName": "Skeletal Trike",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Trike/Bone_Trike_Character_BP.Bone_Trike_Character_BP'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieFire",
+      "FriendlyName": "Zombie Fire Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieFire.Wyvern_Character_BP_ZombieFire'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieLightning",
+      "FriendlyName": "Zombie Lightning Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieLightning.Wyvern_Character_BP_ZombieLightning'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombiePoison",
+      "FriendlyName": "Zombie Poison Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombiePoison.Wyvern_Character_BP_ZombiePoison'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieFire_C",
+      "FriendlyName": "Zombie Fire Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieFire.Wyvern_Character_BP_ZombieFire'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombieLightning_C",
+      "FriendlyName": "Zombie Lightning Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombieLightning.Wyvern_Character_BP_ZombieLightning'\""
+    },
+    {
+      "ClassName": "Wyvern_Character_BP_ZombiePoison_C",
+      "FriendlyName": "Zombie Poison Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Wyvern/Wyvern_Character_BP_ZombiePoison.Wyvern_Character_BP_ZombiePoison'\""
+    },
+    {
+      "ClassName": "ZombieWyvern_Character_BP_Fire_C",
+      "FriendlyName": "Zombie Fire Wyvern",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "ZombieWyvern_Character_BP_Poison_C",
+      "FriendlyName": "Zombie Poison Wyvern",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "ZombieWyvern_Character_BP_Lightning_C",
+      "FriendlyName": "Zombie Lightning Wyvern",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "ZombieDodo_Character_BP_C",
+      "FriendlyName": "Zomdodo",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/ZombieDodo_Character_BP.ZombieDodo_Character_BP'\""
+    },
+    {
+      "ClassName": "Turkey_Character_BP_C",
+      "FriendlyName": "Turkey",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Turkey_Character_BP.Turkey_Character_BP'\""
+    },
+    {
+      "ClassName": "MotorRaft_BP_C",
+      "FriendlyName": "Motorboat",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Raft_BP_C",
+      "FriendlyName": "Raft",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "RockGolem_Character_BP_C",
+      "FriendlyName": "Rock Elemental",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/RockGolem/RockGolem_Character_BP.RockGolem_Character_BP'\""
+    },
+    {
+      "ClassName": "RubbleGolem_Character_BP_C",
+      "FriendlyName": "Rubble Golem",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/RockGolem/RubbleGolem_Character_BP.RubbleGolem_Character_BP'\""
+    },
+    {
+      "ClassName": "Vulture_Character_BP_C",
+      "FriendlyName": "Vulture",
+      "BlueprintPath": "\"Blueprint'/Game/ScorchedEarth/Dinos/Vulture/Vulture_Character_BP.Vulture_Character_BP'\""
+    },
+    {
+      "ClassName": "Bigfoot_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Gigantopithecus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Bigfoot/Bigfoot_Character_BP_Aberrant.Bigfoot_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "ChupaCabra_Character_BP_Surface_C",
+      "FriendlyName": "Nameless (Surface)",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/ChupaCabra/ChupaCabra_Character_BP_Surface.ChupaCabra_Character_BP_Surface'\""
+    },
+    {
+      "ClassName": "DungBeetle_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Dung Beetle",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/DungBeetle/DungBeetle_Character_BP_Aberrant.DungBeetle_Character_BP_Aberrant'\""
+    },
+    {
+      "ClassName": "LanternGoat_Character_BP_C",
+      "FriendlyName": "Shinehorn",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/LanternGoat/LanternGoat_Character_BP.LanternGoat_Character_BP'\""
+    },
+    {
+      "ClassName": "Pteroteuthis_Char_BP_Surface_C",
+      "FriendlyName": "Seeker (Surface)",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Pteroteuthis/Pteroteuthis_Char_BP_Surface.Pteroteuthis_Char_BP_Surface'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Surface_C",
+      "FriendlyName": "Reaper King (Surface)",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Surface.Xenomorph_Character_BP_Male_Surface'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Tamed_C",
+      "FriendlyName": "Reaper King",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Tamed.Xenomorph_Character_BP_Male_Tamed'\""
+    },
+    {
+      "ClassName": "BionicTrike_Character_BP_C",
+      "FriendlyName": "Tek Trike",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Trike/BionicTrike_Character_BP.BionicTrike_Character_BP'\""
+    },
+    {
+      "ClassName": "Bog_Para_Character_BP_C",
+      "FriendlyName": "X-Parasaur",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/BogPara/Bog_Para_Character_BP.Bog_Para_Character_BP'\""
+    },
+    {
+      "ClassName": "Bog_Paracer_Character_BP_C",
+      "FriendlyName": "X-Paracer",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/BogParaceratherium/Bog_Paracer_Character_BP.Bog_Paracer_Character_BP'\""
+    },
+    {
+      "ClassName": "Bog_Raptor_Character_BP_C",
+      "FriendlyName": "X-Raptor",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Bog_Raptor/Bog_Raptor_Character_BP.Bog_Raptor_Character_BP'\""
+    },
+    {
+      "ClassName": "Bog_Spino_Character_BP_C",
+      "FriendlyName": "X-Spino",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Bog_Spino/Bog_Spino_Character_BP.Bog_Spino_Character_BP'\""
+    },
+    {
+      "ClassName": "BogSpider_Character_BP_C",
+      "FriendlyName": "Bloodstalker",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BogSpider/BogSpider_Character_BP.BogSpider_Character_BP'\""
+    },
+    {
+      "ClassName": "Cherufe_Character_BP_C",
+      "FriendlyName": "Magmasaur",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/Cherufe/Cherufe_Character_BP.Cherufe_Character_BP'\""
+    },
+    {
+      "ClassName": "EndDrone_Lunar_Character_BP_C",
+      "FriendlyName": "X-Drone",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Drone/EndDrone_Lunar_Character_BP.EndDrone_Lunar_Character_BP'\""
+    },
+    {
+      "ClassName": "EndTank_Lunar_Character_BP_C",
+      "FriendlyName": "X-Defense Unit",
+      "BlueprintPath": "\"Blueprint'/Game/EndGame/Dinos/Tank/EndTank_Lunar_Character_BP.EndTank_Lunar_Character_BP'\""
+    },
+    {
+      "ClassName": "GiantTurtle_Character_BP_C",
+      "FriendlyName": "Megachelon",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/GiantTurtle/GiantTurtle_Character_BP.GiantTurtle_Character_BP'\""
+    },
+    {
+      "ClassName": "InsectSwarmChar_BP_C",
+      "FriendlyName": "Insect Swarm",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/Swarms/InsectSwarmChar_BP.InsectSwarmChar_BP'\""
+    },
+    {
+      "ClassName": "Lunar_Salmon_Character_BP_C",
+      "FriendlyName": "X-Salmon",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Lunar_Salmon/Lunar_Salmon_Character_BP.Lunar_Salmon_Character_BP'\""
+    },
+    {
+      "ClassName": "Ocean_Basilosaurus_Character_BP_C",
+      "FriendlyName": "X-Basilosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Basilosaurus/Ocean_Basilosaurus_Character_BP.Ocean_Basilosaurus_Character_BP'\""
+    },
+    {
+      "ClassName": "Ocean_Dolphin_Character_BP_C",
+      "FriendlyName": "X-Ichthyosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Dolphin/Ocean_Dolphin_Character_BP.Ocean_Dolphin_Character_BP'\""
+    },
+    {
+      "ClassName": "Ocean_Dunkle_Character_BP_C",
+      "FriendlyName": "X-Dunkleosteus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Dunkleosteus/Ocean_Dunkle_Character_BP.Ocean_Dunkle_Character_BP'\""
+    },
+    {
+      "ClassName": "Ocean_Megalodon_Character_BP_C",
+      "FriendlyName": "X-Megalodon",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Megalodon/Ocean_Megalodon_Character_BP.Ocean_Megalodon_Character_BP'\""
+    },
+    {
+      "ClassName": "Ocean_Mosa_Character_BP_C",
+      "FriendlyName": "X-Mosasaur",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Ocean_Mosasaurus/Ocean_Mosa_Character_BP.Ocean_Mosa_Character_BP'\""
+    },
+    {
+      "ClassName": "Rare_Lunar_Salmon_Character_BP_C",
+      "FriendlyName": "X-Salmon (Rare)",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Lunar_Salmon/Rare_Lunar_Salmon_Character_BP.Rare_Lunar_Salmon_Character_BP'\""
+    },
+    {
+      "ClassName": "Shapeshifter_Small_Character_BP_C",
+      "FriendlyName": "Ferox (Small)",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/Shapeshifter/Shapeshifter_Small/Shapeshifter_Small_Character_BP.Shapeshifter_Small_Character_BP'\""
+    },
+    {
+      "ClassName": "Shapeshifter_Large_Character_BP_C",
+      "FriendlyName": "Ferox (Large)",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "SpaceWhale_Character_BP_C",
+      "FriendlyName": "Astrocetus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/SpaceWhale/SpaceWhale_Character_BP.SpaceWhale_Character_BP'\""
+    },
+    {
+      "ClassName": "MicrobeSwarmChar_BP_C",
+      "FriendlyName": "Parakeet Fish School",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/Swarms/MicrobeSwarmChar_BP.MicrobeSwarmChar_BP'\""
+    },
+    {
+      "ClassName": "Volcano_Golem_Character_BP_C",
+      "FriendlyName": "X-Rock Elemental",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Lava_Golem/Volcano_Golem_Character_BP.Volcano_Golem_Character_BP'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Lunar_C",
+      "FriendlyName": "X-Reaper King",
+      "BlueprintPath": "\"Blueprint'/Game/Aberration/Dinos/Nameless/Xenomorph_Character_BP_Male_Lunar.Xenomorph_Character_BP_Male_Lunar'\""
+    },
+    {
+      "ClassName": "Bog_Tapejara_Character_BP_C",
+      "FriendlyName": "X-Tapejara",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Bog_Tapejara/Bog_Tapejara_Character_BP.Bog_Tapejara_Character_BP'\""
+    },
+    {
+      "ClassName": "Snow_Argent_Character_BP_C",
+      "FriendlyName": "X-Argentavis",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Argentavis/Snow_Argent_Character_BP.Snow_Argent_Character_BP'\""
+    },
+    {
+      "ClassName": "Snow_Rhino_Character_BP_C",
+      "FriendlyName": "X-Rhino",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_WoollyRhino/Snow_Rhino_Character_BP.Snow_Rhino_Character_BP'\""
+    },
+    {
+      "ClassName": "Snow_Saber_Character_BP_C",
+      "FriendlyName": "X-Sabertooth",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Saber/Snow_Saber_Character_BP.Snow_Saber_Character_BP'\""
+    },
+    {
+      "ClassName": "Snow_Yutyrannus_Character_BP_C",
+      "FriendlyName": "X-Yutyrannus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Yutyrannus/Snow_Yutyrannus_Character_BP.Snow_Yutyrannus_Character_BP'\""
+    },
+    {
+      "ClassName": "Volcano_Allo_Character_BP_C",
+      "FriendlyName": "X-Allosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Allosaurus/Volcano_Allo_Character_BP.Volcano_Allo_Character_BP'\""
+    },
+    {
+      "ClassName": "Volcano_Ankylo_Character_BP_C",
+      "FriendlyName": "X-Ankylosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Ankylosaurus/Volcano_Ankylo_Character_BP.Volcano_Ankylo_Character_BP'\""
+    },
+    {
+      "ClassName": "Volcano_Rex_Character_BP_C",
+      "FriendlyName": "X-Rex",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Rex/Volcano_Rex_Character_BP.Volcano_Rex_Character_BP'\""
+    },
+    {
+      "ClassName": "Volcano_Trike_Character_BP_C",
+      "FriendlyName": "X-Triceratops",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Volcano_Trike/Volcano_Trike_Character_BP.Volcano_Trike_Character_BP'\""
+    },
+    {
+      "ClassName": "Snow_Otter_Character_BP_C",
+      "FriendlyName": "X-Otter",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis/Dinos/BiomeVariants/Snow_Otter/Snow_Otter_Character_BP.Snow_Otter_Character_BP'\""
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_Blood_C",
+      "FriendlyName": "Wyvern (Blood)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_Blood.CrystalWyvern_Character_BP_Blood'\""
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_WS_C",
+      "FriendlyName": "Wyvern (Tropical)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_WS.CrystalWyvern_Character_BP_WS'\""
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_Ember_C",
+      "FriendlyName": "Wyvern (Ember)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_Ember.CrystalWyvern_Character_BP_Ember'\""
+    },
+    {
+      "ClassName": "Dodo_Character_BP_Birthday_C",
+      "FriendlyName": "Dodo (Birthday)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Dodo/Dodo_Character_BP_Birthday.Dodo_Character_BP_Birthday'\""
+    },
+    {
+      "ClassName": "HoneyBee_Character_BP_C",
+      "FriendlyName": "Honey Bee",
+      "BlueprintPath": "\"Blueprint'/Game/Mods/CrystalIsles/Assets/Dinos/HoneyBee/HoneyBee_Character_BP.HoneyBee_Character_BP'\""
+    },
+    {
+      "ClassName": "Tropeognathus_Character_BP_C",
+      "FriendlyName": "Tropeognathus",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Tropeognathus/Tropeognathus_Character_BP.Tropeognathus_Character_BP'\""
+    },
+    {
+      "ClassName": "CrystalWyvern_Character_BP_Mega_C",
+      "FriendlyName": "Alpha Crystal Wyvern",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/CrystalWyvern/CrystalWyvern_Character_BP_Mega.CrystalWyvern_Character_BP_Mega'\""
+    },
+    {
+      "ClassName": "TekWyvern_Character_BP_C",
+      "FriendlyName": "Voidwyrm",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/TekWyvern/TekWyvern_Character_BP.TekWyvern_Character_BP'\""
+    },
+    {
+      "ClassName": "Sauropod_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Bronto",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Sauropod_Character_BP_Rockwell.Sauropod_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "Turtle_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Carbonemys",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Turtle_Character_BP_Rockwell.Turtle_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "Dilo_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Dilophosaur",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Dilo_Character_BP_Rockwell.Dilo_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "Allo_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Allosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Allo_Character_BP_Rockwell.Allo_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "Quetz_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Quetzal",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Quetz_Character_BP_Rockwell.Quetz_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "Gigant_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Giganotosaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Gigant_Character_BP_Rockwell.Gigant_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "Carno_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Carnotaurus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Carno_Character_BP_Rockwell.Carno_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "Spindles_Character_BP_Rockwell_C",
+      "FriendlyName": "R-Velonasaur",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Spindles_Character_BP_Rockwell.Spindles_Character_BP_Rockwell'\""
+    },
+    {
+      "ClassName": "TekStrider_Character_BP_C",
+      "FriendlyName": "Tek Stryder",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/TekStrider/TekStrider_Character_BP.TekStrider_Character_BP'\""
+    },
+    {
+      "ClassName": "MilkGlider_Character_BP_C",
+      "FriendlyName": "Maewing",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/MilkGlider/MilkGlider_Character_BP.MilkGlider_Character_BP'\""
+    },
+    {
+      "ClassName": "SpaceDolphin_Character_BP_C",
+      "FriendlyName": "Astrodelphis",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/SpaceDolphin/SpaceDolphin_Character_BP.SpaceDolphin_Character_BP'\""
+    },
+    {
+      "ClassName": "LionfishLion_Character_BP_C",
+      "FriendlyName": "Shadowmane",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/LionfishLion/LionfishLion_Character_BP.LionfishLion_Character_BP'\""
+    },
+    {
+      "ClassName": "Summoner_Character_BP_C",
+      "FriendlyName": "Summoner",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/Summoner/Summoner_Character_BP.Summoner_Character_BP'\""
+    },
+    {
+      "ClassName": "Brain_Slug",
+      "FriendlyName": "Noglin",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Gen2_C",
+      "FriendlyName": "R-Reaper King",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Xenomorph_Character_BP_Male_Gen2.Xenomorph_Character_BP_Male_Gen2'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Female_Gen2_C",
+      "FriendlyName": "R-Reaper Queen",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Xenomorph_Character_BP_Female_Gen2.Xenomorph_Character_BP_Female_Gen2'\""
+    },
+    {
+      "ClassName": "Direwolf_Character_BP_Eden_C",
+      "FriendlyName": "R-Direwolf",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Direwolf_Character_BP_Eden.Direwolf_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Para_Character_BP_Eden_C",
+      "FriendlyName": "R-Parasaur",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Para_Character_BP_Eden.Para_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Owl_Character_BP_Eden_C",
+      "FriendlyName": "R-Snow Owl",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Owl_Character_BP_Eden.Owl_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Thylacoleo_Character_BP_Eden_C",
+      "FriendlyName": "R-Thylacoleo",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Thylacoleo_Character_BP_Eden.Thylacoleo_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Daeodon_Character_BP_Eden_C",
+      "FriendlyName": "R-Daeodon",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Daeodon_Character_BP_Eden.Daeodon_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Megatherium_Character_BP_Eden_C",
+      "FriendlyName": "R-Megatherium",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Megatherium_Character_BP_Eden.Megatherium_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Equus_Character_BP_Eden_C",
+      "FriendlyName": "R-Equus",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Equus_Character_BP_Eden.Equus_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "GasBags_Character_BP_Eden_C",
+      "FriendlyName": "R-Gasbags",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/GasBags_Character_BP_Eden.GasBags_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Procoptodon_Character_BP_Eden_C",
+      "FriendlyName": "R-Procoptodon",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Procoptodon_Character_BP_Eden.Procoptodon_Character_BP_Eden'\""
+    },
+    {
+      "ClassName": "Macrophage_Swarm_Character_C",
+      "FriendlyName": "Macrophage",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/Macrophage/Macrophage_Swarm_Character.Macrophage_Swarm_Character'\""
+    },
+    {
+      "ClassName": "Defender_Character_BP_C",
+      "FriendlyName": "Defense Unit",
+      "BlueprintPath": "\"Blueprint'/Game/Extinction/Dinos/Tank/Defender_Character_BP.Defender_Character_BP'\""
+    },
+    {
+      "ClassName": "Xenomorph_Character_BP_Male_Tamed_Gen2_C",
+      "FriendlyName": "R-Reaper King",
+      "BlueprintPath": "\"Blueprint'/Game/Genesis2/Dinos/BiomeVariants/Xenomorph_Character_BP_Male_Tamed_Gen2.Xenomorph_Character_BP_Male_Tamed_Gen2'\""
+    },
+    {
+      "ClassName": "TekHoverSkiff_Character_BP_C",
+      "FriendlyName": "Tek Skiff",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Megalosaurus_Character_BP_TekCave_C",
+      "FriendlyName": "Megalosaurus (Tek Cave)",
+      "BlueprintPath": "\"Blueprint'/Game/PrimalEarth/Dinos/Megalosaurus/Megalosaurus_Character_BP_TekCave.Megalosaurus_Character_BP_TekCave'\""
+    },
+    {
+      "ClassName": "DwarvenWarrior_Character_BP_C",
+      "FriendlyName": "Dwarfen Warrior",
+      "BlueprintPath": ""
+    },
+    {
+      "ClassName": "Rhynio_Character_BP_C",
+      "FriendlyName": "Rhyniognatha",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Turkey_Character_BP_Event_C",
+      "FriendlyName": "Murder Turkey",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Carcha_Character_BP_C",
+      "FriendlyName": "Carcharodontosaurus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Gigantoraptor_Character_BP_C",
+      "FriendlyName": "Gigantoraptor",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Oasisaur_Character_BP_C",
+      "FriendlyName": "Oasisaur",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Fasola_Character_BP_C",
+      "FriendlyName": "Fasolasuchus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Shastasaurus_Character_BP_C",
+      "FriendlyName": "Shastasaurus",
+      "BlueprintPath": "\"Blueprint'/Game/ASA/Dinos/Shastasaurus/Shastasaurus_Character_BP.Shastasaurus_Character_BP'\""
+    },
+    {
+      "ClassName": "FireLion_Character_BP_C",
+      "FriendlyName": "Pyromane",
+      "BlueprintPath": "\"Blueprint'/Game/ASA/Dinos/FireLion/FireLion_Character_BP.FireLion_Character_BP'\""
+    },
+    {
+      "ClassName": "Ceratosaurus_Character_BP_ASA_C",
+      "FriendlyName": "Ceratosaurus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Xiphactinus_Character_BP_ASA_C",
+      "FriendlyName": "Xiphactinus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "DeinosuchusASA_Character_BP_C",
+      "FriendlyName": "Deinosuchus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Fasola_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Fasolasuchus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Gigantoraptor_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Gigantoraptor",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "JumpingSpider_Character_BP_C",
+      "FriendlyName": "Cosmo",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Oviraptor_Character_BP_Aberrant_C",
+      "FriendlyName": "Aberrant Oviraptor",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "YiLing_Character_BP_C",
+      "FriendlyName": "Yi Ling",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "HelperBot_Character_BP_C",
+      "FriendlyName": "SIR-5RM8",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "DarkPegasus_Character_BP_C",
+      "FriendlyName": "Dreadmare",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Dreadnoughtus_Character_BP_C",
+      "FriendlyName": "Dreadnoughtus",
+      "BlueprintPath": null
+    },
+    {
+      "ClassName": "Doggo_Character_BP_C",
+      "FriendlyName": "Armadoggo",
+      "BlueprintPath": null
+    }
+  ]
+}
