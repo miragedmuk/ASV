@@ -142,6 +142,11 @@ namespace AsaSavegameToolkit
             return mbbReader.ReadInt32();
         }
 
+        public uint ReadUInt()
+        {
+            return mbbReader.ReadUInt32();
+        }
+
         public short ReadShort()
         {
             return mbbReader.ReadInt16();

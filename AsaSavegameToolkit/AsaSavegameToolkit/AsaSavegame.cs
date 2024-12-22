@@ -92,6 +92,7 @@ namespace AsaSavegameToolkit
                 readBaseData(connection);
                 readGameData(connection);
                 readActorLocations(connection);
+                readStoredTribesAndPlayers(connection);
 
                 connection.Close();
                 connection.Dispose();
@@ -104,6 +105,8 @@ namespace AsaSavegameToolkit
             //time to read data from db.
 
             parseGameObjects(maxCores);
+
+
             gameData.Clear(); //no longer needed, parsed into Objects as list of AsaGameObject
 
             GC.Collect();
@@ -118,8 +121,17 @@ namespace AsaSavegameToolkit
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
-            readTribeFiles(savePath, maxCores); // Search and parse and .arktribe file in the save directory
-            readProfileFiles(savePath, maxCores); // Search and parse and .arkprofile file in the save directory
+            if(tribeData.Count == 0)
+            {
+                //not loaded from .ark, load from .arktribe files
+                readTribeFiles(savePath, maxCores); // Search and parse and .arktribe file in the save directory
+            }
+
+            if (profileData.Count == 0)
+            {
+                //not loaded from .ark, load from .arkprofile files
+                readProfileFiles(savePath, maxCores); // Search and parse and .arkprofile file in the save directory
+            }            
 
             endTicks = DateTime.Now.Ticks;
             //total time load save data
@@ -430,6 +442,41 @@ namespace AsaSavegameToolkit
             Debug.Print($"parseStoredCreatures took {TimeSpan.FromTicks(endTicks - startTicks).ToString(@"mm\:ss")}");
         }
 
+        private void readStoredTribesAndPlayers(SqliteConnection connection)
+        {
+            tribeData = new List<AsaTribe>();
+            profileData = new List<AsaProfile>();
+
+            using (SqliteCommand commandCustom = new SqliteCommand("SELECT value from custom WHERE key = 'GameModeCustomBytes'"))
+            {
+                commandCustom.Connection = connection;
+                using (SqliteDataReader readerCustom = commandCustom.ExecuteReader())
+                {
+                    while (readerCustom.Read())
+                    {
+                        byte[] customObjects = GetSqlBytes(readerCustom, 0);
+                        using (MemoryStream ms = new MemoryStream(customObjects))
+                        {
+                            using (AsaArchive archive = new AsaArchive(ms))
+                            {
+                                var ds = new AsaTribeStore(archive);
+                                if (ds.Tribes.Count > 0)
+                                {
+                                    tribeData.AddRange(ds.Tribes);
+                                }
+                                if (ds.Profiles.Count > 0)
+                                {
+                                    profileData.AddRange(ds.Profiles);
+                                }
+                            }
+                        }
+
+                        break;
+                    }
+                }
+            }
+        }
+
          private void readActorLocations(SqliteConnection connection)
          {
             long startTicks = DateTime.Now.Ticks;
@@ -501,6 +548,7 @@ namespace AsaSavegameToolkit
                                 readNametable(archive);
                             }
                         }
+
                     }
                 }
             }

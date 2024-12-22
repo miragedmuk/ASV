@@ -44,11 +44,46 @@ namespace AsaSavegameToolkit
             var shouldBeZero = archive.ReadInt();
         }
 
+        public AsaObject(AsaArchive archive, int propertyOffset)
+        {
+            Uuid = GuidExtensions.ToGuid(archive.ReadBytes(16));
+            ClassName = archive.ReadString();
+            IsItem = archive.ReadBool();
+
+            var nameCount = archive.ReadInt();
+            while (nameCount-- > 0)
+            {
+                var name = archive.ReadString();
+                Names.Add(name);
+            }
+
+            var fromDataFile = archive.ReadBool();
+            var dataFileIndex = archive.ReadInt();
+            var hasLocation = archive.ReadBool();
+            if (hasLocation)
+            {
+                AsaVector vector = new AsaVector(archive);
+                AsaRotator rotator = new AsaRotator(archive);
+
+                Location = new AsaLocation(vector.X, vector.Y, vector.X, rotator.Pitch, rotator.Yaw, rotator.Roll);
+            }
+            propertiesOffset = archive.ReadInt();
+            var shouldBeZero = archive.ReadInt();
+        }
+        
         public void ReadProperties(AsaArchive archive)
+        {
+            ReadProperties(archive,true);
+        }
+
+        public void ReadProperties(AsaArchive archive, bool usePropertiesOffset)
         {
             Properties.Clear();
 
-            archive.Position = propertiesOffset;
+            if (usePropertiesOffset)
+            {
+                archive.Position = propertiesOffset;
+            }          
 
             try
             {

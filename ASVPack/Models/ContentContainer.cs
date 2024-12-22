@@ -1915,14 +1915,26 @@ namespace ASVPack.Models
                 TribeName = "[ASV Abandoned]"
             });
 
+            ConcurrentBag<ContentTribe> tribeList = new ConcurrentBag<ContentTribe>();
+
             Parallel.ForEach(arkSavegame.Tribes, new ParallelOptions { MaxDegreeOfParallelism = maxCores }, tribe =>
             //arkSavegame.Tribes.AsParallel().ForAll(tribe =>
             {
                 var contentTribe = tribe.Tribe.AsTribe();
                 contentTribe.TribeFileDate = tribe.TribeFileTimestamp.ToLocalTime();
-                if (contentTribe != null) fileTribes.Add(contentTribe);
+                if (contentTribe != null)
+                {
+                    tribeList.Add(contentTribe);
+                }                    
             });
 
+            foreach (var tribe in tribeList.OrderByDescending(o => o.TribeFileDate))
+            {
+                if(!fileTribes.Any(f=>f.TribeId == tribe.TribeId))
+                {
+                    fileTribes.Add(tribe);
+                }
+            }
 
             startTicks = DateTime.Now.Ticks;
 
@@ -1963,6 +1975,7 @@ namespace ASVPack.Models
             OnUpdateProgress?.Invoke("ARK save file loaded. Allocating Tribe Players...");
             //allocate players to tribes
             //foreach (var p in fileProfiles)
+           
             Parallel.ForEach(fileProfiles, new ParallelOptions() { MaxDegreeOfParallelism = maxCores }, p =>
             { 
                 var playerTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.TargetingTeam);
@@ -1972,7 +1985,7 @@ namespace ASVPack.Models
                 }                
                 var soloTribe = fileTribes.FirstOrDefault(t => t.TribeId == (long)p.Id);
 
-                if (playerTribe == null && soloTribe==null)
+                if (playerTribe == null)
                 {
                     playerTribe = new ContentTribe()
                     {
@@ -1988,7 +2001,7 @@ namespace ASVPack.Models
                 playerTribe.Players.Add(p);
             }
             );
-
+            
             
 
             endTicks = DateTime.Now.Ticks;

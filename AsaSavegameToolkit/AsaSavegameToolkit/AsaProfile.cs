@@ -14,6 +14,31 @@ namespace AsaSavegameToolkit
             }
         }
 
+
+        public void Read(AsaArchive archive)
+        {
+            var profileVersion = archive.ReadInt();
+            var profilesCount = archive.ReadInt();
+            if (profilesCount == 0)
+            {
+                return;
+            }
+
+            Objects.Clear();
+
+            while (profilesCount-- > 0)
+            {
+                var aObject = new AsaObject(archive);
+                Objects.Add(aObject);
+            }
+
+            foreach (var aObject in Objects)
+            {
+                aObject.ReadProperties(archive,false);
+            }
+
+        }
+
         public void Read(string filename)
         {
             using (var ms = new MemoryStream(File.ReadAllBytes(filename)))

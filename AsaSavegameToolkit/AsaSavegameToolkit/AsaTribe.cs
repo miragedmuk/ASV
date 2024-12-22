@@ -20,6 +20,26 @@ namespace AsaSavegameToolkit
             }
         }
 
+        public void Read(AsaArchive archive, bool usePropertiesOffset = true)
+        {
+            var tribeVersion = archive.ReadInt();
+            var tribeCount = archive.ReadInt();
+
+            Objects.Clear();
+
+            while (tribeCount-- > 0)
+            {
+                var aObject = new AsaObject(archive);
+                Objects.Add(aObject);
+            }
+
+            foreach (var aObject in Objects)
+            {
+                aObject.ReadProperties(archive,usePropertiesOffset);
+            }
+
+        }
+
         public void Read(string filename, Dictionary<int, string> nameTable)
         {
             TribeFileTimestamp = File.GetLastWriteTimeUtc(filename);
